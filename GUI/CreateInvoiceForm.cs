@@ -44,7 +44,8 @@ namespace GUI
             if (isAdded)
             {
                 FormHelper.ShowNotify("Invoice added successfully.");
-                //InvoicesForm.Instance.InvoicesForm_Load(sender, e); // Sau khi thêm thành công sẽ load lại tất cả invoice
+                InvoicesForm.Instance.InvoicesForm_Load(sender, e); // Sau khi thêm thành công sẽ load lại tất cả invoice
+                this.Close();
             }
             else
                 FormHelper.ShowError("Failed to add invoice.");
