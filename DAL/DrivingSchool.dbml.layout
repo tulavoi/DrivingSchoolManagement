@@ -20,12 +20,6 @@
         <elementListCompartment Id="8c9d14d4-a0e6-4ecb-b8c5-f9909bf3d4c8" absoluteBounds="3.515, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="881fa6bb-5d38-4961-887e-5f85acefce59" absoluteBounds="9, 3.625, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/DrivingSchoolDataContext/Invoice" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d5d86260-b533-48d8-8f1a-324b89850468" absoluteBounds="9.015, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="b95ac1a6-820a-479a-bd72-d35b55b633b4" absoluteBounds="0.75, 4.125, 2, 1.1939925130208344">
       <DataClassMoniker Name="/DrivingSchoolDataContext/License" />
       <nestedChildShapes>
@@ -63,20 +57,6 @@
         <classShapeMoniker Id="862422c1-3953-47e4-8147-4d800ea037a7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 4.70274983723958); (11.75 : 4.70274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DrivingSchoolDataContext/Invoice/Invoice_Payment" />
-      <nodes>
-        <classShapeMoniker Id="881fa6bb-5d38-4961-887e-5f85acefce59" />
-        <classShapeMoniker Id="e1a0200c-ca0f-424c-8111-7de38e88dece" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 4.70274983723958); (9 : 4.70274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/DrivingSchoolDataContext/Schedule/Schedule_Invoice" />
-      <nodes>
-        <classShapeMoniker Id="221241dd-3447-4e58-ba26-092cd3984b00" />
-        <classShapeMoniker Id="881fa6bb-5d38-4961-887e-5f85acefce59" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(5.5 : 2.3749995); (7.25 : 2.3749995); (7.25 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DrivingSchoolDataContext/Course/Course_Schedule" />
       <nodes>
@@ -84,14 +64,14 @@
         <classShapeMoniker Id="221241dd-3447-4e58-ba26-092cd3984b00" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 16.8085034179688); (6.39843625 : 16.8085034179688); (6.39843625 : 5.9151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 16.8085034179688); (6.39843625 : 16.8085034179688); (6.39843625 : 5.9151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DrivingSchoolDataContext/Vehicle/Vehicle_Schedule" />
       <nodes>
         <classShapeMoniker Id="7129a389-fced-446d-af8f-142869371370" />
         <classShapeMoniker Id="221241dd-3447-4e58-ba26-092cd3984b00" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.78929768880208); (5.76041666666667 : 9.78929768880208 : JumpStart); (5.92708333333333 : 9.78929768880208 : JumpEnd); (6.31510291666667 : 9.78929768880208 : JumpStart); (6.48176958333333 : 9.78929768880208 : JumpEnd); (6.6093775 : 9.78929768880208); (6.6093775 : 5.9151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 9.78929768880208); (6.31510291666667 : 9.78929768880208 : JumpStart); (6.48176958333333 : 9.78929768880208 : JumpEnd); (6.6093775 : 9.78929768880208); (6.6093775 : 5.9151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DrivingSchoolDataContext/Session/Session_Schedule" />
       <nodes>
         <classShapeMoniker Id="834a9d17-b500-4263-acea-1d92d5316ed2" />
@@ -118,18 +98,38 @@
         <elementListCompartment Id="899cc12a-f131-4e8f-9239-abd538635cac" absoluteBounds="4.14, 12.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.84375 : 11.75); (5.84375 : 3.89024983723958); (6.25 : 3.89024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.84375 : 11.75); (5.84375 : 3.89024983723958); (6.25 : 3.89024983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DrivingSchoolDataContext/Learner/Learner_Schedule" />
       <nodes>
         <classShapeMoniker Id="572ec5b5-a804-4cc1-bef8-77d1404576e9" />
         <classShapeMoniker Id="221241dd-3447-4e58-ba26-092cd3984b00" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.31899251302083); (1.75 : 13.3085034179687); (4.125 : 13.3085034179687)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 5.31899251302083); (1.75 : 13.3085034179687); (4.125 : 13.3085034179687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DrivingSchoolDataContext/License/License_Learner" />
       <nodes>
         <classShapeMoniker Id="b95ac1a6-820a-479a-bd72-d35b55b633b4" />
         <classShapeMoniker Id="572ec5b5-a804-4cc1-bef8-77d1404576e9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="08f50289-b628-4f7f-b619-211e3f859233" absoluteBounds="8.875, 3.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DrivingSchoolDataContext/Invoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="900c96ed-c26c-4401-aa06-adf939fb4c2e" absoluteBounds="8.89, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.875 : 4.76524983723958); (11.75 : 4.76524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DrivingSchoolDataContext/Invoice/Invoice_Payment" />
+      <nodes>
+        <classShapeMoniker Id="08f50289-b628-4f7f-b619-211e3f859233" />
+        <classShapeMoniker Id="e1a0200c-ca0f-424c-8111-7de38e88dece" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.83255126953125); (8.875 : 4.83255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DrivingSchoolDataContext/Schedule/Schedule_Invoice" />
+      <nodes>
+        <classShapeMoniker Id="221241dd-3447-4e58-ba26-092cd3984b00" />
+        <classShapeMoniker Id="08f50289-b628-4f7f-b619-211e3f859233" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

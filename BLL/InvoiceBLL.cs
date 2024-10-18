@@ -61,5 +61,10 @@ namespace BLL
         {
             return InvoiceDAL.Instance.AddInvoice(invoice);
         }
+
+        public bool EditInvoice(Invoice invoice)
+        {
+            return InvoiceDAL.Instance.EditInvoice(invoice);
+        }
     }
 }

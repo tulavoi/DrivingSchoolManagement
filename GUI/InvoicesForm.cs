@@ -61,12 +61,77 @@ namespace GUI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboLearners, txtSearchLearner, cboCourses, txtSearchCourse, txtTotalAmount, txtAmountNotes, cboStatus);
+            if (this.InSaveMode())
+            {
+                if (!this.ValidateFields()) return;
+                if (this.ConfirmEdit())
+                {
+                    if (this.EditInvoice())
+                    {
+                        FormHelper.ShowNotify("Invoice edited successfully.");
+                        InvoicesForm_Load(sender, e);
+                    }
+                    else
+                    {
+                        FormHelper.ShowError("Failed to edit invoice.");
+                        InvoicesForm_Load(sender, e);
+                    }
+                }
+                else return;
+            }
+            this.ToogleEditMode();
+        }
+
+        private bool ValidateFields()
+        {
+            if (cboStatus.SelectedIndex < 1)
+            {
+                FormHelper.ShowToolTip(cboStatus, toolTip, "Please select status.");
+                return false;
+            }
+            return true;
+        }
+
+        private void ToogleEditMode()
+        {
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtTotalAmount, txtNotes, cboStatus);
+        }
+
+        private bool InSaveMode()
+        {
+            return btnEdit.Text == Constant.SAVE_MODE;
+        }
+
+        private bool ConfirmEdit()
+        {
+                
+            DialogResult result = FormHelper.ShowConfirm($"Are you sure to edit invoice '{lblInvoiceCode.Text}'?");
+            return result == DialogResult.Yes;
+        }
+
+        private bool EditInvoice()
+        {
+            Invoice invoice = this.GetInvoice();
+            return InvoiceBLL.Instance.EditInvoice(invoice);
+        }
+
+        private Invoice GetInvoice()
+        {
+            return new Invoice
+            {
+                InvoiceCode = lblInvoiceCode.Text,
+                Status = cboStatus.Text,
+                TotalAmount = decimal.Parse(txtTotalAmount.Text),
+                Notes = txtNotes.Text,
+                Updated_At = DateTime.Now,
+            };
         }
 
         private void btnOpenAddInvoiceForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenPopupForm(new CreateInvoiceForm());
+
+            this.LoadAllInvoice();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -120,13 +185,18 @@ namespace GUI
             // Gán các trường dữ liệu vào controls
             string invoiceCode = selectedInvoice.InvoiceCode;
 
-            FormHelper.SetLabelID(lblInvoiceID, invoiceCode);
+            FormHelper.SetLabelID(lblInvoiceCode, invoiceCode);
 
             cboLearners.Text = selectedInvoice.Schedule.Learner.FullName;
             cboCourses.Text = selectedInvoice.Schedule.Course.CourseName;
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
             cboStatus.Text = selectedInvoice.Status.ToString();
+        }
+
+        private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
         }
     }
 }

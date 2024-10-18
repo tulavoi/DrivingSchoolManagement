@@ -39,9 +39,6 @@ namespace DAL
     partial void InsertCourse(Course instance);
     partial void UpdateCourse(Course instance);
     partial void DeleteCourse(Course instance);
-    partial void InsertInvoice(Invoice instance);
-    partial void UpdateInvoice(Invoice instance);
-    partial void DeleteInvoice(Invoice instance);
     partial void InsertLicense(License instance);
     partial void UpdateLicense(License instance);
     partial void DeleteLicense(License instance);
@@ -60,6 +57,9 @@ namespace DAL
     partial void InsertLearner(Learner instance);
     partial void UpdateLearner(Learner instance);
     partial void DeleteLearner(Learner instance);
+    partial void InsertInvoice(Invoice instance);
+    partial void UpdateInvoice(Invoice instance);
+    partial void DeleteInvoice(Invoice instance);
     #endregion
 		
 		public DrivingSchoolDataContext() : 
@@ -116,14 +116,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Invoice> Invoices
-		{
-			get
-			{
-				return this.GetTable<Invoice>();
-			}
-		}
-		
 		public System.Data.Linq.Table<License> Licenses
 		{
 			get
@@ -169,6 +161,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<Learner>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Invoice> Invoices
+		{
+			get
+			{
+				return this.GetTable<Invoice>();
 			}
 		}
 	}
@@ -981,281 +981,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.Course = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoices")]
-	public partial class Invoice : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _InvoiceID;
-		
-		private string _InvoiceCode;
-		
-		private System.Nullable<int> _ScheduleID;
-		
-		private System.Nullable<decimal> _TotalAmount;
-		
-		private string _Status;
-		
-		private System.Nullable<System.DateTime> _Created_At;
-		
-		private System.Nullable<System.DateTime> _Updated_At;
-		
-		private EntitySet<Payment> _Payments;
-		
-		private EntityRef<Schedule> _Schedule;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnInvoiceIDChanging(int value);
-    partial void OnInvoiceIDChanged();
-    partial void OnInvoiceCodeChanging(string value);
-    partial void OnInvoiceCodeChanged();
-    partial void OnScheduleIDChanging(System.Nullable<int> value);
-    partial void OnScheduleIDChanged();
-    partial void OnTotalAmountChanging(System.Nullable<decimal> value);
-    partial void OnTotalAmountChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnCreated_AtChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreated_AtChanged();
-    partial void OnUpdated_AtChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdated_AtChanged();
-    #endregion
-		
-		public Invoice()
-		{
-			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-			this._Schedule = default(EntityRef<Schedule>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int InvoiceID
-		{
-			get
-			{
-				return this._InvoiceID;
-			}
-			set
-			{
-				if ((this._InvoiceID != value))
-				{
-					this.OnInvoiceIDChanging(value);
-					this.SendPropertyChanging();
-					this._InvoiceID = value;
-					this.SendPropertyChanged("InvoiceID");
-					this.OnInvoiceIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceCode", DbType="NVarChar(100)")]
-		public string InvoiceCode
-		{
-			get
-			{
-				return this._InvoiceCode;
-			}
-			set
-			{
-				if ((this._InvoiceCode != value))
-				{
-					this.OnInvoiceCodeChanging(value);
-					this.SendPropertyChanging();
-					this._InvoiceCode = value;
-					this.SendPropertyChanged("InvoiceCode");
-					this.OnInvoiceCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleID", DbType="Int")]
-		public System.Nullable<int> ScheduleID
-		{
-			get
-			{
-				return this._ScheduleID;
-			}
-			set
-			{
-				if ((this._ScheduleID != value))
-				{
-					if (this._Schedule.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnScheduleIDChanging(value);
-					this.SendPropertyChanging();
-					this._ScheduleID = value;
-					this.SendPropertyChanged("ScheduleID");
-					this.OnScheduleIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> TotalAmount
-		{
-			get
-			{
-				return this._TotalAmount;
-			}
-			set
-			{
-				if ((this._TotalAmount != value))
-				{
-					this.OnTotalAmountChanging(value);
-					this.SendPropertyChanging();
-					this._TotalAmount = value;
-					this.SendPropertyChanged("TotalAmount");
-					this.OnTotalAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created_At", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created_At
-		{
-			get
-			{
-				return this._Created_At;
-			}
-			set
-			{
-				if ((this._Created_At != value))
-				{
-					this.OnCreated_AtChanging(value);
-					this.SendPropertyChanging();
-					this._Created_At = value;
-					this.SendPropertyChanged("Created_At");
-					this.OnCreated_AtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated_At", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Updated_At
-		{
-			get
-			{
-				return this._Updated_At;
-			}
-			set
-			{
-				if ((this._Updated_At != value))
-				{
-					this.OnUpdated_AtChanging(value);
-					this.SendPropertyChanging();
-					this._Updated_At = value;
-					this.SendPropertyChanged("Updated_At");
-					this.OnUpdated_AtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Payment", Storage="_Payments", ThisKey="InvoiceID", OtherKey="InvoiceID")]
-		public EntitySet<Payment> Payments
-		{
-			get
-			{
-				return this._Payments;
-			}
-			set
-			{
-				this._Payments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Schedule_Invoice", Storage="_Schedule", ThisKey="ScheduleID", OtherKey="ScheduleID", IsForeignKey=true)]
-		public Schedule Schedule
-		{
-			get
-			{
-				return this._Schedule.Entity;
-			}
-			set
-			{
-				Schedule previousValue = this._Schedule.Entity;
-				if (((previousValue != value) 
-							|| (this._Schedule.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Schedule.Entity = null;
-						previousValue.Invoices.Remove(this);
-					}
-					this._Schedule.Entity = value;
-					if ((value != null))
-					{
-						value.Invoices.Add(this);
-						this._ScheduleID = value.ScheduleID;
-					}
-					else
-					{
-						this._ScheduleID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Schedule");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Invoice = this;
-		}
-		
-		private void detach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Invoice = null;
 		}
 	}
 	
@@ -3184,6 +2909,305 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.Learner = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Invoices")]
+	public partial class Invoice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _InvoiceID;
+		
+		private string _InvoiceCode;
+		
+		private System.Nullable<int> _ScheduleID;
+		
+		private System.Nullable<decimal> _TotalAmount;
+		
+		private string _Status;
+		
+		private System.Nullable<System.DateTime> _Created_At;
+		
+		private System.Nullable<System.DateTime> _Updated_At;
+		
+		private string _Notes;
+		
+		private EntitySet<Payment> _Payments;
+		
+		private EntityRef<Schedule> _Schedule;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInvoiceIDChanging(int value);
+    partial void OnInvoiceIDChanged();
+    partial void OnInvoiceCodeChanging(string value);
+    partial void OnInvoiceCodeChanged();
+    partial void OnScheduleIDChanging(System.Nullable<int> value);
+    partial void OnScheduleIDChanged();
+    partial void OnTotalAmountChanging(System.Nullable<decimal> value);
+    partial void OnTotalAmountChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnCreated_AtChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreated_AtChanged();
+    partial void OnUpdated_AtChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdated_AtChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    #endregion
+		
+		public Invoice()
+		{
+			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
+			this._Schedule = default(EntityRef<Schedule>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int InvoiceID
+		{
+			get
+			{
+				return this._InvoiceID;
+			}
+			set
+			{
+				if ((this._InvoiceID != value))
+				{
+					this.OnInvoiceIDChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceID = value;
+					this.SendPropertyChanged("InvoiceID");
+					this.OnInvoiceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceCode", DbType="NVarChar(100)")]
+		public string InvoiceCode
+		{
+			get
+			{
+				return this._InvoiceCode;
+			}
+			set
+			{
+				if ((this._InvoiceCode != value))
+				{
+					this.OnInvoiceCodeChanging(value);
+					this.SendPropertyChanging();
+					this._InvoiceCode = value;
+					this.SendPropertyChanged("InvoiceCode");
+					this.OnInvoiceCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleID", DbType="Int")]
+		public System.Nullable<int> ScheduleID
+		{
+			get
+			{
+				return this._ScheduleID;
+			}
+			set
+			{
+				if ((this._ScheduleID != value))
+				{
+					if (this._Schedule.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnScheduleIDChanging(value);
+					this.SendPropertyChanging();
+					this._ScheduleID = value;
+					this.SendPropertyChanged("ScheduleID");
+					this.OnScheduleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TotalAmount
+		{
+			get
+			{
+				return this._TotalAmount;
+			}
+			set
+			{
+				if ((this._TotalAmount != value))
+				{
+					this.OnTotalAmountChanging(value);
+					this.SendPropertyChanging();
+					this._TotalAmount = value;
+					this.SendPropertyChanged("TotalAmount");
+					this.OnTotalAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created_At", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Created_At
+		{
+			get
+			{
+				return this._Created_At;
+			}
+			set
+			{
+				if ((this._Created_At != value))
+				{
+					this.OnCreated_AtChanging(value);
+					this.SendPropertyChanging();
+					this._Created_At = value;
+					this.SendPropertyChanged("Created_At");
+					this.OnCreated_AtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Updated_At", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Updated_At
+		{
+			get
+			{
+				return this._Updated_At;
+			}
+			set
+			{
+				if ((this._Updated_At != value))
+				{
+					this.OnUpdated_AtChanging(value);
+					this.SendPropertyChanging();
+					this._Updated_At = value;
+					this.SendPropertyChanged("Updated_At");
+					this.OnUpdated_AtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(255)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Invoice_Payment", Storage="_Payments", ThisKey="InvoiceID", OtherKey="InvoiceID")]
+		public EntitySet<Payment> Payments
+		{
+			get
+			{
+				return this._Payments;
+			}
+			set
+			{
+				this._Payments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Schedule_Invoice", Storage="_Schedule", ThisKey="ScheduleID", OtherKey="ScheduleID", IsForeignKey=true)]
+		public Schedule Schedule
+		{
+			get
+			{
+				return this._Schedule.Entity;
+			}
+			set
+			{
+				Schedule previousValue = this._Schedule.Entity;
+				if (((previousValue != value) 
+							|| (this._Schedule.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Schedule.Entity = null;
+						previousValue.Invoices.Remove(this);
+					}
+					this._Schedule.Entity = value;
+					if ((value != null))
+					{
+						value.Invoices.Add(this);
+						this._ScheduleID = value.ScheduleID;
+					}
+					else
+					{
+						this._ScheduleID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Schedule");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = this;
+		}
+		
+		private void detach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Invoice = null;
 		}
 	}
 }
