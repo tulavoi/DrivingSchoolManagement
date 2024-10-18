@@ -56,7 +56,7 @@
     <Compile Include="CourseBLL.cs" />
     <Compile Include="DataAccessBLL.cs" />
     <Compile Include="InvoiceBLL.cs" />
-    <Compile Include="LearnerBLL_Vu.cs" />
+    <Compile Include="LearnerBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />

@@ -48,7 +48,7 @@ namespace GUI
         private void AssignLeanersToCombobox(Guna2ComboBox cbo)
         {
             // Hiển thị all learners vào combobox
-            LearnerBLL_Vu.Instance.AssignLeanersToCombobox(cbo);
+            LearnerBLL.Instance.AssignLeanersToCombobox(cbo);
         }
 
         public void LoadAllInvoice()

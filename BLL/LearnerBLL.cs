@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class LearnerBLL_Vu
+    public class LearnerBLL
     {
         #region Properties
-        private static LearnerBLL_Vu instance;
+        private static LearnerBLL instance;
 
-        public static LearnerBLL_Vu Instance
+        public static LearnerBLL Instance
         {
             get
             {
-                if (instance == null) instance = new LearnerBLL_Vu();
+                if (instance == null) instance = new LearnerBLL();
                 return instance;
             }
         }

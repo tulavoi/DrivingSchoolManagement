@@ -52,10 +52,7 @@ namespace DAL
                 Updated_At = item.Updated_At
             }).ToList();
         }
-        /// <summary>
-        /// ///test
-        /// </summary>
-        /// <returns></returns>
+        
         // Truy vấn lấy tất cả Learner
         private IEnumerable<dynamic> QueryAllLearners()
         {
