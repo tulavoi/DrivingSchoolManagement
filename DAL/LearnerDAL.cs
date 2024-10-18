@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class LearnerDAL_Vu
+    public class LearnerDAL
     {
         #region Properties
-        private static LearnerDAL_Vu instance;
+        private static LearnerDAL instance;
 
-        public static LearnerDAL_Vu Instance
+        public static LearnerDAL Instance
         {
             get
             {
-                if (instance == null) instance = new LearnerDAL_Vu();
+                if (instance == null) instance = new LearnerDAL();
                 return instance;
             }
         }

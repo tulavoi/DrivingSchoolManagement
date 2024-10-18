@@ -25,7 +25,7 @@ namespace BLL
 
         public void AssignLeanersToCombobox(Guna2ComboBox cbo)
         {
-            List<Learner> learners = LearnerDAL_Vu.Instance.GetAllLearners();
+            List<Learner> learners = LearnerDAL.Instance.GetAllLearners();
             this.AddLearnersToCombobox(cbo, learners);
         }
 
