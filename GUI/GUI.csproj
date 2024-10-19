@@ -163,6 +163,9 @@
     <Compile Include="ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ComboboxService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\SendMailService.cs" />
     <Compile Include="TeachersForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -490,6 +490,7 @@
             this.btnSendInvoiceByMail.Size = new System.Drawing.Size(458, 36);
             this.btnSendInvoiceByMail.TabIndex = 107;
             this.btnSendInvoiceByMail.Text = "Send Email";
+            this.btnSendInvoiceByMail.Click += new System.EventHandler(this.btnSendInvoiceByMail_Click);
             // 
             // txtMessage
             // 

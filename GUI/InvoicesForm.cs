@@ -128,5 +128,39 @@ namespace GUI
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
             cboStatus.Text = selectedInvoice.Status.ToString();
         }
+
+        private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!this.HasSelectedRow()) return;
+
+            if (!string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+
+            if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
+            {
+                if (InvoiceService.DeleteInvoice(lblInvoiceCode.Text))
+                {
+                    FormHelper.ShowNotify("Invoice deleted successfully.");
+                    this.LoadAllInvoice();
+                }
+                else
+                    FormHelper.ShowError("Failed to delete invoice.");
+            }
+        }
+
+        private bool HasSelectedRow()
+        {
+            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
+            return dgvInvoices.SelectedRows.Count > 0;
+        }
+
+        private void btnSendInvoiceByMail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
