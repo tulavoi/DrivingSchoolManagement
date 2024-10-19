@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class LearnerDAL
+    public class LearnerDAL : BaseDAL<Learner>
     {
         #region Properties
         private static LearnerDAL instance;
@@ -21,26 +21,38 @@ namespace DAL
         }
         #endregion
 
-        public List<Learner> GetAllLearners()
+        #region All Learners
+        protected override IEnumerable<dynamic> QueryAllData()
         {
-            var learnerData = this.QueryAllLearners();
-            return this.MapToList(learnerData);
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from learner in db.Learners
+                           select new
+                           {
+                               learner.LearnerID,
+                               learner.CurrentLicenseID,
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Status,
+                               learner.Created_At,
+                               learner.Updated_At
+                           };
+                return data.ToList();
+            }
         }
 
-        // Chuyển đổi dữ liệu sang List
-        private List<Learner> MapToList(IEnumerable<dynamic> data)
+        public List<Learner> GetAllLearners()
         {
-            if (data == null) return new List<Learner>();
-
-            return data.Select(item => new Learner
+            return GetAll(item => new Learner
             {
                 LearnerID = item.LearnerID,
+                CurrentLicenseID = item.CurrentLicenseID,
                 FullName = item.FullName,
-                License = new License()
-                {
-                    LicenseID = item.currLicenseID,
-                    LicenseName = item.currLicenseName,
-                },
                 DateOfBirth = item.DateOfBirth,
                 Gender = item.Gender,
                 PhoneNumber = item.PhoneNumber,
@@ -50,35 +62,135 @@ namespace DAL
                 Status = item.Status,
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
-            }).ToList();
+            });
         }
-        
-        // Truy vấn lấy tất cả Learner
-        private IEnumerable<dynamic> QueryAllLearners()
+        #endregion
+
+        #region Search
+        protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
             using (var db = DataAccess.GetDataContext())
             {
-                var data = from le in db.Learners
-                           join li in db.Licenses on le.CurrentLicenseID equals li.LicenseID
+                var data = from learner in db.Learners
+                           where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
                            select new
                            {
-                               le.LearnerID,
-                               currLicenseID = li.LicenseID,
-                               currLicenseName = li.LicenseName,
-                               le.FullName,
-                               le.DateOfBirth,
-                               le.Gender,
-                               le.PhoneNumber,
-                               le.Email,
-                               le.Address,
-                               le.CitizenID,
-                               le.Status,
-                               le.Created_At,
-                               le.Updated_At,
+                               learner.LearnerID,
+                               learner.CurrentLicenseID,
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Status,
+                               learner.Created_At,
+                               learner.Updated_At
                            };
-                           
                 return data.ToList();
             }
         }
+
+        public List<Learner> SearchLearners(string keyword)
+        {
+            return SearchData(keyword, item => new Learner
+            {
+                LearnerID = item.LearnerID,
+                CurrentLicenseID = item.CurrentLicenseID,
+                FullName = item.FullName,
+                DateOfBirth = item.DateOfBirth,
+                Gender = item.Gender,
+                PhoneNumber = item.PhoneNumber,
+                Email = item.Email,
+                Address = item.Address,
+                CitizenID = item.CitizenID,
+                Status = item.Status,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            });
+        }
+        #endregion
+
+        #region Filter by status
+        public List<Learner> FilterLearnersByStatus(string status)
+        {
+            return FilterData(status, item => new Learner
+            {
+                LearnerID = item.LearnerID,
+                CurrentLicenseID = item.CurrentLicenseID,
+                FullName = item.FullName,
+                DateOfBirth = item.DateOfBirth,
+                Gender = item.Gender,
+                PhoneNumber = item.PhoneNumber,
+                Email = item.Email,
+                Address = item.Address,
+                CitizenID = item.CitizenID,
+                Status = item.Status,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            });
+        }
+
+        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from learner in db.Learners
+                           where learner.Status == filterString
+                           select new
+                           {
+                               learner.LearnerID,
+                               learner.CurrentLicenseID,
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Status,
+                               learner.Created_At,
+                               learner.Updated_At
+                           };
+                return data.ToList();
+            }
+        }
+        #endregion
+
+        #region Create
+        public bool AddLearner(Learner learner)
+        {
+            return AddData(learner);
+        }
+        #endregion
+
+        #region Edit
+        public bool EditLearner(Learner learner)
+        {
+            return EditData(lear => lear.LearnerID == learner.LearnerID,      // Điều kiện tìm learner theo ID
+                            lear =>                                          // Action cập nhật các thuộc tính
+                            {
+                                lear.CurrentLicenseID = learner.CurrentLicenseID;
+                                lear.FullName = learner.FullName;
+                                lear.DateOfBirth = learner.DateOfBirth;
+                                lear.Gender = learner.Gender;
+                                lear.PhoneNumber = learner.PhoneNumber;
+                                lear.Email = learner.Email;
+                                lear.Address = learner.Address;
+                                lear.CitizenID = learner.CitizenID;
+                                lear.Status = learner.Status;
+                                lear.Updated_At = DateTime.Now;
+                            });
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteLearner(int learnerID)
+        {
+            return DeleteData(lear => lear.LearnerID == learnerID); // Điều kiện tìm learner theo ID
+        }
+        #endregion
     }
+
 }

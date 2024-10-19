@@ -12,7 +12,7 @@ namespace GUI.Services
     {
         public static void AssignLearnersToCombobox(Guna2ComboBox cbo)
         {
-            LearnerBLL.Instance.AssignLeanersToCombobox(cbo);
+            LearnerBLL.Instance.AssignLearnersToCombobox(cbo);
         }
 
         public static void AssignCoursesToCombobox(Guna2ComboBox cbo)

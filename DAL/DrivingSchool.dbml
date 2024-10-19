@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DrivingSchool" Class="DrivingSchoolDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TULAVOI\HOANGVU;Initial Catalog=DrivingSchool;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DrivingSchoolConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DANOITXD\SQLEXPRESS;Initial Catalog=DrivingSchool;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DrivingSchoolConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Accounts" Member="Accounts">
     <Type Name="Account">
       <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -40,13 +40,44 @@
       <Association Name="License_Course" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Invoices" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="InvoiceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Invoice_Payment" Member="Payments" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Payment" />
+      <Association Name="Schedule_Invoice" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Learners" Member="Learners">
+    <Type Name="Learner">
+      <Column Name="LearnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrentLicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Learner_Schedule" Member="Schedules" ThisKey="LearnerID" OtherKey="LearnerID" Type="Schedule" />
+      <Association Name="License_Learner" Member="License" ThisKey="CurrentLicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Licenses" Member="Licenses">
     <Type Name="License">
       <Column Name="LicenseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LicenseName" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="License_Course" Member="Courses" ThisKey="LicenseID" OtherKey="LicenseID" Type="Course" />
-      <Association Name="License_Teacher" Member="Teachers" ThisKey="LicenseID" OtherKey="LicenseID" Type="Teacher" />
       <Association Name="License_Learner" Member="Learners" ThisKey="LicenseID" OtherKey="CurrentLicenseID" Type="Learner" />
+      <Association Name="License_Teacher" Member="Teachers" ThisKey="LicenseID" OtherKey="LicenseID" Type="Teacher" />
     </Type>
   </Table>
   <Table Name="dbo.Payments" Member="Payments">
@@ -74,10 +105,10 @@
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Schedule_Invoice" Member="Invoices" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Invoice" />
       <Association Name="Course_Schedule" Member="Course" ThisKey="CourseID" OtherKey="CourseID" Type="Course" IsForeignKey="true" />
+      <Association Name="Learner_Schedule" Member="Learner" ThisKey="LearnerID" OtherKey="LearnerID" Type="Learner" IsForeignKey="true" />
       <Association Name="Vehicle_Schedule" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
       <Association Name="Session_Schedule" Member="Session" ThisKey="SessionID" OtherKey="SessionID" Type="Session" IsForeignKey="true" />
       <Association Name="Teacher_Schedule" Member="Teacher" ThisKey="TeacherID" OtherKey="TeacherID" Type="Teacher" IsForeignKey="true" />
-      <Association Name="Learner_Schedule" Member="Learner" ThisKey="LearnerID" OtherKey="LearnerID" Type="Learner" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Sessions" Member="Sessions">
@@ -108,38 +139,6 @@
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Teacher_Schedule" Member="Schedules" ThisKey="TeacherID" OtherKey="TeacherID" Type="Schedule" />
       <Association Name="License_Teacher" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Learners" Member="Learners">
-    <Type Name="Learner">
-      <Column Name="LearnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CurrentLicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Learner_Schedule" Member="Schedules" ThisKey="LearnerID" OtherKey="LearnerID" Type="Schedule" />
-      <Association Name="License_Learner" Member="License" ThisKey="CurrentLicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Invoices" Member="Invoices">
-    <Type Name="Invoice">
-      <Column Name="InvoiceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="InvoiceCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Association Name="Invoice_Payment" Member="Payments" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Payment" />
-      <Association Name="Schedule_Invoice" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

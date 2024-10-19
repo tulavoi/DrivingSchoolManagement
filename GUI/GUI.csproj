@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Services\ComboboxService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\LearnerService.cs" />
     <Compile Include="TeachersForm.cs">
       <SubType>Form</SubType>
     </Compile>
