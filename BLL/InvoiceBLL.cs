@@ -66,5 +66,9 @@ namespace BLL
         {
             return InvoiceDAL.Instance.EditInvoice(invoice);
         }
+
+        public bool DeleteInvoice(string invoiceCode) {
+            return InvoiceDAL.Instance.DeleteInvoice(invoiceCode);
+        }
     }
 }

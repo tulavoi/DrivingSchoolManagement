@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using Guna.UI2.WinForms;
+using GUI.Services;
 
 namespace GUI
 {
@@ -30,24 +31,19 @@ namespace GUI
 		private void CreateInvoiceForm_Load(object sender, EventArgs e)
 		{
 			shadowForm.SetShadowForm(this);
-
-            CourseBLL.Instance.AssignCoursesToCombobox(cboCourses);
+            ComboboxService.AssignCoursesToCombobox(cboCourses);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (!this.ValidateFields()) return;
-			if (this.AddInvoice())
+
+            Invoice invoice = this.GetInvoice();
+
+            if (InvoiceService.AddInvoice(invoice))
                 FormHelper.ShowNotify("Invoice added successfully.");
             else
                 FormHelper.ShowError("Failed to add invoice.");
-        }
-
-        private bool AddInvoice()
-        {
-            Invoice invoice = this.GetInvoice();
-
-            return InvoiceBLL.Instance.AddInvoice(invoice);
         }
 
         private bool ValidateFields()
