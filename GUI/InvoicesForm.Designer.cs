@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoicesForm));
             this.pnlInvoices = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
@@ -79,28 +79,27 @@
             this.pnlTotalAmount_VND = new Guna.UI2.WinForms.Guna2Panel();
             this.txtTotalAmount = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtVND = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtAmountNotes = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.pnlSpace4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlCourse = new Guna.UI2.WinForms.Guna2Panel();
             this.cboCourses = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtSearchCourse = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCourse = new System.Windows.Forms.Label();
             this.pnlSpace3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLearner = new Guna.UI2.WinForms.Guna2Panel();
             this.cboLearners = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtSearchLearner = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblLearner = new System.Windows.Forms.Label();
             this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblBasicDetails = new System.Windows.Forms.Label();
             this.pnlDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblInvoiceID = new Guna.UI2.WinForms.Guna2Button();
+            this.lblInvoiceCode = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlInvoices.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
@@ -176,52 +175,52 @@
             // 
             this.dgvInvoices.AllowUserToAddRows = false;
             this.dgvInvoices.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvInvoices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInvoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvInvoices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInvoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvInvoices.ColumnHeadersHeight = 40;
             this.dgvInvoices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceID,
             this.InvoiceCode,
             this.FullName,
             this.Status});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInvoices.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInvoices.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvInvoices.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvInvoices.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvInvoices.Location = new System.Drawing.Point(0, 60);
             this.dgvInvoices.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvInvoices.Name = "dgvInvoices";
             this.dgvInvoices.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInvoices.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInvoices.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvInvoices.RowHeadersVisible = false;
             this.dgvInvoices.RowHeadersWidth = 30;
             this.dgvInvoices.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvInvoices.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvInvoices.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvInvoices.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvInvoices.RowTemplate.DividerHeight = 2;
             this.dgvInvoices.RowTemplate.Height = 45;
@@ -265,8 +264,8 @@
             // 
             this.InvoiceCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.InvoiceCode.DataPropertyName = "InvoiceCode";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle15;
             this.InvoiceCode.FillWeight = 53.63456F;
             this.InvoiceCode.Frozen = true;
             this.InvoiceCode.HeaderText = "Invoice";
@@ -770,7 +769,7 @@
             // pnlTotalAmount
             // 
             this.pnlTotalAmount.Controls.Add(this.pnlTotalAmount_VND);
-            this.pnlTotalAmount.Controls.Add(this.txtAmountNotes);
+            this.pnlTotalAmount.Controls.Add(this.txtNotes);
             this.pnlTotalAmount.Controls.Add(this.lblTotalAmount);
             this.pnlTotalAmount.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTotalAmount.FillColor = System.Drawing.Color.White;
@@ -815,6 +814,7 @@
             this.txtTotalAmount.SelectedText = "";
             this.txtTotalAmount.Size = new System.Drawing.Size(274, 38);
             this.txtTotalAmount.TabIndex = 32;
+            this.txtTotalAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalAmount_KeyPress);
             // 
             // txtVND
             // 
@@ -841,31 +841,31 @@
             this.txtVND.Size = new System.Drawing.Size(77, 38);
             this.txtVND.TabIndex = 33;
             // 
-            // txtAmountNotes
+            // txtNotes
             // 
-            this.txtAmountNotes.BackColor = System.Drawing.Color.White;
-            this.txtAmountNotes.BorderRadius = 8;
-            this.txtAmountNotes.BorderThickness = 0;
-            this.txtAmountNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAmountNotes.DefaultText = "";
-            this.txtAmountNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtAmountNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtAmountNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAmountNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAmountNotes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtAmountNotes.Enabled = false;
-            this.txtAmountNotes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.txtAmountNotes.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtAmountNotes.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAmountNotes.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtAmountNotes.Location = new System.Drawing.Point(124, 47);
-            this.txtAmountNotes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtAmountNotes.Name = "txtAmountNotes";
-            this.txtAmountNotes.PasswordChar = '\0';
-            this.txtAmountNotes.PlaceholderText = "Notes... (required)";
-            this.txtAmountNotes.SelectedText = "";
-            this.txtAmountNotes.Size = new System.Drawing.Size(351, 47);
-            this.txtAmountNotes.TabIndex = 30;
+            this.txtNotes.BackColor = System.Drawing.Color.White;
+            this.txtNotes.BorderRadius = 8;
+            this.txtNotes.BorderThickness = 0;
+            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotes.DefaultText = "";
+            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtNotes.Enabled = false;
+            this.txtNotes.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtNotes.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.txtNotes.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNotes.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.txtNotes.Location = new System.Drawing.Point(124, 47);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.PasswordChar = '\0';
+            this.txtNotes.PlaceholderText = "Notes... (required)";
+            this.txtNotes.SelectedText = "";
+            this.txtNotes.Size = new System.Drawing.Size(351, 47);
+            this.txtNotes.TabIndex = 30;
             // 
             // lblTotalAmount
             // 
@@ -892,7 +892,6 @@
             // pnlCourse
             // 
             this.pnlCourse.Controls.Add(this.cboCourses);
-            this.pnlCourse.Controls.Add(this.txtSearchCourse);
             this.pnlCourse.Controls.Add(this.lblCourse);
             this.pnlCourse.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCourse.FillColor = System.Drawing.Color.White;
@@ -909,7 +908,7 @@
             this.cboCourses.DisabledState.BorderColor = System.Drawing.Color.White;
             this.cboCourses.DisabledState.FillColor = System.Drawing.Color.White;
             this.cboCourses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboCourses.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cboCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboCourses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCourses.Enabled = false;
@@ -921,37 +920,11 @@
             this.cboCourses.ItemHeight = 30;
             this.cboCourses.Items.AddRange(new object[] {
             "Select Course"});
-            this.cboCourses.Location = new System.Drawing.Point(89, 0);
+            this.cboCourses.Location = new System.Drawing.Point(124, 0);
             this.cboCourses.Name = "cboCourses";
-            this.cboCourses.Size = new System.Drawing.Size(220, 36);
+            this.cboCourses.Size = new System.Drawing.Size(351, 36);
             this.cboCourses.StartIndex = 0;
             this.cboCourses.TabIndex = 33;
-            // 
-            // txtSearchCourse
-            // 
-            this.txtSearchCourse.BackColor = System.Drawing.Color.White;
-            this.txtSearchCourse.BorderRadius = 8;
-            this.txtSearchCourse.BorderThickness = 0;
-            this.txtSearchCourse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchCourse.DefaultText = "";
-            this.txtSearchCourse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchCourse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchCourse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchCourse.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchCourse.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtSearchCourse.Enabled = false;
-            this.txtSearchCourse.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.txtSearchCourse.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchCourse.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearchCourse.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchCourse.Location = new System.Drawing.Point(315, 0);
-            this.txtSearchCourse.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtSearchCourse.Name = "txtSearchCourse";
-            this.txtSearchCourse.PasswordChar = '\0';
-            this.txtSearchCourse.PlaceholderText = "Search...";
-            this.txtSearchCourse.SelectedText = "";
-            this.txtSearchCourse.Size = new System.Drawing.Size(160, 38);
-            this.txtSearchCourse.TabIndex = 30;
             // 
             // lblCourse
             // 
@@ -961,7 +934,7 @@
             this.lblCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.lblCourse.Location = new System.Drawing.Point(0, 0);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(89, 38);
+            this.lblCourse.Size = new System.Drawing.Size(124, 38);
             this.lblCourse.TabIndex = 29;
             this.lblCourse.Text = "    Course:";
             this.lblCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -978,7 +951,6 @@
             // pnlLearner
             // 
             this.pnlLearner.Controls.Add(this.cboLearners);
-            this.pnlLearner.Controls.Add(this.txtSearchLearner);
             this.pnlLearner.Controls.Add(this.lblLearner);
             this.pnlLearner.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLearner.FillColor = System.Drawing.Color.White;
@@ -995,7 +967,7 @@
             this.cboLearners.DisabledState.BorderColor = System.Drawing.Color.White;
             this.cboLearners.DisabledState.FillColor = System.Drawing.Color.White;
             this.cboLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboLearners.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cboLearners.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboLearners.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboLearners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLearners.Enabled = false;
@@ -1007,37 +979,11 @@
             this.cboLearners.ItemHeight = 30;
             this.cboLearners.Items.AddRange(new object[] {
             "Select Learner"});
-            this.cboLearners.Location = new System.Drawing.Point(89, 0);
+            this.cboLearners.Location = new System.Drawing.Point(124, 0);
             this.cboLearners.Name = "cboLearners";
-            this.cboLearners.Size = new System.Drawing.Size(220, 36);
+            this.cboLearners.Size = new System.Drawing.Size(351, 36);
             this.cboLearners.StartIndex = 0;
             this.cboLearners.TabIndex = 124;
-            // 
-            // txtSearchLearner
-            // 
-            this.txtSearchLearner.BackColor = System.Drawing.Color.White;
-            this.txtSearchLearner.BorderRadius = 8;
-            this.txtSearchLearner.BorderThickness = 0;
-            this.txtSearchLearner.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchLearner.DefaultText = "";
-            this.txtSearchLearner.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchLearner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchLearner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchLearner.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchLearner.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtSearchLearner.Enabled = false;
-            this.txtSearchLearner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.txtSearchLearner.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchLearner.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearchLearner.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchLearner.Location = new System.Drawing.Point(315, 0);
-            this.txtSearchLearner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtSearchLearner.Name = "txtSearchLearner";
-            this.txtSearchLearner.PasswordChar = '\0';
-            this.txtSearchLearner.PlaceholderText = "Search...";
-            this.txtSearchLearner.SelectedText = "";
-            this.txtSearchLearner.Size = new System.Drawing.Size(160, 38);
-            this.txtSearchLearner.TabIndex = 30;
             // 
             // lblLearner
             // 
@@ -1047,7 +993,7 @@
             this.lblLearner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.lblLearner.Location = new System.Drawing.Point(0, 0);
             this.lblLearner.Name = "lblLearner";
-            this.lblLearner.Size = new System.Drawing.Size(89, 38);
+            this.lblLearner.Size = new System.Drawing.Size(124, 38);
             this.lblLearner.TabIndex = 29;
             this.lblLearner.Text = "    Learner:";
             this.lblLearner.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1088,7 +1034,7 @@
             // 
             this.pnlDetails_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlDetails_Top.BorderRadius = 15;
-            this.pnlDetails_Top.Controls.Add(this.lblInvoiceID);
+            this.pnlDetails_Top.Controls.Add(this.lblInvoiceCode);
             this.pnlDetails_Top.Controls.Add(this.pnlSpace12);
             this.pnlDetails_Top.Controls.Add(this.pnlSpace11);
             this.pnlDetails_Top.Controls.Add(this.pnlSpace14);
@@ -1103,24 +1049,24 @@
             this.pnlDetails_Top.Size = new System.Drawing.Size(492, 53);
             this.pnlDetails_Top.TabIndex = 1;
             // 
-            // lblInvoiceID
+            // lblInvoiceCode
             // 
-            this.lblInvoiceID.BackColor = System.Drawing.Color.White;
-            this.lblInvoiceID.BorderRadius = 5;
-            this.lblInvoiceID.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.lblInvoiceID.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.lblInvoiceID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.lblInvoiceID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.lblInvoiceID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblInvoiceID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.lblInvoiceID.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvoiceID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblInvoiceID.Location = new System.Drawing.Point(361, 15);
-            this.lblInvoiceID.Name = "lblInvoiceID";
-            this.lblInvoiceID.PressedDepth = 5;
-            this.lblInvoiceID.Size = new System.Drawing.Size(114, 27);
-            this.lblInvoiceID.TabIndex = 22;
-            this.lblInvoiceID.Text = "Invoice Code";
+            this.lblInvoiceCode.BackColor = System.Drawing.Color.White;
+            this.lblInvoiceCode.BorderRadius = 5;
+            this.lblInvoiceCode.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.lblInvoiceCode.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.lblInvoiceCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.lblInvoiceCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.lblInvoiceCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblInvoiceCode.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.lblInvoiceCode.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvoiceCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblInvoiceCode.Location = new System.Drawing.Point(361, 15);
+            this.lblInvoiceCode.Name = "lblInvoiceCode";
+            this.lblInvoiceCode.PressedDepth = 5;
+            this.lblInvoiceCode.Size = new System.Drawing.Size(114, 27);
+            this.lblInvoiceCode.TabIndex = 22;
+            this.lblInvoiceCode.Text = "Invoice Code";
             // 
             // pnlSpace12
             // 
@@ -1181,6 +1127,19 @@
             this.pnlSpace16.Size = new System.Drawing.Size(11, 53);
             this.pnlSpace16.TabIndex = 16;
             // 
+            // toolTip
+            // 
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.AutoPopDelay = 3000;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.StripAmpersands = true;
+            // 
             // InvoicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1237,20 +1196,18 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
 		private System.Windows.Forms.Label lblBasicDetails;
 		private Guna.UI2.WinForms.Guna2Panel pnlDetails_Top;
-		private Guna.UI2.WinForms.Guna2Button lblInvoiceID;
+		private Guna.UI2.WinForms.Guna2Button lblInvoiceCode;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace12;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace11;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace14;
 		private System.Windows.Forms.Label lblDetails;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace16;
-		private Guna.UI2.WinForms.Guna2TextBox txtSearchLearner;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace3;
 		private Guna.UI2.WinForms.Guna2Panel pnlCourse;
-		private Guna.UI2.WinForms.Guna2TextBox txtSearchCourse;
 		private System.Windows.Forms.Label lblCourse;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace4;
 		private Guna.UI2.WinForms.Guna2Panel pnlTotalAmount;
-		private Guna.UI2.WinForms.Guna2TextBox txtAmountNotes;
+		private Guna.UI2.WinForms.Guna2TextBox txtNotes;
 		private System.Windows.Forms.Label lblTotalAmount;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace9;
 		private Guna.UI2.WinForms.Guna2Panel pnlTotalAmount_VND;
@@ -1282,5 +1239,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
         private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
     }
 }

@@ -36,22 +36,21 @@ namespace GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateInvoiceFields()) return;
-			Invoice invoice = this.GetInvoice();
-
-            bool isAdded = InvoiceBLL.Instance.AddInvoice(invoice);
-
-            if (isAdded)
-            {
+            if (!this.ValidateFields()) return;
+			if (this.AddInvoice())
                 FormHelper.ShowNotify("Invoice added successfully.");
-                InvoicesForm.Instance.InvoicesForm_Load(sender, e); // Sau khi thêm thành công sẽ load lại tất cả invoice
-                this.Close();
-            }
             else
                 FormHelper.ShowError("Failed to add invoice.");
         }
 
-        private bool ValidateInvoiceFields()
+        private bool AddInvoice()
+        {
+            Invoice invoice = this.GetInvoice();
+
+            return InvoiceBLL.Instance.AddInvoice(invoice);
+        }
+
+        private bool ValidateFields()
         {
             if (cboCourses.SelectedIndex < 1)
             {
