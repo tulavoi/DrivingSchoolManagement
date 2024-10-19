@@ -187,7 +187,7 @@ namespace GUI
         {
             if (!this.HasSelectedRow()) return;
 
-            if (!string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+            if (string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
 
             if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
             {
