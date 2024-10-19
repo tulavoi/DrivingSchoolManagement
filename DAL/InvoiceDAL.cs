@@ -206,5 +206,12 @@ namespace DAL
                             });
         }
         #endregion
+
+        #region Delete
+        public bool DeleteInvoice(string invoiceCode) 
+        {
+            return DeleteData(inv => inv.InvoiceCode == invoiceCode); // Điều kiện tìm invoice theo code
+        }
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using GUI.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
@@ -31,55 +32,47 @@ namespace GUI
 
         public void InvoicesForm_Load(object sender, EventArgs e)
         {
-            // Phải load data của Learners, Courses vào combobox trước,
-            // nếu không thì sẽ k gán được LearnerName, CourseName từ dgv vào cbo
-            this.AssignLeanersToCombobox(cboLearners);
-            this.AssignCoursesToCombobox(cboCourses);
-
+            this.LoadComboxes();
             this.LoadAllInvoice();
         }
 
-        private void AssignCoursesToCombobox(Guna2ComboBox cbo)
+        private void LoadComboxes()
         {
-            // Hiển thị all courses vào combobox
-            CourseBLL.Instance.AssignCoursesToCombobox(cbo);
-        }
-
-        private void AssignLeanersToCombobox(Guna2ComboBox cbo)
-        {
-            // Hiển thị all learners vào combobox
-            LearnerBLL.Instance.AssignLeanersToCombobox(cbo);
+            // Phải load data của Learners, Courses vào combobox trước,
+            // nếu không thì sẽ k gán được LearnerName, CourseName từ dgv vào cbo
+            ComboboxService.AssignLearnersToCombobox(cboLearners);
+            ComboboxService.AssignCoursesToCombobox(cboCourses);
         }
 
         public void LoadAllInvoice()
         {
-            // Lấy tất cả dữ liệu Invoice, bỏ chọn dòng mặc định
-            InvoiceBLL.Instance.LoadAllInvoices(dgvInvoices);
-
+            // Lấy tất cả dữ liệu Invoice bỏ vào datagridview
+            InvoiceService.LoadAllInvoices(dgvInvoices);
             this.UpdateControlsWithSelectedRowData();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (this.InSaveMode())
+            if (!this.InSaveMode())
             {
-                if (!this.ValidateFields()) return;
-                if (this.ConfirmEdit())
-                {
-                    if (this.EditInvoice())
-                    {
-                        FormHelper.ShowNotify("Invoice edited successfully.");
-                        InvoicesForm_Load(sender, e);
-                    }
-                    else
-                    {
-                        FormHelper.ShowError("Failed to edit invoice.");
-                        InvoicesForm_Load(sender, e);
-                    }
-                }
-                else return;
+                this.ToogleEditMode();
+                return;
             }
-            this.ToogleEditMode();
+
+            if (!this.ValidateFields()) return;
+
+            if (this.ConfirmAction($"Are you sure to edit invoice '{lblInvoiceCode.Text}'?"))
+            {
+                Invoice invoice = this.GetInvoice();
+                if (InvoiceService.EditInvoice(invoice))
+                {
+                    FormHelper.ShowNotify("Invoice edited successfully.");
+                    this.LoadAllInvoice();
+                }
+                else
+                    FormHelper.ShowError("Failed to edit invoice.");
+            }
+            else return;
         }
 
         private bool ValidateFields()
@@ -102,17 +95,10 @@ namespace GUI
             return btnEdit.Text == Constant.SAVE_MODE;
         }
 
-        private bool ConfirmEdit()
+        private bool ConfirmAction(string message)
         {
-                
-            DialogResult result = FormHelper.ShowConfirm($"Are you sure to edit invoice '{lblInvoiceCode.Text}'?");
+            DialogResult result = FormHelper.ShowConfirm(message);
             return result == DialogResult.Yes;
-        }
-
-        private bool EditInvoice()
-        {
-            Invoice invoice = this.GetInvoice();
-            return InvoiceBLL.Instance.EditInvoice(invoice);
         }
 
         private Invoice GetInvoice()
@@ -130,8 +116,7 @@ namespace GUI
         private void btnOpenAddInvoiceForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenPopupForm(new CreateInvoiceForm());
-
-            this.LoadAllInvoice();
+            this.LoadAllInvoice(); // Sau khi đóng CreateInvoiceForm sẽ hiển thị lại dữ liệu trong dgv
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -142,7 +127,7 @@ namespace GUI
 
             string keyword = txtSearch.Text.ToLower();
 
-            InvoiceBLL.Instance.SearchInvoices(dgvInvoices, keyword);
+            InvoiceService.SearchInvoices(dgvInvoices, keyword);
             this.UpdateControlsWithSelectedRowData();
         }
 
@@ -157,7 +142,7 @@ namespace GUI
             else
             {
                 string status = cboStatus_Filter.SelectedItem.ToString();
-                InvoiceBLL.Instance.FilterInvoicesByStatus(dgvInvoices, status);
+                InvoiceService.FilterInvoicesByStatus(dgvInvoices, status);
                 this.UpdateControlsWithSelectedRowData();
             }
         }
@@ -169,15 +154,14 @@ namespace GUI
 
         private void UpdateControlsWithSelectedRowData()
         {
-            // Kiểm tra có dòng được chọn hay k, nếu có lấy dòng đầu tiên
+            // Kiểm tra có dòng được chọn hay k
             // Nếu tag của selectedRow là Invoice thì gán data vào controls
-            if (dgvInvoices.SelectedRows.Count > 0)
-            {
-                var selectedRow = dgvInvoices.SelectedRows[0];
+            if (!this.HasSelectedRow()) return;
 
-                if (selectedRow.Tag is Invoice selectedInvoice)
-                    this.AssignDataToControls(selectedInvoice);
-            }
+            var selectedRow = dgvInvoices.SelectedRows[0];
+
+            if (selectedRow.Tag is Invoice selectedInvoice)
+                this.AssignDataToControls(selectedInvoice);
         }
 
         private void AssignDataToControls(Invoice selectedInvoice)
@@ -197,6 +181,30 @@ namespace GUI
         private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!this.HasSelectedRow()) return;
+
+            if (!string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+
+            if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
+            {
+                if (InvoiceService.DeleteInvoice(lblInvoiceCode.Text))
+                {
+                    FormHelper.ShowNotify("Invoice deleted successfully.");
+                    this.LoadAllInvoice();
+                }
+                else
+                    FormHelper.ShowError("Failed to delete invoice.");
+            }
+        }
+
+        private bool HasSelectedRow()
+        {
+            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
+            return dgvInvoices.SelectedRows.Count > 0;
         }
     }
 }

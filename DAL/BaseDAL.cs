@@ -51,6 +51,26 @@ namespace DAL
             }
         }
 
+        protected bool DeleteData(Func<T, bool> predicate)
+        {
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate);
+                    if (entity == null) return false;
+                    db.GetTable<T>().DeleteOnSubmit(entity);
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         protected virtual IEnumerable<dynamic> QueryLearnerByCourseID(int courseID)
         {
             return Enumerable.Empty<dynamic>();
