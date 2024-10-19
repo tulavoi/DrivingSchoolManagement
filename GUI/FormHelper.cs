@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using GUI.Services.SendEmail;
+using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -59,12 +60,6 @@ namespace GUI
             lblID.Text = id;
         }
 
-        public static void ClearSelectionAndResetCell(Guna2DataGridView dgv)
-        {
-            dgv.ClearSelection();
-            dgv.CurrentCell = null;
-        }
-
         public static void ClearDataGridViewRow(Guna2DataGridView dgv)
         {
             dgv.Rows.Clear();
@@ -107,6 +102,33 @@ namespace GUI
                 // Ngăn người dùng nhập ký tự đó vào TextBox
                 e.Handled = true;
             }
+        }
+
+        public static void ShowActionResult(bool result, string successMessage, string errorMessage)
+        {
+            if (result)
+                FormHelper.ShowNotify(successMessage);
+            else
+                FormHelper.ShowError(errorMessage);
+        }
+
+        public static MailSettings GetMailSettings()
+        {
+            return new MailSettings
+            {
+                Mail = Constant.Email,
+                DisplayName = Constant.DisplayName,
+                Password = Constant.Password,
+                Host = Constant.Host,
+                Port = Constant.Port
+            };
+        }
+
+        public static bool IsMailSettingValid(MailSettings mailSetting)
+        {
+            return mailSetting != null &&
+                   !string.IsNullOrEmpty(mailSetting.Mail) &&
+                   !string.IsNullOrEmpty(mailSetting.Password);
         }
     }
 }

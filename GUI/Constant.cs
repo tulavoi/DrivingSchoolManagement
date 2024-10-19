@@ -27,5 +27,11 @@ namespace GUI
 		public static decimal Tuition_D = 15000000;
 		public static decimal Tuition_E = 20000000;
 		public static string DefaultInvoiceStatus = "Pending";
+
+		public static string Email = "mainguyenhoangvu2212@gmail.com";
+		public static string DisplayName = "Driving school";
+		public static string Password = "qverfgucqidguybj";
+        public static string Host = "smtp.gmail.com";
+		public static int Port = 587;
     }
 }

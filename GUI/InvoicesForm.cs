@@ -1,8 +1,11 @@
 ﻿using BLL;
+using BLL.Services.SendEmail;
 using DAL;
 using GUI.Services;
+using GUI.Services.SendEmail;
 using Guna.UI2.WinForms;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -64,13 +67,10 @@ namespace GUI
             if (this.ConfirmAction($"Are you sure to edit invoice '{lblInvoiceCode.Text}'?"))
             {
                 Invoice invoice = this.GetInvoice();
-                if (InvoiceService.EditInvoice(invoice))
-                {
-                    FormHelper.ShowNotify("Invoice edited successfully.");
-                    this.LoadAllInvoice();
-                }
-                else
-                    FormHelper.ShowError("Failed to edit invoice.");
+                var result = InvoiceService.EditInvoice(invoice);
+                FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
+
+                this.ToogleEditMode();
             }
             else return;
         }
@@ -154,18 +154,25 @@ namespace GUI
 
         private void UpdateControlsWithSelectedRowData()
         {
-            // Kiểm tra có dòng được chọn hay k
-            // Nếu tag của selectedRow là Invoice thì gán data vào controls
-            if (!this.HasSelectedRow()) return;
+            var invoice = this.GetSelectedInvoice();
+            this.AssignDataToControls(invoice);
+        }
+
+        private Invoice GetSelectedInvoice()
+        {
+            if (!this.HasSelectedRow()) return null;
 
             var selectedRow = dgvInvoices.SelectedRows[0];
 
-            if (selectedRow.Tag is Invoice selectedInvoice)
-                this.AssignDataToControls(selectedInvoice);
+            if (selectedRow.Tag is Invoice selectedInvoice) return selectedInvoice;
+
+            return null;
         }
 
         private void AssignDataToControls(Invoice selectedInvoice)
         {
+            if (selectedInvoice == null) return;
+
             // Gán các trường dữ liệu vào controls
             string invoiceCode = selectedInvoice.InvoiceCode;
 
@@ -191,13 +198,8 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
             {
-                if (InvoiceService.DeleteInvoice(lblInvoiceCode.Text))
-                {
-                    FormHelper.ShowNotify("Invoice deleted successfully.");
-                    this.LoadAllInvoice();
-                }
-                else
-                    FormHelper.ShowError("Failed to delete invoice.");
+                var result = InvoiceService.DeleteInvoice(lblInvoiceCode.Text);
+                FormHelper.ShowActionResult(result, "Invoice deleted successfully.", "Failed to delete invoice.");
             }
         }
 
@@ -205,6 +207,36 @@ namespace GUI
         {
             // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
             return dgvInvoices.SelectedRows.Count > 0;
+        }
+
+        private void btnSendInvoiceByMail_Click(object sender, EventArgs e)
+        {
+
+            var mailSetting = FormHelper.GetMailSettings();
+
+            if (!FormHelper.IsMailSettingValid(mailSetting))
+            {
+                FormHelper.ShowError("MailSetting invalid.");
+                return;
+            }
+
+            var invoice = this.GetSelectedInvoice(); // Lấy ra invoice đang được chọn
+            var mailContent = this.CreateMailContent(invoice); // Tạo nội dung email
+            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
+
+            var result = SendMailService.SendMail(mailContent); // Thực hiện việc gửi email
+
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+        }
+
+        private MailContent CreateMailContent(Invoice invoice)
+        {
+            return new MailContent
+            {
+                To = invoice.Schedule.Learner.Email,
+                Subject = $"Course Invoice: {lblInvoiceCode.Text}",
+                Body = $"<h1>{txtMessage.Text}</h1>"
+            };
         }
     }
 }
