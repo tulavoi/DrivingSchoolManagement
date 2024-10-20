@@ -40,6 +40,8 @@ namespace DAL
                                invoice.InvoiceCode,
                                learner.LearnerID,
                                learner.FullName,
+                               learner.Email,
+                               learner.PhoneNumber,
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
@@ -63,6 +65,8 @@ namespace DAL
                     {
                         LearnerID = item.LearnerID,
                         FullName = item.FullName,
+                        Email = item.Email,
+                        PhoneNumber = item.PhoneNumber
                     },
                     Course = new Course()
                     {
@@ -94,6 +98,8 @@ namespace DAL
                                invoice.InvoiceCode,
                                learner.LearnerID,
                                learner.FullName,
+                               learner.Email,
+                               learner.PhoneNumber,
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
@@ -117,6 +123,8 @@ namespace DAL
                     {
                         LearnerID = item.LearnerID,
                         FullName = item.FullName,
+                        Email = item.Email,
+                        PhoneNumber = item.PhoneNumber
                     },
                     Course = new Course()
                     {
@@ -145,6 +153,8 @@ namespace DAL
                     {
                         LearnerID = item.LearnerID,
                         FullName = item.FullName,
+                        Email = item.Email,
+                        PhoneNumber = item.PhoneNumber
                     },
                     Course = new Course()
                     {
@@ -174,6 +184,8 @@ namespace DAL
                                invoice.InvoiceCode,
                                learner.LearnerID,
                                learner.FullName,
+                               learner.Email,
+                               learner.PhoneNumber,
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,

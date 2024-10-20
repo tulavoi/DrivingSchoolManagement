@@ -30,7 +30,7 @@ namespace GUI
 
         private void btnOpenAddCourseForm_Click(object sender, EventArgs e)
         {
-			FormHelper.OpenPopupForm(new AddCourseForm());
+			FormHelper.OpenFormDialog(new AddCourseForm());
         }
     }
 }

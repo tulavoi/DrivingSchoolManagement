@@ -1,6 +1,9 @@
-﻿using Guna.UI2.WinForms;
+﻿using GUI.Services.SendEmail;
+using Guna.UI2.WinForms;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -40,7 +43,7 @@ namespace GUI
                 control.Enabled = b;
         }
 
-        public static void OpenPopupForm(Form form)
+        public static void OpenFormDialog(Form form)
         {
             form.ShowDialog();
         }
@@ -57,12 +60,6 @@ namespace GUI
         public static void SetLabelID(Guna2Button lblID, string id)
         {
             lblID.Text = id;
-        }
-
-        public static void ClearSelectionAndResetCell(Guna2DataGridView dgv)
-        {
-            dgv.ClearSelection();
-            dgv.CurrentCell = null;
         }
 
         public static void ClearDataGridViewRow(Guna2DataGridView dgv)
@@ -107,6 +104,36 @@ namespace GUI
                 // Ngăn người dùng nhập ký tự đó vào TextBox
                 e.Handled = true;
             }
+        }
+
+        public static void ShowActionResult(bool result, string successMessage, string errorMessage)
+        {
+            if (result)
+                FormHelper.ShowNotify(successMessage);
+            else
+                FormHelper.ShowError(errorMessage);
+        }
+
+        public static MailSettings GetMailSettings()
+        {
+            var builder = new ConfigurationBuilder()
+                           .SetBasePath(Directory.GetCurrentDirectory())
+                           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            IConfiguration configuration = builder.Build();
+
+            var mailSettings = configuration.GetSection("MailSettings").Get<MailSettings>();
+
+            if (mailSettings == null) return null;
+
+            return mailSettings;
+        }
+
+        public static bool IsMailSettingValid(MailSettings mailSetting)
+        {
+            return mailSetting != null &&
+                   !string.IsNullOrEmpty(mailSetting.Mail) &&
+                   !string.IsNullOrEmpty(mailSetting.Password);
         }
     }
 }
