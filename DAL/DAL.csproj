@@ -52,7 +52,7 @@
       <DependentUpon>DrivingSchool.dbml</DependentUpon>
     </Compile>
     <Compile Include="InvoiceDAL.cs" />
-    <Compile Include="LearnerDAL_Vu.cs" />
+    <Compile Include="LearnerDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -60,6 +60,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ScheduleDAL.cs" />
+    <Compile Include="TeacherDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace DAL
 {
@@ -19,6 +20,46 @@ namespace DAL
                 using (var db = DataAccess.GetDataContext())
                 {
                     db.GetTable<T>().InsertOnSubmit(data);
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        protected bool EditData(Func<T, bool> predicate, Action<T> update)
+        {
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate); // Tìm đối tượng theo điều kiện
+                    if (entity == null) return false;
+                    update(entity); // Cập nhật các thuộc tính
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        protected bool DeleteData(Func<T, bool> predicate)
+        {
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate);
+                    if (entity == null) return false;
+                    db.GetTable<T>().DeleteOnSubmit(entity);
                     db.SubmitChanges();
                     return true;
                 }

@@ -193,6 +193,25 @@ namespace DAL
         }
         #endregion
 
-        
+        #region Edit
+        public bool EditInvoice(Invoice invoice)
+        {
+            return EditData(inv => inv.InvoiceCode == invoice.InvoiceCode,      // Điều kiện tìm invoice theo code
+                            inv =>                                              // Action cập nhật các thuộc tính
+                            {
+                                inv.TotalAmount = invoice.TotalAmount;
+                                inv.Notes = invoice.Notes;
+                                inv.Status = invoice.Status;
+                                inv.Updated_At = DateTime.Now;
+                            });
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteInvoice(string invoiceCode) 
+        {
+            return DeleteData(inv => inv.InvoiceCode == invoiceCode); // Điều kiện tìm invoice theo code
+        }
+        #endregion
     }
 }

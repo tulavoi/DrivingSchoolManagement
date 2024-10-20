@@ -1,7 +1,5 @@
-﻿using DAL;
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 using System;
-using System.Configuration;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -88,9 +86,27 @@ namespace GUI
                             MessageBoxIcon.Information);
         }
 
+        public static DialogResult ShowConfirm(string message)
+        {
+            return MessageBox.Show($"{message}",
+                            "Confirm",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+        }
+
         public static void ShowToolTip(Control control, Guna2HtmlToolTip toolTip, string message)
         {
             toolTip.Show(message, control);
+        }
+
+        public static void CheckNumericKeyPress(KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự được nhập không phải là số hoặc không phải phím điều khiển (như phím Backspace)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Ngăn người dùng nhập ký tự đó vào TextBox
+                e.Handled = true;
+            }
         }
     }
 }
