@@ -73,6 +73,7 @@
             this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblAdd = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlLineTop.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -246,6 +247,7 @@
             this.btnAdd.Size = new System.Drawing.Size(150, 35);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Enroll";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlSpace15
             // 
@@ -280,13 +282,12 @@
             // 
             // dtpEnrollmentDate
             // 
+            this.dtpEnrollmentDate.BackColor = System.Drawing.Color.Transparent;
             this.dtpEnrollmentDate.BorderColor = System.Drawing.Color.White;
-            this.dtpEnrollmentDate.BorderRadius = 5;
             this.dtpEnrollmentDate.Checked = true;
             this.dtpEnrollmentDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpEnrollmentDate.CustomFormat = "dd-MM-yyyy";
             this.dtpEnrollmentDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEnrollmentDate.Enabled = false;
             this.dtpEnrollmentDate.FillColor = System.Drawing.Color.White;
             this.dtpEnrollmentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dtpEnrollmentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -439,7 +440,6 @@
             this.dtpDOB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpDOB.CustomFormat = "dd-MM-yyyy";
             this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpDOB.Enabled = false;
             this.dtpDOB.FillColor = System.Drawing.Color.White;
             this.dtpDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dtpDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -706,6 +706,16 @@
             this.pnlSpace5.Size = new System.Drawing.Size(700, 15);
             this.pnlSpace5.TabIndex = 15;
             // 
+            // toolTip
+            // 
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.StripAmpersands = true;
+            // 
             // AddLearnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -780,5 +790,6 @@
 		private System.Windows.Forms.Label lblDOB_Title;
 		private Guna.UI2.WinForms.Guna2ComboBox cboGender;
 		private System.Windows.Forms.Label lblGender_Title;
-	}
+        private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+    }
 }

@@ -89,6 +89,11 @@
             this.lblPersonalDetails = new System.Windows.Forms.Label();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlTeachers = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.dgvLearners = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddLearnerForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
@@ -102,11 +107,6 @@
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.dgvLearners = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLearnerDetails.SuspendLayout();
             this.pnlMessage.SuspendLayout();
             this.pnlButtonSMS_Mail.SuspendLayout();
@@ -119,9 +119,9 @@
             this.pnlLearnerName.SuspendLayout();
             this.pnlLearnerDetails_Top.SuspendLayout();
             this.pnlTeachers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
             this.pnlLearners_Top.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLearnerDetails
@@ -938,6 +938,133 @@
             this.pnlTeachers.Size = new System.Drawing.Size(430, 715);
             this.pnlTeachers.TabIndex = 47;
             // 
+            // dgvLearners
+            // 
+            this.dgvLearners.AllowUserToAddRows = false;
+            this.dgvLearners.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvLearners.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLearners.ColumnHeadersHeight = 40;
+            this.dgvLearners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.InvoiceID,
+            this.FullName,
+            this.CitizenID,
+            this.Created_At});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLearners.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvLearners.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvLearners.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvLearners.Location = new System.Drawing.Point(0, 53);
+            this.dgvLearners.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLearners.Name = "dgvLearners";
+            this.dgvLearners.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLearners.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvLearners.RowHeadersVisible = false;
+            this.dgvLearners.RowHeadersWidth = 30;
+            this.dgvLearners.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLearners.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvLearners.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLearners.RowTemplate.DividerHeight = 2;
+            this.dgvLearners.RowTemplate.Height = 45;
+            this.dgvLearners.Size = new System.Drawing.Size(430, 609);
+            this.dgvLearners.TabIndex = 109;
+            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvLearners.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLearners.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvLearners.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvLearners.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvLearners.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLearners.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvLearners.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLearners.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvLearners.ThemeStyle.ReadOnly = true;
+            this.dgvLearners.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLearners.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLearners.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvLearners.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvLearners.ThemeStyle.RowsStyle.Height = 45;
+            this.dgvLearners.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvLearners.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLearners.SelectionChanged += new System.EventHandler(this.dgvLearners_SelectionChanged);
+            // 
+            // InvoiceID
+            // 
+            this.InvoiceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.InvoiceID.DataPropertyName = "Space";
+            this.InvoiceID.Frozen = true;
+            this.InvoiceID.HeaderText = "";
+            this.InvoiceID.MinimumWidth = 6;
+            this.InvoiceID.Name = "InvoiceID";
+            this.InvoiceID.ReadOnly = true;
+            this.InvoiceID.Width = 18;
+            // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FullName.DataPropertyName = "FullName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FullName.FillWeight = 53.63456F;
+            this.FullName.Frozen = true;
+            this.FullName.HeaderText = "Name";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            this.FullName.Width = 180;
+            // 
+            // CitizenID
+            // 
+            this.CitizenID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CitizenID.DataPropertyName = "CitizenID";
+            this.CitizenID.Frozen = true;
+            this.CitizenID.HeaderText = "Citizen ID";
+            this.CitizenID.MinimumWidth = 6;
+            this.CitizenID.Name = "CitizenID";
+            this.CitizenID.ReadOnly = true;
+            this.CitizenID.Width = 110;
+            // 
+            // Created_At
+            // 
+            this.Created_At.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Created_At.DataPropertyName = "Created_At";
+            this.Created_At.FillWeight = 70F;
+            this.Created_At.Frozen = true;
+            this.Created_At.HeaderText = "Year";
+            this.Created_At.MinimumWidth = 6;
+            this.Created_At.Name = "Created_At";
+            this.Created_At.ReadOnly = true;
+            this.Created_At.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Created_At.Width = 90;
+            // 
             // pnlButtonAdd
             // 
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddLearnerForm);
@@ -967,6 +1094,7 @@
             this.btnOpenAddLearnerForm.Size = new System.Drawing.Size(150, 35);
             this.btnOpenAddLearnerForm.TabIndex = 17;
             this.btnOpenAddLearnerForm.Text = "Add";
+            this.btnOpenAddLearnerForm.Click += new System.EventHandler(this.btnOpenAddLearnerForm_Click);
             // 
             // pnlSpace15
             // 
@@ -1116,133 +1244,6 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
-            // dgvLearners
-            // 
-            this.dgvLearners.AllowUserToAddRows = false;
-            this.dgvLearners.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvLearners.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLearners.ColumnHeadersHeight = 40;
-            this.dgvLearners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.InvoiceID,
-            this.FullName,
-            this.CitizenID,
-            this.Created_At});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLearners.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvLearners.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvLearners.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLearners.Location = new System.Drawing.Point(0, 53);
-            this.dgvLearners.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvLearners.Name = "dgvLearners";
-            this.dgvLearners.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLearners.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvLearners.RowHeadersVisible = false;
-            this.dgvLearners.RowHeadersWidth = 30;
-            this.dgvLearners.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvLearners.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvLearners.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvLearners.RowTemplate.DividerHeight = 2;
-            this.dgvLearners.RowTemplate.Height = 45;
-            this.dgvLearners.Size = new System.Drawing.Size(430, 609);
-            this.dgvLearners.TabIndex = 109;
-            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvLearners.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvLearners.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLearners.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLearners.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvLearners.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvLearners.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvLearners.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
-            this.dgvLearners.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvLearners.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvLearners.ThemeStyle.ReadOnly = true;
-            this.dgvLearners.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLearners.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLearners.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvLearners.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvLearners.ThemeStyle.RowsStyle.Height = 45;
-            this.dgvLearners.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvLearners.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvLearners.SelectionChanged += new System.EventHandler(this.dgvLearners_SelectionChanged);
-            // 
-            // InvoiceID
-            // 
-            this.InvoiceID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.InvoiceID.DataPropertyName = "Space";
-            this.InvoiceID.Frozen = true;
-            this.InvoiceID.HeaderText = "";
-            this.InvoiceID.MinimumWidth = 6;
-            this.InvoiceID.Name = "InvoiceID";
-            this.InvoiceID.ReadOnly = true;
-            this.InvoiceID.Width = 18;
-            // 
-            // FullName
-            // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FullName.DataPropertyName = "FullName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.FullName.FillWeight = 53.63456F;
-            this.FullName.Frozen = true;
-            this.FullName.HeaderText = "Name";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            this.FullName.Width = 180;
-            // 
-            // CitizenID
-            // 
-            this.CitizenID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CitizenID.DataPropertyName = "CitizenID";
-            this.CitizenID.Frozen = true;
-            this.CitizenID.HeaderText = "Citizen ID";
-            this.CitizenID.MinimumWidth = 6;
-            this.CitizenID.Name = "CitizenID";
-            this.CitizenID.ReadOnly = true;
-            this.CitizenID.Width = 110;
-            // 
-            // Created_At
-            // 
-            this.Created_At.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Created_At.DataPropertyName = "Created_At";
-            this.Created_At.FillWeight = 70F;
-            this.Created_At.Frozen = true;
-            this.Created_At.HeaderText = "Year";
-            this.Created_At.MinimumWidth = 6;
-            this.Created_At.Name = "Created_At";
-            this.Created_At.ReadOnly = true;
-            this.Created_At.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Created_At.Width = 90;
-            // 
             // LearnersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1270,9 +1271,9 @@
             this.pnlLearnerName.ResumeLayout(false);
             this.pnlLearnerDetails_Top.ResumeLayout(false);
             this.pnlTeachers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).EndInit();
             this.pnlButtonAdd.ResumeLayout(false);
             this.pnlLearners_Top.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).EndInit();
             this.ResumeLayout(false);
 
         }
