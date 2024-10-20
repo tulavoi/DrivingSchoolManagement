@@ -1,6 +1,6 @@
 ﻿using BLL;
 using DAL;
-using GUI.Services;
+using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
@@ -156,7 +156,7 @@ namespace GUI
         {
             // Kiểm tra có dòng được chọn hay k
             // Nếu tag của selectedRow là Invoice thì gán data vào controls
-            if (!this.HasSelectedRow()) return;
+            //if (!this.HasSelectedRow()) return;
 
             var selectedRow = dgvInvoices.SelectedRows[0];
 

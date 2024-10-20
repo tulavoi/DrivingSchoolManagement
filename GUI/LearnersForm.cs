@@ -1,6 +1,6 @@
 ﻿using BLL;
 using DAL;
-using GUI.Services;
+using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;

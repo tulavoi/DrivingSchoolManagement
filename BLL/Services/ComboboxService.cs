@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GUI.Services
+namespace BLL.Services
 {
     public class ComboboxService
     {

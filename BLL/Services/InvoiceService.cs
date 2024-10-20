@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI.Services
+namespace BLL.Services
 {
     public class InvoiceService
     {

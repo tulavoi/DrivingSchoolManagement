@@ -1,5 +1,5 @@
 ﻿using DAL;
-using GUI.Services;
+using BLL.Services;
 using Guna.UI2.WinForms.Suite;
 using System;
 using System.Windows.Forms;

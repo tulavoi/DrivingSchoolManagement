@@ -59,10 +59,13 @@
     <Compile Include="CourseBLL.cs" />
     <Compile Include="DataAccessBLL.cs" />
     <Compile Include="InvoiceBLL.cs" />
-    <Compile Include="LearnerBLL_Vu.cs" />
+    <Compile Include="LearnerBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />
+    <Compile Include="Services\ComboboxService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\LearnerService.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
