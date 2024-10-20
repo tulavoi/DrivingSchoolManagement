@@ -1,8 +1,10 @@
 ﻿using BLL;
+using BLL.Services.SendEmail;
 using DAL;
 using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -13,7 +15,6 @@ namespace GUI
         private bool isEditing = false;
 
         private static InvoicesForm instance;
-
         public static InvoicesForm Instance
         {
             get
@@ -22,6 +23,7 @@ namespace GUI
                 return instance;
             }
         }
+
         #endregion
 
         public InvoicesForm()
@@ -64,13 +66,10 @@ namespace GUI
             if (this.ConfirmAction($"Are you sure to edit invoice '{lblInvoiceCode.Text}'?"))
             {
                 Invoice invoice = this.GetInvoice();
-                if (InvoiceService.EditInvoice(invoice))
-                {
-                    FormHelper.ShowNotify("Invoice edited successfully.");
-                    this.LoadAllInvoice();
-                }
-                else
-                    FormHelper.ShowError("Failed to edit invoice.");
+                var result = InvoiceService.EditInvoice(invoice);
+                FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
+
+                this.ToogleEditMode();
             }
             else return;
         }
@@ -115,7 +114,7 @@ namespace GUI
 
         private void btnOpenAddInvoiceForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new CreateInvoiceForm());
+            FormHelper.OpenFormDialog(new CreateInvoiceForm());
             this.LoadAllInvoice(); // Sau khi đóng CreateInvoiceForm sẽ hiển thị lại dữ liệu trong dgv
         }
 
@@ -154,18 +153,25 @@ namespace GUI
 
         private void UpdateControlsWithSelectedRowData()
         {
-            // Kiểm tra có dòng được chọn hay k
-            // Nếu tag của selectedRow là Invoice thì gán data vào controls
-            //if (!this.HasSelectedRow()) return;
+            var invoice = this.GetSelectedInvoice();
+            this.AssignDataToControls(invoice);
+        }
+
+        private Invoice GetSelectedInvoice()
+        {
+            if (!this.HasSelectedRow()) return null;
 
             var selectedRow = dgvInvoices.SelectedRows[0];
 
-            if (selectedRow.Tag is Invoice selectedInvoice)
-                this.AssignDataToControls(selectedInvoice);
+            if (selectedRow.Tag is Invoice selectedInvoice) return selectedInvoice;
+
+            return null;
         }
 
         private void AssignDataToControls(Invoice selectedInvoice)
         {
+            if (selectedInvoice == null) return;
+
             // Gán các trường dữ liệu vào controls
             string invoiceCode = selectedInvoice.InvoiceCode;
 
@@ -176,6 +182,58 @@ namespace GUI
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
             cboStatus.Text = selectedInvoice.Status.ToString();
+        }
+
+        private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!this.HasSelectedRow()) return;
+
+            if (string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+
+            if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
+            {
+                var result = InvoiceService.DeleteInvoice(lblInvoiceCode.Text);
+                FormHelper.ShowActionResult(result, "Invoice deleted successfully.", "Failed to delete invoice.");
+                this.LoadAllInvoice();
+            }
+        }
+
+        private bool HasSelectedRow()
+        {
+            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
+            return dgvInvoices.SelectedRows.Count > 0;
+        }
+
+        private async void btnSendInvoiceByMail_Click(object sender, EventArgs e)
+        {
+            var mailSetting = FormHelper.GetMailSettings();
+
+            if (!FormHelper.IsMailSettingValid(mailSetting))
+            {
+                FormHelper.ShowError("MailSetting invalid.");
+                return;
+            }
+
+            var invoice = this.GetSelectedInvoice(); // Lấy ra invoice đang được chọn
+            var mailContent = this.CreateMailContent(invoice); // Tạo nội dung email
+            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
+            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+        }
+
+        private MailContent CreateMailContent(Invoice invoice)
+        {
+            return new MailContent
+            {
+                To = invoice.Schedule.Learner.Email,
+                Subject = $"Course Invoice: {lblInvoiceCode.Text}",
+                Body = $"<h1>{txtMessage.Text}</h1>"
+            };
         }
     }
 }

@@ -180,6 +180,7 @@ namespace GUI
         {
             // Check if any row is selected in the DataGridView
             return dgvLearners.SelectedRows.Count > 0;
+            FormHelper.OpenFormDialog(new AddLearnerForm());
         }
     }
 }

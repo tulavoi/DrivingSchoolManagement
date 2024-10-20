@@ -25,7 +25,7 @@ namespace GUI
 
 		private void btnOpenAddPaymentForm_Click(object sender, EventArgs e)
 		{
-			FormHelper.OpenPopupForm(new AddPaymentForm());
+			FormHelper.OpenFormDialog(new AddPaymentForm());
 		}
 
 		private void btnEdit_Click(object sender, EventArgs e)

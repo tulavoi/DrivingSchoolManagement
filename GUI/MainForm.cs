@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Services.SendEmail;
 using Guna.UI2.WinForms;
 
 namespace GUI

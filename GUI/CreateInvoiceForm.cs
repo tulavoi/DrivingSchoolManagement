@@ -88,7 +88,7 @@ namespace GUI
 
         private string GetInvoiceCode()
         {
-            return "INV-" + DateTime.Now.ToString("HHmmddMMyy");
+            return "INV-" + DateTime.Now.ToString("HHmmssddMMyy");
         }
 
         private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
