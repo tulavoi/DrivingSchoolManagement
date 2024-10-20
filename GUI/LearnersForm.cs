@@ -43,7 +43,7 @@ namespace GUI
 
         private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new AddLearnerForm());
+            FormHelper.OpenFormDialog(new AddLearnerForm());
         }
     }
 }

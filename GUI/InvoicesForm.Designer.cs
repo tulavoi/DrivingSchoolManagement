@@ -55,7 +55,6 @@
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlDetails = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlMessage = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnSendInvoiceByMail = new Guna.UI2.WinForms.Guna2Button();
             this.txtMessage = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlSpace19 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace18 = new Guna.UI2.WinForms.Guna2Panel();
@@ -100,6 +99,7 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.btnSendInvoiceByMail = new Guna.UI2.WinForms.Guna2Button();
             this.pnlInvoices.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
@@ -469,27 +469,6 @@
             this.pnlMessage.Name = "pnlMessage";
             this.pnlMessage.Size = new System.Drawing.Size(492, 242);
             this.pnlMessage.TabIndex = 111;
-            // 
-            // btnSendInvoiceByMail
-            // 
-            this.btnSendInvoiceByMail.BorderRadius = 5;
-            this.btnSendInvoiceByMail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSendInvoiceByMail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSendInvoiceByMail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSendInvoiceByMail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSendInvoiceByMail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSendInvoiceByMail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSendInvoiceByMail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            this.btnSendInvoiceByMail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendInvoiceByMail.ForeColor = System.Drawing.Color.White;
-            this.btnSendInvoiceByMail.Image = ((System.Drawing.Image)(resources.GetObject("btnSendInvoiceByMail.Image")));
-            this.btnSendInvoiceByMail.Location = new System.Drawing.Point(17, 206);
-            this.btnSendInvoiceByMail.Name = "btnSendInvoiceByMail";
-            this.btnSendInvoiceByMail.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSendInvoiceByMail.Size = new System.Drawing.Size(458, 36);
-            this.btnSendInvoiceByMail.TabIndex = 107;
-            this.btnSendInvoiceByMail.Text = "Send Invoice";
-            this.btnSendInvoiceByMail.Click += new System.EventHandler(this.btnSendInvoiceByMail_Click);
             // 
             // txtMessage
             // 
@@ -1142,6 +1121,27 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // btnSendInvoiceByMail
+            // 
+            this.btnSendInvoiceByMail.BorderRadius = 5;
+            this.btnSendInvoiceByMail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSendInvoiceByMail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSendInvoiceByMail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSendInvoiceByMail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSendInvoiceByMail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSendInvoiceByMail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSendInvoiceByMail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            this.btnSendInvoiceByMail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendInvoiceByMail.ForeColor = System.Drawing.Color.White;
+            this.btnSendInvoiceByMail.Image = ((System.Drawing.Image)(resources.GetObject("btnSendInvoiceByMail.Image")));
+            this.btnSendInvoiceByMail.Location = new System.Drawing.Point(17, 206);
+            this.btnSendInvoiceByMail.Name = "btnSendInvoiceByMail";
+            this.btnSendInvoiceByMail.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSendInvoiceByMail.Size = new System.Drawing.Size(458, 36);
+            this.btnSendInvoiceByMail.TabIndex = 109;
+            this.btnSendInvoiceByMail.Text = "Send Invoice";
+            this.btnSendInvoiceByMail.Click += new System.EventHandler(this.btnSendInvoiceByMail_Click);
+            // 
             // InvoicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1232,7 +1232,6 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace17;
 		private System.Windows.Forms.Label lblMessage;
-		private Guna.UI2.WinForms.Guna2Button btnSendInvoiceByMail;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceID;
@@ -1242,5 +1241,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
         private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
         private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+        private Guna.UI2.WinForms.Guna2Button btnSendInvoiceByMail;
     }
 }

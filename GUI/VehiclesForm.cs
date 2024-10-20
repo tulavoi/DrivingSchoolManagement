@@ -43,7 +43,7 @@ namespace GUI
 
 		private void btnOpenAddVehicleForm_Click(object sender, EventArgs e)
 		{
-			FormHelper.OpenPopupForm(new AddVehicleForm());
+			FormHelper.OpenFormDialog(new AddVehicleForm());
 		}
 
 		private void chkTruck_CheckedChanged(object sender, EventArgs e)

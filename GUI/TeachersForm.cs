@@ -31,7 +31,7 @@ namespace GUI
 
 		private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new AddTeacherForm());
+            FormHelper.OpenFormDialog(new AddTeacherForm());
         }
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)

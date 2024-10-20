@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BLL.Services.SendEmail;
+﻿using BLL.Services.SendEmail;
 using MailKit.Security;
-using Microsoft.Extensions.Configuration;
 using MimeKit;
+using System;
+using System.Threading.Tasks;
 
 namespace GUI.Services.SendEmail
 {
@@ -21,7 +15,7 @@ namespace GUI.Services.SendEmail
             _mailSettings = mailSettings;
         }
 
-        public static bool SendMail(MailContent mailContent)
+        public async Task<bool> SendMail(MailContent mailContent)
         {
             var email = new MimeMessage();
             var mailBoxAddress = new MailboxAddress(_mailSettings.DisplayName, _mailSettings.Mail);
@@ -41,9 +35,9 @@ namespace GUI.Services.SendEmail
             {
                 try
                 {
-                    smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
-                    smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
-                    smtp.Send(email);
+                    await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
+                    await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
+                    await smtp.SendAsync(email);
                 }
                 catch (Exception ex)
                 {

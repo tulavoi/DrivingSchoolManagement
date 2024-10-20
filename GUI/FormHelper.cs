@@ -43,7 +43,7 @@ namespace GUI
                 control.Enabled = b;
         }
 
-        public static void OpenPopupForm(Form form)
+        public static void OpenFormDialog(Form form)
         {
             form.ShowDialog();
         }
@@ -113,7 +113,6 @@ namespace GUI
             else
                 FormHelper.ShowError(errorMessage);
         }
-
 
         public static MailSettings GetMailSettings()
         {

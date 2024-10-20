@@ -115,7 +115,7 @@ namespace GUI
 
         private void btnOpenAddInvoiceForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new CreateInvoiceForm());
+            FormHelper.OpenFormDialog(new CreateInvoiceForm());
             this.LoadAllInvoice(); // Sau khi đóng CreateInvoiceForm sẽ hiển thị lại dữ liệu trong dgv
         }
 
@@ -194,12 +194,13 @@ namespace GUI
         {
             if (!this.HasSelectedRow()) return;
 
-            if (!string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+            if (string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
 
             if (this.ConfirmAction($"Are you sure to delete invoice '{lblInvoiceCode.Text}'?"))
             {
                 var result = InvoiceService.DeleteInvoice(lblInvoiceCode.Text);
                 FormHelper.ShowActionResult(result, "Invoice deleted successfully.", "Failed to delete invoice.");
+                this.LoadAllInvoice();
             }
         }
 
@@ -209,7 +210,7 @@ namespace GUI
             return dgvInvoices.SelectedRows.Count > 0;
         }
 
-        private void btnSendInvoiceByMail_Click(object sender, EventArgs e)
+        private async void btnSendInvoiceByMail_Click(object sender, EventArgs e)
         {
             var mailSetting = FormHelper.GetMailSettings();
 
@@ -222,9 +223,7 @@ namespace GUI
             var invoice = this.GetSelectedInvoice(); // Lấy ra invoice đang được chọn
             var mailContent = this.CreateMailContent(invoice); // Tạo nội dung email
             var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
-
-            var result = SendMailService.SendMail(mailContent); // Thực hiện việc gửi email
-
+            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
             FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
         }
 
