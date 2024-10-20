@@ -16,7 +16,6 @@ namespace GUI
         private bool isEditing = false;
 
         private static InvoicesForm instance;
-
         public static InvoicesForm Instance
         {
             get
@@ -25,6 +24,7 @@ namespace GUI
                 return instance;
             }
         }
+
         #endregion
 
         public InvoicesForm()
@@ -211,7 +211,6 @@ namespace GUI
 
         private void btnSendInvoiceByMail_Click(object sender, EventArgs e)
         {
-
             var mailSetting = FormHelper.GetMailSettings();
 
             if (!FormHelper.IsMailSettingValid(mailSetting))

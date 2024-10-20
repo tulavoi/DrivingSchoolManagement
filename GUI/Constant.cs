@@ -20,18 +20,12 @@ namespace GUI
 		public static Color OffWhite = Color.FromArgb(247, 247, 247);
 
 		public static string EDIT_MODE = "Edit";
-        public static string SAVE_MODE = "Save";
+		public static string SAVE_MODE = "Save";
 
 		public static decimal Tuition_B = 11000000;
 		public static decimal Tuition_C = 12000000;
 		public static decimal Tuition_D = 15000000;
 		public static decimal Tuition_E = 20000000;
 		public static string DefaultInvoiceStatus = "Pending";
-
-		public static string Email = "mainguyenhoangvu2212@gmail.com";
-		public static string DisplayName = "Driving school";
-		public static string Password = "qverfgucqidguybj";
-        public static string Host = "smtp.gmail.com";
-		public static int Port = 587;
-    }
+	}
 }

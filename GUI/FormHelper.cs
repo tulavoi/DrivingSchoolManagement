@@ -1,7 +1,9 @@
 ﻿using GUI.Services.SendEmail;
 using Guna.UI2.WinForms;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -112,16 +114,20 @@ namespace GUI
                 FormHelper.ShowError(errorMessage);
         }
 
+
         public static MailSettings GetMailSettings()
         {
-            return new MailSettings
-            {
-                Mail = Constant.Email,
-                DisplayName = Constant.DisplayName,
-                Password = Constant.Password,
-                Host = Constant.Host,
-                Port = Constant.Port
-            };
+            var builder = new ConfigurationBuilder()
+                           .SetBasePath(Directory.GetCurrentDirectory())
+                           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            IConfiguration configuration = builder.Build();
+
+            var mailSettings = configuration.GetSection("MailSettings").Get<MailSettings>();
+
+            if (mailSettings == null) return null;
+
+            return mailSettings;
         }
 
         public static bool IsMailSettingValid(MailSettings mailSetting)
