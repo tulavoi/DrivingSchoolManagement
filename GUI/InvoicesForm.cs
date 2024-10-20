@@ -1,8 +1,7 @@
 ﻿using BLL;
 using BLL.Services.SendEmail;
 using DAL;
-using GUI.Services;
-using GUI.Services.SendEmail;
+using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Threading.Tasks;

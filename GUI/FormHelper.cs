@@ -1,4 +1,4 @@
-﻿using GUI.Services.SendEmail;
+﻿using BLL.Services.SendEmail;
 using Guna.UI2.WinForms;
 using Microsoft.Extensions.Configuration;
 using System;
