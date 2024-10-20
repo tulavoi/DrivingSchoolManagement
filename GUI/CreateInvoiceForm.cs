@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using Guna.UI2.WinForms;
-using GUI.Services;
+using BLL.Services;
 
 namespace GUI
 {

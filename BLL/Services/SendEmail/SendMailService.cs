@@ -4,7 +4,7 @@ using MimeKit;
 using System;
 using System.Threading.Tasks;
 
-namespace GUI.Services.SendEmail
+namespace BLL.Services.SendEmail
 {
     public class SendMailService
     {
