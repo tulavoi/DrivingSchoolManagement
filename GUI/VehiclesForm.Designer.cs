@@ -897,7 +897,7 @@
             this.txtSeats.BackColor = System.Drawing.Color.White;
             this.txtSeats.BorderRadius = 5;
             this.txtSeats.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSeats.DefaultText = "4";
+            this.txtSeats.DefaultText = "";
             this.txtSeats.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -962,7 +962,7 @@
             this.txtWeight.BackColor = System.Drawing.Color.White;
             this.txtWeight.BorderRadius = 5;
             this.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWeight.DefaultText = "1200";
+            this.txtWeight.DefaultText = "";
             this.txtWeight.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -1043,7 +1043,6 @@
             // chkPassengerCar
             // 
             this.chkPassengerCar.BackColor = System.Drawing.Color.White;
-            this.chkPassengerCar.Checked = true;
             this.chkPassengerCar.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
             this.chkPassengerCar.CheckedState.BorderRadius = 2;
             this.chkPassengerCar.CheckedState.BorderThickness = 0;
@@ -1178,7 +1177,7 @@
             this.txtCarNo.BackColor = System.Drawing.Color.White;
             this.txtCarNo.BorderRadius = 5;
             this.txtCarNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCarNo.DefaultText = "61H4234";
+            this.txtCarNo.DefaultText = "";
             this.txtCarNo.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -1237,7 +1236,7 @@
             this.txtCarName.BackColor = System.Drawing.Color.White;
             this.txtCarName.BorderRadius = 5;
             this.txtCarName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCarName.DefaultText = "Toyota Supra";
+            this.txtCarName.DefaultText = "";
             this.txtCarName.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtCarName.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtCarName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
