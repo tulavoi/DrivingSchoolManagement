@@ -19,5 +19,20 @@ namespace BLL.Services
         {
             CourseBLL.Instance.AssignCoursesToCombobox(cbo);
         }
+
+        public static void AssignTeachersToCombobox(Guna2ComboBox cbo)
+        {
+            TeacherBLL.Instance.AssignTeachersToCombobox(cbo);
+        }
+        
+        public static void AssignSessionsToCombobox(Guna2ComboBox cbo)
+        {
+            SessionBLL.Instance.AssignSessionsToCombobox(cbo);
+        }
+        
+        public static void AssignVehiclesToCombobox(Guna2ComboBox cbo)
+        {
+            VehicleBLL.Instance.AssignVehiclesToCombobox(cbo);
+        }
     }
 }

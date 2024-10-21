@@ -1024,14 +1024,9 @@
             this.cboTeachers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboTeachers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboTeachers.ItemHeight = 30;
-            this.cboTeachers.Items.AddRange(new object[] {
-            "Nguyen Van A",
-            "Tran Van B",
-            "Le Van C"});
             this.cboTeachers.Location = new System.Drawing.Point(94, 0);
             this.cboTeachers.Name = "cboTeachers";
             this.cboTeachers.Size = new System.Drawing.Size(225, 36);
-            this.cboTeachers.StartIndex = 0;
             this.cboTeachers.TabIndex = 10;
             // 
             // label1
@@ -1107,14 +1102,9 @@
             this.cboLearners.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboLearners.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboLearners.ItemHeight = 30;
-            this.cboLearners.Items.AddRange(new object[] {
-            "Mai Nguyen Hoang Vu",
-            "Thanh Cong",
-            "Xuan Duoc"});
             this.cboLearners.Location = new System.Drawing.Point(94, 0);
             this.cboLearners.Name = "cboLearners";
             this.cboLearners.Size = new System.Drawing.Size(225, 36);
-            this.cboLearners.StartIndex = 0;
             this.cboLearners.TabIndex = 7;
             // 
             // lblLearner
@@ -1171,15 +1161,9 @@
             this.cboSessions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboSessions.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboSessions.ItemHeight = 30;
-            this.cboSessions.Items.AddRange(new object[] {
-            "7H30 - 9H30",
-            "9H30 - 11H30",
-            "13H - 15H",
-            "15H - 17H"});
             this.cboSessions.Location = new System.Drawing.Point(330, 0);
             this.cboSessions.Name = "cboSessions";
             this.cboSessions.Size = new System.Drawing.Size(150, 36);
-            this.cboSessions.StartIndex = 0;
             this.cboSessions.TabIndex = 8;
             // 
             // lblSession
@@ -1270,14 +1254,9 @@
             this.cboVehicles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboVehicles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboVehicles.ItemHeight = 30;
-            this.cboVehicles.Items.AddRange(new object[] {
-            "Toyota Supra",
-            "Huyndai",
-            "Bus 1"});
             this.cboVehicles.Location = new System.Drawing.Point(330, 0);
             this.cboVehicles.Name = "cboVehicles";
             this.cboVehicles.Size = new System.Drawing.Size(150, 36);
-            this.cboVehicles.StartIndex = 0;
             this.cboVehicles.TabIndex = 8;
             // 
             // lblVehicles
@@ -1311,15 +1290,9 @@
             this.cboCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboCourses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboCourses.ItemHeight = 30;
-            this.cboCourses.Items.AddRange(new object[] {
-            "B-12312321",
-            "C-12312313",
-            "D-34234234",
-            "E-12341231"});
             this.cboCourses.Location = new System.Drawing.Point(94, 0);
             this.cboCourses.Name = "cboCourses";
             this.cboCourses.Size = new System.Drawing.Size(160, 36);
-            this.cboCourses.StartIndex = 0;
             this.cboCourses.TabIndex = 2;
             // 
             // lblCourses

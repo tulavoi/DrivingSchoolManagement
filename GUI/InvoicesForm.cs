@@ -34,11 +34,11 @@ namespace GUI
 
         public void InvoicesForm_Load(object sender, EventArgs e)
         {
-            this.LoadComboxes();
+            this.LoadComboboxes();
             this.LoadAllInvoice();
         }
 
-        private void LoadComboxes()
+        private void LoadComboboxes()
         {
             // Phải load data của Learners, Courses vào combobox trước,
             // nếu không thì sẽ k gán được LearnerName, CourseName từ dgv vào cbo
