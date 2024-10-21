@@ -83,7 +83,7 @@ namespace GUI
 
         private void ToggleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId);
         }
 
         private bool InSaveMode()
@@ -115,7 +115,7 @@ namespace GUI
 
         private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new AddLearnerForm());
+            FormHelper.OpenFormDialog(new AddLearnerForm());
             this.LoadAllLearners(); // Reload the learner data after the add form is closed
         }
 
@@ -180,7 +180,6 @@ namespace GUI
         {
             // Check if any row is selected in the DataGridView
             return dgvLearners.SelectedRows.Count > 0;
-            FormHelper.OpenFormDialog(new AddLearnerForm());
         }
     }
 }
