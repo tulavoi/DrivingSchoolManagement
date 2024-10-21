@@ -135,5 +135,11 @@ namespace GUI
                    !string.IsNullOrEmpty(mailSetting.Mail) &&
                    !string.IsNullOrEmpty(mailSetting.Password);
         }
+
+        public static void SetDateTimePickerMaxValue(params Guna2DateTimePicker[] dtps)
+        {
+            foreach (var dtp in dtps)
+                dtp.MaxDate = DateTime.Now;
+        }
     }
 }

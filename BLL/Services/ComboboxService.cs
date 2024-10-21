@@ -34,5 +34,10 @@ namespace BLL.Services
         {
             VehicleBLL.Instance.AssignVehiclesToCombobox(cbo);
         }
+
+        public static void AssignLicensesToCombobox(Guna2ComboBox cbo)
+        {
+            LicenseBLL.Instance.AssignLicensesToCombobox(cbo);
+        }
     }
 }

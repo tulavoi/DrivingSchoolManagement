@@ -39,5 +39,36 @@ namespace BLL
             cbo.ValueMember = "TeacherID";
             cbo.DisplayMember = "FullName";
         }
+
+        public void LoadAllTeachers(Guna2DataGridView dgv)
+        {
+            List<Teacher> teachers = TeacherDAL.Instance.GetAllTeachers();
+            this.AddTeachersToDataGridView(dgv, teachers);
+        }
+
+        public void SearchTeachers(Guna2DataGridView dgv, string keyword)
+        {
+            List<Teacher> teachers = TeacherDAL.Instance.SearchTeachers(keyword);
+            this.AddTeachersToDataGridView(dgv, teachers);
+        }
+
+        private void AddTeachersToDataGridView(Guna2DataGridView dgv, List<Teacher> teachers)
+        {
+            dgv.Rows.Clear();
+            foreach (var teacher in teachers)
+            {
+                int rowIndex = dgv.Rows.Add();
+
+                if (rowIndex != -1 && rowIndex < dgv.Rows.Count)
+                {
+                    dgv.Rows[rowIndex].Tag = teacher;
+
+                    dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
+                    dgv.Rows[rowIndex].Cells["FullName"].Value = teacher.FullName;
+                    dgv.Rows[rowIndex].Cells["CitizenID"].Value = teacher.CitizenID;
+                    dgv.Rows[rowIndex].Cells["EmploymentDate"].Value = teacher.EmploymentDate;
+                }
+            }
+        }
     }
 }

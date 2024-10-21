@@ -36,6 +36,8 @@ namespace GUI
         {
             this.LoadComboboxes();
             this.LoadAllInvoice();
+
+            FormHelper.SetDateTimePickerMaxValue(dtpInvoiceDate);
         }
 
         private void LoadComboboxes()
