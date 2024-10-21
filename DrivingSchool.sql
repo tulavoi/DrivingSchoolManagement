@@ -1,6 +1,4 @@
-﻿
-
-GO
+﻿GO
 CREATE DATABASE DrivingSchool
 GO
 USE DrivingSchool
@@ -66,7 +64,7 @@ go
 
 create TABLE Courses (
     CourseID INT PRIMARY KEY IDENTITY(1001,1),
-    CourseName NVARCHAR(100),
+    CourseName NVARCHAR(100) unique,
 	LicenseID INT,
     Fee DECIMAL(18, 2),
     DurationInHours INT,
@@ -97,9 +95,10 @@ create table [Sessions](
 
 CREATE TABLE Invoices (
     InvoiceID int primary key identity(1001, 1),
-    InvoiceCode nvarchar(100), -- VD: INV-{InvoiceDate}
+    InvoiceCode nvarchar(100) unique, -- VD: INV-{InvoiceDate}
 	ScheduleID int,
     TotalAmount DECIMAL(18, 2),
+	Notes nvarchar(255),
     [Status] NVARCHAR(50) CHECK ([Status] IN ('Pending', 'Paid')),
 	Created_At DATETIME,
     Updated_At DATETIME
@@ -158,61 +157,62 @@ go
 alter table Payments
 add constraint FK_Payments_Invoice foreign key (InvoiceID) references Invoices(InvoiceID)
 
---INSERT INTO Licenses (LicenseName)
---VALUES ('B'), ('C'), ('D'), ('E');
+INSERT INTO Licenses (LicenseName)
+VALUES ('B'), ('C'), ('D'), ('E');
 
---INSERT INTO Learners (FullName, CurrentLicenseID ,DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, [Status], Created_At, Updated_At)
---VALUES 
---('Mai Nguyen Hoang Vu', 1001, '1996-07-22', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Active', GETDATE(), GETDATE()),
---('Le Nguyen Xuan Duoc', 1002, '1995-05-15', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345678123', 'Active', GETDATE(), GETDATE()),
---('Truong Anh Thanh Cong', 1001, '1998-07-20', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Inactive', GETDATE(), GETDATE());
+INSERT INTO Learners (FullName, CurrentLicenseID ,DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, [Status], Created_At, Updated_At)
+VALUES 
+('Mai Nguyen Hoang Vu', 1001, '1996-07-22', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Active', GETDATE(), GETDATE()),
+('Le Nguyen Xuan Duoc', 1002, '1995-05-15', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345678123', 'Active', GETDATE(), GETDATE()),
+('Truong Anh Thanh Cong', 1001, '1998-07-20', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Inactive', GETDATE(), GETDATE());
 
---INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, Phone, Email, Nationality, [Address], EmploymentDate, LicenseID, [Status], GraduatedDate, Created_At, Updated_At)
---VALUES 
---('Le Van C', 123456789, '1980-11-25', 'Male', '0909123456', 'vanc@gmail.com', 'Vietnam', '789 DEF Street', '2010-06-15', 1001, 'Active', '2009-06-01', GETDATE(), GETDATE()),
---('Pham Thi D', 987654321, '1985-03-30', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '2015-08-20', 1002, 'On Leave', '2014-07-15', GETDATE(), GETDATE());
+INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, Phone, Email, Nationality, [Address], EmploymentDate, LicenseID, [Status], GraduatedDate, Created_At, Updated_At)
+VALUES 
+('Le Van C', 123456789, '1980-11-25', 'Male', '0909123456', 'vanc@gmail.com', 'Vietnam', '789 DEF Street', '2010-06-15', 1001, 'Active', '2009-06-01', GETDATE(), GETDATE()),
+('Pham Thi D', 987654321, '1985-03-30', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '2015-08-20', 1002, 'On Leave', '2014-07-15', GETDATE(), GETDATE());
 
---INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, Created_At, Updated_At)
---VALUES 
----- Xe dành cho bằng B (xe con dưới 9 chỗ)
---('61A-12345', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
---('61A-67890', 'Ford Everest', 0, 1, 0, 2019, null, 7, 'SUV, new condition', GETDATE(), GETDATE()),
----- Xe dành cho bằng C (xe tải)
---('61C-54321', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, 'Truck, needs maintenance', GETDATE(), GETDATE()),
----- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
---('61D-98765', 'Mercedes-Benz Bus', 0, 1, 0, 2017, 8000, 20, 'Passenger bus, good condition', GETDATE(), GETDATE()),
----- Xe dành cho bằng E (xe khách trên 30 chỗ)
---('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, 10000, 40, 'Large bus, good condition', GETDATE(), GETDATE());
+INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, Created_At, Updated_At)
+VALUES 
+-- Xe dành cho bằng B (xe con dưới 9 chỗ)
+('61A-12345', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
+('61A-67890', 'Ford Everest', 0, 1, 0, 2019, null, 7, 'SUV, new condition', GETDATE(), GETDATE()),
+-- Xe dành cho bằng C (xe tải)
+('61C-54321', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, 'Truck, needs maintenance', GETDATE(), GETDATE()),
+-- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
+('61D-98765', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, 'Passenger bus, good condition', GETDATE(), GETDATE()),
+-- Xe dành cho bằng E (xe khách trên 30 chỗ)
+('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, 'Large bus, good condition', GETDATE(), GETDATE());
 
---INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, Created_At, Updated_At)
---VALUES 
---('B-0905131024', 1001, 15000000, 340, GETDATE(), GETDATE()),
---('C-0906131024', 1002, 20000000, 752, GETDATE(), GETDATE()),
---('D-0911131024', 1003, 20000000, 192, GETDATE(), GETDATE()),
---('E-0924131024', 1004, 20000000, 336, GETDATE(), GETDATE());
+INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, Created_At, Updated_At)
+VALUES 
+('B-090532131024', 1001, 15000000, 340, GETDATE(), GETDATE()),
+('C-090654131024', 1002, 20000000, 752, GETDATE(), GETDATE()),
+('D-091122131024', 1003, 20000000, 192, GETDATE(), GETDATE()),
+('E-092433131024', 1004, 20000000, 336, GETDATE(), GETDATE());
 
---INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
---VALUES 
---('7H30-9H30', GETDATE(), GETDATE()),
---('9H30-11H30', GETDATE(), GETDATE()),
---('13H00-15H00', GETDATE(), GETDATE()),
---('15H00-17H00', GETDATE(), GETDATE());
+INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
+VALUES 
+('7H30-9H30', GETDATE(), GETDATE()),
+('9H30-11H30', GETDATE(), GETDATE()),
+('13H00-15H00', GETDATE(), GETDATE()),
+('15H00-17H00', GETDATE(), GETDATE());
 
---INSERT INTO Schedules (LearnerID, TeacherID, VehicleID, CourseID, SessionID, SessionDate, Created_At, Updated_At)
---VALUES (1003, 1002, 1003, 1003, 1003, '2024-10-25', GETDATE(), GETDATE()),
---(1001, 1001, 1001, 1001, 1001, '2024-10-15', GETDATE(), GETDATE()),
---(1002, 1002, 1003, 1002, 1002, '2024-10-20', GETDATE(), GETDATE());
---delete Invoices where InvoiceID = 1009
---INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, [Status], Created_At, Updated_At)
---VALUES 
---('INV-0924131024', 1001, 1500.00, 'Pending', GETDATE(), GETDATE()),
---('INV-0930131024', 1002, 2000.00, 'Paid', GETDATE(), GETDATE());
+INSERT INTO Schedules (LearnerID, TeacherID, VehicleID, CourseID, SessionID, SessionDate, Created_At, Updated_At)
+VALUES
+(1001, 1001, 1001, 1001, 1001, '2024-10-15', GETDATE(), GETDATE()),
+(1002, 1002, 1003, 1002, 1002, '2024-10-20', GETDATE(), GETDATE()),
+(1003, 1002, 1003, 1003, 1003, '2024-10-25', GETDATE(), GETDATE());
 
---INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
---VALUES 
---(1001, '2024-10-12', 7000000, 'Credit Card', GETDATE(), GETDATE()),
---(1002, '2024-10-13', 5000000, 'Cash', GETDATE(), GETDATE());
+INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, [Status], Created_At, Updated_At)
+VALUES 
+('INV-092444131024', 1001, 1500.00, 'Pending', GETDATE(), GETDATE()),
+('INV-093023131024', 1002, 2000.00, 'Paid', GETDATE(), GETDATE());
 
---INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
---VALUES 
---('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE());
+INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
+VALUES 
+(1001, '2024-10-12', 7000000, 'Credit Card', GETDATE(), GETDATE()),
+(1002, '2024-10-13', 5000000, 'Cash', GETDATE(), GETDATE());
+
+INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
+VALUES 
+('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE());

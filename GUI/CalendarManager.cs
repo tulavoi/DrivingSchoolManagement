@@ -74,7 +74,7 @@ namespace GUI
 
 		public void OpenAssignScheduleForm(DateTime date)
 		{
-			FormHelper.OpenPopupForm(new AssignScheduleForm(date));
+			FormHelper.OpenFormDialog(new AssignScheduleForm(date));
 		}
 
 		/* Lấy ngày từ text của button (day) và ghép vào năm và tháng hiện tại (lấy từ _dtpValue) 
