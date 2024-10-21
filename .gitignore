@@ -27,7 +27,10 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+# Ignore all files inside bin/ except appsettings.json in bin/Debug
 [Bb]in/
+!bin/Debug/
+!bin/Debug/appsettings.json
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
