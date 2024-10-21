@@ -115,7 +115,7 @@ namespace GUI
 
         private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
         {
-            FormHelper.OpenPopupForm(new AddLearnerForm());
+            FormHelper.OpenFormDialog(new AddLearnerForm());
             this.LoadAllLearners(); // Reload the learner data after the add form is closed
         }
 

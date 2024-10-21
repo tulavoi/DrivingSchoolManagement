@@ -55,5 +55,16 @@ namespace DAL.Properties {
                 return ((string)(this["DrivingSchoolConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DANOITXD\\SQLEXPRESS;Initial Catalog=DrivingSchool;Integrated Security" +
+            "=True;TrustServerCertificate=True")]
+        public string DrivingSchoolConnectionString3 {
+            get {
+                return ((string)(this["DrivingSchoolConnectionString3"]));
+            }
+        }
     }
 }

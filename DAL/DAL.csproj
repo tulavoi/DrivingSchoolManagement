@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="ScheduleDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
+    <Compile Include="VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
