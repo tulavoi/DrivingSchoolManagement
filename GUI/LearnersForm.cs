@@ -52,7 +52,7 @@ namespace GUI
 
             if (!this.ValidateFields()) return;
 
-            if (this.ConfirmAction($"Are you sure to edit learner '{lblLearnerID.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
             {
                 Learner learner = this.GetLearner();
                 if (LearnerService.EditLearner(learner))
@@ -164,9 +164,9 @@ namespace GUI
         {
             if (!this.HasSelectedRow()) return;
 
-            if (this.ConfirmAction($"Are you sure to delete learner '{lblLearnerID.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
             {
-                if (LearnerService.DeleteLearner(int.Parse(lblLearnerID.Text)))
+                if (LearnerService.DeleteLearner(int.Parse(txtLearnerName.Text)))
                 {
                     FormHelper.ShowNotify("Learner deleted successfully.");
                     this.LoadAllLearners();

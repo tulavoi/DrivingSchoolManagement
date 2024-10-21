@@ -37,6 +37,11 @@
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvVehicles = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManufactureYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddVehicleForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -113,11 +118,6 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CarNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManufactureYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlVehicles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
@@ -210,7 +210,9 @@
             this.dgvVehicles.RowHeadersVisible = false;
             this.dgvVehicles.RowHeadersWidth = 50;
             this.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
             this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVehicles.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dgvVehicles.RowTemplate.DividerHeight = 7;
@@ -239,6 +241,63 @@
             this.dgvVehicles.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvVehicles.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvVehicles.SelectionChanged += new System.EventHandler(this.dgvVehicles_SelectionChanged);
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 20;
+            // 
+            // CarName
+            // 
+            this.CarName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CarName.DataPropertyName = "CarName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CarName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CarName.FillWeight = 53.63456F;
+            this.CarName.Frozen = true;
+            this.CarName.HeaderText = "Car Name";
+            this.CarName.MinimumWidth = 6;
+            this.CarName.Name = "CarName";
+            this.CarName.ReadOnly = true;
+            this.CarName.Width = 110;
+            // 
+            // CarNumber
+            // 
+            this.CarNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CarNumber.DataPropertyName = "CarNumber";
+            this.CarNumber.Frozen = true;
+            this.CarNumber.HeaderText = "Car No.";
+            this.CarNumber.MinimumWidth = 6;
+            this.CarNumber.Name = "CarNumber";
+            this.CarNumber.ReadOnly = true;
+            this.CarNumber.Width = 125;
+            // 
+            // ManufactureYear
+            // 
+            this.ManufactureYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ManufactureYear.DataPropertyName = "ManufactureYear";
+            this.ManufactureYear.Frozen = true;
+            this.ManufactureYear.HeaderText = "M. Year";
+            this.ManufactureYear.MinimumWidth = 6;
+            this.ManufactureYear.Name = "ManufactureYear";
+            this.ManufactureYear.ReadOnly = true;
+            this.ManufactureYear.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.DataPropertyName = "Status";
+            this.Status.Frozen = true;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 125;
             // 
             // pnlButtonAdd
             // 
@@ -1355,63 +1414,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 20;
-            // 
-            // CarName
-            // 
-            this.CarName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CarName.DataPropertyName = "CarName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CarName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CarName.FillWeight = 53.63456F;
-            this.CarName.Frozen = true;
-            this.CarName.HeaderText = "Car Name";
-            this.CarName.MinimumWidth = 6;
-            this.CarName.Name = "CarName";
-            this.CarName.ReadOnly = true;
-            this.CarName.Width = 110;
-            // 
-            // CarNumber
-            // 
-            this.CarNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CarNumber.DataPropertyName = "CarNumber";
-            this.CarNumber.Frozen = true;
-            this.CarNumber.HeaderText = "Car No.";
-            this.CarNumber.MinimumWidth = 6;
-            this.CarNumber.Name = "CarNumber";
-            this.CarNumber.ReadOnly = true;
-            this.CarNumber.Width = 125;
-            // 
-            // ManufactureYear
-            // 
-            this.ManufactureYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ManufactureYear.DataPropertyName = "ManufactureYear";
-            this.ManufactureYear.Frozen = true;
-            this.ManufactureYear.HeaderText = "M. Year";
-            this.ManufactureYear.MinimumWidth = 6;
-            this.ManufactureYear.Name = "ManufactureYear";
-            this.ManufactureYear.ReadOnly = true;
-            this.ManufactureYear.Width = 125;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Status.DataPropertyName = "Status";
-            this.Status.Frozen = true;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 125;
             // 
             // VehiclesForm
             // 

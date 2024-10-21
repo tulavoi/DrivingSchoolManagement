@@ -55,7 +55,7 @@ namespace GUI
             if (!this.ValidateFields()) return;
 
             // Xác nhận hành động sửa xe
-            if (this.ConfirmAction($"Bạn có chắc chắn muốn sửa xe '{lblVehicleD.Text}'?"))
+            if (this.ConfirmAction($"Bạn có chắc chắn muốn sửa xe '{txtCarName.Text} {txtCarNo.Text}'?"))
             {
                 Vehicle vehicle = this.GetVehicle(); // Lấy thông tin xe
                 if (VehicleService.EditVehicle(vehicle)) // Gọi dịch vụ để sửa xe
@@ -65,8 +65,10 @@ namespace GUI
                 }
                 else
                     FormHelper.ShowError("Không thể sửa xe."); // Thông báo lỗi nếu không thành công
+
             }
             else return; // Dừng lại nếu không xác nhận
+            this.ToggleEditMode();
         }
 
 
@@ -85,12 +87,12 @@ namespace GUI
             }
             return true;
         }
-
         private void ToggleEditMode()
         {
             // Bật hoặc tắt chế độ chỉnh sửa
             FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit_BasicDetail, txtCarName, txtCarNo, txtSeats, txtWeight, dtpManuYear, cboStatus);
         }
+        
 
         private bool InSaveMode()
         {
@@ -180,7 +182,7 @@ namespace GUI
             // Xác nhận và xóa xe được chọn
             if (!this.HasSelectedRow()) return;
 
-            if (this.ConfirmAction($"Bạn có chắc chắn muốn xóa xe '{lblVehicleD.Text}'?"))
+            if (this.ConfirmAction($"Bạn có chắc chắn muốn xóa xe '{txtCarName.Text} {txtCarNo.Text}'?"))
             {
                 if (VehicleService.DeleteVehicle(int.Parse(lblVehicleD.Text)))
                 {

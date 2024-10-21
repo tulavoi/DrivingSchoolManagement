@@ -71,6 +71,15 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["CarName"].Value = vehicle.VehicleName;
                     dgv.Rows[rowIndex].Cells["CarNumber"].Value = vehicle.VehicleNumber;
                     dgv.Rows[rowIndex].Cells["ManufactureYear"].Value = vehicle.ManufacturerYear;
+                    if (vehicle.IsMaintenance == false)
+                    {
+                        dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
+                    }
+                    else
+                    {
+                        dgv.Rows[rowIndex].Cells["Status"].Value = "Maintenance";
+                    }                   
+
                 }
             }
         }
