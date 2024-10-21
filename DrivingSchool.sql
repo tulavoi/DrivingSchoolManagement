@@ -1,6 +1,4 @@
-﻿
-
-GO
+﻿GO
 CREATE DATABASE DrivingSchool
 GO
 USE DrivingSchool
@@ -181,9 +179,9 @@ VALUES
 -- Xe dành cho bằng C (xe tải)
 ('61C-54321', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, 'Truck, needs maintenance', GETDATE(), GETDATE()),
 -- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
-('61D-98765', 'Mercedes-Benz Bus', 0, 1, 0, 2017, 8000, 20, 'Passenger bus, good condition', GETDATE(), GETDATE()),
+('61D-98765', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, 'Passenger bus, good condition', GETDATE(), GETDATE()),
 -- Xe dành cho bằng E (xe khách trên 30 chỗ)
-('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, 10000, 40, 'Large bus, good condition', GETDATE(), GETDATE());
+('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, 'Large bus, good condition', GETDATE(), GETDATE());
 
 INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, Created_At, Updated_At)
 VALUES 
