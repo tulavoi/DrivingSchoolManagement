@@ -73,7 +73,7 @@ create TABLE Courses (
     Updated_At DATETIME
 )
 go
-
+-- chỉ cho phép học viên học 1 khóa học
 CREATE TABLE Schedules (
     ScheduleID INT PRIMARY KEY IDENTITY(1001,1),
     LearnerID INT,

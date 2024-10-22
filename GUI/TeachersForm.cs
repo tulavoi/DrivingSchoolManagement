@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL;
+using BLL.Services;
 using DAL;
 using Guna.UI2.WinForms;
 using Org.BouncyCastle.Asn1.Cmp;
@@ -18,6 +19,17 @@ namespace GUI
     public partial class TeachersForm : Form
     {
         #region Properties
+        private static TeachersForm instance;
+
+        public static TeachersForm Instance
+        {
+            get
+            {
+                if (instance == null) instance = new TeachersForm();
+                return instance;
+            }
+        }
+
         private bool isEditing = false;
 
         #endregion
@@ -66,20 +78,17 @@ namespace GUI
             txtAddress.Text = teacher.Address;
             cboLicense.Text = teacher.License.LicenseName.ToString();
             dtpGraduated.Value = teacher.GraduatedDate.Value;
-            this.SetGraduateYears();
+            this.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
         }
 
-        private void SetGraduateYears()
+        public void SetGraduateYears(DateTime graduateDate, Guna2TextBox txt)
         {
-            txtGraduateYears.Text = this.GetGraduateYears() + " Years";
+            txt.Text = this.GetGraduateYears(graduateDate) + " Years";
         }
 
-        private string GetGraduateYears()
+        private string GetGraduateYears(DateTime graduateDate)
         {
-            DateTime graduatedDate = dtpGraduated.Value;
-            DateTime currentDate = DateTime.Now;
-
-            int years = currentDate.Year - graduatedDate.Year;
+            int years = DateTime.Now.Year - graduateDate.Year;
             return years.ToString();
         }
 
@@ -125,7 +134,7 @@ namespace GUI
 
         private void dtpGraduated_ValueChanged(object sender, EventArgs e)
         {
-            this.SetGraduateYears();
+            this.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
         }
 
         private void dgvTeachers_SelectionChanged(object sender, EventArgs e)
@@ -143,6 +152,11 @@ namespace GUI
 
             TeacherService.SearchTeachers(dgvTeachers, keyword);
             this.UpdateControlsWithSelectedRowData();
+        }
+
+        private void numeric_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
         }
     }
 }

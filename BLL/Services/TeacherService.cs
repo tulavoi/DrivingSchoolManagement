@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using DAL;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
@@ -19,5 +20,12 @@ namespace BLL.Services
         {
             TeacherBLL.Instance.SearchTeachers(dgv, keyword);
         }
+
+        public static bool AddTeacher(Teacher teacher)
+        {
+            return TeacherBLL.Instance.AddTeacher(teacher);
+        }
+
+        
     }
 }

@@ -143,5 +143,12 @@ namespace DAL
             });
         }
         #endregion
+
+        #region Create
+        public bool AddTeacher(Teacher teacher)
+        {
+            return AddData(teacher);
+        }
+        #endregion
     }
 }

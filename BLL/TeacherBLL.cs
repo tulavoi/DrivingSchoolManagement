@@ -66,9 +66,14 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
                     dgv.Rows[rowIndex].Cells["FullName"].Value = teacher.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = teacher.CitizenID;
-                    dgv.Rows[rowIndex].Cells["EmploymentDate"].Value = teacher.EmploymentDate;
+                    dgv.Rows[rowIndex].Cells["EmploymentDate"].Value = teacher.EmploymentDate.Value.Year;
                 }
             }
+        }
+
+        public bool AddTeacher(Teacher teacher)
+        {
+            return TeacherDAL.Instance.AddTeacher(teacher);
         }
     }
 }

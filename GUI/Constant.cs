@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GUI
@@ -27,5 +28,12 @@ namespace GUI
 		public static decimal Tuition_D = 15000000;
 		public static decimal Tuition_E = 20000000;
 		public static string DefaultInvoiceStatus = "Pending";
-	}
+
+		public static string EmailValidationPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+		public static string PhoneNumberValidationPattern = @"^0\d{9,10}$";
+
+		public static int MinExperienceYear_LicenseB = 3;
+		public static int MinExperienceYear_LicenseCDE = 5;
+		public static int MinAge = 18;
+    }
 }

@@ -5,7 +5,9 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI
 {
@@ -100,6 +102,15 @@ namespace GUI
         {
             // Kiểm tra nếu ký tự được nhập không phải là số hoặc không phải phím điều khiển (như phím Backspace)
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Ngăn người dùng nhập ký tự đó vào TextBox
+                e.Handled = true;
+            }
+        }
+
+        public static void CheckLetterKeyPress(KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 // Ngăn người dùng nhập ký tự đó vào TextBox
                 e.Handled = true;
