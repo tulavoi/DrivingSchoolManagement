@@ -21,6 +21,7 @@ create TABLE Learners (
     Email NVARCHAR(100),
     [Address] NVARCHAR(255),
     CitizenID NVARCHAR(50),
+	Nationality nvarchar(100),
     [Status] NVARCHAR(20),
     Created_At DATETIME,
     Updated_At DATETIME
