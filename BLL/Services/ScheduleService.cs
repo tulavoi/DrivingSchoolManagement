@@ -10,34 +10,14 @@ namespace BLL.Services
 {
     public class ScheduleService
     {
-        public static bool AddInvoice(Invoice invoice)
+        public static bool AddSchedule(Schedule schedule, out string errorMessage)
         {
-            return InvoiceBLL.Instance.AddInvoice(invoice);
-        }
-
-        public static bool EditInvoice(Invoice invoice)
-        {
-            return InvoiceBLL.Instance.EditInvoice(invoice);
-        }
-
-        public static bool DeleteInvoice(string invoiceCode)
-        {
-            return InvoiceBLL.Instance.DeleteInvoice(invoiceCode);
+            return ScheduleBLL.Instance.AddSchedule(schedule, out errorMessage);
         }
 
         public static void LoadAllSchedules(Guna2DataGridView dgv)
         {
             ScheduleBLL.Instance.LoadAllSchedules(dgv);
-        }
-
-        public static void SearchInvoices(Guna2DataGridView dgv, string keyword)
-        {
-            InvoiceBLL.Instance.SearchInvoices(dgv, keyword);
-        }
-
-        public static void FilterInvoicesByStatus(Guna2DataGridView dgv, string status)
-        {
-            InvoiceBLL.Instance.FilterInvoicesByStatus(dgv, status);
         }
     }
 }

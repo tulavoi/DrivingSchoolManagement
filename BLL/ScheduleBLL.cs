@@ -35,6 +35,11 @@ namespace BLL
             this.AddSchedulesToDataGridView(dgv, schedules);
         }
 
+        public bool AddSchedule(Schedule schedule, out string errorMessage)
+        {
+            return ScheduleDAL.Instance.AddSchedule(schedule, out errorMessage);
+        }
+
         private void AddSchedulesToDataGridView(Guna2DataGridView dgv, List<Schedule> schedules)
         {
             dgv.Rows.Clear();

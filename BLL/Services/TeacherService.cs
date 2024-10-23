@@ -21,6 +21,11 @@ namespace BLL.Services
             TeacherBLL.Instance.SearchTeachers(dgv, keyword);
         }
 
+        public static void SearchTeachers(Guna2ComboBox cbo, string keyword)
+        {
+            TeacherBLL.Instance.SearchTeachers(cbo, keyword);
+        }
+
         public static bool AddTeacher(Teacher teacher)
         {
             return TeacherBLL.Instance.AddTeacher(teacher);

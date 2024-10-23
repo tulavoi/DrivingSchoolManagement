@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace DAL
 {
@@ -27,7 +28,9 @@ namespace DAL
                 var data = from schedule in db.Schedules
                            join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
                            join course in db.Courses on schedule.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
                            join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
+                           join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
                            join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
                            join session in db.Sessions on schedule.SessionID equals session.SessionID
                            select new
@@ -36,18 +39,30 @@ namespace DAL
                                schedule.SessionDate,
                                schedule.Created_At,
                                schedule.Updated_At,
+
                                learner.LearnerID,
                                LearnerName = learner.FullName,
                                LearnerEmail = learner.Email,
                                LearnerPhone = learner.PhoneNumber,
+
                                course.CourseID,
                                course.CourseName,
+                               license.LicenseID,
+                               license.LicenseName,
+
                                teacher.TeacherID,
                                TeacherName = teacher.FullName,
                                TeacherEmail = teacher.Email,
                                TeacherPhone = teacher.Phone,
+                               LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
+                               LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
+                               
                                vehicle.VehicleID,
                                vehicle.VehicleName,
+                               vehicle.IsTruck,
+                               vehicle.IsPassengerCar,
+                               vehicle.IsMaintenance,
+
                                session.SessionID,
                                session.Session1,
                            };
@@ -72,6 +87,11 @@ namespace DAL
                 {
                     CourseID = item.CourseID,
                     CourseName = item.CourseName,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseID,
+                        LicenseName = item.LicenseName,
+                    }
                 },
                 Teacher = new Teacher()
                 {
@@ -79,6 +99,11 @@ namespace DAL
                     FullName = item.TeacherName,
                     Email = item.TeacherEmail,
                     Phone = item.TeacherPhone,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseIDOfTeacher,
+                        LicenseName = item.LicenseNameOfTeacher,
+                    }
                 },
                 Vehicle = new Vehicle()
                 {
@@ -150,6 +175,13 @@ namespace DAL
                     CourseName = schedule.CourseName,
                 }
             };
+        }
+        #endregion
+
+        #region Create
+        public bool AddSchedule(Schedule schedule, out string errorMessage)
+        {
+            return AddData(schedule, out errorMessage);
         }
         #endregion
     }
