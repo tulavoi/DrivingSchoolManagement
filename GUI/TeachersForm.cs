@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BLL.Services;
+using BLL.Services.SendEmail;
 using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
@@ -239,5 +240,34 @@ namespace GUI
         {
             FormHelper.CheckNumericKeyPress(e);
         }
+
+        private async void btnSendMail_ClickAsync(object sender, EventArgs e)
+        {
+            var mailSetting = FormHelper.GetMailSettings();
+
+            if (!FormHelper.IsMailSettingValid(mailSetting))
+            {
+                FormHelper.ShowError("MailSetting invalid.");
+                return;
+            }
+
+            var teacher = this.GetSelectedTeacher();
+            var mailContent = this.CreateMailContent(teacher); // Tạo nội dung email
+            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
+            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+        }
+
+        private MailContent CreateMailContent(Teacher teacher)
+        {
+            return new MailContent
+            {
+                To = teacher.Email,
+                Subject = $"Driving School: {teacher.FullName}",
+                Body = $"<h1>Hello {teacher.FullName},</h1>" +
+                       $"<p>{txtMessage.Text}</p>"
+            };
+        }
+
     }
 }
