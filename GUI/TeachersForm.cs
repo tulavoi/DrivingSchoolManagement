@@ -1,6 +1,7 @@
 ﻿using BLL;
 using BLL.Services;
 using DAL;
+using GUI.Validators;
 using Guna.UI2.WinForms;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
@@ -69,7 +70,7 @@ namespace GUI
 
             FormHelper.SetLabelID(lblTeacherID, teacherID);
 
-            txtTeacherName.Text = teacher.FullName;
+            txtFullName.Text = teacher.FullName;
             txtCitizenId.Text = teacher.CitizenID.ToString();
             txtEmail.Text = teacher.Email;
             txtPhone.Text = teacher.Phone.ToString();
@@ -116,10 +117,82 @@ namespace GUI
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
         {
-			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditTeacher, txtTeacherName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense);
-		}
+            if (!this.InSaveMode())
+            {
+                this.ToogleEditMode();
+                return;
+            }
 
-		private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
+            if (!this.ValidateFields()) return;
+
+            if (this.ConfirmAction($"Are you sure to edit teacher '{txtFullName.Text}'?"))
+            {
+                Teacher teacher = this.GetTeacher();
+
+                var result = TeacherService.EditTeacher(teacher);
+                FormHelper.ShowActionResult(result, "Teacher edited successfully.", "Failed to edit teacher.");
+            }
+            else return;
+
+            this.ToogleEditMode();
+            this.LoadAllTeachers();
+        }
+
+        private Teacher GetTeacher()
+        {
+            return new Teacher
+            {
+                TeacherID = FormHelper.GetObjectID(lblTeacherID.Text),
+                FullName = txtFullName.Text,
+                CitizenID = txtCitizenId.Text,
+                DateOfBirth = dtpDOB.Value,
+                Gender = cboGender.Text,
+                Phone = txtPhone.Text,
+                Email = txtEmail.Text,
+                Nationality = cboNationality.Text,
+                Address = txtAddress.Text,
+                LicenseID = Convert.ToInt32(cboLicense.SelectedValue),
+                GraduatedDate = dtpGraduated.Value,
+                Created_At = DateTime.Now
+            };
+        }
+
+        private bool ValidateFields()
+        {
+            string license = cboLicense.Text;
+
+            if (!TeacherValidator.ValidateFullName(txtFullName, toolTip)) return false;
+
+            if (!TeacherValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+
+            if (!TeacherValidator.ValidateEmail(txtEmail, toolTip)) return false;
+
+            if (!TeacherValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+
+            if (!TeacherValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
+            if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpGraduated, license, toolTip)) return false;
+
+            return true;
+        }
+
+        private void ToogleEditMode()
+        {
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense);
+        }
+
+        private bool InSaveMode()
+        {
+            return btnEdit.Text == Constant.SAVE_MODE;
+        }
+
+        private bool ConfirmAction(string message)
+        {
+            DialogResult result = FormHelper.ShowConfirm(message);
+            return result == DialogResult.Yes;
+        }
+
+        private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddTeacherForm());
             this.LoadAllTeachers();
@@ -127,11 +200,18 @@ namespace GUI
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)
         {
-			if (FormHelper.ConfirmDelete())
-			{
+            if (!this.HasSelectedRow()) return;
 
-			}
-		}
+            if (string.IsNullOrEmpty(txtFullName.Text)) return;
+
+            if (this.ConfirmAction($"Are you sure to delete teacher '{txtFullName.Text}'?"))
+            {
+                int teacherID = FormHelper.GetObjectID(lblTeacherID.Text);
+                var result = TeacherService.DeleteTeacher(teacherID);
+                FormHelper.ShowActionResult(result, "Teacher deleted successfully.", "Failed to delete teacher.");
+                this.LoadAllTeachers();
+            }
+        }
 
         private void dtpGraduated_ValueChanged(object sender, EventArgs e)
         {

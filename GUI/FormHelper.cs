@@ -162,5 +162,12 @@ namespace GUI
             foreach (var dtp in dtps)
                 dtp.MaxDate = DateTime.Now;
         }
+
+        public static int GetObjectID(string text)
+        {
+            string[] parts = text.Split(' ');
+            int id = Convert.ToInt32(parts[1]);
+            return id;
+        }
     }
 }

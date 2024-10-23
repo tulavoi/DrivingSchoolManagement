@@ -70,10 +70,11 @@ namespace GUI
                 Invoice invoice = this.GetInvoice();
                 var result = InvoiceService.EditInvoice(invoice);
                 FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
-
-                this.ToogleEditMode();
             }
             else return;
+            this.ToogleEditMode();
+
+            this.LoadAllInvoice();
         }
 
         private bool ValidateFields()

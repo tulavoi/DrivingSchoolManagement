@@ -75,5 +75,15 @@ namespace BLL
         {
             return TeacherDAL.Instance.AddTeacher(teacher);
         }
+
+        public bool EditTeacher(Teacher teacher)
+        {
+            return TeacherDAL.Instance.EditTeacher(teacher);
+        }
+
+        public bool DeleteTeacher(int teacherID)
+        {
+            return TeacherDAL.Instance.DeleteTeacher(teacherID);
+        }
     }
 }

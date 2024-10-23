@@ -26,6 +26,14 @@ namespace BLL.Services
             return TeacherBLL.Instance.AddTeacher(teacher);
         }
 
-        
+        public static bool EditTeacher(Teacher teacher)
+        {
+            return TeacherBLL.Instance.EditTeacher(teacher);
+        }
+
+        public static bool DeleteTeacher(int teacherID)
+        {
+            return TeacherBLL.Instance.DeleteTeacher(teacherID);
+        }
     }
 }

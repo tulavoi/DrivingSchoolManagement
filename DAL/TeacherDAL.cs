@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -148,6 +151,34 @@ namespace DAL
         public bool AddTeacher(Teacher teacher)
         {
             return AddData(teacher);
+        }
+        #endregion
+
+        #region Edit
+        public bool EditTeacher(Teacher teacher)
+        {
+            return EditData(t => t.TeacherID == teacher.TeacherID,          // Điều kiện tìm teacher theo id
+                            t =>                                            // Action cập nhật các thuộc tính
+                            {
+                                t.FullName = teacher.FullName;
+                                t.CitizenID = teacher.CitizenID;
+                                t.DateOfBirth = teacher.DateOfBirth;
+                                t.Gender = teacher.Gender;
+                                t.Phone = teacher.Phone;
+                                t.Email = teacher.Email;
+                                t.Nationality = teacher.Nationality;
+                                t.Address = teacher.Address;
+                                t.LicenseID = teacher.LicenseID;
+                                t.GraduatedDate = teacher.GraduatedDate;
+                                t.Updated_At = DateTime.Now;
+                            });
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteTeacher(int teacherID)
+        {
+            return DeleteData(t => t.TeacherID == teacherID); // Điều kiện tìm teacher theo id
         }
         #endregion
     }
