@@ -80,5 +80,15 @@ namespace GUI
         {
             this.Close(); // Đóng form khi nhấn hủy
         }
+
+        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
     }
 }

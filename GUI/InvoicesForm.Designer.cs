@@ -1061,7 +1061,7 @@
             this.lblInvoiceCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.lblInvoiceCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblInvoiceCode.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.lblInvoiceCode.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvoiceCode.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
             this.lblInvoiceCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.lblInvoiceCode.Location = new System.Drawing.Point(309, 15);
             this.lblInvoiceCode.Name = "lblInvoiceCode";
