@@ -21,6 +21,7 @@ create TABLE Learners (
     Email NVARCHAR(100),
     [Address] NVARCHAR(255),
     CitizenID NVARCHAR(50),
+	Nationality nvarchar(100),
     [Status] NVARCHAR(20),
     Created_At DATETIME,
     Updated_At DATETIME
@@ -30,7 +31,7 @@ go
 CREATE TABLE Teachers (
     TeacherID INT PRIMARY KEY IDENTITY(1001,1),
     FullName NVARCHAR(100),
-	CitizenID int,
+	CitizenID nvarchar(12),
     DateOfBirth DATE,
     Gender NVARCHAR(10),
     Phone NVARCHAR(15),
@@ -72,7 +73,7 @@ create TABLE Courses (
     Updated_At DATETIME
 )
 go
-
+-- chỉ cho phép học viên học 1 khóa học
 CREATE TABLE Schedules (
     ScheduleID INT PRIMARY KEY IDENTITY(1001,1),
     LearnerID INT,

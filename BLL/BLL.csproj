@@ -128,6 +128,7 @@
     <Compile Include="DataAccessBLL.cs" />
     <Compile Include="InvoiceBLL.cs" />
     <Compile Include="LearnerBLL.cs" />
+    <Compile Include="LicenseBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Services\SendEmail\MailContent.cs" />
     <Compile Include="Services\SendEmail\MailSettings.cs" />
     <Compile Include="Services\SendEmail\SendMailService.cs" />
+    <Compile Include="Services\TeacherService.cs" />
     <Compile Include="SessionBLL.cs" />
     <Compile Include="TeacherBLL.cs" />
     <Compile Include="VehicleBLL.cs" />

@@ -36,6 +36,8 @@ namespace GUI
         {
             this.LoadComboboxes();
             this.LoadAllInvoice();
+
+            FormHelper.SetDateTimePickerMaxValue(dtpInvoiceDate);
         }
 
         private void LoadComboboxes()
@@ -68,10 +70,11 @@ namespace GUI
                 Invoice invoice = this.GetInvoice();
                 var result = InvoiceService.EditInvoice(invoice);
                 FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
-
-                this.ToogleEditMode();
             }
             else return;
+            this.ToogleEditMode();
+
+            this.LoadAllInvoice();
         }
 
         private bool ValidateFields()
@@ -106,7 +109,7 @@ namespace GUI
             {
                 InvoiceCode = lblInvoiceCode.Text,
                 Status = cboStatus.Text,
-                TotalAmount = decimal.Parse(txtTotalAmount.Text),
+                TotalAmount = string.IsNullOrEmpty(txtTotalAmount.Text) ? decimal.Parse(txtTotalAmount.Text) : 0,
                 Notes = txtNotes.Text,
                 Updated_At = DateTime.Now,
             };

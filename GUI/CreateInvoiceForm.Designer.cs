@@ -405,11 +405,14 @@
             // toolTip
             // 
             this.toolTip.AllowLinksHandling = true;
+            this.toolTip.AutoPopDelay = 3000;
             this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
             this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
             this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 500;
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
             // CreateInvoiceForm

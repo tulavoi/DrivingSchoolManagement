@@ -5,7 +5,9 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI
 {
@@ -106,6 +108,25 @@ namespace GUI
             }
         }
 
+        public static void CheckLetterKeyPress(KeyPressEventArgs e, Guna2TextBox txt)
+        {
+            //if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            //{
+            //    // Ngăn người dùng nhập ký tự đó vào TextBox
+            //    e.Handled = true;
+            //}
+
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Ngăn không cho nhập ký tự
+            }
+            // Kiểm tra nếu ký tự vừa nhập là khoảng trắng và ký tự trước đó cũng là khoảng trắng
+            else if (char.IsWhiteSpace(e.KeyChar) && txt.Text.EndsWith(" "))
+            {
+                e.Handled = true; // Ngăn không cho nhập khoảng trắng liên tiếp
+            }
+        }
+
         public static void ShowActionResult(bool result, string successMessage, string errorMessage)
         {
             if (result)
@@ -134,6 +155,19 @@ namespace GUI
             return mailSetting != null &&
                    !string.IsNullOrEmpty(mailSetting.Mail) &&
                    !string.IsNullOrEmpty(mailSetting.Password);
+        }
+
+        public static void SetDateTimePickerMaxValue(params Guna2DateTimePicker[] dtps)
+        {
+            foreach (var dtp in dtps)
+                dtp.MaxDate = DateTime.Now;
+        }
+
+        public static int GetObjectID(string text)
+        {
+            string[] parts = text.Split(' ');
+            int id = Convert.ToInt32(parts[1]);
+            return id;
         }
     }
 }
