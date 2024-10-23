@@ -31,7 +31,7 @@ go
 CREATE TABLE Teachers (
     TeacherID INT PRIMARY KEY IDENTITY(1001,1),
     FullName NVARCHAR(100),
-	CitizenID int,
+	CitizenID nvarchar(12),
     DateOfBirth DATE,
     Gender NVARCHAR(10),
     Phone NVARCHAR(15),

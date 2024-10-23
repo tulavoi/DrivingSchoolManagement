@@ -108,12 +108,22 @@ namespace GUI
             }
         }
 
-        public static void CheckLetterKeyPress(KeyPressEventArgs e)
+        public static void CheckLetterKeyPress(KeyPressEventArgs e, Guna2TextBox txt)
         {
+            //if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            //{
+            //    // Ngăn người dùng nhập ký tự đó vào TextBox
+            //    e.Handled = true;
+            //}
+
             if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
-                // Ngăn người dùng nhập ký tự đó vào TextBox
-                e.Handled = true;
+                e.Handled = true; // Ngăn không cho nhập ký tự
+            }
+            // Kiểm tra nếu ký tự vừa nhập là khoảng trắng và ký tự trước đó cũng là khoảng trắng
+            else if (char.IsWhiteSpace(e.KeyChar) && txt.Text.EndsWith(" "))
+            {
+                e.Handled = true; // Ngăn không cho nhập khoảng trắng liên tiếp
             }
         }
 

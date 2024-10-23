@@ -108,7 +108,7 @@ namespace GUI
             {
                 InvoiceCode = lblInvoiceCode.Text,
                 Status = cboStatus.Text,
-                TotalAmount = decimal.Parse(txtTotalAmount.Text),
+                TotalAmount = string.IsNullOrEmpty(txtTotalAmount.Text) ? decimal.Parse(txtTotalAmount.Text) : 0,
                 Notes = txtNotes.Text,
                 Updated_At = DateTime.Now,
             };

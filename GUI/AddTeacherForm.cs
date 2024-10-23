@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
@@ -37,6 +38,30 @@ namespace GUI
         {
             if (!this.ValidateFields()) return;
 
+            Teacher teacher = this.GetTeacher();
+            if (TeacherService.AddTeacher(teacher))
+                FormHelper.ShowNotify("Teacher added successfully.");
+            else
+                FormHelper.ShowError("Failed to add teacher.");
+        }
+
+        private Teacher GetTeacher()
+        {
+            return new Teacher
+            {
+                FullName = txtFullName.Text,
+                CitizenID = txtCitizenId.Text,
+                DateOfBirth = dtpDOB.Value,
+                Gender = cboGender.Text,
+                Phone = txtPhone.Text,
+                Email = txtEmail.Text,
+                Nationality = cboNationality.Text,
+                Address = txtAddress.Text,
+                EmploymentDate = DateTime.Now,
+                LicenseID = Convert.ToInt32(cboLicense.SelectedValue),
+                GraduatedDate = dtpGraduated.Value,
+                Created_At = DateTime.Now
+            };
         }
 
         private bool ValidateFields()
@@ -60,7 +85,7 @@ namespace GUI
 
         private void txtFullName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FormHelper.CheckLetterKeyPress(e);
+            FormHelper.CheckLetterKeyPress(e, txtFullName);
         }
 
         private void numeric_KeyPress(object sender, KeyPressEventArgs e)
