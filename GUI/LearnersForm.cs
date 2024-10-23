@@ -47,26 +47,34 @@ namespace GUI
 
         private void btnEditLearner_Click(object sender, EventArgs e)
         {
-            if (!this.InSaveMode())
-            {
-                this.ToggleEditMode();
-                return;
-            }
-
-            if (!this.ValidateFields()) return;
-
-            if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
-            {
-                Learner learner = this.GetLearner();
-                if (LearnerService.EditLearner(learner))
+           
+                if (!this.InSaveMode())
                 {
-                    FormHelper.ShowNotify("Learner edited successfully.");
-                    this.LoadAllLearners();
+                    this.ToggleEditMode();
+                    return;
                 }
-                else
-                    FormHelper.ShowError("Failed to edit learner.");
-            }
-            else return;
+
+                if (!this.ValidateFields()) return;
+
+                // Xác nhận hành động
+                if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
+                {
+                    Learner learner = this.GetLearner();
+                    if (LearnerService.EditLearner(learner))
+                    {
+                        FormHelper.ShowNotify("Learner edited successfully.");
+                        this.LoadAllLearners();
+                    }
+                    else
+                    {
+                        FormHelper.ShowError("Failed to edit learner.");
+                    }
+                }
+
+                // Tắt chế độ chỉnh sửa sau khi xác nhận (dù có hoặc không)
+                this.ToggleEditMode();
+            
+
         }
 
         private bool ValidateFields()
