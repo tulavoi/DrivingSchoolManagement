@@ -3,6 +3,7 @@ using BLL.Services;
 using Guna.UI2.WinForms.Suite;
 using System;
 using System.Windows.Forms;
+using GUI.Validators;
 
 namespace GUI
 {
@@ -32,27 +33,23 @@ namespace GUI
             else
                 FormHelper.ShowError("Failed to add learner.");
         }
-
         // Hàm kiểm tra dữ liệu nhập vào
+
         private bool ValidateFields()
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                FormHelper.ShowToolTip(txtName, toolTip, "Please enter learner's full name.");
-                return false;
-            }
+            // Kiểm tra các trường thông tin của học viên
+            if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
-            if (!DateTime.TryParse(dtpDOB.Text, out _))
-            {
-                FormHelper.ShowToolTip(dtpDOB, toolTip, "Please enter a valid date of birth.");
-                return false;
-            }
+            if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
 
-            if (string.IsNullOrWhiteSpace(txtCitizenId.Text))
-            {
-                FormHelper.ShowToolTip(txtCitizenId, toolTip, "Please enter citizen ID.");
-                return false;
-            }
+            if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
+
+            if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
+            // Kiểm tra học viên có đủ điều kiện về độ tuổi
+            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
             return true;
         }
