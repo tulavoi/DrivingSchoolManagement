@@ -1,11 +1,17 @@
 ﻿using BLL.Services;
+using BLL.Services.SendEmail;
+using DAL;
 using Guna.UI2.WinForms;
+using Org.BouncyCastle.Asn1.Cmp;
+using Org.BouncyCastle.Asn1.Cms;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Management;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
@@ -28,6 +34,53 @@ namespace GUI
 			calendarManager.LoadMatrix();
 
 			this.SetCurrentDate();
+        }
+
+        private void ScheduleForm_Load(object sender, EventArgs e)
+        {
+            this.LoadComboboxes();
+
+			this.LoadAllSchedules();
+        }
+
+        private void LoadAllSchedules()
+        {
+			ScheduleService.LoadAllSchedules(dgvSchedules);
+            this.UpdateControlsWithSelectedRowData();
+        }
+
+        private void UpdateControlsWithSelectedRowData()
+        {
+            Schedule schedule = this.GetSelectedSchedule();
+			this.AssignDataToControls(schedule);
+		}
+
+        private void AssignDataToControls(Schedule schedule)
+        {
+            if (schedule == null) return;
+
+            // Gán các trường dữ liệu vào controls
+            string scheduleID = "ID: " + schedule.ScheduleID.ToString();
+
+            FormHelper.SetLabelID(lblScheduleID, scheduleID);
+
+			cboLearners.Text = schedule.Learner.FullName;
+			cboTeachers.Text = schedule.Teacher.FullName;
+			cboCourses.Text = schedule.Course.CourseName;
+			cboVehicles.Text = schedule.Vehicle.VehicleName;
+			cboSessions.Text = schedule.Session.Session1;
+            dtpSessionDate.Value = schedule.SessionDate.Value;
+		}
+
+        private Schedule GetSelectedSchedule()
+        {
+            if (!FormHelper.HasSelectedRow(dgvSchedules)) return null;
+
+            var selectedRow = dgvSchedules.SelectedRows[0];
+
+            if (selectedRow.Tag is Schedule selectedSchedule) return selectedSchedule;
+
+            return null;
         }
 
         private void LoadComboboxes()
@@ -69,11 +122,6 @@ namespace GUI
 			calendarManager.OpenAssignScheduleForm(dtpSchedule.Value);
         }
 
-        private void ScheduleForm_Load(object sender, EventArgs e)
-        {
-			this.LoadComboboxes();
-		}
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
 			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboCourses, cboLearners, cboTeachers, cboSessions, dtpSessionDate, cboVehicles);
@@ -87,6 +135,7 @@ namespace GUI
 			}
 		}
 
+        // Thay đổi màu text của cột index = 7 trong datagridview
 		private void dgvSchedules_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
 			if (e.ColumnIndex == 7)
@@ -95,5 +144,92 @@ namespace GUI
 				e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
 			}
 		}
-	}
+
+        private void dgvSchedules_SelectionChanged(object sender, EventArgs e)
+        {
+			this.UpdateControlsWithSelectedRowData();
+        }
+
+        private async void btnSendSchedule_Learner_ClickAsync(object sender, EventArgs e)
+        {
+            var schedule = this.GetSelectedSchedule();
+            await SendScheduleEmailAsync(schedule, isForLearner: true);
+        }
+
+        private async void btnSendSchedule_Teacher_ClickAsync(object sender, EventArgs e)
+        {
+            var schedule = this.GetSelectedSchedule();
+            await SendScheduleEmailAsync(schedule, isForLearner: false);
+        }
+
+        private async Task SendScheduleEmailAsync(Schedule schedule, bool isForLearner)
+        {
+            var mailContent = CreateMailContent(schedule, isForLearner);
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            // Hiển thị kết quả gửi mail
+            FormHelper.ShowActionResult(result, "Schedule sent successfully.", "Failed to send schedule.");
+        }
+
+        private MailContent CreateMailContent(Schedule schedule, bool isForLearner)
+        {
+            string recipientMail = isForLearner ? schedule.Learner.Email : schedule.Teacher.Email;
+            string recipientInfo = isForLearner
+                                    ? $"{schedule.Teacher.FullName} – {schedule.Teacher.Phone} – {schedule.Teacher.Email}"
+                                    : $"{schedule.Learner.FullName} – {schedule.Learner.PhoneNumber} – {schedule.Learner.Email}";
+            string role = isForLearner ? "Learner" : "Teacher";
+
+            string emailBody = this.GetScheduleEmailBody(schedule, recipientInfo, role);
+
+            return new MailContent
+            {
+                To = recipientMail,
+                Subject = $"Driving School",
+                Body = emailBody
+            };
+        }
+
+        private string GetScheduleEmailBody(Schedule schedule, string recipientInfo, string role)
+        {
+            string introMessage = role == "Learner"
+                ? $"Hello {schedule.Learner.FullName},<br><br>We are pleased to inform you about your upcoming lesson schedule:"
+                : $"Hello {schedule.Teacher.FullName},<br><br>We are pleased to inform you about the upcoming lesson you will be conducting:";
+
+            string contactMessage = role == "Learner"
+                ? "If you have any questions, feel free to contact your teacher via email or reach out to the school directly."
+                : "If you have any questions or need further details, please contact the administration or the learner directly.";
+
+            var sb = new StringBuilder();
+            sb.Append($@"
+                <h1>{introMessage}</h1>
+                <table style='border: 1px solid #ccc; border-collapse: collapse; width: 100%;'>
+                    <tr>
+                        <th style='border: 1px solid #ccc; padding: 8px;'>Lesson Date</th>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.SessionDate:MM/dd/yyyy}</td>
+                    </tr>
+                    <tr>
+                        <th style='border: 1px solid #ccc; padding: 8px;'>Session</th>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.Session.Session1}</td>
+                    </tr>
+                    <tr>
+                        <th style='border: 1px solid #ccc; padding: 8px;'>Course</th>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.Course.CourseName}</td>
+                    </tr>
+                    <tr>
+                        <th style='border: 1px solid #ccc; padding: 8px;'>{role}</th>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{recipientInfo}</td>
+                    </tr>
+                    <tr>
+                        <th style='border: 1px solid #ccc; padding: 8px;'>Vehicle</th>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.Vehicle.VehicleName}</td>
+                    </tr>
+                </table>
+                <p style='margin-top: 20px;'>{contactMessage}</p>
+                <p>Best regards,</p>
+                <p>Your Driving School</p>
+            ");
+
+            return sb.ToString();
+        }
+    }
 }

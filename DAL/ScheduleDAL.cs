@@ -38,10 +38,14 @@ namespace DAL
                                schedule.Updated_At,
                                learner.LearnerID,
                                LearnerName = learner.FullName,
+                               LearnerEmail = learner.Email,
+                               LearnerPhone = learner.PhoneNumber,
                                course.CourseID,
                                course.CourseName,
                                teacher.TeacherID,
                                TeacherName = teacher.FullName,
+                               TeacherEmail = teacher.Email,
+                               TeacherPhone = teacher.Phone,
                                vehicle.VehicleID,
                                vehicle.VehicleName,
                                session.SessionID,
@@ -61,6 +65,8 @@ namespace DAL
                 {
                     LearnerID = item.LearnerID,
                     FullName = item.LearnerName,
+                    Email = item.LearnerEmail,
+                    PhoneNumber = item.LearnerPhone,
                 },
                 Course = new Course()
                 {
@@ -71,6 +77,8 @@ namespace DAL
                 {
                     TeacherID = item.TeacherID,
                     FullName = item.TeacherName,
+                    Email = item.TeacherEmail,
+                    Phone = item.TeacherPhone,
                 },
                 Vehicle = new Vehicle()
                 {
@@ -88,16 +96,19 @@ namespace DAL
         }
         #endregion
 
+        #region Filter
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
             throw new NotImplementedException();
         }
-
+        #endregion
 
         #region Lấy ra schedule dựa vào courseID, learnerID nếu learnerID có giá trị
         public Schedule GetScheduleByCourseID(int courseID, int learnerID = 0)
