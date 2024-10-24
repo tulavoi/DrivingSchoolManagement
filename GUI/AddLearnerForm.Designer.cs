@@ -298,6 +298,7 @@
             this.dtpEnrollmentDate.Name = "dtpEnrollmentDate";
             this.dtpEnrollmentDate.Size = new System.Drawing.Size(528, 40);
             this.dtpEnrollmentDate.TabIndex = 5;
+            this.dtpEnrollmentDate.Tag = "EnrollmentDate";
             this.dtpEnrollmentDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // label1
@@ -358,6 +359,7 @@
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(258, 40);
             this.txtAddress.TabIndex = 26;
+            this.txtAddress.Tag = "Address";
             // 
             // lblAddress_Title
             // 
@@ -395,6 +397,7 @@
             this.txtCitizenId.SelectedText = "";
             this.txtCitizenId.Size = new System.Drawing.Size(190, 40);
             this.txtCitizenId.TabIndex = 24;
+            this.txtCitizenId.Tag = "CitizenId";
             this.txtCitizenId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCitizenId_KeyPress);
             // 
             // lblCitizenId
@@ -451,6 +454,7 @@
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(258, 40);
             this.dtpDOB.TabIndex = 5;
+            this.dtpDOB.Tag = "DOB";
             this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // lblDOB_Title
@@ -491,6 +495,7 @@
             this.cboGender.Size = new System.Drawing.Size(190, 36);
             this.cboGender.StartIndex = 0;
             this.cboGender.TabIndex = 1;
+            this.cboGender.Tag = "Gender";
             // 
             // lblGender_Title
             // 
@@ -550,6 +555,7 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(258, 40);
             this.txtEmail.TabIndex = 24;
+            this.txtEmail.Tag = "Email";
             // 
             // lblEmail_Title
             // 
@@ -587,6 +593,7 @@
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(190, 40);
             this.txtPhone.TabIndex = 22;
+            this.txtPhone.Tag = "Phone";
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // lblPhone_Title
@@ -646,6 +653,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(583, 40);
             this.txtName.TabIndex = 2;
+            this.txtName.Tag = "Name";
             // 
             // lblName_Title
             // 
