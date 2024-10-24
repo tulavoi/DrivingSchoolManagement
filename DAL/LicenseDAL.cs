@@ -38,14 +38,18 @@ namespace DAL
         }
         #endregion
 
+        #region Filter
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
             throw new System.NotImplementedException();
         }
+        #endregion
 
+        #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
             throw new System.NotImplementedException();
         }
+        #endregion
     }
 }

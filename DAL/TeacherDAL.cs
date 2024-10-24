@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
@@ -179,6 +180,24 @@ namespace DAL
         public bool DeleteTeacher(int teacherID)
         {
             return DeleteData(t => t.TeacherID == teacherID); // Điều kiện tìm teacher theo id
+        }
+        #endregion
+
+        #region Get teachers for course
+        public List<Teacher> GetTeacherForCourse(int courseId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var selectedTeachers = (from teacher in db.Teachers
+                                        where teacher.LicenseID >= (from course in db.Courses
+                                                                    where course.CourseID == courseId
+                                                                    select course.LicenseID).FirstOrDefault()
+                                        select teacher).ToList();
+                if (selectedTeachers == null)
+                    return null;
+
+                return selectedTeachers;
+            }
         }
         #endregion
     }

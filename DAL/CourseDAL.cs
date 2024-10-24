@@ -111,5 +111,36 @@ namespace DAL
             throw new NotImplementedException();
         }
         #endregion
+
+        #region Load Courses by Learner
+        public List<Course> GetCoursesForLearner(int learnerId)
+        {
+            var allCourses = CourseDAL.Instance.GetAllCourses();
+
+            // Lấy danh sách khóa học mà học viên đã tham gia
+            var schedules = ScheduleDAL.Instance.GetSchedulesByLearnerId(learnerId);
+            var learnerCourses = schedules
+                                .Join(allCourses, sche => sche.CourseID, course => course.CourseID, (sche, c) => c)
+                                .Distinct()
+                                .ToList();
+
+            // Nếu learner đã tham gia khóa học, trả về danh sách đó
+            if (learnerCourses.Any())
+            {
+                return learnerCourses;
+            }
+
+            // Nếu chưa tham gia khóa học nào, trả về toàn bộ khóa học
+            return allCourses;
+        }
+        #endregion
+
+        public Course GetCourseById(int courseId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                return db.Courses.Where(c => c.CourseID == courseId).FirstOrDefault();
+            }
+        }
     }
 }

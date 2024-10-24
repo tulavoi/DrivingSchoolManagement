@@ -1,10 +1,12 @@
 ﻿using BLL;
+using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BLL.Services
 {
@@ -20,11 +22,21 @@ namespace BLL.Services
             CourseBLL.Instance.AssignCoursesToCombobox(cbo);
         }
 
+        public static void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+        {
+            CourseBLL.Instance.AssignCoursesToCombobox(cbo, learnerID);
+        }
+
         public static void AssignTeachersToCombobox(Guna2ComboBox cbo)
         {
             TeacherBLL.Instance.AssignTeachersToCombobox(cbo);
         }
-        
+
+        public static void AssignTeachersToCombobox(Guna2ComboBox cbo, int courseID)
+        {
+            TeacherBLL.Instance.AssignTeachersToCombobox(cbo, courseID);
+        }
+
         public static void AssignSessionsToCombobox(Guna2ComboBox cbo)
         {
             SessionBLL.Instance.AssignSessionsToCombobox(cbo);
@@ -33,6 +45,11 @@ namespace BLL.Services
         public static void AssignVehiclesToCombobox(Guna2ComboBox cbo)
         {
             VehicleBLL.Instance.AssignVehiclesToCombobox(cbo);
+        }
+
+        public static void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID)
+        {
+            VehicleBLL.Instance.AssignVehiclesToCombobox(cbo, courseID);
         }
 
         public static void AssignLicensesToCombobox(Guna2ComboBox cbo)
