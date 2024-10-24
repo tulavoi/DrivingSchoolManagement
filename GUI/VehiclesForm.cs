@@ -227,7 +227,8 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete vehicle '{txtCarName.Text}'?"))
             {
-                if (VehicleService.DeleteVehicle(int.Parse(lblVehicleID.Text)))
+                int vehicleID = FormHelper.GetObjectID(lblVehicleID.Text);
+                if (VehicleService.DeleteVehicle(Convert.ToInt32(vehicleID)))
                 {
                     FormHelper.ShowNotify("Vehicle deleted successfully.");
                     this.LoadAllVehicles();
