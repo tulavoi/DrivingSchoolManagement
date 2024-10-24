@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvVehicles = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManufactureYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddVehicleForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -117,6 +117,7 @@
             this.pnlSpace26 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlVehicles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
@@ -166,51 +167,54 @@
             // 
             this.dgvVehicles.AllowUserToAddRows = false;
             this.dgvVehicles.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvVehicles.ColumnHeadersHeight = 40;
             this.dgvVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column5,
-            this.Column6,
-            this.Column1});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CarName,
+            this.CarNumber,
+            this.ManufactureYear,
+            this.Status});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVehicles.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvVehicles.Location = new System.Drawing.Point(0, 94);
             this.dgvVehicles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvVehicles.RowHeadersVisible = false;
-            this.dgvVehicles.RowHeadersWidth = 50;
+            this.dgvVehicles.RowHeadersWidth = 30;
             this.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 7.8F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvVehicles.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dgvVehicles.RowTemplate.DividerHeight = 7;
             this.dgvVehicles.RowTemplate.Height = 60;
@@ -237,6 +241,7 @@
             this.dgvVehicles.ThemeStyle.RowsStyle.Height = 60;
             this.dgvVehicles.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvVehicles.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvVehicles.SelectionChanged += new System.EventHandler(this.dgvVehicles_SelectionChanged);
             // 
             // Column2
             // 
@@ -248,52 +253,52 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 20;
             // 
-            // dataGridViewTextBoxColumn3
+            // CarName
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CarName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn3.FillWeight = 53.63456F;
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Car Name";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 110;
+            this.CarName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CarName.DataPropertyName = "CarName";
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CarName.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CarName.FillWeight = 53.63456F;
+            this.CarName.Frozen = true;
+            this.CarName.HeaderText = "Car Name";
+            this.CarName.MinimumWidth = 6;
+            this.CarName.Name = "CarName";
+            this.CarName.ReadOnly = true;
+            this.CarName.Width = 110;
             // 
-            // Column5
+            // CarNumber
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "CarNumber";
-            this.Column5.Frozen = true;
-            this.Column5.HeaderText = "Car No.";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
+            this.CarNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CarNumber.DataPropertyName = "CarNumber";
+            this.CarNumber.Frozen = true;
+            this.CarNumber.HeaderText = "Car No.";
+            this.CarNumber.MinimumWidth = 6;
+            this.CarNumber.Name = "CarNumber";
+            this.CarNumber.ReadOnly = true;
+            this.CarNumber.Width = 125;
             // 
-            // Column6
+            // ManufactureYear
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.DataPropertyName = "ManufactureYear";
-            this.Column6.Frozen = true;
-            this.Column6.HeaderText = "M. Year";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
+            this.ManufactureYear.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ManufactureYear.DataPropertyName = "ManufactureYear";
+            this.ManufactureYear.Frozen = true;
+            this.ManufactureYear.HeaderText = "M. Year";
+            this.ManufactureYear.MinimumWidth = 6;
+            this.ManufactureYear.Name = "ManufactureYear";
+            this.ManufactureYear.ReadOnly = true;
+            this.ManufactureYear.Width = 125;
             // 
-            // Column1
+            // Status
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "Status";
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "Status";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.DataPropertyName = "Status";
+            this.Status.Frozen = true;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 125;
             // 
             // pnlButtonAdd
             // 
@@ -406,6 +411,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(214, 36);
             this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pnlSpace9
             // 
@@ -475,6 +481,7 @@
             this.cboStatus_Filter.Size = new System.Drawing.Size(150, 36);
             this.cboStatus_Filter.StartIndex = 0;
             this.cboStatus_Filter.TabIndex = 33;
+            this.cboStatus_Filter.SelectedIndexChanged += new System.EventHandler(this.cboStatus_Filter_SelectedIndexChanged);
             // 
             // cboLicesnses_Filter
             // 
@@ -837,7 +844,7 @@
             this.btnDelete.Size = new System.Drawing.Size(150, 35);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDeleteVehicle_Click);
             // 
             // btnEdit_BasicDetail
             // 
@@ -917,6 +924,7 @@
             this.txtSeats.SelectedText = "";
             this.txtSeats.Size = new System.Drawing.Size(111, 36);
             this.txtSeats.TabIndex = 35;
+            this.txtSeats.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeats_KeyPress);
             // 
             // lblSeats
             // 
@@ -982,6 +990,7 @@
             this.txtWeight.SelectedText = "";
             this.txtWeight.Size = new System.Drawing.Size(75, 36);
             this.txtWeight.TabIndex = 32;
+            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
             // lblWeight
             // 
@@ -1399,6 +1408,19 @@
             this.pnlSpace27.Size = new System.Drawing.Size(13, 50);
             this.pnlSpace27.TabIndex = 16;
             // 
+            // toolTip
+            // 
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.AutoPopDelay = 3000;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.StripAmpersands = true;
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1412,6 +1434,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VehiclesForm";
             this.Text = "Vehicles";
+            this.Load += new System.EventHandler(this.VehiclesForm_Load);
             this.pnlVehicles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).EndInit();
             this.pnlButtonAdd.ResumeLayout(false);
@@ -1500,11 +1523,6 @@
         private System.Windows.Forms.Label lblNotes;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace24;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpManuYear;
         private System.Windows.Forms.Label lblManufactureYear;
         private Guna.UI2.WinForms.Guna2TextBox txtWeight;
@@ -1521,5 +1539,11 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlChkTruck;
 		private System.Windows.Forms.Label lblTruck;
 		private Guna.UI2.WinForms.Guna2CustomCheckBox chkTruck;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManufactureYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+    }
 }
