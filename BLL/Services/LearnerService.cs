@@ -37,6 +37,11 @@ namespace BLL.Services
             LearnerBLL.Instance.SearchLearners(dgv, keyword);
         }
 
+        public static void SearchLearners(Guna2ComboBox cbo, string keyword)
+        {
+            LearnerBLL.Instance.SearchLearners(cbo, keyword);
+        }
+
         public static void FilterLearnersByLicense(Guna2DataGridView dgv, string license)
         {
             LearnerBLL.Instance.FilterLearnersByStatus(dgv, license);

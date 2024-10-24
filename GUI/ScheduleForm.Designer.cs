@@ -65,13 +65,12 @@
             this.pnlTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvSchedules = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmploymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSchedules_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.cboSession_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -114,6 +113,10 @@
             this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace19 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlScheduleDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblScheduleID = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlSpace26 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace18 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblScheduleDetails = new System.Windows.Forms.Label();
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
@@ -444,7 +447,7 @@
             this.dtpSchedule.Name = "dtpSchedule";
             this.dtpSchedule.Size = new System.Drawing.Size(282, 35);
             this.dtpSchedule.TabIndex = 2;
-            this.dtpSchedule.Value = new System.DateTime(2024, 10, 3, 15, 52, 47, 940);
+            this.dtpSchedule.Value = new System.DateTime(2024, 10, 3, 15, 52, 47, 0);
             this.dtpSchedule.ValueChanged += new System.EventHandler(this.dtpSchedule_ValueChanged);
             // 
             // btnToday
@@ -518,6 +521,7 @@
             // 
             // dgvSchedules
             // 
+            this.dgvSchedules.AllowUserToAddRows = false;
             this.dgvSchedules.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSchedules.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -532,13 +536,12 @@
             this.dgvSchedules.ColumnHeadersHeight = 40;
             this.dgvSchedules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column5,
-            this.EmploymentDate,
+            this.CourseName,
+            this.LearnerName,
+            this.TeacherName,
             this.VehicleName,
-            this.Column1,
-            this.Column4,
-            this.Column6});
+            this.SessionDate,
+            this.Session});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -596,6 +599,7 @@
             this.dgvSchedules.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvSchedules.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvSchedules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSchedules_CellFormatting);
+            this.dgvSchedules.SelectionChanged += new System.EventHandler(this.dgvSchedules_SelectionChanged);
             // 
             // Column2
             // 
@@ -608,41 +612,41 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 18;
             // 
-            // dataGridViewTextBoxColumn3
+            // CourseName
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CourseName";
+            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CourseName.DataPropertyName = "CourseName";
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn3.FillWeight = 53.63456F;
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Course";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 120;
+            this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CourseName.FillWeight = 53.63456F;
+            this.CourseName.Frozen = true;
+            this.CourseName.HeaderText = "Course";
+            this.CourseName.MinimumWidth = 6;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            this.CourseName.Width = 140;
             // 
-            // Column5
+            // LearnerName
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "LearnerName";
-            this.Column5.Frozen = true;
-            this.Column5.HeaderText = "Learner";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 180;
+            this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LearnerName.DataPropertyName = "LearnerName";
+            this.LearnerName.Frozen = true;
+            this.LearnerName.HeaderText = "Learner";
+            this.LearnerName.MinimumWidth = 6;
+            this.LearnerName.Name = "LearnerName";
+            this.LearnerName.ReadOnly = true;
+            this.LearnerName.Width = 190;
             // 
-            // EmploymentDate
+            // TeacherName
             // 
-            this.EmploymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmploymentDate.DataPropertyName = "TeacherName";
-            this.EmploymentDate.Frozen = true;
-            this.EmploymentDate.HeaderText = "Teacher";
-            this.EmploymentDate.MinimumWidth = 6;
-            this.EmploymentDate.Name = "EmploymentDate";
-            this.EmploymentDate.ReadOnly = true;
-            this.EmploymentDate.Width = 180;
+            this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TeacherName.DataPropertyName = "TeacherName";
+            this.TeacherName.Frozen = true;
+            this.TeacherName.HeaderText = "Teacher";
+            this.TeacherName.MinimumWidth = 6;
+            this.TeacherName.Name = "TeacherName";
+            this.TeacherName.ReadOnly = true;
+            this.TeacherName.Width = 190;
             // 
             // VehicleName
             // 
@@ -655,41 +659,27 @@
             this.VehicleName.ReadOnly = true;
             this.VehicleName.Width = 110;
             // 
-            // Column1
+            // SessionDate
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "Date";
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "Date";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
+            this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SessionDate.DataPropertyName = "Date";
+            this.SessionDate.Frozen = true;
+            this.SessionDate.HeaderText = "Date";
+            this.SessionDate.MinimumWidth = 6;
+            this.SessionDate.Name = "SessionDate";
+            this.SessionDate.ReadOnly = true;
+            this.SessionDate.Width = 125;
             // 
-            // Column4
+            // Session
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.DataPropertyName = "Session";
-            this.Column4.Frozen = true;
-            this.Column4.HeaderText = "Time";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.DataPropertyName = "Status";
-            this.Column6.FillWeight = 70F;
-            this.Column6.Frozen = true;
-            this.Column6.HeaderText = "Status";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column6.Width = 110;
+            this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Session.DataPropertyName = "Session";
+            this.Session.Frozen = true;
+            this.Session.HeaderText = "Time";
+            this.Session.MinimumWidth = 6;
+            this.Session.Name = "Session";
+            this.Session.ReadOnly = true;
+            this.Session.Width = 125;
             // 
             // pnlSchedules_Top
             // 
@@ -968,9 +958,9 @@
             // 
             this.pnlSpace24.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace24.FillColor = System.Drawing.Color.White;
-            this.pnlSpace24.Location = new System.Drawing.Point(0, 224);
+            this.pnlSpace24.Location = new System.Drawing.Point(0, 247);
             this.pnlSpace24.Name = "pnlSpace24";
-            this.pnlSpace24.Size = new System.Drawing.Size(480, 76);
+            this.pnlSpace24.Size = new System.Drawing.Size(480, 53);
             this.pnlSpace24.TabIndex = 161;
             // 
             // pnlTeachers
@@ -980,7 +970,7 @@
             this.pnlTeachers.Controls.Add(this.label1);
             this.pnlTeachers.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTeachers.FillColor = System.Drawing.Color.White;
-            this.pnlTeachers.Location = new System.Drawing.Point(0, 188);
+            this.pnlTeachers.Location = new System.Drawing.Point(0, 211);
             this.pnlTeachers.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlTeachers.Name = "pnlTeachers";
             this.pnlTeachers.Size = new System.Drawing.Size(480, 36);
@@ -1005,6 +995,7 @@
             this.btnSendSchedule_Teacher.Size = new System.Drawing.Size(150, 36);
             this.btnSendSchedule_Teacher.TabIndex = 20;
             this.btnSendSchedule_Teacher.Text = "  For Teacher";
+            this.btnSendSchedule_Teacher.Click += new System.EventHandler(this.btnSendSchedule_Teacher_ClickAsync);
             // 
             // cboTeachers
             // 
@@ -1046,7 +1037,7 @@
             // 
             this.pnlSpace7.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace7.FillColor = System.Drawing.Color.White;
-            this.pnlSpace7.Location = new System.Drawing.Point(0, 178);
+            this.pnlSpace7.Location = new System.Drawing.Point(0, 201);
             this.pnlSpace7.Name = "pnlSpace7";
             this.pnlSpace7.Size = new System.Drawing.Size(480, 10);
             this.pnlSpace7.TabIndex = 156;
@@ -1058,7 +1049,7 @@
             this.pnlLearners.Controls.Add(this.lblLearner);
             this.pnlLearners.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLearners.FillColor = System.Drawing.Color.White;
-            this.pnlLearners.Location = new System.Drawing.Point(0, 142);
+            this.pnlLearners.Location = new System.Drawing.Point(0, 165);
             this.pnlLearners.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlLearners.Name = "pnlLearners";
             this.pnlLearners.Size = new System.Drawing.Size(480, 36);
@@ -1083,6 +1074,7 @@
             this.btnSendSchedule_Learner.Size = new System.Drawing.Size(150, 36);
             this.btnSendSchedule_Learner.TabIndex = 19;
             this.btnSendSchedule_Learner.Text = "  For Learner";
+            this.btnSendSchedule_Learner.Click += new System.EventHandler(this.btnSendSchedule_Learner_ClickAsync);
             // 
             // cboLearners
             // 
@@ -1124,7 +1116,7 @@
             // 
             this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace8.FillColor = System.Drawing.Color.White;
-            this.pnlSpace8.Location = new System.Drawing.Point(0, 132);
+            this.pnlSpace8.Location = new System.Drawing.Point(0, 155);
             this.pnlSpace8.Name = "pnlSpace8";
             this.pnlSpace8.Size = new System.Drawing.Size(480, 10);
             this.pnlSpace8.TabIndex = 152;
@@ -1137,7 +1129,7 @@
             this.pnlDate_Session.Controls.Add(this.lblDate);
             this.pnlDate_Session.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDate_Session.FillColor = System.Drawing.Color.White;
-            this.pnlDate_Session.Location = new System.Drawing.Point(0, 96);
+            this.pnlDate_Session.Location = new System.Drawing.Point(0, 119);
             this.pnlDate_Session.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlDate_Session.Name = "pnlDate_Session";
             this.pnlDate_Session.Size = new System.Drawing.Size(480, 36);
@@ -1217,7 +1209,7 @@
             // 
             this.pnlSpace5.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace5.FillColor = System.Drawing.Color.White;
-            this.pnlSpace5.Location = new System.Drawing.Point(0, 86);
+            this.pnlSpace5.Location = new System.Drawing.Point(0, 109);
             this.pnlSpace5.Name = "pnlSpace5";
             this.pnlSpace5.Size = new System.Drawing.Size(480, 10);
             this.pnlSpace5.TabIndex = 148;
@@ -1230,7 +1222,7 @@
             this.pnlCourse_Vehicle.Controls.Add(this.lblCourses);
             this.pnlCourse_Vehicle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCourse_Vehicle.FillColor = System.Drawing.Color.White;
-            this.pnlCourse_Vehicle.Location = new System.Drawing.Point(0, 50);
+            this.pnlCourse_Vehicle.Location = new System.Drawing.Point(0, 73);
             this.pnlCourse_Vehicle.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlCourse_Vehicle.Name = "pnlCourse_Vehicle";
             this.pnlCourse_Vehicle.Size = new System.Drawing.Size(480, 36);
@@ -1312,9 +1304,9 @@
             // 
             this.pnlSpace14.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace14.FillColor = System.Drawing.Color.White;
-            this.pnlSpace14.Location = new System.Drawing.Point(0, 40);
+            this.pnlSpace14.Location = new System.Drawing.Point(0, 50);
             this.pnlSpace14.Name = "pnlSpace14";
-            this.pnlSpace14.Size = new System.Drawing.Size(480, 10);
+            this.pnlSpace14.Size = new System.Drawing.Size(480, 23);
             this.pnlSpace14.TabIndex = 146;
             // 
             // pnlSpace19
@@ -1324,15 +1316,19 @@
             this.pnlSpace19.CustomizableEdges.TopRight = false;
             this.pnlSpace19.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlSpace19.FillColor = System.Drawing.Color.White;
-            this.pnlSpace19.Location = new System.Drawing.Point(480, 40);
+            this.pnlSpace19.Location = new System.Drawing.Point(480, 50);
             this.pnlSpace19.Name = "pnlSpace19";
-            this.pnlSpace19.Size = new System.Drawing.Size(15, 310);
+            this.pnlSpace19.Size = new System.Drawing.Size(15, 300);
             this.pnlSpace19.TabIndex = 145;
             // 
             // pnlScheduleDetails_Top
             // 
             this.pnlScheduleDetails_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlScheduleDetails_Top.BorderRadius = 15;
+            this.pnlScheduleDetails_Top.Controls.Add(this.lblScheduleID);
+            this.pnlScheduleDetails_Top.Controls.Add(this.pnlSpace26);
+            this.pnlScheduleDetails_Top.Controls.Add(this.pnlSpace18);
+            this.pnlScheduleDetails_Top.Controls.Add(this.pnlSpace25);
             this.pnlScheduleDetails_Top.Controls.Add(this.lblScheduleDetails);
             this.pnlScheduleDetails_Top.Controls.Add(this.pnlSpace16);
             this.pnlScheduleDetails_Top.CustomizableEdges.BottomRight = false;
@@ -1341,8 +1337,55 @@
             this.pnlScheduleDetails_Top.FillColor = System.Drawing.Color.White;
             this.pnlScheduleDetails_Top.Location = new System.Drawing.Point(0, 0);
             this.pnlScheduleDetails_Top.Name = "pnlScheduleDetails_Top";
-            this.pnlScheduleDetails_Top.Size = new System.Drawing.Size(495, 40);
+            this.pnlScheduleDetails_Top.Size = new System.Drawing.Size(495, 50);
             this.pnlScheduleDetails_Top.TabIndex = 1;
+            // 
+            // lblScheduleID
+            // 
+            this.lblScheduleID.BackColor = System.Drawing.Color.White;
+            this.lblScheduleID.BorderRadius = 5;
+            this.lblScheduleID.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.lblScheduleID.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.lblScheduleID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.lblScheduleID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.lblScheduleID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblScheduleID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.lblScheduleID.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblScheduleID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblScheduleID.Location = new System.Drawing.Point(330, 15);
+            this.lblScheduleID.Name = "lblScheduleID";
+            this.lblScheduleID.PressedDepth = 5;
+            this.lblScheduleID.Size = new System.Drawing.Size(146, 25);
+            this.lblScheduleID.TabIndex = 27;
+            this.lblScheduleID.Text = "Schedule ID";
+            // 
+            // pnlSpace26
+            // 
+            this.pnlSpace26.BackColor = System.Drawing.Color.White;
+            this.pnlSpace26.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSpace26.Location = new System.Drawing.Point(330, 40);
+            this.pnlSpace26.Name = "pnlSpace26";
+            this.pnlSpace26.Size = new System.Drawing.Size(146, 10);
+            this.pnlSpace26.TabIndex = 26;
+            // 
+            // pnlSpace18
+            // 
+            this.pnlSpace18.BackColor = System.Drawing.Color.White;
+            this.pnlSpace18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace18.Location = new System.Drawing.Point(330, 0);
+            this.pnlSpace18.Name = "pnlSpace18";
+            this.pnlSpace18.Size = new System.Drawing.Size(146, 15);
+            this.pnlSpace18.TabIndex = 25;
+            // 
+            // pnlSpace25
+            // 
+            this.pnlSpace25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSpace25.FillColor = System.Drawing.Color.White;
+            this.pnlSpace25.Location = new System.Drawing.Point(476, 0);
+            this.pnlSpace25.Name = "pnlSpace25";
+            this.pnlSpace25.Size = new System.Drawing.Size(19, 50);
+            this.pnlSpace25.TabIndex = 24;
             // 
             // lblScheduleDetails
             // 
@@ -1352,7 +1395,7 @@
             this.lblScheduleDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.lblScheduleDetails.Location = new System.Drawing.Point(15, 0);
             this.lblScheduleDetails.Name = "lblScheduleDetails";
-            this.lblScheduleDetails.Size = new System.Drawing.Size(179, 40);
+            this.lblScheduleDetails.Size = new System.Drawing.Size(315, 50);
             this.lblScheduleDetails.TabIndex = 15;
             this.lblScheduleDetails.Text = "Schedule Details";
             this.lblScheduleDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1368,7 +1411,7 @@
             this.pnlSpace16.FillColor = System.Drawing.Color.White;
             this.pnlSpace16.Location = new System.Drawing.Point(0, 0);
             this.pnlSpace16.Name = "pnlSpace16";
-            this.pnlSpace16.Size = new System.Drawing.Size(15, 40);
+            this.pnlSpace16.Size = new System.Drawing.Size(15, 50);
             this.pnlSpace16.TabIndex = 20;
             // 
             // pnlSpace11
@@ -1500,13 +1543,16 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace24;
 		private Guna.UI2.WinForms.Guna2Button btnSendSchedule_Learner;
 		private Guna.UI2.WinForms.Guna2Button btnSendSchedule_Teacher;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EmploymentDate;
-		private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LearnerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SessionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Session;
+        private Guna.UI2.WinForms.Guna2Button lblScheduleID;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
+    }
 }

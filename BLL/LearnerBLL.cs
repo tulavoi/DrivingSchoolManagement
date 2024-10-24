@@ -49,6 +49,12 @@ namespace BLL
             this.AddLearnersToDataGridView(dgv, learners);
         }
 
+        public void SearchLearners(Guna2ComboBox cbo, string keyword)
+        {
+            List<Learner> learners = LearnerDAL.Instance.SearchLearners(keyword);
+            this.AddLearnersToCombobox(cbo, learners);
+        }
+
         public void FilterLearnersByStatus(Guna2DataGridView dgv, string licenseType)
         {
             List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(licenseType);

@@ -66,7 +66,42 @@ namespace DAL
         #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from course in db.Courses
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           where course.CourseName.Contains(keyword)
+                           select new
+                           {
+                               course.CourseID,
+                               course.CourseName,
+                               license.LicenseID,
+                               license.LicenseName,
+                               course.Fee,
+                               course.DurationInHours,
+                               course.Created_At,
+                               course.Updated_At,
+                           };
+                return data.ToList();
+            }
+        }
+
+        public List<Course> SearchCourse(string keyword)
+        {
+            return SearchData(keyword, item => new Course
+            {
+                CourseID = item.CourseID,
+                CourseName = item.CourseName,
+                License = new License
+                {
+                    LicenseID = item.LicenseID,
+                    LicenseName = item.LicenseName
+                },
+                Fee = item.Fee,
+                DurationInHours = item.DurationInHours,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            });
         }
         #endregion
 
