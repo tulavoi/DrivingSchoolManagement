@@ -705,6 +705,7 @@
             this.dtpGraduated.Name = "dtpGraduated";
             this.dtpGraduated.Size = new System.Drawing.Size(248, 36);
             this.dtpGraduated.TabIndex = 4;
+            this.dtpGraduated.Tag = "Graduated Date";
             this.dtpGraduated.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
             this.dtpGraduated.ValueChanged += new System.EventHandler(this.dtpGraduated_ValueChanged);
             // 
@@ -765,6 +766,7 @@
             this.cboLicense.Name = "cboLicense";
             this.cboLicense.Size = new System.Drawing.Size(117, 36);
             this.cboLicense.TabIndex = 26;
+            this.cboLicense.Tag = "License";
             // 
             // lblLicense
             // 
@@ -811,6 +813,7 @@
             this.cboNationality.Size = new System.Drawing.Size(164, 36);
             this.cboNationality.StartIndex = 0;
             this.cboNationality.TabIndex = 28;
+            this.cboNationality.Tag = "Nationality";
             // 
             // lblNationality
             // 
@@ -869,6 +872,7 @@
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(365, 36);
             this.txtAddress.TabIndex = 24;
+            this.txtAddress.Tag = "Address";
             // 
             // lblAddress_Title
             // 
@@ -1026,6 +1030,7 @@
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(122, 36);
             this.txtPhone.TabIndex = 26;
+            this.txtPhone.Tag = "Phone Number";
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numeric_KeyPress);
             // 
             // lblPhone_Title
@@ -1065,6 +1070,7 @@
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(190, 36);
             this.txtEmail.TabIndex = 24;
+            this.txtEmail.Tag = "Email";
             // 
             // lblEmail_Title
             // 
@@ -1253,10 +1259,10 @@
             this.lblTeacherID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.lblTeacherID.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeacherID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblTeacherID.Location = new System.Drawing.Point(347, 15);
+            this.lblTeacherID.Location = new System.Drawing.Point(343, 15);
             this.lblTeacherID.Name = "lblTeacherID";
             this.lblTeacherID.PressedDepth = 5;
-            this.lblTeacherID.Size = new System.Drawing.Size(124, 25);
+            this.lblTeacherID.Size = new System.Drawing.Size(128, 25);
             this.lblTeacherID.TabIndex = 23;
             this.lblTeacherID.Text = "Teacher ID";
             // 
@@ -1264,18 +1270,18 @@
             // 
             this.pnlSpace12.BackColor = System.Drawing.Color.White;
             this.pnlSpace12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace12.Location = new System.Drawing.Point(347, 40);
+            this.pnlSpace12.Location = new System.Drawing.Point(343, 40);
             this.pnlSpace12.Name = "pnlSpace12";
-            this.pnlSpace12.Size = new System.Drawing.Size(124, 10);
+            this.pnlSpace12.Size = new System.Drawing.Size(128, 10);
             this.pnlSpace12.TabIndex = 21;
             // 
             // pnlSpace11
             // 
             this.pnlSpace11.BackColor = System.Drawing.Color.White;
             this.pnlSpace11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace11.Location = new System.Drawing.Point(347, 0);
+            this.pnlSpace11.Location = new System.Drawing.Point(343, 0);
             this.pnlSpace11.Name = "pnlSpace11";
-            this.pnlSpace11.Size = new System.Drawing.Size(124, 15);
+            this.pnlSpace11.Size = new System.Drawing.Size(128, 15);
             this.pnlSpace11.TabIndex = 20;
             // 
             // lblPersonalDetails
@@ -1286,7 +1292,7 @@
             this.lblPersonalDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.lblPersonalDetails.Location = new System.Drawing.Point(13, 0);
             this.lblPersonalDetails.Name = "lblPersonalDetails";
-            this.lblPersonalDetails.Size = new System.Drawing.Size(334, 50);
+            this.lblPersonalDetails.Size = new System.Drawing.Size(330, 50);
             this.lblPersonalDetails.TabIndex = 17;
             this.lblPersonalDetails.Text = "Personal Details";
             this.lblPersonalDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -28,5 +28,37 @@ namespace BLL
         {
             return ScheduleDAL.Instance.GetScheduleByCourseID(courseID, learnerID);
         }
+
+        public void LoadAllSchedules(Guna2DataGridView dgv)
+        {
+            List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedules();
+            this.AddSchedulesToDataGridView(dgv, schedules);
+        }
+
+        public bool AddSchedule(Schedule schedule, out string errorMessage)
+        {
+            return ScheduleDAL.Instance.AddSchedule(schedule, out errorMessage);
+        }
+
+        private void AddSchedulesToDataGridView(Guna2DataGridView dgv, List<Schedule> schedules)
+        {
+            dgv.Rows.Clear();
+            foreach (var schedule in schedules)
+            {
+                int rowIndex = dgv.Rows.Add();
+
+                if (rowIndex != -1 && rowIndex < dgv.Rows.Count)
+                {
+                    dgv.Rows[rowIndex].Tag = schedule;
+
+                    dgv.Rows[rowIndex].Cells["CourseName"].Value = schedule.Course.CourseName;
+                    dgv.Rows[rowIndex].Cells["LearnerName"].Value = schedule.Learner.FullName;
+                    dgv.Rows[rowIndex].Cells["TeacherName"].Value = schedule.Teacher.FullName;
+                    dgv.Rows[rowIndex].Cells["VehicleName"].Value = schedule.Vehicle.VehicleName;
+                    dgv.Rows[rowIndex].Cells["SessionDate"].Value = schedule.SessionDate.Value.ToString("dd-MM-yyyy");
+                    dgv.Rows[rowIndex].Cells["Session"].Value = schedule.Session.Session1;
+                }
+            }
+        }
     }
 }

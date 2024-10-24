@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
@@ -23,6 +24,44 @@ namespace DAL
                     db.SubmitChanges();
                     return true;
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        protected bool AddData(T data, out string errorMessage)
+        {
+            errorMessage = "";
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    db.GetTable<T>().InsertOnSubmit(data);
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627 || ex.Number == 2601) // Lỗi trùng khóa UNIQUE
+                {
+                    if (ex.Message.Contains("UQ_Schedule_Teacher"))
+                        errorMessage = "The teacher already has a schedule for this session on this date.";
+
+                    else if (ex.Message.Contains("UQ_Schedule_Learner"))
+                        errorMessage = "The learner already has a schedule for this session on this date.";
+
+                    else if (ex.Message.Contains("UQ_Schedule_Vehicle"))
+                        errorMessage = "This vehicle is already being used for this session on this date.";
+                }
+                else
+                {
+                    errorMessage = ex.Message; // Lỗi khác
+                }
+                return false;
             }
             catch (Exception ex)
             {

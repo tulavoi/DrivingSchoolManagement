@@ -120,7 +120,7 @@ namespace GUI
         {
             if (!this.InSaveMode())
             {
-                this.ToogleEditMode();
+                this.ToggleEditMode();
                 return;
             }
 
@@ -133,9 +133,8 @@ namespace GUI
                 var result = TeacherService.EditTeacher(teacher);
                 FormHelper.ShowActionResult(result, "Teacher edited successfully.", "Failed to edit teacher.");
             }
-            else return;
 
-            this.ToogleEditMode();
+            this.ToggleEditMode();
             this.LoadAllTeachers();
         }
 
@@ -177,7 +176,7 @@ namespace GUI
             return true;
         }
 
-        private void ToogleEditMode()
+        private void ToggleEditMode()
         {
             FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense);
         }
@@ -243,19 +242,11 @@ namespace GUI
 
         private async void btnSendMail_ClickAsync(object sender, EventArgs e)
         {
-            var mailSetting = FormHelper.GetMailSettings();
-
-            if (!FormHelper.IsMailSettingValid(mailSetting))
-            {
-                FormHelper.ShowError("MailSetting invalid.");
-                return;
-            }
-
             var teacher = this.GetSelectedTeacher();
-            var mailContent = this.CreateMailContent(teacher); // Tạo nội dung email
-            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
-            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+            var mailContent = this.CreateMailContent(teacher);
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
         }
 
         private MailContent CreateMailContent(Teacher teacher)
@@ -263,11 +254,10 @@ namespace GUI
             return new MailContent
             {
                 To = teacher.Email,
-                Subject = $"Driving School: {teacher.FullName}",
+                Subject = $"Driving School",
                 Body = $"<h1>Hello {teacher.FullName},</h1>" +
                        $"<p>{txtMessage.Text}</p>"
             };
         }
-
     }
 }

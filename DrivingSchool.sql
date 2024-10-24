@@ -151,6 +151,15 @@ alter table Schedules
 add constraint FK_Schedules_Session foreign key (SessionID) references [Sessions](SessionID)
 go
 
+ALTER TABLE Schedules
+ADD CONSTRAINT UQ_Schedule_Teacher UNIQUE (TeacherID, SessionDate, SessionID);
+
+ALTER TABLE Schedules
+ADD CONSTRAINT UQ_Schedule_Learner UNIQUE (LearnerID, SessionDate, SessionID);
+
+ALTER TABLE Schedules
+ADD CONSTRAINT UQ_Schedule_Vehicle UNIQUE (VehicleID, SessionDate, SessionID);
+
 alter table Invoices
 add constraint FK_Invoices_Schedule foreign key (ScheduleID) references Schedules(ScheduleID)
 go

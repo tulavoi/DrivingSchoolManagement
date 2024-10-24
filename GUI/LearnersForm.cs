@@ -47,34 +47,28 @@ namespace GUI
 
         private void btnEditLearner_Click(object sender, EventArgs e)
         {
-           
-                if (!this.InSaveMode())
-                {
-                    this.ToggleEditMode();
-                    return;
-                }
+              if (!this.InSaveMode())
+              {
+                  this.ToggleEditMode();
+                  return;
+              }
 
-                if (!this.ValidateFields()) return;
+              if (!this.ValidateFields()) return;
 
-                // Xác nhận hành động
-                if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
-                {
-                    Learner learner = this.GetLearner();
-                    if (LearnerService.EditLearner(learner))
-                    {
-                        FormHelper.ShowNotify("Learner edited successfully.");
-                        this.LoadAllLearners();
-                    }
-                    else
-                    {
-                        FormHelper.ShowError("Failed to edit learner.");
-                    }
-                }
+              if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
+              {
+                  Learner learner = this.GetLearner();
+                  if (LearnerService.EditLearner(learner))
+                  {
+                      FormHelper.ShowNotify("Learner edited successfully.");
+                      this.LoadAllLearners();
+                  }
+                  else
+                      FormHelper.ShowError("Failed to edit learner.");
+              }
 
-                // Tắt chế độ chỉnh sửa sau khi xác nhận (dù có hoặc không)
-                this.ToggleEditMode();
-            
-
+              this.ToggleEditMode();
+              this.LoadAllLearners();
         }
 
         private bool ValidateFields()
@@ -117,7 +111,7 @@ namespace GUI
         {
             return new Learner
             {
-                LearnerID = int.Parse(lblLearnerID.Text),
+                LearnerID = FormHelper.GetObjectID(lblLearnerID.Text),
                 FullName = txtLearnerName.Text,
                 Address = txtAddress.Text,
                 Email = txtEmail.Text,
@@ -164,7 +158,7 @@ namespace GUI
         private void AssignDataToControls(Learner selectedLearner)
         {
             // Assign learner data to form controls
-            string learnerID = selectedLearner.LearnerID.ToString();
+            string learnerID = "ID: " + selectedLearner.LearnerID.ToString();
 
             FormHelper.SetLabelID(lblLearnerID, learnerID);
             txtLearnerName.Text = selectedLearner.FullName;
@@ -198,50 +192,15 @@ namespace GUI
             return dgvLearners.SelectedRows.Count > 0;
         }
 
-        private async void btnSendSMS_Click(object sender, EventArgs e)
-        {
-
-            // Lấy thiết lập gửi mail
-            var mailSetting = FormHelper.GetMailSettings();
-
-            // Kiểm tra tính hợp lệ của thiết lập mail
-            if (!FormHelper.IsMailSettingValid(mailSetting))
-            {
-                FormHelper.ShowError("MailSetting invalid.");
-                return;
-            }
-
-            // Lấy học viên hiện tại đang được chọn
-            var learner = this.GetLearner();
-
-            // Tạo nội dung email dựa trên thông tin của học viên
-            var mailContent = this.CreateMailContent(learner);
-
-            // Khởi tạo dịch vụ gửi mail
-            var sendMailService = new SendMailService(mailSetting);
-            // Gửi email bằng Task.Run để chạy ngầm, tránh khóa giao diện
-            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
-
-            // Hiển thị kết quả gửi mail (thành công hoặc thất bại)
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send learner information.");
-        }
-
         private MailContent CreateMailContent(Learner learner)
         {
             // Tạo nội dung mail dựa trên thông tin của học viên
             return new MailContent
             {
                 To = learner.Email, // Địa chỉ email học viên
-                Subject = $"Learner Information: {learner.FullName}", // Tiêu đề email chứa tên học viên
-                Body = $"<h1>Thông tin học viên</h1>" +
-                       $"<p>Họ và tên: {learner.FullName}</p>" +
-                       $"<p>Ngày sinh: {learner.DateOfBirth.ToString()}</p>" +
-                       $"<p>Giới tính: {learner.Gender}</p>" +
-                       $"<p>Số điện thoại: {learner.PhoneNumber}</p>" +
-                       $"<p>Địa chỉ: {learner.Address}</p>" +
-                       $"<p>Email: {learner.Email}</p>" +
-                       $"<p>Số CMND/CCCD: {learner.CitizenID}</p>" +
-                       $"<p>Loại bằng lái hiện tại: {learner.CurrentLicenseID}</p>"
+                Subject = $"Driving School", // Tiêu đề email chứa tên học viên
+                Body = $"<h1>Hello {learner.FullName},</h1>" +
+                       $"<p>{txtMessage.Text}</p>"
             };
         }
 
@@ -253,6 +212,15 @@ namespace GUI
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private async void btnSendMail_Click(object sender, EventArgs e)
+        {
+            var learner = this.GetLearner();
+            var mailContent = this.CreateMailContent(learner);
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
         }
     }
 }

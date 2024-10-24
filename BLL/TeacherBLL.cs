@@ -52,6 +52,12 @@ namespace BLL
             this.AddTeachersToDataGridView(dgv, teachers);
         }
 
+        public void SearchTeachers(Guna2ComboBox cbo, string keyword)
+        {
+            List<Teacher> teachers = TeacherDAL.Instance.SearchTeachers(keyword);
+            this.AddTeachersToCombobox(cbo, teachers);
+        }
+
         private void AddTeachersToDataGridView(Guna2DataGridView dgv, List<Teacher> teachers)
         {
             dgv.Rows.Clear();
