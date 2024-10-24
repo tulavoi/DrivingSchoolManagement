@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL;
+using GUI.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +28,8 @@ namespace GUI
 
 			// Nếu như khởi động form mà chkPassengerCar đang được chọn thì bật txtSeats
 			if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
+
+            FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
 		}
 
 		private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
@@ -65,5 +70,89 @@ namespace GUI
 		{
 			this.Close();
 		}
-	}
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFields()) return;
+
+            // Tạo vehicle mới
+            Vehicle vehicle = GetVehicle();
+
+            // Gọi service để thêm vehicle vào database
+            if (VehicleService.AddVehicle(vehicle))
+                FormHelper.ShowNotify("Vehicle added successfully.");
+            else
+                FormHelper.ShowError("Failed to add vehicle.");
+        }
+        //private bool ValidateFields()
+        //{
+        //    // Kiểm tra các trường thông tin của học viên
+        //    if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
+
+        //    if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+
+        //    if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
+
+        //    if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+
+        //    if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
+        //    // Kiểm tra học viên có đủ điều kiện về độ tuổi
+        //    if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+
+        //    return true;
+        //}
+        private bool ValidateFields()
+        {
+            // Kiểm tra các trường thông tin của xe
+            if (!VehicleValidator.ValidateName(txtCarName, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateVehicleNumber(txtCarNo, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateManufactureYear(dtpManuYear, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateWeightAndSeats(chkPassengerCar, chkTruck, txtSeats, txtWeight, toolTip)) return false;
+
+            //if (!VehicleValidator.ValidateSeats(chkTruck, txtWeight, txtSeats, toolTip)) return false;
+
+            // Kiểm tra xem xe có phải là xe tải hay xe chở khách không
+            //if (!VehicleValidator.ValidateTruck(chkTruck, toolTip)) return false;
+
+            //if (!VehicleValidator.ValidatePassengerCar(chkPassengerCar, toolTip)) return false;
+
+            return true;
+        }
+
+        private Vehicle GetVehicle()
+        {
+            return new Vehicle()
+            {
+                VehicleName = txtCarName.Text,                      
+                VehicleNumber = txtCarNo.Text,                
+                ManufacturerYear = dtpManuYear.Value.Year,    
+                IsTruck = chkTruck.Checked,                      
+                IsPassengerCar = chkPassengerCar.Checked,     
+                Weight = !string.IsNullOrEmpty(txtWeight.Text) ? int.Parse(txtWeight.Text) : 0,         
+                Seats = !string.IsNullOrEmpty(txtSeats.Text) ? int.Parse(txtSeats.Text) : 0,            
+                IsMaintenance = true,               
+                Created_At = DateTime.Now,             
+            };
+        }
+
+        private void txtSeats_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckLetterKeyPress(e, txtCarName);
+        }
+    }
 }

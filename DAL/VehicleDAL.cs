@@ -130,6 +130,7 @@ namespace DAL
             });
         }
 
+
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
             using (var db = DataAccess.GetDataContext())
@@ -164,6 +165,7 @@ namespace DAL
         #endregion
 
         #region Edit
+        
         public bool EditVehicle(Vehicle vehicle)
         {
             return EditData(v => v.VehicleID == vehicle.VehicleID,      // Điều kiện tìm vehicle theo ID
@@ -177,6 +179,16 @@ namespace DAL
                                 v.ManufacturerYear = vehicle.ManufacturerYear;
                                 v.Weight = vehicle.Weight;
                                 v.Seats = vehicle.Seats;
+                                v.Notes = vehicle.Notes;
+                                v.Updated_At = DateTime.Now;
+                            });
+        }
+        public bool EditVehicleNote(Vehicle vehicle)
+        {
+            return EditData(v => v.VehicleID == vehicle.VehicleID,      // Điều kiện tìm vehicle theo ID
+                            v =>                                        // Action cập nhật các thuộc tính
+                            {
+                                v.IsMaintenance = vehicle.IsMaintenance;
                                 v.Notes = vehicle.Notes;
                                 v.Updated_At = DateTime.Now;
                             });

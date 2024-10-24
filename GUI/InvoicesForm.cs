@@ -71,9 +71,7 @@ namespace GUI
                 var result = InvoiceService.EditInvoice(invoice);
                 FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
             }
-            else return;
             this.ToogleEditMode();
-
             this.LoadAllInvoice();
         }
 

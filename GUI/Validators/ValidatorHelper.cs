@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Text.RegularExpressions;
 
 namespace GUI.Validators
@@ -32,6 +33,16 @@ namespace GUI.Validators
             if (dob > DateTime.Now.AddYears(-age)) age--; // Kiểm tra chính xác ngày sinh nhật đã qua chưa
 
             return age >= Constant.MinAge;
+        }
+
+        public static bool CheckRequiredAndShowToolTip(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
+        {
+            if (!IsRequiredFieldFilled(txt.Text))
+            {
+                FormHelper.ShowToolTip(txt, toolTip, $"Please enter {txt.Tag}");
+                return false;
+            }
+            return true;
         }
     }
 }

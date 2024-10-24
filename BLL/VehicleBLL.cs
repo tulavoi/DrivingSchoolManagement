@@ -77,7 +77,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["CarName"].Value = vehicle.VehicleName;
                     dgv.Rows[rowIndex].Cells["CarNumber"].Value = vehicle.VehicleNumber;
                     dgv.Rows[rowIndex].Cells["ManufactureYear"].Value = vehicle.ManufacturerYear;
-                    if (vehicle.IsMaintenance == false)
+                    if (vehicle.IsMaintenance == true)
                     {
                         dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
                     }
@@ -98,6 +98,10 @@ namespace BLL
         public bool EditVehicle(Vehicle vehicle)
         {
             return VehicleDAL.Instance.EditVehicle(vehicle);
+        }
+        public bool EditVehicleNote(Vehicle vehicle)
+        {
+            return VehicleDAL.Instance.EditVehicleNote(vehicle);
         }
 
         public bool DeleteVehicle(int vehicleID)

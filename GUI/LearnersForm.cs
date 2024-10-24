@@ -4,6 +4,9 @@ using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
+using BLL.Services.SendEmail;
+using System.Threading.Tasks;
+using GUI.Validators;
 
 namespace GUI
 {
@@ -37,49 +40,54 @@ namespace GUI
 
         public void LoadAllLearners()
         {
-            // Load all learner data into the DataGridView
             LearnerService.LoadAllLearners(dgvLearners);
             this.UpdateControlsWithSelectedRowData();
         }
 
         private void btnEditLearner_Click(object sender, EventArgs e)
         {
-            if (!this.InSaveMode())
-            {
-                this.ToggleEditMode();
-                return;
-            }
+              if (!this.InSaveMode())
+              {
+                  this.ToggleEditMode();
+                  return;
+              }
 
-            if (!this.ValidateFields()) return;
+              if (!this.ValidateFields()) return;
 
-            if (this.ConfirmAction($"Are you sure to edit learner '{lblLearnerID.Text}'?"))
-            {
-                Learner learner = this.GetLearner();
-                if (LearnerService.EditLearner(learner))
-                {
-                    FormHelper.ShowNotify("Learner edited successfully.");
-                    this.LoadAllLearners();
-                }
-                else
-                    FormHelper.ShowError("Failed to edit learner.");
-            }
-            else return;
+              if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
+              {
+                  Learner learner = this.GetLearner();
+                  if (LearnerService.EditLearner(learner))
+                  {
+                      FormHelper.ShowNotify("Learner edited successfully.");
+                      this.LoadAllLearners();
+                  }
+                  else
+                      FormHelper.ShowError("Failed to edit learner.");
+              }
+
+              this.ToggleEditMode();
+              this.LoadAllLearners();
         }
 
         private bool ValidateFields()
         {
-            if (string.IsNullOrEmpty(txtLearnerName.Text))
-            {
-                FormHelper.ShowToolTip(txtLearnerName, toolTip, "Please enter the learner's name.");
-                return false;
-            }
-            if (cboGender.SelectedIndex < 0)
-            {
-                FormHelper.ShowToolTip(cboGender, toolTip, "Please select a gender.");
-                return false;
-            }
+            // Kiểm tra các trường thông tin của học viên
+            if (!LearnerValidator.ValidateFullName(txtLearnerName, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
+
+            if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+
+            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
             return true;
         }
+
 
         private void ToggleEditMode()
         {
@@ -101,11 +109,11 @@ namespace GUI
         {
             return new Learner
             {
-                LearnerID = int.Parse(lblLearnerID.Text),
+                LearnerID = FormHelper.GetObjectID(lblLearnerID.Text),
                 FullName = txtLearnerName.Text,
                 Address = txtAddress.Text,
                 Email = txtEmail.Text,
-                CitizenID=txtCitizenId.Text,
+                CitizenID = txtCitizenId.Text,
                 PhoneNumber = txtPhone.Text,
                 Gender = cboGender.Text,
                 DateOfBirth = dtpDOB.Value,
@@ -148,7 +156,7 @@ namespace GUI
         private void AssignDataToControls(Learner selectedLearner)
         {
             // Assign learner data to form controls
-            string learnerID = selectedLearner.LearnerID.ToString();
+            string learnerID = "ID: " + selectedLearner.LearnerID.ToString();
 
             FormHelper.SetLabelID(lblLearnerID, learnerID);
             txtLearnerName.Text = selectedLearner.FullName;
@@ -164,7 +172,7 @@ namespace GUI
         {
             if (!this.HasSelectedRow()) return;
 
-            if (this.ConfirmAction($"Are you sure to delete learner '{lblLearnerID.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
             {
                 if (LearnerService.DeleteLearner(int.Parse(lblLearnerID.Text)))
                 {
@@ -180,6 +188,37 @@ namespace GUI
         {
             // Check if any row is selected in the DataGridView
             return dgvLearners.SelectedRows.Count > 0;
+        }
+
+        private MailContent CreateMailContent(Learner learner)
+        {
+            // Tạo nội dung mail dựa trên thông tin của học viên
+            return new MailContent
+            {
+                To = learner.Email, // Địa chỉ email học viên
+                Subject = $"Driving School", // Tiêu đề email chứa tên học viên
+                Body = $"<h1>Hello {learner.FullName},</h1>" +
+                       $"<p>{txtMessage.Text}</p>"
+            };
+        }
+
+        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private async void btnSendMail_Click(object sender, EventArgs e)
+        {
+            var learner = this.GetLearner();
+            var mailContent = this.CreateMailContent(learner);
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
         }
     }
 }
