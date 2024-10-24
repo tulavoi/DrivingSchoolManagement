@@ -40,6 +40,16 @@ namespace BLL
             return ScheduleDAL.Instance.AddSchedule(schedule, out errorMessage);
         }
 
+        public bool EditSchedule(Schedule schedule, out string errorMessage)
+        {
+            return ScheduleDAL.Instance.EditSchedule(schedule, out errorMessage);
+        }
+
+        public bool DeleteSchedule(int scheduleID)
+        {
+            return ScheduleDAL.Instance.DeleteSchedule(scheduleID);
+        }
+
         private void AddSchedulesToDataGridView(Guna2DataGridView dgv, List<Schedule> schedules)
         {
             dgv.Rows.Clear();

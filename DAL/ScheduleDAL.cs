@@ -59,6 +59,7 @@ namespace DAL
                                
                                vehicle.VehicleID,
                                vehicle.VehicleName,
+                               vehicle.VehicleNumber,
                                vehicle.IsTruck,
                                vehicle.IsPassengerCar,
                                vehicle.IsMaintenance,
@@ -108,7 +109,8 @@ namespace DAL
                 Vehicle = new Vehicle()
                 {
                     VehicleID = item.VehicleID,
-                    VehicleName = item.VehicleName
+                    VehicleName = item.VehicleName,
+                    VehicleNumber = item.VehicleNumber,
                 },
                 Session = new Session()
                 {
@@ -192,6 +194,29 @@ namespace DAL
             {
                 return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
             }
+        }
+        #endregion
+
+        #region Edit
+        public bool EditSchedule(Schedule schedule, out string errorMessage)
+        {
+            return EditData(sche => sche.ScheduleID == schedule.ScheduleID,          
+                            sche =>                                            
+                            {
+                                sche.TeacherID = schedule.TeacherID;
+                                sche.VehicleID = schedule.VehicleID;
+                                sche.SessionID = schedule.SessionID;
+                                sche.SessionDate = schedule.SessionDate;
+                                sche.Updated_At = DateTime.Now;
+                            },
+                            out errorMessage);
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteSchedule(int scheduleID)
+        {
+            return DeleteData(sche => sche.ScheduleID == scheduleID);
         }
         #endregion
     }

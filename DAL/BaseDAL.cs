@@ -70,6 +70,50 @@ namespace DAL
             }
         }
 
+        protected bool EditData(Func<T, bool> predicate, Action<T> update, out string errorMessage)
+        {
+            errorMessage = ""; // Khởi tạo thông báo lỗi
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate); // Tìm đối tượng theo điều kiện
+                    if (entity == null)
+                    {
+                        errorMessage = "Entity not found."; // Thông báo nếu không tìm thấy đối tượng
+                        return false;
+                    }
+                    update(entity); // Cập nhật các thuộc tính
+                    db.SubmitChanges(); // Lưu thay đổi
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627 || ex.Number == 2601) // Lỗi trùng khóa UNIQUE
+                {
+                    if (ex.Message.Contains("UQ_Schedule_Teacher"))
+                        errorMessage = "The teacher already has a schedule for this session on this date.";
+
+                    else if (ex.Message.Contains("UQ_Schedule_Learner"))
+                        errorMessage = "The learner already has a schedule for this session on this date.";
+
+                    else if (ex.Message.Contains("UQ_Schedule_Vehicle"))
+                        errorMessage = "This vehicle is already being used for this session on this date.";
+                }
+                else
+                {
+                    errorMessage = ex.Message; // Lỗi khác
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         protected bool EditData(Func<T, bool> predicate, Action<T> update)
         {
             try

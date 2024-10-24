@@ -49,12 +49,12 @@ namespace BLL
         private void AddVehiclesToCombobox_HasVehicleNumber(Guna2ComboBox cbo, List<Vehicle> vehicles)
         {
             Vehicle vehicle = new Vehicle();
-            vehicle.VehicleName = "Select Vehicle";
+            vehicle.VehicleName = "-- Select Vehicle";
             vehicles.Insert(0, vehicle);
             var displayList = vehicles.Select((v, index) => new
             {
                 VehicleID = v.VehicleID,
-                DisplayName = $"{v.VehicleName}   {v.VehicleNumber}" // Thêm số thứ tự
+                DisplayName = $"{v.VehicleName} -- {v.VehicleNumber}"
             }).ToList();
 
             cbo.DataSource = displayList;

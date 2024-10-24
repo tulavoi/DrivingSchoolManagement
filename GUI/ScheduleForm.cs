@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using BLL.Services.SendEmail;
 using DAL;
+using GUI.Validators;
 using Guna.UI2.WinForms;
 using Org.BouncyCastle.Asn1.Cmp;
 using Org.BouncyCastle.Asn1.Cms;
@@ -64,10 +65,12 @@ namespace GUI
 
             FormHelper.SetLabelID(lblScheduleID, scheduleID);
 
-			cboLearners.Text = schedule.Learner.FullName;
+            string vehicleNameNumber = schedule.Vehicle.VehicleName + " -- " + schedule.Vehicle.VehicleNumber;
+
+            cboLearners.Text = schedule.Learner.FullName;
 			cboTeachers.Text = schedule.Teacher.FullName;
 			cboCourses.Text = schedule.Course.CourseName;
-			cboVehicles.Text = schedule.Vehicle.VehicleName;
+			cboVehicles.Text = vehicleNameNumber;
 			cboSessions.Text = schedule.Session.Session1;
             dtpSessionDate.Value = schedule.SessionDate.Value;
 		}
@@ -89,7 +92,7 @@ namespace GUI
             ComboboxService.AssignLearnersToCombobox(cboLearners);
 			ComboboxService.AssignTeachersToCombobox(cboTeachers);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
-			ComboboxService.AssignVehiclesToCombobox(cboVehicles);
+			//ComboboxService.AssignVehiclesToCombobox(cboVehicles);
         }
 
         public void SetCurrentDate()
@@ -125,19 +128,102 @@ namespace GUI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboCourses, cboLearners, cboTeachers, cboSessions, dtpSessionDate, cboVehicles);
+            if (!this.InSaveMode())
+            {
+                this.ToggleEditMode();
+                return;
+            }
+
+            if (!this.ValidateFields()) return;
+
+            if (this.ConfirmAction($"Are you sure to edit schedule for '{cboLearners.Text}'?"))
+            {
+                Schedule schedule = this.GetSchedule();
+                string errorMessage = "";
+
+                var result = ScheduleService.EditSchedule(schedule, out errorMessage);
+
+                if (result)
+                    FormHelper.ShowNotify("Schedule edited successfully.");
+                else
+                    this.HandleScheduleAddError(errorMessage);
+            }
+
+            this.ToggleEditMode();
+            this.LoadAllSchedules();
 		}
 
-		private void btnDelete_Click(object sender, EventArgs e)
+        private void HandleScheduleAddError(string errorMessage)
+        {
+            if (!string.IsNullOrEmpty(errorMessage))
+                FormHelper.ShowError(errorMessage);
+            else
+                FormHelper.ShowError("Failed to add schedule");
+        }
+
+        private Schedule GetSchedule()
+        {
+            return new Schedule
+            {
+                ScheduleID = FormHelper.GetObjectID(lblScheduleID.Text),
+                TeacherID = Convert.ToInt32(cboTeachers.SelectedValue),
+                VehicleID = Convert.ToInt32(cboVehicles.SelectedValue),
+                SessionID = Convert.ToInt32(cboSessions.SelectedValue),
+                SessionDate = dtpSessionDate.Value
+            };
+        }
+
+        private bool ConfirmAction(string message)
+        {
+            DialogResult result = FormHelper.ShowConfirm(message);
+            return result == DialogResult.Yes;
+        }
+
+        private bool ValidateFields()
+        {
+            var comboBoxes = new List<Guna2ComboBox> { cboLearners, cboCourses, cboTeachers, cboVehicles, cboSessions };
+
+            foreach (var comboBox in comboBoxes)
+            {
+                if (!ScheduleValidator.CheckRequiredAndShowToolTip(comboBox, toolTip))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool InSaveMode()
+        {
+            return btnEdit.Text == Constant.SAVE_MODE;
+        }
+
+        private void ToggleEditMode()
+        {
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboTeachers, cboSessions, dtpSessionDate, cboVehicles);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
 		{
-			if (FormHelper.ConfirmDelete())
-			{
+            if (!this.HasSelectedRow()) return;
 
-			}
-		}
+            if (string.IsNullOrEmpty(lblScheduleID.Text)) return;
+
+            if (this.ConfirmAction($"Are you sure to delete schedule of '{cboLearners.Text}'?"))
+            {
+                int scheduleID = FormHelper.GetObjectID(lblScheduleID.Text);
+                var result = ScheduleService.DeleteSchedule(scheduleID);
+                FormHelper.ShowActionResult(result, "Schedule deleted successfully.", "Failed to delete schedule.");
+                this.LoadAllSchedules();
+            }
+        }
+
+        private bool HasSelectedRow()
+        {
+            return dgvSchedules.SelectedRows.Count > 0;
+        }
 
         // Thay đổi màu text của cột index = 7 trong datagridview
-		private void dgvSchedules_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgvSchedules_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
 			if (e.ColumnIndex == 7)
 			{
@@ -231,6 +317,17 @@ namespace GUI
             ");
 
             return sb.ToString();
+        }
+
+        private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!FormHelper.HasSelectedItem(cboCourses)) return;
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+
+            ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
+
+            ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
+			this.UpdateControlsWithSelectedRowData();
         }
     }
 }
