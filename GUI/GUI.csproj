@@ -246,6 +246,7 @@
     <Compile Include="Validators\LearnerValidator.cs" />
     <Compile Include="Validators\ValidatorHelper.cs" />
     <Compile Include="Validators\TeacherValidator.cs" />
+    <Compile Include="Validators\VehicleValidator.cs" />
     <Compile Include="VehiclesForm.cs">
       <SubType>Form</SubType>
     </Compile>

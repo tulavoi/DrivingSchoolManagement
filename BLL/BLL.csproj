@@ -139,6 +139,7 @@
     <Compile Include="Services\SendEmail\MailSettings.cs" />
     <Compile Include="Services\SendEmail\SendMailService.cs" />
     <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\VehicleService.cs" />
     <Compile Include="SessionBLL.cs" />
     <Compile Include="TeacherBLL.cs" />
     <Compile Include="VehicleBLL.cs" />

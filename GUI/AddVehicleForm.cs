@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL;
+using GUI.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,51 +22,113 @@ namespace GUI
             FormHelper.ApplyRoundedCorners(this, 20);
         }
 
-		private void AddVehicleForm_Load(object sender, EventArgs e)
-		{
+        private void AddVehicleForm_Load(object sender, EventArgs e)
+        {
             this.shadowForm.SetShadowForm(this);
 
-			// Nếu như khởi động form mà chkPassengerCar đang được chọn thì bật txtSeats
-			if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
-		}
+            // Nếu như khởi động form mà chkPassengerCar đang được chọn thì bật txtSeats
+            if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
+        }
 
-		private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
-		{
-			// Optimze this code
-			if (this.chkPassengerCar.Checked)
-			{
-				this.txtWeight.Enabled = false;
+        private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
+        {
+            // Optimze this code
+            if (this.chkPassengerCar.Checked)
+            {
+                this.txtWeight.Enabled = false;
 
-				this.chkTruck.Checked = false;
-				this.txtSeats.Enabled = true;
-			}
-			else
-			{
-				if (!this.chkPassengerCar.Checked)
-					this.txtSeats.Enabled = false;
-			}
-		}
+                this.chkTruck.Checked = false;
+                this.txtSeats.Enabled = true;
+            }
+            else
+            {
+                if (!this.chkPassengerCar.Checked)
+                    this.txtSeats.Enabled = false;
+            }
+        }
 
-		private void chkTruck_CheckedChanged(object sender, EventArgs e)
-		{
-			// Optimze this code
-			if (this.chkTruck.Checked)
-			{
-				this.txtWeight.Enabled = true;
+        private void chkTruck_CheckedChanged(object sender, EventArgs e)
+        {
+            // Optimze this code
+            if (this.chkTruck.Checked)
+            {
+                this.txtWeight.Enabled = true;
 
-				this.chkPassengerCar.Checked = false;
-				this.txtSeats.Enabled = false;
-			}
-			else
-			{
-				if (!this.chkTruck.Checked)
-					this.txtWeight.Enabled = false;
-			}
-		}
+                this.chkPassengerCar.Checked = false;
+                this.txtSeats.Enabled = false;
+            }
+            else
+            {
+                if (!this.chkTruck.Checked)
+                    this.txtWeight.Enabled = false;
+            }
+        }
 
-		private void btnCancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-	}
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFields()) return;
+
+            // Tạo vehicle mới
+            Vehicle vehicle = GetVehicle();
+
+            // Gọi service để thêm vehicle vào database
+            if (VehicleService.AddVehicle(vehicle))
+                FormHelper.ShowNotify("Vehicle added successfully.");
+            else
+                FormHelper.ShowError("Failed to add vehicle.");
+        }
+        private bool ValidateFields()
+        {
+            // Kiểm tra các trường thông tin của xe
+            if (!VehicleValidator.ValidateName(txtName, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateVehicleNumber(txtCarNo, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateManufactureYear(dtpManuYear, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateWeight(txtWeight, toolTip)) return false;
+
+            if (!VehicleValidator.ValidateSeats(txtSeats, toolTip)) return false;
+
+            // Kiểm tra xem xe có phải là xe tải hay xe chở khách không
+            if (!VehicleValidator.ValidateTruck(chkTruck, toolTip)) return false;
+
+            if (!VehicleValidator.ValidatePassengerCar(chkPassengerCar, toolTip)) return false;
+
+            return true;
+        }
+
+        private Vehicle GetVehicle()
+        {
+            return new Vehicle()
+            {
+                VehicleName = txtName.Text,
+                VehicleNumber = txtCarNo.Text,
+                ManufacturerYear = dtpManuYear.Value.Year,
+                IsTruck = chkTruck.Checked,
+                IsPassengerCar = chkPassengerCar.Checked,
+                Weight = string.IsNullOrWhiteSpace(txtWeight.Text) ? (int?)null : int.Parse(txtWeight.Text),
+                Seats = string.IsNullOrWhiteSpace(txtSeats.Text) ? (int?)null : int.Parse(txtSeats.Text),
+                IsMaintenance = true,
+                Created_At = DateTime.Now,
+                Updated_At = DateTime.Now
+            };
+        }
+
+        private void txtSeats_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+
+        }
+    }
 }
