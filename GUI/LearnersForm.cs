@@ -82,10 +82,9 @@ namespace GUI
 
             if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
-
-            // Kiểm tra học viên có đủ điều kiện về độ tuổi
             if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
             return true;
         }
