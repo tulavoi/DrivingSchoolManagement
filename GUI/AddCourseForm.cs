@@ -53,16 +53,16 @@ namespace GUI
             int licenseID;
             switch (cboLicense.Text)
             {
-                case "A":
+                case "B":
                     licenseID = 1001;
                     break;
-                case "B":
+                case "C":
                     licenseID = 1002;
                     break;
-                case "C":
+                case "D":
                     licenseID = 1003;
                     break;
-                case "D":
+                case "E":
                     licenseID = 1004;
                     break;
                 default:
