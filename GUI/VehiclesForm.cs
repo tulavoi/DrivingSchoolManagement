@@ -239,6 +239,7 @@ namespace GUI
             }
         }
 
+
         private bool ConfirmAction(string message)
         {
             DialogResult result = FormHelper.ShowConfirm(message);
@@ -331,30 +332,26 @@ namespace GUI
 
         private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Xóa các dòng hiện tại trong DataGridView
-            FormHelper.ClearDataGridViewRow(dgvVehicles);
-
-            // Nếu chưa chọn bất kỳ trạng thái nào (Index < 1), tải tất cả xe
             if (cboStatus_Filter.SelectedIndex < 1)
             {
-                this.LoadAllVehicles();
+                this.LoadAllVehicles(); // Tải toàn bộ dữ liệu
             }
             else
             {
-                // Lấy trạng thái đã chọn
-                string status = cboStatus_Filter.SelectedItem.ToString();
-
-                // Lọc xe dựa trên trạng thái đã chọn
-                if (status == "Available")
+                string selectedStatus = cboStatus_Filter.SelectedItem.ToString();
+                foreach (DataGridViewRow row in dgvVehicles.Rows)
                 {
-                    VehicleService.FilterVehiclesByStatus(dgvVehicles, "Available");
+                    string statusValue = row.Cells[4].Value?.ToString();
+                    if ((selectedStatus == "Available" && statusValue == "Available") ||
+                        (selectedStatus == "Maintenance" && statusValue == "Maintenance"))
+                    {
+                        row.Visible = true; // Hiển thị dòng nếu điều kiện khớp
+                    }
+                    else
+                    {
+                        row.Visible = false; // Ẩn dòng nếu điều kiện không khớp
+                    }
                 }
-                else if (status == "Maintenance")
-                {
-                    VehicleService.FilterVehiclesByStatus(dgvVehicles, "Maintenance");
-                }
-
-                // Cập nhật controls với dữ liệu của dòng đã chọn
                 this.UpdateControlsWithSelectedRowData();
             }
         }

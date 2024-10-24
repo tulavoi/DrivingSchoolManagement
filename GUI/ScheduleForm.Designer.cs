@@ -72,9 +72,9 @@
             this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSchedules_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboSession_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlSpace23 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cboSession_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlSpace22 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
@@ -705,36 +705,6 @@
             this.pnlSchedules_Top.Size = new System.Drawing.Size(940, 50);
             this.pnlSchedules_Top.TabIndex = 0;
             // 
-            // cboSession_Filter
-            // 
-            this.cboSession_Filter.BackColor = System.Drawing.Color.White;
-            this.cboSession_Filter.BorderRadius = 5;
-            this.cboSession_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboSession_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboSession_Filter.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboSession_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboSession_Filter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cboSession_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboSession_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSession_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboSession_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboSession_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboSession_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboSession_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboSession_Filter.ItemHeight = 30;
-            this.cboSession_Filter.Items.AddRange(new object[] {
-            "Select Session",
-            "7H30-9H30",
-            "9H30-11H30",
-            "13H00-15H00",
-            "15H00-17H00"});
-            this.cboSession_Filter.Location = new System.Drawing.Point(749, 10);
-            this.cboSession_Filter.Name = "cboSession_Filter";
-            this.cboSession_Filter.Size = new System.Drawing.Size(176, 36);
-            this.cboSession_Filter.StartIndex = 0;
-            this.cboSession_Filter.TabIndex = 36;
-            this.cboSession_Filter.SelectedIndexChanged += new System.EventHandler(this.cboSession_Filter_SelectedIndexChanged);
-            // 
             // pnlSpace23
             // 
             this.pnlSpace23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
@@ -770,6 +740,36 @@
             this.txtSearch.Size = new System.Drawing.Size(488, 35);
             this.txtSearch.TabIndex = 25;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // cboSession_Filter
+            // 
+            this.cboSession_Filter.BackColor = System.Drawing.Color.White;
+            this.cboSession_Filter.BorderRadius = 5;
+            this.cboSession_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboSession_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboSession_Filter.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboSession_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboSession_Filter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cboSession_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSession_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSession_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboSession_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboSession_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboSession_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboSession_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboSession_Filter.ItemHeight = 30;
+            this.cboSession_Filter.Items.AddRange(new object[] {
+            "Select Session",
+            "7H30-9H30",
+            "9H30-11H30",
+            "13H00-15H00",
+            "15H00-17H00"});
+            this.cboSession_Filter.Location = new System.Drawing.Point(749, 10);
+            this.cboSession_Filter.Name = "cboSession_Filter";
+            this.cboSession_Filter.Size = new System.Drawing.Size(176, 36);
+            this.cboSession_Filter.StartIndex = 0;
+            this.cboSession_Filter.TabIndex = 36;
+            this.cboSession_Filter.SelectedIndexChanged += new System.EventHandler(this.cboSession_Filter_SelectedIndexChanged);
             // 
             // pnlSpace22
             // 
