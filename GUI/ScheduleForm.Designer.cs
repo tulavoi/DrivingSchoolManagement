@@ -34,8 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBottomLeft = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddScheduleForm = new Guna.UI2.WinForms.Guna2Button();
@@ -64,13 +64,6 @@
             this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvSchedules = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSchedules_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.cboSession_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -121,6 +114,13 @@
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpaceTop_Bottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBottomLeft.SuspendLayout();
             this.pnlSpace10.SuspendLayout();
             this.pnlCalendar.SuspendLayout();
@@ -600,86 +600,6 @@
             this.dgvSchedules.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvSchedules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSchedules_CellFormatting);
             this.dgvSchedules.SelectionChanged += new System.EventHandler(this.dgvSchedules_SelectionChanged);
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Space";
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 18;
-            // 
-            // CourseName
-            // 
-            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CourseName.DataPropertyName = "CourseName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CourseName.FillWeight = 53.63456F;
-            this.CourseName.Frozen = true;
-            this.CourseName.HeaderText = "Course";
-            this.CourseName.MinimumWidth = 6;
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            this.CourseName.Width = 140;
-            // 
-            // LearnerName
-            // 
-            this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LearnerName.DataPropertyName = "LearnerName";
-            this.LearnerName.Frozen = true;
-            this.LearnerName.HeaderText = "Learner";
-            this.LearnerName.MinimumWidth = 6;
-            this.LearnerName.Name = "LearnerName";
-            this.LearnerName.ReadOnly = true;
-            this.LearnerName.Width = 190;
-            // 
-            // TeacherName
-            // 
-            this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TeacherName.DataPropertyName = "TeacherName";
-            this.TeacherName.Frozen = true;
-            this.TeacherName.HeaderText = "Teacher";
-            this.TeacherName.MinimumWidth = 6;
-            this.TeacherName.Name = "TeacherName";
-            this.TeacherName.ReadOnly = true;
-            this.TeacherName.Width = 190;
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.VehicleName.DataPropertyName = "VehicleName";
-            this.VehicleName.Frozen = true;
-            this.VehicleName.HeaderText = "Vehicle";
-            this.VehicleName.MinimumWidth = 6;
-            this.VehicleName.Name = "VehicleName";
-            this.VehicleName.ReadOnly = true;
-            this.VehicleName.Width = 110;
-            // 
-            // SessionDate
-            // 
-            this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SessionDate.DataPropertyName = "Date";
-            this.SessionDate.Frozen = true;
-            this.SessionDate.HeaderText = "Date";
-            this.SessionDate.MinimumWidth = 6;
-            this.SessionDate.Name = "SessionDate";
-            this.SessionDate.ReadOnly = true;
-            this.SessionDate.Width = 125;
-            // 
-            // Session
-            // 
-            this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Session.DataPropertyName = "Session";
-            this.Session.Frozen = true;
-            this.Session.HeaderText = "Time";
-            this.Session.MinimumWidth = 6;
-            this.Session.Name = "Session";
-            this.Session.ReadOnly = true;
-            this.Session.Width = 125;
             // 
             // pnlSchedules_Top
             // 
@@ -1432,6 +1352,86 @@
             this.pnlSpaceTop_Bottom.Size = new System.Drawing.Size(940, 20);
             this.pnlSpaceTop_Bottom.TabIndex = 56;
             // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Space";
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 18;
+            // 
+            // CourseName
+            // 
+            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CourseName.DataPropertyName = "CourseName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CourseName.FillWeight = 53.63456F;
+            this.CourseName.Frozen = true;
+            this.CourseName.HeaderText = "Course";
+            this.CourseName.MinimumWidth = 6;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            this.CourseName.Width = 140;
+            // 
+            // LearnerName
+            // 
+            this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LearnerName.DataPropertyName = "LearnerName";
+            this.LearnerName.Frozen = true;
+            this.LearnerName.HeaderText = "Learner";
+            this.LearnerName.MinimumWidth = 6;
+            this.LearnerName.Name = "LearnerName";
+            this.LearnerName.ReadOnly = true;
+            this.LearnerName.Width = 190;
+            // 
+            // TeacherName
+            // 
+            this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TeacherName.DataPropertyName = "TeacherName";
+            this.TeacherName.Frozen = true;
+            this.TeacherName.HeaderText = "Teacher";
+            this.TeacherName.MinimumWidth = 6;
+            this.TeacherName.Name = "TeacherName";
+            this.TeacherName.ReadOnly = true;
+            this.TeacherName.Width = 170;
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.VehicleName.DataPropertyName = "VehicleName";
+            this.VehicleName.Frozen = true;
+            this.VehicleName.HeaderText = "Vehicle";
+            this.VehicleName.MinimumWidth = 6;
+            this.VehicleName.Name = "VehicleName";
+            this.VehicleName.ReadOnly = true;
+            this.VehicleName.Width = 130;
+            // 
+            // SessionDate
+            // 
+            this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SessionDate.DataPropertyName = "Date";
+            this.SessionDate.Frozen = true;
+            this.SessionDate.HeaderText = "Date";
+            this.SessionDate.MinimumWidth = 6;
+            this.SessionDate.Name = "SessionDate";
+            this.SessionDate.ReadOnly = true;
+            this.SessionDate.Width = 125;
+            // 
+            // Session
+            // 
+            this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Session.DataPropertyName = "Session";
+            this.Session.Frozen = true;
+            this.Session.HeaderText = "Time";
+            this.Session.MinimumWidth = 6;
+            this.Session.Name = "Session";
+            this.Session.ReadOnly = true;
+            this.Session.Width = 125;
+            // 
             // ScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1543,6 +1543,10 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace24;
 		private Guna.UI2.WinForms.Guna2Button btnSendSchedule_Learner;
 		private Guna.UI2.WinForms.Guna2Button btnSendSchedule_Teacher;
+        private Guna.UI2.WinForms.Guna2Button lblScheduleID;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LearnerName;
@@ -1550,9 +1554,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SessionDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Session;
-        private Guna.UI2.WinForms.Guna2Button lblScheduleID;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
     }
 }

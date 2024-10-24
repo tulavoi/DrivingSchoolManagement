@@ -51,15 +51,5 @@ namespace DAL
             throw new System.NotImplementedException();
         }
         #endregion
-
-        #region Get license by courseID
-        public List<License> GetLicenseByCourseId(int licenseID)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                return db.Licenses.Where(c => c.LicenseID == licenseID).ToList();
-            }
-        }
-        #endregion
     }
 }

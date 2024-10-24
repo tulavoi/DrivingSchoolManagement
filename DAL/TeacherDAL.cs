@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
@@ -185,19 +186,18 @@ namespace DAL
         #region Get teachers for course
         public List<Teacher> GetTeacherForCourse(int courseId)
         {
-            var allTeachers = TeacherDAL.Instance.GetAllTeachers();
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var selectedTeachers = (from teacher in db.Teachers
+                                        where teacher.LicenseID >= (from course in db.Courses
+                                                                    where course.CourseID == courseId
+                                                                    select course.LicenseID).FirstOrDefault()
+                                        select teacher).ToList();
+                if (selectedTeachers == null)
+                    return null;
 
-            var course = CourseDAL.Instance.GetCourseById(courseId);
-            if (course == null)
-                return new List<Teacher>();
-
-            // Lấy ra các giáo viên đủ điều kiện với bằng lái của khóa học
-            // (vẫn chưa lấy được các gv dư điều kiện dạy), VD: gv bằng C có thể dạy bằng B
-            var qualifiedTeachers = allTeachers
-                                    .Where(t => t.LicenseID == course.LicenseID)
-                                    .ToList();
-
-            return qualifiedTeachers;
+                return selectedTeachers;
+            }
         }
         #endregion
     }

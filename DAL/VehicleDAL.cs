@@ -64,6 +64,20 @@ namespace DAL
         }
         #endregion
 
+        #region All Vehicles Not Maintenance
+        public List<Vehicle> GetAllVehiclesNotMaintenance()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var vehicles = db.Vehicles
+                   .Where(v => v.IsMaintenance == false)
+                   .ToList();
+
+                return vehicles;
+            }
+        }
+        #endregion
+
         #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
@@ -165,7 +179,7 @@ namespace DAL
         #endregion
 
         #region Edit
-        
+
         public bool EditVehicle(Vehicle vehicle)
         {
             return EditData(v => v.VehicleID == vehicle.VehicleID,      // Điều kiện tìm vehicle theo ID
@@ -199,6 +213,30 @@ namespace DAL
         public bool DeleteVehicle(int vehicleID)
         {
             return DeleteData(v => v.VehicleID == vehicleID); // Điều kiện tìm vehicle theo ID
+        }
+        #endregion
+
+        #region Get vehicle by course
+        public List<Vehicle> GetVehicleForCourse(int courseID)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var licenseId = (from course in db.Courses
+                                 where course.CourseID == courseID
+                                 select course.LicenseID).FirstOrDefault();
+
+                var vehicles = db.Vehicles
+                    .Where(v => v.IsMaintenance == false)
+                    .Where(v =>
+                        (licenseId == 1001 && v.IsPassengerCar == true && v.Seats <= 9) ||                      // B
+                        (licenseId == 1002 && v.IsTruck == true && v.Weight >= 3500) ||                         // C
+                        (licenseId == 1003 && v.IsPassengerCar == true && v.Seats >= 10 && v.Seats <= 30) ||    // D
+                        (licenseId == 1004 && v.IsPassengerCar == true && v.Seats > 30)                         // E
+                    )
+                    .ToList();
+
+                return vehicles;
+            }
         }
         #endregion
     }

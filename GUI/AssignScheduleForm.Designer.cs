@@ -341,6 +341,7 @@
             this.cboVehicles.Size = new System.Drawing.Size(413, 36);
             this.cboVehicles.TabIndex = 6;
             this.cboVehicles.Tag = "Vehicle";
+            this.cboVehicles.SelectedIndexChanged += new System.EventHandler(this.cboVehicles_SelectedIndexChanged);
             // 
             // lblVehicles
             // 
@@ -398,6 +399,7 @@
             this.cboTeachers.Size = new System.Drawing.Size(413, 36);
             this.cboTeachers.TabIndex = 6;
             this.cboTeachers.Tag = "Teacher";
+            this.cboTeachers.SelectedIndexChanged += new System.EventHandler(this.cboTeachers_SelectedIndexChanged);
             // 
             // lblTeacher
             // 
