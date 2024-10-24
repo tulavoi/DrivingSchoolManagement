@@ -246,7 +246,7 @@
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5);
             this.btnAdd.Size = new System.Drawing.Size(150, 35);
             this.btnAdd.TabIndex = 17;
-            this.btnAdd.Text = "Enroll";
+            this.btnAdd.Text = "Create";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlSpace15
@@ -395,6 +395,7 @@
             this.txtCitizenId.SelectedText = "";
             this.txtCitizenId.Size = new System.Drawing.Size(190, 40);
             this.txtCitizenId.TabIndex = 24;
+            this.txtCitizenId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCitizenId_KeyPress);
             // 
             // lblCitizenId
             // 
@@ -586,6 +587,7 @@
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(190, 40);
             this.txtPhone.TabIndex = 22;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // lblPhone_Title
             // 

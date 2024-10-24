@@ -243,6 +243,7 @@
     <Compile Include="TeachersForm.Designer.cs">
       <DependentUpon>TeachersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validators\LearnerValidator.cs" />
     <Compile Include="Validators\ScheduleValidator.cs" />
     <Compile Include="Validators\ValidatorHelper.cs" />
     <Compile Include="Validators\TeacherValidator.cs" />

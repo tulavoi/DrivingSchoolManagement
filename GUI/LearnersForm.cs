@@ -4,6 +4,9 @@ using BLL.Services;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
+using BLL.Services.SendEmail;
+using System.Threading.Tasks;
+using GUI.Validators;
 
 namespace GUI
 {
@@ -52,7 +55,7 @@ namespace GUI
 
             if (!this.ValidateFields()) return;
 
-            if (this.ConfirmAction($"Are you sure to edit learner '{lblLearnerID.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
             {
                 Learner learner = this.GetLearner();
                 if (LearnerService.EditLearner(learner))
@@ -68,18 +71,23 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            if (string.IsNullOrEmpty(txtLearnerName.Text))
-            {
-                FormHelper.ShowToolTip(txtLearnerName, toolTip, "Please enter the learner's name.");
-                return false;
-            }
-            if (cboGender.SelectedIndex < 0)
-            {
-                FormHelper.ShowToolTip(cboGender, toolTip, "Please select a gender.");
-                return false;
-            }
+            // Kiểm tra các trường thông tin của học viên
+            if (!LearnerValidator.ValidateFullName(txtLearnerName, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
+
+            if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
+            // Kiểm tra học viên có đủ điều kiện về độ tuổi
+            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+
             return true;
         }
+
 
         private void ToggleEditMode()
         {
@@ -105,7 +113,7 @@ namespace GUI
                 FullName = txtLearnerName.Text,
                 Address = txtAddress.Text,
                 Email = txtEmail.Text,
-                CitizenID=txtCitizenId.Text,
+                CitizenID = txtCitizenId.Text,
                 PhoneNumber = txtPhone.Text,
                 Gender = cboGender.Text,
                 DateOfBirth = dtpDOB.Value,
@@ -164,7 +172,7 @@ namespace GUI
         {
             if (!this.HasSelectedRow()) return;
 
-            if (this.ConfirmAction($"Are you sure to delete learner '{lblLearnerID.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
             {
                 if (LearnerService.DeleteLearner(int.Parse(lblLearnerID.Text)))
                 {
@@ -180,6 +188,63 @@ namespace GUI
         {
             // Check if any row is selected in the DataGridView
             return dgvLearners.SelectedRows.Count > 0;
+        }
+
+        private async void btnSendSMS_Click(object sender, EventArgs e)
+        {
+
+            // Lấy thiết lập gửi mail
+            var mailSetting = FormHelper.GetMailSettings();
+
+            // Kiểm tra tính hợp lệ của thiết lập mail
+            if (!FormHelper.IsMailSettingValid(mailSetting))
+            {
+                FormHelper.ShowError("MailSetting invalid.");
+                return;
+            }
+
+            // Lấy học viên hiện tại đang được chọn
+            var learner = this.GetLearner();
+
+            // Tạo nội dung email dựa trên thông tin của học viên
+            var mailContent = this.CreateMailContent(learner);
+
+            // Khởi tạo dịch vụ gửi mail
+            var sendMailService = new SendMailService(mailSetting);
+            // Gửi email bằng Task.Run để chạy ngầm, tránh khóa giao diện
+            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
+
+            // Hiển thị kết quả gửi mail (thành công hoặc thất bại)
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send learner information.");
+        }
+
+        private MailContent CreateMailContent(Learner learner)
+        {
+            // Tạo nội dung mail dựa trên thông tin của học viên
+            return new MailContent
+            {
+                To = learner.Email, // Địa chỉ email học viên
+                Subject = $"Learner Information: {learner.FullName}", // Tiêu đề email chứa tên học viên
+                Body = $"<h1>Thông tin học viên</h1>" +
+                       $"<p>Họ và tên: {learner.FullName}</p>" +
+                       $"<p>Ngày sinh: {learner.DateOfBirth.ToString()}</p>" +
+                       $"<p>Giới tính: {learner.Gender}</p>" +
+                       $"<p>Số điện thoại: {learner.PhoneNumber}</p>" +
+                       $"<p>Địa chỉ: {learner.Address}</p>" +
+                       $"<p>Email: {learner.Email}</p>" +
+                       $"<p>Số CMND/CCCD: {learner.CitizenID}</p>" +
+                       $"<p>Loại bằng lái hiện tại: {learner.CurrentLicenseID}</p>"
+            };
+        }
+
+        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
         }
     }
 }
