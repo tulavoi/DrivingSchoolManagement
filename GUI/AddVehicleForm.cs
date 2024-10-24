@@ -84,24 +84,7 @@ namespace GUI
             else
                 FormHelper.ShowError("Failed to add vehicle.");
         }
-        //private bool ValidateFields()
-        //{
-        //    // Kiểm tra các trường thông tin của học viên
-        //    if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
-
-        //    // Kiểm tra học viên có đủ điều kiện về độ tuổi
-        //    if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
-
-        //    return true;
-        //}
+       
         private bool ValidateFields()
         {
             // Kiểm tra các trường thông tin của xe
@@ -112,13 +95,6 @@ namespace GUI
             if (!VehicleValidator.ValidateManufactureYear(dtpManuYear, toolTip)) return false;
 
             if (!VehicleValidator.ValidateWeightAndSeats(chkPassengerCar, chkTruck, txtSeats, txtWeight, toolTip)) return false;
-
-            //if (!VehicleValidator.ValidateSeats(chkTruck, txtWeight, txtSeats, toolTip)) return false;
-
-            // Kiểm tra xem xe có phải là xe tải hay xe chở khách không
-            //if (!VehicleValidator.ValidateTruck(chkTruck, toolTip)) return false;
-
-            //if (!VehicleValidator.ValidatePassengerCar(chkPassengerCar, toolTip)) return false;
 
             return true;
         }
