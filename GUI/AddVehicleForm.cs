@@ -84,7 +84,7 @@ namespace GUI
             else
                 FormHelper.ShowError("Failed to add vehicle.");
         }
-       
+
         private bool ValidateFields()
         {
             // Kiểm tra các trường thông tin của xe
