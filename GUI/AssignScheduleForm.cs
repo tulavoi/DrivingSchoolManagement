@@ -65,7 +65,7 @@ namespace GUI
         private void txtSearchCourse_TextChanged(object sender, EventArgs e)
         {
             string keyword = this.GetKeyword(txtSearchCourse);
-            CourseService.SearchCourse(cboCourses, keyword);
+            CourseService.SearchCourses(cboCourses, keyword);
         }
 
         private void txtSearchLearner_TextChanged(object sender, EventArgs e)
