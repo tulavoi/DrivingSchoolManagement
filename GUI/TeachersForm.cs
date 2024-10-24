@@ -120,7 +120,7 @@ namespace GUI
         {
             if (!this.InSaveMode())
             {
-                this.ToogleEditMode();
+                this.ToggleEditMode();
                 return;
             }
 
@@ -135,7 +135,7 @@ namespace GUI
             }
             else return;
 
-            this.ToogleEditMode();
+            this.ToggleEditMode();
             this.LoadAllTeachers();
         }
 
@@ -177,7 +177,7 @@ namespace GUI
             return true;
         }
 
-        private void ToogleEditMode()
+        private void ToggleEditMode()
         {
             FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense);
         }
@@ -255,7 +255,7 @@ namespace GUI
             return new MailContent
             {
                 To = teacher.Email,
-                Subject = $"Driving School: {teacher.FullName}",
+                Subject = $"Driving School",
                 Body = $"<h1>Hello {teacher.FullName},</h1>" +
                        $"<p>{txtMessage.Text}</p>"
             };

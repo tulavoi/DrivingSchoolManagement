@@ -46,10 +46,9 @@ namespace GUI
 
             if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
-
-            // Kiểm tra học viên có đủ điều kiện về độ tuổi
             if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
             return true;
         }
@@ -67,8 +66,7 @@ namespace GUI
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
                 Status = "Active",  // Mặc định là 'Active'
-                Created_At = DateTime.Now,
-                Updated_At = DateTime.Now
+                Created_At = DateTime.Now
             };
         }
 
@@ -86,6 +84,11 @@ namespace GUI
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckLetterKeyPress(e, txtName);
         }
     }
 }
