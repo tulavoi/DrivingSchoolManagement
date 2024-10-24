@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using DAL;
 using GUI.Validators;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Windows.Forms;
 
@@ -227,7 +228,8 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete vehicle '{txtCarName.Text}'?"))
             {
-                if (VehicleService.DeleteVehicle(int.Parse(lblVehicleID.Text)))
+                int vehicleID = FormHelper.GetObjectID(lblVehicleID.Text);
+                if (VehicleService.DeleteVehicle(Convert.ToInt32(vehicleID)))
                 {
                     FormHelper.ShowNotify("Vehicle deleted successfully.");
                     this.LoadAllVehicles();
