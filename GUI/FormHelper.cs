@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -157,6 +158,21 @@ namespace GUI
                    !string.IsNullOrEmpty(mailSetting.Password);
         }
 
+        public static async Task<bool> SendMailAsync(MailContent mailContent)
+        {
+            var mailSetting = FormHelper.GetMailSettings();
+
+            if (!FormHelper.IsMailSettingValid(mailSetting))
+            {
+                FormHelper.ShowError("MailSetting invalid.");
+                return false;
+            }
+
+            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
+
+            return await Task.Run(() => sendMailService.SendMail(mailContent));
+        }
+
         public static void SetDateTimePickerMaxValue(params Guna2DateTimePicker[] dtps)
         {
             foreach (var dtp in dtps)
@@ -168,6 +184,12 @@ namespace GUI
             string[] parts = text.Split(' ');
             int id = Convert.ToInt32(parts[1]);
             return id;
+        }
+
+        public static bool HasSelectedRow(Guna2DataGridView dgv)
+        {
+            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
+            return dgv.SelectedRows.Count > 0;
         }
     }
 }

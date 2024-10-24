@@ -1,4 +1,4 @@
-﻿using DAL;
+using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -19,10 +19,12 @@ namespace BLL.Services
         {
             return VehicleBLL.Instance.EditVehicle(vehicle);
         }
+      
         public static bool EditVehicleNote(Vehicle vehicle)
         {
             return VehicleBLL.Instance.EditVehicleNote(vehicle);
         }
+      
         public static bool DeleteVehicle(int vehicleID)
         {
             return VehicleBLL.Instance.DeleteVehicle(vehicleID);
@@ -42,6 +44,10 @@ namespace BLL.Services
         {
             VehicleBLL.Instance.FilterVehiclesByStatus(dgv, type);
         }
+   
+        public static void SearchVehicles(Guna2ComboBox cbo, string keyword)
+        {
+            VehicleBLL.Instance.SearchVehicles(cbo, keyword);
+        }
     }
-
 }

@@ -71,9 +71,7 @@ namespace GUI
                 var result = InvoiceService.EditInvoice(invoice);
                 FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
             }
-            else return;
             this.ToogleEditMode();
-
             this.LoadAllInvoice();
         }
 
@@ -162,7 +160,7 @@ namespace GUI
 
         private Invoice GetSelectedInvoice()
         {
-            if (!this.HasSelectedRow()) return null;
+            if (!FormHelper.HasSelectedRow(dgvInvoices)) return null;
 
             var selectedRow = dgvInvoices.SelectedRows[0];
 
@@ -194,7 +192,7 @@ namespace GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!this.HasSelectedRow()) return;
+            if (!FormHelper.HasSelectedRow(dgvInvoices)) return;
 
             if (string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
 
@@ -206,27 +204,13 @@ namespace GUI
             }
         }
 
-        private bool HasSelectedRow()
-        {
-            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
-            return dgvInvoices.SelectedRows.Count > 0;
-        }
-
         private async void btnSendInvoiceByMail_Click(object sender, EventArgs e)
         {
-            var mailSetting = FormHelper.GetMailSettings();
-
-            if (!FormHelper.IsMailSettingValid(mailSetting))
-            {
-                FormHelper.ShowError("MailSetting invalid.");
-                return;
-            }
-
             var invoice = this.GetSelectedInvoice(); // Lấy ra invoice đang được chọn
             var mailContent = this.CreateMailContent(invoice); // Tạo nội dung email
-            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
-            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            FormHelper.ShowActionResult(result, "Invoice sent successfully.", "Failed to send invoice.");
         }
 
         private MailContent CreateMailContent(Invoice invoice)

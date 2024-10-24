@@ -1,10 +1,6 @@
 ﻿using DAL;
 using Guna.UI2.WinForms;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -38,6 +34,12 @@ namespace BLL
             cbo.DataSource = courses;
             cbo.ValueMember = "CourseID";
             cbo.DisplayMember = "CourseName";
+        }
+
+        public void SearchCourse(Guna2ComboBox cbo, string keyword)
+        {
+            List<Course> courses = CourseDAL.Instance.SearchCourse(keyword);
+            this.AddCoursesToCombobox(cbo, courses);
         }
     }
 }

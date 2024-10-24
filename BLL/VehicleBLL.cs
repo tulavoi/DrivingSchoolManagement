@@ -52,6 +52,12 @@ namespace BLL
             this.AddVehiclesToDataGridView(dgv, vehicles);
         }
 
+        public void SearchVehicles(Guna2ComboBox cbo, string keyword)
+        {
+            List<Vehicle> vehicles = VehicleDAL.Instance.SearchVehicles(keyword);
+            this.AddVehiclesToCombobox(cbo, vehicles);
+        }
+
         public void FilterVehiclesByStatus(Guna2DataGridView dgv, string status)
         {
             List<Vehicle> vehicles = VehicleDAL.Instance.FilterVehiclesByStatus(status);
