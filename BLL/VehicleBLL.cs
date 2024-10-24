@@ -84,6 +84,7 @@ namespace BLL
             }
         }
 
+
         public bool AddVehicle(Vehicle vehicle)
         {
             return VehicleDAL.Instance.AddVehicle(vehicle);

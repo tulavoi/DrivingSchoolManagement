@@ -14,7 +14,6 @@ namespace BLL.Services
         {
             return VehicleBLL.Instance.AddVehicle(vehicle);
         }
-        
         public static bool EditVehicle(Vehicle vehicle)
         {
             return VehicleBLL.Instance.EditVehicle(vehicle);
@@ -27,12 +26,10 @@ namespace BLL.Services
         {
             return VehicleBLL.Instance.DeleteVehicle(vehicleID);
         }
-
         public static void LoadAllVehicles(Guna2DataGridView dgv)
         {
             VehicleBLL.Instance.LoadAllVehicles(dgv);
         }
-
         public static void SearchVehicles(Guna2DataGridView dgv, string keyword)
         {
             VehicleBLL.Instance.SearchVehicles(dgv, keyword);

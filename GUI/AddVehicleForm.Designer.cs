@@ -312,7 +312,7 @@
             this.txtWeight.BackColor = System.Drawing.Color.White;
             this.txtWeight.BorderRadius = 5;
             this.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWeight.DefaultText = "1200";
+            this.txtWeight.DefaultText = "";
             this.txtWeight.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -332,6 +332,7 @@
             this.txtWeight.SelectedText = "";
             this.txtWeight.Size = new System.Drawing.Size(182, 40);
             this.txtWeight.TabIndex = 135;
+            this.txtWeight.Tag = "Weight";
             this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
             // lblWeight
@@ -352,7 +353,7 @@
             this.txtSeats.BackColor = System.Drawing.Color.White;
             this.txtSeats.BorderRadius = 5;
             this.txtSeats.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSeats.DefaultText = "4";
+            this.txtSeats.DefaultText = "";
             this.txtSeats.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -372,6 +373,7 @@
             this.txtSeats.SelectedText = "";
             this.txtSeats.Size = new System.Drawing.Size(230, 40);
             this.txtSeats.TabIndex = 133;
+            this.txtSeats.Tag = "Seats";
             this.txtSeats.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeats_KeyPress);
             // 
             // lblSeats
@@ -444,6 +446,7 @@
             this.chkTruck.Name = "chkTruck";
             this.chkTruck.Size = new System.Drawing.Size(20, 40);
             this.chkTruck.TabIndex = 108;
+            this.chkTruck.Tag = "Truck";
             this.chkTruck.Text = "guna2CustomCheckBox1";
             this.chkTruck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chkTruck.UncheckedState.BorderRadius = 2;
@@ -487,6 +490,7 @@
             this.chkPassengerCar.Name = "chkPassengerCar";
             this.chkPassengerCar.Size = new System.Drawing.Size(20, 40);
             this.chkPassengerCar.TabIndex = 108;
+            this.chkPassengerCar.Tag = "PassengerCar";
             this.chkPassengerCar.Text = "guna2CustomCheckBox2";
             this.chkPassengerCar.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chkPassengerCar.UncheckedState.BorderRadius = 2;
@@ -547,6 +551,7 @@
             this.dtpManuYear.Name = "dtpManuYear";
             this.dtpManuYear.Size = new System.Drawing.Size(273, 40);
             this.dtpManuYear.TabIndex = 34;
+            this.dtpManuYear.Tag = "ManuYear";
             this.dtpManuYear.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // lblManufactureYear
@@ -567,7 +572,7 @@
             this.txtCarNo.BackColor = System.Drawing.Color.White;
             this.txtCarNo.BorderRadius = 5;
             this.txtCarNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCarNo.DefaultText = "61H4234";
+            this.txtCarNo.DefaultText = "";
             this.txtCarNo.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -586,6 +591,7 @@
             this.txtCarNo.SelectedText = "";
             this.txtCarNo.Size = new System.Drawing.Size(230, 40);
             this.txtCarNo.TabIndex = 32;
+            this.txtCarNo.Tag = "CarNo";
             // 
             // lblCarNo
             // 
@@ -625,7 +631,7 @@
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.BorderRadius = 5;
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.DefaultText = "B-154126092024";
+            this.txtName.DefaultText = "";
             this.txtName.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtName.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -644,6 +650,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(583, 40);
             this.txtName.TabIndex = 33;
+            this.txtName.Tag = "Name";
             // 
             // lblNameasd
             // 

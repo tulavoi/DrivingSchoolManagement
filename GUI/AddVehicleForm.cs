@@ -82,24 +82,6 @@ namespace GUI
             else
                 FormHelper.ShowError("Failed to add vehicle.");
         }
-        //private bool ValidateFields()
-        //{
-        //    // Kiểm tra các trường thông tin của học viên
-        //    if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
-
-        //    if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
-
-        //    // Kiểm tra học viên có đủ điều kiện về độ tuổi
-        //    if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
-
-        //    return true;
-        //}
         private bool ValidateFields()
         {
             // Kiểm tra các trường thông tin của xe
@@ -125,16 +107,16 @@ namespace GUI
         {
             return new Vehicle()
             {
-                VehicleName = txtName.Text,                       // Tên xe
-                VehicleNumber = txtCarNo.Text,                   // Số xe
-                ManufacturerYear = dtpManuYear.Value.Year,      // Năm sản xuất
-                IsTruck = chkTruck.Checked,                       // Kiểm tra nếu là xe tải
-                IsPassengerCar = chkPassengerCar.Checked,        // Kiểm tra nếu là xe khách
-                Weight = int.Parse(txtWeight.Text),              // Trọng lượng
-                Seats = int.Parse(txtSeats.Text),                // Số ghế
-                IsMaintenance = true,                            // Mặc định không bảo trì
-                Created_At = DateTime.Now,                       // Thời gian tạo
-                Updated_At = DateTime.Now                        // Thời gian cập nhật
+                VehicleName = txtName.Text,
+                VehicleNumber = txtCarNo.Text,
+                ManufacturerYear = dtpManuYear.Value.Year,
+                IsTruck = chkTruck.Checked,
+                IsPassengerCar = chkPassengerCar.Checked,
+                Weight = string.IsNullOrWhiteSpace(txtWeight.Text) ? (int?)null : int.Parse(txtWeight.Text),
+                Seats = string.IsNullOrWhiteSpace(txtSeats.Text) ? (int?)null : int.Parse(txtSeats.Text),
+                IsMaintenance = true,
+                Created_At = DateTime.Now,
+                Updated_At = DateTime.Now
             };
         }
 

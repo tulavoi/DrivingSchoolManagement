@@ -290,6 +290,7 @@
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(268, 40);
             this.txtName.TabIndex = 31;
+            this.txtName.Tag = "Name";
             // 
             // lblName
             // 
@@ -351,6 +352,7 @@
             this.txtDurationInHours.SelectedText = "";
             this.txtDurationInHours.Size = new System.Drawing.Size(157, 40);
             this.txtDurationInHours.TabIndex = 31;
+            this.txtDurationInHours.Tag = "DurationInHours";
             // 
             // txtHour
             // 
@@ -435,6 +437,7 @@
             this.txtFee.SelectedText = "";
             this.txtFee.Size = new System.Drawing.Size(157, 40);
             this.txtFee.TabIndex = 27;
+            this.txtFee.Tag = "Fee";
             // 
             // txtVND
             // 
@@ -521,6 +524,7 @@
             this.cboLicense.Size = new System.Drawing.Size(268, 36);
             this.cboLicense.StartIndex = 0;
             this.cboLicense.TabIndex = 4;
+            this.cboLicense.Tag = "License";
             // 
             // lblLicense
             // 
