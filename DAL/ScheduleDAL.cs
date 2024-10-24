@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DAL
 {
@@ -59,6 +61,7 @@ namespace DAL
                                
                                vehicle.VehicleID,
                                vehicle.VehicleName,
+                               vehicle.VehicleNumber,
                                vehicle.IsTruck,
                                vehicle.IsPassengerCar,
                                vehicle.IsMaintenance,
@@ -108,7 +111,8 @@ namespace DAL
                 Vehicle = new Vehicle()
                 {
                     VehicleID = item.VehicleID,
-                    VehicleName = item.VehicleName
+                    VehicleName = item.VehicleName,
+                    VehicleNumber = item.VehicleNumber,
                 },
                 Session = new Session()
                 {
@@ -124,15 +128,215 @@ namespace DAL
         #region Filter
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from schedule in db.Schedules
+                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
+                           join course in db.Courses on schedule.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
+                           join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
+                           join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
+                           join session in db.Sessions on schedule.SessionID equals session.SessionID
+                           where session.Session1 == filterString
+                           select new
+                           {
+                               schedule.ScheduleID,
+                               schedule.SessionDate,
+                               schedule.Created_At,
+                               schedule.Updated_At,
+
+                               learner.LearnerID,
+                               LearnerName = learner.FullName,
+                               LearnerEmail = learner.Email,
+                               LearnerPhone = learner.PhoneNumber,
+
+                               course.CourseID,
+                               course.CourseName,
+                               license.LicenseID,
+                               license.LicenseName,
+
+                               teacher.TeacherID,
+                               TeacherName = teacher.FullName,
+                               TeacherEmail = teacher.Email,
+                               TeacherPhone = teacher.Phone,
+                               LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
+                               LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
+
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               vehicle.IsTruck,
+                               vehicle.IsPassengerCar,
+                               vehicle.IsMaintenance,
+
+                               session.SessionID,
+                               session.Session1,
+                           };
+
+                return data.ToList();
+            }
+        }
+
+        public List<Schedule> FilterScheduleBySession(string filterString)
+        {
+            return FilterData(filterString, item => new Schedule
+            {
+                ScheduleID = item.ScheduleID,
+                SessionDate = item.SessionDate,
+                Learner = new Learner()
+                {
+                    LearnerID = item.LearnerID,
+                    FullName = item.LearnerName,
+                    Email = item.LearnerEmail,
+                    PhoneNumber = item.LearnerPhone,
+                },
+                Course = new Course()
+                {
+                    CourseID = item.CourseID,
+                    CourseName = item.CourseName,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseID,
+                        LicenseName = item.LicenseName,
+                    }
+                },
+                Teacher = new Teacher()
+                {
+                    TeacherID = item.TeacherID,
+                    FullName = item.TeacherName,
+                    Email = item.TeacherEmail,
+                    Phone = item.TeacherPhone,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseIDOfTeacher,
+                        LicenseName = item.LicenseNameOfTeacher,
+                    }
+                },
+                Vehicle = new Vehicle()
+                {
+                    VehicleID = item.VehicleID,
+                    VehicleName = item.VehicleName,
+                    VehicleNumber = item.VehicleNumber,
+                },
+                Session = new Session()
+                {
+                    SessionID = item.SessionID,
+                    Session1 = item.Session1
+                },
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            });
         }
         #endregion
 
         #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from schedule in db.Schedules
+                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
+                           join course in db.Courses on schedule.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
+                           join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
+                           join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
+                           join session in db.Sessions on schedule.SessionID equals session.SessionID
+                           where (learner.FullName.Contains(keyword) ||
+                                   teacher.FullName.Contains(keyword) ||
+                                   vehicle.VehicleName.Contains(keyword) ||
+                                   course.CourseName.Contains(keyword))
+                           select new
+                           {
+                               schedule.ScheduleID,
+                               schedule.SessionDate,
+                               schedule.Created_At,
+                               schedule.Updated_At,
+
+                               learner.LearnerID,
+                               LearnerName = learner.FullName,
+                               LearnerEmail = learner.Email,
+                               LearnerPhone = learner.PhoneNumber,
+
+                               course.CourseID,
+                               course.CourseName,
+                               license.LicenseID,
+                               license.LicenseName,
+
+                               teacher.TeacherID,
+                               TeacherName = teacher.FullName,
+                               TeacherEmail = teacher.Email,
+                               TeacherPhone = teacher.Phone,
+                               LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
+                               LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
+
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               vehicle.IsTruck,
+                               vehicle.IsPassengerCar,
+                               vehicle.IsMaintenance,
+
+                               session.SessionID,
+                               session.Session1,
+                           };
+
+                return data.ToList();
+            }
         }
+
+        public List<Schedule> SearchSchedules(string keyword)
+        {
+            return SearchData(keyword, item => new Schedule
+            {
+                ScheduleID = item.ScheduleID,
+                SessionDate = item.SessionDate,
+                Learner = new Learner()
+                {
+                    LearnerID = item.LearnerID,
+                    FullName = item.LearnerName,
+                    Email = item.LearnerEmail,
+                    PhoneNumber = item.LearnerPhone,
+                },
+                Course = new Course()
+                {
+                    CourseID = item.CourseID,
+                    CourseName = item.CourseName,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseID,
+                        LicenseName = item.LicenseName,
+                    }
+                },
+                Teacher = new Teacher()
+                {
+                    TeacherID = item.TeacherID,
+                    FullName = item.TeacherName,
+                    Email = item.TeacherEmail,
+                    Phone = item.TeacherPhone,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseIDOfTeacher,
+                        LicenseName = item.LicenseNameOfTeacher,
+                    }
+                },
+                Vehicle = new Vehicle()
+                {
+                    VehicleID = item.VehicleID,
+                    VehicleName = item.VehicleName,
+                    VehicleNumber = item.VehicleNumber,
+                },
+                Session = new Session()
+                {
+                    SessionID = item.SessionID,
+                    Session1 = item.Session1
+                },
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            });
+        }
+
         #endregion
 
         #region Lấy ra schedule dựa vào courseID, learnerID nếu learnerID có giá trị
@@ -182,6 +386,39 @@ namespace DAL
         public bool AddSchedule(Schedule schedule, out string errorMessage)
         {
             return AddData(schedule, out errorMessage);
+        }
+        #endregion
+
+        #region Lấy ra Schedule bằng LearnerID
+        public List<Schedule> GetSchedulesByLearnerId(int learnerId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
+            }
+        }
+        #endregion
+
+        #region Edit
+        public bool EditSchedule(Schedule schedule, out string errorMessage)
+        {
+            return EditData(sche => sche.ScheduleID == schedule.ScheduleID,          
+                            sche =>                                            
+                            {
+                                sche.TeacherID = schedule.TeacherID;
+                                sche.VehicleID = schedule.VehicleID;
+                                sche.SessionID = schedule.SessionID;
+                                sche.SessionDate = schedule.SessionDate;
+                                sche.Updated_At = DateTime.Now;
+                            },
+                            out errorMessage);
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteSchedule(int scheduleID)
+        {
+            return DeleteData(sche => sche.ScheduleID == scheduleID);
         }
         #endregion
     }

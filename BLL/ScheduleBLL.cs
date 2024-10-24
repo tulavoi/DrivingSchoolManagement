@@ -34,10 +34,32 @@ namespace BLL
             List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedules();
             this.AddSchedulesToDataGridView(dgv, schedules);
         }
+        
+        public void SearchSchedules(Guna2DataGridView dgv, string keyword)
+        {
+            List<Schedule> schedules = ScheduleDAL.Instance.SearchSchedules(keyword);
+            this.AddSchedulesToDataGridView(dgv, schedules);
+        }
+
+        public void FilterScheduleBySession(Guna2DataGridView dgv, string filterString)
+        {
+            List<Schedule> schedules = ScheduleDAL.Instance.FilterScheduleBySession(filterString);
+            this.AddSchedulesToDataGridView(dgv, schedules);
+        }
 
         public bool AddSchedule(Schedule schedule, out string errorMessage)
         {
             return ScheduleDAL.Instance.AddSchedule(schedule, out errorMessage);
+        }
+
+        public bool EditSchedule(Schedule schedule, out string errorMessage)
+        {
+            return ScheduleDAL.Instance.EditSchedule(schedule, out errorMessage);
+        }
+
+        public bool DeleteSchedule(int scheduleID)
+        {
+            return ScheduleDAL.Instance.DeleteSchedule(scheduleID);
         }
 
         private void AddSchedulesToDataGridView(Guna2DataGridView dgv, List<Schedule> schedules)
@@ -60,5 +82,7 @@ namespace BLL
                 }
             }
         }
+
+        
     }
 }

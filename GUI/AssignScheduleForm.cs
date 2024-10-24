@@ -1,18 +1,10 @@
 ﻿using BLL.Services;
-using BLL.Services.SendEmail;
 using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace GUI
 {
@@ -40,11 +32,11 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
             ComboboxService.AssignLearnersToCombobox(cboLearners);
+            ComboboxService.AssignCoursesToCombobox(cboCourses);
             ComboboxService.AssignTeachersToCombobox(cboTeachers);
-            ComboboxService.AssignSessionsToCombobox(cboSessions);
             ComboboxService.AssignVehiclesToCombobox(cboVehicles);
+            ComboboxService.AssignSessionsToCombobox(cboSessions);
         }
 
         private void AssignDateToLabel()
@@ -52,38 +44,22 @@ namespace GUI
             lblDateAssign.Text = _date.ToString("dd/MM/yyyy");
         }
 
-		private void btnCancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private string GetKeyword(Guna2TextBox txtSearchLearner)
         {
-            return txtSearchLearner.Text;
-        }
-
-        private void txtSearchCourse_TextChanged(object sender, EventArgs e)
-        {
             string keyword = this.GetKeyword(txtSearchCourse);
             CourseService.SearchCourses(cboCourses, keyword);
+            return txtSearchLearner.Text;
         }
 
         private void txtSearchLearner_TextChanged(object sender, EventArgs e)
         {
             string keyword = this.GetKeyword(txtSearchLearner);
             LearnerService.SearchLearners(cboLearners, keyword);
-        }
-
-        private void txtSearchTeacher_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchTeacher);
-            TeacherService.SearchTeachers(cboTeachers, keyword);
-        }
-
-        private void txtSearchVehicle_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchVehicle);
-            VehicleService.SearchVehicles(cboVehicles, keyword);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -125,7 +101,7 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            var comboBoxes = new List<Guna2ComboBox> { cboCourses, cboLearners, cboTeachers, cboVehicles, cboSessions };
+            var comboBoxes = new List<Guna2ComboBox> { cboLearners, cboCourses, cboTeachers, cboVehicles, cboSessions };
 
             foreach (var comboBox in comboBoxes)
             {
@@ -133,12 +109,56 @@ namespace GUI
                     return false;
             }
 
-            return true;    
+            return true;
         }
 
         private void cboLearners_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (!FormHelper.HasSelectedItem(cboLearners))
+            {
+                cboCourses.Enabled = false;
+                return;
+            }
+            cboCourses.Enabled = true;
+            int learnerID = Convert.ToInt32(cboLearners.SelectedValue.ToString());
+
+            ComboboxService.AssignCoursesToCombobox(cboCourses, learnerID);
+        }
+
+        private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!FormHelper.HasSelectedItem(cboCourses))
+            {
+                cboTeachers.Enabled = false;
+                return;
+            }
+            cboTeachers.Enabled = true;
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+
+            ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
+        }
+
+        private void cboTeachers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!FormHelper.HasSelectedItem(cboTeachers))
+            {
+                cboVehicles.Enabled = false;
+                return;
+            }
+            cboVehicles.Enabled = true;
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+
+            ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
+        }
+
+        private void cboVehicles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!FormHelper.HasSelectedItem(cboVehicles))
+            {
+                cboSessions.Enabled = false;
+                return;
+            }
+            cboSessions.Enabled = true;
         }
     }
 }
