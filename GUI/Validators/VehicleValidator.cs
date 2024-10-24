@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI.Validators
 {
@@ -11,22 +12,12 @@ namespace GUI.Validators
     {
         public static bool ValidateName(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                FormHelper.ShowToolTip(txt, toolTip, "Vehicle name is required.");
-                return false;
-            }
-            return true;
+            return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
         public static bool ValidateVehicleNumber(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                FormHelper.ShowToolTip(txt, toolTip, "Vehicle number is required.");
-                return false;
-            }
-            return true;
+            return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
         public static bool ValidateManufactureYear(Guna2DateTimePicker dtp, Guna2HtmlToolTip toolTip)
@@ -40,57 +31,68 @@ namespace GUI.Validators
             return true;
         }
 
-        public static bool ValidateWeight(Guna2TextBox txtWeight, Guna2HtmlToolTip toolTip)
+        public static bool ValidateWeightAndSeats(Guna2CustomCheckBox chkPassengerCar, Guna2CustomCheckBox chkTruck, 
+            Guna2TextBox txtSeats, Guna2TextBox txtWeight, Guna2HtmlToolTip toolTip)
         {
-            // Kiểm tra nếu trường rỗng
-            if (string.IsNullOrWhiteSpace(txtWeight.Text))
-            {
-                return true; // Trả về true nếu không cần kiểm tra
-            }
+            if (!IsVehicleTypeSelected(chkPassengerCar, chkTruck, toolTip))
+                return false;
 
-            // Kiểm tra nếu giá trị không phải là số nguyên
-            if (!int.TryParse(txtWeight.Text, out int weight) || weight < 0)
+            if (chkTruck.Checked)
+                if (!ValidateTruck(txtSeats, txtWeight, chkTruck, toolTip)) return false;
+
+            if (chkPassengerCar.Checked)
+                if (!ValidatePassengerCar(txtSeats, txtWeight, chkPassengerCar, toolTip)) return false;
+
+            return true;
+        }
+
+        private static bool ValidatePassengerCar(Guna2TextBox txtSeats, Guna2TextBox txtWeight, Guna2CustomCheckBox chkPassengerCar, Guna2HtmlToolTip toolTip)
+        {
+            if (!string.IsNullOrEmpty(txtWeight.Text))
             {
-                toolTip.SetToolTip(txtWeight, "Please enter a valid weight.");
-                txtWeight.Focus();
+                FormHelper.ShowToolTip(txtWeight, toolTip, $"If you selected {chkPassengerCar.Tag}, {txtWeight.Tag} must be empty.");
                 return false;
             }
 
-            // Nếu mọi điều kiện đều đạt, trả về true
-            return true;
-        }
+            if (!ValidatorHelper.CheckRequiredAndShowToolTip(txtSeats, toolTip))
+                return false;
 
-        public static bool ValidateSeats(Guna2TextBox txtSeats, Guna2HtmlToolTip toolTip)
-        {
-            // Kiểm tra nếu trường rỗng (cho phép null hoặc rỗng)
-            if (string.IsNullOrWhiteSpace(txtSeats.Text))
+            if (Convert.ToInt32(txtSeats.Text) > 70)
             {
-                // Không hiển thị thông báo lỗi vì không cần thiết
-                return true; // Trả về true nếu không cần kiểm tra
-            }
-
-            // Kiểm tra nếu giá trị không phải là số nguyên
-            if (!int.TryParse(txtSeats.Text, out int seats) || seats < 0)
-            {
-                toolTip.SetToolTip(txtSeats, "Please enter a valid number of seats.");
-                txtSeats.Focus();
+                FormHelper.ShowToolTip(txtSeats, toolTip, $"Invalid {txtSeats.Tag}.");
                 return false;
             }
 
-            // Nếu mọi điều kiện đều đạt, trả về true
             return true;
         }
 
-
-        public static bool ValidateTruck(Guna2CustomCheckBox chk, Guna2HtmlToolTip toolTip)
+        private static bool ValidateTruck(Guna2TextBox txtSeats, Guna2TextBox txtWeight, Guna2CustomCheckBox chkTruck, Guna2HtmlToolTip toolTip)
         {
-            // Optional: Add logic to validate truck checkbox if needed
+            if (!string.IsNullOrEmpty(txtSeats.Text))
+            {
+                FormHelper.ShowToolTip(txtSeats, toolTip, $"If you selected {chkTruck.Tag}, {txtSeats.Tag} must be empty.");
+                return false;
+            }
+
+            if (!ValidatorHelper.CheckRequiredAndShowToolTip(txtWeight, toolTip))
+                return false;
+
+            if (Convert.ToInt32(txtWeight.Text) > 4000)
+            {
+                FormHelper.ShowToolTip(txtWeight, toolTip, $"Invalid {txtWeight.Tag}.");
+                return false;
+            }
+
             return true;
         }
 
-        public static bool ValidatePassengerCar(Guna2CustomCheckBox chk, Guna2HtmlToolTip toolTip)
+        private static bool IsVehicleTypeSelected(Guna2CustomCheckBox chkPassengerCar, Guna2CustomCheckBox chkTruck, Guna2HtmlToolTip toolTip)
         {
-            // Optional: Add logic to validate passenger car checkbox if needed
+            if (!chkTruck.Checked && !chkPassengerCar.Checked)
+            {
+                FormHelper.ShowToolTip(chkPassengerCar, toolTip, $"Please select {chkTruck.Tag} or {chkPassengerCar.Tag}.");
+                return false;
+            }
             return true;
         }
     }

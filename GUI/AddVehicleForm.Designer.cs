@@ -67,7 +67,7 @@
             this.lblCarNo = new System.Windows.Forms.Label();
             this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlName = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCarName = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNameasd = new System.Windows.Forms.Label();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -312,7 +312,7 @@
             this.txtWeight.BackColor = System.Drawing.Color.White;
             this.txtWeight.BorderRadius = 5;
             this.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWeight.DefaultText = "1200";
+            this.txtWeight.DefaultText = "";
             this.txtWeight.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -332,6 +332,7 @@
             this.txtWeight.SelectedText = "";
             this.txtWeight.Size = new System.Drawing.Size(182, 40);
             this.txtWeight.TabIndex = 135;
+            this.txtWeight.Tag = "Weight";
             this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
             // lblWeight
@@ -352,7 +353,7 @@
             this.txtSeats.BackColor = System.Drawing.Color.White;
             this.txtSeats.BorderRadius = 5;
             this.txtSeats.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSeats.DefaultText = "4";
+            this.txtSeats.DefaultText = "";
             this.txtSeats.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtSeats.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -372,6 +373,7 @@
             this.txtSeats.SelectedText = "";
             this.txtSeats.Size = new System.Drawing.Size(230, 40);
             this.txtSeats.TabIndex = 133;
+            this.txtSeats.Tag = "Seats";
             this.txtSeats.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeats_KeyPress);
             // 
             // lblSeats
@@ -444,6 +446,7 @@
             this.chkTruck.Name = "chkTruck";
             this.chkTruck.Size = new System.Drawing.Size(20, 40);
             this.chkTruck.TabIndex = 108;
+            this.chkTruck.Tag = "Truck";
             this.chkTruck.Text = "guna2CustomCheckBox1";
             this.chkTruck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chkTruck.UncheckedState.BorderRadius = 2;
@@ -487,6 +490,7 @@
             this.chkPassengerCar.Name = "chkPassengerCar";
             this.chkPassengerCar.Size = new System.Drawing.Size(20, 40);
             this.chkPassengerCar.TabIndex = 108;
+            this.chkPassengerCar.Tag = "Passenger Car";
             this.chkPassengerCar.Text = "guna2CustomCheckBox2";
             this.chkPassengerCar.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chkPassengerCar.UncheckedState.BorderRadius = 2;
@@ -547,6 +551,7 @@
             this.dtpManuYear.Name = "dtpManuYear";
             this.dtpManuYear.Size = new System.Drawing.Size(273, 40);
             this.dtpManuYear.TabIndex = 34;
+            this.dtpManuYear.Tag = "Manufacture Year";
             this.dtpManuYear.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // lblManufactureYear
@@ -567,7 +572,7 @@
             this.txtCarNo.BackColor = System.Drawing.Color.White;
             this.txtCarNo.BorderRadius = 5;
             this.txtCarNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCarNo.DefaultText = "61H4234";
+            this.txtCarNo.DefaultText = "";
             this.txtCarNo.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtCarNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -586,6 +591,7 @@
             this.txtCarNo.SelectedText = "";
             this.txtCarNo.Size = new System.Drawing.Size(230, 40);
             this.txtCarNo.TabIndex = 32;
+            this.txtCarNo.Tag = "Car Number";
             // 
             // lblCarNo
             // 
@@ -611,7 +617,7 @@
             // 
             // pnlName
             // 
-            this.pnlName.Controls.Add(this.txtName);
+            this.pnlName.Controls.Add(this.txtCarName);
             this.pnlName.Controls.Add(this.lblNameasd);
             this.pnlName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlName.FillColor = System.Drawing.Color.White;
@@ -620,30 +626,32 @@
             this.pnlName.Size = new System.Drawing.Size(683, 40);
             this.pnlName.TabIndex = 117;
             // 
-            // txtName
+            // txtCarName
             // 
-            this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.BorderRadius = 5;
-            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.DefaultText = "B-154126092024";
-            this.txtName.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txtName.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtName.Location = new System.Drawing.Point(100, 0);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtName.Name = "txtName";
-            this.txtName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.txtName.PasswordChar = '\0';
-            this.txtName.PlaceholderText = "";
-            this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(583, 40);
-            this.txtName.TabIndex = 33;
+            this.txtCarName.BackColor = System.Drawing.Color.White;
+            this.txtCarName.BorderRadius = 5;
+            this.txtCarName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCarName.DefaultText = "";
+            this.txtCarName.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtCarName.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtCarName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCarName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtCarName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCarName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCarName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtCarName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCarName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCarName.Location = new System.Drawing.Point(100, 0);
+            this.txtCarName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCarName.Name = "txtCarName";
+            this.txtCarName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.txtCarName.PasswordChar = '\0';
+            this.txtCarName.PlaceholderText = "";
+            this.txtCarName.SelectedText = "";
+            this.txtCarName.Size = new System.Drawing.Size(583, 40);
+            this.txtCarName.TabIndex = 33;
+            this.txtCarName.Tag = "Car Name";
+            this.txtCarName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblNameasd
             // 
@@ -772,7 +780,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace6;
         private System.Windows.Forms.Label lblAdd;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace5;
-		private Guna.UI2.WinForms.Guna2TextBox txtName;
+		private Guna.UI2.WinForms.Guna2TextBox txtCarName;
 		private System.Windows.Forms.Label lblNameasd;
 		private Guna.UI2.WinForms.Guna2TextBox txtCarNo;
 		private System.Windows.Forms.Label lblCarNo;

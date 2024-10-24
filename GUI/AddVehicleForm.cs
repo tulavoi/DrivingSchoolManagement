@@ -28,6 +28,8 @@ namespace GUI
 
 			// Nếu như khởi động form mà chkPassengerCar đang được chọn thì bật txtSeats
 			if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
+
+            FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
 		}
 
 		private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
@@ -103,20 +105,20 @@ namespace GUI
         private bool ValidateFields()
         {
             // Kiểm tra các trường thông tin của xe
-            if (!VehicleValidator.ValidateName(txtName, toolTip)) return false;
+            if (!VehicleValidator.ValidateName(txtCarName, toolTip)) return false;
 
             if (!VehicleValidator.ValidateVehicleNumber(txtCarNo, toolTip)) return false;
 
             if (!VehicleValidator.ValidateManufactureYear(dtpManuYear, toolTip)) return false;
 
-            if (!VehicleValidator.ValidateWeight(txtWeight, toolTip)) return false;
+            if (!VehicleValidator.ValidateWeightAndSeats(chkPassengerCar, chkTruck, txtSeats, txtWeight, toolTip)) return false;
 
-            if (!VehicleValidator.ValidateSeats(txtSeats, toolTip)) return false;
+            //if (!VehicleValidator.ValidateSeats(chkTruck, txtWeight, txtSeats, toolTip)) return false;
 
             // Kiểm tra xem xe có phải là xe tải hay xe chở khách không
-            if (!VehicleValidator.ValidateTruck(chkTruck, toolTip)) return false;
+            //if (!VehicleValidator.ValidateTruck(chkTruck, toolTip)) return false;
 
-            if (!VehicleValidator.ValidatePassengerCar(chkPassengerCar, toolTip)) return false;
+            //if (!VehicleValidator.ValidatePassengerCar(chkPassengerCar, toolTip)) return false;
 
             return true;
         }
@@ -125,16 +127,15 @@ namespace GUI
         {
             return new Vehicle()
             {
-                VehicleName = txtName.Text,                       // Tên xe
-                VehicleNumber = txtCarNo.Text,                   // Số xe
-                ManufacturerYear = dtpManuYear.Value.Year,      // Năm sản xuất
-                IsTruck = chkTruck.Checked,                       // Kiểm tra nếu là xe tải
-                IsPassengerCar = chkPassengerCar.Checked,        // Kiểm tra nếu là xe khách
-                Weight = int.Parse(txtWeight.Text),              // Trọng lượng
-                Seats = int.Parse(txtSeats.Text),                // Số ghế
-                IsMaintenance = true,                            // Mặc định không bảo trì
-                Created_At = DateTime.Now,                       // Thời gian tạo
-                Updated_At = DateTime.Now                        // Thời gian cập nhật
+                VehicleName = txtCarName.Text,                      
+                VehicleNumber = txtCarNo.Text,                
+                ManufacturerYear = dtpManuYear.Value.Year,    
+                IsTruck = chkTruck.Checked,                      
+                IsPassengerCar = chkPassengerCar.Checked,     
+                Weight = !string.IsNullOrEmpty(txtWeight.Text) ? int.Parse(txtWeight.Text) : 0,         
+                Seats = !string.IsNullOrEmpty(txtSeats.Text) ? int.Parse(txtSeats.Text) : 0,            
+                IsMaintenance = true,               
+                Created_At = DateTime.Now,             
             };
         }
 
@@ -147,6 +148,11 @@ namespace GUI
         {
             FormHelper.CheckNumericKeyPress(e);
 
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckLetterKeyPress(e, txtCarName);
         }
     }
 }

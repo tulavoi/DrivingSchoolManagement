@@ -40,7 +40,6 @@ namespace GUI
 
         public void LoadAllLearners()
         {
-            // Load all learner data into the DataGridView
             LearnerService.LoadAllLearners(dgvLearners);
             this.UpdateControlsWithSelectedRowData();
         }

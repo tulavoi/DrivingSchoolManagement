@@ -1,129 +1,131 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Authentication.ExtendedProtection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Compilation;
-using System.Windows.Forms;
-using BLL.Services;
+﻿using BLL.Services;
 using DAL;
 using GUI.Validators;
-using Guna.UI2.WinForms;
+using System;
+using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class VehiclesForm : Form
     {
-		#region Properties
-		private bool isEditing_BasicDetails = false;
+        #region Properties
+        private bool isEditing_BasicDetails = false;
         private bool isEditing_MaintenanceDetails = false;
-		#endregion
+        #endregion
 
-		public VehiclesForm()
+        public VehiclesForm()
         {
             InitializeComponent();
-			FormHelper.ApplyRoundedCorners(this, 20);
+            FormHelper.ApplyRoundedCorners(this, 20);
         }
+
         public void VehiclesForm_Load(object sender, EventArgs e)
         {
             this.LoadAllVehicles();
-            
+            FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
         }
-        private void InitializeComboBox()
-        {
-            cboStatus_Filter.Items.Clear();
-            cboStatus_Filter.Items.Add("Status"); // Thêm mục mặc định
-            cboStatus_Filter.Items.Add("Available");
-            cboStatus_Filter.Items.Add("Maintenance");
-            cboStatus_Filter.SelectedIndex = 0; // Chọn mục mặc định
-        }
+
         public void LoadAllVehicles()
         {
-            // Load all learner data into the DataGridView
             VehicleService.LoadAllVehicles(dgvVehicles);
             this.UpdateControlsWithSelectedRowData();
         }
-        //      private void btnEdit_BasicDetail_Click(object sender, EventArgs e)
-        //      {
-        //	if (this.chkTruck.Checked) this.txtWeight.Enabled = true;
 
-        //	if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
-
-        //	FormHelper.ToggleEditMode(ref isEditing_BasicDetails, this.btnEdit_BasicDetail, this.txtCarName, this.txtCarNo, this.dtpManuYear, this.chkTruck, this.chkPassengerCar);
-        //}
         private void btnEdit_BasicDetail_Click(object sender, EventArgs e)
         {
             // Nếu xe là truck thì bật trường weight, tắt passenger car và đóng seats
-            if (this.chkTruck.Checked)
-            {   
-                this.txtWeight.Enabled = true;
-                this.txtSeats.Enabled = false; // Tắt trường seats
-                this.chkPassengerCar.Checked = false; // Tắt passenger car
-            }
-            else
-            {
-                txtWeight.Clear();
-                this.txtWeight.Enabled = false; // Tắt trường weight nếu không chọn truck
-            }
+            //if (this.chkTruck.Checked)
+            //{
+            //    this.txtWeight.Enabled = true;
+            //    this.txtSeats.Enabled = false; // Tắt trường seats
+            //    this.chkPassengerCar.Checked = false; // Tắt passenger car
+            //}
+            //else
+            //{
+            //    txtWeight.Clear();
+            //    this.txtWeight.Enabled = false; // Tắt trường weight nếu không chọn truck
+            //}
 
-            // Nếu xe là passenger car thì bật trường seats, tắt truck và đóng weight
-            if (this.chkPassengerCar.Checked)
-            {
-                this.txtSeats.Enabled = true;
-                this.txtWeight.Enabled = false; // Tắt trường weight
-                this.chkTruck.Checked = false; // Tắt truck
-            }
-            else
-            {
-                txtSeats.Clear();
-                this.txtSeats.Enabled = false; // Tắt trường seats nếu không chọn passenger car
-            }
+            //// Nếu xe là passenger car thì bật trường seats, tắt truck và đóng weight
+            //if (this.chkPassengerCar.Checked)
+            //{
+            //    this.txtSeats.Enabled = true;
+            //    this.txtWeight.Enabled = false; // Tắt trường weight
+            //    this.chkTruck.Checked = false; // Tắt truck
+            //}
+            //else
+            //{
+            //    txtSeats.Clear();
+            //    this.txtSeats.Enabled = false; // Tắt trường seats nếu không chọn passenger car
+            //}
 
-            // Gán giá trị cho thuộc tính IsTruck và IsPassengerCar
-            bool isTruck = this.chkTruck.Checked; // Gán true nếu truck được chọn, ngược lại gán false
-            bool isPassengerCar = this.chkPassengerCar.Checked; // Gán true nếu passenger car được chọn, ngược lại gán false          
+            //// Gán giá trị cho thuộc tính IsTruck và IsPassengerCar
+            //bool isTruck = this.chkTruck.Checked; // Gán true nếu truck được chọn, ngược lại gán false
+            //bool isPassengerCar = this.chkPassengerCar.Checked; // Gán true nếu passenger car được chọn, ngược lại gán false          
 
-            // Nếu đang ở chế độ lưu
+            //// Nếu đang ở chế độ lưu
+
+            //if (!this.InSaveMode())
+            //{
+            //    this.ToggleEditMode();
+            //    return;
+            //}
+            //// Xác thực thông tin
+            //if (!this.ValidateFields()) return;
+
+            //// Xác nhận hành động
+            //if (this.ConfirmAction($"Are you sure to edit vehicle '{txtCarName.Text}'?"))
+            //{
+            //    // Lấy thông tin xe từ các điều khiển
+            //    Vehicle vehicle = this.GetVehicle();
+            //    vehicle.IsTruck = isTruck; // Gán giá trị IsTruck cho vehicle
+            //    vehicle.IsPassengerCar = isPassengerCar; // Gán giá trị IsPassengerCar cho vehicle
+
+            //    // Chỉnh sửa xe
+            //    if (VehicleService.EditVehicle(vehicle))
+            //    {
+            //        FormHelper.ShowNotify("Vehicle edited successfully.");
+            //        this.LoadAllVehicles(); // Tải lại danh sách xe
+            //    }
+            //    else
+            //    {
+            //        FormHelper.ShowError("Failed to edit vehicle.");
+            //    }
+
+            //}
+            //this.ToggleEditMode();
+
+            if (this.chkTruck.Checked) this.txtWeight.Enabled = true;
+            //else this.txtWeight.Enabled = false;
+
+            if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
+            //else this.txtSeats.Enabled = false;
 
             if (!this.InSaveMode())
             {
                 this.ToggleEditMode();
                 return;
             }
-                // Xác thực thông tin
-                if (!this.ValidateFields()) return;
 
-                // Xác nhận hành động
-                if (this.ConfirmAction($"Are you sure to edit vehicle '{txtCarName.Text}'?"))
+            if (!this.ValidateFields()) return;
+
+            if (this.ConfirmAction($"Are you sure to edit vehicle '{txtCarName.Text}'?"))
+            {
+                Vehicle vehicle = this.GetVehicle();
+
+                if (VehicleService.EditVehicle(vehicle))
                 {
-                    // Lấy thông tin xe từ các điều khiển
-                    Vehicle vehicle = this.GetVehicle();
-                    vehicle.IsTruck = isTruck; // Gán giá trị IsTruck cho vehicle
-                    vehicle.IsPassengerCar = isPassengerCar; // Gán giá trị IsPassengerCar cho vehicle
-
-                    // Chỉnh sửa xe
-                    if (VehicleService.EditVehicle(vehicle))
-                    {
-                        FormHelper.ShowNotify("Vehicle edited successfully.");
-                        this.LoadAllVehicles(); // Tải lại danh sách xe
-                    }
-                    else
-                    {
-                        FormHelper.ShowError("Failed to edit vehicle.");
-                    }
-
+                    FormHelper.ShowNotify("Vehicle edited successfully.");
+                    this.LoadAllVehicles();
+                }
+                else
+                {
+                    FormHelper.ShowError("Failed to edit vehicle.");
+                }
             }
             this.ToggleEditMode();
-
-
+            this.LoadAllVehicles();
         }
-
-
 
         private bool InSaveMode()
         {
@@ -133,13 +135,16 @@ namespace GUI
         private void ToggleEditMode()
         {
             FormHelper.ToggleEditMode(ref this.isEditing_BasicDetails, this.btnEdit_BasicDetail,
-                                       txtCarName,txtCarNo,
-                                       dtpManuYear,chkTruck,
-                                       chkPassengerCar, this.txtWeight,
-                                       txtSeats, this.txtNotes,
-                                       this.cboStatus);
+                                       txtCarName, txtCarNo,
+                                       dtpManuYear, chkTruck,
+                                       chkPassengerCar,
+                                       cboStatus);
+            if (!chkPassengerCar.Enabled && !chkTruck.Enabled)
+            {
+                txtWeight.Enabled = false;
+                txtSeats.Enabled = false;
+            }
         }
-
 
         private bool ValidateFields()
         {
@@ -150,10 +155,7 @@ namespace GUI
 
             if (!VehicleValidator.ValidateManufactureYear(dtpManuYear, toolTip)) return false;
 
-            if (!VehicleValidator.ValidateWeight(txtWeight, toolTip)) return false;
-
-            if (!VehicleValidator.ValidateSeats(txtSeats, toolTip)) return false;
-
+            if (!VehicleValidator.ValidateWeightAndSeats(chkPassengerCar, chkTruck, txtSeats, txtWeight, toolTip)) return false;
 
             return true;
         }
@@ -162,7 +164,7 @@ namespace GUI
         {
             Vehicle vehicle = new Vehicle
             {
-                VehicleID = int.Parse(lblVehicleD.Text),
+                VehicleID = FormHelper.GetObjectID(lblVehicleID.Text),
                 VehicleName = txtCarName.Text,
                 VehicleNumber = txtCarNo.Text,
                 IsTruck = chkTruck.Checked,
@@ -180,15 +182,16 @@ namespace GUI
             return vehicle;
         }
 
-
         private void ToggleEditModeNote()
         {
             FormHelper.ToggleEditMode(ref this.isEditing_MaintenanceDetails, this.btnEdit_MaintenanceDetail, cboStatus, txtNotes);
         }
+
         private bool InSaveModeNote()
         {
             return btnEdit_MaintenanceDetail.Text == Constant.SAVE_MODE;
         }
+
         private void btnEdit_Maintenance_Click(object sender, EventArgs e)
         {
 
@@ -198,29 +201,25 @@ namespace GUI
                 return;
             }
 
-                // Xác thực thông tin ghi chú
-                if (!this.Validate()) return;
+            if (!this.Validate()) return;
 
-                if (this.ConfirmAction("Are you sure to edit the note?"))
+            if (this.ConfirmAction("Are you sure to edit the note?"))
+            {
+                Vehicle vehicle = this.GetVehicle();
+
+                if (VehicleService.EditVehicle(vehicle))
                 {
-                    // Lấy thông tin ghi chú từ trường txtNotes
-                    Vehicle vehicle=this.GetVehicle();
-
-                    // Cập nhật ghi chú thông qua dịch vụ
-                    if (VehicleService.EditVehicle(vehicle))
-                    {
-                        FormHelper.ShowNotify("Note edited successfully.");
-                        this.LoadAllVehicles(); // Tải lại danh sách ghi chú nếu cần
-                    }
-                    else
-                    {
-                        FormHelper.ShowError("Failed to edit note.");
-                    }
+                    FormHelper.ShowNotify("Note edited successfully.");
+                    this.LoadAllVehicles();
                 }
+                else
+                {
+                    FormHelper.ShowError("Failed to edit note.");
+                }
+            }
             this.ToggleEditModeNote();
 
         }
-
 
         private void btnDeleteVehicle_Click(object sender, EventArgs e)
         {
@@ -228,7 +227,7 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete vehicle '{txtCarName.Text}'?"))
             {
-                if (VehicleService.DeleteVehicle(int.Parse(lblVehicleD.Text)))
+                if (VehicleService.DeleteVehicle(int.Parse(lblVehicleID.Text)))
                 {
                     FormHelper.ShowNotify("Vehicle deleted successfully.");
                     this.LoadAllVehicles();
@@ -238,76 +237,85 @@ namespace GUI
             }
         }
 
-
-
         private bool ConfirmAction(string message)
         {
             DialogResult result = FormHelper.ShowConfirm(message);
             return result == DialogResult.Yes;
         }
+
         private void btnOpenAddVehicleForm_Click(object sender, EventArgs e)
-		{
-			FormHelper.OpenFormDialog(new AddVehicleForm());
+        {
+            FormHelper.OpenFormDialog(new AddVehicleForm());
             this.LoadAllVehicles();
         }
 
-		private void chkTruck_CheckedChanged(object sender, EventArgs e)
-		{
-			this.txtWeight.Enabled = this.chkTruck.Checked;
+        private void chkTruck_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtWeight.Enabled = this.chkTruck.Checked;
 
-			if (this.chkTruck.Checked)
-			{
-				this.chkPassengerCar.Checked = false;
-				this.txtSeats.Enabled = false;
-			}
-		}
+            if (this.chkTruck.Checked)
+            {
+                this.chkPassengerCar.Checked = false;
+                this.txtSeats.Enabled = false;
+            }
+        }
 
-		private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
-		{
-			txtSeats.Enabled = chkPassengerCar.Checked;
+        private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSeats.Enabled = chkPassengerCar.Checked;
 
-			if (chkPassengerCar.Checked)
-			{
-				chkTruck.Checked = false;
-				txtWeight.Enabled = false;
-			}
-		}
-       
+            if (chkPassengerCar.Checked)
+            {
+                chkTruck.Checked = false;
+                txtWeight.Enabled = false;
+            }
+        }
+
         private void AssignDataToControls(Vehicle selectedVehicle)
         {
-            // Gán dữ liệu của xe vào các điều khiển trên form
-            string vehicleID = selectedVehicle.VehicleID.ToString();
+            string vehicleID = "ID: " + selectedVehicle.VehicleID.ToString();
 
-            FormHelper.SetLabelID(lblVehicleD, vehicleID); // Gán ID cho nhãn
-            txtCarName.Text = selectedVehicle.VehicleName; // Gán tên xe
-            txtCarNo.Text = selectedVehicle.VehicleNumber; // Gán số xe
-            dtpManuYear.Value = new DateTime((int)selectedVehicle.ManufacturerYear, 1, 1); // Gán năm sản xuất
-            txtWeight.Text = selectedVehicle.Weight.ToString(); // Gán trọng lượng
-            txtSeats.Text = selectedVehicle.Seats.ToString(); // Gán số ghế
-            txtNotes.Text = selectedVehicle.Notes; // Gán ghi chú
+            FormHelper.SetLabelID(lblVehicleID, vehicleID);
+            txtCarName.Text = selectedVehicle.VehicleName;
+            txtCarNo.Text = selectedVehicle.VehicleNumber;
+            dtpManuYear.Value = new DateTime((int)selectedVehicle.ManufacturerYear, 1, 1);
+            txtWeight.Text = selectedVehicle.Weight.ToString();
+            txtSeats.Text = selectedVehicle.Seats.ToString();
+            txtNotes.Text = selectedVehicle.Notes;
             // Gán trạng thái cho checkbox
             chkTruck.Checked = (bool)selectedVehicle.IsTruck;
             chkPassengerCar.Checked = (bool)selectedVehicle.IsPassengerCar;
 
             if (selectedVehicle.IsMaintenance == true)
             {
-                cboStatus.Text = "Available"; 
+                cboStatus.Text = "Available";
             }
             else
             {
                 cboStatus.Text = "Maintenance";
             }
+
+            txtWeight.Enabled = false;
+            txtSeats.Enabled = false;
         }
 
         private bool HasSelectedRow()
         {
-            // Check if any row is selected in the DataGridView
             return dgvVehicles.SelectedRows.Count > 0;
         }
+
         private void dgvVehicles_SelectionChanged(object sender, EventArgs e)
         {
             this.UpdateControlsWithSelectedRowData();
+
+            // Nếu như đang ở chế độ sửa mà chọn dòng khác thì sẽ chuyển về chế độ xem
+            if (this.isEditing_BasicDetails)
+                this.ToggleEditMode();
+
+            if (this.isEditing_MaintenanceDetails)
+                this.ToggleEditModeNote();
         }
+
         private void UpdateControlsWithSelectedRowData()
         {
             // Check if a row is selected and assign selected Vehicle data to controls
@@ -321,45 +329,42 @@ namespace GUI
 
         private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-                // Xóa các dòng hiện tại trong DataGridView
-                FormHelper.ClearDataGridViewRow(dgvVehicles);
+            // Xóa các dòng hiện tại trong DataGridView
+            FormHelper.ClearDataGridViewRow(dgvVehicles);
 
-                // Nếu chưa chọn bất kỳ trạng thái nào (Index < 1), tải tất cả xe
-                if (cboStatus_Filter.SelectedIndex < 1)
+            // Nếu chưa chọn bất kỳ trạng thái nào (Index < 1), tải tất cả xe
+            if (cboStatus_Filter.SelectedIndex < 1)
+            {
+                this.LoadAllVehicles();
+            }
+            else
+            {
+                // Lấy trạng thái đã chọn
+                string status = cboStatus_Filter.SelectedItem.ToString();
+
+                // Lọc xe dựa trên trạng thái đã chọn
+                if (status == "Available")
                 {
-                    this.LoadAllVehicles();
+                    VehicleService.FilterVehiclesByStatus(dgvVehicles, "Available");
                 }
-                else
+                else if (status == "Maintenance")
                 {
-                    // Lấy trạng thái đã chọn
-                    string status = cboStatus_Filter.SelectedItem.ToString();
-
-                    // Lọc xe dựa trên trạng thái đã chọn
-                    if (status == "Available")
-                    {
-                        VehicleService.FilterVehiclesByStatus(dgvVehicles, "Available");
-                    }
-                    else if (status == "Maintenance")
-                    {
-                        VehicleService.FilterVehiclesByStatus(dgvVehicles, "Maintenance");
-                    }
-
-                    // Cập nhật controls với dữ liệu của dòng đã chọn
-                    this.UpdateControlsWithSelectedRowData();
+                    VehicleService.FilterVehiclesByStatus(dgvVehicles, "Maintenance");
                 }
+
+                // Cập nhật controls với dữ liệu của dòng đã chọn
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
 
         private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
-
         }
 
         private void txtSeats_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
-
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

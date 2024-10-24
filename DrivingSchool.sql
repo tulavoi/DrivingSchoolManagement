@@ -226,3 +226,4 @@ VALUES
 INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
 VALUES 
 ('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE());
+
