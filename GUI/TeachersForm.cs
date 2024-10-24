@@ -243,19 +243,11 @@ namespace GUI
 
         private async void btnSendMail_ClickAsync(object sender, EventArgs e)
         {
-            var mailSetting = FormHelper.GetMailSettings();
-
-            if (!FormHelper.IsMailSettingValid(mailSetting))
-            {
-                FormHelper.ShowError("MailSetting invalid.");
-                return;
-            }
-
             var teacher = this.GetSelectedTeacher();
-            var mailContent = this.CreateMailContent(teacher); // Tạo nội dung email
-            var sendMailService = new SendMailService(mailSetting); // Khởi tạo SendMailService
-            var result = await Task.Run(() => sendMailService.SendMail(mailContent));
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send invoice.");
+            var mailContent = this.CreateMailContent(teacher);
+            var result = await FormHelper.SendMailAsync(mailContent);
+
+            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
         }
 
         private MailContent CreateMailContent(Teacher teacher)
