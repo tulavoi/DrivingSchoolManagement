@@ -61,7 +61,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ScheduleDAL.cs" />
-    <Compile Include="ScheduleException.cs" />
     <Compile Include="SessionDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
     <Compile Include="VehicleDAL.cs" />

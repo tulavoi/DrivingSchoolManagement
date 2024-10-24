@@ -191,5 +191,10 @@ namespace GUI
             // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
             return dgv.SelectedRows.Count > 0;
         }
+
+        public static bool HasSelectedItem(Guna2ComboBox cbo)
+        {
+            return cbo.SelectedIndex > 0;
+        }
     }
 }

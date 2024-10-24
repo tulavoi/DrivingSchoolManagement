@@ -184,5 +184,15 @@ namespace DAL
             return AddData(schedule, out errorMessage);
         }
         #endregion
+
+        #region Lấy ra Schedule bằng LearnerID
+        public List<Schedule> GetSchedulesByLearnerId(int learnerId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
+            }
+        }
+        #endregion
     }
 }

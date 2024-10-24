@@ -40,8 +40,8 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
             ComboboxService.AssignLearnersToCombobox(cboLearners);
+            ComboboxService.AssignCoursesToCombobox(cboCourses);
             ComboboxService.AssignTeachersToCombobox(cboTeachers);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
             ComboboxService.AssignVehiclesToCombobox(cboVehicles);
@@ -62,29 +62,29 @@ namespace GUI
             return txtSearchLearner.Text;
         }
 
-        private void txtSearchCourse_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchCourse);
-            CourseService.SearchCourse(cboCourses, keyword);
-        }
-
         private void txtSearchLearner_TextChanged(object sender, EventArgs e)
         {
             string keyword = this.GetKeyword(txtSearchLearner);
             LearnerService.SearchLearners(cboLearners, keyword);
         }
 
-        private void txtSearchTeacher_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchTeacher);
-            TeacherService.SearchTeachers(cboTeachers, keyword);
-        }
+        //private void txtSearchCourse_TextChanged(object sender, EventArgs e)
+        //{
+        //    string keyword = this.GetKeyword(txtSearchCourse);
+        //    CourseService.SearchCourse(cboCourses, keyword);
+        //}
 
-        private void txtSearchVehicle_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchVehicle);
-            VehicleService.SearchVehicles(cboVehicles, keyword);
-        }
+        //private void txtSearchTeacher_TextChanged(object sender, EventArgs e)
+        //{
+        //    string keyword = this.GetKeyword(txtSearchTeacher);
+        //    TeacherService.SearchTeachers(cboTeachers, keyword);
+        //}
+
+        //private void txtSearchVehicle_TextChanged(object sender, EventArgs e)
+        //{
+        //    string keyword = this.GetKeyword(txtSearchVehicle);
+        //    VehicleService.SearchVehicles(cboVehicles, keyword);
+        //}
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            var comboBoxes = new List<Guna2ComboBox> { cboCourses, cboLearners, cboTeachers, cboVehicles, cboSessions };
+            var comboBoxes = new List<Guna2ComboBox> { cboLearners, cboCourses, cboTeachers, cboVehicles, cboSessions };
 
             foreach (var comboBox in comboBoxes)
             {
@@ -138,7 +138,28 @@ namespace GUI
 
         private void cboLearners_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (!FormHelper.HasSelectedItem(cboLearners))
+            {
+                cboCourses.Enabled = false;
+                return;
+            }
+            cboCourses.Enabled = true;
+            int learnerID = Convert.ToInt32(cboLearners.SelectedValue.ToString());
+
+            ComboboxService.AssignCoursesToCombobox(cboCourses, learnerID);
+        }
+
+        private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!FormHelper.HasSelectedItem(cboCourses))
+            {
+                cboTeachers.Enabled = false;
+                return;
+            }
+            cboTeachers.Enabled = true;
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+
+            ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
         }
     }
 }

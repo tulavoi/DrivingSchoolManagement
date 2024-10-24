@@ -181,5 +181,24 @@ namespace DAL
             return DeleteData(t => t.TeacherID == teacherID); // Điều kiện tìm teacher theo id
         }
         #endregion
+
+        #region Get teachers for course
+        public List<Teacher> GetTeacherForCourse(int courseId)
+        {
+            var allTeachers = TeacherDAL.Instance.GetAllTeachers();
+
+            var course = CourseDAL.Instance.GetCourseById(courseId);
+            if (course == null)
+                return new List<Teacher>();
+
+            // Lấy ra các giáo viên đủ điều kiện với bằng lái của khóa học
+            // (vẫn chưa lấy được các gv dư điều kiện dạy), VD: gv bằng C có thể dạy bằng B
+            var qualifiedTeachers = allTeachers
+                                    .Where(t => t.LicenseID == course.LicenseID)
+                                    .ToList();
+
+            return qualifiedTeachers;
+        }
+        #endregion
     }
 }
