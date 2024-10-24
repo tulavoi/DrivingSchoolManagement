@@ -66,7 +66,6 @@ namespace GUI
                 else
                     FormHelper.ShowError("Failed to edit learner.");
             }
-            else return;
 
             this.ToggleEditMode();
             this.LoadAllLearners();

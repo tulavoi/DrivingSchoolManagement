@@ -133,7 +133,6 @@ namespace GUI
                 var result = TeacherService.EditTeacher(teacher);
                 FormHelper.ShowActionResult(result, "Teacher edited successfully.", "Failed to edit teacher.");
             }
-            else return;
 
             this.ToggleEditMode();
             this.LoadAllTeachers();
@@ -260,6 +259,5 @@ namespace GUI
                        $"<p>{txtMessage.Text}</p>"
             };
         }
-
     }
 }
