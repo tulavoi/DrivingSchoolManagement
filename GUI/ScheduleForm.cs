@@ -92,7 +92,7 @@ namespace GUI
             ComboboxService.AssignLearnersToCombobox(cboLearners);
 			ComboboxService.AssignTeachersToCombobox(cboTeachers);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
-			//ComboboxService.AssignVehiclesToCombobox(cboVehicles);
+            //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
         }
 
         public void SetCurrentDate()
@@ -328,6 +328,30 @@ namespace GUI
 
             ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
 			this.UpdateControlsWithSelectedRowData();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            FormHelper.ClearDataGridViewRow(dgvSchedules);
+
+            string keyword = txtSearch.Text.ToLower();
+
+            ScheduleService.SearchSchedules(dgvSchedules, keyword);
+            this.UpdateControlsWithSelectedRowData();
+        }
+
+        private void cboSession_Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormHelper.ClearDataGridViewRow(dgvSchedules);
+
+            if (cboSession_Filter.SelectedIndex < 1)
+                this.LoadAllSchedules();
+            else
+            {
+                string filterString = cboSession_Filter.Text;
+                ScheduleService.FilterScheduleBySession(dgvSchedules, filterString);
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
     }
 }

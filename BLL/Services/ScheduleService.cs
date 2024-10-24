@@ -30,6 +30,14 @@ namespace BLL.Services
             ScheduleBLL.Instance.LoadAllSchedules(dgv);
         }
 
-        
+        public static void SearchSchedules(Guna2DataGridView dgv, string keyword)
+        {
+            ScheduleBLL.Instance.SearchSchedules(dgv, keyword);
+        }
+
+        public static void FilterScheduleBySession(Guna2DataGridView dgv, string filterString)
+        {
+            ScheduleBLL.Instance.FilterScheduleBySession(dgv, filterString);
+        }
     }
 }
