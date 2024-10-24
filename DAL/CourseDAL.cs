@@ -10,7 +10,6 @@ namespace DAL
     {
         #region Properties
         private static CourseDAL instance;
-
         public static CourseDAL Instance
         {
             get
@@ -21,7 +20,7 @@ namespace DAL
         }
         #endregion
 
-        #region All Course
+        #region All Courses
         protected override IEnumerable<dynamic> QueryAllData()
         {
             using (var db = DataAccess.GetDataContext())
@@ -32,12 +31,12 @@ namespace DAL
                            {
                                course.CourseID,
                                course.CourseName,
-                               license.LicenseID,
+                               course.LicenseID,
                                license.LicenseName,
                                course.Fee,
                                course.DurationInHours,
                                course.Created_At,
-                               course.Updated_At,
+                               course.Updated_At
                            };
 
                 return data.ToList();
@@ -63,6 +62,13 @@ namespace DAL
         }
         #endregion
 
+        #region Filter
+        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
         #region Search
         protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
         {
@@ -75,18 +81,19 @@ namespace DAL
                            {
                                course.CourseID,
                                course.CourseName,
-                               license.LicenseID,
+                               course.LicenseID,
                                license.LicenseName,
                                course.Fee,
                                course.DurationInHours,
                                course.Created_At,
-                               course.Updated_At,
+                               course.Updated_At
                            };
+
                 return data.ToList();
             }
         }
 
-        public List<Course> SearchCourse(string keyword)
+        public List<Course> SearchCourses(string keyword)
         {
             return SearchData(keyword, item => new Course
             {
@@ -105,10 +112,32 @@ namespace DAL
         }
         #endregion
 
-        #region Filter
-        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        #region Create
+        public bool AddCourse(Course course)
         {
-            throw new NotImplementedException();
+            return AddData(course);
+        }
+        #endregion
+
+        #region Edit
+        public bool EditCourse(Course course)
+        {
+            return EditData(c => c.CourseID == course.CourseID,           // Điều kiện tìm course theo id
+                            c =>                                         // Action cập nhật các thuộc tính
+                            {
+                                c.CourseName = course.CourseName;
+                                c.LicenseID = course.LicenseID;
+                                c.Fee = course.Fee;
+                                c.DurationInHours = course.DurationInHours;
+                                c.Updated_At = DateTime.Now;
+                            });
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteCourse(int courseID)
+        {
+            return DeleteData(c => c.CourseID == courseID); // Điều kiện tìm course theo id
         }
         #endregion
 
@@ -143,4 +172,5 @@ namespace DAL
             }
         }
     }
+
 }

@@ -51,6 +51,8 @@ namespace GUI
 
         private string GetKeyword(Guna2TextBox txtSearchLearner)
         {
+            string keyword = this.GetKeyword(txtSearchCourse);
+            CourseService.SearchCourses(cboCourses, keyword);
             return txtSearchLearner.Text;
         }
 

@@ -65,6 +65,7 @@
             this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblAdd = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlLineTop.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -225,6 +226,7 @@
             this.btnAdd.Size = new System.Drawing.Size(150, 35);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlSpace10
             // 
@@ -270,7 +272,7 @@
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.BorderRadius = 5;
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.DefaultText = "B-154126092024";
+            this.txtName.DefaultText = "";
             this.txtName.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtName.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -331,13 +333,12 @@
             this.txtDurationInHours.BackColor = System.Drawing.Color.White;
             this.txtDurationInHours.BorderRadius = 5;
             this.txtDurationInHours.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDurationInHours.DefaultText = "130";
+            this.txtDurationInHours.DefaultText = "";
             this.txtDurationInHours.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtDurationInHours.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtDurationInHours.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtDurationInHours.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
             this.txtDurationInHours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDurationInHours.Enabled = false;
             this.txtDurationInHours.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtDurationInHours.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtDurationInHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -416,7 +417,7 @@
             this.txtFee.BackColor = System.Drawing.Color.White;
             this.txtFee.BorderRadius = 5;
             this.txtFee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFee.DefaultText = "14.900.000";
+            this.txtFee.DefaultText = "";
             this.txtFee.DisabledState.BorderColor = System.Drawing.Color.White;
             this.txtFee.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtFee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -521,6 +522,7 @@
             this.cboLicense.Size = new System.Drawing.Size(268, 36);
             this.cboLicense.StartIndex = 0;
             this.cboLicense.TabIndex = 4;
+            this.cboLicense.SelectedIndexChanged += new System.EventHandler(this.cboLicense_SelectedIndexChanged);
             // 
             // lblLicense
             // 
@@ -582,6 +584,16 @@
             this.pnlSpace5.Name = "pnlSpace5";
             this.pnlSpace5.Size = new System.Drawing.Size(410, 15);
             this.pnlSpace5.TabIndex = 15;
+            // 
+            // toolTip
+            // 
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.StripAmpersands = true;
             // 
             // AddCourseForm
             // 
@@ -648,5 +660,6 @@
         private System.Windows.Forms.Label lblFee;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private System.Windows.Forms.Label lblName;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
     }
 }
