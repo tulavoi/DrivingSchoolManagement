@@ -49,12 +49,7 @@
             this.pnlCourses_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSearch = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlCboTeacher_License = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cboLicesnses_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -118,12 +113,13 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.pnlCboTeacher_License = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
             this.pnlCourses_Top.SuspendLayout();
             this.pnlSearch.SuspendLayout();
-            this.pnlCboTeacher_License.SuspendLayout();
             this.pnlDetails.SuspendLayout();
             this.pnlMaitenanceDetail.SuspendLayout();
             this.pnlEdit_Maintenance.SuspendLayout();
@@ -138,6 +134,7 @@
             this.pnlCarNo_ManuYear.SuspendLayout();
             this.pnlName.SuspendLayout();
             this.pnlDetails_Top.SuspendLayout();
+            this.pnlCboTeacher_License.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSpace10
@@ -194,7 +191,7 @@
             this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVehicles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvVehicles.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvVehicles.Location = new System.Drawing.Point(0, 94);
+            this.dgvVehicles.Location = new System.Drawing.Point(0, 50);
             this.dgvVehicles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.ReadOnly = true;
@@ -370,20 +367,18 @@
             this.pnlCourses_Top.FillColor = System.Drawing.Color.White;
             this.pnlCourses_Top.Location = new System.Drawing.Point(0, 0);
             this.pnlCourses_Top.Name = "pnlCourses_Top";
-            this.pnlCourses_Top.Size = new System.Drawing.Size(500, 94);
+            this.pnlCourses_Top.Size = new System.Drawing.Size(500, 50);
             this.pnlCourses_Top.TabIndex = 0;
             // 
             // pnlSearch
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlSearch.Controls.Add(this.txtSearch);
-            this.pnlSearch.Controls.Add(this.pnlSpace9);
-            this.pnlSearch.Controls.Add(this.pnlSpace4);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSearch.FillColor = System.Drawing.Color.White;
             this.pnlSearch.Location = new System.Drawing.Point(113, 8);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(214, 78);
+            this.pnlSearch.Size = new System.Drawing.Size(214, 37);
             this.pnlSearch.TabIndex = 23;
             // 
             // txtSearch
@@ -402,35 +397,15 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearch.Location = new System.Drawing.Point(0, 22);
+            this.txtSearch.Location = new System.Drawing.Point(0, 0);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(214, 36);
+            this.txtSearch.Size = new System.Drawing.Size(214, 37);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // pnlSpace9
-            // 
-            this.pnlSpace9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace9.FillColor = System.Drawing.Color.White;
-            this.pnlSpace9.Location = new System.Drawing.Point(0, 58);
-            this.pnlSpace9.Name = "pnlSpace9";
-            this.pnlSpace9.Size = new System.Drawing.Size(214, 20);
-            this.pnlSpace9.TabIndex = 21;
-            // 
-            // pnlSpace4
-            // 
-            this.pnlSpace4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace4.FillColor = System.Drawing.Color.White;
-            this.pnlSpace4.Location = new System.Drawing.Point(0, 0);
-            this.pnlSpace4.Name = "pnlSpace4";
-            this.pnlSpace4.Size = new System.Drawing.Size(214, 22);
-            this.pnlSpace4.TabIndex = 20;
             // 
             // pnlSpace3
             // 
@@ -439,78 +414,16 @@
             this.pnlSpace3.FillColor = System.Drawing.Color.White;
             this.pnlSpace3.Location = new System.Drawing.Point(327, 8);
             this.pnlSpace3.Name = "pnlSpace3";
-            this.pnlSpace3.Size = new System.Drawing.Size(10, 78);
+            this.pnlSpace3.Size = new System.Drawing.Size(10, 37);
             this.pnlSpace3.TabIndex = 19;
-            // 
-            // pnlCboTeacher_License
-            // 
-            this.pnlCboTeacher_License.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlCboTeacher_License.Controls.Add(this.cboStatus_Filter);
-            this.pnlCboTeacher_License.Controls.Add(this.cboLicesnses_Filter);
-            this.pnlCboTeacher_License.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlCboTeacher_License.FillColor = System.Drawing.Color.White;
-            this.pnlCboTeacher_License.Location = new System.Drawing.Point(337, 8);
-            this.pnlCboTeacher_License.Name = "pnlCboTeacher_License";
-            this.pnlCboTeacher_License.Size = new System.Drawing.Size(150, 78);
-            this.pnlCboTeacher_License.TabIndex = 22;
-            // 
-            // cboStatus_Filter
-            // 
-            this.cboStatus_Filter.BackColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.BorderRadius = 5;
-            this.cboStatus_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboStatus_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus_Filter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboStatus_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboStatus_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboStatus_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboStatus_Filter.ItemHeight = 30;
-            this.cboStatus_Filter.Items.AddRange(new object[] {
-            "Status",
-            "Available",
-            "Maintenance"});
-            this.cboStatus_Filter.Location = new System.Drawing.Point(0, 0);
-            this.cboStatus_Filter.Name = "cboStatus_Filter";
-            this.cboStatus_Filter.Size = new System.Drawing.Size(150, 36);
-            this.cboStatus_Filter.StartIndex = 0;
-            this.cboStatus_Filter.TabIndex = 33;
-            this.cboStatus_Filter.SelectedIndexChanged += new System.EventHandler(this.cboStatus_Filter_SelectedIndexChanged);
-            // 
-            // cboLicesnses_Filter
-            // 
-            this.cboLicesnses_Filter.BackColor = System.Drawing.Color.White;
-            this.cboLicesnses_Filter.BorderRadius = 5;
-            this.cboLicesnses_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboLicesnses_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboLicesnses_Filter.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboLicesnses_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboLicesnses_Filter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cboLicesnses_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLicesnses_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLicesnses_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboLicesnses_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboLicesnses_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboLicesnses_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboLicesnses_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboLicesnses_Filter.ItemHeight = 30;
-            this.cboLicesnses_Filter.Location = new System.Drawing.Point(0, 42);
-            this.cboLicesnses_Filter.Name = "cboLicesnses_Filter";
-            this.cboLicesnses_Filter.Size = new System.Drawing.Size(150, 36);
-            this.cboLicesnses_Filter.TabIndex = 29;
             // 
             // pnlSpace8
             // 
             this.pnlSpace8.BackColor = System.Drawing.Color.White;
             this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace8.Location = new System.Drawing.Point(113, 86);
+            this.pnlSpace8.Location = new System.Drawing.Point(113, 45);
             this.pnlSpace8.Name = "pnlSpace8";
-            this.pnlSpace8.Size = new System.Drawing.Size(374, 8);
+            this.pnlSpace8.Size = new System.Drawing.Size(374, 5);
             this.pnlSpace8.TabIndex = 18;
             // 
             // pnlSpace7
@@ -533,7 +446,7 @@
             this.pnlSpace6.FillColor = System.Drawing.Color.White;
             this.pnlSpace6.Location = new System.Drawing.Point(487, 0);
             this.pnlSpace6.Name = "pnlSpace6";
-            this.pnlSpace6.Size = new System.Drawing.Size(13, 94);
+            this.pnlSpace6.Size = new System.Drawing.Size(13, 50);
             this.pnlSpace6.TabIndex = 16;
             // 
             // lblCourses
@@ -544,7 +457,7 @@
             this.lblCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.lblCourses.Location = new System.Drawing.Point(13, 0);
             this.lblCourses.Name = "lblCourses";
-            this.lblCourses.Size = new System.Drawing.Size(100, 94);
+            this.lblCourses.Size = new System.Drawing.Size(100, 50);
             this.lblCourses.TabIndex = 15;
             this.lblCourses.Text = "Vehicles";
             this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -560,7 +473,7 @@
             this.pnlSpace5.FillColor = System.Drawing.Color.White;
             this.pnlSpace5.Location = new System.Drawing.Point(0, 0);
             this.pnlSpace5.Name = "pnlSpace5";
-            this.pnlSpace5.Size = new System.Drawing.Size(13, 94);
+            this.pnlSpace5.Size = new System.Drawing.Size(13, 50);
             this.pnlSpace5.TabIndex = 14;
             // 
             // pnlDetails
@@ -1420,6 +1333,45 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // cboStatus_Filter
+            // 
+            this.cboStatus_Filter.BackColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.BorderRadius = 5;
+            this.cboStatus_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboStatus_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus_Filter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cboStatus_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboStatus_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboStatus_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboStatus_Filter.ItemHeight = 30;
+            this.cboStatus_Filter.Items.AddRange(new object[] {
+            "Status",
+            "Available",
+            "Maintenance"});
+            this.cboStatus_Filter.Location = new System.Drawing.Point(0, 0);
+            this.cboStatus_Filter.Name = "cboStatus_Filter";
+            this.cboStatus_Filter.Size = new System.Drawing.Size(150, 36);
+            this.cboStatus_Filter.StartIndex = 0;
+            this.cboStatus_Filter.TabIndex = 33;
+            this.cboStatus_Filter.SelectedIndexChanged += new System.EventHandler(this.cboStatus_Filter_SelectedIndexChanged);
+            // 
+            // pnlCboTeacher_License
+            // 
+            this.pnlCboTeacher_License.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlCboTeacher_License.Controls.Add(this.cboStatus_Filter);
+            this.pnlCboTeacher_License.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlCboTeacher_License.FillColor = System.Drawing.Color.White;
+            this.pnlCboTeacher_License.Location = new System.Drawing.Point(337, 8);
+            this.pnlCboTeacher_License.Name = "pnlCboTeacher_License";
+            this.pnlCboTeacher_License.Size = new System.Drawing.Size(150, 37);
+            this.pnlCboTeacher_License.TabIndex = 22;
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1439,7 +1391,6 @@
             this.pnlButtonAdd.ResumeLayout(false);
             this.pnlCourses_Top.ResumeLayout(false);
             this.pnlSearch.ResumeLayout(false);
-            this.pnlCboTeacher_License.ResumeLayout(false);
             this.pnlDetails.ResumeLayout(false);
             this.pnlMaitenanceDetail.ResumeLayout(false);
             this.pnlEdit_Maintenance.ResumeLayout(false);
@@ -1454,6 +1405,7 @@
             this.pnlCarNo_ManuYear.ResumeLayout(false);
             this.pnlName.ResumeLayout(false);
             this.pnlDetails_Top.ResumeLayout(false);
+            this.pnlCboTeacher_License.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1468,12 +1420,8 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace2;
         private Guna.UI2.WinForms.Guna2Panel pnlCourses_Top;
         private Guna.UI2.WinForms.Guna2Panel pnlSearch;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace9;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace4;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace3;
-        private Guna.UI2.WinForms.Guna2Panel pnlCboTeacher_License;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLicesnses_Filter;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace8;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace7;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace6;
@@ -1487,7 +1435,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
         private System.Windows.Forms.Label lblDetails;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace27;
-        private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
         private Guna.UI2.WinForms.Guna2Panel pnlBasicDetails;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace19;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
@@ -1544,5 +1491,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CarNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManufactureYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private Guna.UI2.WinForms.Guna2Panel pnlCboTeacher_License;
+        private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
     }
 }

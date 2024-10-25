@@ -101,11 +101,11 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["ManufactureYear"].Value = vehicle.ManufacturerYear;
                     if (vehicle.IsMaintenance == true)
                     {
-                        dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
+                        dgv.Rows[rowIndex].Cells["Status"].Value = "Maintenance";
                     }
                     else
                     {
-                        dgv.Rows[rowIndex].Cells["Status"].Value = "Maintenance";
+                        dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
                     }
 
                 }

@@ -290,13 +290,9 @@ namespace GUI
             chkPassengerCar.Checked = (bool)selectedVehicle.IsPassengerCar;
 
             if (selectedVehicle.IsMaintenance == true)
-            {
-                cboStatus.Text = "Available";
-            }
-            else
-            {
                 cboStatus.Text = "Maintenance";
-            }
+            else
+                cboStatus.Text = "Available";
 
             txtWeight.Enabled = false;
             txtSeats.Enabled = false;
@@ -333,24 +329,17 @@ namespace GUI
         private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboStatus_Filter.SelectedIndex < 1)
-            {
-                this.LoadAllVehicles(); // Tải toàn bộ dữ liệu
-            }
+                this.LoadAllVehicles();
             else
             {
                 string selectedStatus = cboStatus_Filter.SelectedItem.ToString();
                 foreach (DataGridViewRow row in dgvVehicles.Rows)
                 {
                     string statusValue = row.Cells[4].Value?.ToString();
-                    if ((selectedStatus == "Available" && statusValue == "Available") ||
-                        (selectedStatus == "Maintenance" && statusValue == "Maintenance"))
-                    {
-                        row.Visible = true; // Hiển thị dòng nếu điều kiện khớp
-                    }
+                    if ((selectedStatus == "Available" && statusValue == "Available") || (selectedStatus == "Maintenance" && statusValue == "Maintenance"))
+                        row.Visible = true;
                     else
-                    {
-                        row.Visible = false; // Ẩn dòng nếu điều kiện không khớp
-                    }
+                        row.Visible = false;
                 }
                 this.UpdateControlsWithSelectedRowData();
             }

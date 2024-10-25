@@ -338,7 +338,7 @@
             this.pnlSearch.FillColor = System.Drawing.Color.White;
             this.pnlSearch.Location = new System.Drawing.Point(115, 8);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(370, 34);
+            this.pnlSearch.Size = new System.Drawing.Size(370, 37);
             this.pnlSearch.TabIndex = 23;
             // 
             // cboLicesnse
@@ -394,7 +394,7 @@
             this.txtSearchCourse.PasswordChar = '\0';
             this.txtSearchCourse.PlaceholderText = "Search";
             this.txtSearchCourse.SelectedText = "";
-            this.txtSearchCourse.Size = new System.Drawing.Size(210, 34);
+            this.txtSearchCourse.Size = new System.Drawing.Size(210, 37);
             this.txtSearchCourse.TabIndex = 13;
             this.txtSearchCourse.Tag = "SearchCourse";
             this.txtSearchCourse.TextChanged += new System.EventHandler(this.txtSearchCourse_TextChanged);
@@ -403,9 +403,9 @@
             // 
             this.pnlSpace8.BackColor = System.Drawing.Color.White;
             this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace8.Location = new System.Drawing.Point(115, 42);
+            this.pnlSpace8.Location = new System.Drawing.Point(115, 45);
             this.pnlSpace8.Name = "pnlSpace8";
-            this.pnlSpace8.Size = new System.Drawing.Size(370, 8);
+            this.pnlSpace8.Size = new System.Drawing.Size(370, 5);
             this.pnlSpace8.TabIndex = 18;
             // 
             // pnlSpace7

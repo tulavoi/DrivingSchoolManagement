@@ -46,6 +46,9 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="CourseDAL.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="DrivingSchool.cs">
+      <DependentUpon>DrivingSchool.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DrivingSchool.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

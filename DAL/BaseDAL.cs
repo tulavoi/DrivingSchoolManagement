@@ -32,6 +32,26 @@ namespace DAL
             }
         }
 
+        protected bool EditData(Func<T, bool> predicate, Action<T> update)
+        {
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate); // Tìm đối tượng theo điều kiện
+                    if (entity == null) return false;
+                    update(entity); // Cập nhật các thuộc tính
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         protected bool AddData(T data, out string errorMessage)
         {
             errorMessage = "";
@@ -106,26 +126,6 @@ namespace DAL
                     errorMessage = ex.Message; // Lỗi khác
                 }
                 return false;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        protected bool EditData(Func<T, bool> predicate, Action<T> update)
-        {
-            try
-            {
-                using (var db = DataAccess.GetDataContext())
-                {
-                    var entity = db.GetTable<T>().FirstOrDefault(predicate); // Tìm đối tượng theo điều kiện
-                    if (entity == null) return false;
-                    update(entity); // Cập nhật các thuộc tính
-                    db.SubmitChanges();
-                    return true;
-                }
             }
             catch (Exception ex)
             {
