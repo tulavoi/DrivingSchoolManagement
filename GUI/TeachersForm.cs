@@ -207,8 +207,11 @@ namespace GUI
             if (this.ConfirmAction($"Are you sure to delete teacher '{txtFullName.Text}'?"))
             {
                 int teacherID = FormHelper.GetObjectID(lblTeacherID.Text);
+
                 var result = TeacherService.DeleteTeacher(teacherID);
+
                 FormHelper.ShowActionResult(result, "Teacher deleted successfully.", "Failed to delete teacher.");
+
                 this.LoadAllTeachers();
             }
         }

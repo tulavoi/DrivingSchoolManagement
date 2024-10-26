@@ -174,13 +174,13 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
             {
-                if (LearnerService.DeleteLearner(int.Parse(lblLearnerID.Text)))
-                {
-                    FormHelper.ShowNotify("Learner deleted successfully.");
-                    this.LoadAllLearners();
-                }
-                else
-                    FormHelper.ShowError("Failed to delete learner.");
+                int learnerID = FormHelper.GetObjectID(lblLearnerID.Text);
+                
+                var result = LearnerService.DeleteLearner(learnerID);
+
+                FormHelper.ShowActionResult(result, "Learner deleted successfully.", "Failed to delete learner.");
+
+                this.LoadAllLearners();
             }
         }
 

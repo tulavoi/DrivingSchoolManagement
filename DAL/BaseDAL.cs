@@ -188,11 +188,5 @@ namespace DAL
             var data = QueryDataByFilter(filterString);
             return this.ExecuteQuery(() => QueryDataByFilter(filterString), mapFunction);
         }
-
-        protected List<T> GetLearnerByCourseID(int courseID, Func<dynamic, T> mapFunction)
-        {
-            var data = QueryLearnerByCourseID(courseID);
-            return this.ExecuteQuery(() => QueryLearnerByCourseID(courseID), mapFunction);
-        }
     }
 }

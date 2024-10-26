@@ -65,7 +65,7 @@ namespace GUI
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
-                Status = "Active",  // Mặc định là 'Active'
+                StatusID = 1001, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
                 Created_At = DateTime.Now
             };
         }

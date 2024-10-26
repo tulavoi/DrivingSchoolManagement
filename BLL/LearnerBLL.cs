@@ -73,7 +73,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Tag = learner;
                     dgv.Rows[rowIndex].Cells["FullName"].Value = learner.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = learner.CitizenID;
-                    dgv.Rows[rowIndex].Cells["Created_At"].Value = learner.Created_At;
+                    dgv.Rows[rowIndex].Cells["Status"].Value = learner.Status.StatusName;
                 }
             }
         }

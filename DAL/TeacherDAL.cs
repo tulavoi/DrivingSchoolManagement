@@ -31,6 +31,7 @@ namespace DAL
             {
                 var data = from teacher in db.Teachers
                            join license in db.Licenses on teacher.LicenseID equals license.LicenseID
+                           join status in db.Status on teacher.StatusID equals status.StatusID
                            select new
                            {
                                teacher.TeacherID,
@@ -45,7 +46,8 @@ namespace DAL
                                teacher.Nationality,
                                teacher.Address,
                                teacher.EmploymentDate,
-                               teacher.Status,
+                               status.StatusID,
+                               status.StatusName,
                                teacher.GraduatedDate,
                                teacher.Created_At,
                                teacher.Updated_At,
@@ -57,28 +59,7 @@ namespace DAL
 
         public List<Teacher> GetAllTeachers()
         {
-            return GetAll(item => new Teacher
-            {
-                TeacherID = item.TeacherID,
-                FullName = item.FullName,
-                CitizenID = item.CitizenID,
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName
-                },
-                DateOfBirth = item.DateOfBirth,
-                Gender = item.Gender,
-                Phone = item.Phone,
-                Email = item.Email,
-                Nationality = item.Nationality,
-                Address = item.Address,
-                EmploymentDate = item.EmploymentDate,
-                Status = item.Status,
-                GraduatedDate = item.GraduatedDate,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToTeacher(item));
         }
         #endregion
 
@@ -96,6 +77,7 @@ namespace DAL
             {
                 var data = from teacher in db.Teachers
                            join license in db.Licenses on teacher.LicenseID equals license.LicenseID
+                           join status in db.Status on teacher.StatusID equals status.StatusID
                            where (teacher.FullName.Contains(keyword) || teacher.Nationality.Contains(keyword))
                            select new
                            {
@@ -111,7 +93,8 @@ namespace DAL
                                teacher.Nationality,
                                teacher.Address,
                                teacher.EmploymentDate,
-                               teacher.Status,
+                               status.StatusID,
+                               status.StatusName,
                                teacher.GraduatedDate,
                                teacher.Created_At,
                                teacher.Updated_At,
@@ -123,28 +106,7 @@ namespace DAL
 
         public List<Teacher> SearchTeachers(string keyword)
         {
-            return SearchData(keyword, item => new Teacher
-            {
-                TeacherID = item.TeacherID,
-                FullName = item.FullName,
-                CitizenID = item.CitizenID,
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName
-                },
-                DateOfBirth = item.DateOfBirth,
-                Gender = item.Gender,
-                Phone = item.Phone,
-                Email = item.Email,
-                Nationality = item.Nationality,
-                Address = item.Address,
-                EmploymentDate = item.EmploymentDate,
-                Status = item.Status,
-                GraduatedDate = item.GraduatedDate,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToTeacher(item));
         }
         #endregion
 
@@ -200,5 +162,35 @@ namespace DAL
             }
         }
         #endregion
+
+        private Teacher MapToTeacher(dynamic item)
+        {
+            return new Teacher
+            {
+                TeacherID = item.TeacherID,
+                FullName = item.FullName,
+                CitizenID = item.CitizenID,
+                License = new License
+                {
+                    LicenseID = item.LicenseID,
+                    LicenseName = item.LicenseName
+                },
+                DateOfBirth = item.DateOfBirth,
+                Gender = item.Gender,
+                Phone = item.Phone,
+                Email = item.Email,
+                Nationality = item.Nationality,
+                Address = item.Address,
+                EmploymentDate = item.EmploymentDate,
+                Status = new Status
+                {
+                    StatusID = item.StatusID,
+                    StatusName = item.StatusName,
+                },
+                GraduatedDate = item.GraduatedDate,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
+        }
     }
 }
