@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -27,6 +25,7 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
+                           join status in db.Status on learner.StatusID equals status.StatusID
                            select new
                            {
                                learner.LearnerID,
@@ -38,7 +37,8 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
-                               learner.Status,
+                               status.StatusID,
+                               status.StatusName,
                                learner.Created_At,
                                learner.Updated_At
                            };
@@ -48,21 +48,7 @@ namespace DAL
 
         public List<Learner> GetAllLearners()
         {
-            return GetAll(item => new Learner
-            {
-                LearnerID = item.LearnerID,
-                CurrentLicenseID = item.CurrentLicenseID,
-                FullName = item.FullName,
-                DateOfBirth = item.DateOfBirth,
-                Gender = item.Gender,
-                PhoneNumber = item.PhoneNumber,
-                Email = item.Email,
-                Address = item.Address,
-                CitizenID = item.CitizenID,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToLearner(item));
         }
         #endregion
 
@@ -72,6 +58,7 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
+                           join status in db.Status on learner.StatusID equals status.StatusID
                            where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
                            select new
                            {
@@ -84,7 +71,8 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
-                               learner.Status,
+                               status.StatusID,
+                               status.StatusName,
                                learner.Created_At,
                                learner.Updated_At
                            };
@@ -94,50 +82,18 @@ namespace DAL
 
         public List<Learner> SearchLearners(string keyword)
         {
-            return SearchData(keyword, item => new Learner
-            {
-                LearnerID = item.LearnerID,
-                CurrentLicenseID = item.CurrentLicenseID,
-                FullName = item.FullName,
-                DateOfBirth = item.DateOfBirth,
-                Gender = item.Gender,
-                PhoneNumber = item.PhoneNumber,
-                Email = item.Email,
-                Address = item.Address,
-                CitizenID = item.CitizenID,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToLearner(item));
         }
         #endregion
 
         #region Filter by status
-        public List<Learner> FilterLearnersByStatus(string status)
-        {
-            return FilterData(status, item => new Learner
-            {
-                LearnerID = item.LearnerID,
-                CurrentLicenseID = item.CurrentLicenseID,
-                FullName = item.FullName,
-                DateOfBirth = item.DateOfBirth,
-                Gender = item.Gender,
-                PhoneNumber = item.PhoneNumber,
-                Email = item.Email,
-                Address = item.Address,
-                CitizenID = item.CitizenID,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
-        }
-
-        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
         {
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           where learner.Status == filterString
+                           join status in db.Status on learner.StatusID equals status.StatusID
+                           where status.StatusName == statusName
                            select new
                            {
                                learner.LearnerID,
@@ -149,12 +105,17 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
-                               learner.Status,
+                               status.StatusID,
+                               status.StatusName,
                                learner.Created_At,
                                learner.Updated_At
                            };
                 return data.ToList();
             }
+        }
+        public List<Learner> FilterLearnersByStatus(string status)
+        {
+            return FilterData(status, item => this.MapToLearner(item));
         }
         #endregion
 
@@ -168,8 +129,8 @@ namespace DAL
         #region Edit
         public bool EditLearner(Learner learner)
         {
-            return EditData(lear => lear.LearnerID == learner.LearnerID,      // Điều kiện tìm learner theo ID
-                            lear =>                                          // Action cập nhật các thuộc tính
+            return EditData(lear => lear.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
+                            lear =>                                             // Action cập nhật các thuộc tính
                             {
                                 lear.CurrentLicenseID = learner.CurrentLicenseID;
                                 lear.FullName = learner.FullName;
@@ -179,7 +140,7 @@ namespace DAL
                                 lear.Email = learner.Email;
                                 lear.Address = learner.Address;
                                 lear.CitizenID = learner.CitizenID;
-                                lear.Status = learner.Status;
+                                lear.StatusID = learner.StatusID;
                                 lear.Updated_At = DateTime.Now;
                             });
         }
@@ -188,9 +149,32 @@ namespace DAL
         #region Delete
         public bool DeleteLearner(int learnerID)
         {
-            return DeleteData(lear => lear.LearnerID == learnerID); // Điều kiện tìm learner theo ID
+            return UpdateStatus(lear => lear.LearnerID == learnerID, 1002); // Điều kiện tìm learner theo ID
         }
         #endregion
+
+        private Learner MapToLearner(dynamic item)
+        {
+            return new Learner
+            {
+                LearnerID = item.LearnerID,
+                CurrentLicenseID = item.CurrentLicenseID,
+                FullName = item.FullName,
+                DateOfBirth = item.DateOfBirth,
+                Gender = item.Gender,
+                PhoneNumber = item.PhoneNumber,
+                Email = item.Email,
+                Address = item.Address,
+                CitizenID = item.CitizenID,
+                Status = new Status
+                {
+                    StatusID = item.StatusID,
+                    StatusName = item.StatusName,
+                },
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
+        }
     }
 
 }

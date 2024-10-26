@@ -54,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DrivingSchool.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\LearnerExtension.cs" />
     <Compile Include="InvoiceDAL.cs" />
     <Compile Include="LearnerDAL.cs" />
     <Compile Include="LicenseDAL.cs" />
@@ -65,6 +66,7 @@
     </Compile>
     <Compile Include="ScheduleDAL.cs" />
     <Compile Include="SessionDAL.cs" />
+    <Compile Include="StatusDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
     <Compile Include="VehicleDAL.cs" />
   </ItemGroup>

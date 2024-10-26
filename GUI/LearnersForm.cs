@@ -1,12 +1,9 @@
-﻿using BLL;
+﻿using BLL.Services;
+using BLL.Services.SendEmail;
 using DAL;
-using BLL.Services;
-using Guna.UI2.WinForms;
+using GUI.Validators;
 using System;
 using System.Windows.Forms;
-using BLL.Services.SendEmail;
-using System.Threading.Tasks;
-using GUI.Validators;
 
 namespace GUI
 {
@@ -36,6 +33,16 @@ namespace GUI
         public void LearnersForm_Load(object sender, EventArgs e)
         {
             this.LoadAllLearners();
+            this.LoadComboboxes();
+
+            // cboStatus_Filter đang được set mặc định seelctedIndex = 1
+            // Gọi event để lọc ngay form vừa load
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
+        }
+
+        private void LoadComboboxes()
+        {
+            ComboboxService.AssignStatesToCombobox(cboStates);
         }
 
         public void LoadAllLearners()
@@ -46,28 +53,23 @@ namespace GUI
 
         private void btnEditLearner_Click(object sender, EventArgs e)
         {
-              if (!this.InSaveMode())
-              {
-                  this.ToggleEditMode();
-                  return;
-              }
+            if (!this.InSaveMode())
+            {
+                this.ToggleEditMode();
+                return;
+            }
 
-              if (!this.ValidateFields()) return;
+            if (!this.ValidateFields()) return;
 
-              if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
-              {
-                  Learner learner = this.GetLearner();
-                  if (LearnerService.EditLearner(learner))
-                  {
-                      FormHelper.ShowNotify("Learner edited successfully.");
-                      this.LoadAllLearners();
-                  }
-                  else
-                      FormHelper.ShowError("Failed to edit learner.");
-              }
+            if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
+            {
+                Learner learner = this.GetLearner();
+                var result = LearnerService.EditLearner(learner);
+                FormHelper.ShowActionResult(result, "Learner edited successfully.", "Failed to edit learner.");
+            }
 
-              this.ToggleEditMode();
-              this.LoadAllLearners();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
+            this.ToggleEditMode();
         }
 
         private bool ValidateFields()
@@ -88,10 +90,9 @@ namespace GUI
             return true;
         }
 
-
         private void ToggleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId, cboStates);
         }
 
         private bool InSaveMode()
@@ -117,6 +118,7 @@ namespace GUI
                 PhoneNumber = txtPhone.Text,
                 Gender = cboGender.Text,
                 DateOfBirth = dtpDOB.Value,
+                StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
                 Updated_At = DateTime.Now,
             };
         }
@@ -133,8 +135,15 @@ namespace GUI
             FormHelper.ClearDataGridViewRow(dgvLearners);
 
             string keyword = txtSearch.Text.ToLower();
-            LearnerService.SearchLearners(dgvLearners, keyword);
-            this.UpdateControlsWithSelectedRowData();
+
+            // Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
+            if (string.IsNullOrEmpty(keyword))
+                cboStatus_Filter_SelectedIndexChanged(sender, e);
+            else
+            {
+                LearnerService.SearchLearners(dgvLearners, keyword);
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
 
         private void dgvLearners_SelectionChanged(object sender, EventArgs e)
@@ -166,6 +175,7 @@ namespace GUI
             txtPhone.Text = selectedLearner.PhoneNumber;
             cboGender.Text = selectedLearner.Gender;
             dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
+            cboStates.Text = selectedLearner.Status.StatusName;
         }
 
         private void btnDeleteLearner_Click(object sender, EventArgs e)
@@ -174,13 +184,14 @@ namespace GUI
 
             if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
             {
-                if (LearnerService.DeleteLearner(int.Parse(lblLearnerID.Text)))
-                {
-                    FormHelper.ShowNotify("Learner deleted successfully.");
-                    this.LoadAllLearners();
-                }
-                else
-                    FormHelper.ShowError("Failed to delete learner.");
+                int learnerID = FormHelper.GetObjectID(lblLearnerID.Text);
+
+                var result = LearnerService.DeleteLearner(learnerID);
+
+                FormHelper.ShowActionResult(result, "Learner deleted successfully.", "Failed to delete learner.");
+
+                // Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
+                cboStatus_Filter_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -219,6 +230,20 @@ namespace GUI
             var result = await FormHelper.SendMailAsync(mailContent);
 
             FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
+        }
+
+        private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormHelper.ClearDataGridViewRow(dgvLearners);
+
+            if (cboStatus_Filter.SelectedIndex < 1)
+                this.LoadAllLearners();
+            else
+            {
+                string status = cboStatus_Filter.Text;
+                LearnerService.FilterLearnersByStatus(dgvLearners, status);
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
     }
 }

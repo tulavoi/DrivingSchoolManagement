@@ -75,53 +75,7 @@ namespace DAL
 
         public List<Schedule> GetAllSchedules()
         {
-            return GetAll(item => new Schedule
-            {
-                ScheduleID = item.ScheduleID,
-                SessionDate = item.SessionDate,
-                Learner = new Learner()
-                {
-                    LearnerID = item.LearnerID,
-                    FullName = item.LearnerName,
-                    Email = item.LearnerEmail,
-                    PhoneNumber = item.LearnerPhone,
-                },
-                Course = new Course()
-                {
-                    CourseID = item.CourseID,
-                    CourseName = item.CourseName,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseID,
-                        LicenseName = item.LicenseName,
-                    }
-                },
-                Teacher = new Teacher()
-                {
-                    TeacherID = item.TeacherID,
-                    FullName = item.TeacherName,
-                    Email = item.TeacherEmail,
-                    Phone = item.TeacherPhone,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseIDOfTeacher,
-                        LicenseName = item.LicenseNameOfTeacher,
-                    }
-                },
-                Vehicle = new Vehicle()
-                {
-                    VehicleID = item.VehicleID,
-                    VehicleName = item.VehicleName,
-                    VehicleNumber = item.VehicleNumber,
-                },
-                Session = new Session()
-                {
-                    SessionID = item.SessionID,
-                    Session1 = item.Session1
-                },
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToSchedule(item));
         }
         #endregion
 
@@ -180,53 +134,7 @@ namespace DAL
 
         public List<Schedule> FilterScheduleBySession(string filterString)
         {
-            return FilterData(filterString, item => new Schedule
-            {
-                ScheduleID = item.ScheduleID,
-                SessionDate = item.SessionDate,
-                Learner = new Learner()
-                {
-                    LearnerID = item.LearnerID,
-                    FullName = item.LearnerName,
-                    Email = item.LearnerEmail,
-                    PhoneNumber = item.LearnerPhone,
-                },
-                Course = new Course()
-                {
-                    CourseID = item.CourseID,
-                    CourseName = item.CourseName,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseID,
-                        LicenseName = item.LicenseName,
-                    }
-                },
-                Teacher = new Teacher()
-                {
-                    TeacherID = item.TeacherID,
-                    FullName = item.TeacherName,
-                    Email = item.TeacherEmail,
-                    Phone = item.TeacherPhone,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseIDOfTeacher,
-                        LicenseName = item.LicenseNameOfTeacher,
-                    }
-                },
-                Vehicle = new Vehicle()
-                {
-                    VehicleID = item.VehicleID,
-                    VehicleName = item.VehicleName,
-                    VehicleNumber = item.VehicleNumber,
-                },
-                Session = new Session()
-                {
-                    SessionID = item.SessionID,
-                    Session1 = item.Session1
-                },
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return FilterData(filterString, item => this.MapToSchedule(item));
         }
         #endregion
 
@@ -288,53 +196,7 @@ namespace DAL
 
         public List<Schedule> SearchSchedules(string keyword)
         {
-            return SearchData(keyword, item => new Schedule
-            {
-                ScheduleID = item.ScheduleID,
-                SessionDate = item.SessionDate,
-                Learner = new Learner()
-                {
-                    LearnerID = item.LearnerID,
-                    FullName = item.LearnerName,
-                    Email = item.LearnerEmail,
-                    PhoneNumber = item.LearnerPhone,
-                },
-                Course = new Course()
-                {
-                    CourseID = item.CourseID,
-                    CourseName = item.CourseName,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseID,
-                        LicenseName = item.LicenseName,
-                    }
-                },
-                Teacher = new Teacher()
-                {
-                    TeacherID = item.TeacherID,
-                    FullName = item.TeacherName,
-                    Email = item.TeacherEmail,
-                    Phone = item.TeacherPhone,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseIDOfTeacher,
-                        LicenseName = item.LicenseNameOfTeacher,
-                    }
-                },
-                Vehicle = new Vehicle()
-                {
-                    VehicleID = item.VehicleID,
-                    VehicleName = item.VehicleName,
-                    VehicleNumber = item.VehicleNumber,
-                },
-                Session = new Session()
-                {
-                    SessionID = item.SessionID,
-                    Session1 = item.Session1
-                },
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToSchedule(item));
         }
 
         #endregion
@@ -421,5 +283,56 @@ namespace DAL
             return DeleteData(sche => sche.ScheduleID == scheduleID);
         }
         #endregion
+
+        private Schedule MapToSchedule(dynamic item)
+        {
+            return new Schedule
+            {
+                ScheduleID = item.ScheduleID,
+                SessionDate = item.SessionDate,
+                Learner = new Learner()
+                {
+                    LearnerID = item.LearnerID,
+                    FullName = item.LearnerName,
+                    Email = item.LearnerEmail,
+                    PhoneNumber = item.LearnerPhone,
+                },
+                Course = new Course()
+                {
+                    CourseID = item.CourseID,
+                    CourseName = item.CourseName,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseID,
+                        LicenseName = item.LicenseName,
+                    }
+                },
+                Teacher = new Teacher()
+                {
+                    TeacherID = item.TeacherID,
+                    FullName = item.TeacherName,
+                    Email = item.TeacherEmail,
+                    Phone = item.TeacherPhone,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseIDOfTeacher,
+                        LicenseName = item.LicenseNameOfTeacher,
+                    }
+                },
+                Vehicle = new Vehicle()
+                {
+                    VehicleID = item.VehicleID,
+                    VehicleName = item.VehicleName,
+                    VehicleNumber = item.VehicleNumber,
+                },
+                Session = new Session()
+                {
+                    SessionID = item.SessionID,
+                    Session1 = item.Session1
+                },
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
+        }
     }
 }

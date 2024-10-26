@@ -46,21 +46,7 @@ namespace DAL
 
         public List<Vehicle> GetAllVehicles()
         {
-            return GetAll(item => new Vehicle
-            {
-                VehicleID = item.VehicleID,
-                VehicleName = item.VehicleName,
-                VehicleNumber = item.VehicleNumber,
-                IsTruck = item.IsTruck,
-                IsPassengerCar = item.IsPassengerCar,
-                IsMaintenance = item.IsMaintenance,
-                ManufacturerYear = item.ManufacturerYear,
-                Weight = item.Weight,
-                Seats = item.Seats,
-                Notes = item.Notes,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToVehicle(item));
         }
         #endregion
 
@@ -106,42 +92,14 @@ namespace DAL
 
         public List<Vehicle> SearchVehicles(string keyword)
         {
-            return SearchData(keyword, item => new Vehicle
-            {
-                VehicleID = item.VehicleID,
-                VehicleName = item.VehicleName,
-                VehicleNumber = item.VehicleNumber,
-                IsTruck = item.IsTruck,
-                IsPassengerCar = item.IsPassengerCar,
-                IsMaintenance = item.IsMaintenance,
-                ManufacturerYear = item.ManufacturerYear,
-                Weight = item.Weight,
-                Seats = item.Seats,
-                Notes = item.Notes,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToVehicle(item));
         }
         #endregion
 
         #region Filter by status
         public List<Vehicle> FilterVehiclesByStatus(string status)
         {
-            return FilterData(status, item => new Vehicle
-            {
-                VehicleID = item.VehicleID,
-                VehicleName = item.VehicleName,
-                VehicleNumber = item.VehicleNumber,
-                IsTruck = item.IsTruck,
-                IsPassengerCar = item.IsPassengerCar,
-                IsMaintenance = item.IsMaintenance,
-                ManufacturerYear = item.ManufacturerYear,
-                Weight = item.Weight,
-                Seats = item.Seats,
-                Notes = item.Notes,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return FilterData(status, item => this.MapToVehicle(item));
         }
 
 
@@ -150,7 +108,8 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from vehicle in db.Vehicles
-                           where vehicle.IsTruck.ToString() == filterString || vehicle.IsPassengerCar.ToString() == filterString
+                           where vehicle.IsTruck.ToString() == filterString || 
+                           vehicle.IsPassengerCar.ToString() == filterString
                            select new
                            {
                                vehicle.VehicleID,
@@ -239,5 +198,23 @@ namespace DAL
             }
         }
         #endregion
+
+        private Vehicle MapToVehicle(dynamic item)
+        {
+            return new Vehicle {
+                VehicleID = item.VehicleID,
+                VehicleName = item.VehicleName,
+                VehicleNumber = item.VehicleNumber,
+                IsTruck = item.IsTruck,
+                IsPassengerCar = item.IsPassengerCar,
+                IsMaintenance = item.IsMaintenance,
+                ManufacturerYear = item.ManufacturerYear,
+                Weight = item.Weight,
+                Seats = item.Seats,
+                Notes = item.Notes,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
+        }
     }
 }

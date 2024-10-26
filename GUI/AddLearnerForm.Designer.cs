@@ -44,8 +44,9 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtCitizenId = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblCitizenId = new System.Windows.Forms.Label();
+            this.pnlCitizenId_Address = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblAddress_Title = new System.Windows.Forms.Label();
             this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlGender_DOB = new Guna.UI2.WinForms.Guna2Panel();
             this.dtpDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -54,12 +55,14 @@
             this.lblGender_Title = new System.Windows.Forms.Label();
             this.pnlSpace3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlPhone_Email = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblEmail_Title = new System.Windows.Forms.Label();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPhone_Title = new System.Windows.Forms.Label();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblEmail_Title = new System.Windows.Forms.Label();
             this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlName = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtCitizenId = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCitizenId = new System.Windows.Forms.Label();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblName_Title = new System.Windows.Forms.Label();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -67,16 +70,13 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.lblAddress_Title = new System.Windows.Forms.Label();
-            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnlCitizenId_Address = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLineTop.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButtonAdd_Cancel.SuspendLayout();
+            this.pnlCitizenId_Address.SuspendLayout();
             this.pnlGender_DOB.SuspendLayout();
             this.pnlPhone_Email.SuspendLayout();
             this.pnlName.SuspendLayout();
-            this.pnlCitizenId_Address.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLineTop
@@ -239,7 +239,7 @@
             this.btnAdd.Padding = new System.Windows.Forms.Padding(5);
             this.btnAdd.Size = new System.Drawing.Size(150, 35);
             this.btnAdd.TabIndex = 17;
-            this.btnAdd.Text = "Create";
+            this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pnlSpace15
@@ -261,44 +261,54 @@
             this.pnlSpace9.Size = new System.Drawing.Size(738, 25);
             this.pnlSpace9.TabIndex = 128;
             // 
-            // txtCitizenId
+            // pnlCitizenId_Address
             // 
-            this.txtCitizenId.BackColor = System.Drawing.Color.White;
-            this.txtCitizenId.BorderRadius = 5;
-            this.txtCitizenId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCitizenId.DefaultText = "";
-            this.txtCitizenId.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txtCitizenId.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtCitizenId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtCitizenId.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtCitizenId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCitizenId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtCitizenId.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.txtCitizenId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtCitizenId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtCitizenId.Location = new System.Drawing.Point(484, 0);
-            this.txtCitizenId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCitizenId.Name = "txtCitizenId";
-            this.txtCitizenId.PasswordChar = '\0';
-            this.txtCitizenId.PlaceholderText = "";
-            this.txtCitizenId.SelectedText = "";
-            this.txtCitizenId.Size = new System.Drawing.Size(254, 40);
-            this.txtCitizenId.TabIndex = 24;
-            this.txtCitizenId.Tag = "Citizen ID";
-            this.txtCitizenId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCitizenId_KeyPress);
+            this.pnlCitizenId_Address.Controls.Add(this.txtAddress);
+            this.pnlCitizenId_Address.Controls.Add(this.lblAddress_Title);
+            this.pnlCitizenId_Address.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlCitizenId_Address.FillColor = System.Drawing.Color.White;
+            this.pnlCitizenId_Address.Location = new System.Drawing.Point(0, 205);
+            this.pnlCitizenId_Address.Name = "pnlCitizenId_Address";
+            this.pnlCitizenId_Address.Size = new System.Drawing.Size(738, 40);
+            this.pnlCitizenId_Address.TabIndex = 125;
             // 
-            // lblCitizenId
+            // txtAddress
             // 
-            this.lblCitizenId.BackColor = System.Drawing.Color.White;
-            this.lblCitizenId.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblCitizenId.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitizenId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblCitizenId.Location = new System.Drawing.Point(366, 0);
-            this.lblCitizenId.Name = "lblCitizenId";
-            this.lblCitizenId.Size = new System.Drawing.Size(118, 40);
-            this.lblCitizenId.TabIndex = 0;
-            this.lblCitizenId.Text = "   Citizen Id: ";
-            this.lblCitizenId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderRadius = 5;
+            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddress.DefaultText = "";
+            this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtAddress.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddress.Location = new System.Drawing.Point(122, 0);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.PasswordChar = '\0';
+            this.txtAddress.PlaceholderText = "";
+            this.txtAddress.SelectedText = "";
+            this.txtAddress.Size = new System.Drawing.Size(616, 40);
+            this.txtAddress.TabIndex = 26;
+            this.txtAddress.Tag = "Address";
+            // 
+            // lblAddress_Title
+            // 
+            this.lblAddress_Title.BackColor = System.Drawing.Color.White;
+            this.lblAddress_Title.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblAddress_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblAddress_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblAddress_Title.Name = "lblAddress_Title";
+            this.lblAddress_Title.Size = new System.Drawing.Size(122, 40);
+            this.lblAddress_Title.TabIndex = 25;
+            this.lblAddress_Title.Text = "     Address: ";
+            this.lblAddress_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSpace7
             // 
@@ -417,44 +427,6 @@
             this.pnlPhone_Email.Size = new System.Drawing.Size(738, 40);
             this.pnlPhone_Email.TabIndex = 119;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderRadius = 5;
-            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmail.DefaultText = "";
-            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtEmail.Location = new System.Drawing.Point(122, 0);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.PlaceholderText = "";
-            this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(244, 40);
-            this.txtEmail.TabIndex = 24;
-            this.txtEmail.Tag = "Email";
-            // 
-            // lblEmail_Title
-            // 
-            this.lblEmail_Title.BackColor = System.Drawing.Color.White;
-            this.lblEmail_Title.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblEmail_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblEmail_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblEmail_Title.Name = "lblEmail_Title";
-            this.lblEmail_Title.Size = new System.Drawing.Size(122, 40);
-            this.lblEmail_Title.TabIndex = 2;
-            this.lblEmail_Title.Text = "     Email: ";
-            this.lblEmail_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // txtPhone
             // 
             this.txtPhone.BackColor = System.Drawing.Color.White;
@@ -494,6 +466,44 @@
             this.lblPhone_Title.Text = "   Phone: ";
             this.lblPhone_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BorderRadius = 5;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.DefaultText = "";
+            this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtEmail.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtEmail.Location = new System.Drawing.Point(122, 0);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PasswordChar = '\0';
+            this.txtEmail.PlaceholderText = "";
+            this.txtEmail.SelectedText = "";
+            this.txtEmail.Size = new System.Drawing.Size(244, 40);
+            this.txtEmail.TabIndex = 24;
+            this.txtEmail.Tag = "Email";
+            // 
+            // lblEmail_Title
+            // 
+            this.lblEmail_Title.BackColor = System.Drawing.Color.White;
+            this.lblEmail_Title.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblEmail_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblEmail_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblEmail_Title.Name = "lblEmail_Title";
+            this.lblEmail_Title.Size = new System.Drawing.Size(122, 40);
+            this.lblEmail_Title.TabIndex = 2;
+            this.lblEmail_Title.Text = "     Email: ";
+            this.lblEmail_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // pnlSpace2
             // 
             this.pnlSpace2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -515,6 +525,45 @@
             this.pnlName.Name = "pnlName";
             this.pnlName.Size = new System.Drawing.Size(738, 40);
             this.pnlName.TabIndex = 117;
+            // 
+            // txtCitizenId
+            // 
+            this.txtCitizenId.BackColor = System.Drawing.Color.White;
+            this.txtCitizenId.BorderRadius = 5;
+            this.txtCitizenId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCitizenId.DefaultText = "";
+            this.txtCitizenId.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtCitizenId.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtCitizenId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCitizenId.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtCitizenId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCitizenId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCitizenId.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtCitizenId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCitizenId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCitizenId.Location = new System.Drawing.Point(484, 0);
+            this.txtCitizenId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCitizenId.Name = "txtCitizenId";
+            this.txtCitizenId.PasswordChar = '\0';
+            this.txtCitizenId.PlaceholderText = "";
+            this.txtCitizenId.SelectedText = "";
+            this.txtCitizenId.Size = new System.Drawing.Size(254, 40);
+            this.txtCitizenId.TabIndex = 24;
+            this.txtCitizenId.Tag = "Citizen ID";
+            this.txtCitizenId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCitizenId_KeyPress);
+            // 
+            // lblCitizenId
+            // 
+            this.lblCitizenId.BackColor = System.Drawing.Color.White;
+            this.lblCitizenId.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCitizenId.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitizenId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblCitizenId.Location = new System.Drawing.Point(366, 0);
+            this.lblCitizenId.Name = "lblCitizenId";
+            this.lblCitizenId.Size = new System.Drawing.Size(118, 40);
+            this.lblCitizenId.TabIndex = 0;
+            this.lblCitizenId.Text = "   Citizen Id: ";
+            this.lblCitizenId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtName
             // 
@@ -614,55 +663,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.StripAmpersands = true;
             // 
-            // lblAddress_Title
-            // 
-            this.lblAddress_Title.BackColor = System.Drawing.Color.White;
-            this.lblAddress_Title.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblAddress_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblAddress_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblAddress_Title.Name = "lblAddress_Title";
-            this.lblAddress_Title.Size = new System.Drawing.Size(122, 40);
-            this.lblAddress_Title.TabIndex = 25;
-            this.lblAddress_Title.Text = "     Address: ";
-            this.lblAddress_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.BorderRadius = 5;
-            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAddress.DefaultText = "";
-            this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txtAddress.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtAddress.Location = new System.Drawing.Point(122, 0);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.PasswordChar = '\0';
-            this.txtAddress.PlaceholderText = "";
-            this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(616, 40);
-            this.txtAddress.TabIndex = 26;
-            this.txtAddress.Tag = "Address";
-            // 
-            // pnlCitizenId_Address
-            // 
-            this.pnlCitizenId_Address.Controls.Add(this.txtAddress);
-            this.pnlCitizenId_Address.Controls.Add(this.lblAddress_Title);
-            this.pnlCitizenId_Address.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCitizenId_Address.FillColor = System.Drawing.Color.White;
-            this.pnlCitizenId_Address.Location = new System.Drawing.Point(0, 205);
-            this.pnlCitizenId_Address.Name = "pnlCitizenId_Address";
-            this.pnlCitizenId_Address.Size = new System.Drawing.Size(738, 40);
-            this.pnlCitizenId_Address.TabIndex = 125;
-            // 
             // AddLearnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -682,10 +682,10 @@
             this.pnlLineTop.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlButtonAdd_Cancel.ResumeLayout(false);
+            this.pnlCitizenId_Address.ResumeLayout(false);
             this.pnlGender_DOB.ResumeLayout(false);
             this.pnlPhone_Email.ResumeLayout(false);
             this.pnlName.ResumeLayout(false);
-            this.pnlCitizenId_Address.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

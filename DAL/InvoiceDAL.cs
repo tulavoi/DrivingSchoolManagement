@@ -55,30 +55,7 @@ namespace DAL
 
         public List<Invoice> GetAllInvoices()
         {
-            return GetAll(item => new Invoice
-            {
-                InvoiceID = item.InvoiceID,
-                InvoiceCode = item.InvoiceCode,
-                Schedule = new Schedule
-                {
-                    Learner = new Learner()
-                    {
-                        LearnerID = item.LearnerID,
-                        FullName = item.FullName,
-                        Email = item.Email,
-                        PhoneNumber = item.PhoneNumber
-                    },
-                    Course = new Course()
-                    {
-                        CourseID = item.CourseID,
-                        CourseName = item.CourseName,
-                    }
-                },
-                TotalAmount = item.TotalAmount,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToInvoice(item));
         }
         #endregion
 
@@ -113,60 +90,14 @@ namespace DAL
 
         public List<Invoice> SearchInvoices(string keyword)
         {
-            return SearchData(keyword, item => new Invoice
-            {
-                InvoiceID = item.InvoiceID,
-                InvoiceCode = item.InvoiceCode,
-                Schedule = new Schedule
-                {
-                    Learner = new Learner()
-                    {
-                        LearnerID = item.LearnerID,
-                        FullName = item.FullName,
-                        Email = item.Email,
-                        PhoneNumber = item.PhoneNumber
-                    },
-                    Course = new Course()
-                    {
-                        CourseID = item.CourseID,
-                        CourseName = item.CourseName,
-                    }
-                },
-                TotalAmount = item.TotalAmount,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToInvoice(item));
         }
         #endregion
          
         #region Filter by status
         public List<Invoice> FilterInvoicesByStatus(string status)
         {
-            return FilterData(status, item => new Invoice
-            {
-                InvoiceID = item.InvoiceID,
-                InvoiceCode = item.InvoiceCode,
-                Schedule = new Schedule
-                {
-                    Learner = new Learner()
-                    {
-                        LearnerID = item.LearnerID,
-                        FullName = item.FullName,
-                        Email = item.Email,
-                        PhoneNumber = item.PhoneNumber
-                    },
-                    Course = new Course()
-                    {
-                        CourseID = item.CourseID,
-                        CourseName = item.CourseName,
-                    }
-                },
-                TotalAmount = item.TotalAmount,
-                Status = item.Status,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return FilterData(status, item => this.MapToInvoice(item));
         }
 
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
@@ -225,5 +156,34 @@ namespace DAL
             return DeleteData(inv => inv.InvoiceCode == invoiceCode); // Điều kiện tìm invoice theo code
         }
         #endregion
+
+        private Invoice MapToInvoice(dynamic item)
+        {
+            return new Invoice
+            {
+                InvoiceID = item.InvoiceID,
+                InvoiceCode = item.InvoiceCode,
+                Schedule = new Schedule
+                {
+                    Learner = new Learner()
+                    {
+                        LearnerID = item.LearnerID,
+                        FullName = item.FullName,
+                        Email = item.Email,
+                        PhoneNumber = item.PhoneNumber
+                    },
+                    Course = new Course()
+                    {
+                        CourseID = item.CourseID,
+                        CourseName = item.CourseName,
+                    }
+                },
+                TotalAmount = item.TotalAmount,
+                Status = item.Status,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
+        }
+
     }
 }

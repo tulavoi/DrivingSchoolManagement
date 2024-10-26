@@ -48,6 +48,8 @@ namespace GUI
             this.LoadAllTeachers();
 
             FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
+
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void LoadAllTeachers()
@@ -81,6 +83,7 @@ namespace GUI
             cboLicense.Text = teacher.License.LicenseName.ToString();
             dtpGraduated.Value = teacher.GraduatedDate.Value;
             this.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
+            cboStates.Text = teacher.Status.StatusName;
         }
 
         public void SetGraduateYears(DateTime graduateDate, Guna2TextBox txt)
@@ -114,6 +117,7 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignLicensesToCombobox(cboLicense);
+            ComboboxService.AssignStatesToCombobox(cboStates);
         }
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
@@ -135,7 +139,7 @@ namespace GUI
             }
 
             this.ToggleEditMode();
-            this.LoadAllTeachers();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private Teacher GetTeacher()
@@ -153,7 +157,8 @@ namespace GUI
                 Address = txtAddress.Text,
                 LicenseID = Convert.ToInt32(cboLicense.SelectedValue),
                 GraduatedDate = dtpGraduated.Value,
-                Created_At = DateTime.Now
+                StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
+                Updated_At = DateTime.Now
             };
         }
 
@@ -178,7 +183,7 @@ namespace GUI
 
         private void ToggleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense, cboStates);
         }
 
         private bool InSaveMode()
@@ -207,9 +212,13 @@ namespace GUI
             if (this.ConfirmAction($"Are you sure to delete teacher '{txtFullName.Text}'?"))
             {
                 int teacherID = FormHelper.GetObjectID(lblTeacherID.Text);
+
                 var result = TeacherService.DeleteTeacher(teacherID);
+
                 FormHelper.ShowActionResult(result, "Teacher deleted successfully.", "Failed to delete teacher.");
-                this.LoadAllTeachers();
+
+                // Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
+                cboStatus_Filter_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -231,8 +240,14 @@ namespace GUI
 
             string keyword = txtSearch.Text.ToLower();
 
-            TeacherService.SearchTeachers(dgvTeachers, keyword);
-            this.UpdateControlsWithSelectedRowData();
+            // Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
+            if (string.IsNullOrEmpty(keyword)) 
+                cboStatus_Filter_SelectedIndexChanged(sender, e);
+            else
+            {
+                TeacherService.SearchTeachers(dgvTeachers, keyword);
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
 
         private void numeric_KeyPress(object sender, KeyPressEventArgs e)
@@ -258,6 +273,20 @@ namespace GUI
                 Body = $"<h1>Hello {teacher.FullName},</h1>" +
                        $"<p>{txtMessage.Text}</p>"
             };
+        }
+
+        private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormHelper.ClearDataGridViewRow(dgvTeachers);
+
+            if (cboStatus_Filter.SelectedIndex < 1)
+                this.LoadAllTeachers();
+            else
+            {
+                string status = cboStatus_Filter.Text;
+                TeacherService.FilterTeachersByStatus(dgvTeachers, status);
+                this.UpdateControlsWithSelectedRowData();
+            }
         }
     }
 }

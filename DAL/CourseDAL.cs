@@ -45,20 +45,7 @@ namespace DAL
 
         public List<Course> GetAllCourses()
         {
-            return GetAll(item => new Course
-            {
-                CourseID = item.CourseID,
-                CourseName = item.CourseName,
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName
-                },
-                Fee = item.Fee,
-                DurationInHours = item.DurationInHours,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return GetAll(item => this.MapToCourse(item));
         }
         #endregion
 
@@ -95,20 +82,7 @@ namespace DAL
 
         public List<Course> SearchCourses(string keyword)
         {
-            return SearchData(keyword, item => new Course
-            {
-                CourseID = item.CourseID,
-                CourseName = item.CourseName,
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName
-                },
-                Fee = item.Fee,
-                DurationInHours = item.DurationInHours,
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            });
+            return SearchData(keyword, item => this.MapToCourse(item));
         }
         #endregion
 
@@ -164,13 +138,22 @@ namespace DAL
         }
         #endregion
 
-        public Course GetCourseById(int courseId)
+        private Course MapToCourse(dynamic item)
         {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            return new Course
             {
-                return db.Courses.Where(c => c.CourseID == courseId).FirstOrDefault();
-            }
+                CourseID = item.CourseID,
+                CourseName = item.CourseName,
+                License = new License
+                {
+                    LicenseID = item.LicenseID,
+                    LicenseName = item.LicenseName
+                },
+                Fee = item.Fee,
+                DurationInHours = item.DurationInHours,
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+            };
         }
     }
-
 }

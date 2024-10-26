@@ -36,7 +36,6 @@ namespace BLL
             cbo.DisplayMember = "FullName";
         }
 
-
         public void LoadAllLearners(Guna2DataGridView dgv)
         {
             List<Learner> learners = LearnerDAL.Instance.GetAllLearners();
@@ -55,9 +54,9 @@ namespace BLL
             this.AddLearnersToCombobox(cbo, learners);
         }
 
-        public void FilterLearnersByStatus(Guna2DataGridView dgv, string licenseType)
+        public void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
         {
-            List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(licenseType);
+            List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(status);
             this.AddLearnersToDataGridView(dgv, learners);
         }
 
@@ -73,7 +72,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Tag = learner;
                     dgv.Rows[rowIndex].Cells["FullName"].Value = learner.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = learner.CitizenID;
-                    dgv.Rows[rowIndex].Cells["Created_At"].Value = learner.Created_At;
+                    dgv.Rows[rowIndex].Cells["Status"].Value = learner.Status.StatusName;
                 }
             }
         }
