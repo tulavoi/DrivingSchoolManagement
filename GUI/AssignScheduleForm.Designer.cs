@@ -273,15 +273,19 @@
             this.cboSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboSessions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboSessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSessions.Enabled = false;
             this.cboSessions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboSessions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboSessions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.cboSessions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboSessions.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboSessions.ItemHeight = 30;
+            this.cboSessions.Items.AddRange(new object[] {
+            "Select Session"});
             this.cboSessions.Location = new System.Drawing.Point(109, 0);
             this.cboSessions.Name = "cboSessions";
             this.cboSessions.Size = new System.Drawing.Size(413, 36);
+            this.cboSessions.StartIndex = 0;
             this.cboSessions.TabIndex = 8;
             this.cboSessions.Tag = "Session";
             // 
@@ -330,15 +334,19 @@
             this.cboVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboVehicles.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboVehicles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVehicles.Enabled = false;
             this.cboVehicles.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboVehicles.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboVehicles.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.cboVehicles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboVehicles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboVehicles.ItemHeight = 30;
+            this.cboVehicles.Items.AddRange(new object[] {
+            "Select Vehicle"});
             this.cboVehicles.Location = new System.Drawing.Point(109, 0);
             this.cboVehicles.Name = "cboVehicles";
             this.cboVehicles.Size = new System.Drawing.Size(413, 36);
+            this.cboVehicles.StartIndex = 0;
             this.cboVehicles.TabIndex = 6;
             this.cboVehicles.Tag = "Vehicle";
             this.cboVehicles.SelectedIndexChanged += new System.EventHandler(this.cboVehicles_SelectedIndexChanged);
@@ -388,15 +396,19 @@
             this.cboTeachers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboTeachers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboTeachers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTeachers.Enabled = false;
             this.cboTeachers.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboTeachers.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.cboTeachers.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.cboTeachers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboTeachers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboTeachers.ItemHeight = 30;
+            this.cboTeachers.Items.AddRange(new object[] {
+            "Select Teacher"});
             this.cboTeachers.Location = new System.Drawing.Point(109, 0);
             this.cboTeachers.Name = "cboTeachers";
             this.cboTeachers.Size = new System.Drawing.Size(413, 36);
+            this.cboTeachers.StartIndex = 0;
             this.cboTeachers.TabIndex = 6;
             this.cboTeachers.Tag = "Teacher";
             this.cboTeachers.SelectedIndexChanged += new System.EventHandler(this.cboTeachers_SelectedIndexChanged);
@@ -452,9 +464,12 @@
             this.cboCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.cboCourses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboCourses.ItemHeight = 30;
+            this.cboCourses.Items.AddRange(new object[] {
+            "Select Course"});
             this.cboCourses.Location = new System.Drawing.Point(109, 0);
             this.cboCourses.Name = "cboCourses";
             this.cboCourses.Size = new System.Drawing.Size(413, 36);
+            this.cboCourses.StartIndex = 0;
             this.cboCourses.TabIndex = 2;
             this.cboCourses.Tag = "Course";
             this.cboCourses.SelectedIndexChanged += new System.EventHandler(this.cboCourses_SelectedIndexChanged);
@@ -510,13 +525,13 @@
             this.txtSearchLearner.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.txtSearchLearner.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchLearner.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchLearner.Location = new System.Drawing.Point(324, 0);
+            this.txtSearchLearner.Location = new System.Drawing.Point(348, 0);
             this.txtSearchLearner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtSearchLearner.Name = "txtSearchLearner";
             this.txtSearchLearner.PasswordChar = '\0';
             this.txtSearchLearner.PlaceholderText = "Search...";
             this.txtSearchLearner.SelectedText = "";
-            this.txtSearchLearner.Size = new System.Drawing.Size(198, 40);
+            this.txtSearchLearner.Size = new System.Drawing.Size(174, 40);
             this.txtSearchLearner.TabIndex = 27;
             this.txtSearchLearner.TextChanged += new System.EventHandler(this.txtSearchLearner_TextChanged);
             // 
@@ -539,7 +554,7 @@
             this.cboLearners.ItemHeight = 30;
             this.cboLearners.Location = new System.Drawing.Point(109, 0);
             this.cboLearners.Name = "cboLearners";
-            this.cboLearners.Size = new System.Drawing.Size(211, 36);
+            this.cboLearners.Size = new System.Drawing.Size(233, 36);
             this.cboLearners.TabIndex = 4;
             this.cboLearners.Tag = "Learner";
             this.cboLearners.SelectedIndexChanged += new System.EventHandler(this.cboLearners_SelectedIndexChanged);

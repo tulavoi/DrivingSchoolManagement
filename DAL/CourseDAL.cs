@@ -27,12 +27,15 @@ namespace DAL
             {
                 var data = from course in db.Courses
                            join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join status in db.Status on course.StatusID equals status.StatusID
                            select new
                            {
                                course.CourseID,
                                course.CourseName,
                                course.LicenseID,
                                license.LicenseName,
+                               status.StatusID,
+                               status.StatusName,
                                course.Fee,
                                course.DurationInHours,
                                course.Created_At,
@@ -50,9 +53,35 @@ namespace DAL
         #endregion
 
         #region Filter
-        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from course in db.Courses
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join status in db.Status on course.StatusID equals status.StatusID
+                           where status.StatusName == statusName
+                           select new
+                           {
+                               course.CourseID,
+                               course.CourseName,
+                               course.LicenseID,
+                               license.LicenseName,
+                               status.StatusID,
+                               status.StatusName,
+                               course.Fee,
+                               course.DurationInHours,
+                               course.Created_At,
+                               course.Updated_At
+                           };
+
+                return data.ToList();
+            }
+        }
+
+        public List<Course> FilterCoursesByStatus(string status)
+        {
+            return FilterData(status, item => this.MapToCourse(item));
         }
         #endregion
 
@@ -111,7 +140,7 @@ namespace DAL
         #region Delete
         public bool DeleteCourse(int courseID)
         {
-            return DeleteData(c => c.CourseID == courseID); // Điều kiện tìm course theo id
+            return UpdateStatus(c => c.CourseID == courseID, 1002); // Điều kiện tìm course theo id
         }
         #endregion
 
@@ -124,14 +153,13 @@ namespace DAL
             var schedules = ScheduleDAL.Instance.GetSchedulesByLearnerId(learnerId);
             var learnerCourses = schedules
                                 .Join(allCourses, sche => sche.CourseID, course => course.CourseID, (sche, c) => c)
+                                .Where(course => course.StatusID == 1001)
                                 .Distinct()
                                 .ToList();
 
             // Nếu learner đã tham gia khóa học, trả về danh sách đó
             if (learnerCourses.Any())
-            {
                 return learnerCourses;
-            }
 
             // Nếu chưa tham gia khóa học nào, trả về toàn bộ khóa học
             return allCourses;
@@ -148,6 +176,11 @@ namespace DAL
                 {
                     LicenseID = item.LicenseID,
                     LicenseName = item.LicenseName
+                },
+                Status = new Status
+                {
+                    StatusID = item.StatusID,
+                    StatusName = item.StatusName,
                 },
                 Fee = item.Fee,
                 DurationInHours = item.DurationInHours,

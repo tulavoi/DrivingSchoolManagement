@@ -17,6 +17,11 @@ namespace BLL.Services
             LearnerBLL.Instance.AssignLearnersToCombobox(cbo);
         }
 
+        public static void AssignLearnersToCombobox(Guna2ComboBox cbo, string status)
+        {
+            LearnerBLL.Instance.AssignLearnersToCombobox(cbo, status);
+        }
+
         public static void AssignCoursesToCombobox(Guna2ComboBox cbo)
         {
             CourseBLL.Instance.AssignCoursesToCombobox(cbo);

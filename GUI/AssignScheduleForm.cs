@@ -12,6 +12,7 @@ namespace GUI
     {
         #region Properties
         private DateTime _date;
+        private string learnerStatus = "Active";
         #endregion
 
         public AssignScheduleForm(DateTime date)
@@ -32,10 +33,10 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignLearnersToCombobox(cboLearners);
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
-            ComboboxService.AssignTeachersToCombobox(cboTeachers);
-            ComboboxService.AssignVehiclesToCombobox(cboVehicles);
+            ComboboxService.AssignLearnersToCombobox(cboLearners, learnerStatus); // Hiển thị ra combobox các learner có status Active
+            //ComboboxService.AssignCoursesToCombobox(cboCourses);
+            //ComboboxService.AssignTeachersToCombobox(cboTeachers);
+            //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
         }
 
@@ -114,13 +115,25 @@ namespace GUI
         {
             if (!FormHelper.HasSelectedItem(cboLearners))
             {
-                cboCourses.Enabled = false;
+                this.ResetCombobox();
                 return;
             }
             cboCourses.Enabled = true;
             int learnerID = Convert.ToInt32(cboLearners.SelectedValue.ToString());
 
             ComboboxService.AssignCoursesToCombobox(cboCourses, learnerID);
+        }
+
+        private void ResetCombobox()
+        {
+            cboCourses.Enabled = false;
+            cboCourses.SelectedIndex = 0;
+            cboTeachers.Enabled = false;
+            cboTeachers.SelectedIndex = 0;
+            cboVehicles.Enabled = false;
+            cboVehicles.SelectedIndex = 0;
+            cboSessions.Enabled = false;
+            cboSessions.SelectedIndex = 0;
         }
 
         private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)

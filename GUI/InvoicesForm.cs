@@ -77,9 +77,9 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            if (cboStatus.SelectedIndex < 1)
+            if (cboPaymentStatus.SelectedIndex < 1)
             {
-                FormHelper.ShowToolTip(cboStatus, toolTip, "Please select status.");
+                FormHelper.ShowToolTip(cboPaymentStatus, toolTip, "Please select status.");
                 return false;
             }
             return true;
@@ -87,7 +87,7 @@ namespace GUI
 
         private void ToogleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtTotalAmount, txtNotes, cboStatus);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtTotalAmount, txtNotes, cboPaymentStatus);
         }
 
         private bool InSaveMode()
@@ -106,8 +106,8 @@ namespace GUI
             return new Invoice
             {
                 InvoiceCode = lblInvoiceCode.Text,
-                Status = cboStatus.Text,
-                TotalAmount = string.IsNullOrEmpty(txtTotalAmount.Text) ? decimal.Parse(txtTotalAmount.Text) : 0,
+                //StatusID = cboPaymentStatus.Text,
+                TotalAmount = string.IsNullOrEmpty(txtTotalAmount.Text) ? int.Parse(txtTotalAmount.Text) : 0,
                 Notes = txtNotes.Text,
                 Updated_At = DateTime.Now,
             };
@@ -182,7 +182,7 @@ namespace GUI
             cboCourses.Text = selectedInvoice.Schedule.Course.CourseName;
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
-            cboStatus.Text = selectedInvoice.Status.ToString();
+            cboPaymentStatus.Text = selectedInvoice.Status.ToString();
         }
 
         private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)

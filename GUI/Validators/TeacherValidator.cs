@@ -5,28 +5,19 @@ namespace GUI.Validators
 {
     public static class TeacherValidator
     {
-        public static bool CheckRequiredAndShowToolTip(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
-        {
-            if (!ValidatorHelper.IsRequiredFieldFilled(txt.Text))
-            {
-                FormHelper.ShowToolTip(txt, toolTip, $"Please enter {txt.Tag}");
-                return false;
-            }
-            return true;
-        }
-
         public static bool ValidateFullName(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            return CheckRequiredAndShowToolTip(txt, toolTip);
+            return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
         public static bool ValidateCitizenID(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            if (!CheckRequiredAndShowToolTip(txt, toolTip)) return false;
+            if (!ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip)) return false;
 
             if (!ValidatorHelper.IsValidCitizenID(txt.Text))
             {
                 FormHelper.ShowToolTip(txt, toolTip, $"{txt.Tag} must be 12 digits.");
+                txt.Focus();
                 return false;
             }
             return true;
@@ -34,11 +25,12 @@ namespace GUI.Validators
 
         public static bool ValidateEmail(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            if (!CheckRequiredAndShowToolTip(txt, toolTip)) return false;
+            if (!ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip)) return false;
 
             if (!ValidatorHelper.IsValidEmail(txt.Text))
             {
                 FormHelper.ShowToolTip(txt, toolTip, $"Invalid {txt.Tag}.");
+                txt.Focus();
                 return false;
             }
             return true;
@@ -46,11 +38,12 @@ namespace GUI.Validators
 
         public static bool ValidatePhoneNumber(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            if (!CheckRequiredAndShowToolTip(txt, toolTip)) return false;
+            if (!ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip)) return false;
 
             if (!ValidatorHelper.IsValidPhoneNumber(txt.Text))
             {
                 FormHelper.ShowToolTip(txt, toolTip, $"{txt.Tag} start with 0, 10 - 11 digits.");
+                txt.Focus();
                 return false;
             }
             return true;
@@ -58,7 +51,7 @@ namespace GUI.Validators
 
         public static bool ValidateAddress(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
         {
-            return CheckRequiredAndShowToolTip(txt, toolTip);
+            return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
         public static bool IsTeacherEligible(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpGraduated, string license, Guna2HtmlToolTip toolTip)

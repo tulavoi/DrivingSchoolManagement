@@ -68,7 +68,7 @@
             this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlStatus = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cboPaymentStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlInvoiceDate = new Guna.UI2.WinForms.Guna2Panel();
@@ -655,7 +655,7 @@
             // 
             // pnlStatus
             // 
-            this.pnlStatus.Controls.Add(this.cboStatus);
+            this.pnlStatus.Controls.Add(this.cboPaymentStatus);
             this.pnlStatus.Controls.Add(this.lblStatus);
             this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlStatus.FillColor = System.Drawing.Color.White;
@@ -664,33 +664,33 @@
             this.pnlStatus.Size = new System.Drawing.Size(475, 38);
             this.pnlStatus.TabIndex = 128;
             // 
-            // cboStatus
+            // cboPaymentStatus
             // 
-            this.cboStatus.BackColor = System.Drawing.Color.White;
-            this.cboStatus.BorderRadius = 5;
-            this.cboStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboStatus.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboStatus.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Enabled = false;
-            this.cboStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboStatus.ItemHeight = 30;
-            this.cboStatus.Items.AddRange(new object[] {
-            "Select Status",
+            this.cboPaymentStatus.BackColor = System.Drawing.Color.White;
+            this.cboPaymentStatus.BorderRadius = 5;
+            this.cboPaymentStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboPaymentStatus.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboPaymentStatus.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboPaymentStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboPaymentStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboPaymentStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPaymentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPaymentStatus.Enabled = false;
+            this.cboPaymentStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboPaymentStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboPaymentStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboPaymentStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboPaymentStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboPaymentStatus.ItemHeight = 30;
+            this.cboPaymentStatus.Items.AddRange(new object[] {
+            "Select Payment Status",
             "Pending",
             "Paid"});
-            this.cboStatus.Location = new System.Drawing.Point(124, 0);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(351, 36);
-            this.cboStatus.StartIndex = 0;
-            this.cboStatus.TabIndex = 34;
+            this.cboPaymentStatus.Location = new System.Drawing.Point(124, 0);
+            this.cboPaymentStatus.Name = "cboPaymentStatus";
+            this.cboPaymentStatus.Size = new System.Drawing.Size(351, 36);
+            this.cboPaymentStatus.StartIndex = 0;
+            this.cboPaymentStatus.TabIndex = 34;
             // 
             // lblStatus
             // 
@@ -702,7 +702,7 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(124, 38);
             this.lblStatus.TabIndex = 29;
-            this.lblStatus.Text = "    Status:";
+            this.lblStatus.Text = "    Payment:";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSpace10
@@ -1232,7 +1232,7 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace17;
 		private System.Windows.Forms.Label lblMessage;
-        private Guna.UI2.WinForms.Guna2ComboBox cboStatus;
+        private Guna.UI2.WinForms.Guna2ComboBox cboPaymentStatus;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceCode;

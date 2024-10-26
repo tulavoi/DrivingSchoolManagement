@@ -201,6 +201,36 @@ namespace DAL
 
         #endregion
 
+        #region Create
+        public bool AddSchedule(Schedule schedule, out string errorMessage)
+        {
+            return AddData(schedule, out errorMessage);
+        }
+        #endregion
+
+        #region Edit
+        public bool EditSchedule(Schedule schedule, out string errorMessage)
+        {
+            return EditData(sche => sche.ScheduleID == schedule.ScheduleID,
+                            sche =>
+                            {
+                                sche.TeacherID = schedule.TeacherID;
+                                sche.VehicleID = schedule.VehicleID;
+                                sche.SessionID = schedule.SessionID;
+                                sche.SessionDate = schedule.SessionDate;
+                                sche.Updated_At = DateTime.Now;
+                            },
+                            out errorMessage);
+        }
+        #endregion
+
+        #region Delete
+        public bool DeleteSchedule(int scheduleID)
+        {
+            return DeleteData(sche => sche.ScheduleID == scheduleID);
+        }
+        #endregion
+
         #region Lấy ra schedule dựa vào courseID, learnerID nếu learnerID có giá trị
         public Schedule GetScheduleByCourseID(int courseID, int learnerID = 0)
         {
@@ -244,13 +274,6 @@ namespace DAL
         }
         #endregion
 
-        #region Create
-        public bool AddSchedule(Schedule schedule, out string errorMessage)
-        {
-            return AddData(schedule, out errorMessage);
-        }
-        #endregion
-
         #region Lấy ra Schedule bằng LearnerID
         public List<Schedule> GetSchedulesByLearnerId(int learnerId)
         {
@@ -258,29 +281,6 @@ namespace DAL
             {
                 return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
             }
-        }
-        #endregion
-
-        #region Edit
-        public bool EditSchedule(Schedule schedule, out string errorMessage)
-        {
-            return EditData(sche => sche.ScheduleID == schedule.ScheduleID,          
-                            sche =>                                            
-                            {
-                                sche.TeacherID = schedule.TeacherID;
-                                sche.VehicleID = schedule.VehicleID;
-                                sche.SessionID = schedule.SessionID;
-                                sche.SessionDate = schedule.SessionDate;
-                                sche.Updated_At = DateTime.Now;
-                            },
-                            out errorMessage);
-        }
-        #endregion
-
-        #region Delete
-        public bool DeleteSchedule(int scheduleID)
-        {
-            return DeleteData(sche => sche.ScheduleID == scheduleID);
         }
         #endregion
 

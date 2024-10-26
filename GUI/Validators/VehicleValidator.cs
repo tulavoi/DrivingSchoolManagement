@@ -26,6 +26,7 @@ namespace GUI.Validators
             if (dtp.Value.Year > currentYear)
             {
                 FormHelper.ShowToolTip(dtp, toolTip, "Manufacture year cannot be in the future.");
+                dtp.Focus();
                 return false;
             }
             return true;
