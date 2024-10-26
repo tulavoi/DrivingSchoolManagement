@@ -42,7 +42,7 @@ namespace BLL.Services
             LearnerBLL.Instance.SearchLearners(cbo, keyword);
         }
 
-        public static void FilterLearnersByLicense(Guna2DataGridView dgv, string license)
+        public static void FilterLearnersByStatus(Guna2DataGridView dgv, string license)
         {
             LearnerBLL.Instance.FilterLearnersByStatus(dgv, license);
         }

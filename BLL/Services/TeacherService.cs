@@ -26,6 +26,11 @@ namespace BLL.Services
             TeacherBLL.Instance.SearchTeachers(cbo, keyword);
         }
 
+        public static void FilterTeachersByStatus(Guna2DataGridView dgv, string status)
+        {
+            TeacherBLL.Instance.FilterTeachersByStatus(dgv, status);
+        }
+
         public static bool AddTeacher(Teacher teacher)
         {
             return TeacherBLL.Instance.AddTeacher(teacher);

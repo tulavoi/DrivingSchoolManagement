@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="ScheduleDAL.cs" />
     <Compile Include="SessionDAL.cs" />
+    <Compile Include="StatusDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
     <Compile Include="VehicleDAL.cs" />
   </ItemGroup>

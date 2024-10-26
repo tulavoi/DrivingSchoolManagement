@@ -64,6 +64,12 @@ namespace BLL
             this.AddTeachersToCombobox(cbo, teachers);
         }
 
+        public void FilterTeachersByStatus(Guna2DataGridView dgv, string status)
+        {
+            List<Teacher> teachers = TeacherDAL.Instance.FilterTeachersByStatus(status);
+            this.AddTeachersToDataGridView(dgv, teachers);
+        }
+
         private void AddTeachersToDataGridView(Guna2DataGridView dgv, List<Teacher> teachers)
         {
             dgv.Rows.Clear();
@@ -78,7 +84,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
                     dgv.Rows[rowIndex].Cells["FullName"].Value = teacher.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = teacher.CitizenID;
-                    dgv.Rows[rowIndex].Cells["EmploymentDate"].Value = teacher.EmploymentDate.Value.Year;
+                    dgv.Rows[rowIndex].Cells["Status"].Value = teacher.Status.StatusName;
                 }
             }
         }

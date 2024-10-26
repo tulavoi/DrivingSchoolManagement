@@ -36,7 +36,6 @@ namespace BLL
             cbo.DisplayMember = "FullName";
         }
 
-
         public void LoadAllLearners(Guna2DataGridView dgv)
         {
             List<Learner> learners = LearnerDAL.Instance.GetAllLearners();
@@ -55,9 +54,9 @@ namespace BLL
             this.AddLearnersToCombobox(cbo, learners);
         }
 
-        public void FilterLearnersByStatus(Guna2DataGridView dgv, string licenseType)
+        public void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
         {
-            List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(licenseType);
+            List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(status);
             this.AddLearnersToDataGridView(dgv, learners);
         }
 

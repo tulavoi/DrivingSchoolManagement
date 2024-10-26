@@ -56,5 +56,10 @@ namespace BLL.Services
         {
             LicenseBLL.Instance.AssignLicensesToCombobox(cbo);
         }
+
+        public static void AssignStatesToCombobox(Guna2ComboBox cbo)
+        {
+            StatusBLL.Instance.AssignCoursesToCombobox(cbo);
+        }
     }
 }

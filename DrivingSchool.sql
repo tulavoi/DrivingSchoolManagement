@@ -63,6 +63,7 @@ CREATE TABLE Vehicles (
     ManufacturerYear int,
     [Weight] INT,
 	Seats int,
+	StatusID int,
 	Notes nvarchar(max),
 	Created_At DATETIME,
     Updated_At DATETIME
@@ -74,6 +75,7 @@ create TABLE Courses (
     CourseName NVARCHAR(100) unique,
 	LicenseID INT,
     Fee money,
+	StatusID int,
     DurationInHours INT,
 	Created_At DATETIME,
     Updated_At DATETIME
@@ -89,6 +91,7 @@ CREATE TABLE Schedules (
     CourseID INT,
     SessionID INT,
 	SessionDate DATE,
+	StatusID int,
 	Created_At DATETIME,
     Updated_At DATETIME
 )
@@ -103,11 +106,12 @@ create table [Sessions](
 
 CREATE TABLE Invoices (
     InvoiceID int primary key identity(1001, 1),
-    InvoiceCode nvarchar(100) unique, -- VD: INV-{InvoiceDate}
+    InvoiceCode nvarchar(100) unique, -- VD: INV-{HourMinuteSecondDayMonthYear}
 	ScheduleID int,
-    TotalAmount DECIMAL(18, 2),
+    TotalAmount money,
 	Notes nvarchar(255),
-    [Status] NVARCHAR(50) CHECK ([Status] IN ('Pending', 'Paid')),
+	IsPaid bit, -- 1 là Paid, 0 là Pending
+	StatusID int,
 	Created_At DATETIME,
     Updated_At DATETIME
 )
@@ -117,7 +121,7 @@ CREATE TABLE Payments (
     PaymentID INT PRIMARY KEY IDENTITY(1,1),
     InvoiceID int,
     PaymentDate DATE, 
-    Amount DECIMAL(18, 2),
+    Amount money,
     PaymentMethod NVARCHAR(50),
     Created_At DATETIME,
     Updated_At DATETIME 
@@ -148,6 +152,12 @@ go
 
 alter table Courses
 add constraint FK_Courses_License foreign key (LicenseID) references Licenses(LicenseID)
+alter table Courses
+add constraint FK_Courses_Status foreign key (StatusID) references [Status](StatusID)
+go
+
+alter table Vehicles
+add constraint FK_Vehicles_Status foreign key (StatusID) references [Status](StatusID)
 go
 
 alter table Schedules
@@ -160,6 +170,8 @@ alter table Schedules
 add constraint FK_Schedules_Course foreign key (CourseID) references Courses(CourseID)
 alter table Schedules
 add constraint FK_Schedules_Session foreign key (SessionID) references [Sessions](SessionID)
+alter table Schedules
+add constraint FK_Schedules_Status foreign key (StatusID) references [Status](StatusID)
 go
 
 ALTER TABLE Schedules
@@ -182,7 +194,7 @@ INSERT INTO Licenses (LicenseName, [Level])
 VALUES ('B', 1), ('C', 2), ('D', 3), ('E', 4);
 
 INSERT INTO [Status] (StatusName)
-VALUES ('Active'), ('Inactive');
+VALUES ('Active'), ('Inactive'), ('Cancelled');
 
 INSERT INTO Learners (FullName, CurrentLicenseID ,DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, StatusID, Created_At, Updated_At)
 VALUES 
@@ -213,44 +225,44 @@ VALUES
 ('Pham Thi I', 678901245, '1993-01-12', 'Female', '0909123464', 'thii@gmail.com', 'Vietnam', '147 YZ Street', '2014-05-30', 1002, 1001, '2013-04-01', GETDATE(), GETDATE()),
 ('Nguyen Van J', 789012356, '1994-10-05', 'Male', '0909123465', 'vanj@gmail.com', 'Vietnam', '258 ABCD Street', '2019-04-20', 1003, 1001, '2018-03-15', GETDATE(), GETDATE());
 
-INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, Created_At, Updated_At)
+INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, StatusID, Created_At, Updated_At)
 VALUES 
 -- Xe dành cho bằng B (xe con dưới 9 chỗ)
-('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
-('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
-('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
-('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
-('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Sedan, good condition', GETDATE(), GETDATE()),
+('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1001, GETDATE(), GETDATE()),
+('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1001, GETDATE(), GETDATE()),
+('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1001, GETDATE(), GETDATE()),
+('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1001, GETDATE(), GETDATE()),
+('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Sedan, good condition', 1001, GETDATE(), GETDATE()),
 -- Xe dành cho bằng C (xe tải)
-('61C-23523', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', GETDATE(), GETDATE()),
-('61C-56434', 'Isuzu Truck', 1, 0, 0, 2016, 5000, null, '', GETDATE(), GETDATE()),
-('61C-96793', 'Isuzu Truck', 1, 0, 0, 2019, 5000, null, '', GETDATE(), GETDATE()),
-('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', GETDATE(), GETDATE()),
-('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, '', GETDATE(), GETDATE()),
-('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, '', GETDATE(), GETDATE()),
+('61C-23523', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1001, GETDATE(), GETDATE()),
+('61C-56434', 'Isuzu Truck', 1, 0, 0, 2016, 5000, null, '', 1001, GETDATE(), GETDATE()),
+('61C-96793', 'Isuzu Truck', 1, 0, 0, 2019, 5000, null, '', 1001, GETDATE(), GETDATE()),
+('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1001, GETDATE(), GETDATE()),
+('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, '', 1001, GETDATE(), GETDATE()),
+('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, '', 1001, GETDATE(), GETDATE()),
 -- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
-('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', GETDATE(), GETDATE()),
-('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, '', GETDATE(), GETDATE()),
-('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', GETDATE(), GETDATE()),
-('61D-53463', 'Mercedes-Benz Bus', 0, 1, 0, 2018, null, 20, '', GETDATE(), GETDATE()),
-('61D-32435', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', GETDATE(), GETDATE()),
+('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1001, GETDATE(), GETDATE()),
+('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, '', 1001, GETDATE(), GETDATE()),
+('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1001, GETDATE(), GETDATE()),
+('61D-53463', 'Mercedes-Benz Bus', 0, 1, 0, 2018, null, 20, '', 1001, GETDATE(), GETDATE()),
+('61D-32435', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', 1001, GETDATE(), GETDATE()),
 -- Xe dành cho bằng E (xe khách trên 30 chỗ)
-('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', GETDATE(), GETDATE()),
-('70E-65346', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', GETDATE(), GETDATE()),
-('70E-32455', 'Hyundai Universe', 0, 1, 1, 2016, null, 40, '', GETDATE(), GETDATE()),
-('70E-47478', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', GETDATE(), GETDATE()),
-('70E-69632', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', GETDATE(), GETDATE());
+('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1001, GETDATE(), GETDATE()),
+('70E-65346', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1001, GETDATE(), GETDATE()),
+('70E-32455', 'Hyundai Universe', 0, 1, 1, 2016, null, 40, '', 1001, GETDATE(), GETDATE()),
+('70E-47478', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1001, GETDATE(), GETDATE()),
+('70E-69632', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1001, GETDATE(), GETDATE());
 
-INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, Created_At, Updated_At)
+INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, StatusID, Created_At, Updated_At)
 VALUES 
-('B-090532131024', 1001, 15000000, 340, GETDATE(), GETDATE()),
-('B-080756241024', 1001, 15000000, 340, GETDATE(), GETDATE()),
-('C-090654131024', 1002, 20000000, 752, GETDATE(), GETDATE()),
-('C-540856241024', 1002, 20000000, 752, GETDATE(), GETDATE()),
-('D-091122131024', 1003, 20000000, 192, GETDATE(), GETDATE()),
-('D-450456241024', 1003, 20000000, 192, GETDATE(), GETDATE()),
-('E-092433131024', 1004, 20000000, 336, GETDATE(), GETDATE()),
-('E-540826241024', 1004, 20000000, 336, GETDATE(), GETDATE());
+('B-090532131024', 1001, 15000000, 340, 1001, GETDATE(), GETDATE()),
+('B-080756241024', 1001, 15000000, 340, 1001, GETDATE(), GETDATE()),
+('C-090654131024', 1002, 20000000, 752, 1001, GETDATE(), GETDATE()),
+('C-540856241024', 1002, 20000000, 752, 1001, GETDATE(), GETDATE()),
+('D-091122131024', 1003, 20000000, 192, 1001, GETDATE(), GETDATE()),
+('D-450456241024', 1003, 20000000, 192, 1001, GETDATE(), GETDATE()),
+('E-092433131024', 1004, 20000000, 336, 1001, GETDATE(), GETDATE()),
+('E-540826241024', 1004, 20000000, 336, 1001, GETDATE(), GETDATE());
 
 INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
 VALUES 
@@ -259,16 +271,16 @@ VALUES
 ('13H00-15H00', GETDATE(), GETDATE()),
 ('15H00-17H00', GETDATE(), GETDATE());
 
-INSERT INTO Schedules (LearnerID, TeacherID, VehicleID, CourseID, SessionID, SessionDate, Created_At, Updated_At)
+INSERT INTO Schedules (LearnerID, TeacherID, VehicleID, CourseID, SessionID, SessionDate, StatusID, Created_At, Updated_At)
 VALUES
-(1001, 1001, 1001, 1001, 1001, '2024-10-15', GETDATE(), GETDATE()),
-(1002, 1002, 1003, 1002, 1002, '2024-10-20', GETDATE(), GETDATE()),
-(1003, 1002, 1007, 1003, 1003, '2024-10-25', GETDATE(), GETDATE());
+(1001, 1001, 1001, 1001, 1001, '2024-10-15', 1001, GETDATE(), GETDATE()),
+(1002, 1002, 1003, 1002, 1002, '2024-10-20', 1001, GETDATE(), GETDATE()),
+(1003, 1002, 1007, 1003, 1003, '2024-10-25', 1001, GETDATE(), GETDATE());
 
-INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, [Status], Created_At, Updated_At)
+INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 
-('INV-092444131024', 1001, 1500.00, 'Pending', GETDATE(), GETDATE()),
-('INV-093023131024', 1002, 2000.00, 'Paid', GETDATE(), GETDATE());
+('INV-092444131024', 1001, 1500.00, 0, 1001, GETDATE(), GETDATE()),
+('INV-093023131024', 1002, 2000.00, 1, 1001, GETDATE(), GETDATE());
 
 INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
 VALUES 

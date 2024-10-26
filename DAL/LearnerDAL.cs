@@ -87,11 +87,6 @@ namespace DAL
         #endregion
 
         #region Filter by status
-        public List<Learner> FilterLearnersByStatus(string statusName)
-        {
-            return FilterData(statusName, item => this.MapToLearner(item));
-        }
-
         protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
         {
             using (var db = DataAccess.GetDataContext())
@@ -118,6 +113,10 @@ namespace DAL
                 return data.ToList();
             }
         }
+        public List<Learner> FilterLearnersByStatus(string status)
+        {
+            return FilterData(status, item => this.MapToLearner(item));
+        }
         #endregion
 
         #region Create
@@ -130,8 +129,8 @@ namespace DAL
         #region Edit
         public bool EditLearner(Learner learner)
         {
-            return EditData(lear => lear.LearnerID == learner.LearnerID,      // Điều kiện tìm learner theo ID
-                            lear =>                                          // Action cập nhật các thuộc tính
+            return EditData(lear => lear.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
+                            lear =>                                             // Action cập nhật các thuộc tính
                             {
                                 lear.CurrentLicenseID = learner.CurrentLicenseID;
                                 lear.FullName = learner.FullName;
@@ -141,7 +140,7 @@ namespace DAL
                                 lear.Email = learner.Email;
                                 lear.Address = learner.Address;
                                 lear.CitizenID = learner.CitizenID;
-                                lear.Status = learner.Status;
+                                lear.StatusID = learner.StatusID;
                                 lear.Updated_At = DateTime.Now;
                             });
         }
@@ -150,7 +149,7 @@ namespace DAL
         #region Delete
         public bool DeleteLearner(int learnerID)
         {
-            return DeleteData(lear => lear.LearnerID == learnerID); // Điều kiện tìm learner theo ID
+            return UpdateStatus(lear => lear.LearnerID == learnerID, 1002); // Điều kiện tìm learner theo ID
         }
         #endregion
 

@@ -63,10 +63,42 @@ namespace DAL
         }
         #endregion
 
-        #region Filter
-        protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+        #region Filter by status
+        protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from teacher in db.Teachers
+                           join license in db.Licenses on teacher.LicenseID equals license.LicenseID
+                           join status in db.Status on teacher.StatusID equals status.StatusID
+                           where status.StatusName == statusName
+                           select new
+                           {
+                               teacher.TeacherID,
+                               teacher.FullName,
+                               teacher.CitizenID,
+                               license.LicenseID,
+                               license.LicenseName,
+                               teacher.DateOfBirth,
+                               teacher.Gender,
+                               teacher.Phone,
+                               teacher.Email,
+                               teacher.Nationality,
+                               teacher.Address,
+                               teacher.EmploymentDate,
+                               status.StatusID,
+                               status.StatusName,
+                               teacher.GraduatedDate,
+                               teacher.Created_At,
+                               teacher.Updated_At,
+                           };
+                return data.ToList();
+            }
+        }
+
+        public List<Teacher> FilterTeachersByStatus(string status)
+        {
+            return FilterData(status, item => this.MapToTeacher(item));
         }
         #endregion
 
@@ -133,6 +165,7 @@ namespace DAL
                                 t.Address = teacher.Address;
                                 t.LicenseID = teacher.LicenseID;
                                 t.GraduatedDate = teacher.GraduatedDate;
+                                t.StatusID = teacher.StatusID;
                                 t.Updated_At = DateTime.Now;
                             });
         }
@@ -141,7 +174,7 @@ namespace DAL
         #region Delete
         public bool DeleteTeacher(int teacherID)
         {
-            return DeleteData(t => t.TeacherID == teacherID); // Điều kiện tìm teacher theo id
+            return UpdateStatus(t => t.TeacherID == teacherID, 1002); // Điều kiện tìm teacher theo id
         }
         #endregion
 

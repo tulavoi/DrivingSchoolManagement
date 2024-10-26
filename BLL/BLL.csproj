@@ -143,6 +143,7 @@
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="SessionBLL.cs" />
+    <Compile Include="StatusBLL.cs" />
     <Compile Include="TeacherBLL.cs" />
     <Compile Include="VehicleBLL.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

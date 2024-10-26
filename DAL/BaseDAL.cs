@@ -154,6 +154,32 @@ namespace DAL
             }
         }
 
+        protected bool UpdateStatus(Func<T, bool> predicate, int statusID)
+        {
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    var entity = db.GetTable<T>().FirstOrDefault(predicate);
+                    if (entity == null) return false;
+
+                    // Cập nhật StatusID của đối tượng thay vì xóa
+                    var statusProperty = entity.GetType().GetProperty("StatusID");
+                    if (statusProperty != null && statusProperty.CanWrite)
+                    {
+                        statusProperty.SetValue(entity, statusID);
+                    }
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         protected virtual IEnumerable<dynamic> QueryLearnerByCourseID(int courseID)
         {
             return Enumerable.Empty<dynamic>();

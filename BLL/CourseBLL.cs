@@ -41,8 +41,6 @@ namespace BLL
             cbo.DataSource = courses;
             cbo.ValueMember = "CourseID";
             cbo.DisplayMember = "CourseName";
-
-
         }
         public void LoadAllCourses(Guna2DataGridView dgv)
         {
