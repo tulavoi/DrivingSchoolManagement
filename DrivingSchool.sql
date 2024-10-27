@@ -186,7 +186,7 @@ ADD CONSTRAINT UQ_Schedule_Vehicle UNIQUE (VehicleID, SessionDate, SessionID);
 alter table Invoices
 add constraint FK_Invoices_Schedule foreign key (ScheduleID) references Schedules(ScheduleID)
 alter table Invoices
-add constraint FK_Invoices_Status foreign key (StatusID) references Status(StatusID)
+add constraint FK_Invoices_Status foreign key (StatusID) references [Status](StatusID)
 go
 
 alter table Payments
