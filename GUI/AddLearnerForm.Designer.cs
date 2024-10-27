@@ -45,6 +45,8 @@
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlCitizenId_Address = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboLicenses = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblAddress_Title = new System.Windows.Forms.Label();
             this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
@@ -263,6 +265,8 @@
             // 
             // pnlCitizenId_Address
             // 
+            this.pnlCitizenId_Address.Controls.Add(this.cboLicenses);
+            this.pnlCitizenId_Address.Controls.Add(this.label1);
             this.pnlCitizenId_Address.Controls.Add(this.txtAddress);
             this.pnlCitizenId_Address.Controls.Add(this.lblAddress_Title);
             this.pnlCitizenId_Address.Dock = System.Windows.Forms.DockStyle.Top;
@@ -271,6 +275,42 @@
             this.pnlCitizenId_Address.Name = "pnlCitizenId_Address";
             this.pnlCitizenId_Address.Size = new System.Drawing.Size(738, 40);
             this.pnlCitizenId_Address.TabIndex = 125;
+            // 
+            // cboLicenses
+            // 
+            this.cboLicenses.BackColor = System.Drawing.Color.White;
+            this.cboLicenses.BorderRadius = 5;
+            this.cboLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboLicenses.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboLicenses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLicenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLicenses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboLicenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboLicenses.ItemHeight = 30;
+            this.cboLicenses.Location = new System.Drawing.Point(488, 0);
+            this.cboLicenses.Name = "cboLicenses";
+            this.cboLicenses.Size = new System.Drawing.Size(250, 36);
+            this.cboLicenses.TabIndex = 28;
+            this.cboLicenses.Tag = "License";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(366, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 40);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "   License: ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtAddress
             // 
@@ -282,7 +322,7 @@
             this.txtAddress.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -293,7 +333,7 @@
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(616, 40);
+            this.txtAddress.Size = new System.Drawing.Size(244, 40);
             this.txtAddress.TabIndex = 26;
             this.txtAddress.Tag = "Address";
             // 
@@ -363,7 +403,7 @@
             this.lblDOB_Title.Name = "lblDOB_Title";
             this.lblDOB_Title.Size = new System.Drawing.Size(118, 40);
             this.lblDOB_Title.TabIndex = 2;
-            this.lblDOB_Title.Text = "  Date Of Birth:";
+            this.lblDOB_Title.Text = "   Date Of Birth:";
             this.lblDOB_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cboGender
@@ -733,5 +773,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlCitizenId_Address;
         private Guna.UI2.WinForms.Guna2TextBox txtAddress;
         private System.Windows.Forms.Label lblAddress_Title;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLicenses;
+        private System.Windows.Forms.Label label1;
     }
 }

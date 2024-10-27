@@ -64,6 +64,7 @@ namespace GUI
                 ScheduleID = this.scheduleID,
                 TotalAmount = this.GetTotalAmount(),
                 IsPaid = Constant.DefaultInvoiceStatus,
+                StatusID = Constant.StatusID_Active, // Mặc định là active
                 Created_At = DateTime.Now
             };
         }

@@ -190,7 +190,7 @@ namespace DAL
                 TotalAmount = item.TotalAmount,
                 Status = new Status
                 {
-                    StatusID = item.Status,
+                    StatusID = item.StatusID,
                     StatusName = item.StatusName,
                 },
                 Created_At = item.Created_At,

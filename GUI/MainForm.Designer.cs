@@ -135,8 +135,8 @@
             this.pnlMenu.Controls.Add(this.btnAccounts);
             this.pnlMenu.Controls.Add(this.btnPayments);
             this.pnlMenu.Controls.Add(this.btnInvoice);
-            this.pnlMenu.Controls.Add(this.btnVehicles);
             this.pnlMenu.Controls.Add(this.btnSchedules);
+            this.pnlMenu.Controls.Add(this.btnVehicles);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.pnlSpace10);
             this.pnlMenu.Controls.Add(this.btnCourses);
@@ -279,7 +279,7 @@
             this.btnVehicles.Image = global::GUI.Properties.Resources.car_1;
             this.btnVehicles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnVehicles.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnVehicles.Location = new System.Drawing.Point(0, 460);
+            this.btnVehicles.Location = new System.Drawing.Point(0, 395);
             this.btnVehicles.Name = "btnVehicles";
             this.btnVehicles.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnVehicles.PressedDepth = 10;
@@ -313,7 +313,7 @@
             this.btnSchedules.Image = global::GUI.Properties.Resources.schedule_1;
             this.btnSchedules.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSchedules.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnSchedules.Location = new System.Drawing.Point(0, 395);
+            this.btnSchedules.Location = new System.Drawing.Point(0, 460);
             this.btnSchedules.Name = "btnSchedules";
             this.btnSchedules.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnSchedules.PressedDepth = 10;

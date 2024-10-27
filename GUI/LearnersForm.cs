@@ -43,6 +43,7 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignStatesToCombobox(cboStates);
+            ComboboxService.AssignLicensesToCombobox(cboLicenses);
         }
 
         public void LoadAllLearners()
@@ -126,7 +127,7 @@ namespace GUI
         private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddLearnerForm());
-            this.LoadAllLearners(); // Reload the learner data after the add form is closed
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -176,6 +177,7 @@ namespace GUI
             cboGender.Text = selectedLearner.Gender;
             dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
             cboStates.Text = selectedLearner.Status.StatusName;
+            cboLicenses.Text = selectedLearner.License.LicenseName;
         }
 
         private void btnDeleteLearner_Click(object sender, EventArgs e)

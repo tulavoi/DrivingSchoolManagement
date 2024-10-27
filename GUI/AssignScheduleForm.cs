@@ -34,9 +34,6 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignLearnersToCombobox(cboLearners, learnerStatus); // Hiển thị ra combobox các learner có status Active
-            //ComboboxService.AssignCoursesToCombobox(cboCourses);
-            //ComboboxService.AssignTeachersToCombobox(cboTeachers);
-            //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
         }
 
