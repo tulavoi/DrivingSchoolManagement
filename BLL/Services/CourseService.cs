@@ -29,6 +29,11 @@ namespace BLL.Services
             CourseBLL.Instance.SearchCourses(cbo, keyword);
         }
 
+        public static void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
+        {
+            CourseBLL.Instance.FilterLearnersByStatus(dgv, status);
+        }
+
         public static bool AddCourse(Course course)
         {
             return CourseBLL.Instance.AddCourse(course);

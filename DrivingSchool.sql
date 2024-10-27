@@ -8,7 +8,7 @@ SET DATEFORMAT DMY
 
 create table Licenses(
 	LicenseID int primary key identity(1001, 1),
-	LicenseName char,
+	LicenseName nvarchar(10),
 	[Level] int
 )
 
@@ -74,7 +74,7 @@ create TABLE Courses (
     CourseID INT PRIMARY KEY IDENTITY(1001,1),
     CourseName NVARCHAR(100) unique,
 	LicenseID INT,
-    Fee money,
+    Fee int,
 	StatusID int,
     DurationInHours INT,
 	Created_At DATETIME,
@@ -108,7 +108,7 @@ CREATE TABLE Invoices (
     InvoiceID int primary key identity(1001, 1),
     InvoiceCode nvarchar(100) unique, -- VD: INV-{HourMinuteSecondDayMonthYear}
 	ScheduleID int,
-    TotalAmount money,
+    TotalAmount int,
 	Notes nvarchar(255),
 	IsPaid bit, -- 1 là Paid, 0 là Pending
 	StatusID int,
@@ -121,7 +121,7 @@ CREATE TABLE Payments (
     PaymentID INT PRIMARY KEY IDENTITY(1,1),
     InvoiceID int,
     PaymentDate DATE, 
-    Amount money,
+    Amount int,
     PaymentMethod NVARCHAR(50),
     Created_At DATETIME,
     Updated_At DATETIME 
@@ -185,6 +185,8 @@ ADD CONSTRAINT UQ_Schedule_Vehicle UNIQUE (VehicleID, SessionDate, SessionID);
 
 alter table Invoices
 add constraint FK_Invoices_Schedule foreign key (ScheduleID) references Schedules(ScheduleID)
+alter table Invoices
+add constraint FK_Invoices_Status foreign key (StatusID) references [Status](StatusID)
 go
 
 alter table Payments

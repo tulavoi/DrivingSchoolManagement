@@ -34,6 +34,7 @@ namespace DAL
                            join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
                            join learner in db.Learners on sche.LearnerID equals learner.LearnerID
                            join course in db.Courses on sche.CourseID equals course.CourseID
+                           join status in db.Status on sche.StatusID equals status.StatusID
                            select new
                            {
                                invoice.InvoiceID,
@@ -45,7 +46,9 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.Status,
+                               invoice.StatusID,
+                               status.StatusName,
+                               invoice.IsPaid,
                                invoice.Created_At,
                                invoice.Updated_At
                            };
@@ -68,6 +71,7 @@ namespace DAL
                            join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
                            join learner in db.Learners on sche.LearnerID equals learner.LearnerID
                            join course in db.Courses on sche.CourseID equals course.CourseID
+                           join status in db.Status on sche.StatusID equals status.StatusID
                            where (invoice.InvoiceCode.Contains(keyword) || learner.FullName.Contains(keyword))
                            select new
                            {
@@ -80,7 +84,9 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.Status,
+                               invoice.StatusID,
+                               status.StatusName,
+                               invoice.IsPaid,
                                invoice.Created_At,
                                invoice.Updated_At
                            };
@@ -108,7 +114,8 @@ namespace DAL
                            join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
                            join learner in db.Learners on sche.LearnerID equals learner.LearnerID
                            join course in db.Courses on sche.CourseID equals course.CourseID
-                           where invoice.Status == filterString
+                           join status in db.Status on sche.StatusID equals status.StatusID
+                           //where invoice.IsPaid == filterString
                            select new
                            {
                                invoice.InvoiceID,
@@ -120,7 +127,9 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.Status,
+                               invoice.StatusID,
+                               status.StatusName,
+                               invoice.IsPaid,
                                invoice.Created_At,
                                invoice.Updated_At
                            };
@@ -179,7 +188,11 @@ namespace DAL
                     }
                 },
                 TotalAmount = item.TotalAmount,
-                Status = item.Status,
+                Status = new Status
+                {
+                    StatusID = item.Status,
+                    StatusName = item.StatusName,
+                },
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };

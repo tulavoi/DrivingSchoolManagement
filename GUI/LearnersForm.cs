@@ -236,14 +236,14 @@ namespace GUI
         {
             FormHelper.ClearDataGridViewRow(dgvLearners);
 
-            if (cboStatus_Filter.SelectedIndex < 1)
-                this.LoadAllLearners();
-            else
+            if (FormHelper.HasSelectedItem(cboStatus_Filter))
             {
                 string status = cboStatus_Filter.Text;
                 LearnerService.FilterLearnersByStatus(dgvLearners, status);
                 this.UpdateControlsWithSelectedRowData();
             }
+            else
+                this.LoadAllLearners();
         }
     }
 }

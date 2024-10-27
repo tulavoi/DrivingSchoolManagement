@@ -196,15 +196,5 @@ namespace GUI
         {
             return cbo.SelectedIndex > 0;
         }
-
-        public static void ClearDataAndLoadAll(Guna2ComboBox cbo, Guna2DataGridView dgv, Action loadAllData)
-        {
-            FormHelper.ClearDataGridViewRow(dgv);
-
-            if (cbo.SelectedIndex < 1)
-            {
-                loadAllData();
-            }
-        }
     }
 }

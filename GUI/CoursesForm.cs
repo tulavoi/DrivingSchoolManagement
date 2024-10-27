@@ -1,9 +1,7 @@
-﻿using BLL;
-using BLL.Services;
+﻿using BLL.Services;
 using DAL;
-using Guna.UI2.WinForms;
+using GUI.Validators;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GUI
@@ -35,6 +33,7 @@ namespace GUI
         {
             this.LoadComboboxes();
             this.LoadAllCourses();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void LoadAllCourses()
@@ -60,6 +59,7 @@ namespace GUI
             cboLicenses.SelectedValue = course.LicenseID;
             txtFee.Text = course.Fee.ToString();
             txtDurationInHours.Text = course.DurationInHours.ToString();
+            cboStates.Text = course.Status.StatusName;
         }
 
         private Course GetSelectedCourse()
@@ -80,8 +80,8 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignLicensesToCombobox(cboLicenses);
+            ComboboxService.AssignStatesToCombobox(cboStates);
         }
-       
 
         private void btnEditCourse_Click(object sender, EventArgs e)
         {
@@ -102,7 +102,7 @@ namespace GUI
             }
 
             this.ToggleEditMode();
-            this.LoadAllCourses();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private Course GetCourse()
@@ -112,7 +112,7 @@ namespace GUI
                 CourseID = FormHelper.GetObjectID(lblCourseID.Text),
                 CourseName = txtCourseName.Text,
                 LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
-                Fee = Convert.ToDecimal(txtFee.Text),
+                Fee = Convert.ToInt32(txtFee.Text),
                 DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
                 Updated_At = DateTime.Now
             };
@@ -120,17 +120,16 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            if (string.IsNullOrEmpty(txtCourseName.Text)) return false;
-            if (string.IsNullOrEmpty(txtFee.Text)) return false;
-            if (string.IsNullOrEmpty(txtDurationInHours.Text)) return false;
+            if (!CourseValidator.ValidateLicense(cboLicenses, toolTip)) return false;
+            if (!CourseValidator.ValidateFee(txtFee, toolTip)) return false;
+            if (!CourseValidator.ValidateDuration(txtDurationInHours, toolTip)) return false;
+            if (!CourseValidator.ValidateCourseName(txtCourseName, toolTip)) return false;
             return true;
         }
- 
-
 
         private void ToggleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtCourseName, txtFee, txtDurationInHours, cboLicenses);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFee, txtDurationInHours, cboLicenses, cboStates);
         }
 
         private bool InSaveMode()
@@ -161,7 +160,7 @@ namespace GUI
                 int courseID = FormHelper.GetObjectID(lblCourseID.Text);
                 var result = CourseService.DeleteCourse(courseID);
                 FormHelper.ShowActionResult(result, "Course deleted successfully.", "Failed to delete course.");
-                this.LoadAllCourses();
+                cboStatus_Filter_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -177,58 +176,33 @@ namespace GUI
         private void dgvCourses_SelectionChanged(object sender, EventArgs e)
         {
             this.UpdateControlsWithSelectedRowData();
-
         }
-        private void cboLicenses_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboLicenses.SelectedIndex < 1)
+            FormHelper.ClearDataGridViewRow(dgvCourses);
+            if (FormHelper.HasSelectedItem(cboStatus_Filter))
             {
-                this.LoadAllCourses(); // Tải toàn bộ dữ liệu
-            }
-            else
-            {
-                // Lấy tên loại bằng từ combobox
-                string selectedLicense = cboLicenses.SelectedItem.ToString();
-                int selectedLicenseID = GetLicenseIDByName(selectedLicense);
-
-                foreach (DataGridViewRow row in dgvCourses.Rows)
-                {
-                    // Lấy giá trị LicenseID từ DataGridView
-                    int licenseValue = Convert.ToInt32(row.Cells[4].Value); // Thay đổi tên cột nếu cần
-
-                    // So sánh LicenseID
-                    if (licenseValue == selectedLicenseID)
-                    {
-                        row.Visible = true; // Hiển thị dòng nếu điều kiện khớp
-                    }
-                    else
-                    {
-                        row.Visible = false; // Ẩn dòng nếu điều kiện không khớp
-                    }
-                }
-
-                // Cập nhật dữ liệu vào điều khiển (nếu cần)
+                string status = cboStatus_Filter.Text;
+                CourseService.FilterLearnersByStatus(dgvCourses, status);
                 this.UpdateControlsWithSelectedRowData();
             }
+            else
+                this.LoadAllCourses();
         }
 
-        // Phương thức để chuyển đổi LicenseName thành LicenseID
-        private int GetLicenseIDByName(string licenseName)
+        private void cboLicenses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (licenseName)
-            {
-                case "B":
-                    return 1001;
-                case "C":
-                    return 1002;
-                case "D":
-                    return 1003;
-                case "E":
-                    return 1004;
-                default:
-                    return -1; // Hoặc có thể trả về một giá trị mặc định nào đó
-            }
+            if (!FormHelper.HasSelectedItem(cboLicenses)) return;
+            string licenseName = cboLicenses.Text;
+            string courseName = txtCourseName.Text;
+            string[] parts = courseName.Split('-');
+            txtCourseName.Text = $"{licenseName}-{parts[1]}";
         }
 
+        private void numeric_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.CheckNumericKeyPress(e);
+        }
     }
 }

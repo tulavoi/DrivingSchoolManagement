@@ -19,9 +19,16 @@ namespace BLL
             }
         }
         #endregion
+
         public void AssignLearnersToCombobox(Guna2ComboBox cbo)
         {
             List<Learner> learners = LearnerDAL.Instance.GetAllLearners();
+            this.AddLearnersToCombobox(cbo, learners);
+        }
+
+        public void AssignLearnersToCombobox(Guna2ComboBox cbo, string status)
+        {
+            List<Learner> learners = LearnerDAL.Instance.FilterLearnersByStatus(status);
             this.AddLearnersToCombobox(cbo, learners);
         }
 

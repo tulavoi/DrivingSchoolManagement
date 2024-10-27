@@ -63,12 +63,12 @@ namespace GUI
                 InvoiceCode = this.GetInvoiceCode(),
                 ScheduleID = this.scheduleID,
                 TotalAmount = this.GetTotalAmount(),
-                Status = Constant.DefaultInvoiceStatus,
+                IsPaid = Constant.DefaultInvoiceStatus,
                 Created_At = DateTime.Now
             };
         }
 
-        private decimal? GetTotalAmount()
+        private int? GetTotalAmount()
         {
             string courseName = cboCourses.Text;
             string[] splitCourseName = courseName.Split('-');

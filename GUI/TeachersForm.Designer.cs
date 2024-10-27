@@ -28,20 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeachersForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTeachers = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddTeacherForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvTeachers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTeachers_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTeachers = new System.Windows.Forms.Label();
@@ -62,6 +69,10 @@
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlStates = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboStates = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlSpace23 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLicense_Graduated = new Guna.UI2.WinForms.Guna2Panel();
             this.txtGraduateYears = new Guna.UI2.WinForms.Guna2TextBox();
@@ -106,19 +117,8 @@
             this.lblPersonalDetails = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlStates = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboStates = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlTeachers.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
@@ -128,6 +128,7 @@
             this.pnlButtonSMS_Mail.SuspendLayout();
             this.pnlBasicDetails.SuspendLayout();
             this.pnlButtonEdit_Delete.SuspendLayout();
+            this.pnlStates.SuspendLayout();
             this.pnlLicense_Graduated.SuspendLayout();
             this.pnlCitizenId.SuspendLayout();
             this.pnlAddress.SuspendLayout();
@@ -135,7 +136,6 @@
             this.pnlPhone_Email.SuspendLayout();
             this.pnlTeacherName.SuspendLayout();
             this.pnlTeacherDetails_Top.SuspendLayout();
-            this.pnlStates.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTeachers
@@ -193,56 +193,68 @@
             this.pnlSpace15.Size = new System.Drawing.Size(15, 35);
             this.pnlSpace15.TabIndex = 10;
             // 
+            // pnlSpace25
+            // 
+            this.pnlSpace25.BorderRadius = 15;
+            this.pnlSpace25.CustomizableEdges.TopLeft = false;
+            this.pnlSpace25.CustomizableEdges.TopRight = false;
+            this.pnlSpace25.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSpace25.FillColor = System.Drawing.Color.White;
+            this.pnlSpace25.Location = new System.Drawing.Point(0, 700);
+            this.pnlSpace25.Name = "pnlSpace25";
+            this.pnlSpace25.Size = new System.Drawing.Size(430, 15);
+            this.pnlSpace25.TabIndex = 108;
+            // 
             // dgvTeachers
             // 
             this.dgvTeachers.AllowUserToAddRows = false;
             this.dgvTeachers.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            this.dgvTeachers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvTeachers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTeachers.ColumnHeadersHeight = 40;
             this.dgvTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TeacherID,
             this.FullName,
             this.CitizenID,
             this.Status});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTeachers.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTeachers.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTeachers.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvTeachers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvTeachers.Location = new System.Drawing.Point(0, 60);
             this.dgvTeachers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTeachers.Name = "dgvTeachers";
             this.dgvTeachers.ReadOnly = true;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTeachers.RowHeadersVisible = false;
             this.dgvTeachers.RowHeadersWidth = 30;
             this.dgvTeachers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvTeachers.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTeachers.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTeachers.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTeachers.RowTemplate.DividerHeight = 2;
             this.dgvTeachers.RowTemplate.Height = 45;
@@ -271,13 +283,62 @@
             this.dgvTeachers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvTeachers.SelectionChanged += new System.EventHandler(this.dgvTeachers_SelectionChanged);
             // 
+            // TeacherID
+            // 
+            this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TeacherID.DataPropertyName = "Space";
+            this.TeacherID.Frozen = true;
+            this.TeacherID.HeaderText = "";
+            this.TeacherID.MinimumWidth = 6;
+            this.TeacherID.Name = "TeacherID";
+            this.TeacherID.ReadOnly = true;
+            this.TeacherID.Width = 18;
+            // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FullName.DataPropertyName = "FullName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FullName.FillWeight = 53.63456F;
+            this.FullName.Frozen = true;
+            this.FullName.HeaderText = "Name";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            this.FullName.Width = 180;
+            // 
+            // CitizenID
+            // 
+            this.CitizenID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CitizenID.DataPropertyName = "CitizenID";
+            this.CitizenID.Frozen = true;
+            this.CitizenID.HeaderText = "Citizen ID";
+            this.CitizenID.MinimumWidth = 6;
+            this.CitizenID.Name = "CitizenID";
+            this.CitizenID.ReadOnly = true;
+            this.CitizenID.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Status.DataPropertyName = "Status";
+            this.Status.FillWeight = 70F;
+            this.Status.Frozen = true;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.Width = 90;
+            // 
             // pnlTeachers_Top
             // 
             this.pnlTeachers_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlTeachers_Top.BorderRadius = 15;
+            this.pnlTeachers_Top.Controls.Add(this.txtSearch);
             this.pnlTeachers_Top.Controls.Add(this.guna2Panel1);
             this.pnlTeachers_Top.Controls.Add(this.cboStatus_Filter);
-            this.pnlTeachers_Top.Controls.Add(this.txtSearch);
             this.pnlTeachers_Top.Controls.Add(this.pnlSpace8);
             this.pnlTeachers_Top.Controls.Add(this.pnlSpace7);
             this.pnlTeachers_Top.Controls.Add(this.lblTeachers);
@@ -314,9 +375,47 @@
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(295, 38);
+            this.txtSearch.Size = new System.Drawing.Size(172, 38);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            this.guna2Panel1.Location = new System.Drawing.Point(292, 12);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(10, 38);
+            this.guna2Panel1.TabIndex = 36;
+            // 
+            // cboStatus_Filter
+            // 
+            this.cboStatus_Filter.BackColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.BorderRadius = 5;
+            this.cboStatus_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboStatus_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboStatus_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus_Filter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cboStatus_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboStatus_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboStatus_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboStatus_Filter.ItemHeight = 30;
+            this.cboStatus_Filter.Items.AddRange(new object[] {
+            "Status",
+            "Active",
+            "Inactive"});
+            this.cboStatus_Filter.Location = new System.Drawing.Point(302, 12);
+            this.cboStatus_Filter.Name = "cboStatus_Filter";
+            this.cboStatus_Filter.Size = new System.Drawing.Size(113, 36);
+            this.cboStatus_Filter.StartIndex = 1;
+            this.cboStatus_Filter.TabIndex = 37;
+            this.cboStatus_Filter.SelectedIndexChanged += new System.EventHandler(this.cboStatus_Filter_SelectedIndexChanged);
             // 
             // pnlSpace8
             // 
@@ -604,6 +703,62 @@
             this.pnlSpace13.Name = "pnlSpace13";
             this.pnlSpace13.Size = new System.Drawing.Size(19, 35);
             this.pnlSpace13.TabIndex = 10;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 367);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(471, 10);
+            this.guna2Panel3.TabIndex = 131;
+            // 
+            // pnlStates
+            // 
+            this.pnlStates.Controls.Add(this.cboStates);
+            this.pnlStates.Controls.Add(this.label2);
+            this.pnlStates.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlStates.FillColor = System.Drawing.Color.White;
+            this.pnlStates.Location = new System.Drawing.Point(0, 331);
+            this.pnlStates.Name = "pnlStates";
+            this.pnlStates.Size = new System.Drawing.Size(471, 36);
+            this.pnlStates.TabIndex = 130;
+            // 
+            // cboStates
+            // 
+            this.cboStates.BackColor = System.Drawing.Color.White;
+            this.cboStates.BorderRadius = 5;
+            this.cboStates.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboStates.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboStates.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboStates.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboStates.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboStates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStates.Enabled = false;
+            this.cboStates.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStates.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStates.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboStates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStates.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboStates.ItemHeight = 30;
+            this.cboStates.Location = new System.Drawing.Point(108, 0);
+            this.cboStates.Name = "cboStates";
+            this.cboStates.Size = new System.Drawing.Size(363, 36);
+            this.cboStates.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 36);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "     Status: ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSpace23
             // 
@@ -1287,6 +1442,18 @@
             this.pnlSpace9.Size = new System.Drawing.Size(19, 50);
             this.pnlSpace9.TabIndex = 18;
             // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BorderRadius = 15;
+            this.guna2Panel4.CustomizableEdges.TopLeft = false;
+            this.guna2Panel4.CustomizableEdges.TopRight = false;
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
+            this.guna2Panel4.Location = new System.Drawing.Point(0, 700);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(490, 15);
+            this.guna2Panel4.TabIndex = 109;
+            // 
             // toolTip
             // 
             this.toolTip.AllowLinksHandling = true;
@@ -1299,173 +1466,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(292, 12);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(10, 38);
-            this.guna2Panel1.TabIndex = 36;
-            // 
-            // cboStatus_Filter
-            // 
-            this.cboStatus_Filter.BackColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.BorderRadius = 5;
-            this.cboStatus_Filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboStatus_Filter.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboStatus_Filter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus_Filter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cboStatus_Filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboStatus_Filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus_Filter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus_Filter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus_Filter.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboStatus_Filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus_Filter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboStatus_Filter.ItemHeight = 30;
-            this.cboStatus_Filter.Items.AddRange(new object[] {
-            "Status",
-            "Active",
-            "Inactive"});
-            this.cboStatus_Filter.Location = new System.Drawing.Point(302, 12);
-            this.cboStatus_Filter.Name = "cboStatus_Filter";
-            this.cboStatus_Filter.Size = new System.Drawing.Size(113, 36);
-            this.cboStatus_Filter.StartIndex = 1;
-            this.cboStatus_Filter.TabIndex = 37;
-            this.cboStatus_Filter.SelectedIndexChanged += new System.EventHandler(this.cboStatus_Filter_SelectedIndexChanged);
-            // 
-            // TeacherID
-            // 
-            this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TeacherID.DataPropertyName = "Space";
-            this.TeacherID.Frozen = true;
-            this.TeacherID.HeaderText = "";
-            this.TeacherID.MinimumWidth = 6;
-            this.TeacherID.Name = "TeacherID";
-            this.TeacherID.ReadOnly = true;
-            this.TeacherID.Width = 18;
-            // 
-            // FullName
-            // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FullName.DataPropertyName = "FullName";
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullName.DefaultCellStyle = dataGridViewCellStyle27;
-            this.FullName.FillWeight = 53.63456F;
-            this.FullName.Frozen = true;
-            this.FullName.HeaderText = "Name";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            this.FullName.Width = 180;
-            // 
-            // CitizenID
-            // 
-            this.CitizenID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CitizenID.DataPropertyName = "CitizenID";
-            this.CitizenID.Frozen = true;
-            this.CitizenID.HeaderText = "Citizen ID";
-            this.CitizenID.MinimumWidth = 6;
-            this.CitizenID.Name = "CitizenID";
-            this.CitizenID.ReadOnly = true;
-            this.CitizenID.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Status.DataPropertyName = "Status";
-            this.Status.FillWeight = 70F;
-            this.Status.Frozen = true;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.Width = 90;
-            // 
-            // pnlStates
-            // 
-            this.pnlStates.Controls.Add(this.cboStates);
-            this.pnlStates.Controls.Add(this.label2);
-            this.pnlStates.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlStates.FillColor = System.Drawing.Color.White;
-            this.pnlStates.Location = new System.Drawing.Point(0, 331);
-            this.pnlStates.Name = "pnlStates";
-            this.pnlStates.Size = new System.Drawing.Size(471, 36);
-            this.pnlStates.TabIndex = 130;
-            // 
-            // cboStates
-            // 
-            this.cboStates.BackColor = System.Drawing.Color.White;
-            this.cboStates.BorderRadius = 5;
-            this.cboStates.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboStates.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboStates.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboStates.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboStates.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboStates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStates.Enabled = false;
-            this.cboStates.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStates.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStates.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboStates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStates.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboStates.ItemHeight = 30;
-            this.cboStates.Location = new System.Drawing.Point(108, 0);
-            this.cboStates.Name = "cboStates";
-            this.cboStates.Size = new System.Drawing.Size(363, 36);
-            this.cboStates.TabIndex = 29;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 36);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "     Status: ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 367);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(471, 10);
-            this.guna2Panel3.TabIndex = 131;
-            // 
-            // pnlSpace25
-            // 
-            this.pnlSpace25.BorderRadius = 15;
-            this.pnlSpace25.CustomizableEdges.TopLeft = false;
-            this.pnlSpace25.CustomizableEdges.TopRight = false;
-            this.pnlSpace25.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace25.FillColor = System.Drawing.Color.White;
-            this.pnlSpace25.Location = new System.Drawing.Point(0, 700);
-            this.pnlSpace25.Name = "pnlSpace25";
-            this.pnlSpace25.Size = new System.Drawing.Size(430, 15);
-            this.pnlSpace25.TabIndex = 108;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.CustomizableEdges.TopLeft = false;
-            this.guna2Panel4.CustomizableEdges.TopRight = false;
-            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(0, 700);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(490, 15);
-            this.guna2Panel4.TabIndex = 109;
             // 
             // TeachersForm
             // 
@@ -1490,6 +1490,7 @@
             this.pnlButtonSMS_Mail.ResumeLayout(false);
             this.pnlBasicDetails.ResumeLayout(false);
             this.pnlButtonEdit_Delete.ResumeLayout(false);
+            this.pnlStates.ResumeLayout(false);
             this.pnlLicense_Graduated.ResumeLayout(false);
             this.pnlCitizenId.ResumeLayout(false);
             this.pnlAddress.ResumeLayout(false);
@@ -1497,7 +1498,6 @@
             this.pnlPhone_Email.ResumeLayout(false);
             this.pnlTeacherName.ResumeLayout(false);
             this.pnlTeacherDetails_Top.ResumeLayout(false);
-            this.pnlStates.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -40,6 +40,7 @@ namespace GUI.Validators
             if (!IsRequiredFieldFilled(txt.Text))
             {
                 FormHelper.ShowToolTip(txt, toolTip, $"Please enter {txt.Tag}");
+                txt.Focus();
                 return false;
             }
             return true;

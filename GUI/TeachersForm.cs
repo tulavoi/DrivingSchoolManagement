@@ -279,14 +279,22 @@ namespace GUI
         {
             FormHelper.ClearDataGridViewRow(dgvTeachers);
 
-            if (cboStatus_Filter.SelectedIndex < 1)
-                this.LoadAllTeachers();
-            else
+            if (FormHelper.HasSelectedItem(cboStatus_Filter))
             {
                 string status = cboStatus_Filter.Text;
                 TeacherService.FilterTeachersByStatus(dgvTeachers, status);
                 this.UpdateControlsWithSelectedRowData();
             }
+            else
+                this.LoadAllTeachers();
+            //if (cboStatus_Filter.SelectedIndex < 1)
+            //    this.LoadAllTeachers();
+            //else
+            //{
+            //    string status = cboStatus_Filter.Text;
+            //    TeacherService.FilterTeachersByStatus(dgvTeachers, status);
+            //    this.UpdateControlsWithSelectedRowData();
+            //}
         }
     }
 }

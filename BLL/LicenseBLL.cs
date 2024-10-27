@@ -31,6 +31,10 @@ namespace BLL
 
         private void AddTeachersToCombobox(Guna2ComboBox cbo, List<License> licenses)
         {
+            License license = new License();
+            license.LicenseName = "Select License";
+            licenses.Insert(0, license);
+
             cbo.DataSource = licenses;
             cbo.ValueMember = "LicenseID";
             cbo.DisplayMember = "LicenseName";

@@ -42,6 +42,7 @@ namespace BLL
             cbo.ValueMember = "CourseID";
             cbo.DisplayMember = "CourseName";
         }
+
         public void LoadAllCourses(Guna2DataGridView dgv)
         {
             List<Course> courses = CourseDAL.Instance.GetAllCourses();
@@ -60,6 +61,12 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
+        public void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
+        {
+            List<Course> course = CourseDAL.Instance.FilterCoursesByStatus(status);
+            this.AddCoursesToDataGridView(dgv, course);
+        }
+
         private void AddCoursesToDataGridView(Guna2DataGridView dgv, List<Course> courses)
         {
             dgv.Rows.Clear();
@@ -72,7 +79,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Tag = course;
                     dgv.Rows[rowIndex].Cells["CourseName"].Value = course.CourseName;
                     dgv.Rows[rowIndex].Cells["Fee"].Value = course.Fee;
-                    dgv.Rows[rowIndex].Cells["DurationInHours"].Value = course.DurationInHours;
+                    dgv.Rows[rowIndex].Cells["Status"].Value = course.Status.StatusName;
                     dgv.Rows[rowIndex].Cells["LicenseType"].Value = course.License.LicenseName;
                 }
             }

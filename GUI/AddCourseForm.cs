@@ -74,7 +74,7 @@ namespace GUI
             {
                 CourseName = txtName.Text,
                 LicenseID = licenseID,
-                Fee = Convert.ToDecimal(txtFee.Text),
+                Fee = Convert.ToInt32(txtFee.Text),
                 DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
                 Created_At = DateTime.Now
             };
