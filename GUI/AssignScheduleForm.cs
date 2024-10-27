@@ -2,6 +2,7 @@
 using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
+using Org.BouncyCastle.Cms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace GUI
         #region Properties
         private DateTime _date;
         private string learnerStatus = "Active";
+        private Learner selectedLearner = new Learner();
         #endregion
 
         public AssignScheduleForm(DateTime date)
@@ -34,9 +36,6 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignLearnersToCombobox(cboLearners, learnerStatus); // Hiển thị ra combobox các learner có status Active
-            //ComboboxService.AssignCoursesToCombobox(cboCourses);
-            //ComboboxService.AssignTeachersToCombobox(cboTeachers);
-            //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
         }
 
@@ -71,7 +70,10 @@ namespace GUI
             var result = ScheduleService.AddSchedule(schedule, out errorMessage);
 
             if (result)
+            {
+                CourseService.UpdateHoursStudied(Convert.ToInt32(cboCourses.SelectedValue), 2);
                 FormHelper.ShowNotify("Schedule added successfully.");
+            }
             else
                 this.HandleScheduleAddError(errorMessage);
         }
@@ -108,7 +110,31 @@ namespace GUI
                     return false;
             }
 
+            int learnerAge = this.GetLearnerAge();
+            string license = this.GetLicense();
+            if (!ScheduleValidator.ValidateAgeOfLearner(cboLearners, learnerAge, license, toolTip)) 
+                return false;
+
+            int? learnerCurrLicense = this.selectedLearner.CurrentLicenseID;
+            if (!ScheduleValidator.IsEligibleForLicenseE(cboLearners, learnerCurrLicense, license, toolTip))
+                return false;
+
             return true;
+        }
+
+        private string GetLicense()
+        {
+            string courseName = cboCourses.Text;
+            string[] parts = courseName.Split('-');
+            return parts[0];
+        }
+
+        private int GetLearnerAge()
+        {
+            int age = DateTime.Now.Year - this.selectedLearner.DateOfBirth.Value.Year;
+            if (DateTime.Now.Date < this.selectedLearner.DateOfBirth.Value.AddYears(age))
+                age--;
+            return age;
         }
 
         private void cboLearners_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,7 +146,7 @@ namespace GUI
             }
             cboCourses.Enabled = true;
             int learnerID = Convert.ToInt32(cboLearners.SelectedValue.ToString());
-
+            this.selectedLearner = LearnerService.GetLearner(learnerID);
             ComboboxService.AssignCoursesToCombobox(cboCourses, learnerID);
         }
 
@@ -145,7 +171,6 @@ namespace GUI
             }
             cboTeachers.Enabled = true;
             int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-
             ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
         }
 
@@ -158,7 +183,6 @@ namespace GUI
             }
             cboVehicles.Enabled = true;
             int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-
             ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
         }
 

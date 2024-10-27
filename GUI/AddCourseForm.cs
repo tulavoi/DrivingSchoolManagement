@@ -3,6 +3,7 @@ using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -19,17 +20,12 @@ namespace GUI
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
             shadowForm.SetShadowForm(this);
-            LoadComboboxes();
-
+            //this.LoadComboboxes();
         }
 
         private void LoadComboboxes()
         {
             ComboboxService.AssignLicensesToCombobox(cboLicense);
-            var licenses = new List<string> { "B", "C", "D", "E" };
-
-            // Gán DataSource cho combobox
-            cboLicense.DataSource = licenses;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -42,44 +38,47 @@ namespace GUI
             if (!this.ValidateFields()) return;
 
             Course course = this.GetCourse();
-            if (CourseService.AddCourse(course))
-                FormHelper.ShowNotify("Course added successfully.");
-            else
-                FormHelper.ShowError("Failed to add course.");
+            var result = CourseService.AddCourse(course);
+            FormHelper.ShowActionResult(result, "Course added successfully.", "Failed to add course.");
         }
 
         private Course GetCourse()
+        {
+            return new Course
+            {
+                CourseName = txtName.Text,
+                LicenseID = this.GetLicenseID(),
+                Fee = Convert.ToInt32(txtFee.Text),
+                DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
+                StatusID = Constant.StatusID_Active,
+                HoursStudied = 0,
+                Created_At = DateTime.Now
+            };
+        }
+
+        private int? GetLicenseID()
         {
             int licenseID;
             switch (cboLicense.Text)
             {
                 case "B":
-                    licenseID = 1001;
+                    licenseID = Constant.LicenseID_B;
                     break;
                 case "C":
-                    licenseID = 1002;
+                    licenseID = Constant.LicenseID_C;
                     break;
                 case "D":
-                    licenseID = 1003;
+                    licenseID = Constant.LicenseID_D;
                     break;
                 case "E":
-                    licenseID = 1004;
+                    licenseID = Constant.LicenseID_E;
                     break;
                 default:
-                    licenseID = 0; // Hoặc xử lý trường hợp không hợp lệ
+                    licenseID = Constant.LicenseID_None;
                     break;
             }
-
-            return new Course
-            {
-                CourseName = txtName.Text,
-                LicenseID = licenseID,
-                Fee = Convert.ToInt32(txtFee.Text),
-                DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
-                Created_At = DateTime.Now
-            };
+            return licenseID;
         }
-
 
         private bool ValidateFields()
         {
@@ -99,10 +98,8 @@ namespace GUI
 
         private void cboLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Kiểm tra xem có lựa chọn nào không
-            if (cboLicense.SelectedItem == null) return;
-
-            LoadCourseDetails(); // Gọi hàm để load thông tin khóa học
+            if (!FormHelper.HasSelectedItem(cboLicense)) return;
+            LoadCourseDetails();
         }
 
         private void LoadCourseDetails()
@@ -110,39 +107,40 @@ namespace GUI
             // Giá tiền cho từng loại bằng
             int price = 0;
             string prefix = string.Empty;
+            string hours = string.Empty;
 
             // Thiết lập giá và prefix dựa vào lựa chọn của người dùng
-            switch (cboLicense.SelectedItem.ToString())
+            switch (cboLicense.Text)
             {
                 case "B":
-                    price = 500000; // Giá cho bằng B
+                    price = Constant.Tuition_B;
                     prefix = "B-";
+                    hours = Constant.DurationHours_B.ToString();
                     break;
                 case "C":
-                    price = 600000; // Giá cho bằng C
+                    price = Constant.Tuition_C;
                     prefix = "C-";
+                    hours = Constant.DurationHours_C.ToString();
                     break;
                 case "D":
-                    price = 700000; // Giá cho bằng D
+                    price = Constant.Tuition_D;
                     prefix = "D-";
+                    hours = Constant.DurationHours_D.ToString();
                     break;
                 case "E":
-                    price = 800000; // Giá cho bằng E
+                    price = Constant.Tuition_E;
                     prefix = "E-";
+                    hours = Constant.DurationHours_E.ToString();
                     break;
                 default:
                     break;
             }
 
-            // Cập nhật giá tiền vào txtFee
             txtFee.Text = price.ToString();
+            txtDurationInHours.Text = hours.ToString();
 
-            // Sinh số ngẫu nhiên cho phần sau của tên
-            Random random = new Random();
-            int randomNumber = random.Next(1000, 9000); // Sinh số ngẫu nhiên từ 1 đến 99
-            DateTime now = DateTime.Now;
             // Cập nhật tên tự sinh vào txtName
-            txtName.Text = $"{prefix}{now:yyyyMMddHHmmss}"; 
+            txtName.Text = $"{prefix}{DateTime.Now.ToString("yyMMddhhmmss")}"; 
         }
     }
 }

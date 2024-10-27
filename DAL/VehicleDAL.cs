@@ -17,6 +17,11 @@ namespace DAL
                 return instance;
             }
         }
+
+        private int licenseID_B = 1002;
+        private int licenseID_C = 1003;
+        private int licenseID_D = 1004;
+        private int licenseID_E = 1005;
         #endregion
 
         #region All Vehicles
@@ -171,7 +176,7 @@ namespace DAL
         #region Delete
         public bool DeleteVehicle(int vehicleID)
         {
-            return DeleteData(v => v.VehicleID == vehicleID); // Điều kiện tìm vehicle theo ID
+            return UpdateStatus(v => v.VehicleID == vehicleID, 1002); // Điều kiện tìm vehicle theo ID
         }
         #endregion
 
@@ -187,10 +192,10 @@ namespace DAL
                 var vehicles = db.Vehicles
                     .Where(v => v.IsMaintenance == false)
                     .Where(v =>
-                        (licenseId == 1001 && v.IsPassengerCar == true && v.Seats <= 9) ||                      // B
-                        (licenseId == 1002 && v.IsTruck == true && v.Weight >= 3500) ||                         // C
-                        (licenseId == 1003 && v.IsPassengerCar == true && v.Seats >= 10 && v.Seats <= 30) ||    // D
-                        (licenseId == 1004 && v.IsPassengerCar == true && v.Seats > 30)                         // E
+                        (licenseId == licenseID_B && v.IsPassengerCar == true && v.Seats <= 9) ||                      // B
+                        (licenseId == licenseID_C && v.IsTruck == true && v.Weight >= 3500) ||                         // C
+                        (licenseId == licenseID_D && v.IsPassengerCar == true && v.Seats >= 10 && v.Seats <= 30) ||    // D
+                        (licenseId == licenseID_E && v.IsPassengerCar == true && v.Seats > 30)                         // E
                     )
                     .ToList();
 

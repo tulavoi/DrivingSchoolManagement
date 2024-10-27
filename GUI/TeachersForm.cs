@@ -200,7 +200,7 @@ namespace GUI
         private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddTeacherForm());
-            this.LoadAllTeachers();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e)

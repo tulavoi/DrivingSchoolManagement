@@ -99,5 +99,15 @@ namespace BLL
         {
             return CourseDAL.Instance.DeleteCourse(courseID);
         }
+
+        public Course GetCourse(int courseID)
+        {
+            return CourseDAL.Instance.GetCourse(courseID);
+        }
+
+        public void UpdateHoursStudied(int courseID, int hours)
+        {
+            CourseDAL.Instance.UpdateHoursStudied(courseID, hours);
+        }
     }
 }

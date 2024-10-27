@@ -1,7 +1,9 @@
-﻿using BLL.Services;
+﻿using BLL;
+using BLL.Services;
 using DAL;
 using GUI.Validators;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GUI
@@ -55,11 +57,44 @@ namespace GUI
             string courseID = "ID: " + course.CourseID.ToString();
             FormHelper.SetLabelID(lblCourseID, courseID);
 
+            int? durationHours = course.DurationInHours;
+            int? hoursStudied = course.HoursStudied;
+
             txtCourseName.Text = course.CourseName;
             cboLicenses.SelectedValue = course.LicenseID;
             txtFee.Text = course.Fee.ToString();
-            txtDurationInHours.Text = course.DurationInHours.ToString();
+            txtDurationInHours.Text = durationHours.ToString();
             cboStates.Text = course.Status.StatusName;
+            this.SetLearnerName(course.CourseID);
+            txtHoursStudied.Text = hoursStudied.ToString();
+
+            if (hoursStudied == durationHours)
+            {
+                lblCompleteCourse.Text = "Complete";
+                lblCompleteCourse.ForeColor = Color.FromArgb(90, 211, 116);
+
+                if (string.IsNullOrEmpty(txtLearner.Tag.ToString())) return;
+                int learnerID = Convert.ToInt32(txtLearner.Tag.ToString());
+                LearnerService.UpdateLicense(learnerID, FormHelper.GetObjectID(lblCourseID.Text));
+            }
+            else
+            {
+                lblCompleteCourse.Text = "Incomplete";
+                lblCompleteCourse.ForeColor = Color.FromArgb(253, 100, 119);
+            }
+        }
+
+        private void SetLearnerName(int courseID)
+        {
+            Schedule schedule = ScheduleBLL.Instance.GetLearnerByCourseID(courseID);
+            if (schedule == null)
+            {
+                txtLearner.Text = string.Empty;
+                txtLearner.Tag = string.Empty;
+                return;
+            }
+            txtLearner.Text = schedule.Learner.FullName;
+            txtLearner.Tag = schedule.Learner.LearnerID;
         }
 
         private Course GetSelectedCourse()
@@ -129,7 +164,7 @@ namespace GUI
 
         private void ToggleEditMode()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFee, txtDurationInHours, cboLicenses, cboStates);
+            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboLicenses, cboStates);
         }
 
         private bool InSaveMode()
@@ -146,7 +181,7 @@ namespace GUI
         private void btnOpenAddCourseForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddCourseForm());
-            this.LoadAllCourses();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void btnDeleteCourse_Click(object sender, EventArgs e)
@@ -198,6 +233,28 @@ namespace GUI
             string courseName = txtCourseName.Text;
             string[] parts = courseName.Split('-');
             txtCourseName.Text = $"{licenseName}-{parts[1]}";
+
+            if (licenseName == "B")
+            {
+                txtFee.Text = Constant.Tuition_B.ToString();
+                txtDurationInHours.Text = Constant.DurationHours_B.ToString();
+            }
+            if (licenseName == "C")
+            {
+                txtFee.Text = Constant.Tuition_C.ToString();
+                txtDurationInHours.Text = Constant.DurationHours_C.ToString();
+            }
+            if (licenseName == "D")
+            {
+                txtFee.Text = Constant.Tuition_D.ToString();
+                txtDurationInHours.Text = Constant.DurationHours_D.ToString();
+            }
+                
+            if (licenseName == "E")
+            {
+                txtFee.Text = Constant.Tuition_E.ToString();
+                txtDurationInHours.Text = Constant.DurationHours_E.ToString();
+            }
         }
 
         private void numeric_KeyPress(object sender, KeyPressEventArgs e)

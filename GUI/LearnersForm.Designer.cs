@@ -60,6 +60,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlAddress = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboLicenses = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblAddress_Title = new System.Windows.Forms.Label();
             this.pnlSpace18 = new Guna.UI2.WinForms.Guna2Panel();
@@ -492,6 +494,8 @@
             // 
             // pnlAddress
             // 
+            this.pnlAddress.Controls.Add(this.cboLicenses);
+            this.pnlAddress.Controls.Add(this.label3);
             this.pnlAddress.Controls.Add(this.txtAddress);
             this.pnlAddress.Controls.Add(this.lblAddress_Title);
             this.pnlAddress.Dock = System.Windows.Forms.DockStyle.Top;
@@ -500,6 +504,42 @@
             this.pnlAddress.Name = "pnlAddress";
             this.pnlAddress.Size = new System.Drawing.Size(471, 36);
             this.pnlAddress.TabIndex = 99;
+            // 
+            // cboLicenses
+            // 
+            this.cboLicenses.BackColor = System.Drawing.Color.White;
+            this.cboLicenses.BorderRadius = 5;
+            this.cboLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboLicenses.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboLicenses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLicenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLicenses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboLicenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboLicenses.ItemHeight = 30;
+            this.cboLicenses.Location = new System.Drawing.Point(356, 0);
+            this.cboLicenses.Name = "cboLicenses";
+            this.cboLicenses.Size = new System.Drawing.Size(115, 36);
+            this.cboLicenses.TabIndex = 29;
+            this.cboLicenses.Tag = "License";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label3.Location = new System.Drawing.Point(266, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 36);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "  License: ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtAddress
             // 
@@ -511,7 +551,7 @@
             this.txtAddress.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtAddress.Enabled = false;
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
@@ -523,7 +563,7 @@
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(363, 36);
+            this.txtAddress.Size = new System.Drawing.Size(158, 36);
             this.txtAddress.TabIndex = 24;
             this.txtAddress.Tag = "Address";
             // 
@@ -1464,5 +1504,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlStates;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLicenses;
     }
 }

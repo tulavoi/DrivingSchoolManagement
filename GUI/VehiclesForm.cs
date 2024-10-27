@@ -229,13 +229,9 @@ namespace GUI
             if (this.ConfirmAction($"Are you sure to delete vehicle '{txtCarName.Text}'?"))
             {
                 int vehicleID = FormHelper.GetObjectID(lblVehicleID.Text);
-                if (VehicleService.DeleteVehicle(Convert.ToInt32(vehicleID)))
-                {
-                    FormHelper.ShowNotify("Vehicle deleted successfully.");
-                    this.LoadAllVehicles();
-                }
-                else
-                    FormHelper.ShowError("Failed to delete vehicle.");
+                var result = VehicleService.DeleteVehicle(Convert.ToInt32(vehicleID));
+                FormHelper.ShowActionResult(result, "Vehicle deleted successfully.", "Failed to delete vehicle.");
+                this.LoadAllVehicles();
             }
         }
 
@@ -249,7 +245,7 @@ namespace GUI
         private void btnOpenAddVehicleForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddVehicleForm());
-            this.LoadAllVehicles();
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
         private void chkTruck_CheckedChanged(object sender, EventArgs e)

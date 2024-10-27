@@ -87,8 +87,8 @@
       <Association Name="Status_Learner" Member="Learners" ThisKey="StatusID" OtherKey="StatusID" Type="Learner" />
       <Association Name="Status_Schedule" Member="Schedules" ThisKey="StatusID" OtherKey="StatusID" Type="Schedule" />
       <Association Name="Status_Teacher" Member="Teachers" ThisKey="StatusID" OtherKey="StatusID" Type="Teacher" />
-      <Association Name="Status_Course" Member="Courses" ThisKey="StatusID" OtherKey="StatusID" Type="Course" />
       <Association Name="Status_Invoice" Member="Invoices" ThisKey="StatusID" OtherKey="StatusID" Type="Invoice" />
+      <Association Name="Status_Course" Member="Courses" ThisKey="StatusID" OtherKey="StatusID" Type="Course" />
     </Type>
   </Table>
   <Table Name="dbo.Teachers" Member="Teachers">
@@ -123,21 +123,6 @@
       <Association Name="License_Course" Member="Courses" ThisKey="LicenseID" OtherKey="LicenseID" Type="Course" />
     </Type>
   </Table>
-  <Table Name="dbo.Courses" Member="Courses">
-    <Type Name="Course">
-      <Column Name="CourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CourseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="LicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Fee" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DurationInHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Course_Schedule" Member="Schedules" ThisKey="CourseID" OtherKey="CourseID" Type="Schedule" />
-      <Association Name="License_Course" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
-      <Association Name="Status_Course" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Payments" Member="Payments">
     <Type Name="Payment">
       <Column Name="PaymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -164,6 +149,22 @@
       <Association Name="Invoice_Payment" Member="Payments" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Payment" />
       <Association Name="Schedule_Invoice" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
       <Association Name="Status_Invoice" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Courses" Member="Courses">
+    <Type Name="Course">
+      <Column Name="CourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DurationInHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoursStudied" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Course_Schedule" Member="Schedules" ThisKey="CourseID" OtherKey="CourseID" Type="Schedule" />
+      <Association Name="License_Course" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
+      <Association Name="Status_Course" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

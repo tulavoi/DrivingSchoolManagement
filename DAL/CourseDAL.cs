@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -38,6 +37,7 @@ namespace DAL
                                status.StatusName,
                                course.Fee,
                                course.DurationInHours,
+                               course.HoursStudied,
                                course.Created_At,
                                course.Updated_At
                            };
@@ -71,6 +71,7 @@ namespace DAL
                                status.StatusName,
                                course.Fee,
                                course.DurationInHours,
+                               course.HoursStudied,
                                course.Created_At,
                                course.Updated_At
                            };
@@ -101,6 +102,7 @@ namespace DAL
                                license.LicenseName,
                                course.Fee,
                                course.DurationInHours,
+                               course.HoursStudied,
                                course.Created_At,
                                course.Updated_At
                            };
@@ -147,22 +149,64 @@ namespace DAL
         #region Load Courses by Learner
         public List<Course> GetCoursesForLearner(int learnerId)
         {
-            var allCourses = CourseDAL.Instance.GetAllCourses();
+            // Lấy ra khóa học mà learner đã tham gia
+            var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
+            if (scheduledCourses.Any()) return scheduledCourses;
 
-            // Lấy danh sách khóa học mà học viên đã tham gia
-            var schedules = ScheduleDAL.Instance.GetSchedulesByLearnerId(learnerId);
-            var learnerCourses = schedules
-                                .Join(allCourses, sche => sche.CourseID, course => course.CourseID, (sche, c) => c)
-                                .Where(course => course.StatusID == 1001)
-                                .Distinct()
-                                .ToList();
+            // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
+            var courses = this.GetLearnerCourses(learnerId);
+            if (courses == null) return new List<Course>();
+            return courses;
+        }
 
-            // Nếu learner đã tham gia khóa học, trả về danh sách đó
-            if (learnerCourses.Any())
-                return learnerCourses;
+        private List<Course> GetScheduledCoursesForLearner(int learnerId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var course = from c in db.Courses
+                             join sche in db.Schedules on c.CourseID equals sche.CourseID
+                             where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
+                             select c;
+                if (course == null) return null;
+                return course.ToList();
+            }
+        }
 
-            // Nếu chưa tham gia khóa học nào, trả về toàn bộ khóa học
-            return allCourses;
+        private List<Course> GetLearnerCourses(int learnerId)
+        {
+            var learner = LearnerDAL.Instance.GetLearner(learnerId);
+
+            if (learner.CurrentLicenseID == 1005)
+                return null;
+
+            // Lấy các khóa học chưa hoàn thành
+            var incompleteCourses = this.GetIncompleteCourses();
+
+            List<Course> availableCourses = new List<Course>();
+
+            foreach (var course in incompleteCourses)
+            {
+                if (learner.CurrentLicenseID < course.LicenseID)
+                    availableCourses.Add(course);
+            }
+
+            return availableCourses;
+        }
+        #endregion
+
+        #region Lấy các khóa học chưa hoàn thành
+        private List<Course> GetIncompleteCourses()
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
+
+                // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
+                return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
+                                            && !scheduledCourses.Contains(c.CourseID)
+                                            && c.StatusID == 1001)
+                                        .OrderBy(c => c.CourseName).ToList();
+            }
         }
         #endregion
 
@@ -184,9 +228,35 @@ namespace DAL
                 },
                 Fee = item.Fee,
                 DurationInHours = item.DurationInHours,
+                HoursStudied = item.HoursStudied,
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };
         }
+
+        #region Get course by id
+        public Course GetCourse(int courseID)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+                if (course == null) return null;
+                return course;
+            }
+        }
+        #endregion
+
+        #region Update hours studied
+        public void UpdateHoursStudied(int courseID, int hours)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+                if (course == null) return;
+                course.HoursStudied += hours;
+                db.SubmitChanges();
+            }
+        }
+        #endregion
     }
 }

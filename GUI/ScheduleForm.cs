@@ -65,7 +65,7 @@ namespace GUI
 
             FormHelper.SetLabelID(lblScheduleID, scheduleID);
 
-            string vehicleNameNumber = schedule.Vehicle.VehicleName + " -- " + schedule.Vehicle.VehicleNumber;
+            string vehicleNameNumber = $"{schedule.Vehicle.VehicleName}              {schedule.Vehicle.VehicleNumber}";
 
             cboLearners.Text = schedule.Learner.FullName;
 			cboTeachers.Text = schedule.Teacher.FullName;
@@ -212,7 +212,13 @@ namespace GUI
             {
                 int scheduleID = FormHelper.GetObjectID(lblScheduleID.Text);
                 var result = ScheduleService.DeleteSchedule(scheduleID);
-                FormHelper.ShowActionResult(result, "Schedule deleted successfully.", "Failed to delete schedule.");
+                if (result)
+                {
+                    CourseService.UpdateHoursStudied(Convert.ToInt32(cboCourses.SelectedValue), -2);
+                    FormHelper.ShowNotify("Schedule deleted successfully.");
+                }
+                else
+                    FormHelper.ShowError("Failed to delete schedule.");
                 this.LoadAllSchedules();
             }
         }

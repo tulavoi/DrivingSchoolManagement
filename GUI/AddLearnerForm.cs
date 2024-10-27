@@ -12,32 +12,34 @@ namespace GUI
         public AddLearnerForm()
         {
             InitializeComponent();
-            FormHelper.ApplyRoundedCorners(this, 20); // Áp dụng góc bo tròn cho form
+            FormHelper.ApplyRoundedCorners(this, 20);
         }
 
         private void AddLearnerForm_Load(object sender, EventArgs e)
         {
-            shadowAddLearnerForm.SetShadowForm(this); // Đặt bóng cho form
+            shadowAddLearnerForm.SetShadowForm(this); 
+            this.LoadCombobox();
+        }
+
+        private void LoadCombobox()
+        {
+            ComboboxService.AssignLicensesToCombobox(cboLicenses);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (!ValidateFields()) return;
 
-            // Tạo Learner mới
             Learner learner = GetLearner();
 
-            // Gọi service để thêm learner vào database
             if (LearnerService.AddLearner(learner))
                 FormHelper.ShowNotify("Learner added successfully.");
             else
                 FormHelper.ShowError("Failed to add learner.");
         }
-        // Hàm kiểm tra dữ liệu nhập vào
 
         private bool ValidateFields()
         {
-            // Kiểm tra các trường thông tin của học viên
             if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
             if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
@@ -53,7 +55,6 @@ namespace GUI
             return true;
         }
 
-        // Hàm lấy thông tin Learner từ form để lưu vào database
         private Learner GetLearner()
         {
             return new Learner()
@@ -65,15 +66,15 @@ namespace GUI
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
+                CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
                 StatusID = 1001, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
                 Created_At = DateTime.Now
             };
         }
 
-        // Nút hủy bỏ thao tác
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); // Đóng form khi nhấn hủy
+            this.Close();
         }
 
         private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
