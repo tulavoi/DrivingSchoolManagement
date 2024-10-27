@@ -3,6 +3,7 @@ using BLL.Services;
 using DAL;
 using GUI.Validators;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GUI
@@ -56,21 +57,44 @@ namespace GUI
             string courseID = "ID: " + course.CourseID.ToString();
             FormHelper.SetLabelID(lblCourseID, courseID);
 
+            int? durationHours = course.DurationInHours;
+            int? hoursStudied = course.HoursStudied;
+
             txtCourseName.Text = course.CourseName;
             cboLicenses.SelectedValue = course.LicenseID;
             txtFee.Text = course.Fee.ToString();
-            txtDurationInHours.Text = course.DurationInHours.ToString();
+            txtDurationInHours.Text = durationHours.ToString();
             cboStates.Text = course.Status.StatusName;
+            this.SetLearnerName(course.CourseID);
+            txtHoursStudied.Text = hoursStudied.ToString();
 
-            txtLearner.Text = this.GetLearnerName(course.CourseID);
-            txtHoursStudied.Text = course.HoursStudied.ToString();
+            if (hoursStudied == durationHours)
+            {
+                lblCompleteCourse.Text = "Complete";
+                lblCompleteCourse.ForeColor = Color.FromArgb(90, 211, 116);
+
+                if (string.IsNullOrEmpty(txtLearner.Tag.ToString())) return;
+                int learnerID = Convert.ToInt32(txtLearner.Tag.ToString());
+                LearnerService.UpdateLicense(learnerID, FormHelper.GetObjectID(lblCourseID.Text));
+            }
+            else
+            {
+                lblCompleteCourse.Text = "Incomplete";
+                lblCompleteCourse.ForeColor = Color.FromArgb(253, 100, 119);
+            }
         }
 
-        private string GetLearnerName(int courseID)
+        private void SetLearnerName(int courseID)
         {
             Schedule schedule = ScheduleBLL.Instance.GetLearnerByCourseID(courseID);
-            if (schedule == null) return null;
-            return schedule.Learner.FullName;
+            if (schedule == null)
+            {
+                txtLearner.Text = string.Empty;
+                txtLearner.Tag = string.Empty;
+                return;
+            }
+            txtLearner.Text = schedule.Learner.FullName;
+            txtLearner.Tag = schedule.Learner.LearnerID;
         }
 
         private Course GetSelectedCourse()

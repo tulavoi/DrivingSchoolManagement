@@ -48,5 +48,15 @@ namespace BLL.Services
         {
             return CourseBLL.Instance.DeleteCourse(courseID);
         }
+
+        public static Course GetCourse(int courseID)
+        {
+            return CourseBLL.Instance.GetCourse(courseID);
+        }
+
+        public static void UpdateHoursStudied(int courseID, int hours)
+        {
+            CourseBLL.Instance.UpdateHoursStudied(courseID, hours);
+        }
     }
 }

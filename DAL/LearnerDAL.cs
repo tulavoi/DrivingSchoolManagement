@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 
 namespace DAL
@@ -164,7 +165,6 @@ namespace DAL
         }
         #endregion
 
-
         private Learner MapToLearner(dynamic item)
         {
             return new Learner
@@ -192,15 +192,33 @@ namespace DAL
             };
         }
 
-        internal Learner GetLearner(int learnerId)
+        #region Get learner by learner id
+        public Learner GetLearner(int learnerId)
         {
-            using (DrivingSchoolDataContext db = new DrivingSchoolDataContext())
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
             {
                 var learner = db.Learners.Where(l => l.LearnerID == learnerId).FirstOrDefault();
                 if (learner == null) return null;
                 return learner;
             }
         }
-    }
+        #endregion
 
+        #region Update license
+        public void UpdateLicense(int learnerID, int courseID)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var course = CourseDAL.Instance.GetCourse(courseID);
+
+                var learner = db.Learners.Where(l => l.LearnerID == learnerID).FirstOrDefault();
+
+                if (learner == null || course == null) return;
+                if (learner.CurrentLicenseID >= 1005) return; // Nếu như learner này có bằng E thì return
+                learner.CurrentLicenseID = course.LicenseID; // Nâng bằng hiện tại thành bằng của khóa học mà học viênhoàn thành
+                db.SubmitChanges();
+            }
+        }
+        #endregion
+    }
 }

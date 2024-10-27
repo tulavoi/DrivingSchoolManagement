@@ -27,6 +27,16 @@ namespace BLL.Services
             return LearnerBLL.Instance.DeleteLearner(learnerID);
         }
 
+        public static void UpdateLicense(int learnerID, int courseID)
+        {
+            LearnerBLL.Instance.UpdateLicense(learnerID, courseID);
+        }
+
+        public static Learner GetLearner(int learnerID)
+        {
+            return LearnerBLL.Instance.GetLearner(learnerID);
+        }
+
         public static void LoadAllLearners(Guna2DataGridView dgv)
         {
             LearnerBLL.Instance.LoadAllLearners(dgv);

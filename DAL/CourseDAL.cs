@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -151,30 +150,34 @@ namespace DAL
         public List<Course> GetCoursesForLearner(int learnerId)
         {
             // Lấy ra khóa học mà learner đã tham gia
-            //var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
+            var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
+            if (scheduledCourses.Any()) return scheduledCourses;
 
             // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
             var courses = this.GetLearnerCourses(learnerId);
-
-            // Nếu học viên đã tham gia khóa học, trả về danh sách đó
-            if (courses.Any())
-                return courses;
-
-            return this.GetIncompleteCourses();
+            if (courses == null) return new List<Course>();
+            return courses;
         }
 
-        //private Course GetScheduledCoursesForLearner(int learnerId)
-        //{
-        //    var schedules = ScheduleDAL.Instance.GetSchedulesByLearnerId(learnerId);
-            
-        //}
+        private List<Course> GetScheduledCoursesForLearner(int learnerId)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var course = from c in db.Courses
+                             join sche in db.Schedules on c.CourseID equals sche.CourseID
+                             where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
+                             select c;
+                if (course == null) return null;
+                return course.ToList();
+            }
+        }
 
         private List<Course> GetLearnerCourses(int learnerId)
         {
-            // Lấy danh sách các lịch học của học viên
-            //var schedules = ScheduleDAL.Instance.GetSchedulesByLearnerId(learnerId);
-
             var learner = LearnerDAL.Instance.GetLearner(learnerId);
+
+            if (learner.CurrentLicenseID == 1005)
+                return null;
 
             // Lấy các khóa học chưa hoàn thành
             var incompleteCourses = this.GetIncompleteCourses();
@@ -194,18 +197,15 @@ namespace DAL
         #region Lấy các khóa học chưa hoàn thành
         private List<Course> GetIncompleteCourses()
         {
-            using (DrivingSchoolDataContext db = new DrivingSchoolDataContext())
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
             {
                 var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
 
                 // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
-                var courses = db.Courses.Where(c => c.DurationInHours > c.HoursStudied
+                return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
                                             && !scheduledCourses.Contains(c.CourseID)
                                             && c.StatusID == 1001)
-                                        .OrderBy(c => c.CourseName);
-
-                if (courses == null) return null;
-                return courses.ToList();
+                                        .OrderBy(c => c.CourseName).ToList();
             }
         }
         #endregion
@@ -234,6 +234,29 @@ namespace DAL
             };
         }
 
-        
+        #region Get course by id
+        public Course GetCourse(int courseID)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+                if (course == null) return null;
+                return course;
+            }
+        }
+        #endregion
+
+        #region Update hours studied
+        public void UpdateHoursStudied(int courseID, int hours)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+                if (course == null) return;
+                course.HoursStudied += hours;
+                db.SubmitChanges();
+            }
+        }
+        #endregion
     }
 }

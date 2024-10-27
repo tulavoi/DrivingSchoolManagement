@@ -202,13 +202,13 @@ VALUES ('Active'), ('Inactive'), ('Cancelled');
 INSERT INTO Learners (FullName, CurrentLicenseID ,DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, StatusID, Created_At, Updated_At)
 VALUES 
 ('Mai Nguyen Hoang Vu', 1002, '1996-07-22', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 1001, GETDATE(), GETDATE()),
-('Le Nguyen Xuan Duoc', 1003, '1995-05-15', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345678123', 1001, GETDATE(), GETDATE()),
+('Le Nguyen Xuan Duoc', 1002, '1995-05-15', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345678123', 1001, GETDATE(), GETDATE()),
 ('Truong Anh Thanh Cong', 1002, '1998-07-20', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 1001, GETDATE(), GETDATE()),
 ('Nguyen Van A', 1001, '1990-01-01', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 1001, GETDATE(), GETDATE()),
 ('Tran Thi B', 1001, '1992-02-02', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 1002, GETDATE(), GETDATE()),
 ('Le Van C', 1001, '1988-03-03', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 1001, GETDATE(), GETDATE()),
 ('Pham Thi D', 1001, '1993-04-04', 'Female', '0912345682', 'phamthid@gmail.com', '654 MNO Street', '012345678127', 1002, GETDATE(), GETDATE()),
-('Hoang Van E', 1001, '1991-05-05', 'Male', '0912345683', 'hoangvane@gmail.com', '987 PQR Street', '012345678128', 1001, GETDATE(), GETDATE()),
+('Hoang Van E', 1005, '1991-05-05', 'Male', '0912345683', 'hoangvane@gmail.com', '987 PQR Street', '012345678128', 1001, GETDATE(), GETDATE()),
 ('Nguyen Van F', 1004, '1994-06-06', 'Male', '0912345684', 'nguyenvanf@gmail.com', '135 STU Street', '012345678129', 1001, GETDATE(), GETDATE()),
 ('Tran Thi G', 1003, '1989-07-07', 'Female', '0912345685', 'tranthig@gmail.com', '246 VWX Street', '012345678130', 1001, GETDATE(), GETDATE()),
 ('Le Van H', 1002, '1996-08-08', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 1001, GETDATE(), GETDATE()),
@@ -260,8 +260,8 @@ INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, 
 VALUES 
 ('B-090532131024', 1002, 11000000, 588, 0, 1001, GETDATE(), GETDATE()),
 ('B-080756241024', 1002, 11000000, 588, 0, 1001, GETDATE(), GETDATE()),
-('B-080756241027', 1002, 11000000, 588, 588, 1001, GETDATE(), GETDATE()),
-('C-020654131027', 1003, 12000000, 920, 920, 1001, GETDATE(), GETDATE()),
+('B-080756241027', 1002, 11000000, 588, 584, 1001, GETDATE(), GETDATE()),
+('C-020654131027', 1003, 12000000, 920, 0, 1001, GETDATE(), GETDATE()),
 ('C-053354131024', 1003, 12000000, 920, 0, 1001, GETDATE(), GETDATE()),
 ('C-540856241024', 1003, 12000000, 920, 0, 1001, GETDATE(), GETDATE()),
 ('D-091122131024', 1004, 15000000, 192, 0, 1001, GETDATE(), GETDATE()),
@@ -280,7 +280,7 @@ INSERT INTO Schedules (LearnerID, TeacherID, VehicleID, CourseID, SessionID, Ses
 VALUES
 (1001, 1001, 1001, 1001, 1001, '2024-10-15', 1001, GETDATE(), GETDATE()),
 (1002, 1002, 1003, 1002, 1002, '2024-10-20', 1001, GETDATE(), GETDATE()),
-(1003, 1002, 1007, 1003, 1003, '2024-10-25', 1001, GETDATE(), GETDATE());
+(1003, 1002, 1007, 1004, 1003, '2024-10-25', 1001, GETDATE(), GETDATE());
 
 INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 
