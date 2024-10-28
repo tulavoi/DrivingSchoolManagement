@@ -136,6 +136,7 @@ namespace DAL
                                 c.CourseName = course.CourseName;
                                 c.LicenseID = course.LicenseID;
                                 c.Fee = course.Fee;
+                                c.StatusID = course.StatusID;
                                 c.DurationInHours = course.DurationInHours;
                                 c.Updated_At = DateTime.Now;
                             });

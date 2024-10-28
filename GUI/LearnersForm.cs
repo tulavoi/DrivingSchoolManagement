@@ -2,6 +2,7 @@
 using BLL.Services.SendEmail;
 using DAL;
 using GUI.Validators;
+using Org.BouncyCastle.Utilities.Bzip2;
 using System;
 using System.Windows.Forms;
 
@@ -120,6 +121,7 @@ namespace GUI
                 Gender = cboGender.Text,
                 DateOfBirth = dtpDOB.Value,
                 StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
+                CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
                 Updated_At = DateTime.Now,
             };
         }

@@ -148,6 +148,7 @@ namespace GUI
                 CourseName = txtCourseName.Text,
                 LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
                 Fee = Convert.ToInt32(txtFee.Text),
+                StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
                 DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
                 Updated_At = DateTime.Now
             };
