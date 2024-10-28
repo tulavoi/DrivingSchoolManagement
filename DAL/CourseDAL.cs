@@ -93,6 +93,7 @@ namespace DAL
             {
                 var data = from course in db.Courses
                            join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join status in db.Status on course.StatusID equals status.StatusID
                            where course.CourseName.Contains(keyword)
                            select new
                            {
@@ -100,6 +101,8 @@ namespace DAL
                                course.CourseName,
                                course.LicenseID,
                                license.LicenseName,
+                               status.StatusID,
+                               status.StatusName,
                                course.Fee,
                                course.DurationInHours,
                                course.HoursStudied,
