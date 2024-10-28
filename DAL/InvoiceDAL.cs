@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Dynamic;
 using System.Globalization;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.StatusID,
+                               status.StatusID,
                                status.StatusName,
                                invoice.IsPaid,
                                invoice.Created_At,
@@ -84,7 +85,7 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.StatusID,
+                               status.StatusID,
                                status.StatusName,
                                invoice.IsPaid,
                                invoice.Created_At,
@@ -110,12 +111,18 @@ namespace DAL
         {
             using (var db = DataAccess.GetDataContext())
             {
+                bool isPaid = false;
+                if (filterString == "Paid")
+                    isPaid = true;
+                if (filterString == "Pending")
+                    isPaid = false;
+
                 var data = from invoice in db.Invoices
                            join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
                            join learner in db.Learners on sche.LearnerID equals learner.LearnerID
                            join course in db.Courses on sche.CourseID equals course.CourseID
                            join status in db.Status on sche.StatusID equals status.StatusID
-                           //where invoice.IsPaid == filterString
+                           where invoice.IsPaid == isPaid
                            select new
                            {
                                invoice.InvoiceID,
@@ -127,7 +134,7 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
-                               invoice.StatusID,
+                               status.StatusID,
                                status.StatusName,
                                invoice.IsPaid,
                                invoice.Created_At,
@@ -154,6 +161,7 @@ namespace DAL
                                 inv.TotalAmount = invoice.TotalAmount;
                                 inv.Notes = invoice.Notes;
                                 inv.Status = invoice.Status;
+                                inv.IsPaid = invoice.IsPaid;
                                 inv.Updated_At = DateTime.Now;
                             });
         }
@@ -187,6 +195,7 @@ namespace DAL
                         CourseName = item.CourseName,
                     }
                 },
+                IsPaid = item.IsPaid,
                 TotalAmount = item.TotalAmount,
                 Status = new Status
                 {

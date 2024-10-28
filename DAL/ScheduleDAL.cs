@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using static System.Collections.Specialized.BitVector32;
 
@@ -333,6 +334,16 @@ namespace DAL
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };
+        }
+
+        public Schedule GetSchedule(int courseID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var schedule = db.Schedules.Where(sch => sch.CourseID == courseID).FirstOrDefault();
+                if (schedule == null) return null;
+                return schedule;
+            }
         }
     }
 }

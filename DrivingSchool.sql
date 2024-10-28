@@ -284,8 +284,8 @@ VALUES
 
 INSERT INTO Invoices (InvoiceCode, ScheduleID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 
-('INV-092444131024', 1001, 1500.00, 0, 1001, GETDATE(), GETDATE()),
-('INV-093023131024', 1002, 2000.00, 1, 1001, GETDATE(), GETDATE());
+('INV-092444131024', 1001, 11000000, 0, 1001, GETDATE(), GETDATE()),
+('INV-093023131024', 1002, 11000000, 1, 1001, GETDATE(), GETDATE());
 
 INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
 VALUES 

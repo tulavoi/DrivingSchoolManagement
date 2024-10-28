@@ -29,7 +29,7 @@ namespace GUI
 			// Nếu như khởi động form mà chkPassengerCar đang được chọn thì bật txtSeats
 			if (this.chkPassengerCar.Checked) this.txtSeats.Enabled = true;
 
-            FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
+            //FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
 		}
 
 		private void chkPassengerCar_CheckedChanged(object sender, EventArgs e)

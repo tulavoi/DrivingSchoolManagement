@@ -39,5 +39,10 @@ namespace BLL.Services
         {
             ScheduleBLL.Instance.FilterScheduleBySession(dgv, filterString);
         }
+
+        public static Schedule GetSchedule(int courseID)
+        {
+            return ScheduleBLL.Instance.GetSchedule(courseID);
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace GUI
             shadowAddTeacherForm.SetShadowForm(this);
             this.LoadComboboxes();
 
-            FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
+            //FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
         }
 
         private void LoadComboboxes()

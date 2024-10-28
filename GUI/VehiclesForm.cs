@@ -23,7 +23,7 @@ namespace GUI
         public void VehiclesForm_Load(object sender, EventArgs e)
         {
             this.LoadAllVehicles();
-            FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
+            //FormHelper.SetDateTimePickerMaxValue(dtpManuYear);
         }
 
         public void LoadAllVehicles()

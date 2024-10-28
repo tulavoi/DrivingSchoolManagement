@@ -47,7 +47,7 @@ namespace GUI
             this.LoadComboboxes();
             this.LoadAllTeachers();
 
-            FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
+            //FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
 
             cboStatus_Filter_SelectedIndexChanged(sender, e);
         }

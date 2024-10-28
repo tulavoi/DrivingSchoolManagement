@@ -34,7 +34,12 @@ namespace BLL
             List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedules();
             this.AddSchedulesToDataGridView(dgv, schedules);
         }
-        
+
+        public Schedule GetSchedule(int courseID)
+        {
+            return ScheduleDAL.Instance.GetSchedule(courseID);
+        }
+
         public void SearchSchedules(Guna2DataGridView dgv, string keyword)
         {
             List<Schedule> schedules = ScheduleDAL.Instance.SearchSchedules(keyword);

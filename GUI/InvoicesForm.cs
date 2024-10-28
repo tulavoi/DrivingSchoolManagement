@@ -37,7 +37,7 @@ namespace GUI
             this.LoadComboboxes();
             this.LoadAllInvoice();
 
-            FormHelper.SetDateTimePickerMaxValue(dtpInvoiceDate);
+            //FormHelper.SetDateTimePickerMaxValue(dtpInvoiceDate);
         }
 
         private void LoadComboboxes()
@@ -106,11 +106,29 @@ namespace GUI
             return new Invoice
             {
                 InvoiceCode = lblInvoiceCode.Text,
-                //StatusID = cboPaymentStatus.Text,
-                TotalAmount = string.IsNullOrEmpty(txtTotalAmount.Text) ? int.Parse(txtTotalAmount.Text) : 0,
+                StatusID = Constant.StatusID_Active,
+                ScheduleID = this.GetSchedule(),
+                IsPaid = this.GetStatusPayment(),
+                TotalAmount = int.Parse(txtTotalAmount.Text),
                 Notes = txtNotes.Text,
                 Updated_At = DateTime.Now,
             };
+        }
+
+        private int? GetSchedule()
+        {
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+            var schedule = ScheduleService.GetSchedule(courseID);
+            return schedule.ScheduleID;
+        }
+
+        private bool? GetStatusPayment()
+        {
+            if (cboPaymentStatus.Text == "Paid")
+                return true;
+            if (cboPaymentStatus.Text == "Pending")
+                return false;
+            return false;
         }
 
         private void btnOpenAddInvoiceForm_Click(object sender, EventArgs e)
@@ -182,7 +200,10 @@ namespace GUI
             cboCourses.Text = selectedInvoice.Schedule.Course.CourseName;
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
-            cboPaymentStatus.Text = selectedInvoice.Status.ToString();
+            if (selectedInvoice.IsPaid == false)
+                cboPaymentStatus.Text = "Pending";
+            if (selectedInvoice.IsPaid == true)
+                cboPaymentStatus.Text = "Paid";
         }
 
         private void txtTotalAmount_KeyPress(object sender, KeyPressEventArgs e)
