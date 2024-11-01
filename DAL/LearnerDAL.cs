@@ -27,14 +27,10 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            select new
                            {
                                learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
                                learner.FullName,
                                learner.DateOfBirth,
                                learner.Gender,
@@ -63,15 +59,11 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
                            select new
                            {
                                learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
                                learner.FullName,
                                learner.DateOfBirth,
                                learner.Gender,
@@ -100,15 +92,11 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where status.StatusName == statusName
                            select new
                            {
                                learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
                                learner.FullName,
                                learner.DateOfBirth,
                                learner.Gender,
@@ -141,19 +129,18 @@ namespace DAL
         #region Edit
         public bool EditLearner(Learner learner)
         {
-            return EditData(lear => lear.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
-                            lear =>                                             // Action cập nhật các thuộc tính
+            return EditData(l => l.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
+                            l =>                                             // Action cập nhật các thuộc tính
                             {
-                                lear.CurrentLicenseID = learner.CurrentLicenseID;
-                                lear.FullName = learner.FullName;
-                                lear.DateOfBirth = learner.DateOfBirth;
-                                lear.Gender = learner.Gender;
-                                lear.PhoneNumber = learner.PhoneNumber;
-                                lear.Email = learner.Email;
-                                lear.Address = learner.Address;
-                                lear.CitizenID = learner.CitizenID;
-                                lear.StatusID = learner.StatusID;
-                                lear.Updated_At = DateTime.Now;
+                                l.FullName = learner.FullName;
+                                l.DateOfBirth = learner.DateOfBirth;
+                                l.Gender = learner.Gender;
+                                l.PhoneNumber = learner.PhoneNumber;
+                                l.Email = learner.Email;
+                                l.Address = learner.Address;
+                                l.CitizenID = learner.CitizenID;
+                                l.StatusID = learner.StatusID;
+                                l.Updated_At = DateTime.Now;
                             });
         }
         #endregion
@@ -161,7 +148,7 @@ namespace DAL
         #region Delete
         public bool DeleteLearner(int learnerID)
         {
-            return UpdateStatus(lear => lear.LearnerID == learnerID, 1002); // Điều kiện tìm learner theo ID
+            return UpdateStatus(lear => lear.LearnerID == learnerID, 2); // Điều kiện tìm learner theo ID
         }
         #endregion
 
@@ -182,11 +169,6 @@ namespace DAL
                     StatusID = item.StatusID,
                     StatusName = item.StatusName,
                 },
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName,
-                },
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };
@@ -205,20 +187,20 @@ namespace DAL
         #endregion
 
         #region Update license
-        public void UpdateLicense(int learnerID, int courseID)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                var course = CourseDAL.Instance.GetCourse(courseID);
+        //public void UpdateLicense(int learnerID, int courseID)
+        //{
+        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+        //    {
+        //        var course = CourseDAL.Instance.GetCourse(courseID);
 
-                var learner = db.Learners.Where(l => l.LearnerID == learnerID).FirstOrDefault();
+        //        var learner = db.Learners.Where(l => l.LearnerID == learnerID).FirstOrDefault();
 
-                if (learner == null || course == null) return;
-                if (learner.CurrentLicenseID >= 1005) return; // Nếu như learner này có bằng E thì return
-                learner.CurrentLicenseID = course.LicenseID; // Nâng bằng hiện tại thành bằng của khóa học mà học viênhoàn thành
-                db.SubmitChanges();
-            }
-        }
+        //        if (learner == null || course == null) return;
+        //        if (learner.CurrentLicenseID >= 1005) return; // Nếu như learner này có bằng E thì return
+        //        learner.CurrentLicenseID = course.LicenseID; // Nâng bằng hiện tại thành bằng của khóa học mà học viênhoàn thành
+        //        db.SubmitChanges();
+        //    }
+        //}
         #endregion
     }
 }

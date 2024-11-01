@@ -61,7 +61,7 @@ namespace GUI
             return new Invoice()
             {
                 InvoiceCode = this.GetInvoiceCode(),
-                ScheduleID = this.scheduleID,
+                //Enrollment = this.scheduleID,
                 TotalAmount = this.GetTotalAmount(),
                 IsPaid = Constant.DefaultInvoiceStatus,
                 StatusID = Constant.StatusID_Active, // Mặc định là active
@@ -110,7 +110,7 @@ namespace GUI
                 this.ResetControls(cboCourses, txtLearnerName);
                 return;
             }
-            txtLearnerName.Text = schedule.Learner.FullName;
+            //txtLearnerName.Text = schedule.Enrollment.Learner.FullName;
             this.scheduleID = schedule.ScheduleID;
         }
 

@@ -75,6 +75,17 @@ namespace GUI.Validators
             }
             return true;
         }
-    }
+
+		public static bool ValidateLicenseNumber(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
+		{
+			if (txt.Text.Length != 12)
+			{
+				FormHelper.ShowToolTip(txt, toolTip, $"{txt.Tag} must be 12 digits.");
+				txt.Focus();
+				return false;
+			}
+            return true;
+		}
+	}
 
 }

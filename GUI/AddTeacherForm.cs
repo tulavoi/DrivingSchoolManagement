@@ -20,13 +20,11 @@ namespace GUI
         {
             shadowAddTeacherForm.SetShadowForm(this);
             this.LoadComboboxes();
-
-            //FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
         }
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignLicensesToCombobox(cboLicense);
+            ComboboxService.AssignLicensesToCombobox(cboLicenses);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -53,20 +51,22 @@ namespace GUI
                 CitizenID = txtCitizenId.Text,
                 DateOfBirth = dtpDOB.Value,
                 Gender = cboGender.Text,
-                Phone = txtPhone.Text,
+				PhoneNumber = txtPhone.Text,
                 Email = txtEmail.Text,
                 Nationality = cboNationality.Text,
                 Address = txtAddress.Text,
                 EmploymentDate = DateTime.Now,
-                LicenseID = Convert.ToInt32(cboLicense.SelectedValue),
-                GraduatedDate = dtpGraduated.Value,
+                LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
+                LicenseNumber = txtLicenseNumber.Text,
+                BeginningDate = dtpBeginningDate.Value,
+                StatusID = Constant.StatusID_Active,
                 Created_At = DateTime.Now
             };
         }
 
         private bool ValidateFields()
         {
-            string license = cboLicense.Text;
+            string license = cboLicenses.Text;
 
             if (!TeacherValidator.ValidateFullName(txtFullName, toolTip)) return false;
 
@@ -78,7 +78,11 @@ namespace GUI
 
             if (!TeacherValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-            if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpGraduated, license, toolTip)) return false;
+            if (!TeacherValidator.ValidateLicense(cboLicenses, toolTip)) return false;
+
+            if (!TeacherValidator.ValidateLicenseNumber(txtLicenseNumber, toolTip)) return false;
+
+            if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpBeginningDate, license, toolTip)) return false;
 
             return true;
         }
@@ -93,9 +97,9 @@ namespace GUI
             FormHelper.CheckNumericKeyPress(e);
         }
 
-        private void dtpGraduated_ValueChanged(object sender, EventArgs e)
-        {
-            TeachersForm.Instance.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
-        }
-    }
+		private void dtpBeginningDate_ValueChanged(object sender, EventArgs e)
+		{
+			TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
+		}
+	}
 }

@@ -90,10 +90,13 @@ namespace GUI
         {
             return new Schedule
             {
-                LearnerID = Convert.ToInt32(cboLearners.SelectedValue),
+    //            Enrollment = new Enrollment
+    //            {
+				//	LearnerID = Convert.ToInt32(cboLearners.SelectedValue),
+				//	CourseID = Convert.ToInt32(cboCourses.SelectedValue),
+				//},
                 TeacherID = Convert.ToInt32(cboTeachers.SelectedValue),
                 VehicleID = Convert.ToInt32(cboVehicles.SelectedValue),
-                CourseID = Convert.ToInt32(cboCourses.SelectedValue),
                 SessionID = Convert.ToInt32(cboSessions.SelectedValue),
                 SessionDate = DateTime.Parse(lblDateAssign.Text),
                 Created_At = DateTime.Now
@@ -115,9 +118,9 @@ namespace GUI
             if (!ScheduleValidator.ValidateAgeOfLearner(cboLearners, learnerAge, license, toolTip)) 
                 return false;
 
-            int? learnerCurrLicense = this.selectedLearner.CurrentLicenseID;
-            if (!ScheduleValidator.IsEligibleForLicenseE(cboLearners, learnerCurrLicense, license, toolTip))
-                return false;
+            //int? learnerCurrLicense = this.selectedLearner.CurrentLicenseID;
+            //if (!ScheduleValidator.IsEligibleForLicenseE(cboLearners, learnerCurrLicense, license, toolTip))
+            //    return false;
 
             return true;
         }

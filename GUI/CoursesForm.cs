@@ -93,8 +93,8 @@ namespace GUI
                 txtLearner.Tag = string.Empty;
                 return;
             }
-            txtLearner.Text = schedule.Learner.FullName;
-            txtLearner.Tag = schedule.Learner.LearnerID;
+            //txtLearner.Text = schedule.Enrollment.Learner.FullName;
+            //txtLearner.Tag = schedule.Enrollment.Learner.LearnerID;
         }
 
         private Course GetSelectedCourse()

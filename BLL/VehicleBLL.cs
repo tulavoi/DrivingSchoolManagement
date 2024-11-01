@@ -107,7 +107,6 @@ namespace BLL
                     {
                         dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
                     }
-
                 }
             }
         }

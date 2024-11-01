@@ -78,9 +78,9 @@ namespace GUI.Validators
             if (!ValidatorHelper.CheckRequiredAndShowToolTip(txtWeight, toolTip))
                 return false;
 
-            if (Convert.ToInt32(txtWeight.Text) > 4000)
+            if (Convert.ToInt32(txtWeight.Text) > 6000)
             {
-                FormHelper.ShowToolTip(txtWeight, toolTip, $"Invalid {txtWeight.Tag}.");
+                FormHelper.ShowToolTip(txtWeight, toolTip, $"{txtWeight.Tag} must ");
                 return false;
             }
 

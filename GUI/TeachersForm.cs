@@ -1,300 +1,302 @@
-﻿using BLL;
-using BLL.Services;
+﻿using BLL.Services;
 using BLL.Services.SendEmail;
 using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
-using Org.BouncyCastle.Asn1.Cmp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class TeachersForm : Form
-    {
-        #region Properties
-        private static TeachersForm instance;
+	public partial class TeachersForm : Form
+	{
+		#region Properties
+		private static TeachersForm instance;
 
-        public static TeachersForm Instance
-        {
-            get
-            {
-                if (instance == null) instance = new TeachersForm();
-                return instance;
-            }
-        }
+		public static TeachersForm Instance
+		{
+			get
+			{
+				if (instance == null) instance = new TeachersForm();
+				return instance;
+			}
+		}
 
-        private bool isEditing = false;
+		private bool isEditing = false;
 
-        #endregion
+		#endregion
 
-        public TeachersForm()
-        {
-            InitializeComponent();
-            FormHelper.ApplyRoundedCorners(this, 20);
-        }
+		public TeachersForm()
+		{
+			InitializeComponent();
+			FormHelper.ApplyRoundedCorners(this, 20);
+		}
 
-        private void TeachersForm_Load(object sender, EventArgs e)
-        {
-            this.LoadComboboxes();
-            this.LoadAllTeachers();
+		private void TeachersForm_Load(object sender, EventArgs e)
+		{
+			this.LoadComboboxes();
+			this.LoadAllTeachers();
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+			FormHelper.SetDateTimePickerMaxValue(dtpBeginningDate, dtpDOB);
+		}
 
-            //FormHelper.SetDateTimePickerMaxValue(dtpDOB, dtpGraduated);
+		private void LoadAllTeachers()
+		{
+			TeacherService.LoadAllTeachers(dgvTeachers);
+			this.UpdateControlsWithSelectedRowData();
+		}
 
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-        }
+		private void UpdateControlsWithSelectedRowData()
+		{
+			var teacher = this.GetSelectedTeacher();
+			this.AssignDataToControls(teacher);
+		}
 
-        private void LoadAllTeachers()
-        {
-            TeacherService.LoadAllTeachers(dgvTeachers);
-            this.UpdateControlsWithSelectedRowData();
-        }
+		private void AssignDataToControls(Teacher teacher)
+		{
+			if (teacher == null) return;
 
-        private void UpdateControlsWithSelectedRowData()
-        {
-            var teacher = this.GetSelectedTeacher();
-            this.AssignDataToControls(teacher);
-        }
+			// Gán các trường dữ liệu vào controls
+			string teacherID = "ID: " + teacher.TeacherID.ToString();
 
-        private void AssignDataToControls(Teacher teacher)
-        {
-            if (teacher == null) return;
+			FormHelper.SetLabelID(lblTeacherID, teacherID);
 
-            // Gán các trường dữ liệu vào controls
-            string teacherID = "ID: " + teacher.TeacherID.ToString();
+			txtFullName.Text = teacher.FullName;
+			txtCitizenId.Text = teacher.CitizenID.ToString();
+			txtEmail.Text = teacher.Email;
+			txtPhone.Text = teacher.PhoneNumber.ToString();
+			dtpDOB.Value = teacher.DateOfBirth.Value;
+			cboGender.Text = teacher.Gender.ToString();
+			txtAddress.Text = teacher.Address;
+			cboLicenses.Text = teacher.License.LicenseName.ToString();
+			dtpBeginningDate.Value = teacher.BeginningDate.Value;
+			this.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
+			cboStates.Text = teacher.Status.StatusName;
+			txtLicenseNumber.Text = teacher.LicenseNumber;
+		}
 
-            FormHelper.SetLabelID(lblTeacherID, teacherID);
+		public void SetBeginningYears(DateTime graduateDate, Guna2TextBox txt)
+		{
+			txt.Text = this.GetBeginningYears(graduateDate) + " Years";
+		}
 
-            txtFullName.Text = teacher.FullName;
-            txtCitizenId.Text = teacher.CitizenID.ToString();
-            txtEmail.Text = teacher.Email;
-            txtPhone.Text = teacher.Phone.ToString();
-            dtpDOB.Value = teacher.DateOfBirth.Value;
-            cboGender.Text = teacher.Gender.ToString();
-            txtAddress.Text = teacher.Address;
-            cboLicense.Text = teacher.License.LicenseName.ToString();
-            dtpGraduated.Value = teacher.GraduatedDate.Value;
-            this.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
-            cboStates.Text = teacher.Status.StatusName;
-        }
+		private string GetBeginningYears(DateTime graduateDate)
+		{
+			int years = DateTime.Now.Year - graduateDate.Year;
+			return years.ToString();
+		}
 
-        public void SetGraduateYears(DateTime graduateDate, Guna2TextBox txt)
-        {
-            txt.Text = this.GetGraduateYears(graduateDate) + " Years";
-        }
+		private Teacher GetSelectedTeacher()
+		{
+			if (!this.HasSelectedRow()) return null;
 
-        private string GetGraduateYears(DateTime graduateDate)
-        {
-            int years = DateTime.Now.Year - graduateDate.Year;
-            return years.ToString();
-        }
+			var selectedRow = dgvTeachers.SelectedRows[0];
 
-        private Teacher GetSelectedTeacher()
-        {
-            if (!this.HasSelectedRow()) return null;
+			if (selectedRow.Tag is Teacher selectedTeacher) return selectedTeacher;
 
-            var selectedRow = dgvTeachers.SelectedRows[0];
+			return null;
+		}
 
-            if (selectedRow.Tag is Teacher selectedTeacher) return selectedTeacher;
+		private bool HasSelectedRow()
+		{
+			// Kiểm tra xem có dòng nào trong datagridview được chọn hay k
+			return dgvTeachers.SelectedRows.Count > 0;
+		}
 
-            return null;
-        }
+		private void LoadComboboxes()
+		{
+			ComboboxService.AssignLicensesToCombobox(cboLicenses);
+			ComboboxService.AssignStatesToCombobox(cboStates);
+		}
 
-        private bool HasSelectedRow()
-        {
-            // Kiểm tra xem có dòng nào trong datagridview được chọn hay k
-            return dgvTeachers.SelectedRows.Count > 0;
-        }
+		private void btnEditTeacher_Click(object sender, EventArgs e)
+		{
+			if (!this.InSaveMode())
+			{
+				this.ToggleEditMode();
+				return;
+			}
 
-        private void LoadComboboxes()
-        {
-            ComboboxService.AssignLicensesToCombobox(cboLicense);
-            ComboboxService.AssignStatesToCombobox(cboStates);
-        }
+			if (!this.ValidateFields()) return;
 
-        private void btnEditTeacher_Click(object sender, EventArgs e)
-        {
-            if (!this.InSaveMode())
-            {
-                this.ToggleEditMode();
-                return;
-            }
+			if (this.ConfirmAction($"Are you sure to edit teacher '{txtFullName.Text}'?"))
+			{
+				Teacher teacher = this.GetTeacher();
 
-            if (!this.ValidateFields()) return;
+				var result = TeacherService.EditTeacher(teacher);
+				FormHelper.ShowActionResult(result, "Teacher edited successfully.", "Failed to edit teacher.");
+			}
 
-            if (this.ConfirmAction($"Are you sure to edit teacher '{txtFullName.Text}'?"))
-            {
-                Teacher teacher = this.GetTeacher();
+			this.ToggleEditMode();
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+		}
 
-                var result = TeacherService.EditTeacher(teacher);
-                FormHelper.ShowActionResult(result, "Teacher edited successfully.", "Failed to edit teacher.");
-            }
+		private Teacher GetTeacher()
+		{
+			return new Teacher
+			{
+				TeacherID = FormHelper.GetObjectID(lblTeacherID.Text),
+				FullName = txtFullName.Text,
+				CitizenID = txtCitizenId.Text,
+				DateOfBirth = dtpDOB.Value,
+				Gender = cboGender.Text,
+				PhoneNumber = txtPhone.Text,
+				Email = txtEmail.Text,
+				Nationality = cboNationality.Text,
+				Address = txtAddress.Text,
+				LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
+				BeginningDate = dtpBeginningDate.Value,
+				LicenseNumber = txtLicenseNumber.Text,
+				StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
+				Updated_At = DateTime.Now
+			};
+		}
 
-            this.ToggleEditMode();
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-        }
+		private bool ValidateFields()
+		{
+			string license = cboLicenses.Text;
 
-        private Teacher GetTeacher()
-        {
-            return new Teacher
-            {
-                TeacherID = FormHelper.GetObjectID(lblTeacherID.Text),
-                FullName = txtFullName.Text,
-                CitizenID = txtCitizenId.Text,
-                DateOfBirth = dtpDOB.Value,
-                Gender = cboGender.Text,
-                Phone = txtPhone.Text,
-                Email = txtEmail.Text,
-                Nationality = cboNationality.Text,
-                Address = txtAddress.Text,
-                LicenseID = Convert.ToInt32(cboLicense.SelectedValue),
-                GraduatedDate = dtpGraduated.Value,
-                StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
-                Updated_At = DateTime.Now
-            };
-        }
+			//if (!TeacherValidator.ValidateFullName(txtFullName, toolTip)) return false;
 
-        private bool ValidateFields()
-        {
-            string license = cboLicense.Text;
+			//if (!TeacherValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
 
-            if (!TeacherValidator.ValidateFullName(txtFullName, toolTip)) return false;
+			//if (!TeacherValidator.ValidateEmail(txtEmail, toolTip)) return false;
 
-            if (!TeacherValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+			//if (!TeacherValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-            if (!TeacherValidator.ValidateEmail(txtEmail, toolTip)) return false;
+			//if (!TeacherValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-            if (!TeacherValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+			//if (!TeacherValidator.ValidateLicenseNumber(txtLicenseNumber, toolTip)) return false;
 
-            if (!TeacherValidator.ValidateAddress(txtAddress, toolTip)) return false;
+			//if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpBeginningDate, license, toolTip)) return false;
 
-            if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpGraduated, license, toolTip)) return false;
+			if (!TeacherValidator.ValidateFullName(txtFullName, toolTip)) return false;
 
-            return true;
-        }
+			if (!TeacherValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
 
-        private void ToggleEditMode()
-        {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpGraduated, cboNationality, cboLicense, cboStates);
-        }
+			if (!TeacherValidator.ValidateEmail(txtEmail, toolTip)) return false;
 
-        private bool InSaveMode()
-        {
-            return btnEdit.Text == Constant.SAVE_MODE;
-        }
+			if (!TeacherValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-        private bool ConfirmAction(string message)
-        {
-            DialogResult result = FormHelper.ShowConfirm(message);
-            return result == DialogResult.Yes;
-        }
+			if (!TeacherValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-        private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
-        {
-            FormHelper.OpenFormDialog(new AddTeacherForm());
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-        }
+			if (!TeacherValidator.ValidateLicense(cboLicenses, toolTip)) return false;
 
-        private void btnDeleteTeacher_Click(object sender, EventArgs e)
-        {
-            if (!this.HasSelectedRow()) return;
+			if (!TeacherValidator.ValidateLicenseNumber(txtLicenseNumber, toolTip)) return false;
 
-            if (string.IsNullOrEmpty(txtFullName.Text)) return;
+			if (!TeacherValidator.IsTeacherEligible(dtpDOB, dtpBeginningDate, license, toolTip)) return false;
 
-            if (this.ConfirmAction($"Are you sure to delete teacher '{txtFullName.Text}'?"))
-            {
-                int teacherID = FormHelper.GetObjectID(lblTeacherID.Text);
+			return true;
+		}
 
-                var result = TeacherService.DeleteTeacher(teacherID);
+		private void ToggleEditMode()
+		{
+			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, txtFullName, txtPhone, 
+				txtEmail, cboGender, dtpDOB, txtAddress, txtCitizenId, dtpBeginningDate, 
+				cboNationality, cboLicenses, cboStates, txtLicenseNumber);
+		}
 
-                FormHelper.ShowActionResult(result, "Teacher deleted successfully.", "Failed to delete teacher.");
+		private bool InSaveMode()
+		{
+			return btnEdit.Text == Constant.SAVE_MODE;
+		}
 
-                // Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
-                cboStatus_Filter_SelectedIndexChanged(sender, e);
-            }
-        }
+		private bool ConfirmAction(string message)
+		{
+			DialogResult result = FormHelper.ShowConfirm(message);
+			return result == DialogResult.Yes;
+		}
 
-        private void dtpGraduated_ValueChanged(object sender, EventArgs e)
-        {
-            this.SetGraduateYears(dtpGraduated.Value, txtGraduateYears);
-        }
+		private void btnOpenAddTeacherForm_Click(object sender, EventArgs e)
+		{
+			FormHelper.OpenFormDialog(new AddTeacherForm());
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+		}
 
-        private void dgvTeachers_SelectionChanged(object sender, EventArgs e)
-        {
-            this.UpdateControlsWithSelectedRowData();
-        }
+		private void btnDeleteTeacher_Click(object sender, EventArgs e)
+		{
+			if (!this.HasSelectedRow()) return;
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            // Xóa các dòng cũ trong dgv, lấy keyword từ txtSearch
-            // Load dữ liệu search được, gán các thông tin của dòng đc chọn trong dgv sang controls
-            FormHelper.ClearDataGridViewRow(dgvTeachers);
+			if (string.IsNullOrEmpty(txtFullName.Text)) return;
 
-            string keyword = txtSearch.Text.ToLower();
+			if (this.ConfirmAction($"Are you sure to delete teacher '{txtFullName.Text}'?"))
+			{
+				int teacherID = FormHelper.GetObjectID(lblTeacherID.Text);
 
-            // Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
-            if (string.IsNullOrEmpty(keyword)) 
-                cboStatus_Filter_SelectedIndexChanged(sender, e);
-            else
-            {
-                TeacherService.SearchTeachers(dgvTeachers, keyword);
-                this.UpdateControlsWithSelectedRowData();
-            }
-        }
+				var result = TeacherService.DeleteTeacher(teacherID);
 
-        private void numeric_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
+				FormHelper.ShowActionResult(result, "Teacher deleted successfully.", "Failed to delete teacher.");
 
-        private async void btnSendMail_ClickAsync(object sender, EventArgs e)
-        {
-            var teacher = this.GetSelectedTeacher();
-            var mailContent = this.CreateMailContent(teacher);
-            var result = await FormHelper.SendMailAsync(mailContent);
+				// Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
+				cboStatus_Filter_SelectedIndexChanged(sender, e);
+			}
+		}
 
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
-        }
+		private void dgvTeachers_SelectionChanged(object sender, EventArgs e)
+		{
+			this.UpdateControlsWithSelectedRowData();
+		}
 
-        private MailContent CreateMailContent(Teacher teacher)
-        {
-            return new MailContent
-            {
-                To = teacher.Email,
-                Subject = $"Driving School",
-                Body = $"<h1>Hello {teacher.FullName},</h1>" +
-                       $"<p>{txtMessage.Text}</p>"
-            };
-        }
+		private void txtSearch_TextChanged(object sender, EventArgs e)
+		{
+			// Xóa các dòng cũ trong dgv, lấy keyword từ txtSearch
+			// Load dữ liệu search được, gán các thông tin của dòng đc chọn trong dgv sang controls
+			FormHelper.ClearDataGridViewRow(dgvTeachers);
 
-        private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FormHelper.ClearDataGridViewRow(dgvTeachers);
+			string keyword = txtSearch.Text.ToLower();
 
-            if (FormHelper.HasSelectedItem(cboStatus_Filter))
-            {
-                string status = cboStatus_Filter.Text;
-                TeacherService.FilterTeachersByStatus(dgvTeachers, status);
-                this.UpdateControlsWithSelectedRowData();
-            }
-            else
-                this.LoadAllTeachers();
-            //if (cboStatus_Filter.SelectedIndex < 1)
-            //    this.LoadAllTeachers();
-            //else
-            //{
-            //    string status = cboStatus_Filter.Text;
-            //    TeacherService.FilterTeachersByStatus(dgvTeachers, status);
-            //    this.UpdateControlsWithSelectedRowData();
-            //}
-        }
-    }
+			// Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
+			if (string.IsNullOrEmpty(keyword))
+				cboStatus_Filter_SelectedIndexChanged(sender, e);
+			else
+			{
+				TeacherService.SearchTeachers(dgvTeachers, keyword);
+				this.UpdateControlsWithSelectedRowData();
+			}
+		}
+
+		private void numeric_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			FormHelper.CheckNumericKeyPress(e);
+		}
+
+		private async void btnSendMail_ClickAsync(object sender, EventArgs e)
+		{
+			var teacher = this.GetSelectedTeacher();
+			var mailContent = this.CreateMailContent(teacher);
+			var result = await FormHelper.SendMailAsync(mailContent);
+
+			FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
+		}
+
+		private MailContent CreateMailContent(Teacher teacher)
+		{
+			return new MailContent
+			{
+				To = teacher.Email,
+				Subject = $"Driving School",
+				Body = $"<h1>Hello {teacher.FullName},</h1>" +
+					   $"<p>{txtMessage.Text}</p>"
+			};
+		}
+
+		private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			FormHelper.ClearDataGridViewRow(dgvTeachers);
+
+			if (FormHelper.HasSelectedItem(cboStatus_Filter))
+			{
+				string status = cboStatus_Filter.Text;
+				TeacherService.FilterTeachersByStatus(dgvTeachers, status);
+				this.UpdateControlsWithSelectedRowData();
+			}
+			else
+				this.LoadAllTeachers();
+		}
+
+		private void dtpBeginningDate_ValueChanged(object sender, EventArgs e)
+		{
+			this.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
+		}
+	}
 }

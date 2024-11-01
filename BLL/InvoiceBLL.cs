@@ -52,7 +52,7 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["InvoiceID"].Tag = invoice.InvoiceID;
                     dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = invoice.InvoiceCode;
                     dgv.Rows[rowIndex].Cells["Status"].Value = invoice.IsPaid == false ? "Pending" : "Paid";
-                    dgv.Rows[rowIndex].Cells["FullName"].Value = invoice.Schedule.Learner.FullName;
+                    //dgv.Rows[rowIndex].Cells["FullName"].Value = invoice.Enrollment.Learner.FullName;
                 }
             }
         }

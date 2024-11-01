@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI.Validators
 {
@@ -131,5 +132,29 @@ namespace GUI.Validators
             }
             return true;
         }
-    }
+
+		public static bool ValidateLicenseNumber(Guna2TextBox txt, Guna2HtmlToolTip toolTip)
+		{
+			if (!ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip)) return false;
+
+			if (!ValidatorHelper.IsValidLicenseNumber(txt.Text))
+			{
+				FormHelper.ShowToolTip(txt, toolTip, $"{txt.Tag} must be 12 digits.");
+				txt.Focus();
+				return false;
+			}
+			return true;
+		}
+
+		public static bool ValidateLicense(Guna2ComboBox cbo, Guna2HtmlToolTip toolTip)
+		{
+            if (!FormHelper.HasSelectedItem(cbo))
+            {
+				FormHelper.ShowToolTip(cbo, toolTip, $"Please select the {cbo.Tag}.");
+				cbo.Focus();
+				return false;
+            }
+			return true;
+		}
+	}
 }

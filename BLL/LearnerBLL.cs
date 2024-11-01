@@ -101,7 +101,7 @@ namespace BLL
 
         public void UpdateLicense(int learnerID, int courseID)
         {
-            LearnerDAL.Instance.UpdateLicense(learnerID, courseID);
+            //LearnerDAL.Instance.UpdateLicense(learnerID, courseID);
         }
 
         public Learner GetLearner(int learnerID)

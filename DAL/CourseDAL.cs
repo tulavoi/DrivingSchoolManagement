@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace DAL
 {
@@ -38,7 +39,9 @@ namespace DAL
                                course.Fee,
                                course.DurationInHours,
                                course.HoursStudied,
-                               course.Created_At,
+                               course.StartDate,
+							   course.EndDate,
+							   course.Created_At,
                                course.Updated_At
                            };
 
@@ -63,18 +66,20 @@ namespace DAL
                            where status.StatusName == statusName
                            select new
                            {
-                               course.CourseID,
-                               course.CourseName,
-                               course.LicenseID,
-                               license.LicenseName,
-                               status.StatusID,
-                               status.StatusName,
-                               course.Fee,
-                               course.DurationInHours,
-                               course.HoursStudied,
-                               course.Created_At,
-                               course.Updated_At
-                           };
+							   course.CourseID,
+							   course.CourseName,
+							   course.LicenseID,
+							   license.LicenseName,
+							   status.StatusID,
+							   status.StatusName,
+							   course.Fee,
+							   course.DurationInHours,
+							   course.HoursStudied,
+							   course.StartDate,
+							   course.EndDate,
+							   course.Created_At,
+							   course.Updated_At
+						   };
 
                 return data.ToList();
             }
@@ -97,18 +102,20 @@ namespace DAL
                            where course.CourseName.Contains(keyword)
                            select new
                            {
-                               course.CourseID,
-                               course.CourseName,
-                               course.LicenseID,
-                               license.LicenseName,
-                               status.StatusID,
-                               status.StatusName,
-                               course.Fee,
-                               course.DurationInHours,
-                               course.HoursStudied,
-                               course.Created_At,
-                               course.Updated_At
-                           };
+							   course.CourseID,
+							   course.CourseName,
+							   course.LicenseID,
+							   license.LicenseName,
+							   status.StatusID,
+							   status.StatusName,
+							   course.Fee,
+							   course.DurationInHours,
+							   course.HoursStudied,
+							   course.StartDate,
+							   course.EndDate,
+							   course.Created_At,
+							   course.Updated_At
+						   };
 
                 return data.ToList();
             }
@@ -131,7 +138,7 @@ namespace DAL
         public bool EditCourse(Course course)
         {
             return EditData(c => c.CourseID == course.CourseID,           // Điều kiện tìm course theo id
-                            c =>                                         // Action cập nhật các thuộc tính
+                            c =>                                          // Action cập nhật các thuộc tính
                             {
                                 c.CourseName = course.CourseName;
                                 c.LicenseID = course.LicenseID;
@@ -146,72 +153,72 @@ namespace DAL
         #region Delete
         public bool DeleteCourse(int courseID)
         {
-            return UpdateStatus(c => c.CourseID == courseID, 1002); // Điều kiện tìm course theo id
+            return UpdateStatus(c => c.CourseID == courseID, 2); // Điều kiện tìm course theo id
         }
         #endregion
 
         #region Load Courses by Learner
-        public List<Course> GetCoursesForLearner(int learnerId)
-        {
-            // Lấy ra khóa học mà learner đã tham gia
-            var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
-            if (scheduledCourses.Any()) return scheduledCourses;
+        //public List<Course> GetCoursesForLearner(int learnerId)
+        //{
+        //    // Lấy ra khóa học mà learner đã tham gia
+        //    var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
+        //    if (scheduledCourses.Any()) return scheduledCourses;
 
-            // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
-            var courses = this.GetLearnerCourses(learnerId);
-            if (courses == null) return new List<Course>();
-            return courses;
-        }
+        //    // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
+        //    var courses = this.GetLearnerCourses(learnerId);
+        //    if (courses == null) return new List<Course>();
+        //    return courses;
+        //}
 
-        private List<Course> GetScheduledCoursesForLearner(int learnerId)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                var course = from c in db.Courses
-                             join sche in db.Schedules on c.CourseID equals sche.CourseID
-                             where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
-                             select c;
-                if (course == null) return null;
-                return course.ToList();
-            }
-        }
+        //private List<Course> GetScheduledCoursesForLearner(int learnerId)
+        //{
+        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+        //    {
+        //        var course = from c in db.Courses
+        //                     join sche in db.Schedules on c.CourseID equals sche.CourseID
+        //                     where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
+        //                     select c;
+        //        if (course == null) return null;
+        //        return course.ToList();
+        //    }
+        //}
 
-        private List<Course> GetLearnerCourses(int learnerId)
-        {
-            var learner = LearnerDAL.Instance.GetLearner(learnerId);
+        //private List<Course> GetLearnerCourses(int learnerId)
+        //{
+        //    var learner = LearnerDAL.Instance.GetLearner(learnerId);
 
-            if (learner.CurrentLicenseID == 1005)
-                return null;
+        //    if (learner.CurrentLicenseID == 1005)
+        //        return null;
 
-            // Lấy các khóa học chưa hoàn thành
-            var incompleteCourses = this.GetIncompleteCourses();
+        //    // Lấy các khóa học chưa hoàn thành
+        //    var incompleteCourses = this.GetIncompleteCourses();
 
-            List<Course> availableCourses = new List<Course>();
+        //    List<Course> availableCourses = new List<Course>();
 
-            foreach (var course in incompleteCourses)
-            {
-                if (learner.CurrentLicenseID < course.LicenseID)
-                    availableCourses.Add(course);
-            }
+        //    foreach (var course in incompleteCourses)
+        //    {
+        //        if (learner.CurrentLicenseID < course.LicenseID)
+        //            availableCourses.Add(course);
+        //    }
 
-            return availableCourses;
-        }
+        //    return availableCourses;
+        //}
         #endregion
 
         #region Lấy các khóa học chưa hoàn thành
-        private List<Course> GetIncompleteCourses()
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
+        //private List<Course> GetIncompleteCourses()
+        //{
+        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+        //    {
+        //        var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
 
-                // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
-                return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
-                                            && !scheduledCourses.Contains(c.CourseID)
-                                            && c.StatusID == 1001)
-                                        .OrderBy(c => c.CourseName).ToList();
-            }
-        }
+        //        // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
+        //        return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
+        //                                    && !scheduledCourses.Contains(c.CourseID)
+        //                                    && c.StatusID == 1001)
+        //                                .OrderBy(c => c.CourseName).ToList();
+        //    }
+        //}
         #endregion
 
         private Course MapToCourse(dynamic item)
@@ -233,7 +240,9 @@ namespace DAL
                 Fee = item.Fee,
                 DurationInHours = item.DurationInHours,
                 HoursStudied = item.HoursStudied,
-                Created_At = item.Created_At,
+                StartDate = item.StartDate,
+                EndDate = item.EndDate,
+				Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };
         }

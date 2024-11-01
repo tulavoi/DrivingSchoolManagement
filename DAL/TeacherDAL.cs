@@ -41,14 +41,15 @@ namespace DAL
                                license.LicenseName,
                                teacher.DateOfBirth,
                                teacher.Gender,
-                               teacher.Phone,
+                               teacher.PhoneNumber,
                                teacher.Email,
                                teacher.Nationality,
                                teacher.Address,
                                teacher.EmploymentDate,
                                status.StatusID,
                                status.StatusName,
-                               teacher.GraduatedDate,
+                               teacher.BeginningDate,
+                               teacher.LicenseNumber,
                                teacher.Created_At,
                                teacher.Updated_At,
                            };
@@ -74,24 +75,25 @@ namespace DAL
                            where status.StatusName == statusName
                            select new
                            {
-                               teacher.TeacherID,
-                               teacher.FullName,
-                               teacher.CitizenID,
-                               license.LicenseID,
-                               license.LicenseName,
-                               teacher.DateOfBirth,
-                               teacher.Gender,
-                               teacher.Phone,
-                               teacher.Email,
-                               teacher.Nationality,
-                               teacher.Address,
-                               teacher.EmploymentDate,
-                               status.StatusID,
-                               status.StatusName,
-                               teacher.GraduatedDate,
-                               teacher.Created_At,
-                               teacher.Updated_At,
-                           };
+							   teacher.TeacherID,
+							   teacher.FullName,
+							   teacher.CitizenID,
+							   license.LicenseID,
+							   license.LicenseName,
+							   teacher.DateOfBirth,
+							   teacher.Gender,
+							   teacher.PhoneNumber,
+							   teacher.Email,
+							   teacher.Nationality,
+							   teacher.Address,
+							   teacher.EmploymentDate,
+							   status.StatusID,
+							   status.StatusName,
+							   teacher.BeginningDate,
+							   teacher.LicenseNumber,
+							   teacher.Created_At,
+							   teacher.Updated_At,
+						   };
                 return data.ToList();
             }
         }
@@ -113,24 +115,25 @@ namespace DAL
                            where (teacher.FullName.Contains(keyword) || teacher.Nationality.Contains(keyword))
                            select new
                            {
-                               teacher.TeacherID,
-                               teacher.FullName,
-                               teacher.CitizenID,
-                               license.LicenseID,
-                               license.LicenseName,
-                               teacher.DateOfBirth,
-                               teacher.Gender,
-                               teacher.Phone,
-                               teacher.Email,
-                               teacher.Nationality,
-                               teacher.Address,
-                               teacher.EmploymentDate,
-                               status.StatusID,
-                               status.StatusName,
-                               teacher.GraduatedDate,
-                               teacher.Created_At,
-                               teacher.Updated_At,
-                           };
+							   teacher.TeacherID,
+							   teacher.FullName,
+							   teacher.CitizenID,
+							   license.LicenseID,
+							   license.LicenseName,
+							   teacher.DateOfBirth,
+							   teacher.Gender,
+							   teacher.PhoneNumber,
+							   teacher.Email,
+							   teacher.Nationality,
+							   teacher.Address,
+							   teacher.EmploymentDate,
+							   status.StatusID,
+							   status.StatusName,
+							   teacher.BeginningDate,
+							   teacher.LicenseNumber,
+							   teacher.Created_At,
+							   teacher.Updated_At,
+						   };
 
                 return data.ToList();
             }
@@ -159,12 +162,12 @@ namespace DAL
                                 t.CitizenID = teacher.CitizenID;
                                 t.DateOfBirth = teacher.DateOfBirth;
                                 t.Gender = teacher.Gender;
-                                t.Phone = teacher.Phone;
+                                t.PhoneNumber = teacher.PhoneNumber;
                                 t.Email = teacher.Email;
                                 t.Nationality = teacher.Nationality;
                                 t.Address = teacher.Address;
                                 t.LicenseID = teacher.LicenseID;
-                                t.GraduatedDate = teacher.GraduatedDate;
+                                t.BeginningDate = teacher.BeginningDate;
                                 t.StatusID = teacher.StatusID;
                                 t.Updated_At = DateTime.Now;
                             });
@@ -174,7 +177,7 @@ namespace DAL
         #region Delete
         public bool DeleteTeacher(int teacherID)
         {
-            return UpdateStatus(t => t.TeacherID == teacherID, 1002); // Điều kiện tìm teacher theo id
+            return UpdateStatus(t => t.TeacherID == teacherID, 2); // Điều kiện tìm teacher theo id
         }
         #endregion
 
@@ -210,7 +213,7 @@ namespace DAL
                 },
                 DateOfBirth = item.DateOfBirth,
                 Gender = item.Gender,
-                Phone = item.Phone,
+                PhoneNumber = item.PhoneNumber,
                 Email = item.Email,
                 Nationality = item.Nationality,
                 Address = item.Address,
@@ -220,7 +223,8 @@ namespace DAL
                     StatusID = item.StatusID,
                     StatusName = item.StatusName,
                 },
-                GraduatedDate = item.GraduatedDate,
+                BeginningDate = item.BeginningDate,
+                LicenseNumber = item.LicenseNumber,
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };

@@ -26,10 +26,11 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
+        // Gán các course có learner đăng ký vào cbo
         public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
         {
-            List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
-            this.AddCoursesToCombobox(cbo, courses);
+            //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
+            //this.AddCoursesToCombobox(cbo, courses);
         }
 
         private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)

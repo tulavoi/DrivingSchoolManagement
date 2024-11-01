@@ -107,7 +107,7 @@ namespace GUI
             {
                 InvoiceCode = lblInvoiceCode.Text,
                 StatusID = Constant.StatusID_Active,
-                ScheduleID = this.GetSchedule(),
+                //ScheduleID = this.GetSchedule(),
                 IsPaid = this.GetStatusPayment(),
                 TotalAmount = int.Parse(txtTotalAmount.Text),
                 Notes = txtNotes.Text,
@@ -196,8 +196,8 @@ namespace GUI
 
             FormHelper.SetLabelID(lblInvoiceCode, invoiceCode);
 
-            cboLearners.Text = selectedInvoice.Schedule.Learner.FullName;
-            cboCourses.Text = selectedInvoice.Schedule.Course.CourseName;
+            //cboLearners.Text = selectedInvoice.Enrollment.Learner.FullName;
+            //cboCourses.Text = selectedInvoice.Enrollment.Course.CourseName;
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
             if (selectedInvoice.IsPaid == false)
@@ -238,7 +238,7 @@ namespace GUI
         {
             return new MailContent
             {
-                To = invoice.Schedule.Learner.Email,
+                //To = invoice.Enrollment.Learner.Email,
                 Subject = $"Course Invoice: {lblInvoiceCode.Text}",
                 Body = $"<h1>{txtMessage.Text}</h1>"
             };

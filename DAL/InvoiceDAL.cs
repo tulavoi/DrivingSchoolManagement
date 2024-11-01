@@ -32,10 +32,10 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from invoice in db.Invoices
-                           join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
-                           join learner in db.Learners on sche.LearnerID equals learner.LearnerID
-                           join course in db.Courses on sche.CourseID equals course.CourseID
-                           join status in db.Status on sche.StatusID equals status.StatusID
+                           join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+                           join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
+                           join status in db.Status on invoice.StatusID equals status.StatusID
                            select new
                            {
                                invoice.InvoiceID,
@@ -69,11 +69,11 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from invoice in db.Invoices
-                           join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
-                           join learner in db.Learners on sche.LearnerID equals learner.LearnerID
-                           join course in db.Courses on sche.CourseID equals course.CourseID
-                           join status in db.Status on sche.StatusID equals status.StatusID
-                           where (invoice.InvoiceCode.Contains(keyword) || learner.FullName.Contains(keyword))
+						   join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+						   join course in db.Courses on enroll.CourseID equals course.CourseID
+						   join status in db.Status on invoice.StatusID equals status.StatusID
+						   where (invoice.InvoiceCode.Contains(keyword) || learner.FullName.Contains(keyword))
                            select new
                            {
                                invoice.InvoiceID,
@@ -118,11 +118,11 @@ namespace DAL
                     isPaid = false;
 
                 var data = from invoice in db.Invoices
-                           join sche in db.Schedules on invoice.ScheduleID equals sche.ScheduleID
-                           join learner in db.Learners on sche.LearnerID equals learner.LearnerID
-                           join course in db.Courses on sche.CourseID equals course.CourseID
-                           join status in db.Status on sche.StatusID equals status.StatusID
-                           where invoice.IsPaid == isPaid
+						   join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+						   join course in db.Courses on enroll.CourseID equals course.CourseID
+						   join status in db.Status on invoice.StatusID equals status.StatusID
+						   where invoice.IsPaid == isPaid
                            select new
                            {
                                invoice.InvoiceID,
@@ -180,8 +180,8 @@ namespace DAL
             {
                 InvoiceID = item.InvoiceID,
                 InvoiceCode = item.InvoiceCode,
-                Schedule = new Schedule
-                {
+                Enrollment = new Enrollment
+				{
                     Learner = new Learner()
                     {
                         LearnerID = item.LearnerID,

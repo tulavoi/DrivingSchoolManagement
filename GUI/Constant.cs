@@ -35,12 +35,12 @@ namespace GUI
         public static int DurationHours_D = 192;
         public static int DurationHours_E = 192;
 
-        public static int LicenseID_None = 1001;
-        public static int LicenseID_B = 1002;
-        public static int LicenseID_C = 1003;
-        public static int LicenseID_D = 1004;
-        public static int LicenseID_E = 1005;
+        public static int LicenseID_None = 5;
+        public static int LicenseID_B = 1;
+        public static int LicenseID_C = 2;
+        public static int LicenseID_D = 3;
+        public static int LicenseID_E = 4;
 
-        public static int StatusID_Active = 1001;
+        public static int StatusID_Active = 1;
     }
 }

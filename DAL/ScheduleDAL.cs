@@ -29,8 +29,9 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from schedule in db.Schedules
-                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
-                           join course in db.Courses on schedule.CourseID equals course.CourseID
+                           join enroll in db.Enrollments on schedule.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
                            join license in db.Licenses on course.LicenseID equals license.LicenseID
                            join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
                            join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
@@ -56,7 +57,7 @@ namespace DAL
                                teacher.TeacherID,
                                TeacherName = teacher.FullName,
                                TeacherEmail = teacher.Email,
-                               TeacherPhone = teacher.Phone,
+                               TeacherPhone = teacher.PhoneNumber,
                                LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
                                LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
                                
@@ -86,10 +87,11 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from schedule in db.Schedules
-                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
-                           join course in db.Courses on schedule.CourseID equals course.CourseID
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join enroll in db.Enrollments on schedule.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
                            join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
                            join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
                            join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
                            join session in db.Sessions on schedule.SessionID equals session.SessionID
@@ -114,7 +116,7 @@ namespace DAL
                                teacher.TeacherID,
                                TeacherName = teacher.FullName,
                                TeacherEmail = teacher.Email,
-                               TeacherPhone = teacher.Phone,
+                               TeacherPhone = teacher.PhoneNumber,
                                LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
                                LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
 
@@ -145,9 +147,10 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from schedule in db.Schedules
-                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
-                           join course in db.Courses on schedule.CourseID equals course.CourseID
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+						   join enroll in db.Enrollments on schedule.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+						   join course in db.Courses on enroll.CourseID equals course.CourseID
+						   join license in db.Licenses on course.LicenseID equals license.LicenseID
                            join teacher in db.Teachers on schedule.TeacherID equals teacher.TeacherID
                            join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
                            join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
@@ -176,7 +179,7 @@ namespace DAL
                                teacher.TeacherID,
                                TeacherName = teacher.FullName,
                                TeacherEmail = teacher.Email,
-                               TeacherPhone = teacher.Phone,
+                               TeacherPhone = teacher.PhoneNumber,
                                LicenseIDOfTeacher = licenseOfTeacher.LicenseID,
                                LicenseNameOfTeacher = licenseOfTeacher.LicenseName,
 
@@ -238,8 +241,9 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from schedule in db.Schedules
-                           join learner in db.Learners on schedule.LearnerID equals learner.LearnerID
-                           join course in db.Courses on schedule.CourseID equals course.CourseID
+                           join enroll in db.Enrollments on schedule.EnrollmentID equals enroll.EnrollmentID
+						   join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
                            where course.CourseID == courseID && (learnerID <= 0 || learner.LearnerID == learnerID)
                            select new
                            {
@@ -261,28 +265,31 @@ namespace DAL
             return new Schedule
             {
                 ScheduleID = schedule.ScheduleID,
-                Learner = new Learner()
+                Enrollment = new Enrollment
                 {
-                    LearnerID = schedule.LearnerID,
-                    FullName = schedule.FullName,
-                },
-                Course = new Course()
-                {
-                    CourseID = schedule.CourseID,
-                    CourseName = schedule.CourseName,
-                }
+					Learner = new Learner()
+					{
+						LearnerID = schedule.LearnerID,
+						FullName = schedule.FullName,
+					},
+					Course = new Course()
+					{
+						CourseID = schedule.CourseID,
+						CourseName = schedule.CourseName,
+					}
+				}
             };
         }
         #endregion
 
         #region Lấy ra Schedule bằng LearnerID
-        public List<Schedule> GetSchedulesByLearnerId(int learnerId)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
-            }
-        }
+        //public List<Schedule> GetSchedulesByLearnerId(int learnerId)
+        //{
+        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+        //    {
+        //        return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
+        //    }
+        //}
         #endregion
 
         private Schedule MapToSchedule(dynamic item)
@@ -291,29 +298,32 @@ namespace DAL
             {
                 ScheduleID = item.ScheduleID,
                 SessionDate = item.SessionDate,
-                Learner = new Learner()
+                Enrollment = new Enrollment
                 {
-                    LearnerID = item.LearnerID,
-                    FullName = item.LearnerName,
-                    Email = item.LearnerEmail,
-                    PhoneNumber = item.LearnerPhone,
-                },
-                Course = new Course()
-                {
-                    CourseID = item.CourseID,
-                    CourseName = item.CourseName,
-                    License = new License
-                    {
-                        LicenseID = item.LicenseID,
-                        LicenseName = item.LicenseName,
-                    }
-                },
+					Learner = new Learner()
+					{
+						LearnerID = item.LearnerID,
+						FullName = item.LearnerName,
+						Email = item.LearnerEmail,
+						PhoneNumber = item.LearnerPhone,
+					},
+					Course = new Course()
+					{
+						CourseID = item.CourseID,
+						CourseName = item.CourseName,
+						License = new License
+						{
+							LicenseID = item.LicenseID,
+							LicenseName = item.LicenseName,
+						}
+					},
+				},
                 Teacher = new Teacher()
                 {
                     TeacherID = item.TeacherID,
                     FullName = item.TeacherName,
                     Email = item.TeacherEmail,
-                    Phone = item.TeacherPhone,
+					PhoneNumber = item.TeacherPhone,
                     License = new License
                     {
                         LicenseID = item.LicenseIDOfTeacher,
@@ -340,7 +350,7 @@ namespace DAL
         {
             using (var db = DataAccess.GetDataContext())
             {
-                var schedule = db.Schedules.Where(sch => sch.CourseID == courseID).FirstOrDefault();
+                var schedule = db.Schedules.Where(sch => sch.Enrollment.CourseID == courseID).FirstOrDefault();
                 if (schedule == null) return null;
                 return schedule;
             }

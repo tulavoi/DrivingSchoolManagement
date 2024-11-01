@@ -66,8 +66,7 @@ namespace GUI
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
-                CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
-                StatusID = 1001, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
+                StatusID = Constant.StatusID_Active, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
                 Created_At = DateTime.Now
             };
         }

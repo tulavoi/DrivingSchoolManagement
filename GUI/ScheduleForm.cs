@@ -67,9 +67,9 @@ namespace GUI
 
             string vehicleNameNumber = $"{schedule.Vehicle.VehicleName}              {schedule.Vehicle.VehicleNumber}";
 
-            cboLearners.Text = schedule.Learner.FullName;
+   //         cboLearners.Text = schedule.Learner.FullName;
+			//cboCourses.Text = schedule.Course.CourseName;
 			cboTeachers.Text = schedule.Teacher.FullName;
-			cboCourses.Text = schedule.Course.CourseName;
 			cboVehicles.Text = vehicleNameNumber;
 			cboSessions.Text = schedule.Session.Session1;
             dtpSessionDate.Value = schedule.SessionDate.Value;
@@ -266,26 +266,27 @@ namespace GUI
 
         private MailContent CreateMailContent(Schedule schedule, bool isForLearner)
         {
-            string recipientMail = isForLearner ? schedule.Learner.Email : schedule.Teacher.Email;
-            string recipientInfo = isForLearner
-                                    ? $"{schedule.Teacher.FullName} – {schedule.Teacher.Phone} – {schedule.Teacher.Email}"
-                                    : $"{schedule.Learner.FullName} – {schedule.Learner.PhoneNumber} – {schedule.Learner.Email}";
-            string role = isForLearner ? "Learner" : "Teacher";
+            //string recipientMail = isForLearner ? schedule.Learner.Email : schedule.Teacher.Email;
+            //string recipientInfo = isForLearner
+            //                        ? $"{schedule.Teacher.FullName} – {schedule.Teacher.Phone} – {schedule.Teacher.Email}"
+            //                        : $"{schedule.Learner.FullName} – {schedule.Learner.PhoneNumber} – {schedule.Learner.Email}";
+            //string role = isForLearner ? "Learner" : "Teacher";
 
-            string emailBody = this.GetScheduleEmailBody(schedule, recipientInfo, role);
+            //string emailBody = this.GetScheduleEmailBody(schedule, recipientInfo, role);
 
-            return new MailContent
-            {
-                To = recipientMail,
-                Subject = $"Driving School",
-                Body = emailBody
-            };
+            //return new MailContent
+            //{
+            //    To = recipientMail,
+            //    Subject = $"Driving School",
+            //    Body = emailBody
+            //};
+            return null;
         }
 
         private string GetScheduleEmailBody(Schedule schedule, string recipientInfo, string role)
         {
             string introMessage = role == "Learner"
-                ? $"Hello {schedule.Learner.FullName},<br><br>We are pleased to inform you about your upcoming lesson schedule:"
+                ? $"Hello {schedule.Enrollment.Learner.FullName},<br><br>We are pleased to inform you about your upcoming lesson schedule:"
                 : $"Hello {schedule.Teacher.FullName},<br><br>We are pleased to inform you about the upcoming lesson you will be conducting:";
 
             string contactMessage = role == "Learner"
@@ -306,7 +307,7 @@ namespace GUI
                     </tr>
                     <tr>
                         <th style='border: 1px solid #ccc; padding: 8px;'>Course</th>
-                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.Course.CourseName}</td>
+                        <td style='border: 1px solid #ccc; padding: 8px;'>{schedule.Enrollment.Course.CourseName}</td>
                     </tr>
                     <tr>
                         <th style='border: 1px solid #ccc; padding: 8px;'>{role}</th>

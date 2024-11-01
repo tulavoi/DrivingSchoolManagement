@@ -44,7 +44,6 @@ namespace GUI
         private void LoadComboboxes()
         {
             ComboboxService.AssignStatesToCombobox(cboStates);
-            ComboboxService.AssignLicensesToCombobox(cboLicenses);
         }
 
         public void LoadAllLearners()
@@ -89,7 +88,9 @@ namespace GUI
 
             if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-            return true;
+			if (!LearnerValidator.ValidateLicenseNumber(txtCourse, toolTip)) return false;
+
+			return true;
         }
 
         private void ToggleEditMode()
@@ -121,7 +122,7 @@ namespace GUI
                 Gender = cboGender.Text,
                 DateOfBirth = dtpDOB.Value,
                 StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
-                CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
+                //CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
                 Updated_At = DateTime.Now,
             };
         }
@@ -179,7 +180,6 @@ namespace GUI
             cboGender.Text = selectedLearner.Gender;
             dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
             cboStates.Text = selectedLearner.Status.StatusName;
-            cboLicenses.Text = selectedLearner.License.LicenseName;
         }
 
         private void btnDeleteLearner_Click(object sender, EventArgs e)
@@ -217,16 +217,6 @@ namespace GUI
             };
         }
 
-        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
-
-        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
-
         private async void btnSendMail_Click(object sender, EventArgs e)
         {
             var learner = this.GetLearner();
@@ -249,5 +239,10 @@ namespace GUI
             else
                 this.LoadAllLearners();
         }
-    }
+
+		private void numericKeyPress(object sender, KeyPressEventArgs e)
+		{
+            FormHelper.CheckNumericKeyPress(e);
+		}
+	}
 }
