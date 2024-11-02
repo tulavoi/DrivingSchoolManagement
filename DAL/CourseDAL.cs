@@ -1,71 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Linq;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace DAL
 {
-    public class CourseDAL : BaseDAL<Course>
-    {
-        #region Properties
-        private static CourseDAL instance;
-        public static CourseDAL Instance
-        {
-            get
-            {
-                if (instance == null) instance = new CourseDAL();
-                return instance;
-            }
-        }
-        #endregion
+	public class CourseDAL : BaseDAL<Course>
+	{
+		#region Properties
+		private static CourseDAL instance;
+		public static CourseDAL Instance
+		{
+			get
+			{
+				if (instance == null) instance = new CourseDAL();
+				return instance;
+			}
+		}
+		#endregion
 
-        #region All Courses
-        protected override IEnumerable<dynamic> QueryAllData()
-        {
-            using (var db = DataAccess.GetDataContext())
-            {
-                var data = from course in db.Courses
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
-                           join status in db.Status on course.StatusID equals status.StatusID
-                           select new
-                           {
-                               course.CourseID,
-                               course.CourseName,
-                               course.LicenseID,
-                               license.LicenseName,
-                               status.StatusID,
-                               status.StatusName,
-                               course.Fee,
-                               course.DurationInHours,
-                               course.HoursStudied,
-                               course.StartDate,
-							   course.EndDate,
-							   course.Created_At,
-                               course.Updated_At
-                           };
-
-                return data.ToList();
-            }
-        }
-
-        public List<Course> GetAllCourses()
-        {
-            return GetAll(item => this.MapToCourse(item));
-        }
-        #endregion
-
-        #region Filter
-        protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
-        {
-            using (var db = DataAccess.GetDataContext())
-            {
-                var data = from course in db.Courses
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
-                           join status in db.Status on course.StatusID equals status.StatusID
-                           where status.StatusName == statusName
-                           select new
-                           {
+		#region All Courses
+		protected override IEnumerable<dynamic> QueryAllData()
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var data = from course in db.Courses
+						   join license in db.Licenses on course.LicenseID equals license.LicenseID
+						   join status in db.Status on course.StatusID equals status.StatusID
+						   select new
+						   {
 							   course.CourseID,
 							   course.CourseName,
 							   course.LicenseID,
@@ -81,27 +45,27 @@ namespace DAL
 							   course.Updated_At
 						   };
 
-                return data.ToList();
-            }
-        }
+				return data.ToList();
+			}
+		}
 
-        public List<Course> FilterCoursesByStatus(string status)
-        {
-            return FilterData(status, item => this.MapToCourse(item));
-        }
-        #endregion
+		public List<Course> GetAllCourses()
+		{
+			return GetAll(item => this.MapToCourse(item));
+		}
+		#endregion
 
-        #region Search
-        protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
-        {
-            using (var db = DataAccess.GetDataContext())
-            {
-                var data = from course in db.Courses
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
-                           join status in db.Status on course.StatusID equals status.StatusID
-                           where course.CourseName.Contains(keyword)
-                           select new
-                           {
+		#region Filter
+		protected override IEnumerable<dynamic> QueryDataByFilter(string statusName)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var data = from course in db.Courses
+						   join license in db.Licenses on course.LicenseID equals license.LicenseID
+						   join status in db.Status on course.StatusID equals status.StatusID
+						   where status.StatusName == statusName
+						   select new
+						   {
 							   course.CourseID,
 							   course.CourseName,
 							   course.LicenseID,
@@ -117,159 +81,219 @@ namespace DAL
 							   course.Updated_At
 						   };
 
-                return data.ToList();
-            }
-        }
+				return data.ToList();
+			}
+		}
 
-        public List<Course> SearchCourses(string keyword)
-        {
-            return SearchData(keyword, item => this.MapToCourse(item));
-        }
-        #endregion
+		public List<Course> FilterCoursesByStatus(string status)
+		{
+			return FilterData(status, item => this.MapToCourse(item));
+		}
+		#endregion
 
-        #region Create
-        public bool AddCourse(Course course)
-        {
-            return AddData(course);
-        }
-        #endregion
+		#region Search
+		protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var data = from course in db.Courses
+						   join license in db.Licenses on course.LicenseID equals license.LicenseID
+						   join status in db.Status on course.StatusID equals status.StatusID
+						   where course.CourseName.Contains(keyword)
+						   select new
+						   {
+							   course.CourseID,
+							   course.CourseName,
+							   course.LicenseID,
+							   license.LicenseName,
+							   status.StatusID,
+							   status.StatusName,
+							   course.Fee,
+							   course.DurationInHours,
+							   course.HoursStudied,
+							   course.StartDate,
+							   course.EndDate,
+							   course.Created_At,
+							   course.Updated_At
+						   };
 
-        #region Edit
-        public bool EditCourse(Course course)
-        {
-            return EditData(c => c.CourseID == course.CourseID,           // Điều kiện tìm course theo id
-                            c =>                                          // Action cập nhật các thuộc tính
-                            {
-                                c.CourseName = course.CourseName;
-                                c.LicenseID = course.LicenseID;
-                                c.Fee = course.Fee;
-                                c.StatusID = course.StatusID;
-                                c.DurationInHours = course.DurationInHours;
-                                c.Updated_At = DateTime.Now;
-                            });
-        }
-        #endregion
+				return data.ToList();
+			}
+		}
 
-        #region Delete
-        public bool DeleteCourse(int courseID)
-        {
-            return UpdateStatus(c => c.CourseID == courseID, 2); // Điều kiện tìm course theo id
-        }
-        #endregion
+		public List<Course> SearchCourses(string keyword)
+		{
+			return SearchData(keyword, item => this.MapToCourse(item));
+		}
+		#endregion
 
-        #region Load Courses by Learner
-        //public List<Course> GetCoursesForLearner(int learnerId)
-        //{
-        //    // Lấy ra khóa học mà learner đã tham gia
-        //    var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
-        //    if (scheduledCourses.Any()) return scheduledCourses;
+		#region Create
+		public bool AddCourse(Course course)
+		{
+			return AddData(course);
+		}
+		#endregion
 
-        //    // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
-        //    var courses = this.GetLearnerCourses(learnerId);
-        //    if (courses == null) return new List<Course>();
-        //    return courses;
-        //}
+		#region Edit
+		public bool EditCourse(Course course)
+		{
+			return EditData(c => c.CourseID == course.CourseID,           // Điều kiện tìm course theo id
+							c =>                                          // Action cập nhật các thuộc tính
+							{
+								c.CourseName = course.CourseName;
+								c.LicenseID = course.LicenseID;
+								c.Fee = course.Fee;
+								c.StatusID = course.StatusID;
+								c.DurationInHours = course.DurationInHours;
+								c.Updated_At = DateTime.Now;
+							});
+		}
+		#endregion
 
-        //private List<Course> GetScheduledCoursesForLearner(int learnerId)
-        //{
-        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-        //    {
-        //        var course = from c in db.Courses
-        //                     join sche in db.Schedules on c.CourseID equals sche.CourseID
-        //                     where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
-        //                     select c;
-        //        if (course == null) return null;
-        //        return course.ToList();
-        //    }
-        //}
+		#region Delete
+		public bool DeleteCourse(int courseID)
+		{
+			return UpdateStatus(c => c.CourseID == courseID, StatusID_Inactive); // Điều kiện tìm course theo id
+		}
+		#endregion
 
-        //private List<Course> GetLearnerCourses(int learnerId)
-        //{
-        //    var learner = LearnerDAL.Instance.GetLearner(learnerId);
+		#region Load Courses by Learner
+		//public List<Course> GetCoursesForLearner(int learnerId)
+		//{
+		//    // Lấy ra khóa học mà learner đã tham gia
+		//    var scheduledCourses = this.GetScheduledCoursesForLearner(learnerId);
+		//    if (scheduledCourses.Any()) return scheduledCourses;
 
-        //    if (learner.CurrentLicenseID == 1005)
-        //        return null;
+		//    // Lấy các khóa học mà học viên chưa tham gia và chưa hoàn thành
+		//    var courses = this.GetLearnerCourses(learnerId);
+		//    if (courses == null) return new List<Course>();
+		//    return courses;
+		//}
 
-        //    // Lấy các khóa học chưa hoàn thành
-        //    var incompleteCourses = this.GetIncompleteCourses();
+		//private List<Course> GetScheduledCoursesForLearner(int learnerId)
+		//{
+		//    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+		//    {
+		//        var course = from c in db.Courses
+		//                     join sche in db.Schedules on c.CourseID equals sche.CourseID
+		//                     where sche.LearnerID == learnerId && c.HoursStudied < c.DurationInHours
+		//                     select c;
+		//        if (course == null) return null;
+		//        return course.ToList();
+		//    }
+		//}
 
-        //    List<Course> availableCourses = new List<Course>();
+		//private List<Course> GetLearnerCourses(int learnerId)
+		//{
+		//    var learner = LearnerDAL.Instance.GetLearner(learnerId);
 
-        //    foreach (var course in incompleteCourses)
-        //    {
-        //        if (learner.CurrentLicenseID < course.LicenseID)
-        //            availableCourses.Add(course);
-        //    }
+		//    if (learner.CurrentLicenseID == 1005)
+		//        return null;
 
-        //    return availableCourses;
-        //}
-        #endregion
+		//    // Lấy các khóa học chưa hoàn thành
+		//    var incompleteCourses = this.GetIncompleteCourses();
 
-        #region Lấy các khóa học chưa hoàn thành
-        //private List<Course> GetIncompleteCourses()
-        //{
-        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-        //    {
-        //        var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
+		//    List<Course> availableCourses = new List<Course>();
 
-        //        // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
-        //        return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
-        //                                    && !scheduledCourses.Contains(c.CourseID)
-        //                                    && c.StatusID == 1001)
-        //                                .OrderBy(c => c.CourseName).ToList();
-        //    }
-        //}
-        #endregion
+		//    foreach (var course in incompleteCourses)
+		//    {
+		//        if (learner.CurrentLicenseID < course.LicenseID)
+		//            availableCourses.Add(course);
+		//    }
 
-        private Course MapToCourse(dynamic item)
-        {
-            return new Course
-            {
-                CourseID = item.CourseID,
-                CourseName = item.CourseName,
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName
-                },
-                Status = new Status
-                {
-                    StatusID = item.StatusID,
-                    StatusName = item.StatusName,
-                },
-                Fee = item.Fee,
-                DurationInHours = item.DurationInHours,
-                HoursStudied = item.HoursStudied,
-                StartDate = item.StartDate,
-                EndDate = item.EndDate,
+		//    return availableCourses;
+		//}
+		#endregion
+
+		#region Lấy các khóa học chưa hoàn thành
+		//private List<Course> GetIncompleteCourses()
+		//{
+		//    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+		//    {
+		//        var scheduledCourses = db.Schedules.Select(s => s.CourseID).Distinct();
+
+		//        // Lọc các khóa học chưa hoàn thành, chưa có trong bất kỳ schedule nào, có status là Acitve
+		//        return db.Courses.Where(c => c.DurationInHours > c.HoursStudied
+		//                                    && !scheduledCourses.Contains(c.CourseID)
+		//                                    && c.StatusID == 1001)
+		//                                .OrderBy(c => c.CourseName).ToList();
+		//    }
+		//}
+		#endregion
+
+		#region Map to Course
+		private Course MapToCourse(dynamic item)
+		{
+			return new Course
+			{
+				CourseID = item.CourseID,
+				CourseName = item.CourseName,
+				License = new License
+				{
+					LicenseID = item.LicenseID,
+					LicenseName = item.LicenseName
+				},
+				Status = new Status
+				{
+					StatusID = item.StatusID,
+					StatusName = item.StatusName,
+				},
+				Fee = item.Fee,
+				DurationInHours = item.DurationInHours,
+				HoursStudied = item.HoursStudied,
+				StartDate = item.StartDate,
+				EndDate = item.EndDate,
 				Created_At = item.Created_At,
-                Updated_At = item.Updated_At
-            };
-        }
+				Updated_At = item.Updated_At
+			};
+		}
+		#endregion
 
-        #region Get course by id
-        public Course GetCourse(int courseID)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
-                if (course == null) return null;
-                return course;
-            }
-        }
-        #endregion
+		#region Get course by id
+		public Course GetCourse(int courseID)
+		{
+			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+			{
+				// Dùng DataLoadOptions để eager load các dữ liệu liên quan
+				var loadOptions = new DataLoadOptions();
+				loadOptions.LoadWith<Course>(c => c.License);
+				db.LoadOptions = loadOptions;
 
-        #region Update hours studied
-        public void UpdateHoursStudied(int courseID, int hours)
-        {
-            using (var db = DataAccess.GetDataContext())
-            {
-                var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
-                if (course == null) return;
-                course.HoursStudied += hours;
-                db.SubmitChanges();
-            }
-        }
-        #endregion
-    }
+				var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+				return course ?? new Course();
+			}
+		}
+		#endregion
+
+		#region Update hours studied
+		public void UpdateHoursStudied(int courseID, int hours)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var course = db.Courses.Where(c => c.CourseID == courseID).FirstOrDefault();
+				if (course == null) return;
+				course.HoursStudied += hours;
+				db.SubmitChanges();
+			}
+		}
+		#endregion
+
+		#region Lấy các khóa học ở thời điểm hiện tại trở đi và chưa có người học
+		public List<Course> GetAvailableCourses()
+		{
+			var sixMonthLater = DateTime.Now.AddMonths(6);
+			using (var db = DataAccess.GetDataContext())
+			{
+				var courses = from c in db.Courses
+							  where c.StartDate >= DateTime.Now
+							  && c.EndDate <= sixMonthLater
+							  && c.StatusID == 1
+							  && !db.Enrollments.Any(e => e.CourseID == c.CourseID) // Chỉ lấy các khóa học chưa có trong Enrollment
+							  select c;
+				if (courses == null) return new List<Course>();
+				return courses.ToList();
+			}
+		}
+		#endregion
+	}
 }

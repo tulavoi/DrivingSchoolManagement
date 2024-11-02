@@ -36,7 +36,7 @@ namespace GUI
             this.LoadAllLearners();
             this.LoadComboboxes();
 
-            // cboStatus_Filter đang được set mặc định seelctedIndex = 1
+            // cboStatus_Filter đang được set mặc định selectedIndex = 1
             // Gọi event để lọc ngay form vừa load
             cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
@@ -87,8 +87,6 @@ namespace GUI
             if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
             if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
-
-			if (!LearnerValidator.ValidateLicenseNumber(txtCourse, toolTip)) return false;
 
 			return true;
         }
@@ -180,6 +178,7 @@ namespace GUI
             cboGender.Text = selectedLearner.Gender;
             dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
             cboStates.Text = selectedLearner.Status.StatusName;
+
         }
 
         private void btnDeleteLearner_Click(object sender, EventArgs e)

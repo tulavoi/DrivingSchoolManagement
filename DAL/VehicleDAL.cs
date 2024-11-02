@@ -176,7 +176,7 @@ namespace DAL
         #region Delete
         public bool DeleteVehicle(int vehicleID)
         {
-            return UpdateStatus(v => v.VehicleID == vehicleID, 2); // Điều kiện tìm vehicle theo ID
+            return UpdateStatus(v => v.VehicleID == vehicleID, StatusID_Inactive); // Điều kiện tìm vehicle theo ID
         }
         #endregion
 

@@ -8,6 +8,8 @@ namespace DAL
 {
     public abstract class BaseDAL<T> where T : class
     {
+        protected int StatusID_Inactive = 2;
+
         protected abstract IEnumerable<dynamic> QueryAllData();
 
         protected abstract IEnumerable<dynamic> QueryDataByKeyword(string keyword);

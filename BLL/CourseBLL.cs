@@ -33,6 +33,12 @@ namespace BLL
             //this.AddCoursesToCombobox(cbo, courses);
         }
 
+        public void AssignAvailableToCombobox(Guna2ComboBox cbo)
+        {
+			List<Course> courses = CourseDAL.Instance.GetAvailableCourses();
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
         private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
         {
             Course course = new Course();

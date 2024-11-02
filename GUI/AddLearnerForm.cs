@@ -19,26 +19,26 @@ namespace GUI
         {
             shadowAddLearnerForm.SetShadowForm(this); 
             this.LoadCombobox();
+            FormHelper.FocusControl(txtName);
         }
 
         private void LoadCombobox()
         {
-            ComboboxService.AssignLicensesToCombobox(cboLicenses);
+            ComboboxService.AssignAvailableToCombobox(cboCourses);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!ValidateFields()) return;
+            if (!this.ValidateFields()) return;
 
-            Learner learner = GetLearner();
+            Learner learner = this.GetLearner();
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+			var result = LearnerService.AddLearner(learner, courseID); // Tạo learner mới
 
-            if (LearnerService.AddLearner(learner))
-                FormHelper.ShowNotify("Learner added successfully.");
-            else
-                FormHelper.ShowError("Failed to add learner.");
+			FormHelper.ShowActionResult(result, "Learner added successfully.", "Failed to add learner.");
         }
 
-        private bool ValidateFields()
+		private bool ValidateFields()
         {
             if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
@@ -48,11 +48,15 @@ namespace GUI
 
             if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+			if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+			if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-            return true;
+			if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
+
+			if (!LearnerValidator.ValidateEligibleCourse(dtpDOB, lblLicenseName.Text, cboCourses, toolTip)) return false;
+
+			return true;
         }
 
         private Learner GetLearner()
@@ -66,6 +70,7 @@ namespace GUI
                 Email = txtEmail.Text,
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
+                Nationality = cboNationality.Text,
                 StatusID = Constant.StatusID_Active, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
                 Created_At = DateTime.Now
             };
@@ -90,5 +95,35 @@ namespace GUI
         {
             FormHelper.CheckLetterKeyPress(e, txtName);
         }
-    }
+
+		private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+		{
+            if (!FormHelper.HasSelectedItem(cboCourses))
+            {
+				this.ConfigureForm(false);
+                return;
+			}
+			this.ConfigureForm(true);
+            this.AssignCourseToDetailLabels();
+		}
+
+		private void AssignCourseToDetailLabels()
+		{
+			int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+			var course = CourseService.GetCourse(courseID);
+            if (course == null) return;
+            lblLicenseName.Text = course.License.LicenseName;
+            lblDurationHours.Text = course.DurationInHours.ToString();
+            lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
+            lblEndDate.Text = course.EndDate.Value.ToString("dd/MM/yyyy");
+		}
+
+		private void ConfigureForm(bool showDetails)
+		{
+			pnlCourseDetails.Visible = showDetails;
+			this.Width = 670;
+			this.Height = showDetails ? 455 : 390;
+			FormHelper.ApplyRoundedCorners(this, 20);
+		}
+	}
 }

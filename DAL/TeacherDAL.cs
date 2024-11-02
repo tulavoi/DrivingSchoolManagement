@@ -177,7 +177,7 @@ namespace DAL
         #region Delete
         public bool DeleteTeacher(int teacherID)
         {
-            return UpdateStatus(t => t.TeacherID == teacherID, 2); // Điều kiện tìm teacher theo id
+            return UpdateStatus(t => t.TeacherID == teacherID, StatusID_Inactive); // Điều kiện tìm teacher theo id
         }
         #endregion
 

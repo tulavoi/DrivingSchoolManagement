@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DrivingSchool.dbml</DependentUpon>
     </Compile>
+    <Compile Include="EnrollmentDAL.cs" />
     <Compile Include="InvoiceDAL.cs" />
     <Compile Include="LearnerDAL.cs" />
     <Compile Include="LicenseDAL.cs" />

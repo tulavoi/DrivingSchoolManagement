@@ -196,5 +196,10 @@ namespace GUI
         {
             return cbo.SelectedIndex > 0;
         }
-    }
+
+		public static void FocusControl(Control control)
+		{
+            control.Focus();
+		}
+	}
 }

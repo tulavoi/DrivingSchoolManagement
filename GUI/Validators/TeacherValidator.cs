@@ -55,28 +55,28 @@ namespace GUI.Validators
             return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
-        public static bool IsTeacherEligible(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpGraduated, string license, Guna2HtmlToolTip toolTip)
+        public static bool IsTeacherEligible(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpBeginning, string license, Guna2HtmlToolTip toolTip)
         {
             // Kiểm tra độ tuổi
             if (!ValidateDOB(dtpDOB, toolTip)) return false;
 
-            // Kiểm tra ngày tốt nghiệp
-            if (!IsGraduationDateValid(dtpDOB, dtpGraduated, toolTip)) return false;
+            // Kiểm tra ngày nhận bằng
+            if (!IsBeginningDateValid(dtpDOB, dtpBeginning, toolTip)) return false;
 
             // Kiểm tra năm kinh nghiệm
-            if (!IsExperienceValid(dtpGraduated, license, toolTip)) return false;
+            if (!IsExperienceValid(dtpBeginning, license, toolTip)) return false;
 
             return true;
         }
 
-        public static bool IsExperienceValid(Guna2DateTimePicker dtpGraduated, string license, Guna2HtmlToolTip toolTip)
+        public static bool IsExperienceValid(Guna2DateTimePicker dtpBeginning, string license, Guna2HtmlToolTip toolTip)
         {
-            int experienceYears = GetExperienceYears(dtpGraduated.Value);
+            int experienceYears = GetExperienceYears(dtpBeginning.Value);
             string errorMessage = GetErrorMessage(experienceYears, license);
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
-                FormHelper.ShowToolTip(dtpGraduated, toolTip, errorMessage); // Đảm bảo đây là đúng
+                FormHelper.ShowToolTip(dtpBeginning, toolTip, errorMessage); // Đảm bảo đây là đúng
                 return false;
             }
             return true;
@@ -98,26 +98,26 @@ namespace GUI.Validators
                         return $"At least 5 years of experience with license {license}.";
                     break;
                 default:
-                    return $"Invalid license type: {license}.";
+                    return $"Please select license.";
             }
             return "";
         }
 
-        private static int GetExperienceYears(DateTime graduatedDate)
+        private static int GetExperienceYears(DateTime beginningDate)
         {
-            int experienceYears = DateTime.Now.Year - graduatedDate.Year;
-            if (graduatedDate > DateTime.Now.AddYears(-experienceYears)) experienceYears--;
+            int experienceYears = DateTime.Now.Year - beginningDate.Year;
+            if (beginningDate > DateTime.Now.AddYears(-experienceYears)) experienceYears--;
 
             return experienceYears;
         }
 
-        public static bool IsGraduationDateValid(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpGraduated, Guna2HtmlToolTip toolTip)
+        public static bool IsBeginningDateValid(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpBeginning, Guna2HtmlToolTip toolTip)
         {
             DateTime dateOf18thBirthday = dtpDOB.Value.AddYears(18);
-            // Kiểm tra ngày tốt nghiệp có sau ngày đủ 18 tuổi không
-            if (dtpGraduated.Value < dateOf18thBirthday)
+            // Kiểm tra ngày nhận bằng có sau ngày đủ 18 tuổi không
+            if (dtpBeginning.Value < dateOf18thBirthday)
             {
-                FormHelper.ShowToolTip(dtpGraduated, toolTip, "The graduation date must be after the teacher turns 18.");
+                FormHelper.ShowToolTip(dtpBeginning, toolTip, "The graduation date must be after the teacher turns 18.");
                 return false;
             }
             return true;

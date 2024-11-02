@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Linq;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
 
@@ -120,9 +121,25 @@ namespace DAL
         #endregion
 
         #region Create
-        public bool AddLearner(Learner learner)
+        public bool AddLearner(Learner learner, int courseID)
         {
-            return AddData(learner);
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    db.Learners.InsertOnSubmit(learner);
+                    db.SubmitChanges();
+
+                    int learnerID = learner.LearnerID;
+                    EnrollmentDAL.Instance.AddEnrollment(learnerID, courseID);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return true;
         }
         #endregion
 
@@ -148,7 +165,7 @@ namespace DAL
         #region Delete
         public bool DeleteLearner(int learnerID)
         {
-            return UpdateStatus(lear => lear.LearnerID == learnerID, 2); // Điều kiện tìm learner theo ID
+            return UpdateStatus(lear => lear.LearnerID == learnerID, StatusID_Inactive); // Điều kiện tìm learner theo ID
         }
         #endregion
 
