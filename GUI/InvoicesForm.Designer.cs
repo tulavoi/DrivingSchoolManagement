@@ -83,11 +83,9 @@
 			this.lblTotalAmount = new System.Windows.Forms.Label();
 			this.pnlSpace4 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourse = new Guna.UI2.WinForms.Guna2Panel();
-			this.cboCourses = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.lblCourse = new System.Windows.Forms.Label();
 			this.pnlSpace3 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlLearner = new Guna.UI2.WinForms.Guna2Panel();
-			this.cboLearners = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
@@ -100,6 +98,8 @@
 			this.lblDetails = new System.Windows.Forms.Label();
 			this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
+			this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlInvoices.SuspendLayout();
 			this.pnlButtonAdd.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
@@ -893,7 +893,7 @@
 			// 
 			// pnlCourse
 			// 
-			this.pnlCourse.Controls.Add(this.cboCourses);
+			this.pnlCourse.Controls.Add(this.txtCourseName);
 			this.pnlCourse.Controls.Add(this.lblCourse);
 			this.pnlCourse.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlCourse.FillColor = System.Drawing.Color.White;
@@ -901,32 +901,6 @@
 			this.pnlCourse.Name = "pnlCourse";
 			this.pnlCourse.Size = new System.Drawing.Size(475, 38);
 			this.pnlCourse.TabIndex = 122;
-			// 
-			// cboCourses
-			// 
-			this.cboCourses.BackColor = System.Drawing.Color.White;
-			this.cboCourses.BorderRadius = 5;
-			this.cboCourses.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboCourses.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboCourses.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboCourses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboCourses.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cboCourses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboCourses.Enabled = false;
-			this.cboCourses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboCourses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboCourses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboCourses.ItemHeight = 30;
-			this.cboCourses.Items.AddRange(new object[] {
-            "Select Course"});
-			this.cboCourses.Location = new System.Drawing.Point(124, 0);
-			this.cboCourses.Name = "cboCourses";
-			this.cboCourses.Size = new System.Drawing.Size(351, 36);
-			this.cboCourses.StartIndex = 0;
-			this.cboCourses.TabIndex = 33;
 			// 
 			// lblCourse
 			// 
@@ -952,7 +926,7 @@
 			// 
 			// pnlLearner
 			// 
-			this.pnlLearner.Controls.Add(this.cboLearners);
+			this.pnlLearner.Controls.Add(this.txtLearnerName);
 			this.pnlLearner.Controls.Add(this.lblLearner);
 			this.pnlLearner.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlLearner.FillColor = System.Drawing.Color.White;
@@ -960,32 +934,6 @@
 			this.pnlLearner.Name = "pnlLearner";
 			this.pnlLearner.Size = new System.Drawing.Size(475, 38);
 			this.pnlLearner.TabIndex = 120;
-			// 
-			// cboLearners
-			// 
-			this.cboLearners.BackColor = System.Drawing.Color.White;
-			this.cboLearners.BorderRadius = 5;
-			this.cboLearners.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboLearners.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cboLearners.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboLearners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboLearners.Enabled = false;
-			this.cboLearners.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboLearners.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboLearners.ItemHeight = 30;
-			this.cboLearners.Items.AddRange(new object[] {
-            "Select Learner"});
-			this.cboLearners.Location = new System.Drawing.Point(124, 0);
-			this.cboLearners.Name = "cboLearners";
-			this.cboLearners.Size = new System.Drawing.Size(351, 36);
-			this.cboLearners.StartIndex = 0;
-			this.cboLearners.TabIndex = 124;
 			// 
 			// lblLearner
 			// 
@@ -1142,6 +1090,58 @@
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
 			// 
+			// txtLearnerName
+			// 
+			this.txtLearnerName.BackColor = System.Drawing.Color.White;
+			this.txtLearnerName.BorderRadius = 5;
+			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtLearnerName.DefaultText = "";
+			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtLearnerName.Enabled = false;
+			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Location = new System.Drawing.Point(124, 0);
+			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtLearnerName.Name = "txtLearnerName";
+			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtLearnerName.PasswordChar = '\0';
+			this.txtLearnerName.PlaceholderText = "";
+			this.txtLearnerName.SelectedText = "";
+			this.txtLearnerName.Size = new System.Drawing.Size(351, 38);
+			this.txtLearnerName.TabIndex = 33;
+			// 
+			// txtCourseName
+			// 
+			this.txtCourseName.BackColor = System.Drawing.Color.White;
+			this.txtCourseName.BorderRadius = 5;
+			this.txtCourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtCourseName.DefaultText = "";
+			this.txtCourseName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtCourseName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtCourseName.Enabled = false;
+			this.txtCourseName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Location = new System.Drawing.Point(124, 0);
+			this.txtCourseName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtCourseName.Name = "txtCourseName";
+			this.txtCourseName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtCourseName.PasswordChar = '\0';
+			this.txtCourseName.PlaceholderText = "";
+			this.txtCourseName.SelectedText = "";
+			this.txtCourseName.Size = new System.Drawing.Size(351, 38);
+			this.txtCourseName.TabIndex = 33;
+			// 
 			// InvoicesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1238,9 +1238,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
-        private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
         private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
         private Guna.UI2.WinForms.Guna2Button btnSendInvoiceByMail;
-    }
+		private Guna.UI2.WinForms.Guna2TextBox txtCourseName;
+		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
+	}
 }

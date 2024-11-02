@@ -31,7 +31,7 @@ namespace BLL.Services
 
         public static void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
         {
-            CourseBLL.Instance.FilterLearnersByStatus(dgv, status);
+            CourseBLL.Instance.FilterCoursesByStatus(dgv, status);
         }
 
         public static bool AddCourse(Course course)

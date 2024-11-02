@@ -34,18 +34,7 @@ namespace GUI
 
         public void InvoicesForm_Load(object sender, EventArgs e)
         {
-            this.LoadComboboxes();
             this.LoadAllInvoice();
-
-            //FormHelper.SetDateTimePickerMaxValue(dtpInvoiceDate);
-        }
-
-        private void LoadComboboxes()
-        {
-            // Phải load data của Learners, Courses vào combobox trước,
-            // nếu không thì sẽ k gán được LearnerName, CourseName từ dgv vào cbo
-            ComboboxService.AssignLearnersToCombobox(cboLearners);
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
         }
 
         public void LoadAllInvoice()
@@ -72,8 +61,8 @@ namespace GUI
                 FormHelper.ShowActionResult(result, "Invoice edited successfully.", "Failed to edit invoice.");
             }
             this.ToogleEditMode();
-            this.LoadAllInvoice();
-        }
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
+		}
 
         private bool ValidateFields()
         {
@@ -107,19 +96,11 @@ namespace GUI
             {
                 InvoiceCode = lblInvoiceCode.Text,
                 StatusID = Constant.StatusID_Active,
-                //ScheduleID = this.GetSchedule(),
                 IsPaid = this.GetStatusPayment(),
                 TotalAmount = int.Parse(txtTotalAmount.Text),
                 Notes = txtNotes.Text,
                 Updated_At = DateTime.Now,
             };
-        }
-
-        private int? GetSchedule()
-        {
-            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-            var schedule = ScheduleService.GetSchedule(courseID);
-            return schedule.ScheduleID;
         }
 
         private bool? GetStatusPayment()
@@ -196,10 +177,12 @@ namespace GUI
 
             FormHelper.SetLabelID(lblInvoiceCode, invoiceCode);
 
-            //cboLearners.Text = selectedInvoice.Enrollment.Learner.FullName;
-            //cboCourses.Text = selectedInvoice.Enrollment.Course.CourseName;
+            txtLearnerName.Text = selectedInvoice.Enrollment.Learner.FullName;
+            txtCourseName.Text = selectedInvoice.Enrollment.Course.CourseName;
             txtTotalAmount.Text = selectedInvoice.TotalAmount.ToString();
             dtpInvoiceDate.Value = selectedInvoice.Created_At.Value;
+            txtNotes.Text = selectedInvoice.Notes;
+
             if (selectedInvoice.IsPaid == false)
                 cboPaymentStatus.Text = "Pending";
             if (selectedInvoice.IsPaid == true)
@@ -238,7 +221,7 @@ namespace GUI
         {
             return new MailContent
             {
-                //To = invoice.Enrollment.Learner.Email,
+                To = invoice.Enrollment.Learner.Email,
                 Subject = $"Course Invoice: {lblInvoiceCode.Text}",
                 Body = $"<h1>{txtMessage.Text}</h1>"
             };

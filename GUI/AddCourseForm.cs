@@ -20,13 +20,7 @@ namespace GUI
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
             shadowForm.SetShadowForm(this);
-            //this.LoadComboboxes();
             dtpStartDate.MinDate = DateTime.Now;
-        }
-
-        private void LoadComboboxes()
-        {
-            ComboboxService.AssignLicensesToCombobox(cboLicense);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

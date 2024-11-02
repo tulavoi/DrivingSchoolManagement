@@ -1,11 +1,10 @@
 ﻿using DAL;
 using Guna.UI2.WinForms;
-using System;
 using System.Collections.Generic;
 
 namespace BLL
 {
-    public class CourseBLL
+	public class CourseBLL
     {
         #region Properties
         private static CourseBLL instance;
@@ -26,8 +25,14 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-        // Gán các course có learner đăng ký vào cbo
-        public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+		public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+		{
+			List<Course> courses = CourseDAL.Instance.FilterCoursesByStatus(status);
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
+		// Gán các course có learner đăng ký vào cbo
+		public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
         {
             //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
             //this.AddCoursesToCombobox(cbo, courses);
@@ -74,7 +79,7 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-        public void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
+        public void FilterCoursesByStatus(Guna2DataGridView dgv, string status)
         {
             List<Course> course = CourseDAL.Instance.FilterCoursesByStatus(status);
             this.AddCoursesToDataGridView(dgv, course);

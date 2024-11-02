@@ -1,4 +1,6 @@
-﻿using Guna.UI2.WinForms;
+﻿using DAL;
+using Guna.UI2.WinForms;
+using System.Collections.Generic;
 
 namespace BLL.Services
 {
@@ -17,6 +19,11 @@ namespace BLL.Services
 		public static void AssignCoursesToCombobox(Guna2ComboBox cbo)
 		{
 			CourseBLL.Instance.AssignCoursesToCombobox(cbo);
+		}
+
+		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+		{
+			CourseBLL.Instance.AssignCoursesToCombobox(cbo, status);
 		}
 
 		public static void AssignAvailableToCombobox(Guna2ComboBox cbo)

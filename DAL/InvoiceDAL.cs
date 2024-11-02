@@ -47,6 +47,7 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
+                               invoice.Notes,
                                status.StatusID,
                                status.StatusName,
                                invoice.IsPaid,
@@ -85,8 +86,9 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
+                               invoice.Notes,
                                status.StatusID,
-                               status.StatusName,
+							   status.StatusName,
                                invoice.IsPaid,
                                invoice.Created_At,
                                invoice.Updated_At
@@ -134,8 +136,9 @@ namespace DAL
                                course.CourseID,
                                course.CourseName,
                                invoice.TotalAmount,
+                               invoice.Notes,
                                status.StatusID,
-                               status.StatusName,
+							   status.StatusName,
                                invoice.IsPaid,
                                invoice.Created_At,
                                invoice.Updated_At
@@ -160,7 +163,7 @@ namespace DAL
                             {
                                 inv.TotalAmount = invoice.TotalAmount;
                                 inv.Notes = invoice.Notes;
-                                inv.Status = invoice.Status;
+                                inv.StatusID = invoice.StatusID;
                                 inv.IsPaid = invoice.IsPaid;
                                 inv.Updated_At = DateTime.Now;
                             });
@@ -197,6 +200,7 @@ namespace DAL
                 },
                 IsPaid = item.IsPaid,
                 TotalAmount = item.TotalAmount,
+                Notes = item.Notes,
                 Status = new Status
                 {
                     StatusID = item.StatusID,
