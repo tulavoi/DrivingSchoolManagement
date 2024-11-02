@@ -86,15 +86,15 @@ namespace GUI
 
         private void SetLearnerName(int courseID)
         {
-            Schedule schedule = ScheduleBLL.Instance.GetLearnerByCourseID(courseID);
-            if (schedule == null)
+            var enrollment = EnrollmentService.GetEnrollmentByCourseID(courseID);
+            if (enrollment == null)
             {
                 txtLearner.Text = string.Empty;
                 txtLearner.Tag = string.Empty;
                 return;
             }
-            //txtLearner.Text = schedule.Enrollment.Learner.FullName;
-            //txtLearner.Tag = schedule.Enrollment.Learner.LearnerID;
+            txtLearner.Text = enrollment.Learner.FullName;
+            txtLearner.Tag = enrollment.Learner.LearnerID;
         }
 
         private Course GetSelectedCourse()

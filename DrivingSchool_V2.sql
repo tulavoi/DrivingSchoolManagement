@@ -323,4 +323,4 @@ VALUES
 
 INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
 VALUES 
-('C-090532021124', 2, 12000000, 920, 0, 1, '2024-11-03', DATEADD(MONTH, 6, '2024-11-03'), GETDATE(), GETDATE())
+('C-103232021124', 2, 12000000, 920, 0, 1, '2024-11-02', DATEADD(MONTH, 6, '2024-11-02'), GETDATE(), GETDATE())

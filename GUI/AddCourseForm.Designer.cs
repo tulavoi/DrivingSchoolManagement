@@ -65,6 +65,12 @@
 			this.lblAdd = new System.Windows.Forms.Label();
 			this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+			this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+			this.dtpStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.label5 = new System.Windows.Forms.Label();
+			this.dtpEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.label6 = new System.Windows.Forms.Label();
+			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlLineTop.SuspendLayout();
 			this.pnlMain.SuspendLayout();
 			this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -72,6 +78,7 @@
 			this.pnlDuration.SuspendLayout();
 			this.pnlFee.SuspendLayout();
 			this.pnlLicense.SuspendLayout();
+			this.guna2Panel10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlLineLeft
@@ -80,7 +87,7 @@
 			this.pnlLineLeft.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pnlLineLeft.Location = new System.Drawing.Point(0, 25);
 			this.pnlLineLeft.Name = "pnlLineLeft";
-			this.pnlLineLeft.Size = new System.Drawing.Size(25, 298);
+			this.pnlLineLeft.Size = new System.Drawing.Size(25, 334);
 			this.pnlLineLeft.TabIndex = 48;
 			// 
 			// pnlLineRight
@@ -89,7 +96,7 @@
 			this.pnlLineRight.Dock = System.Windows.Forms.DockStyle.Right;
 			this.pnlLineRight.Location = new System.Drawing.Point(497, 25);
 			this.pnlLineRight.Name = "pnlLineRight";
-			this.pnlLineRight.Size = new System.Drawing.Size(25, 298);
+			this.pnlLineRight.Size = new System.Drawing.Size(25, 334);
 			this.pnlLineRight.TabIndex = 50;
 			// 
 			// pnlLineTop
@@ -140,7 +147,7 @@
 			// 
 			this.pnlLineBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
 			this.pnlLineBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlLineBottom.Location = new System.Drawing.Point(0, 323);
+			this.pnlLineBottom.Location = new System.Drawing.Point(0, 359);
 			this.pnlLineBottom.Name = "pnlLineBottom";
 			this.pnlLineBottom.Size = new System.Drawing.Size(522, 25);
 			this.pnlLineBottom.TabIndex = 49;
@@ -155,6 +162,8 @@
 			// 
 			this.pnlMain.BorderRadius = 15;
 			this.pnlMain.Controls.Add(this.pnlButtonAdd_Cancel);
+			this.pnlMain.Controls.Add(this.guna2Panel1);
+			this.pnlMain.Controls.Add(this.guna2Panel10);
 			this.pnlMain.Controls.Add(this.pnlSpace9);
 			this.pnlMain.Controls.Add(this.pnlName);
 			this.pnlMain.Controls.Add(this.pnlSpace7);
@@ -171,7 +180,7 @@
 			this.pnlMain.FillColor = System.Drawing.Color.White;
 			this.pnlMain.Location = new System.Drawing.Point(25, 25);
 			this.pnlMain.Name = "pnlMain";
-			this.pnlMain.Size = new System.Drawing.Size(472, 298);
+			this.pnlMain.Size = new System.Drawing.Size(472, 334);
 			this.pnlMain.TabIndex = 51;
 			// 
 			// pnlButtonAdd_Cancel
@@ -181,7 +190,7 @@
 			this.pnlButtonAdd_Cancel.Controls.Add(this.pnlSpace10);
 			this.pnlButtonAdd_Cancel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlButtonAdd_Cancel.FillColor = System.Drawing.Color.White;
-			this.pnlButtonAdd_Cancel.Location = new System.Drawing.Point(0, 248);
+			this.pnlButtonAdd_Cancel.Location = new System.Drawing.Point(0, 285);
 			this.pnlButtonAdd_Cancel.Name = "pnlButtonAdd_Cancel";
 			this.pnlButtonAdd_Cancel.Size = new System.Drawing.Size(455, 35);
 			this.pnlButtonAdd_Cancel.TabIndex = 129;
@@ -242,7 +251,7 @@
 			this.pnlSpace9.FillColor = System.Drawing.Color.White;
 			this.pnlSpace9.Location = new System.Drawing.Point(0, 229);
 			this.pnlSpace9.Name = "pnlSpace9";
-			this.pnlSpace9.Size = new System.Drawing.Size(455, 19);
+			this.pnlSpace9.Size = new System.Drawing.Size(455, 5);
 			this.pnlSpace9.TabIndex = 128;
 			// 
 			// pnlName
@@ -272,14 +281,14 @@
 			this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
 			this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtName.Location = new System.Drawing.Point(125, 0);
+			this.txtName.Location = new System.Drawing.Point(98, 0);
 			this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtName.Name = "txtName";
 			this.txtName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
 			this.txtName.PasswordChar = '\0';
 			this.txtName.PlaceholderText = "";
 			this.txtName.SelectedText = "";
-			this.txtName.Size = new System.Drawing.Size(330, 36);
+			this.txtName.Size = new System.Drawing.Size(357, 36);
 			this.txtName.TabIndex = 31;
 			// 
 			// lblName
@@ -290,7 +299,7 @@
 			this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblName.Location = new System.Drawing.Point(0, 0);
 			this.lblName.Name = "lblName";
-			this.lblName.Size = new System.Drawing.Size(125, 36);
+			this.lblName.Size = new System.Drawing.Size(98, 36);
 			this.lblName.TabIndex = 30;
 			this.lblName.Text = "     Name: ";
 			this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -333,14 +342,14 @@
 			this.txtDurationInHours.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
 			this.txtDurationInHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.txtDurationInHours.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtDurationInHours.Location = new System.Drawing.Point(125, 0);
+			this.txtDurationInHours.Location = new System.Drawing.Point(98, 0);
 			this.txtDurationInHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtDurationInHours.Name = "txtDurationInHours";
 			this.txtDurationInHours.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
 			this.txtDurationInHours.PasswordChar = '\0';
 			this.txtDurationInHours.PlaceholderText = "";
 			this.txtDurationInHours.SelectedText = "";
-			this.txtDurationInHours.Size = new System.Drawing.Size(219, 36);
+			this.txtDurationInHours.Size = new System.Drawing.Size(246, 36);
 			this.txtDurationInHours.TabIndex = 31;
 			// 
 			// txtHour
@@ -376,7 +385,7 @@
 			this.lblDurationInHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblDurationInHours.Location = new System.Drawing.Point(0, 0);
 			this.lblDurationInHours.Name = "lblDurationInHours";
-			this.lblDurationInHours.Size = new System.Drawing.Size(125, 36);
+			this.lblDurationInHours.Size = new System.Drawing.Size(98, 36);
 			this.lblDurationInHours.TabIndex = 30;
 			this.lblDurationInHours.Text = "     Duration: ";
 			this.lblDurationInHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -418,13 +427,13 @@
 			this.txtFee.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
 			this.txtFee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.txtFee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtFee.Location = new System.Drawing.Point(125, 0);
+			this.txtFee.Location = new System.Drawing.Point(98, 0);
 			this.txtFee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtFee.Name = "txtFee";
 			this.txtFee.PasswordChar = '\0';
 			this.txtFee.PlaceholderText = "";
 			this.txtFee.SelectedText = "";
-			this.txtFee.Size = new System.Drawing.Size(219, 36);
+			this.txtFee.Size = new System.Drawing.Size(246, 36);
 			this.txtFee.TabIndex = 27;
 			// 
 			// txtVND
@@ -460,7 +469,7 @@
 			this.lblFee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblFee.Location = new System.Drawing.Point(0, 0);
 			this.lblFee.Name = "lblFee";
-			this.lblFee.Size = new System.Drawing.Size(125, 36);
+			this.lblFee.Size = new System.Drawing.Size(98, 36);
 			this.lblFee.TabIndex = 26;
 			this.lblFee.Text = "     Fee: ";
 			this.lblFee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -508,9 +517,9 @@
             "C",
             "D",
             "E"});
-			this.cboLicense.Location = new System.Drawing.Point(125, 0);
+			this.cboLicense.Location = new System.Drawing.Point(98, 0);
 			this.cboLicense.Name = "cboLicense";
-			this.cboLicense.Size = new System.Drawing.Size(330, 36);
+			this.cboLicense.Size = new System.Drawing.Size(357, 36);
 			this.cboLicense.StartIndex = 0;
 			this.cboLicense.TabIndex = 4;
 			this.cboLicense.SelectedIndexChanged += new System.EventHandler(this.cboLicense_SelectedIndexChanged);
@@ -523,7 +532,7 @@
 			this.lblLicense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblLicense.Location = new System.Drawing.Point(0, 0);
 			this.lblLicense.Name = "lblLicense";
-			this.lblLicense.Size = new System.Drawing.Size(125, 36);
+			this.lblLicense.Size = new System.Drawing.Size(98, 36);
 			this.lblLicense.TabIndex = 3;
 			this.lblLicense.Text = "     License: ";
 			this.lblLicense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -548,7 +557,7 @@
 			this.pnlSpace6.FillColor = System.Drawing.Color.White;
 			this.pnlSpace6.Location = new System.Drawing.Point(455, 55);
 			this.pnlSpace6.Name = "pnlSpace6";
-			this.pnlSpace6.Size = new System.Drawing.Size(17, 243);
+			this.pnlSpace6.Size = new System.Drawing.Size(17, 279);
 			this.pnlSpace6.TabIndex = 115;
 			// 
 			// lblAdd
@@ -586,12 +595,104 @@
 			this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
 			this.toolTip.StripAmpersands = true;
 			// 
+			// guna2Panel10
+			// 
+			this.guna2Panel10.Controls.Add(this.dtpEndDate);
+			this.guna2Panel10.Controls.Add(this.label6);
+			this.guna2Panel10.Controls.Add(this.dtpStartDate);
+			this.guna2Panel10.Controls.Add(this.label5);
+			this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel10.FillColor = System.Drawing.Color.White;
+			this.guna2Panel10.Location = new System.Drawing.Point(0, 234);
+			this.guna2Panel10.Name = "guna2Panel10";
+			this.guna2Panel10.Size = new System.Drawing.Size(455, 36);
+			this.guna2Panel10.TabIndex = 132;
+			// 
+			// dtpStartDate
+			// 
+			this.dtpStartDate.BorderColor = System.Drawing.Color.White;
+			this.dtpStartDate.BorderRadius = 5;
+			this.dtpStartDate.Checked = true;
+			this.dtpStartDate.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+			this.dtpStartDate.Dock = System.Windows.Forms.DockStyle.Left;
+			this.dtpStartDate.FillColor = System.Drawing.Color.White;
+			this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.dtpStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpStartDate.Location = new System.Drawing.Point(98, 0);
+			this.dtpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.dtpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.dtpStartDate.Name = "dtpStartDate";
+			this.dtpStartDate.Size = new System.Drawing.Size(143, 36);
+			this.dtpStartDate.TabIndex = 110;
+			this.dtpStartDate.Tag = "Date of Birth";
+			this.dtpStartDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
+			// 
+			// label5
+			// 
+			this.label5.BackColor = System.Drawing.Color.White;
+			this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label5.Location = new System.Drawing.Point(0, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(98, 36);
+			this.label5.TabIndex = 109;
+			this.label5.Text = "     Start: ";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// dtpEndDate
+			// 
+			this.dtpEndDate.BorderColor = System.Drawing.Color.White;
+			this.dtpEndDate.BorderRadius = 5;
+			this.dtpEndDate.Checked = true;
+			this.dtpEndDate.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
+			this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dtpEndDate.Enabled = false;
+			this.dtpEndDate.FillColor = System.Drawing.Color.White;
+			this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.dtpEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpEndDate.Location = new System.Drawing.Point(311, 0);
+			this.dtpEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.dtpEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.dtpEndDate.Name = "dtpEndDate";
+			this.dtpEndDate.Size = new System.Drawing.Size(144, 36);
+			this.dtpEndDate.TabIndex = 112;
+			this.dtpEndDate.Tag = "Date of Birth";
+			this.dtpEndDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			// 
+			// label6
+			// 
+			this.label6.BackColor = System.Drawing.Color.White;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label6.Location = new System.Drawing.Point(241, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(70, 36);
+			this.label6.TabIndex = 111;
+			this.label6.Text = "  End: ";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// guna2Panel1
+			// 
+			this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel1.FillColor = System.Drawing.Color.White;
+			this.guna2Panel1.Location = new System.Drawing.Point(0, 270);
+			this.guna2Panel1.Name = "guna2Panel1";
+			this.guna2Panel1.Size = new System.Drawing.Size(455, 15);
+			this.guna2Panel1.TabIndex = 133;
+			// 
 			// AddCourseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-			this.ClientSize = new System.Drawing.Size(522, 348);
+			this.ClientSize = new System.Drawing.Size(522, 384);
 			this.Controls.Add(this.pnlMain);
 			this.Controls.Add(this.pnlLineLeft);
 			this.Controls.Add(this.pnlLineRight);
@@ -609,6 +710,7 @@
 			this.pnlDuration.ResumeLayout(false);
 			this.pnlFee.ResumeLayout(false);
 			this.pnlLicense.ResumeLayout(false);
+			this.guna2Panel10.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -651,5 +753,11 @@
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
-    }
+		private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+		private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
+		private System.Windows.Forms.Label label5;
+		private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
+		private System.Windows.Forms.Label label6;
+		private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+	}
 }

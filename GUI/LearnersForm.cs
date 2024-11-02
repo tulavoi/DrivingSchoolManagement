@@ -186,7 +186,7 @@ namespace GUI
 
 			ComboboxService.GetAvailableAndLearnerCourses(cboCourses, FormHelper.GetObjectID(lblLearnerID.Text));
 
-			var enrollment = EnrollmentService.GetEnrollmentByID(selectedLearner.LearnerID);
+			var enrollment = EnrollmentService.GetEnrollmentByLearnerID(selectedLearner.LearnerID);
 			if (enrollment == null)
 			{
 				cboCourses.SelectedIndex = 0;

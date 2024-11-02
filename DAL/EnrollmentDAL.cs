@@ -65,7 +65,7 @@ namespace DAL
 		#endregion
 
 		#region Lấy ra enrollment dựa vào learnerID
-		public Enrollment GetEnrollmentByID(int id)
+		public Enrollment GetEnrollmentByLearnerID(int learnerId)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
@@ -73,10 +73,26 @@ namespace DAL
 				loadOptions.LoadWith<Enrollment>(e => e.Course);
 				db.LoadOptions = loadOptions;
 
-				var enrollment = db.Enrollments.Where(en => en.LearnerID == id).FirstOrDefault();
+				var enrollment = db.Enrollments.Where(en => en.LearnerID == learnerId).FirstOrDefault();
 				if (enrollment == null) return null;
 				return enrollment;
 			}	
+		}
+		#endregion
+
+		#region Lấy ra enrollment dựa vào courseID
+		public Enrollment GetEnrollmentByCourseID(int courseID)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var loadOptions = new DataLoadOptions();
+				loadOptions.LoadWith<Enrollment>(e => e.Learner);
+				db.LoadOptions = loadOptions;
+
+				var enrollment = db.Enrollments.Where(en => en.CourseID == courseID).FirstOrDefault();
+				if (enrollment == null) return null;
+				return enrollment;
+			}
 		}
 		#endregion
 	}

@@ -9,9 +9,14 @@ namespace BLL.Services
 {
 	public static class EnrollmentService
 	{
-		public static Enrollment GetEnrollmentByID(int id)
+		public static Enrollment GetEnrollmentByLearnerID(int learnerID)
 		{
-			return EnrollmentBLL.Instance.GetEnrollmentByID(id);
+			return EnrollmentBLL.Instance.GetEnrollmentByLearnerID(learnerID);
+		}
+
+		public static Enrollment GetEnrollmentByCourseID(int id)
+		{
+			return EnrollmentBLL.Instance.GetEnrollmentByCourseID(id);
 		}
 	}
 }

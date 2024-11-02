@@ -36,11 +36,6 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pnlCourses = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
 			this.dgvCourses = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LicenseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
 			this.btnOpenAddCourseForm = new Guna.UI2.WinForms.Guna2Button();
 			this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -108,6 +103,17 @@
 			this.lblDetails = new System.Windows.Forms.Label();
 			this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+			this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LicenseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.label5 = new System.Windows.Forms.Label();
+			this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+			this.dtpDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.label6 = new System.Windows.Forms.Label();
+			this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourses.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
 			this.pnlButtonAdd.SuspendLayout();
@@ -126,6 +132,7 @@
 			this.pnlFee.SuspendLayout();
 			this.pnlLicense.SuspendLayout();
 			this.pnlCourseDetails_Top.SuspendLayout();
+			this.guna2Panel10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlCourses
@@ -139,7 +146,7 @@
 			this.pnlCourses.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pnlCourses.Location = new System.Drawing.Point(0, 0);
 			this.pnlCourses.Name = "pnlCourses";
-			this.pnlCourses.Size = new System.Drawing.Size(500, 715);
+			this.pnlCourses.Size = new System.Drawing.Size(460, 715);
 			this.pnlCourses.TabIndex = 46;
 			// 
 			// dgvCourses
@@ -196,7 +203,7 @@
 			this.dgvCourses.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvCourses.RowTemplate.DividerHeight = 2;
 			this.dgvCourses.RowTemplate.Height = 45;
-			this.dgvCourses.Size = new System.Drawing.Size(500, 599);
+			this.dgvCourses.Size = new System.Drawing.Size(460, 584);
 			this.dgvCourses.TabIndex = 108;
 			this.dgvCourses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
 			this.dgvCourses.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -221,66 +228,6 @@
 			this.dgvCourses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.dgvCourses.SelectionChanged += new System.EventHandler(this.dgvCourses_SelectionChanged);
 			// 
-			// TeacherID
-			// 
-			this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.TeacherID.DataPropertyName = "Space";
-			this.TeacherID.Frozen = true;
-			this.TeacherID.HeaderText = "";
-			this.TeacherID.MinimumWidth = 6;
-			this.TeacherID.Name = "TeacherID";
-			this.TeacherID.ReadOnly = true;
-			this.TeacherID.Width = 18;
-			// 
-			// CourseName
-			// 
-			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.CourseName.DataPropertyName = "CourseName";
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
-			this.CourseName.FillWeight = 53.63456F;
-			this.CourseName.Frozen = true;
-			this.CourseName.HeaderText = "Name";
-			this.CourseName.MinimumWidth = 6;
-			this.CourseName.Name = "CourseName";
-			this.CourseName.ReadOnly = true;
-			this.CourseName.Width = 140;
-			// 
-			// Fee
-			// 
-			this.Fee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Fee.DataPropertyName = "Fee";
-			this.Fee.Frozen = true;
-			this.Fee.HeaderText = "Fee";
-			this.Fee.MinimumWidth = 6;
-			this.Fee.Name = "Fee";
-			this.Fee.ReadOnly = true;
-			this.Fee.Width = 125;
-			// 
-			// LicenseType
-			// 
-			this.LicenseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.LicenseType.DataPropertyName = "LicenseType";
-			this.LicenseType.Frozen = true;
-			this.LicenseType.HeaderText = "License";
-			this.LicenseType.MinimumWidth = 6;
-			this.LicenseType.Name = "LicenseType";
-			this.LicenseType.ReadOnly = true;
-			this.LicenseType.Width = 70;
-			// 
-			// Status
-			// 
-			this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Status.DataPropertyName = "Status";
-			this.Status.FillWeight = 70F;
-			this.Status.Frozen = true;
-			this.Status.HeaderText = "Status";
-			this.Status.MinimumWidth = 6;
-			this.Status.Name = "Status";
-			this.Status.ReadOnly = true;
-			this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.Status.Width = 140;
-			// 
 			// pnlButtonAdd
 			// 
 			this.pnlButtonAdd.Controls.Add(this.btnOpenAddCourseForm);
@@ -289,7 +236,7 @@
 			this.pnlButtonAdd.FillColor = System.Drawing.Color.White;
 			this.pnlButtonAdd.Location = new System.Drawing.Point(0, 664);
 			this.pnlButtonAdd.Name = "pnlButtonAdd";
-			this.pnlButtonAdd.Size = new System.Drawing.Size(500, 35);
+			this.pnlButtonAdd.Size = new System.Drawing.Size(460, 35);
 			this.pnlButtonAdd.TabIndex = 42;
 			// 
 			// btnOpenAddCourseForm
@@ -331,7 +278,7 @@
 			this.pnlSpace2.FillColor = System.Drawing.Color.White;
 			this.pnlSpace2.Location = new System.Drawing.Point(0, 699);
 			this.pnlSpace2.Name = "pnlSpace2";
-			this.pnlSpace2.Size = new System.Drawing.Size(500, 16);
+			this.pnlSpace2.Size = new System.Drawing.Size(460, 16);
 			this.pnlSpace2.TabIndex = 107;
 			// 
 			// pnlCourses_Top
@@ -350,7 +297,7 @@
 			this.pnlCourses_Top.FillColor = System.Drawing.Color.White;
 			this.pnlCourses_Top.Location = new System.Drawing.Point(0, 0);
 			this.pnlCourses_Top.Name = "pnlCourses_Top";
-			this.pnlCourses_Top.Size = new System.Drawing.Size(500, 60);
+			this.pnlCourses_Top.Size = new System.Drawing.Size(460, 60);
 			this.pnlCourses_Top.TabIndex = 0;
 			// 
 			// pnlSearch
@@ -362,7 +309,7 @@
 			this.pnlSearch.FillColor = System.Drawing.Color.White;
 			this.pnlSearch.Location = new System.Drawing.Point(115, 12);
 			this.pnlSearch.Name = "pnlSearch";
-			this.pnlSearch.Size = new System.Drawing.Size(370, 38);
+			this.pnlSearch.Size = new System.Drawing.Size(330, 38);
 			this.pnlSearch.TabIndex = 23;
 			// 
 			// cboStatus_Filter
@@ -386,9 +333,9 @@
             "Status",
             "Active",
             "Inactive"});
-			this.cboStatus_Filter.Location = new System.Drawing.Point(220, 0);
+			this.cboStatus_Filter.Location = new System.Drawing.Point(193, 0);
 			this.cboStatus_Filter.Name = "cboStatus_Filter";
-			this.cboStatus_Filter.Size = new System.Drawing.Size(150, 36);
+			this.cboStatus_Filter.Size = new System.Drawing.Size(137, 36);
 			this.cboStatus_Filter.StartIndex = 1;
 			this.cboStatus_Filter.TabIndex = 30;
 			this.cboStatus_Filter.Tag = "Licesnse";
@@ -416,7 +363,7 @@
 			this.txtSearchCourse.PasswordChar = '\0';
 			this.txtSearchCourse.PlaceholderText = "Search";
 			this.txtSearchCourse.SelectedText = "";
-			this.txtSearchCourse.Size = new System.Drawing.Size(210, 38);
+			this.txtSearchCourse.Size = new System.Drawing.Size(187, 38);
 			this.txtSearchCourse.TabIndex = 13;
 			this.txtSearchCourse.Tag = "SearchCourse";
 			this.txtSearchCourse.TextChanged += new System.EventHandler(this.txtSearchCourse_TextChanged);
@@ -427,7 +374,7 @@
 			this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.pnlSpace8.Location = new System.Drawing.Point(115, 50);
 			this.pnlSpace8.Name = "pnlSpace8";
-			this.pnlSpace8.Size = new System.Drawing.Size(370, 10);
+			this.pnlSpace8.Size = new System.Drawing.Size(330, 10);
 			this.pnlSpace8.TabIndex = 18;
 			// 
 			// pnlSpace7
@@ -436,7 +383,7 @@
 			this.pnlSpace7.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlSpace7.Location = new System.Drawing.Point(115, 0);
 			this.pnlSpace7.Name = "pnlSpace7";
-			this.pnlSpace7.Size = new System.Drawing.Size(370, 12);
+			this.pnlSpace7.Size = new System.Drawing.Size(330, 12);
 			this.pnlSpace7.TabIndex = 17;
 			// 
 			// pnlSpace6
@@ -448,7 +395,7 @@
 			this.pnlSpace6.CustomizableEdges.TopLeft = false;
 			this.pnlSpace6.Dock = System.Windows.Forms.DockStyle.Right;
 			this.pnlSpace6.FillColor = System.Drawing.Color.White;
-			this.pnlSpace6.Location = new System.Drawing.Point(485, 0);
+			this.pnlSpace6.Location = new System.Drawing.Point(445, 0);
 			this.pnlSpace6.Name = "pnlSpace6";
 			this.pnlSpace6.Size = new System.Drawing.Size(15, 60);
 			this.pnlSpace6.TabIndex = 16;
@@ -484,7 +431,7 @@
 			// 
 			this.pnlSpace10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
 			this.pnlSpace10.Dock = System.Windows.Forms.DockStyle.Left;
-			this.pnlSpace10.Location = new System.Drawing.Point(500, 0);
+			this.pnlSpace10.Location = new System.Drawing.Point(460, 0);
 			this.pnlSpace10.Name = "pnlSpace10";
 			this.pnlSpace10.Size = new System.Drawing.Size(20, 715);
 			this.pnlSpace10.TabIndex = 47;
@@ -499,9 +446,9 @@
 			this.pnlDetails.Controls.Add(this.lblBasicDetails);
 			this.pnlDetails.Controls.Add(this.pnlCourseDetails_Top);
 			this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlDetails.Location = new System.Drawing.Point(520, 0);
+			this.pnlDetails.Location = new System.Drawing.Point(480, 0);
 			this.pnlDetails.Name = "pnlDetails";
-			this.pnlDetails.Size = new System.Drawing.Size(420, 715);
+			this.pnlDetails.Size = new System.Drawing.Size(460, 715);
 			this.pnlDetails.TabIndex = 48;
 			// 
 			// guna2Panel6
@@ -511,9 +458,9 @@
 			this.guna2Panel6.Controls.Add(this.guna2Panel20);
 			this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
 			this.guna2Panel6.FillColor = System.Drawing.Color.White;
-			this.guna2Panel6.Location = new System.Drawing.Point(0, 434);
+			this.guna2Panel6.Location = new System.Drawing.Point(0, 477);
 			this.guna2Panel6.Name = "guna2Panel6";
-			this.guna2Panel6.Size = new System.Drawing.Size(420, 294);
+			this.guna2Panel6.Size = new System.Drawing.Size(460, 222);
 			this.guna2Panel6.TabIndex = 112;
 			// 
 			// guna2Panel16
@@ -525,7 +472,7 @@
 			this.guna2Panel16.FillColor = System.Drawing.Color.White;
 			this.guna2Panel16.Location = new System.Drawing.Point(0, 10);
 			this.guna2Panel16.Name = "guna2Panel16";
-			this.guna2Panel16.Size = new System.Drawing.Size(401, 255);
+			this.guna2Panel16.Size = new System.Drawing.Size(441, 255);
 			this.guna2Panel16.TabIndex = 122;
 			// 
 			// guna2Panel9
@@ -538,7 +485,7 @@
 			this.guna2Panel9.FillColor = System.Drawing.Color.White;
 			this.guna2Panel9.Location = new System.Drawing.Point(0, 46);
 			this.guna2Panel9.Name = "guna2Panel9";
-			this.guna2Panel9.Size = new System.Drawing.Size(401, 36);
+			this.guna2Panel9.Size = new System.Drawing.Size(441, 36);
 			this.guna2Panel9.TabIndex = 123;
 			// 
 			// lblCompleteCourse
@@ -549,7 +496,7 @@
 			this.lblCompleteCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblCompleteCourse.Location = new System.Drawing.Point(266, 0);
 			this.lblCompleteCourse.Name = "lblCompleteCourse";
-			this.lblCompleteCourse.Size = new System.Drawing.Size(135, 36);
+			this.lblCompleteCourse.Size = new System.Drawing.Size(175, 36);
 			this.lblCompleteCourse.TabIndex = 113;
 			this.lblCompleteCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
@@ -624,7 +571,7 @@
 			this.guna2Panel8.FillColor = System.Drawing.Color.White;
 			this.guna2Panel8.Location = new System.Drawing.Point(0, 36);
 			this.guna2Panel8.Name = "guna2Panel8";
-			this.guna2Panel8.Size = new System.Drawing.Size(401, 10);
+			this.guna2Panel8.Size = new System.Drawing.Size(441, 10);
 			this.guna2Panel8.TabIndex = 122;
 			// 
 			// guna2Panel7
@@ -635,7 +582,7 @@
 			this.guna2Panel7.FillColor = System.Drawing.Color.White;
 			this.guna2Panel7.Location = new System.Drawing.Point(0, 0);
 			this.guna2Panel7.Name = "guna2Panel7";
-			this.guna2Panel7.Size = new System.Drawing.Size(401, 36);
+			this.guna2Panel7.Size = new System.Drawing.Size(441, 36);
 			this.guna2Panel7.TabIndex = 121;
 			// 
 			// txtLearner
@@ -661,7 +608,7 @@
 			this.txtLearner.PasswordChar = '\0';
 			this.txtLearner.PlaceholderText = "";
 			this.txtLearner.SelectedText = "";
-			this.txtLearner.Size = new System.Drawing.Size(267, 36);
+			this.txtLearner.Size = new System.Drawing.Size(307, 36);
 			this.txtLearner.TabIndex = 111;
 			this.txtLearner.Tag = "Course Name";
 			// 
@@ -684,7 +631,7 @@
 			this.guna2Panel19.FillColor = System.Drawing.Color.White;
 			this.guna2Panel19.Location = new System.Drawing.Point(0, 0);
 			this.guna2Panel19.Name = "guna2Panel19";
-			this.guna2Panel19.Size = new System.Drawing.Size(401, 10);
+			this.guna2Panel19.Size = new System.Drawing.Size(441, 10);
 			this.guna2Panel19.TabIndex = 110;
 			// 
 			// guna2Panel20
@@ -692,9 +639,9 @@
 			this.guna2Panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
 			this.guna2Panel20.Dock = System.Windows.Forms.DockStyle.Right;
 			this.guna2Panel20.FillColor = System.Drawing.Color.White;
-			this.guna2Panel20.Location = new System.Drawing.Point(401, 0);
+			this.guna2Panel20.Location = new System.Drawing.Point(441, 0);
 			this.guna2Panel20.Name = "guna2Panel20";
-			this.guna2Panel20.Size = new System.Drawing.Size(19, 294);
+			this.guna2Panel20.Size = new System.Drawing.Size(19, 222);
 			this.guna2Panel20.TabIndex = 91;
 			// 
 			// label2
@@ -703,9 +650,9 @@
 			this.label2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.label2.Location = new System.Drawing.Point(0, 389);
+			this.label2.Location = new System.Drawing.Point(0, 432);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(420, 45);
+			this.label2.Size = new System.Drawing.Size(460, 45);
 			this.label2.TabIndex = 111;
 			this.label2.Text = "  Enrolled";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -713,8 +660,10 @@
 			// pnlBasicDetails
 			// 
 			this.pnlBasicDetails.Controls.Add(this.pnlButtonEdit_Delete);
-			this.pnlBasicDetails.Controls.Add(this.guna2Panel2);
+			this.pnlBasicDetails.Controls.Add(this.guna2Panel11);
 			this.pnlBasicDetails.Controls.Add(this.guna2Panel1);
+			this.pnlBasicDetails.Controls.Add(this.guna2Panel2);
+			this.pnlBasicDetails.Controls.Add(this.guna2Panel10);
 			this.pnlBasicDetails.Controls.Add(this.pnlSpace17);
 			this.pnlBasicDetails.Controls.Add(this.pnlCourseName);
 			this.pnlBasicDetails.Controls.Add(this.pnlSpace14);
@@ -729,7 +678,7 @@
 			this.pnlBasicDetails.FillColor = System.Drawing.Color.White;
 			this.pnlBasicDetails.Location = new System.Drawing.Point(0, 95);
 			this.pnlBasicDetails.Name = "pnlBasicDetails";
-			this.pnlBasicDetails.Size = new System.Drawing.Size(420, 294);
+			this.pnlBasicDetails.Size = new System.Drawing.Size(460, 337);
 			this.pnlBasicDetails.TabIndex = 110;
 			// 
 			// pnlButtonEdit_Delete
@@ -739,9 +688,9 @@
 			this.pnlButtonEdit_Delete.Controls.Add(this.pnlSpace13);
 			this.pnlButtonEdit_Delete.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlButtonEdit_Delete.FillColor = System.Drawing.Color.White;
-			this.pnlButtonEdit_Delete.Location = new System.Drawing.Point(0, 245);
+			this.pnlButtonEdit_Delete.Location = new System.Drawing.Point(0, 291);
 			this.pnlButtonEdit_Delete.Name = "pnlButtonEdit_Delete";
-			this.pnlButtonEdit_Delete.Size = new System.Drawing.Size(401, 35);
+			this.pnlButtonEdit_Delete.Size = new System.Drawing.Size(441, 35);
 			this.pnlButtonEdit_Delete.TabIndex = 128;
 			// 
 			// btnDelete
@@ -756,7 +705,7 @@
 			this.btnDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
 			this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDelete.ForeColor = System.Drawing.Color.White;
-			this.btnDelete.Location = new System.Drawing.Point(251, 0);
+			this.btnDelete.Location = new System.Drawing.Point(291, 0);
 			this.btnDelete.Name = "btnDelete";
 			this.btnDelete.Padding = new System.Windows.Forms.Padding(5);
 			this.btnDelete.Size = new System.Drawing.Size(150, 35);
@@ -800,7 +749,7 @@
 			this.guna2Panel2.FillColor = System.Drawing.Color.White;
 			this.guna2Panel2.Location = new System.Drawing.Point(0, 230);
 			this.guna2Panel2.Name = "guna2Panel2";
-			this.guna2Panel2.Size = new System.Drawing.Size(401, 15);
+			this.guna2Panel2.Size = new System.Drawing.Size(441, 10);
 			this.guna2Panel2.TabIndex = 130;
 			// 
 			// guna2Panel1
@@ -809,9 +758,9 @@
 			this.guna2Panel1.Controls.Add(this.label1);
 			this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.guna2Panel1.FillColor = System.Drawing.Color.White;
-			this.guna2Panel1.Location = new System.Drawing.Point(0, 194);
+			this.guna2Panel1.Location = new System.Drawing.Point(0, 240);
 			this.guna2Panel1.Name = "guna2Panel1";
-			this.guna2Panel1.Size = new System.Drawing.Size(401, 36);
+			this.guna2Panel1.Size = new System.Drawing.Size(441, 36);
 			this.guna2Panel1.TabIndex = 129;
 			// 
 			// cboStates
@@ -834,7 +783,7 @@
 			this.cboStates.ItemHeight = 30;
 			this.cboStates.Location = new System.Drawing.Point(125, 0);
 			this.cboStates.Name = "cboStates";
-			this.cboStates.Size = new System.Drawing.Size(276, 36);
+			this.cboStates.Size = new System.Drawing.Size(316, 36);
 			this.cboStates.TabIndex = 110;
 			this.cboStates.Tag = "Status";
 			// 
@@ -857,7 +806,7 @@
 			this.pnlSpace17.FillColor = System.Drawing.Color.White;
 			this.pnlSpace17.Location = new System.Drawing.Point(0, 184);
 			this.pnlSpace17.Name = "pnlSpace17";
-			this.pnlSpace17.Size = new System.Drawing.Size(401, 10);
+			this.pnlSpace17.Size = new System.Drawing.Size(441, 10);
 			this.pnlSpace17.TabIndex = 127;
 			// 
 			// pnlCourseName
@@ -868,7 +817,7 @@
 			this.pnlCourseName.FillColor = System.Drawing.Color.White;
 			this.pnlCourseName.Location = new System.Drawing.Point(0, 148);
 			this.pnlCourseName.Name = "pnlCourseName";
-			this.pnlCourseName.Size = new System.Drawing.Size(401, 36);
+			this.pnlCourseName.Size = new System.Drawing.Size(441, 36);
 			this.pnlCourseName.TabIndex = 126;
 			// 
 			// txtCourseName
@@ -894,7 +843,7 @@
 			this.txtCourseName.PasswordChar = '\0';
 			this.txtCourseName.PlaceholderText = "";
 			this.txtCourseName.SelectedText = "";
-			this.txtCourseName.Size = new System.Drawing.Size(276, 36);
+			this.txtCourseName.Size = new System.Drawing.Size(316, 36);
 			this.txtCourseName.TabIndex = 110;
 			this.txtCourseName.Tag = "Course Name";
 			// 
@@ -917,7 +866,7 @@
 			this.pnlSpace14.FillColor = System.Drawing.Color.White;
 			this.pnlSpace14.Location = new System.Drawing.Point(0, 138);
 			this.pnlSpace14.Name = "pnlSpace14";
-			this.pnlSpace14.Size = new System.Drawing.Size(401, 10);
+			this.pnlSpace14.Size = new System.Drawing.Size(441, 10);
 			this.pnlSpace14.TabIndex = 125;
 			// 
 			// pnlDuration
@@ -929,7 +878,7 @@
 			this.pnlDuration.FillColor = System.Drawing.Color.White;
 			this.pnlDuration.Location = new System.Drawing.Point(0, 102);
 			this.pnlDuration.Name = "pnlDuration";
-			this.pnlDuration.Size = new System.Drawing.Size(401, 36);
+			this.pnlDuration.Size = new System.Drawing.Size(441, 36);
 			this.pnlDuration.TabIndex = 124;
 			// 
 			// txtDurationInHours
@@ -955,7 +904,7 @@
 			this.txtDurationInHours.PasswordChar = '\0';
 			this.txtDurationInHours.PlaceholderText = "";
 			this.txtDurationInHours.SelectedText = "";
-			this.txtDurationInHours.Size = new System.Drawing.Size(183, 36);
+			this.txtDurationInHours.Size = new System.Drawing.Size(223, 36);
 			this.txtDurationInHours.TabIndex = 28;
 			this.txtDurationInHours.Tag = "Duration In Hours";
 			this.txtDurationInHours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numeric_KeyPress);
@@ -976,7 +925,7 @@
 			this.txtHour.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
 			this.txtHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.txtHour.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtHour.Location = new System.Drawing.Point(308, 0);
+			this.txtHour.Location = new System.Drawing.Point(348, 0);
 			this.txtHour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtHour.Name = "txtHour";
 			this.txtHour.PasswordChar = '\0';
@@ -1004,7 +953,7 @@
 			this.pnlSpace16.FillColor = System.Drawing.Color.White;
 			this.pnlSpace16.Location = new System.Drawing.Point(0, 92);
 			this.pnlSpace16.Name = "pnlSpace16";
-			this.pnlSpace16.Size = new System.Drawing.Size(401, 10);
+			this.pnlSpace16.Size = new System.Drawing.Size(441, 10);
 			this.pnlSpace16.TabIndex = 123;
 			// 
 			// pnlFee
@@ -1016,7 +965,7 @@
 			this.pnlFee.FillColor = System.Drawing.Color.White;
 			this.pnlFee.Location = new System.Drawing.Point(0, 56);
 			this.pnlFee.Name = "pnlFee";
-			this.pnlFee.Size = new System.Drawing.Size(401, 36);
+			this.pnlFee.Size = new System.Drawing.Size(441, 36);
 			this.pnlFee.TabIndex = 122;
 			// 
 			// txtFee
@@ -1041,7 +990,7 @@
 			this.txtFee.PasswordChar = '\0';
 			this.txtFee.PlaceholderText = "";
 			this.txtFee.SelectedText = "";
-			this.txtFee.Size = new System.Drawing.Size(183, 36);
+			this.txtFee.Size = new System.Drawing.Size(223, 36);
 			this.txtFee.TabIndex = 24;
 			this.txtFee.Tag = "Fee";
 			this.txtFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numeric_KeyPress);
@@ -1062,7 +1011,7 @@
 			this.txtVND.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
 			this.txtVND.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.txtVND.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtVND.Location = new System.Drawing.Point(308, 0);
+			this.txtVND.Location = new System.Drawing.Point(348, 0);
 			this.txtVND.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtVND.Name = "txtVND";
 			this.txtVND.PasswordChar = '\0';
@@ -1090,7 +1039,7 @@
 			this.guna2Panel3.FillColor = System.Drawing.Color.White;
 			this.guna2Panel3.Location = new System.Drawing.Point(0, 46);
 			this.guna2Panel3.Name = "guna2Panel3";
-			this.guna2Panel3.Size = new System.Drawing.Size(401, 10);
+			this.guna2Panel3.Size = new System.Drawing.Size(441, 10);
 			this.guna2Panel3.TabIndex = 121;
 			// 
 			// pnlLicense
@@ -1101,7 +1050,7 @@
 			this.pnlLicense.FillColor = System.Drawing.Color.White;
 			this.pnlLicense.Location = new System.Drawing.Point(0, 10);
 			this.pnlLicense.Name = "pnlLicense";
-			this.pnlLicense.Size = new System.Drawing.Size(401, 36);
+			this.pnlLicense.Size = new System.Drawing.Size(441, 36);
 			this.pnlLicense.TabIndex = 120;
 			// 
 			// cboLicenses
@@ -1129,7 +1078,7 @@
             "E"});
 			this.cboLicenses.Location = new System.Drawing.Point(125, 0);
 			this.cboLicenses.Name = "cboLicenses";
-			this.cboLicenses.Size = new System.Drawing.Size(276, 36);
+			this.cboLicenses.Size = new System.Drawing.Size(316, 36);
 			this.cboLicenses.StartIndex = 0;
 			this.cboLicenses.TabIndex = 30;
 			this.cboLicenses.Tag = "License";
@@ -1154,7 +1103,7 @@
 			this.pnlSpace19.FillColor = System.Drawing.Color.White;
 			this.pnlSpace19.Location = new System.Drawing.Point(0, 0);
 			this.pnlSpace19.Name = "pnlSpace19";
-			this.pnlSpace19.Size = new System.Drawing.Size(401, 10);
+			this.pnlSpace19.Size = new System.Drawing.Size(441, 10);
 			this.pnlSpace19.TabIndex = 110;
 			// 
 			// pnlSpace21
@@ -1162,9 +1111,9 @@
 			this.pnlSpace21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
 			this.pnlSpace21.Dock = System.Windows.Forms.DockStyle.Right;
 			this.pnlSpace21.FillColor = System.Drawing.Color.White;
-			this.pnlSpace21.Location = new System.Drawing.Point(401, 0);
+			this.pnlSpace21.Location = new System.Drawing.Point(441, 0);
 			this.pnlSpace21.Name = "pnlSpace21";
-			this.pnlSpace21.Size = new System.Drawing.Size(19, 294);
+			this.pnlSpace21.Size = new System.Drawing.Size(19, 337);
 			this.pnlSpace21.TabIndex = 91;
 			// 
 			// lblBasicDetails
@@ -1175,7 +1124,7 @@
 			this.lblBasicDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
 			this.lblBasicDetails.Location = new System.Drawing.Point(0, 50);
 			this.lblBasicDetails.Name = "lblBasicDetails";
-			this.lblBasicDetails.Size = new System.Drawing.Size(420, 45);
+			this.lblBasicDetails.Size = new System.Drawing.Size(460, 45);
 			this.lblBasicDetails.TabIndex = 107;
 			this.lblBasicDetails.Text = "  Basic Details";
 			this.lblBasicDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1196,7 +1145,7 @@
 			this.pnlCourseDetails_Top.FillColor = System.Drawing.Color.White;
 			this.pnlCourseDetails_Top.Location = new System.Drawing.Point(0, 0);
 			this.pnlCourseDetails_Top.Name = "pnlCourseDetails_Top";
-			this.pnlCourseDetails_Top.Size = new System.Drawing.Size(420, 50);
+			this.pnlCourseDetails_Top.Size = new System.Drawing.Size(460, 50);
 			this.pnlCourseDetails_Top.TabIndex = 1;
 			// 
 			// lblCourseID
@@ -1214,7 +1163,7 @@
 			this.lblCourseID.Location = new System.Drawing.Point(288, 15);
 			this.lblCourseID.Name = "lblCourseID";
 			this.lblCourseID.PressedDepth = 5;
-			this.lblCourseID.Size = new System.Drawing.Size(113, 25);
+			this.lblCourseID.Size = new System.Drawing.Size(153, 25);
 			this.lblCourseID.TabIndex = 22;
 			this.lblCourseID.Tag = "CourseID";
 			this.lblCourseID.Text = "Course ID";
@@ -1225,7 +1174,7 @@
 			this.pnlSpace12.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.pnlSpace12.Location = new System.Drawing.Point(288, 40);
 			this.pnlSpace12.Name = "pnlSpace12";
-			this.pnlSpace12.Size = new System.Drawing.Size(113, 10);
+			this.pnlSpace12.Size = new System.Drawing.Size(153, 10);
 			this.pnlSpace12.TabIndex = 21;
 			// 
 			// pnlSpace11
@@ -1234,7 +1183,7 @@
 			this.pnlSpace11.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlSpace11.Location = new System.Drawing.Point(288, 0);
 			this.pnlSpace11.Name = "pnlSpace11";
-			this.pnlSpace11.Size = new System.Drawing.Size(113, 15);
+			this.pnlSpace11.Size = new System.Drawing.Size(153, 15);
 			this.pnlSpace11.TabIndex = 20;
 			// 
 			// guna2Panel4
@@ -1246,7 +1195,7 @@
 			this.guna2Panel4.CustomizableEdges.TopLeft = false;
 			this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Right;
 			this.guna2Panel4.FillColor = System.Drawing.Color.White;
-			this.guna2Panel4.Location = new System.Drawing.Point(401, 0);
+			this.guna2Panel4.Location = new System.Drawing.Point(441, 0);
 			this.guna2Panel4.Name = "guna2Panel4";
 			this.guna2Panel4.Size = new System.Drawing.Size(19, 50);
 			this.guna2Panel4.TabIndex = 18;
@@ -1291,6 +1240,157 @@
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
 			// 
+			// TeacherID
+			// 
+			this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.TeacherID.DataPropertyName = "Space";
+			this.TeacherID.Frozen = true;
+			this.TeacherID.HeaderText = "";
+			this.TeacherID.MinimumWidth = 6;
+			this.TeacherID.Name = "TeacherID";
+			this.TeacherID.ReadOnly = true;
+			this.TeacherID.Width = 18;
+			// 
+			// CourseName
+			// 
+			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.CourseName.DataPropertyName = "CourseName";
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+			this.CourseName.FillWeight = 53.63456F;
+			this.CourseName.Frozen = true;
+			this.CourseName.HeaderText = "Name";
+			this.CourseName.MinimumWidth = 6;
+			this.CourseName.Name = "CourseName";
+			this.CourseName.ReadOnly = true;
+			this.CourseName.Width = 140;
+			// 
+			// Fee
+			// 
+			this.Fee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Fee.DataPropertyName = "Fee";
+			this.Fee.Frozen = true;
+			this.Fee.HeaderText = "Fee";
+			this.Fee.MinimumWidth = 6;
+			this.Fee.Name = "Fee";
+			this.Fee.ReadOnly = true;
+			this.Fee.Width = 125;
+			// 
+			// LicenseType
+			// 
+			this.LicenseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.LicenseType.DataPropertyName = "LicenseType";
+			this.LicenseType.Frozen = true;
+			this.LicenseType.HeaderText = "License";
+			this.LicenseType.MinimumWidth = 6;
+			this.LicenseType.Name = "LicenseType";
+			this.LicenseType.ReadOnly = true;
+			this.LicenseType.Width = 70;
+			// 
+			// Status
+			// 
+			this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Status.DataPropertyName = "Status";
+			this.Status.FillWeight = 70F;
+			this.Status.Frozen = true;
+			this.Status.HeaderText = "Status";
+			this.Status.MinimumWidth = 6;
+			this.Status.Name = "Status";
+			this.Status.ReadOnly = true;
+			this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// label5
+			// 
+			this.label5.BackColor = System.Drawing.Color.White;
+			this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label5.Location = new System.Drawing.Point(0, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(79, 36);
+			this.label5.TabIndex = 109;
+			this.label5.Text = "    Start: ";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// guna2Panel10
+			// 
+			this.guna2Panel10.Controls.Add(this.guna2DateTimePicker1);
+			this.guna2Panel10.Controls.Add(this.label6);
+			this.guna2Panel10.Controls.Add(this.dtpDOB);
+			this.guna2Panel10.Controls.Add(this.label5);
+			this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel10.FillColor = System.Drawing.Color.White;
+			this.guna2Panel10.Location = new System.Drawing.Point(0, 194);
+			this.guna2Panel10.Name = "guna2Panel10";
+			this.guna2Panel10.Size = new System.Drawing.Size(441, 36);
+			this.guna2Panel10.TabIndex = 131;
+			// 
+			// dtpDOB
+			// 
+			this.dtpDOB.BorderColor = System.Drawing.Color.White;
+			this.dtpDOB.BorderRadius = 5;
+			this.dtpDOB.Checked = true;
+			this.dtpDOB.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.dtpDOB.CustomFormat = "dd-MM-yyyy";
+			this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Left;
+			this.dtpDOB.Enabled = false;
+			this.dtpDOB.FillColor = System.Drawing.Color.White;
+			this.dtpDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.dtpDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpDOB.Location = new System.Drawing.Point(79, 0);
+			this.dtpDOB.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.dtpDOB.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.dtpDOB.Name = "dtpDOB";
+			this.dtpDOB.Size = new System.Drawing.Size(147, 36);
+			this.dtpDOB.TabIndex = 110;
+			this.dtpDOB.Tag = "Date of Birth";
+			this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			// 
+			// label6
+			// 
+			this.label6.BackColor = System.Drawing.Color.White;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label6.Location = new System.Drawing.Point(226, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(70, 36);
+			this.label6.TabIndex = 111;
+			this.label6.Text = "  End: ";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// guna2DateTimePicker1
+			// 
+			this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.White;
+			this.guna2DateTimePicker1.BorderRadius = 5;
+			this.guna2DateTimePicker1.Checked = true;
+			this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.guna2DateTimePicker1.CustomFormat = "dd-MM-yyyy";
+			this.guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.guna2DateTimePicker1.Enabled = false;
+			this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
+			this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.guna2DateTimePicker1.Location = new System.Drawing.Point(296, 0);
+			this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
+			this.guna2DateTimePicker1.Size = new System.Drawing.Size(145, 36);
+			this.guna2DateTimePicker1.TabIndex = 112;
+			this.guna2DateTimePicker1.Tag = "Date of Birth";
+			this.guna2DateTimePicker1.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			// 
+			// guna2Panel11
+			// 
+			this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel11.FillColor = System.Drawing.Color.White;
+			this.guna2Panel11.Location = new System.Drawing.Point(0, 276);
+			this.guna2Panel11.Name = "guna2Panel11";
+			this.guna2Panel11.Size = new System.Drawing.Size(441, 15);
+			this.guna2Panel11.TabIndex = 132;
+			// 
 			// CoursesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1324,6 +1424,7 @@
 			this.pnlFee.ResumeLayout(false);
 			this.pnlLicense.ResumeLayout(false);
 			this.pnlCourseDetails_Top.ResumeLayout(false);
+			this.guna2Panel10.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -1380,11 +1481,6 @@
         private System.Windows.Forms.Label lblLicense;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCourses;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LicenseType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -1404,5 +1500,16 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label lblCompleteCourse;
-    }
+		private System.Windows.Forms.DataGridViewTextBoxColumn TeacherID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Fee;
+		private System.Windows.Forms.DataGridViewTextBoxColumn LicenseType;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+		private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+		private System.Windows.Forms.Label label5;
+		private Guna.UI2.WinForms.Guna2DateTimePicker dtpDOB;
+		private System.Windows.Forms.Label label6;
+		private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+		private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+	}
 }

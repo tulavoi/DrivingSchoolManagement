@@ -65,20 +65,20 @@ namespace DAL
                            where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
                            select new
                            {
-                               learner.LearnerID,
-                               learner.FullName,
-                               learner.DateOfBirth,
-                               learner.Gender,
-                               learner.PhoneNumber,
-                               learner.Email,
-                               learner.Address,
-                               learner.CitizenID,
-                               learner.Nationality,
-                               status.StatusID,
+							   learner.LearnerID,
+							   learner.FullName,
+							   learner.DateOfBirth,
+							   learner.Gender,
+							   learner.PhoneNumber,
+							   learner.Email,
+							   learner.Address,
+							   learner.CitizenID,
+							   learner.Nationality,
+							   status.StatusID,
 							   status.StatusName,
 							   learner.Created_At,
-                               learner.Updated_At
-                           };
+							   learner.Updated_At
+						   };
                 return data.ToList();
             }
         }

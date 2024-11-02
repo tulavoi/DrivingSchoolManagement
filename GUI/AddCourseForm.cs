@@ -21,6 +21,7 @@ namespace GUI
         {
             shadowForm.SetShadowForm(this);
             //this.LoadComboboxes();
+            dtpStartDate.MinDate = DateTime.Now;
         }
 
         private void LoadComboboxes()
@@ -52,7 +53,9 @@ namespace GUI
                 DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
                 StatusID = Constant.StatusID_Active,
                 HoursStudied = 0,
-                Created_At = DateTime.Now
+                StartDate = dtpStartDate.Value,
+                EndDate = dtpEndDate.Value,
+				Created_At = DateTime.Now
             };
         }
 
@@ -82,18 +85,15 @@ namespace GUI
 
         private bool ValidateFields()
         {
+            if (!CourseValidator.ValidateLicense(cboLicense, toolTip)) return false;
+            
             if (!CourseValidator.ValidateCourseName(txtName, toolTip)) return false;
 
             if (!CourseValidator.ValidateFee(txtFee, toolTip)) return false;
 
             if (!CourseValidator.ValidateDuration(txtDurationInHours, toolTip)) return false;
-
+            
             return true;
-        }
-
-        private void numeric_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
         }
 
         private void cboLicense_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,5 +142,12 @@ namespace GUI
             // Cập nhật tên tự sinh vào txtName
             txtName.Text = $"{prefix}{DateTime.Now.ToString("yyMMddhhmmss")}"; 
         }
-    }
+
+		private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+		{
+            dtpEndDate.Enabled = true;
+            dtpEndDate.Value = dtpStartDate.Value.AddMonths(6);
+            dtpEndDate.Enabled = false;
+		}
+	}
 }

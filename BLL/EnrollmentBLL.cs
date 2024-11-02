@@ -10,20 +10,25 @@ namespace BLL
 	public class EnrollmentBLL
 	{
 		#region Properties
-		private static EnrollmentDAL instance;
-		public static EnrollmentDAL Instance
+		private static EnrollmentBLL instance;
+		public static EnrollmentBLL Instance
 		{
 			get
 			{
-				if (instance == null) instance = new EnrollmentDAL();
+				if (instance == null) instance = new EnrollmentBLL();
 				return instance;
 			}
 		}
 		#endregion
 
-		public Enrollment GetEnrollmentByID(int id)
+		public Enrollment GetEnrollmentByLearnerID(int id)
 		{
-			return EnrollmentDAL.Instance.GetEnrollmentByID(id);
+			return EnrollmentDAL.Instance.GetEnrollmentByLearnerID(id);
+		}
+
+		public Enrollment GetEnrollmentByCourseID(int id)
+		{
+			return EnrollmentDAL.Instance.GetEnrollmentByCourseID(id);
 		}
 	}
 }
