@@ -17,9 +17,9 @@ namespace BLL.Services
             return LearnerBLL.Instance.AddLearner(learner, courseID);
         }
 
-        public static bool EditLearner(Learner learner)
+        public static bool EditLearner(Learner learner, int courseID)
         {
-            return LearnerBLL.Instance.EditLearner(learner);
+            return LearnerBLL.Instance.EditLearner(learner, courseID);
         }
 
         public static bool DeleteLearner(int learnerID)

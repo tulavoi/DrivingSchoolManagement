@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DAL
 {
@@ -46,6 +49,34 @@ namespace DAL
 				IsComplete = false
 			};
 			return AddData(enrollment);
+		}
+		#endregion
+
+		#region Edit
+		public bool EditEnrollment(Learner learner, int courseID)
+		{
+			return EditData(e => e.LearnerID == learner.LearnerID,
+							e =>
+							{
+								e.CourseID = courseID;
+								e.LearnerID = learner.LearnerID;
+							});
+		}
+		#endregion
+
+		#region Lấy ra enrollment dựa vào learnerID
+		public Enrollment GetEnrollmentByID(int id)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				var loadOptions = new DataLoadOptions();
+				loadOptions.LoadWith<Enrollment>(e => e.Course);
+				db.LoadOptions = loadOptions;
+
+				var enrollment = db.Enrollments.Where(en => en.LearnerID == id).FirstOrDefault();
+				if (enrollment == null) return null;
+				return enrollment;
+			}	
 		}
 		#endregion
 	}

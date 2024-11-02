@@ -30,7 +30,7 @@ namespace DAL
                 var data = from learner in db.Learners
                            join status in db.Status on learner.StatusID equals status.StatusID
                            select new
-                           {
+						   {
                                learner.LearnerID,
                                learner.FullName,
                                learner.DateOfBirth,
@@ -39,9 +39,10 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
+                               learner.Nationality,
                                status.StatusID,
                                status.StatusName,
-                               learner.Created_At,
+							   learner.Created_At,
                                learner.Updated_At
                            };
                 return data.ToList();
@@ -72,9 +73,10 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
+                               learner.Nationality,
                                status.StatusID,
-                               status.StatusName,
-                               learner.Created_At,
+							   status.StatusName,
+							   learner.Created_At,
                                learner.Updated_At
                            };
                 return data.ToList();
@@ -105,8 +107,9 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
+                               learner.Nationality,
                                status.StatusID,
-                               status.StatusName,
+							   status.StatusName,
                                learner.Created_At,
                                learner.Updated_At
                            };
@@ -144,9 +147,12 @@ namespace DAL
         #endregion
 
         #region Edit
-        public bool EditLearner(Learner learner)
+        public bool EditLearner(Learner learner, int courseID)
         {
-            return EditData(l => l.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
+            if (!EnrollmentDAL.Instance.EditEnrollment(learner, courseID))
+                return false;
+
+            return EditData(l => l.LearnerID == learner.LearnerID,           // Điều kiện tìm learner theo ID
                             l =>                                             // Action cập nhật các thuộc tính
                             {
                                 l.FullName = learner.FullName;
@@ -155,15 +161,16 @@ namespace DAL
                                 l.PhoneNumber = learner.PhoneNumber;
                                 l.Email = learner.Email;
                                 l.Address = learner.Address;
+                                l.Nationality = learner.Nationality;
                                 l.CitizenID = learner.CitizenID;
                                 l.StatusID = learner.StatusID;
-                                l.Updated_At = DateTime.Now;
+                                l.Updated_At = learner.Updated_At;
                             });
         }
-        #endregion
+		#endregion
 
-        #region Delete
-        public bool DeleteLearner(int learnerID)
+		#region Delete
+		public bool DeleteLearner(int learnerID)
         {
             return UpdateStatus(lear => lear.LearnerID == learnerID, StatusID_Inactive); // Điều kiện tìm learner theo ID
         }
@@ -181,6 +188,7 @@ namespace DAL
                 Email = item.Email,
                 Address = item.Address,
                 CitizenID = item.CitizenID,
+                Nationality = item.Nationality,
                 Status = new Status
                 {
                     StatusID = item.StatusID,

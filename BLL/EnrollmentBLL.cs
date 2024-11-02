@@ -21,6 +21,9 @@ namespace BLL
 		}
 		#endregion
 
-		
+		public Enrollment GetEnrollmentByID(int id)
+		{
+			return EnrollmentDAL.Instance.GetEnrollmentByID(id);
+		}
 	}
 }

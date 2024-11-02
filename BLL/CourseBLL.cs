@@ -39,7 +39,13 @@ namespace BLL
 			this.AddCoursesToCombobox(cbo, courses);
 		}
 
-        private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
+		public void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
+        {
+			List<Course> courses = CourseDAL.Instance.GetAvailableAndLearnerCourses(learnerID);
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
+		private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
         {
             Course course = new Course();
             course.CourseName = "Select Course";

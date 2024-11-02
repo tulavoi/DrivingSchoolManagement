@@ -319,3 +319,8 @@ VALUES
 INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
 VALUES 
 ('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE());
+
+
+INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
+VALUES 
+('C-090532021124', 2, 12000000, 920, 0, 1, '2024-11-03', DATEADD(MONTH, 6, '2024-11-03'), GETDATE(), GETDATE())
