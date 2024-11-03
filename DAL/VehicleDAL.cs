@@ -18,10 +18,10 @@ namespace DAL
             }
         }
 
-        private int licenseID_B = 1002;
-        private int licenseID_C = 1003;
-        private int licenseID_D = 1004;
-        private int licenseID_E = 1005;
+        private int licenseID_B = 1;
+        private int licenseID_C = 2;
+        private int licenseID_D = 3;
+        private int licenseID_E = 4;
         #endregion
 
         #region All Vehicles
@@ -181,11 +181,16 @@ namespace DAL
         #endregion
 
         #region Get vehicle by course
-        public List<Vehicle> GetVehicleForCourse(int courseID)
+        public List<Vehicle> GetVehicleForCourse(int courseID, int sessionID, DateTime curDate)
         {
             using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
             {
-                var licenseId = (from course in db.Courses
+				var scheduledVehicles = (from sche in db.Schedules
+										 where sche.SessionID == sessionID
+											   && sche.SessionDate == curDate
+										 select sche.VehicleID).Distinct().ToList();
+
+				var licenseId = (from course in db.Courses
                                  where course.CourseID == courseID
                                  select course.LicenseID).FirstOrDefault();
 
@@ -195,9 +200,9 @@ namespace DAL
                         (licenseId == licenseID_B && v.IsPassengerCar == true && v.Seats <= 9) ||                      // B
                         (licenseId == licenseID_C && v.IsTruck == true && v.Weight >= 3500) ||                         // C
                         (licenseId == licenseID_D && v.IsPassengerCar == true && v.Seats >= 10 && v.Seats <= 30) ||    // D
-                        (licenseId == licenseID_E && v.IsPassengerCar == true && v.Seats > 30)                         // E
-                    )
-                    .ToList();
+                        (licenseId == licenseID_E && v.IsPassengerCar == true && v.Seats > 30))                         // E
+                    .Where(vehicle => !scheduledVehicles.Contains(vehicle.VehicleID))
+					.ToList();
 
                 return vehicles;
             }

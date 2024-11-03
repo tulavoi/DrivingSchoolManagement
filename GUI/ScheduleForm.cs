@@ -67,9 +67,9 @@ namespace GUI
 
             string vehicleNameNumber = $"{schedule.Vehicle.VehicleName}              {schedule.Vehicle.VehicleNumber}";
 
-   //         cboLearners.Text = schedule.Learner.FullName;
-			//cboCourses.Text = schedule.Course.CourseName;
-			cboTeachers.Text = schedule.Teacher.FullName;
+            txtLearnerName.Text = schedule.Enrollment.Learner.FullName;
+            txtCourseName.Text = schedule.Enrollment.Course.CourseName;
+            cboTeachers.Text = schedule.Teacher.FullName;
 			cboVehicles.Text = vehicleNameNumber;
 			cboSessions.Text = schedule.Session.Session1;
             dtpSessionDate.Value = schedule.SessionDate.Value;
@@ -88,8 +88,6 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
-            ComboboxService.AssignLearnersToCombobox(cboLearners);
 			ComboboxService.AssignTeachersToCombobox(cboTeachers);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
             //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
@@ -136,7 +134,7 @@ namespace GUI
 
             if (!this.ValidateFields()) return;
 
-            if (this.ConfirmAction($"Are you sure to edit schedule for '{cboLearners.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to edit schedule for '{txtLearnerName.Text}'?"))
             {
                 Schedule schedule = this.GetSchedule();
                 string errorMessage = "";
@@ -181,7 +179,7 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            var comboBoxes = new List<Guna2ComboBox> { cboLearners, cboCourses, cboTeachers, cboVehicles, cboSessions };
+            var comboBoxes = new List<Guna2ComboBox> { cboTeachers, cboVehicles, cboSessions };
 
             foreach (var comboBox in comboBoxes)
             {
@@ -208,13 +206,13 @@ namespace GUI
 
             if (string.IsNullOrEmpty(lblScheduleID.Text)) return;
 
-            if (this.ConfirmAction($"Are you sure to delete schedule of '{cboLearners.Text}'?"))
+            if (this.ConfirmAction($"Are you sure to delete schedule of '{txtLearnerName.Text}'?"))
             {
                 int scheduleID = FormHelper.GetObjectID(lblScheduleID.Text);
                 var result = ScheduleService.DeleteSchedule(scheduleID);
                 if (result)
                 {
-                    CourseService.UpdateHoursStudied(Convert.ToInt32(cboCourses.SelectedValue), -2);
+                    CourseService.UpdateHoursStudied(Convert.ToInt32(txtCourseName.Tag), -2);
                     FormHelper.ShowNotify("Schedule deleted successfully.");
                 }
                 else
@@ -328,13 +326,13 @@ namespace GUI
 
         private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!FormHelper.HasSelectedItem(cboCourses)) return;
-            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+            //if (!FormHelper.HasSelectedItem(cboCourses)) return;
+            //int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
 
-            ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
+   //         ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
 
-            ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
-			this.UpdateControlsWithSelectedRowData();
+   //         ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
+			//this.UpdateControlsWithSelectedRowData();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

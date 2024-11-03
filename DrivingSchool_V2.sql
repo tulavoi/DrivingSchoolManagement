@@ -235,7 +235,7 @@ VALUES
 INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At)
 VALUES 
 ('Le Van C', 123456789534, '1980-11-25', 'Male', '0909123456', '22211tt4304@mail.tdc.edu.vn', 'Vietnam', '789 DEF Street', '2010-06-15', 1, 923481231231, '2009-06-01', GETDATE(), GETDATE()),
-('Pham Thi D', 987654321756, '1985-03-30', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '2015-08-20', 2, 873456123456, '2014-07-15', GETDATE(), GETDATE()),
+('Mai Thi Z', 987654321756, '1985-03-30', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '2015-08-20', 2, 873456123456, '2014-07-15', GETDATE(), GETDATE()),
 ('Nguyen Thi A', 987654321345, '1985-03-20', 'Female', '0909123457', 'thia@gmail.com', 'Vietnam', '123 ABC Street', '2012-07-10', 2, 762341237891, '2010-05-20', GETDATE(), GETDATE()),
 ('Tran Van B', 192837465875, '1990-08-14', 'Male', '0909123458', 'vanb@gmail.com', 'Vietnam', '456 GHI Street', '2015-09-25', 1, 634567238910, '2014-05-10', GETDATE(), GETDATE()),
 ('Pham Thi D', 123456780876, '1992-12-30', 'Female', '0909123459', 'thid@gmail.com', 'Vietnam', '321 JKL Street', '2016-01-15', 4, 123987456321, '2015-06-01', GETDATE(), GETDATE()),
@@ -304,7 +304,7 @@ INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDat
 VALUES
 (1, 1, 1, 1, '2024-10-15', 1, GETDATE(), GETDATE()),
 (2, 2, 2, 2, '2024-10-20', 1, GETDATE(), GETDATE()),
-(3, 2, 4, 3, '2024-10-25', 1, GETDATE(), GETDATE());
+(3, 2, 6, 3, '2024-10-25', 1, GETDATE(), GETDATE());
 
 INSERT INTO Invoices (InvoiceCode, EnrollmentID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 

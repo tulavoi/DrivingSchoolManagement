@@ -24,9 +24,9 @@ namespace BLL.Services
             CourseBLL.Instance.SearchCourses(dgv, keyword);
         }
 
-        public static void SearchCourses(Guna2ComboBox cbo, string keyword)
+        public static void SearchCourses(Guna2ComboBox cbo, string keyword, string status)
         {
-            CourseBLL.Instance.SearchCourses(cbo, keyword);
+            CourseBLL.Instance.SearchCourses(cbo, keyword, status);
         }
 
         public static void FilterLearnersByStatus(Guna2DataGridView dgv, string status)

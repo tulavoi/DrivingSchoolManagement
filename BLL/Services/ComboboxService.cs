@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 
 namespace BLL.Services
@@ -46,9 +47,9 @@ namespace BLL.Services
 			TeacherBLL.Instance.AssignTeachersToCombobox(cbo);
 		}
 
-		public static void AssignTeachersToCombobox(Guna2ComboBox cbo, int courseID)
+		public static void AssignTeachersToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
 		{
-			TeacherBLL.Instance.AssignTeachersToCombobox(cbo, courseID);
+			TeacherBLL.Instance.AssignTeachersToCombobox(cbo, courseID, sessionID, curDate);
 		}
 
 		public static void AssignSessionsToCombobox(Guna2ComboBox cbo)
@@ -56,14 +57,19 @@ namespace BLL.Services
 			SessionBLL.Instance.AssignSessionsToCombobox(cbo);
 		}
 
+		public static void AssignSessionsToCombobox(Guna2ComboBox cboSessions, int courseID, DateTime curDate)
+		{
+			SessionBLL.Instance.AssignSessionsToCombobox(cboSessions, courseID, curDate);
+		}
+
 		public static void AssignVehiclesToCombobox(Guna2ComboBox cbo)
 		{
 			VehicleBLL.Instance.AssignVehiclesToCombobox(cbo);
 		}
 
-		public static void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID)
+		public static void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
 		{
-			VehicleBLL.Instance.AssignVehiclesToCombobox(cbo, courseID);
+			VehicleBLL.Instance.AssignVehiclesToCombobox(cbo, courseID, sessionID, curDate);
 		}
 
 		public static void AssignLicensesToCombobox(Guna2ComboBox cbo)

@@ -34,8 +34,8 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleForm));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pnlBottomLeft = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
 			this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
 			this.btnOpenAddScheduleForm = new Guna.UI2.WinForms.Guna2Button();
@@ -64,13 +64,6 @@
 			this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
 			this.dgvSchedules = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.pnlSchedules_Top = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace23 = new Guna.UI2.WinForms.Guna2Panel();
 			this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -99,7 +92,7 @@
 			this.lblDate = new System.Windows.Forms.Label();
 			this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlLearners = new Guna.UI2.WinForms.Guna2Panel();
-			this.cboCourses = new Guna.UI2.WinForms.Guna2ComboBox();
+			this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblCourses = new System.Windows.Forms.Label();
 			this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlDate_Session = new Guna.UI2.WinForms.Guna2Panel();
@@ -108,8 +101,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourse_Vehicle = new Guna.UI2.WinForms.Guna2Panel();
+			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.btnSendSchedule_Learner = new Guna.UI2.WinForms.Guna2Button();
-			this.cboLearners = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace19 = new Guna.UI2.WinForms.Guna2Panel();
@@ -123,6 +116,13 @@
 			this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpaceTop_Bottom = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.pnlBottomLeft.SuspendLayout();
 			this.pnlSpace10.SuspendLayout();
 			this.pnlCalendar.SuspendLayout();
@@ -524,6 +524,7 @@
 			// 
 			// dgvSchedules
 			// 
+			this.dgvSchedules.AllowUserToAddRows = false;
 			this.dgvSchedules.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			this.dgvSchedules.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -602,86 +603,6 @@
 			this.dgvSchedules.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.dgvSchedules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSchedules_CellFormatting);
 			this.dgvSchedules.SelectionChanged += new System.EventHandler(this.dgvSchedules_SelectionChanged);
-			// 
-			// Column2
-			// 
-			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Column2.DataPropertyName = "Space";
-			this.Column2.Frozen = true;
-			this.Column2.HeaderText = "";
-			this.Column2.MinimumWidth = 6;
-			this.Column2.Name = "Column2";
-			this.Column2.ReadOnly = true;
-			this.Column2.Width = 18;
-			// 
-			// CourseName
-			// 
-			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.CourseName.DataPropertyName = "CourseName";
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
-			this.CourseName.FillWeight = 53.63456F;
-			this.CourseName.Frozen = true;
-			this.CourseName.HeaderText = "Course";
-			this.CourseName.MinimumWidth = 6;
-			this.CourseName.Name = "CourseName";
-			this.CourseName.ReadOnly = true;
-			this.CourseName.Width = 140;
-			// 
-			// LearnerName
-			// 
-			this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.LearnerName.DataPropertyName = "LearnerName";
-			this.LearnerName.Frozen = true;
-			this.LearnerName.HeaderText = "Learner";
-			this.LearnerName.MinimumWidth = 6;
-			this.LearnerName.Name = "LearnerName";
-			this.LearnerName.ReadOnly = true;
-			this.LearnerName.Width = 190;
-			// 
-			// TeacherName
-			// 
-			this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.TeacherName.DataPropertyName = "TeacherName";
-			this.TeacherName.Frozen = true;
-			this.TeacherName.HeaderText = "Teacher";
-			this.TeacherName.MinimumWidth = 6;
-			this.TeacherName.Name = "TeacherName";
-			this.TeacherName.ReadOnly = true;
-			this.TeacherName.Width = 160;
-			// 
-			// VehicleName
-			// 
-			this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.VehicleName.DataPropertyName = "VehicleName";
-			this.VehicleName.Frozen = true;
-			this.VehicleName.HeaderText = "Vehicle";
-			this.VehicleName.MinimumWidth = 6;
-			this.VehicleName.Name = "VehicleName";
-			this.VehicleName.ReadOnly = true;
-			this.VehicleName.Width = 160;
-			// 
-			// SessionDate
-			// 
-			this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.SessionDate.DataPropertyName = "Date";
-			this.SessionDate.Frozen = true;
-			this.SessionDate.HeaderText = "Date";
-			this.SessionDate.MinimumWidth = 6;
-			this.SessionDate.Name = "SessionDate";
-			this.SessionDate.ReadOnly = true;
-			this.SessionDate.Width = 125;
-			// 
-			// Session
-			// 
-			this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Session.DataPropertyName = "Session";
-			this.Session.Frozen = true;
-			this.Session.HeaderText = "Time";
-			this.Session.MinimumWidth = 6;
-			this.Session.Name = "Session";
-			this.Session.ReadOnly = true;
-			this.Session.Width = 125;
 			// 
 			// pnlSchedules_Top
 			// 
@@ -1096,7 +1017,7 @@
 			// 
 			// pnlLearners
 			// 
-			this.pnlLearners.Controls.Add(this.cboCourses);
+			this.pnlLearners.Controls.Add(this.txtCourseName);
 			this.pnlLearners.Controls.Add(this.lblCourses);
 			this.pnlLearners.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlLearners.FillColor = System.Drawing.Color.White;
@@ -1106,30 +1027,31 @@
 			this.pnlLearners.Size = new System.Drawing.Size(480, 36);
 			this.pnlLearners.TabIndex = 155;
 			// 
-			// cboCourses
+			// txtCourseName
 			// 
-			this.cboCourses.BackColor = System.Drawing.Color.White;
-			this.cboCourses.BorderRadius = 5;
-			this.cboCourses.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboCourses.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboCourses.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboCourses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboCourses.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cboCourses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboCourses.Enabled = false;
-			this.cboCourses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboCourses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboCourses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboCourses.ItemHeight = 30;
-			this.cboCourses.Location = new System.Drawing.Point(94, 0);
-			this.cboCourses.Name = "cboCourses";
-			this.cboCourses.Size = new System.Drawing.Size(386, 36);
-			this.cboCourses.TabIndex = 2;
-			this.cboCourses.Tag = "Course";
-			this.cboCourses.SelectedIndexChanged += new System.EventHandler(this.cboCourses_SelectedIndexChanged);
+			this.txtCourseName.BackColor = System.Drawing.Color.White;
+			this.txtCourseName.BorderRadius = 5;
+			this.txtCourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtCourseName.DefaultText = "";
+			this.txtCourseName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtCourseName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtCourseName.Enabled = false;
+			this.txtCourseName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Location = new System.Drawing.Point(94, 0);
+			this.txtCourseName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtCourseName.Name = "txtCourseName";
+			this.txtCourseName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+			this.txtCourseName.PasswordChar = '\0';
+			this.txtCourseName.PlaceholderText = "";
+			this.txtCourseName.SelectedText = "";
+			this.txtCourseName.Size = new System.Drawing.Size(386, 36);
+			this.txtCourseName.TabIndex = 4;
 			// 
 			// lblCourses
 			// 
@@ -1141,7 +1063,7 @@
 			this.lblCourses.Name = "lblCourses";
 			this.lblCourses.Size = new System.Drawing.Size(94, 36);
 			this.lblCourses.TabIndex = 0;
-			this.lblCourses.Text = "    Courses: ";
+			this.lblCourses.Text = "    Course: ";
 			this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pnlSpace8
@@ -1235,8 +1157,8 @@
 			// 
 			// pnlCourse_Vehicle
 			// 
+			this.pnlCourse_Vehicle.Controls.Add(this.txtLearnerName);
 			this.pnlCourse_Vehicle.Controls.Add(this.btnSendSchedule_Learner);
-			this.pnlCourse_Vehicle.Controls.Add(this.cboLearners);
 			this.pnlCourse_Vehicle.Controls.Add(this.lblLearner);
 			this.pnlCourse_Vehicle.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlCourse_Vehicle.FillColor = System.Drawing.Color.White;
@@ -1245,6 +1167,32 @@
 			this.pnlCourse_Vehicle.Name = "pnlCourse_Vehicle";
 			this.pnlCourse_Vehicle.Size = new System.Drawing.Size(480, 36);
 			this.pnlCourse_Vehicle.TabIndex = 147;
+			// 
+			// txtLearnerName
+			// 
+			this.txtLearnerName.BackColor = System.Drawing.Color.White;
+			this.txtLearnerName.BorderRadius = 5;
+			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtLearnerName.DefaultText = "";
+			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Left;
+			this.txtLearnerName.Enabled = false;
+			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Location = new System.Drawing.Point(94, 0);
+			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtLearnerName.Name = "txtLearnerName";
+			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+			this.txtLearnerName.PasswordChar = '\0';
+			this.txtLearnerName.PlaceholderText = "";
+			this.txtLearnerName.SelectedText = "";
+			this.txtLearnerName.Size = new System.Drawing.Size(225, 36);
+			this.txtLearnerName.TabIndex = 20;
 			// 
 			// btnSendSchedule_Learner
 			// 
@@ -1267,30 +1215,6 @@
 			this.btnSendSchedule_Learner.Text = "  For Learner";
 			this.btnSendSchedule_Learner.Click += new System.EventHandler(this.btnSendSchedule_Learner_ClickAsync);
 			// 
-			// cboLearners
-			// 
-			this.cboLearners.BackColor = System.Drawing.Color.White;
-			this.cboLearners.BorderRadius = 5;
-			this.cboLearners.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboLearners.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.Dock = System.Windows.Forms.DockStyle.Left;
-			this.cboLearners.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboLearners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboLearners.Enabled = false;
-			this.cboLearners.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboLearners.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboLearners.ItemHeight = 30;
-			this.cboLearners.Location = new System.Drawing.Point(94, 0);
-			this.cboLearners.Name = "cboLearners";
-			this.cboLearners.Size = new System.Drawing.Size(225, 36);
-			this.cboLearners.TabIndex = 7;
-			this.cboLearners.Tag = "Learner";
-			// 
 			// lblLearner
 			// 
 			this.lblLearner.BackColor = System.Drawing.Color.White;
@@ -1301,7 +1225,7 @@
 			this.lblLearner.Name = "lblLearner";
 			this.lblLearner.Size = new System.Drawing.Size(94, 36);
 			this.lblLearner.TabIndex = 0;
-			this.lblLearner.Text = "    Learners: ";
+			this.lblLearner.Text = "    Learner: ";
 			this.lblLearner.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pnlSpace14
@@ -1449,6 +1373,85 @@
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
 			// 
+			// Column2
+			// 
+			this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Column2.DataPropertyName = "Space";
+			this.Column2.Frozen = true;
+			this.Column2.HeaderText = "";
+			this.Column2.MinimumWidth = 6;
+			this.Column2.Name = "Column2";
+			this.Column2.ReadOnly = true;
+			this.Column2.Width = 18;
+			// 
+			// CourseName
+			// 
+			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.CourseName.DataPropertyName = "CourseName";
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+			this.CourseName.FillWeight = 53.63456F;
+			this.CourseName.Frozen = true;
+			this.CourseName.HeaderText = "Course";
+			this.CourseName.MinimumWidth = 6;
+			this.CourseName.Name = "CourseName";
+			this.CourseName.ReadOnly = true;
+			this.CourseName.Width = 140;
+			// 
+			// LearnerName
+			// 
+			this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.LearnerName.DataPropertyName = "LearnerName";
+			this.LearnerName.Frozen = true;
+			this.LearnerName.HeaderText = "Learner";
+			this.LearnerName.MinimumWidth = 6;
+			this.LearnerName.Name = "LearnerName";
+			this.LearnerName.ReadOnly = true;
+			this.LearnerName.Width = 190;
+			// 
+			// TeacherName
+			// 
+			this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.TeacherName.DataPropertyName = "TeacherName";
+			this.TeacherName.Frozen = true;
+			this.TeacherName.HeaderText = "Teacher";
+			this.TeacherName.MinimumWidth = 6;
+			this.TeacherName.Name = "TeacherName";
+			this.TeacherName.ReadOnly = true;
+			this.TeacherName.Width = 140;
+			// 
+			// VehicleName
+			// 
+			this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.VehicleName.DataPropertyName = "VehicleName";
+			this.VehicleName.Frozen = true;
+			this.VehicleName.HeaderText = "Vehicle";
+			this.VehicleName.MinimumWidth = 6;
+			this.VehicleName.Name = "VehicleName";
+			this.VehicleName.ReadOnly = true;
+			this.VehicleName.Width = 210;
+			// 
+			// SessionDate
+			// 
+			this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.SessionDate.DataPropertyName = "Date";
+			this.SessionDate.Frozen = true;
+			this.SessionDate.HeaderText = "Date";
+			this.SessionDate.MinimumWidth = 6;
+			this.SessionDate.Name = "SessionDate";
+			this.SessionDate.ReadOnly = true;
+			// 
+			// Session
+			// 
+			this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Session.DataPropertyName = "Session";
+			this.Session.Frozen = true;
+			this.Session.HeaderText = "Time";
+			this.Session.MinimumWidth = 6;
+			this.Session.Name = "Session";
+			this.Session.ReadOnly = true;
+			this.Session.Width = 125;
+			// 
 			// ScheduleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1534,7 +1537,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpSessionDate;
         private System.Windows.Forms.Label lblDate;
         private Guna.UI2.WinForms.Guna2Panel pnlCourse_Vehicle;
-        private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
         private System.Windows.Forms.Label lblCourses;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace14;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
@@ -1549,7 +1551,6 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlTeachers;
 		private Guna.UI2.WinForms.Guna2ComboBox cboTeachers;
 		private System.Windows.Forms.Label label1;
-		private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
 		private Guna.UI2.WinForms.Guna2Panel pnlButtonEdit_Delete;
 		private Guna.UI2.WinForms.Guna2Button btnDelete;
 		private Guna.UI2.WinForms.Guna2Button btnEdit;
@@ -1567,12 +1568,14 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboVehicles;
         private System.Windows.Forms.Label lblVehicles;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LearnerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SessionDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Session;
-    }
+		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
+		private Guna.UI2.WinForms.Guna2TextBox txtCourseName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn LearnerName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn SessionDate;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Session;
+	}
 }

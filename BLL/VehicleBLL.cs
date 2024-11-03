@@ -29,9 +29,9 @@ namespace BLL
             this.AddVehiclesToCombobox(cbo, vehicles);
         }
 
-        public void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID)
+        public void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
         {
-            List<Vehicle> vehicles = VehicleDAL.Instance.GetVehicleForCourse(courseID);
+            List<Vehicle> vehicles = VehicleDAL.Instance.GetVehicleForCourse(courseID, sessionID, curDate);
             this.AddVehiclesToCombobox_HasVehicleNumber(cbo, vehicles);
         }
 

@@ -30,7 +30,7 @@ namespace GUI
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboInvoices, dtpPaymentDate, txtAmount,
+			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, dtpPaymentDate, txtAmount,
 				cboMethods, txtSearchLearner);
 		}
 

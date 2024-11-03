@@ -13,7 +13,7 @@ namespace GUI
     {
         #region Properties
         private DateTime _date;
-        private string learnerStatus = "Active";
+        private string activeStatus = "Active";
         private Learner selectedLearner = new Learner();
         #endregion
 
@@ -35,8 +35,7 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignLearnersToCombobox(cboLearners, learnerStatus); // Hiển thị ra combobox các learner có status Active
-            ComboboxService.AssignSessionsToCombobox(cboSessions);
+            ComboboxService.AssignCoursesToCombobox(cboCourses, this.activeStatus);
         }
 
         private void AssignDateToLabel()
@@ -52,12 +51,6 @@ namespace GUI
         private string GetKeyword(Guna2TextBox txtSearchLearner)
         {
             return txtSearchLearner.Text;
-        }
-
-        private void txtSearchLearner_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = this.GetKeyword(txtSearchLearner);
-            LearnerService.SearchLearners(cboLearners, keyword);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -90,11 +83,11 @@ namespace GUI
         {
             return new Schedule
             {
-    //            Enrollment = new Enrollment
-    //            {
-				//	LearnerID = Convert.ToInt32(cboLearners.SelectedValue),
-				//	CourseID = Convert.ToInt32(cboCourses.SelectedValue),
-				//},
+                Enrollment = new Enrollment
+                {
+                    LearnerID = Convert.ToInt32(txtLearnerName.Tag),
+                    CourseID = Convert.ToInt32(cboCourses.SelectedValue),
+                },
                 TeacherID = Convert.ToInt32(cboTeachers.SelectedValue),
                 VehicleID = Convert.ToInt32(cboVehicles.SelectedValue),
                 SessionID = Convert.ToInt32(cboSessions.SelectedValue),
@@ -105,52 +98,14 @@ namespace GUI
 
         private bool ValidateFields()
         {
-            var comboBoxes = new List<Guna2ComboBox> { cboLearners, cboCourses, cboTeachers, cboVehicles, cboSessions };
+            var comboBoxes = new List<Guna2ComboBox> { cboCourses, cboTeachers, cboVehicles, cboSessions };
 
             foreach (var comboBox in comboBoxes)
             {
                 if (!ScheduleValidator.CheckRequiredAndShowToolTip(comboBox, toolTip))
                     return false;
             }
-
-            int learnerAge = this.GetLearnerAge();
-            string license = this.GetLicense();
-            if (!ScheduleValidator.ValidateAgeOfLearner(cboLearners, learnerAge, license, toolTip)) 
-                return false;
-
-            //int? learnerCurrLicense = this.selectedLearner.CurrentLicenseID;
-            //if (!ScheduleValidator.IsEligibleForLicenseE(cboLearners, learnerCurrLicense, license, toolTip))
-            //    return false;
-
             return true;
-        }
-
-        private string GetLicense()
-        {
-            string courseName = cboCourses.Text;
-            string[] parts = courseName.Split('-');
-            return parts[0];
-        }
-
-        private int GetLearnerAge()
-        {
-            int age = DateTime.Now.Year - this.selectedLearner.DateOfBirth.Value.Year;
-            if (DateTime.Now.Date < this.selectedLearner.DateOfBirth.Value.AddYears(age))
-                age--;
-            return age;
-        }
-
-        private void cboLearners_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!FormHelper.HasSelectedItem(cboLearners))
-            {
-                this.ResetCombobox();
-                return;
-            }
-            cboCourses.Enabled = true;
-            int learnerID = Convert.ToInt32(cboLearners.SelectedValue.ToString());
-            this.selectedLearner = LearnerService.GetLearner(learnerID);
-            ComboboxService.AssignCoursesToCombobox(cboCourses, learnerID);
         }
 
         private void ResetCombobox()
@@ -169,15 +124,35 @@ namespace GUI
         {
             if (!FormHelper.HasSelectedItem(cboCourses))
             {
-                cboTeachers.Enabled = false;
-                return;
+                cboSessions.Enabled = false;
+                this.ConfigureForm(false);
+				return;
             }
-            cboTeachers.Enabled = true;
+			cboSessions.Enabled = true;
             int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-            ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID);
+
+			this.ConfigureForm(true);
+			this.SetLearnerName(courseID);
+            ComboboxService.AssignSessionsToCombobox(cboSessions, courseID, _date);
         }
 
-        private void cboTeachers_SelectedIndexChanged(object sender, EventArgs e)
+		private void ConfigureForm(bool showDetails)
+		{
+			pnlLearner.Visible = showDetails;
+			this.Width = 590;
+			this.Height = showDetails ? 385 : 350;
+			FormHelper.ApplyRoundedCorners(this, 20);
+		}
+
+		private void SetLearnerName(int courseID)
+		{
+			var enrollment = EnrollmentService.GetEnrollmentByCourseID(courseID);
+            if (enrollment == null) return;
+            txtLearnerName.Text = enrollment.Learner.FullName;
+            txtLearnerName.Tag = enrollment.Learner.LearnerID;
+		}
+
+		private void cboTeachers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!FormHelper.HasSelectedItem(cboTeachers))
             {
@@ -186,17 +161,29 @@ namespace GUI
             }
             cboVehicles.Enabled = true;
             int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-            ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID);
+			int sessionID = Convert.ToInt32(cboSessions.SelectedValue.ToString());
+            ComboboxService.AssignVehiclesToCombobox(cboVehicles, courseID, sessionID, _date);
         }
 
-        private void cboVehicles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!FormHelper.HasSelectedItem(cboVehicles))
-            {
-                cboSessions.Enabled = false;
-                return;
-            }
-            cboSessions.Enabled = true;
+		private void txtSearch_TextChanged(object sender, EventArgs e)
+		{
+            string keyword = this.GetKeyword(txtSearchCourse);
+            string status = "Active";
+            CourseService.SearchCourses(cboCourses, keyword, status);
         }
-    }
+
+		private void cboSessions_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!FormHelper.HasSelectedItem(cboSessions))
+			{
+				cboTeachers.Enabled = false;
+				return;
+			}
+			cboTeachers.Enabled = true;
+			int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+			int sessionID = Convert.ToInt32(cboSessions.SelectedValue.ToString());
+
+			ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID, sessionID, _date);
+		}
+	}
 }

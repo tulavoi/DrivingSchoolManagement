@@ -27,7 +27,7 @@ namespace BLL
 
 		public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
 		{
-			List<Course> courses = CourseDAL.Instance.FilterCoursesByStatus(status);
+			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status);
 			this.AddCoursesToCombobox(cbo, courses);
 		}
 
@@ -73,9 +73,9 @@ namespace BLL
             this.AddCoursesToDataGridView(dgv, courses);
         }
 
-        public void SearchCourses(Guna2ComboBox cbo, string keyword)
+        public void SearchCourses(Guna2ComboBox cbo, string keyword, string status)
         {
-            List<Course> courses = CourseDAL.Instance.SearchCourses(keyword);
+            List<Course> courses = CourseDAL.Instance.SearchCourses(keyword, status);
             this.AddCoursesToCombobox(cbo, courses);
         }
 

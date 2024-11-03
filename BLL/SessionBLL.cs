@@ -29,7 +29,13 @@ namespace BLL
             this.AddSessionsToCombobox(cbo, sessions);
         }
 
-        private void AddSessionsToCombobox(Guna2ComboBox cbo, List<Session> sessions)
+		public void AssignSessionsToCombobox(Guna2ComboBox cbo, int courseID, DateTime curDate)
+		{
+			List<Session> sessions = SessionDAL.Instance.GetAvalableSessionInDay(courseID, curDate);
+			this.AddSessionsToCombobox(cbo, sessions);
+		}
+
+		private void AddSessionsToCombobox(Guna2ComboBox cbo, List<Session> sessions)
         {
             Session session = new Session();
             session.Session1 = "Select Session";

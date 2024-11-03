@@ -62,6 +62,25 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
-        #endregion
-    }
+		#endregion
+
+		#region Lấy ra các buổi học phù hợp với khóa học trong ngày
+        public List<Session> GetAvalableSessionInDay(int courseID, DateTime curDate)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var scheduledSessions = (from sche in db.Schedules
+                                        where sche.Enrollment.CourseID == courseID
+                                        select new { sche.SessionID, sche.SessionDate }).Distinct();
+
+                var availableSessions = from session in db.Sessions
+										where !scheduledSessions.Any(sche => sche.SessionID == session.SessionID
+														  && sche.SessionDate == curDate)
+										select session;
+
+                return availableSessions.ToList() ?? new List<Session>();
+            }
+        }
+		#endregion
+	}
 }
