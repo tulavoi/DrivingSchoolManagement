@@ -83,9 +83,11 @@
 			this.lblTotalAmount = new System.Windows.Forms.Label();
 			this.pnlSpace4 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourse = new Guna.UI2.WinForms.Guna2Panel();
+			this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblCourse = new System.Windows.Forms.Label();
 			this.pnlSpace3 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlLearner = new Guna.UI2.WinForms.Guna2Panel();
+			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
@@ -98,8 +100,6 @@
 			this.lblDetails = new System.Windows.Forms.Label();
 			this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
-			this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlInvoices.SuspendLayout();
 			this.pnlButtonAdd.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvInvoices)).BeginInit();
@@ -902,6 +902,32 @@
 			this.pnlCourse.Size = new System.Drawing.Size(475, 38);
 			this.pnlCourse.TabIndex = 122;
 			// 
+			// txtCourseName
+			// 
+			this.txtCourseName.BackColor = System.Drawing.Color.White;
+			this.txtCourseName.BorderRadius = 5;
+			this.txtCourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtCourseName.DefaultText = "";
+			this.txtCourseName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtCourseName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtCourseName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtCourseName.Enabled = false;
+			this.txtCourseName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtCourseName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtCourseName.Location = new System.Drawing.Point(124, 0);
+			this.txtCourseName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtCourseName.Name = "txtCourseName";
+			this.txtCourseName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtCourseName.PasswordChar = '\0';
+			this.txtCourseName.PlaceholderText = "";
+			this.txtCourseName.SelectedText = "";
+			this.txtCourseName.Size = new System.Drawing.Size(351, 38);
+			this.txtCourseName.TabIndex = 33;
+			// 
 			// lblCourse
 			// 
 			this.lblCourse.BackColor = System.Drawing.Color.White;
@@ -934,6 +960,32 @@
 			this.pnlLearner.Name = "pnlLearner";
 			this.pnlLearner.Size = new System.Drawing.Size(475, 38);
 			this.pnlLearner.TabIndex = 120;
+			// 
+			// txtLearnerName
+			// 
+			this.txtLearnerName.BackColor = System.Drawing.Color.White;
+			this.txtLearnerName.BorderRadius = 5;
+			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtLearnerName.DefaultText = "";
+			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtLearnerName.Enabled = false;
+			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Location = new System.Drawing.Point(124, 0);
+			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtLearnerName.Name = "txtLearnerName";
+			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtLearnerName.PasswordChar = '\0';
+			this.txtLearnerName.PlaceholderText = "";
+			this.txtLearnerName.SelectedText = "";
+			this.txtLearnerName.Size = new System.Drawing.Size(351, 38);
+			this.txtLearnerName.TabIndex = 33;
 			// 
 			// lblLearner
 			// 
@@ -1089,58 +1141,6 @@
 			this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
-			// 
-			// txtLearnerName
-			// 
-			this.txtLearnerName.BackColor = System.Drawing.Color.White;
-			this.txtLearnerName.BorderRadius = 5;
-			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtLearnerName.DefaultText = "";
-			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
-			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtLearnerName.Enabled = false;
-			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtLearnerName.Location = new System.Drawing.Point(124, 0);
-			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.txtLearnerName.Name = "txtLearnerName";
-			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
-			this.txtLearnerName.PasswordChar = '\0';
-			this.txtLearnerName.PlaceholderText = "";
-			this.txtLearnerName.SelectedText = "";
-			this.txtLearnerName.Size = new System.Drawing.Size(351, 38);
-			this.txtLearnerName.TabIndex = 33;
-			// 
-			// txtCourseName
-			// 
-			this.txtCourseName.BackColor = System.Drawing.Color.White;
-			this.txtCourseName.BorderRadius = 5;
-			this.txtCourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtCourseName.DefaultText = "";
-			this.txtCourseName.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.txtCourseName.DisabledState.FillColor = System.Drawing.Color.White;
-			this.txtCourseName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtCourseName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-			this.txtCourseName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtCourseName.Enabled = false;
-			this.txtCourseName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtCourseName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.txtCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtCourseName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtCourseName.Location = new System.Drawing.Point(124, 0);
-			this.txtCourseName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.txtCourseName.Name = "txtCourseName";
-			this.txtCourseName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
-			this.txtCourseName.PasswordChar = '\0';
-			this.txtCourseName.PlaceholderText = "";
-			this.txtCourseName.SelectedText = "";
-			this.txtCourseName.Size = new System.Drawing.Size(351, 38);
-			this.txtCourseName.TabIndex = 33;
 			// 
 			// InvoicesForm
 			// 

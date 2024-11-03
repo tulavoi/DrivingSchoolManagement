@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pnlFilter = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
 			this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
@@ -69,7 +69,6 @@
 			this.pnlBasicDetails = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlInvoiceTo = new Guna.UI2.WinForms.Guna2Panel();
 			this.txtSearchLearner = new Guna.UI2.WinForms.Guna2TextBox();
-			this.cboLearners = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlAmount_Method = new Guna.UI2.WinForms.Guna2Panel();
@@ -82,7 +81,6 @@
 			this.pnlInvoice = new Guna.UI2.WinForms.Guna2Panel();
 			this.dtpPaymentDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
 			this.lblPaymentDate = new System.Windows.Forms.Label();
-			this.cboInvoices = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.lblInvoice = new System.Windows.Forms.Label();
 			this.pnlDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
 			this.lblInvoiceID = new Guna.UI2.WinForms.Guna2Button();
@@ -91,6 +89,8 @@
 			this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
 			this.lblDetails = new System.Windows.Forms.Label();
 			this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
+			this.txtInvoiceName = new Guna.UI2.WinForms.Guna2TextBox();
+			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlFilter.SuspendLayout();
 			this.pnlPayments.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
@@ -288,16 +288,16 @@
 			// dgvPayments
 			// 
 			this.dgvPayments.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-			this.dgvPayments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-			dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DimGray;
-			dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+			this.dgvPayments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvPayments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvPayments.ColumnHeadersHeight = 30;
 			this.dgvPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
@@ -306,36 +306,36 @@
             this.Column1,
             this.Column3,
             this.Column4});
-			dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-			dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvPayments.DefaultCellStyle = dataGridViewCellStyle22;
+			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvPayments.DefaultCellStyle = dataGridViewCellStyle10;
 			this.dgvPayments.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvPayments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
 			this.dgvPayments.Location = new System.Drawing.Point(0, 15);
 			this.dgvPayments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dgvPayments.Name = "dgvPayments";
 			this.dgvPayments.ReadOnly = true;
-			dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-			dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvPayments.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvPayments.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this.dgvPayments.RowHeadersVisible = false;
 			this.dgvPayments.RowHeadersWidth = 30;
 			this.dgvPayments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-			dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-			this.dgvPayments.RowsDefaultCellStyle = dataGridViewCellStyle24;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+			dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+			this.dgvPayments.RowsDefaultCellStyle = dataGridViewCellStyle12;
 			this.dgvPayments.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvPayments.RowTemplate.DividerHeight = 2;
 			this.dgvPayments.RowTemplate.Height = 45;
@@ -378,8 +378,8 @@
 			// 
 			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
 			this.dataGridViewTextBoxColumn3.DataPropertyName = "InvoiceCode";
-			dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle9;
 			this.dataGridViewTextBoxColumn3.FillWeight = 53.63456F;
 			this.dataGridViewTextBoxColumn3.Frozen = true;
 			this.dataGridViewTextBoxColumn3.HeaderText = "Invoice";
@@ -617,8 +617,8 @@
 			// 
 			// pnlInvoiceTo
 			// 
+			this.pnlInvoiceTo.Controls.Add(this.txtLearnerName);
 			this.pnlInvoiceTo.Controls.Add(this.txtSearchLearner);
-			this.pnlInvoiceTo.Controls.Add(this.cboLearners);
 			this.pnlInvoiceTo.Controls.Add(this.lblLearner);
 			this.pnlInvoiceTo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlInvoiceTo.FillColor = System.Drawing.Color.White;
@@ -644,42 +644,14 @@
 			this.txtSearchLearner.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
 			this.txtSearchLearner.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.txtSearchLearner.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-			this.txtSearchLearner.Location = new System.Drawing.Point(422, 0);
+			this.txtSearchLearner.Location = new System.Drawing.Point(418, 0);
 			this.txtSearchLearner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.txtSearchLearner.Name = "txtSearchLearner";
 			this.txtSearchLearner.PasswordChar = '\0';
 			this.txtSearchLearner.PlaceholderText = "Search...";
 			this.txtSearchLearner.SelectedText = "";
-			this.txtSearchLearner.Size = new System.Drawing.Size(348, 36);
+			this.txtSearchLearner.Size = new System.Drawing.Size(352, 36);
 			this.txtSearchLearner.TabIndex = 30;
-			// 
-			// cboLearners
-			// 
-			this.cboLearners.BackColor = System.Drawing.Color.White;
-			this.cboLearners.BorderRadius = 5;
-			this.cboLearners.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboLearners.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.Dock = System.Windows.Forms.DockStyle.Left;
-			this.cboLearners.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboLearners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboLearners.Enabled = false;
-			this.cboLearners.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboLearners.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboLearners.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboLearners.ItemHeight = 30;
-			this.cboLearners.Items.AddRange(new object[] {
-            "Mai Nguyen Hoang Vu",
-            "Thanh Cong",
-            "Xuan Duoc"});
-			this.cboLearners.Location = new System.Drawing.Point(108, 0);
-			this.cboLearners.Name = "cboLearners";
-			this.cboLearners.Size = new System.Drawing.Size(304, 36);
-			this.cboLearners.StartIndex = 0;
-			this.cboLearners.TabIndex = 122;
 			// 
 			// lblLearner
 			// 
@@ -789,7 +761,7 @@
 			this.txtAmount.BackColor = System.Drawing.Color.White;
 			this.txtAmount.BorderRadius = 5;
 			this.txtAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtAmount.DefaultText = "5.000.000";
+			this.txtAmount.DefaultText = "";
 			this.txtAmount.DisabledState.BorderColor = System.Drawing.Color.White;
 			this.txtAmount.DisabledState.FillColor = System.Drawing.Color.White;
 			this.txtAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -834,9 +806,9 @@
 			// 
 			// pnlInvoice
 			// 
+			this.pnlInvoice.Controls.Add(this.txtInvoiceName);
 			this.pnlInvoice.Controls.Add(this.dtpPaymentDate);
 			this.pnlInvoice.Controls.Add(this.lblPaymentDate);
-			this.pnlInvoice.Controls.Add(this.cboInvoices);
 			this.pnlInvoice.Controls.Add(this.lblInvoice);
 			this.pnlInvoice.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlInvoice.FillColor = System.Drawing.Color.White;
@@ -852,7 +824,6 @@
 			this.dtpPaymentDate.Checked = true;
 			this.dtpPaymentDate.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.dtpPaymentDate.CustomFormat = "dd-MM-yyyy";
-			this.dtpPaymentDate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dtpPaymentDate.Enabled = false;
 			this.dtpPaymentDate.FillColor = System.Drawing.Color.White;
 			this.dtpPaymentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
@@ -869,7 +840,6 @@
 			// lblPaymentDate
 			// 
 			this.lblPaymentDate.BackColor = System.Drawing.Color.White;
-			this.lblPaymentDate.Dock = System.Windows.Forms.DockStyle.Left;
 			this.lblPaymentDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblPaymentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
 			this.lblPaymentDate.Location = new System.Drawing.Point(412, 0);
@@ -878,33 +848,6 @@
 			this.lblPaymentDate.TabIndex = 126;
 			this.lblPaymentDate.Text = " Payment Date:";
 			this.lblPaymentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// cboInvoices
-			// 
-			this.cboInvoices.BackColor = System.Drawing.Color.White;
-			this.cboInvoices.BorderRadius = 5;
-			this.cboInvoices.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.cboInvoices.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.cboInvoices.DisabledState.FillColor = System.Drawing.Color.White;
-			this.cboInvoices.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboInvoices.Dock = System.Windows.Forms.DockStyle.Left;
-			this.cboInvoices.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cboInvoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboInvoices.Enabled = false;
-			this.cboInvoices.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboInvoices.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-			this.cboInvoices.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.cboInvoices.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.cboInvoices.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.cboInvoices.ItemHeight = 30;
-			this.cboInvoices.Items.AddRange(new object[] {
-            "INV-123123",
-            "INV-234234"});
-			this.cboInvoices.Location = new System.Drawing.Point(108, 0);
-			this.cboInvoices.Name = "cboInvoices";
-			this.cboInvoices.Size = new System.Drawing.Size(304, 36);
-			this.cboInvoices.StartIndex = 0;
-			this.cboInvoices.TabIndex = 128;
 			// 
 			// lblInvoice
 			// 
@@ -955,7 +898,7 @@
 			this.lblInvoiceID.PressedDepth = 5;
 			this.lblInvoiceID.Size = new System.Drawing.Size(144, 27);
 			this.lblInvoiceID.TabIndex = 22;
-			this.lblInvoiceID.Text = "ID: 2222";
+			this.lblInvoiceID.Text = "PaymentID";
 			// 
 			// pnlSpace7
 			// 
@@ -1015,6 +958,58 @@
 			this.pnlSpace16.Name = "pnlSpace16";
 			this.pnlSpace16.Size = new System.Drawing.Size(15, 53);
 			this.pnlSpace16.TabIndex = 16;
+			// 
+			// txtInvoiceName
+			// 
+			this.txtInvoiceName.BackColor = System.Drawing.Color.White;
+			this.txtInvoiceName.BorderRadius = 5;
+			this.txtInvoiceName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtInvoiceName.DefaultText = "";
+			this.txtInvoiceName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtInvoiceName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtInvoiceName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtInvoiceName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtInvoiceName.Dock = System.Windows.Forms.DockStyle.Left;
+			this.txtInvoiceName.Enabled = false;
+			this.txtInvoiceName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtInvoiceName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtInvoiceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtInvoiceName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtInvoiceName.Location = new System.Drawing.Point(108, 0);
+			this.txtInvoiceName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtInvoiceName.Name = "txtInvoiceName";
+			this.txtInvoiceName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtInvoiceName.PasswordChar = '\0';
+			this.txtInvoiceName.PlaceholderText = "";
+			this.txtInvoiceName.SelectedText = "";
+			this.txtInvoiceName.Size = new System.Drawing.Size(304, 36);
+			this.txtInvoiceName.TabIndex = 128;
+			// 
+			// txtLearnerName
+			// 
+			this.txtLearnerName.BackColor = System.Drawing.Color.White;
+			this.txtLearnerName.BorderRadius = 5;
+			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.txtLearnerName.DefaultText = "";
+			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Left;
+			this.txtLearnerName.Enabled = false;
+			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.txtLearnerName.Location = new System.Drawing.Point(108, 0);
+			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtLearnerName.Name = "txtLearnerName";
+			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+			this.txtLearnerName.PasswordChar = '\0';
+			this.txtLearnerName.PlaceholderText = "";
+			this.txtLearnerName.SelectedText = "";
+			this.txtLearnerName.Size = new System.Drawing.Size(304, 36);
+			this.txtLearnerName.TabIndex = 34;
 			// 
 			// PaymentsForm
 			// 
@@ -1100,10 +1095,10 @@
 		private Guna.UI2.WinForms.Guna2DateTimePicker dtpPaymentDate;
 		private Guna.UI2.WinForms.Guna2Panel pnlInvoiceTo;
 		private Guna.UI2.WinForms.Guna2TextBox txtSearchLearner;
-		private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
 		private System.Windows.Forms.Label lblLearner;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
-		private Guna.UI2.WinForms.Guna2ComboBox cboInvoices;
+		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
+		private Guna.UI2.WinForms.Guna2TextBox txtInvoiceName;
 	}
 }
