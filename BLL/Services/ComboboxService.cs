@@ -52,6 +52,11 @@ namespace BLL.Services
 			TeacherBLL.Instance.AssignTeachersToCombobox(cbo, courseID, sessionID, curDate);
 		}
 
+		public static void AssignTeacherInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+		{
+			TeacherBLL.Instance.AssignTeacherInCourseToCombobox(cbo, courseID, sessionID, curDate);
+		}
+
 		public static void AssignSessionsToCombobox(Guna2ComboBox cbo)
 		{
 			SessionBLL.Instance.AssignSessionsToCombobox(cbo);
@@ -60,6 +65,11 @@ namespace BLL.Services
 		public static void AssignSessionsToCombobox(Guna2ComboBox cboSessions, int courseID, DateTime curDate)
 		{
 			SessionBLL.Instance.AssignSessionsToCombobox(cboSessions, courseID, curDate);
+		}
+
+		public static void AssignSessionsToCombobox(Guna2ComboBox cboSessions, int courseID, DateTime curDate, int sessionID)
+		{
+			SessionBLL.Instance.AssignSessionsToCombobox(cboSessions, courseID, curDate, sessionID);
 		}
 
 		public static void AssignVehiclesToCombobox(Guna2ComboBox cbo)
@@ -80,6 +90,11 @@ namespace BLL.Services
 		public static void AssignStatesToCombobox(Guna2ComboBox cbo)
 		{
 			StatusBLL.Instance.AssignCoursesToCombobox(cbo);
+		}
+
+		public static void AssignVehicleInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+		{
+			VehicleBLL.Instance.AssignVehicleInCourseToCombobox(cbo, courseID, sessionID, curDate);
 		}
 	}
 }

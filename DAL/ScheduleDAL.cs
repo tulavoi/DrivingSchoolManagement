@@ -231,7 +231,7 @@ namespace DAL
         #region Delete
         public bool DeleteSchedule(int scheduleID)
         {
-            return DeleteData(sche => sche.ScheduleID == scheduleID);
+            return UpdateStatus(sche => sche.ScheduleID == scheduleID, 2); // StatusID = 2, StatusName = "Inactive"
         }
         #endregion
 

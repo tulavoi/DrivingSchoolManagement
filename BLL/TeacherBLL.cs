@@ -35,7 +35,13 @@ namespace BLL
             this.AddTeachersToCombobox(cbo, teachers);
         }
 
-        private void AddTeachersToCombobox(Guna2ComboBox cbo, List<Teacher> teachers)
+		public void AssignTeacherInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+		{
+			List<Teacher> teachers = TeacherDAL.Instance.GetTeacherForCourseAndInCourse(courseID, sessionID, curDate);
+			this.AddTeachersToCombobox(cbo, teachers);
+		}
+
+		private void AddTeachersToCombobox(Guna2ComboBox cbo, List<Teacher> teachers)
         {
             Teacher teacher = new Teacher();
             teacher.FullName = "Select Teacher";

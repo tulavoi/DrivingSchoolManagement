@@ -207,9 +207,65 @@ namespace DAL
                 return vehicles;
             }
         }
-        #endregion
+		#endregion
 
-        private Vehicle MapToVehicle(dynamic item)
+		#region Lấy phương tiện hiện có trong khóa học và các phương tiện phù hợp
+		public List<Vehicle> GetVehicleForCourseAndInCourse(int courseID, int sessionID, DateTime curDate)
+		{
+			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+			{
+				var scheduledVehicleForOtherCourses = (from sche in db.Schedules
+														where sche.SessionID == sessionID
+															  && sche.SessionDate == curDate
+															  && sche.Enrollment.CourseID != courseID
+														select sche.VehicleID).Distinct().ToList();
+
+				//var scheduledTeachersForOtherCourses = (from sche in db.Schedules
+				//										where sche.SessionID == sessionID
+				//											  && sche.SessionDate == curDate
+				//											  && sche.Enrollment.CourseID != courseID
+				//										select sche.TeacherID).Distinct().ToList();
+
+				var licenseId = (from course in db.Courses
+								 where course.CourseID == courseID
+								 select course.LicenseID).FirstOrDefault();
+
+                var availableVehicles = (from vehicle in db.Vehicles
+                                         where vehicle.IsMaintenance == false
+                                             // Điều kiện lọc theo loại giấy phép và thông số xe
+                                             && ((licenseId == licenseID_B && vehicle.IsPassengerCar == true && vehicle.Seats <= 9) ||    // B
+                                                 (licenseId == licenseID_C && vehicle.IsTruck == true && vehicle.Weight >= 3500) ||       // C
+                                                 (licenseId == licenseID_D && vehicle.IsPassengerCar == true && vehicle.Seats >= 10 && vehicle.Seats <= 30) || // D
+                                                 (licenseId == licenseID_E && vehicle.IsPassengerCar == true && vehicle.Seats > 30))     // E
+                                                                                                                                         // Phương tiện không nằm trong danh sách đã được lên lịch
+                                             && (!scheduledVehicleForOtherCourses.Contains(vehicle.VehicleID)
+                                                 || (from sche in db.Schedules
+                                                     where sche.VehicleID == vehicle.VehicleID
+                                                          && sche.SessionID == sessionID
+                                                          && sche.SessionDate == curDate
+                                                          && sche.Enrollment.CourseID == courseID
+                                                     select sche.VehicleID).Any())
+                                         select vehicle).ToList();
+
+                //var availableTeachers = (from teacher in db.Teachers
+                //						 where (teacher.LicenseID >= courseLicenseID)
+                //							   // Giáo viên không nằm trong `scheduledTeachersForOtherCourses` 
+                //							   // hoặc là giáo viên đang dạy cho `courseID` hiện tại
+                //							   && (!scheduledTeachersForOtherCourses.Contains(teacher.TeacherID)
+                //								   || (from sche in db.Schedules
+                //									   where sche.TeacherID == teacher.TeacherID
+                //											 && sche.SessionID == sessionID
+                //											 && sche.SessionDate == curDate
+                //											 && sche.Enrollment.CourseID == courseID
+                //									   select sche.TeacherID).Any())
+                //						 select teacher).ToList();
+
+                return availableVehicles ?? new List<Vehicle>();
+			}
+		}
+		#endregion
+
+		private Vehicle MapToVehicle(dynamic item)
         {
             return new Vehicle {
                 VehicleID = item.VehicleID,

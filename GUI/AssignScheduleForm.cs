@@ -14,7 +14,6 @@ namespace GUI
         #region Properties
         private DateTime _date;
         private string activeStatus = "Active";
-        private Learner selectedLearner = new Learner();
         #endregion
 
         public AssignScheduleForm(DateTime date)
@@ -66,7 +65,9 @@ namespace GUI
             {
                 CourseService.UpdateHoursStudied(Convert.ToInt32(cboCourses.SelectedValue), 2);
                 FormHelper.ShowNotify("Schedule added successfully.");
-            }
+                this.ResetCombobox();
+
+			}
             else
                 this.HandleScheduleAddError(errorMessage);
         }
@@ -92,6 +93,7 @@ namespace GUI
                 VehicleID = Convert.ToInt32(cboVehicles.SelectedValue),
                 SessionID = Convert.ToInt32(cboSessions.SelectedValue),
                 SessionDate = DateTime.Parse(lblDateAssign.Text),
+                StatusID = Constant.StatusID_Active,
                 Created_At = DateTime.Now
             };
         }

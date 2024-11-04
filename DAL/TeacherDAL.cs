@@ -185,16 +185,55 @@ namespace DAL
 												&& sche.SessionDate == curDate
 										 select sche.TeacherID).Distinct().ToList();
 
+				// Lấy licenseID của course
+				var courseLicenseID = (from course in db.Courses
+									   where course.CourseID == courseID
+									   select course.LicenseID).FirstOrDefault();
+
 				var availableTeachers = (from teacher in db.Teachers
 										 where !scheduledTeachers.Contains(teacher.TeacherID)
-											   && teacher.LicenseID >= (from course in db.Courses
-																		where course.CourseID == courseID
-																		select course.LicenseID).FirstOrDefault()
+											   && teacher.LicenseID >= courseLicenseID
 										 select teacher).ToList();
+
 				if (availableTeachers == null)
 					return null;
 
 				return availableTeachers;
+			}
+		}
+		#endregion
+
+		#region Lấy giáo viên hiện có trong khóa học và các giáo viên phù hợp
+		public List<Teacher> GetTeacherForCourseAndInCourse(int courseID, int sessionID, DateTime curDate)
+		{
+			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+			{
+				var scheduledTeachersForOtherCourses = (from sche in db.Schedules
+														where sche.SessionID == sessionID
+															  && sche.SessionDate == curDate
+															  && sche.Enrollment.CourseID != courseID
+														select sche.TeacherID).Distinct().ToList();
+
+				// Lấy LicenseID của khóa học
+				var courseLicenseID = (from course in db.Courses
+									   where course.CourseID == courseID
+									   select course.LicenseID).FirstOrDefault();
+
+				// Lọc danh sách giáo viên
+				var availableTeachers = (from teacher in db.Teachers
+										 where (teacher.LicenseID >= courseLicenseID)
+											   // Giáo viên không nằm trong `scheduledTeachersForOtherCourses` 
+											   // hoặc là giáo viên đang dạy cho `courseID` hiện tại
+											   && (!scheduledTeachersForOtherCourses.Contains(teacher.TeacherID)
+												   || (from sche in db.Schedules
+													   where sche.TeacherID == teacher.TeacherID
+															 && sche.SessionID == sessionID
+															 && sche.SessionDate == curDate
+															 && sche.Enrollment.CourseID == courseID
+													   select sche.TeacherID).Any())
+										 select teacher).ToList();
+
+				return availableTeachers ?? new List<Teacher>();
 			}
 		}
 		#endregion

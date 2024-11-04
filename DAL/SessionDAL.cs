@@ -62,23 +62,40 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
-		#endregion
+        #endregion
 
-		#region Lấy ra các buổi học phù hợp với khóa học trong ngày
+        #region Lấy ra các buổi học phù hợp với khóa học trong ngày
         public List<Session> GetAvalableSessionInDay(int courseID, DateTime curDate)
         {
             using (var db = DataAccess.GetDataContext())
             {
                 var scheduledSessions = (from sche in db.Schedules
-                                        where sche.Enrollment.CourseID == courseID
-                                        select new { sche.SessionID, sche.SessionDate }).Distinct();
+                                         where sche.Enrollment.CourseID == courseID
+                                         select new { sche.SessionID, sche.SessionDate }).Distinct();
 
                 var availableSessions = from session in db.Sessions
-										where !scheduledSessions.Any(sche => sche.SessionID == session.SessionID
-														  && sche.SessionDate == curDate)
-										select session;
+                                        where !scheduledSessions.Any(sche => sche.SessionID == session.SessionID
+                                                          && sche.SessionDate == curDate)
+                                        select session;
 
                 return availableSessions.ToList() ?? new List<Session>();
+            }
+        }
+		#endregion
+
+		#region Kiểm tra buổi học trong 1 ngày có khóa học đang chọn hay chưa
+        public List<Session> GetSessionsOfCourseInDay(int courseID, int selectedSessionID, DateTime curDate)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = (from sche in db.Schedules
+                            join session in db.Sessions on sche.SessionID equals session.SessionID
+                            where sche.Enrollment.CourseID == courseID
+                                  && sche.SessionDate == curDate
+                                  && sche.SessionID != selectedSessionID 
+                            select session).ToList();
+
+                return data ?? new List<Session>();
             }
         }
 		#endregion
