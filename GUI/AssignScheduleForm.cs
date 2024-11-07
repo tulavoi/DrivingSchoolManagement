@@ -34,7 +34,7 @@ namespace GUI
 
         private void LoadComboboxes()
         {
-            ComboboxService.AssignCoursesToCombobox(cboCourses, this.activeStatus);
+            ComboboxService.AssignCoursesToCombobox(cboCourses, this.activeStatus, _date);
         }
 
         private void AssignDateToLabel()
@@ -66,7 +66,6 @@ namespace GUI
                 CourseService.UpdateHoursStudied(Convert.ToInt32(cboCourses.SelectedValue), 2);
                 FormHelper.ShowNotify("Schedule added successfully.");
                 this.ResetCombobox();
-
 			}
             else
                 this.HandleScheduleAddError(errorMessage);
@@ -112,7 +111,6 @@ namespace GUI
 
         private void ResetCombobox()
         {
-            cboCourses.Enabled = false;
             cboCourses.SelectedIndex = 0;
             cboTeachers.Enabled = false;
             cboTeachers.SelectedIndex = 0;

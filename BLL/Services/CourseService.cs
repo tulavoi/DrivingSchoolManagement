@@ -12,8 +12,11 @@ namespace BLL.Services
 {
     public class CourseService
     {
+        public static List<Course> GetAllCourses()
+        {
+            return CourseBLL.Instance.GetAllCourses();
+        }
 
-     
         public static void LoadAllCourses(Guna2DataGridView dgv)
         {
             CourseBLL.Instance.LoadAllCourses(dgv);

@@ -12,24 +12,19 @@ namespace BLL.Services
 			LearnerBLL.Instance.AssignLearnersToCombobox(cbo);
 		}
 
-		public static void AssignLearnersToCombobox(Guna2ComboBox cbo, string status)
-		{
-			LearnerBLL.Instance.AssignLearnersToCombobox(cbo, status);
-		}
-
 		public static void AssignCoursesToCombobox(Guna2ComboBox cbo)
 		{
 			CourseBLL.Instance.AssignCoursesToCombobox(cbo);
 		}
 
-		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
 		{
-			CourseBLL.Instance.AssignCoursesToCombobox(cbo, status);
+			CourseBLL.Instance.AssignCoursesToCombobox(cbo, status, curDate);
 		}
 
-		public static void AssignAvailableToCombobox(Guna2ComboBox cbo)
+		public static void AssignAvailableCourseToCombobox(Guna2ComboBox cbo)
 		{
-			CourseBLL.Instance.AssignAvailableToCombobox(cbo);
+			CourseBLL.Instance.AssignAvailableCourseToCombobox(cbo);
 		}
 
 		public static void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
@@ -37,10 +32,10 @@ namespace BLL.Services
 			CourseBLL.Instance.GetAvailableAndLearnerCourses(cbo, learnerID);
 		}
 
-		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
-		{
-			CourseBLL.Instance.AssignCoursesToCombobox(cbo, learnerID);
-		}
+		//public static void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+		//{
+		//	CourseBLL.Instance.AssignCoursesToCombobox(cbo, learnerID);
+		//}
 
 		public static void AssignTeachersToCombobox(Guna2ComboBox cbo)
 		{

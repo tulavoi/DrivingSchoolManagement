@@ -67,6 +67,8 @@ namespace GUI
             cboStates.Text = course.Status.StatusName;
             this.SetLearnerName(course.CourseID);
             txtHoursStudied.Text = hoursStudied.ToString();
+            dtpStartDate.Value = course.StartDate.Value;
+            dtpEndDate.Value = course.EndDate.Value;
 
             if (hoursStudied == durationHours)
             {

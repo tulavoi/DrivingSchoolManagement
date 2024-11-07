@@ -316,7 +316,7 @@ namespace DAL
 		#endregion
 
 		#region Lấy các khóa học đã có người đăng ký
-		public List<Course> GetCourseEnrolled(string statusName)
+		public List<Course> GetCourseEnrolled(string statusName, DateTime curDate)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
@@ -325,8 +325,9 @@ namespace DAL
 						   join status in db.Status on course.StatusID equals status.StatusID
 						   where status.StatusName == statusName 
 								 && db.Enrollments.Any(e => e.CourseID == course.CourseID)
+								 && course.StartDate.Value.Date <= curDate.Date
 						   select course;
-				if (data == null) return new List<Course>();
+                if (data == null) return new List<Course>();
 				return data.ToList();
 			}
 		}

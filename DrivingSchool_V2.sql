@@ -225,10 +225,6 @@ VALUES
 ('Nguyen Van A', '1990-01-01', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', GETDATE(), GETDATE()),
 ('Tran Thi B', '1992-02-02', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', GETDATE(), GETDATE()),
 ('Le Van C', '1988-03-03', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', GETDATE(), GETDATE()),
-('Pham Thi D', '1993-04-04', 'Female', '0912345682', 'phamthid@gmail.com', '654 MNO Street', '012345678127', 'Viet Nam', GETDATE(), GETDATE()),
-('Hoang Van E', '1991-05-05', 'Male', '0912345683', 'hoangvane@gmail.com', '987 PQR Street', '012345678128', 'Viet Nam', GETDATE(), GETDATE()),
-('Nguyen Van F', '1994-06-06', 'Male', '0912345684', 'nguyenvanf@gmail.com', '135 STU Street', '012345678129', 'Viet Nam', GETDATE(), GETDATE()),
-('Tran Thi G', '1989-07-07', 'Female', '0912345685', 'tranthig@gmail.com', '246 VWX Street', '012345678130', 'Viet Nam', GETDATE(), GETDATE()),
 ('Le Van H', '1996-08-08', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', GETDATE(), GETDATE()),
 ('Pham Thi I', '1997-09-09', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', GETDATE(), GETDATE());
 
@@ -276,16 +272,16 @@ VALUES
 
 INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
 VALUES 
-('B-090532131024', 1, 11000000, 588, 0, 1, '2024-01-01', DATEADD(MONTH, 6, '2024-01-01'), GETDATE(), GETDATE()),
-('B-080756241024', 1, 11000000, 588, 0, 1, '2024-02-01', DATEADD(MONTH, 6, '2024-02-01'), GETDATE(), GETDATE()),
-('B-080756241027', 1, 11000000, 588, 584, 1, '2024-03-01', DATEADD(MONTH, 6, '2024-03-01'), GETDATE(), GETDATE()),
-('C-020654131027', 2, 12000000, 920, 0, 1, '2024-04-01', DATEADD(MONTH, 6, '2024-04-01'), GETDATE(), GETDATE()),
-('C-053354131024', 2, 12000000, 920, 0, 1, '2024-05-01', DATEADD(MONTH, 6, '2024-05-01'), GETDATE(), GETDATE()),
-('C-540856241024', 2, 12000000, 920, 0, 1, '2024-06-01', DATEADD(MONTH, 6, '2024-06-01'), GETDATE(), GETDATE()),
-('D-091122131024', 3, 15000000, 192, 0, 1, '2024-07-01', DATEADD(MONTH, 6, '2024-07-01'), GETDATE(), GETDATE()),
-('D-450456241024', 3, 15000000, 192, 0, 1, '2024-08-01', DATEADD(MONTH, 6, '2024-08-01'), GETDATE(), GETDATE()),
-('E-092433131024', 4, 20000000, 192, 0, 1, '2024-09-01', DATEADD(MONTH, 6, '2024-09-01'), GETDATE(), GETDATE()),
-('E-540826241024', 4, 20000000, 192, 0, 1, '2024-10-01', DATEADD(MONTH, 6, '2024-10-01'), GETDATE(), GETDATE());
+('B-090532131024', 1, 11000000, 588, 0, 1, '2024-10-01', DATEADD(MONTH, 6, CAST('2024-10-01' AS DATE)), GETDATE(), GETDATE()),
+('B-080756241024', 1, 11000000, 588, 0, 1, '2024-10-02', DATEADD(MONTH, 6, CAST('2024-10-02' AS DATE)), GETDATE(), GETDATE()),
+('B-080756241027', 1, 11000000, 588, 584, 1, '2024-10-03', DATEADD(MONTH, 6, CAST('2024-10-03' AS DATE)), GETDATE(), GETDATE()),
+('C-020654131027', 2, 12000000, 920, 0, 1, '2024-11-02', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), GETDATE(), GETDATE()),
+('C-053354131024', 2, 12000000, 920, 0, 1, '2024-11-03', DATEADD(MONTH, 6, CAST('2024-11-03' AS DATE)), GETDATE(), GETDATE()),
+('C-540856241024', 2, 12000000, 920, 0, 1, '2024-11-04', DATEADD(MONTH, 6, CAST('2024-11-04' AS DATE)), GETDATE(), GETDATE()),
+('D-091122131024', 3, 15000000, 192, 0, 1, '2024-11-05', DATEADD(MONTH, 6, CAST('2024-11-05' AS DATE)), GETDATE(), GETDATE()),
+('D-450456241024', 3, 15000000, 192, 0, 1, '2024-11-06', DATEADD(MONTH, 6, CAST('2024-11-06' AS DATE)), GETDATE(), GETDATE()),
+('E-092433131024', 4, 20000000, 192, 0, 1, '2024-11-07', DATEADD(MONTH, 6, CAST('2024-11-07' AS DATE)), GETDATE(), GETDATE()),
+('E-540826241024', 4, 20000000, 192, 0, 1, '2024-11-07', DATEADD(MONTH, 6, CAST('2024-11-07' AS DATE)), GETDATE(), GETDATE());
 
 INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
 VALUES 
@@ -298,7 +294,12 @@ insert into Enrollments(LearnerID, CourseID, EnrollmentDate)
 values
 (1, 1, GETDATE()),
 (2, 2, GETDATE()),
-(3, 4, GETDATE());
+(3, 4, GETDATE()),
+(4, 3, GETDATE()),
+(5, 5, GETDATE()),
+(6, 6, GETDATE()),
+(7, 7, GETDATE()),
+(8, 8, GETDATE());
 
 INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDate, StatusID, Created_At, Updated_At)
 VALUES
@@ -314,13 +315,10 @@ VALUES
 INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
 VALUES 
 (1, '2024-10-12', 7000000, 'Credit Card', GETDATE(), GETDATE()),
-(2, '2024-10-13', 5000000, 'Cash', GETDATE(), GETDATE());
+(2, '2024-10-13', 5000000, 'Cash', GETDATE(), GETDATE()),
+(1, '2024-11-02', 4000000, 'Credit Card', GETDATE(), GETDATE());
 
 INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
 VALUES 
-('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE());
-
-
-INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
-VALUES 
-('C-103232021124', 2, 12000000, 920, 0, 1, '2024-11-02', DATEADD(MONTH, 6, '2024-11-02'), GETDATE(), GETDATE())
+('mainguyenhoangvu2212@gmail.com', 'admin1', 1, GETDATE(), GETDATE()),
+('teacher1@gmail.com', 'teacher1', 0, GETDATE(), GETDATE());

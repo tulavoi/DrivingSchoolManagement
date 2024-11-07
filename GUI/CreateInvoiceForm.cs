@@ -31,8 +31,8 @@ namespace GUI
 		private void CreateInvoiceForm_Load(object sender, EventArgs e)
 		{
 			shadowForm.SetShadowForm(this);
-            string status = "Active";
-            ComboboxService.AssignCoursesToCombobox(cboCourses, status);
+            //string status = "Active";
+            //ComboboxService.AssignCoursesToCombobox(cboCourses, status); // Phải gán các khóa học chưa được tạo hóa đơn vào combobox, sửa lại
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -27,6 +27,7 @@ namespace GUI
 			InitializeComponent();
 			FormHelper.ApplyRoundedCorners(this, 20);
 
+            dtpSchedule.Value = DateTime.Now;
 			calendarManager = new CalendarManager(pnlMatrix, dtpSchedule.Value);
 			calendarManager.LoadMatrix();
 
@@ -42,10 +43,6 @@ namespace GUI
 		private void LoadComboboxes()
 		{
 			ComboboxService.AssignSessionsToCombobox(cboSessions);
-			//if (this.selectedSchedule == null) return;
-			//int courseID = this.selectedSchedule.Enrollment.Course.CourseID;
-			//int sessionID = this.selectedSchedule.Session.SessionID;
-			//ComboboxService.AssignSessionsToCombobox(cboSessions, courseID, dtpSessionDate.Value, sessionID);
 		}
 
 		private void LoadAllSchedules()
@@ -107,7 +104,8 @@ namespace GUI
 
 		private void dtpSchedule_ValueChanged(object sender, EventArgs e)
 		{
-			calendarManager.AddNumberToMatrixByDate(dtpSchedule.Value);
+			if (calendarManager == null) return;
+            calendarManager.AddNumberToMatrixByDate(dtpSchedule.Value);
 		}
 
 		private void btnToday_Click(object sender, EventArgs e)
@@ -128,7 +126,7 @@ namespace GUI
 		private void btnOpenAddScheduleForm_Click(object sender, EventArgs e)
 		{
 			calendarManager.OpenAssignScheduleForm(dtpSchedule.Value);
-			this.ResetForm();
+			this.LoadAllSchedules();
 		}
 
 		private void btnEdit_Click(object sender, EventArgs e)

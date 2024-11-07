@@ -87,10 +87,17 @@ namespace BLL
                 {
                     dgv.Rows[rowIndex].Tag = teacher;
 
-                    dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
+                    if (dgv.Columns.Contains("TeacherID"))
+                        dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
+
                     dgv.Rows[rowIndex].Cells["FullName"].Value = teacher.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = teacher.CitizenID;
-                    dgv.Rows[rowIndex].Cells["Status"].Value = teacher.Status.StatusName;
+
+                    if (dgv.Columns.Contains("License"))
+                        dgv.Rows[rowIndex].Cells["License"].Value = teacher.License.LicenseName;
+
+                    if (dgv.Columns.Contains("Status"))
+                        dgv.Rows[rowIndex].Cells["Status"].Value = teacher.Status.StatusName;
                 }
             }
         }

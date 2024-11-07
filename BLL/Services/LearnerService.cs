@@ -42,6 +42,11 @@ namespace BLL.Services
             LearnerBLL.Instance.LoadAllLearners(dgv);
         }
 
+        public static List<Learner> GetAllLearners()
+        {
+            return LearnerBLL.Instance.GetAllLearners();
+        }
+
         public static void SearchLearners(Guna2DataGridView dgv, string keyword)
         {
             LearnerBLL.Instance.SearchLearners(dgv, keyword);
