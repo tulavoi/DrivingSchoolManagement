@@ -36,6 +36,11 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pnlCourses = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
 			this.dgvCourses = new Guna.UI2.WinForms.Guna2DataGridView();
+			this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LicenseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
 			this.btnOpenAddCourseForm = new Guna.UI2.WinForms.Guna2Button();
 			this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -70,10 +75,16 @@
 			this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
 			this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
 			this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
-			this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+			this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
 			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
 			this.cboStates = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+			this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+			this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.label6 = new System.Windows.Forms.Label();
+			this.dtpDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
+			this.label5 = new System.Windows.Forms.Label();
 			this.pnlSpace17 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourseName = new Guna.UI2.WinForms.Guna2Panel();
 			this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -103,17 +114,6 @@
 			this.lblDetails = new System.Windows.Forms.Label();
 			this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-			this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Fee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LicenseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.label5 = new System.Windows.Forms.Label();
-			this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-			this.dtpDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
-			this.label6 = new System.Windows.Forms.Label();
-			this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-			this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlCourses.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
 			this.pnlButtonAdd.SuspendLayout();
@@ -127,12 +127,12 @@
 			this.pnlBasicDetails.SuspendLayout();
 			this.pnlButtonEdit_Delete.SuspendLayout();
 			this.guna2Panel1.SuspendLayout();
+			this.guna2Panel10.SuspendLayout();
 			this.pnlCourseName.SuspendLayout();
 			this.pnlDuration.SuspendLayout();
 			this.pnlFee.SuspendLayout();
 			this.pnlLicense.SuspendLayout();
 			this.pnlCourseDetails_Top.SuspendLayout();
-			this.guna2Panel10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlCourses
@@ -227,6 +227,66 @@
 			this.dgvCourses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
 			this.dgvCourses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.dgvCourses.SelectionChanged += new System.EventHandler(this.dgvCourses_SelectionChanged);
+			// 
+			// TeacherID
+			// 
+			this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.TeacherID.DataPropertyName = "Space";
+			this.TeacherID.Frozen = true;
+			this.TeacherID.HeaderText = "";
+			this.TeacherID.MinimumWidth = 6;
+			this.TeacherID.Name = "TeacherID";
+			this.TeacherID.ReadOnly = true;
+			this.TeacherID.Width = 18;
+			// 
+			// CourseName
+			// 
+			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.CourseName.DataPropertyName = "CourseName";
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+			this.CourseName.FillWeight = 53.63456F;
+			this.CourseName.Frozen = true;
+			this.CourseName.HeaderText = "Name";
+			this.CourseName.MinimumWidth = 6;
+			this.CourseName.Name = "CourseName";
+			this.CourseName.ReadOnly = true;
+			this.CourseName.Width = 140;
+			// 
+			// Fee
+			// 
+			this.Fee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Fee.DataPropertyName = "Fee";
+			this.Fee.Frozen = true;
+			this.Fee.HeaderText = "Fee";
+			this.Fee.MinimumWidth = 6;
+			this.Fee.Name = "Fee";
+			this.Fee.ReadOnly = true;
+			this.Fee.Width = 125;
+			// 
+			// LicenseType
+			// 
+			this.LicenseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.LicenseType.DataPropertyName = "LicenseType";
+			this.LicenseType.Frozen = true;
+			this.LicenseType.HeaderText = "License";
+			this.LicenseType.MinimumWidth = 6;
+			this.LicenseType.Name = "LicenseType";
+			this.LicenseType.ReadOnly = true;
+			this.LicenseType.Width = 70;
+			// 
+			// Status
+			// 
+			this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+			this.Status.DataPropertyName = "Status";
+			this.Status.FillWeight = 70F;
+			this.Status.Frozen = true;
+			this.Status.HeaderText = "Status";
+			this.Status.MinimumWidth = 6;
+			this.Status.Name = "Status";
+			this.Status.ReadOnly = true;
+			this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.Status.Width = 125;
 			// 
 			// pnlButtonAdd
 			// 
@@ -743,14 +803,14 @@
 			this.pnlSpace13.Size = new System.Drawing.Size(19, 35);
 			this.pnlSpace13.TabIndex = 10;
 			// 
-			// guna2Panel2
+			// guna2Panel11
 			// 
-			this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.guna2Panel2.FillColor = System.Drawing.Color.White;
-			this.guna2Panel2.Location = new System.Drawing.Point(0, 230);
-			this.guna2Panel2.Name = "guna2Panel2";
-			this.guna2Panel2.Size = new System.Drawing.Size(441, 10);
-			this.guna2Panel2.TabIndex = 130;
+			this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel11.FillColor = System.Drawing.Color.White;
+			this.guna2Panel11.Location = new System.Drawing.Point(0, 276);
+			this.guna2Panel11.Name = "guna2Panel11";
+			this.guna2Panel11.Size = new System.Drawing.Size(441, 15);
+			this.guna2Panel11.TabIndex = 132;
 			// 
 			// guna2Panel1
 			// 
@@ -799,6 +859,98 @@
 			this.label1.TabIndex = 109;
 			this.label1.Text = "    Status: ";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// guna2Panel2
+			// 
+			this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel2.FillColor = System.Drawing.Color.White;
+			this.guna2Panel2.Location = new System.Drawing.Point(0, 230);
+			this.guna2Panel2.Name = "guna2Panel2";
+			this.guna2Panel2.Size = new System.Drawing.Size(441, 10);
+			this.guna2Panel2.TabIndex = 130;
+			// 
+			// guna2Panel10
+			// 
+			this.guna2Panel10.Controls.Add(this.guna2DateTimePicker1);
+			this.guna2Panel10.Controls.Add(this.label6);
+			this.guna2Panel10.Controls.Add(this.dtpDOB);
+			this.guna2Panel10.Controls.Add(this.label5);
+			this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+			this.guna2Panel10.FillColor = System.Drawing.Color.White;
+			this.guna2Panel10.Location = new System.Drawing.Point(0, 194);
+			this.guna2Panel10.Name = "guna2Panel10";
+			this.guna2Panel10.Size = new System.Drawing.Size(441, 36);
+			this.guna2Panel10.TabIndex = 131;
+			// 
+			// guna2DateTimePicker1
+			// 
+			this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.White;
+			this.guna2DateTimePicker1.BorderRadius = 5;
+			this.guna2DateTimePicker1.Checked = true;
+			this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.guna2DateTimePicker1.CustomFormat = "dd-MM-yyyy";
+			this.guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.guna2DateTimePicker1.Enabled = false;
+			this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
+			this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.guna2DateTimePicker1.Location = new System.Drawing.Point(296, 0);
+			this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
+			this.guna2DateTimePicker1.Size = new System.Drawing.Size(145, 36);
+			this.guna2DateTimePicker1.TabIndex = 112;
+			this.guna2DateTimePicker1.Tag = "Date of Birth";
+			this.guna2DateTimePicker1.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			// 
+			// label6
+			// 
+			this.label6.BackColor = System.Drawing.Color.White;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label6.Location = new System.Drawing.Point(226, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(70, 36);
+			this.label6.TabIndex = 111;
+			this.label6.Text = "  End: ";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// dtpDOB
+			// 
+			this.dtpDOB.BorderColor = System.Drawing.Color.White;
+			this.dtpDOB.BorderRadius = 5;
+			this.dtpDOB.Checked = true;
+			this.dtpDOB.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.dtpDOB.CustomFormat = "dd-MM-yyyy";
+			this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Left;
+			this.dtpDOB.Enabled = false;
+			this.dtpDOB.FillColor = System.Drawing.Color.White;
+			this.dtpDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.dtpDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpDOB.Location = new System.Drawing.Point(79, 0);
+			this.dtpDOB.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+			this.dtpDOB.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+			this.dtpDOB.Name = "dtpDOB";
+			this.dtpDOB.Size = new System.Drawing.Size(147, 36);
+			this.dtpDOB.TabIndex = 110;
+			this.dtpDOB.Tag = "Date of Birth";
+			this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+			// 
+			// label5
+			// 
+			this.label5.BackColor = System.Drawing.Color.White;
+			this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+			this.label5.Location = new System.Drawing.Point(0, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(79, 36);
+			this.label5.TabIndex = 109;
+			this.label5.Text = "    Start: ";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pnlSpace17
 			// 
@@ -1240,157 +1392,6 @@
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
 			// 
-			// TeacherID
-			// 
-			this.TeacherID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.TeacherID.DataPropertyName = "Space";
-			this.TeacherID.Frozen = true;
-			this.TeacherID.HeaderText = "";
-			this.TeacherID.MinimumWidth = 6;
-			this.TeacherID.Name = "TeacherID";
-			this.TeacherID.ReadOnly = true;
-			this.TeacherID.Width = 18;
-			// 
-			// CourseName
-			// 
-			this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.CourseName.DataPropertyName = "CourseName";
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
-			this.CourseName.FillWeight = 53.63456F;
-			this.CourseName.Frozen = true;
-			this.CourseName.HeaderText = "Name";
-			this.CourseName.MinimumWidth = 6;
-			this.CourseName.Name = "CourseName";
-			this.CourseName.ReadOnly = true;
-			this.CourseName.Width = 140;
-			// 
-			// Fee
-			// 
-			this.Fee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Fee.DataPropertyName = "Fee";
-			this.Fee.Frozen = true;
-			this.Fee.HeaderText = "Fee";
-			this.Fee.MinimumWidth = 6;
-			this.Fee.Name = "Fee";
-			this.Fee.ReadOnly = true;
-			this.Fee.Width = 125;
-			// 
-			// LicenseType
-			// 
-			this.LicenseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.LicenseType.DataPropertyName = "LicenseType";
-			this.LicenseType.Frozen = true;
-			this.LicenseType.HeaderText = "License";
-			this.LicenseType.MinimumWidth = 6;
-			this.LicenseType.Name = "LicenseType";
-			this.LicenseType.ReadOnly = true;
-			this.LicenseType.Width = 70;
-			// 
-			// Status
-			// 
-			this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-			this.Status.DataPropertyName = "Status";
-			this.Status.FillWeight = 70F;
-			this.Status.Frozen = true;
-			this.Status.HeaderText = "Status";
-			this.Status.MinimumWidth = 6;
-			this.Status.Name = "Status";
-			this.Status.ReadOnly = true;
-			this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// label5
-			// 
-			this.label5.BackColor = System.Drawing.Color.White;
-			this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-			this.label5.Location = new System.Drawing.Point(0, 0);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(79, 36);
-			this.label5.TabIndex = 109;
-			this.label5.Text = "    Start: ";
-			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// guna2Panel10
-			// 
-			this.guna2Panel10.Controls.Add(this.guna2DateTimePicker1);
-			this.guna2Panel10.Controls.Add(this.label6);
-			this.guna2Panel10.Controls.Add(this.dtpDOB);
-			this.guna2Panel10.Controls.Add(this.label5);
-			this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
-			this.guna2Panel10.FillColor = System.Drawing.Color.White;
-			this.guna2Panel10.Location = new System.Drawing.Point(0, 194);
-			this.guna2Panel10.Name = "guna2Panel10";
-			this.guna2Panel10.Size = new System.Drawing.Size(441, 36);
-			this.guna2Panel10.TabIndex = 131;
-			// 
-			// dtpDOB
-			// 
-			this.dtpDOB.BorderColor = System.Drawing.Color.White;
-			this.dtpDOB.BorderRadius = 5;
-			this.dtpDOB.Checked = true;
-			this.dtpDOB.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.dtpDOB.CustomFormat = "dd-MM-yyyy";
-			this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Left;
-			this.dtpDOB.Enabled = false;
-			this.dtpDOB.FillColor = System.Drawing.Color.White;
-			this.dtpDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.dtpDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpDOB.Location = new System.Drawing.Point(79, 0);
-			this.dtpDOB.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-			this.dtpDOB.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-			this.dtpDOB.Name = "dtpDOB";
-			this.dtpDOB.Size = new System.Drawing.Size(147, 36);
-			this.dtpDOB.TabIndex = 110;
-			this.dtpDOB.Tag = "Date of Birth";
-			this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
-			// 
-			// label6
-			// 
-			this.label6.BackColor = System.Drawing.Color.White;
-			this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-			this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-			this.label6.Location = new System.Drawing.Point(226, 0);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(70, 36);
-			this.label6.TabIndex = 111;
-			this.label6.Text = "  End: ";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// guna2DateTimePicker1
-			// 
-			this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.White;
-			this.guna2DateTimePicker1.BorderRadius = 5;
-			this.guna2DateTimePicker1.Checked = true;
-			this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.guna2DateTimePicker1.CustomFormat = "dd-MM-yyyy";
-			this.guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.guna2DateTimePicker1.Enabled = false;
-			this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-			this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.guna2DateTimePicker1.Location = new System.Drawing.Point(296, 0);
-			this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-			this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-			this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-			this.guna2DateTimePicker1.Size = new System.Drawing.Size(145, 36);
-			this.guna2DateTimePicker1.TabIndex = 112;
-			this.guna2DateTimePicker1.Tag = "Date of Birth";
-			this.guna2DateTimePicker1.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
-			// 
-			// guna2Panel11
-			// 
-			this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
-			this.guna2Panel11.FillColor = System.Drawing.Color.White;
-			this.guna2Panel11.Location = new System.Drawing.Point(0, 276);
-			this.guna2Panel11.Name = "guna2Panel11";
-			this.guna2Panel11.Size = new System.Drawing.Size(441, 15);
-			this.guna2Panel11.TabIndex = 132;
-			// 
 			// CoursesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1419,12 +1420,12 @@
 			this.pnlBasicDetails.ResumeLayout(false);
 			this.pnlButtonEdit_Delete.ResumeLayout(false);
 			this.guna2Panel1.ResumeLayout(false);
+			this.guna2Panel10.ResumeLayout(false);
 			this.pnlCourseName.ResumeLayout(false);
 			this.pnlDuration.ResumeLayout(false);
 			this.pnlFee.ResumeLayout(false);
 			this.pnlLicense.ResumeLayout(false);
 			this.pnlCourseDetails_Top.ResumeLayout(false);
-			this.guna2Panel10.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

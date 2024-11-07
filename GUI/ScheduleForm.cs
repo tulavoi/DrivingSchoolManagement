@@ -90,7 +90,7 @@ namespace GUI
         {
             ComboboxService.AssignCoursesToCombobox(cboCourses);
             ComboboxService.AssignLearnersToCombobox(cboLearners);
-			ComboboxService.AssignTeachersToCombobox(cboTeachers);
+            ComboboxService.AssignTeachersToCombobox(cboTeachers);
             ComboboxService.AssignSessionsToCombobox(cboSessions);
             //ComboboxService.AssignVehiclesToCombobox(cboVehicles);
         }

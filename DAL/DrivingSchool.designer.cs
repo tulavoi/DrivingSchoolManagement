@@ -33,9 +33,9 @@ namespace DAL
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
-    partial void InsertVehicle(Vehicle instance);
-    partial void UpdateVehicle(Vehicle instance);
-    partial void DeleteVehicle(Vehicle instance);
+    partial void InsertTeacher(Teacher instance);
+    partial void UpdateTeacher(Teacher instance);
+    partial void DeleteTeacher(Teacher instance);
     partial void InsertCourse(Course instance);
     partial void UpdateCourse(Course instance);
     partial void DeleteCourse(Course instance);
@@ -63,13 +63,13 @@ namespace DAL
     partial void InsertStatus(Status instance);
     partial void UpdateStatus(Status instance);
     partial void DeleteStatus(Status instance);
-    partial void InsertTeacher(Teacher instance);
-    partial void UpdateTeacher(Teacher instance);
-    partial void DeleteTeacher(Teacher instance);
+    partial void InsertVehicle(Vehicle instance);
+    partial void UpdateVehicle(Vehicle instance);
+    partial void DeleteVehicle(Vehicle instance);
     #endregion
 		
 		public DrivingSchoolDataContext() : 
-				base(global::DAL.Properties.Settings.Default.DrivingSchool_V2ConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.DrivingSchool_V2ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -106,11 +106,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Vehicle> Vehicles
+		public System.Data.Linq.Table<Teacher> Teachers
 		{
 			get
 			{
-				return this.GetTable<Vehicle>();
+				return this.GetTable<Teacher>();
 			}
 		}
 		
@@ -186,11 +186,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<Teacher> Teachers
+		public System.Data.Linq.Table<Vehicle> Vehicles
 		{
 			get
 			{
-				return this.GetTable<Teacher>();
+				return this.GetTable<Vehicle>();
 			}
 		}
 	}
@@ -377,37 +377,39 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicles")]
-	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Teachers")]
+	public partial class Teacher : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _VehicleID;
+		private int _TeacherID;
 		
-		private string _VehicleName;
+		private string _FullName;
 		
-		private string _VehicleNumber;
+		private string _CitizenID;
 		
-		private System.Nullable<bool> _IsTruck;
+		private System.Nullable<System.DateTime> _DateOfBirth;
 		
-		private System.Nullable<bool> _IsPassengerCar;
+		private string _Gender;
 		
-		private System.Nullable<bool> _IsMaintenance;
+		private string _PhoneNumber;
 		
-		private System.Nullable<int> _ManufacturerYear;
+		private string _Email;
 		
-		private System.Nullable<int> _Weight;
+		private string _Nationality;
 		
-		private System.Nullable<int> _Seats;
+		private string _Address;
+		
+		private System.Nullable<System.DateTime> _EmploymentDate;
+		
+		private System.Nullable<int> _LicenseID;
+		
+		private string _LicenseNumber;
+		
+		private System.Nullable<System.DateTime> _BeginningDate;
 		
 		private System.Nullable<int> _StatusID;
-		
-		private string _Notes;
-		
-		private System.Nullable<System.DateTime> _StartMaintenaceDate;
-		
-		private System.Nullable<System.DateTime> _EndMaintenaceDate;
 		
 		private System.Nullable<System.DateTime> _Created_At;
 		
@@ -415,227 +417,316 @@ namespace DAL
 		
 		private EntitySet<Schedule> _Schedules;
 		
+		private EntityRef<License> _License;
+		
 		private EntityRef<Status> _Status;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnVehicleIDChanging(int value);
-    partial void OnVehicleIDChanged();
-    partial void OnVehicleNameChanging(string value);
-    partial void OnVehicleNameChanged();
-    partial void OnVehicleNumberChanging(string value);
-    partial void OnVehicleNumberChanged();
-    partial void OnIsTruckChanging(System.Nullable<bool> value);
-    partial void OnIsTruckChanged();
-    partial void OnIsPassengerCarChanging(System.Nullable<bool> value);
-    partial void OnIsPassengerCarChanged();
-    partial void OnIsMaintenanceChanging(System.Nullable<bool> value);
-    partial void OnIsMaintenanceChanged();
-    partial void OnManufacturerYearChanging(System.Nullable<int> value);
-    partial void OnManufacturerYearChanged();
-    partial void OnWeightChanging(System.Nullable<int> value);
-    partial void OnWeightChanged();
-    partial void OnSeatsChanging(System.Nullable<int> value);
-    partial void OnSeatsChanged();
+    partial void OnTeacherIDChanging(int value);
+    partial void OnTeacherIDChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnCitizenIDChanging(string value);
+    partial void OnCitizenIDChanged();
+    partial void OnDateOfBirthChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateOfBirthChanged();
+    partial void OnGenderChanging(string value);
+    partial void OnGenderChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNationalityChanging(string value);
+    partial void OnNationalityChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnEmploymentDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEmploymentDateChanged();
+    partial void OnLicenseIDChanging(System.Nullable<int> value);
+    partial void OnLicenseIDChanged();
+    partial void OnLicenseNumberChanging(string value);
+    partial void OnLicenseNumberChanged();
+    partial void OnBeginningDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBeginningDateChanged();
     partial void OnStatusIDChanging(System.Nullable<int> value);
     partial void OnStatusIDChanged();
-    partial void OnNotesChanging(string value);
-    partial void OnNotesChanged();
-    partial void OnStartMaintenaceDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnStartMaintenaceDateChanged();
-    partial void OnEndMaintenaceDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnEndMaintenaceDateChanged();
     partial void OnCreated_AtChanging(System.Nullable<System.DateTime> value);
     partial void OnCreated_AtChanged();
     partial void OnUpdated_AtChanging(System.Nullable<System.DateTime> value);
     partial void OnUpdated_AtChanged();
     #endregion
 		
-		public Vehicle()
+		public Teacher()
 		{
 			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
+			this._License = default(EntityRef<License>);
 			this._Status = default(EntityRef<Status>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int VehicleID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TeacherID
 		{
 			get
 			{
-				return this._VehicleID;
+				return this._TeacherID;
 			}
 			set
 			{
-				if ((this._VehicleID != value))
+				if ((this._TeacherID != value))
 				{
-					this.OnVehicleIDChanging(value);
+					this.OnTeacherIDChanging(value);
 					this.SendPropertyChanging();
-					this._VehicleID = value;
-					this.SendPropertyChanged("VehicleID");
-					this.OnVehicleIDChanged();
+					this._TeacherID = value;
+					this.SendPropertyChanged("TeacherID");
+					this.OnTeacherIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleName", DbType="NVarChar(100)")]
-		public string VehicleName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100)")]
+		public string FullName
 		{
 			get
 			{
-				return this._VehicleName;
+				return this._FullName;
 			}
 			set
 			{
-				if ((this._VehicleName != value))
+				if ((this._FullName != value))
 				{
-					this.OnVehicleNameChanging(value);
+					this.OnFullNameChanging(value);
 					this.SendPropertyChanging();
-					this._VehicleName = value;
-					this.SendPropertyChanged("VehicleName");
-					this.OnVehicleNameChanged();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleNumber", DbType="NVarChar(50)")]
-		public string VehicleNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CitizenID", DbType="NVarChar(12)")]
+		public string CitizenID
 		{
 			get
 			{
-				return this._VehicleNumber;
+				return this._CitizenID;
 			}
 			set
 			{
-				if ((this._VehicleNumber != value))
+				if ((this._CitizenID != value))
 				{
-					this.OnVehicleNumberChanging(value);
+					this.OnCitizenIDChanging(value);
 					this.SendPropertyChanging();
-					this._VehicleNumber = value;
-					this.SendPropertyChanged("VehicleNumber");
-					this.OnVehicleNumberChanged();
+					this._CitizenID = value;
+					this.SendPropertyChanged("CitizenID");
+					this.OnCitizenIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsTruck", DbType="Bit")]
-		public System.Nullable<bool> IsTruck
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfBirth
 		{
 			get
 			{
-				return this._IsTruck;
+				return this._DateOfBirth;
 			}
 			set
 			{
-				if ((this._IsTruck != value))
+				if ((this._DateOfBirth != value))
 				{
-					this.OnIsTruckChanging(value);
+					this.OnDateOfBirthChanging(value);
 					this.SendPropertyChanging();
-					this._IsTruck = value;
-					this.SendPropertyChanged("IsTruck");
-					this.OnIsTruckChanged();
+					this._DateOfBirth = value;
+					this.SendPropertyChanged("DateOfBirth");
+					this.OnDateOfBirthChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPassengerCar", DbType="Bit")]
-		public System.Nullable<bool> IsPassengerCar
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(10)")]
+		public string Gender
 		{
 			get
 			{
-				return this._IsPassengerCar;
+				return this._Gender;
 			}
 			set
 			{
-				if ((this._IsPassengerCar != value))
+				if ((this._Gender != value))
 				{
-					this.OnIsPassengerCarChanging(value);
+					this.OnGenderChanging(value);
 					this.SendPropertyChanging();
-					this._IsPassengerCar = value;
-					this.SendPropertyChanged("IsPassengerCar");
-					this.OnIsPassengerCarChanged();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsMaintenance", DbType="Bit")]
-		public System.Nullable<bool> IsMaintenance
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(11)")]
+		public string PhoneNumber
 		{
 			get
 			{
-				return this._IsMaintenance;
+				return this._PhoneNumber;
 			}
 			set
 			{
-				if ((this._IsMaintenance != value))
+				if ((this._PhoneNumber != value))
 				{
-					this.OnIsMaintenanceChanging(value);
+					this.OnPhoneNumberChanging(value);
 					this.SendPropertyChanging();
-					this._IsMaintenance = value;
-					this.SendPropertyChanged("IsMaintenance");
-					this.OnIsMaintenanceChanged();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManufacturerYear", DbType="Int")]
-		public System.Nullable<int> ManufacturerYear
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
+		public string Email
 		{
 			get
 			{
-				return this._ManufacturerYear;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._ManufacturerYear != value))
+				if ((this._Email != value))
 				{
-					this.OnManufacturerYearChanging(value);
+					this.OnEmailChanging(value);
 					this.SendPropertyChanging();
-					this._ManufacturerYear = value;
-					this.SendPropertyChanged("ManufacturerYear");
-					this.OnManufacturerYearChanged();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int")]
-		public System.Nullable<int> Weight
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nationality", DbType="NVarChar(100)")]
+		public string Nationality
 		{
 			get
 			{
-				return this._Weight;
+				return this._Nationality;
 			}
 			set
 			{
-				if ((this._Weight != value))
+				if ((this._Nationality != value))
 				{
-					this.OnWeightChanging(value);
+					this.OnNationalityChanging(value);
 					this.SendPropertyChanging();
-					this._Weight = value;
-					this.SendPropertyChanged("Weight");
-					this.OnWeightChanged();
+					this._Nationality = value;
+					this.SendPropertyChanged("Nationality");
+					this.OnNationalityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seats", DbType="Int")]
-		public System.Nullable<int> Seats
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
+		public string Address
 		{
 			get
 			{
-				return this._Seats;
+				return this._Address;
 			}
 			set
 			{
-				if ((this._Seats != value))
+				if ((this._Address != value))
 				{
-					this.OnSeatsChanging(value);
+					this.OnAddressChanging(value);
 					this.SendPropertyChanging();
-					this._Seats = value;
-					this.SendPropertyChanged("Seats");
-					this.OnSeatsChanged();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmploymentDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EmploymentDate
+		{
+			get
+			{
+				return this._EmploymentDate;
+			}
+			set
+			{
+				if ((this._EmploymentDate != value))
+				{
+					this.OnEmploymentDateChanging(value);
+					this.SendPropertyChanging();
+					this._EmploymentDate = value;
+					this.SendPropertyChanged("EmploymentDate");
+					this.OnEmploymentDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseID", DbType="Int")]
+		public System.Nullable<int> LicenseID
+		{
+			get
+			{
+				return this._LicenseID;
+			}
+			set
+			{
+				if ((this._LicenseID != value))
+				{
+					if (this._License.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLicenseIDChanging(value);
+					this.SendPropertyChanging();
+					this._LicenseID = value;
+					this.SendPropertyChanged("LicenseID");
+					this.OnLicenseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseNumber", DbType="NVarChar(12)")]
+		public string LicenseNumber
+		{
+			get
+			{
+				return this._LicenseNumber;
+			}
+			set
+			{
+				if ((this._LicenseNumber != value))
+				{
+					this.OnLicenseNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LicenseNumber = value;
+					this.SendPropertyChanged("LicenseNumber");
+					this.OnLicenseNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginningDate", DbType="Date")]
+		public System.Nullable<System.DateTime> BeginningDate
+		{
+			get
+			{
+				return this._BeginningDate;
+			}
+			set
+			{
+				if ((this._BeginningDate != value))
+				{
+					this.OnBeginningDateChanging(value);
+					this.SendPropertyChanging();
+					this._BeginningDate = value;
+					this.SendPropertyChanged("BeginningDate");
+					this.OnBeginningDateChanged();
 				}
 			}
 		}
@@ -660,66 +751,6 @@ namespace DAL
 					this._StatusID = value;
 					this.SendPropertyChanged("StatusID");
 					this.OnStatusIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
-		public string Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				if ((this._Notes != value))
-				{
-					this.OnNotesChanging(value);
-					this.SendPropertyChanging();
-					this._Notes = value;
-					this.SendPropertyChanged("Notes");
-					this.OnNotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartMaintenaceDate", DbType="Date")]
-		public System.Nullable<System.DateTime> StartMaintenaceDate
-		{
-			get
-			{
-				return this._StartMaintenaceDate;
-			}
-			set
-			{
-				if ((this._StartMaintenaceDate != value))
-				{
-					this.OnStartMaintenaceDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartMaintenaceDate = value;
-					this.SendPropertyChanged("StartMaintenaceDate");
-					this.OnStartMaintenaceDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndMaintenaceDate", DbType="Date")]
-		public System.Nullable<System.DateTime> EndMaintenaceDate
-		{
-			get
-			{
-				return this._EndMaintenaceDate;
-			}
-			set
-			{
-				if ((this._EndMaintenaceDate != value))
-				{
-					this.OnEndMaintenaceDateChanging(value);
-					this.SendPropertyChanging();
-					this._EndMaintenaceDate = value;
-					this.SendPropertyChanged("EndMaintenaceDate");
-					this.OnEndMaintenaceDateChanged();
 				}
 			}
 		}
@@ -764,7 +795,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Schedule", Storage="_Schedules", ThisKey="VehicleID", OtherKey="VehicleID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Schedule", Storage="_Schedules", ThisKey="TeacherID", OtherKey="TeacherID")]
 		public EntitySet<Schedule> Schedules
 		{
 			get
@@ -777,7 +808,41 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Vehicle", Storage="_Status", ThisKey="StatusID", OtherKey="StatusID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Teacher", Storage="_License", ThisKey="LicenseID", OtherKey="LicenseID", IsForeignKey=true)]
+		public License License
+		{
+			get
+			{
+				return this._License.Entity;
+			}
+			set
+			{
+				License previousValue = this._License.Entity;
+				if (((previousValue != value) 
+							|| (this._License.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._License.Entity = null;
+						previousValue.Teachers.Remove(this);
+					}
+					this._License.Entity = value;
+					if ((value != null))
+					{
+						value.Teachers.Add(this);
+						this._LicenseID = value.LicenseID;
+					}
+					else
+					{
+						this._LicenseID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("License");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Teacher", Storage="_Status", ThisKey="StatusID", OtherKey="StatusID", IsForeignKey=true)]
 		public Status Status
 		{
 			get
@@ -794,12 +859,12 @@ namespace DAL
 					if ((previousValue != null))
 					{
 						this._Status.Entity = null;
-						previousValue.Vehicles.Remove(this);
+						previousValue.Teachers.Remove(this);
 					}
 					this._Status.Entity = value;
 					if ((value != null))
 					{
-						value.Vehicles.Add(this);
+						value.Teachers.Add(this);
 						this._StatusID = value.StatusID;
 					}
 					else
@@ -834,13 +899,13 @@ namespace DAL
 		private void attach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vehicle = this;
+			entity.Teacher = this;
 		}
 		
 		private void detach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
-			entity.Vehicle = null;
+			entity.Teacher = null;
 		}
 	}
 	
@@ -2323,9 +2388,9 @@ namespace DAL
 		
 		private System.Nullable<int> _Level;
 		
-		private EntitySet<Course> _Courses;
-		
 		private EntitySet<Teacher> _Teachers;
+		
+		private EntitySet<Course> _Courses;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2341,8 +2406,8 @@ namespace DAL
 		
 		public License()
 		{
-			this._Courses = new EntitySet<Course>(new Action<Course>(this.attach_Courses), new Action<Course>(this.detach_Courses));
 			this._Teachers = new EntitySet<Teacher>(new Action<Teacher>(this.attach_Teachers), new Action<Teacher>(this.detach_Teachers));
+			this._Courses = new EntitySet<Course>(new Action<Course>(this.attach_Courses), new Action<Course>(this.detach_Courses));
 			OnCreated();
 		}
 		
@@ -2406,19 +2471,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Course", Storage="_Courses", ThisKey="LicenseID", OtherKey="LicenseID")]
-		public EntitySet<Course> Courses
-		{
-			get
-			{
-				return this._Courses;
-			}
-			set
-			{
-				this._Courses.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Teacher", Storage="_Teachers", ThisKey="LicenseID", OtherKey="LicenseID")]
 		public EntitySet<Teacher> Teachers
 		{
@@ -2429,6 +2481,19 @@ namespace DAL
 			set
 			{
 				this._Teachers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Course", Storage="_Courses", ThisKey="LicenseID", OtherKey="LicenseID")]
+		public EntitySet<Course> Courses
+		{
+			get
+			{
+				return this._Courses;
+			}
+			set
+			{
+				this._Courses.Assign(value);
 			}
 		}
 		
@@ -2452,18 +2517,6 @@ namespace DAL
 			}
 		}
 		
-		private void attach_Courses(Course entity)
-		{
-			this.SendPropertyChanging();
-			entity.License = this;
-		}
-		
-		private void detach_Courses(Course entity)
-		{
-			this.SendPropertyChanging();
-			entity.License = null;
-		}
-		
 		private void attach_Teachers(Teacher entity)
 		{
 			this.SendPropertyChanging();
@@ -2471,6 +2524,18 @@ namespace DAL
 		}
 		
 		private void detach_Teachers(Teacher entity)
+		{
+			this.SendPropertyChanging();
+			entity.License = null;
+		}
+		
+		private void attach_Courses(Course entity)
+		{
+			this.SendPropertyChanging();
+			entity.License = this;
+		}
+		
+		private void detach_Courses(Course entity)
 		{
 			this.SendPropertyChanging();
 			entity.License = null;
@@ -2750,13 +2815,13 @@ namespace DAL
 		
 		private EntityRef<Enrollment> _Enrollment;
 		
-		private EntityRef<Vehicle> _Vehicle;
+		private EntityRef<Teacher> _Teacher;
 		
 		private EntityRef<Session> _Session;
 		
 		private EntityRef<Status> _Status;
 		
-		private EntityRef<Teacher> _Teacher;
+		private EntityRef<Vehicle> _Vehicle;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2785,10 +2850,10 @@ namespace DAL
 		public Schedule()
 		{
 			this._Enrollment = default(EntityRef<Enrollment>);
-			this._Vehicle = default(EntityRef<Vehicle>);
+			this._Teacher = default(EntityRef<Teacher>);
 			this._Session = default(EntityRef<Session>);
 			this._Status = default(EntityRef<Status>);
-			this._Teacher = default(EntityRef<Teacher>);
+			this._Vehicle = default(EntityRef<Vehicle>);
 			OnCreated();
 		}
 		
@@ -3026,36 +3091,36 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Schedule", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
-		public Vehicle Vehicle
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Schedule", Storage="_Teacher", ThisKey="TeacherID", OtherKey="TeacherID", IsForeignKey=true)]
+		public Teacher Teacher
 		{
 			get
 			{
-				return this._Vehicle.Entity;
+				return this._Teacher.Entity;
 			}
 			set
 			{
-				Vehicle previousValue = this._Vehicle.Entity;
+				Teacher previousValue = this._Teacher.Entity;
 				if (((previousValue != value) 
-							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
+							|| (this._Teacher.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Vehicle.Entity = null;
+						this._Teacher.Entity = null;
 						previousValue.Schedules.Remove(this);
 					}
-					this._Vehicle.Entity = value;
+					this._Teacher.Entity = value;
 					if ((value != null))
 					{
 						value.Schedules.Add(this);
-						this._VehicleID = value.VehicleID;
+						this._TeacherID = value.TeacherID;
 					}
 					else
 					{
-						this._VehicleID = default(Nullable<int>);
+						this._TeacherID = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Vehicle");
+					this.SendPropertyChanged("Teacher");
 				}
 			}
 		}
@@ -3128,36 +3193,36 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Schedule", Storage="_Teacher", ThisKey="TeacherID", OtherKey="TeacherID", IsForeignKey=true)]
-		public Teacher Teacher
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Schedule", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
+		public Vehicle Vehicle
 		{
 			get
 			{
-				return this._Teacher.Entity;
+				return this._Vehicle.Entity;
 			}
 			set
 			{
-				Teacher previousValue = this._Teacher.Entity;
+				Vehicle previousValue = this._Vehicle.Entity;
 				if (((previousValue != value) 
-							|| (this._Teacher.HasLoadedOrAssignedValue == false)))
+							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Teacher.Entity = null;
+						this._Vehicle.Entity = null;
 						previousValue.Schedules.Remove(this);
 					}
-					this._Teacher.Entity = value;
+					this._Vehicle.Entity = value;
 					if ((value != null))
 					{
 						value.Schedules.Add(this);
-						this._TeacherID = value.TeacherID;
+						this._VehicleID = value.VehicleID;
 					}
 					else
 					{
-						this._TeacherID = default(Nullable<int>);
+						this._VehicleID = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Teacher");
+					this.SendPropertyChanged("Vehicle");
 				}
 			}
 		}
@@ -3355,7 +3420,7 @@ namespace DAL
 		
 		private string _StatusName;
 		
-		private EntitySet<Vehicle> _Vehicles;
+		private EntitySet<Teacher> _Teachers;
 		
 		private EntitySet<Course> _Courses;
 		
@@ -3365,7 +3430,7 @@ namespace DAL
 		
 		private EntitySet<Schedule> _Schedules;
 		
-		private EntitySet<Teacher> _Teachers;
+		private EntitySet<Vehicle> _Vehicles;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3379,12 +3444,12 @@ namespace DAL
 		
 		public Status()
 		{
-			this._Vehicles = new EntitySet<Vehicle>(new Action<Vehicle>(this.attach_Vehicles), new Action<Vehicle>(this.detach_Vehicles));
+			this._Teachers = new EntitySet<Teacher>(new Action<Teacher>(this.attach_Teachers), new Action<Teacher>(this.detach_Teachers));
 			this._Courses = new EntitySet<Course>(new Action<Course>(this.attach_Courses), new Action<Course>(this.detach_Courses));
 			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
 			this._Learners = new EntitySet<Learner>(new Action<Learner>(this.attach_Learners), new Action<Learner>(this.detach_Learners));
 			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
-			this._Teachers = new EntitySet<Teacher>(new Action<Teacher>(this.attach_Teachers), new Action<Teacher>(this.detach_Teachers));
+			this._Vehicles = new EntitySet<Vehicle>(new Action<Vehicle>(this.attach_Vehicles), new Action<Vehicle>(this.detach_Vehicles));
 			OnCreated();
 		}
 		
@@ -3428,16 +3493,16 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Vehicle", Storage="_Vehicles", ThisKey="StatusID", OtherKey="StatusID")]
-		public EntitySet<Vehicle> Vehicles
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Teacher", Storage="_Teachers", ThisKey="StatusID", OtherKey="StatusID")]
+		public EntitySet<Teacher> Teachers
 		{
 			get
 			{
-				return this._Vehicles;
+				return this._Teachers;
 			}
 			set
 			{
-				this._Vehicles.Assign(value);
+				this._Teachers.Assign(value);
 			}
 		}
 		
@@ -3493,16 +3558,16 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Teacher", Storage="_Teachers", ThisKey="StatusID", OtherKey="StatusID")]
-		public EntitySet<Teacher> Teachers
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Vehicle", Storage="_Vehicles", ThisKey="StatusID", OtherKey="StatusID")]
+		public EntitySet<Vehicle> Vehicles
 		{
 			get
 			{
-				return this._Teachers;
+				return this._Vehicles;
 			}
 			set
 			{
-				this._Teachers.Assign(value);
+				this._Vehicles.Assign(value);
 			}
 		}
 		
@@ -3526,13 +3591,13 @@ namespace DAL
 			}
 		}
 		
-		private void attach_Vehicles(Vehicle entity)
+		private void attach_Teachers(Teacher entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status = this;
 		}
 		
-		private void detach_Vehicles(Vehicle entity)
+		private void detach_Teachers(Teacher entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status = null;
@@ -3586,52 +3651,50 @@ namespace DAL
 			entity.Status = null;
 		}
 		
-		private void attach_Teachers(Teacher entity)
+		private void attach_Vehicles(Vehicle entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status = this;
 		}
 		
-		private void detach_Teachers(Teacher entity)
+		private void detach_Vehicles(Vehicle entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Teachers")]
-	public partial class Teacher : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicles")]
+	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TeacherID;
+		private int _VehicleID;
 		
-		private string _FullName;
+		private string _VehicleName;
 		
-		private string _CitizenID;
+		private string _VehicleNumber;
 		
-		private System.Nullable<System.DateTime> _DateOfBirth;
+		private System.Nullable<bool> _IsTruck;
 		
-		private string _Gender;
+		private System.Nullable<bool> _IsPassengerCar;
 		
-		private string _PhoneNumber;
+		private System.Nullable<bool> _IsMaintenance;
 		
-		private string _Email;
+		private System.Nullable<int> _ManufacturerYear;
 		
-		private string _Nationality;
+		private System.Nullable<int> _Weight;
 		
-		private string _Address;
-		
-		private System.Nullable<System.DateTime> _EmploymentDate;
-		
-		private System.Nullable<int> _LicenseID;
-		
-		private string _LicenseNumber;
-		
-		private System.Nullable<System.DateTime> _BeginningDate;
+		private System.Nullable<int> _Seats;
 		
 		private System.Nullable<int> _StatusID;
+		
+		private string _Notes;
+		
+		private System.Nullable<System.DateTime> _StartMaintenaceDate;
+		
+		private System.Nullable<System.DateTime> _EndMaintenaceDate;
 		
 		private System.Nullable<System.DateTime> _Created_At;
 		
@@ -3639,316 +3702,227 @@ namespace DAL
 		
 		private EntitySet<Schedule> _Schedules;
 		
-		private EntityRef<License> _License;
-		
 		private EntityRef<Status> _Status;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTeacherIDChanging(int value);
-    partial void OnTeacherIDChanged();
-    partial void OnFullNameChanging(string value);
-    partial void OnFullNameChanged();
-    partial void OnCitizenIDChanging(string value);
-    partial void OnCitizenIDChanged();
-    partial void OnDateOfBirthChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateOfBirthChanged();
-    partial void OnGenderChanging(string value);
-    partial void OnGenderChanged();
-    partial void OnPhoneNumberChanging(string value);
-    partial void OnPhoneNumberChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnNationalityChanging(string value);
-    partial void OnNationalityChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnEmploymentDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnEmploymentDateChanged();
-    partial void OnLicenseIDChanging(System.Nullable<int> value);
-    partial void OnLicenseIDChanged();
-    partial void OnLicenseNumberChanging(string value);
-    partial void OnLicenseNumberChanged();
-    partial void OnBeginningDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBeginningDateChanged();
+    partial void OnVehicleIDChanging(int value);
+    partial void OnVehicleIDChanged();
+    partial void OnVehicleNameChanging(string value);
+    partial void OnVehicleNameChanged();
+    partial void OnVehicleNumberChanging(string value);
+    partial void OnVehicleNumberChanged();
+    partial void OnIsTruckChanging(System.Nullable<bool> value);
+    partial void OnIsTruckChanged();
+    partial void OnIsPassengerCarChanging(System.Nullable<bool> value);
+    partial void OnIsPassengerCarChanged();
+    partial void OnIsMaintenanceChanging(System.Nullable<bool> value);
+    partial void OnIsMaintenanceChanged();
+    partial void OnManufacturerYearChanging(System.Nullable<int> value);
+    partial void OnManufacturerYearChanged();
+    partial void OnWeightChanging(System.Nullable<int> value);
+    partial void OnWeightChanged();
+    partial void OnSeatsChanging(System.Nullable<int> value);
+    partial void OnSeatsChanged();
     partial void OnStatusIDChanging(System.Nullable<int> value);
     partial void OnStatusIDChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnStartMaintenaceDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartMaintenaceDateChanged();
+    partial void OnEndMaintenaceDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndMaintenaceDateChanged();
     partial void OnCreated_AtChanging(System.Nullable<System.DateTime> value);
     partial void OnCreated_AtChanged();
     partial void OnUpdated_AtChanging(System.Nullable<System.DateTime> value);
     partial void OnUpdated_AtChanged();
     #endregion
 		
-		public Teacher()
+		public Vehicle()
 		{
 			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
-			this._License = default(EntityRef<License>);
 			this._Status = default(EntityRef<Status>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TeacherID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int VehicleID
 		{
 			get
 			{
-				return this._TeacherID;
+				return this._VehicleID;
 			}
 			set
 			{
-				if ((this._TeacherID != value))
+				if ((this._VehicleID != value))
 				{
-					this.OnTeacherIDChanging(value);
+					this.OnVehicleIDChanging(value);
 					this.SendPropertyChanging();
-					this._TeacherID = value;
-					this.SendPropertyChanged("TeacherID");
-					this.OnTeacherIDChanged();
+					this._VehicleID = value;
+					this.SendPropertyChanged("VehicleID");
+					this.OnVehicleIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100)")]
-		public string FullName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleName", DbType="NVarChar(100)")]
+		public string VehicleName
 		{
 			get
 			{
-				return this._FullName;
+				return this._VehicleName;
 			}
 			set
 			{
-				if ((this._FullName != value))
+				if ((this._VehicleName != value))
 				{
-					this.OnFullNameChanging(value);
+					this.OnVehicleNameChanging(value);
 					this.SendPropertyChanging();
-					this._FullName = value;
-					this.SendPropertyChanged("FullName");
-					this.OnFullNameChanged();
+					this._VehicleName = value;
+					this.SendPropertyChanged("VehicleName");
+					this.OnVehicleNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CitizenID", DbType="NVarChar(12)")]
-		public string CitizenID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleNumber", DbType="NVarChar(50)")]
+		public string VehicleNumber
 		{
 			get
 			{
-				return this._CitizenID;
+				return this._VehicleNumber;
 			}
 			set
 			{
-				if ((this._CitizenID != value))
+				if ((this._VehicleNumber != value))
 				{
-					this.OnCitizenIDChanging(value);
+					this.OnVehicleNumberChanging(value);
 					this.SendPropertyChanging();
-					this._CitizenID = value;
-					this.SendPropertyChanged("CitizenID");
-					this.OnCitizenIDChanged();
+					this._VehicleNumber = value;
+					this.SendPropertyChanged("VehicleNumber");
+					this.OnVehicleNumberChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date")]
-		public System.Nullable<System.DateTime> DateOfBirth
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsTruck", DbType="Bit")]
+		public System.Nullable<bool> IsTruck
 		{
 			get
 			{
-				return this._DateOfBirth;
+				return this._IsTruck;
 			}
 			set
 			{
-				if ((this._DateOfBirth != value))
+				if ((this._IsTruck != value))
 				{
-					this.OnDateOfBirthChanging(value);
+					this.OnIsTruckChanging(value);
 					this.SendPropertyChanging();
-					this._DateOfBirth = value;
-					this.SendPropertyChanged("DateOfBirth");
-					this.OnDateOfBirthChanged();
+					this._IsTruck = value;
+					this.SendPropertyChanged("IsTruck");
+					this.OnIsTruckChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(10)")]
-		public string Gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPassengerCar", DbType="Bit")]
+		public System.Nullable<bool> IsPassengerCar
 		{
 			get
 			{
-				return this._Gender;
+				return this._IsPassengerCar;
 			}
 			set
 			{
-				if ((this._Gender != value))
+				if ((this._IsPassengerCar != value))
 				{
-					this.OnGenderChanging(value);
+					this.OnIsPassengerCarChanging(value);
 					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
+					this._IsPassengerCar = value;
+					this.SendPropertyChanged("IsPassengerCar");
+					this.OnIsPassengerCarChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(11)")]
-		public string PhoneNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsMaintenance", DbType="Bit")]
+		public System.Nullable<bool> IsMaintenance
 		{
 			get
 			{
-				return this._PhoneNumber;
+				return this._IsMaintenance;
 			}
 			set
 			{
-				if ((this._PhoneNumber != value))
+				if ((this._IsMaintenance != value))
 				{
-					this.OnPhoneNumberChanging(value);
+					this.OnIsMaintenanceChanging(value);
 					this.SendPropertyChanging();
-					this._PhoneNumber = value;
-					this.SendPropertyChanged("PhoneNumber");
-					this.OnPhoneNumberChanged();
+					this._IsMaintenance = value;
+					this.SendPropertyChanged("IsMaintenance");
+					this.OnIsMaintenanceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100)")]
-		public string Email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManufacturerYear", DbType="Int")]
+		public System.Nullable<int> ManufacturerYear
 		{
 			get
 			{
-				return this._Email;
+				return this._ManufacturerYear;
 			}
 			set
 			{
-				if ((this._Email != value))
+				if ((this._ManufacturerYear != value))
 				{
-					this.OnEmailChanging(value);
+					this.OnManufacturerYearChanging(value);
 					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
+					this._ManufacturerYear = value;
+					this.SendPropertyChanged("ManufacturerYear");
+					this.OnManufacturerYearChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nationality", DbType="NVarChar(100)")]
-		public string Nationality
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Weight", DbType="Int")]
+		public System.Nullable<int> Weight
 		{
 			get
 			{
-				return this._Nationality;
+				return this._Weight;
 			}
 			set
 			{
-				if ((this._Nationality != value))
+				if ((this._Weight != value))
 				{
-					this.OnNationalityChanging(value);
+					this.OnWeightChanging(value);
 					this.SendPropertyChanging();
-					this._Nationality = value;
-					this.SendPropertyChanged("Nationality");
-					this.OnNationalityChanged();
+					this._Weight = value;
+					this.SendPropertyChanged("Weight");
+					this.OnWeightChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
-		public string Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seats", DbType="Int")]
+		public System.Nullable<int> Seats
 		{
 			get
 			{
-				return this._Address;
+				return this._Seats;
 			}
 			set
 			{
-				if ((this._Address != value))
+				if ((this._Seats != value))
 				{
-					this.OnAddressChanging(value);
+					this.OnSeatsChanging(value);
 					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmploymentDate", DbType="Date")]
-		public System.Nullable<System.DateTime> EmploymentDate
-		{
-			get
-			{
-				return this._EmploymentDate;
-			}
-			set
-			{
-				if ((this._EmploymentDate != value))
-				{
-					this.OnEmploymentDateChanging(value);
-					this.SendPropertyChanging();
-					this._EmploymentDate = value;
-					this.SendPropertyChanged("EmploymentDate");
-					this.OnEmploymentDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseID", DbType="Int")]
-		public System.Nullable<int> LicenseID
-		{
-			get
-			{
-				return this._LicenseID;
-			}
-			set
-			{
-				if ((this._LicenseID != value))
-				{
-					if (this._License.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLicenseIDChanging(value);
-					this.SendPropertyChanging();
-					this._LicenseID = value;
-					this.SendPropertyChanged("LicenseID");
-					this.OnLicenseIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseNumber", DbType="NVarChar(12)")]
-		public string LicenseNumber
-		{
-			get
-			{
-				return this._LicenseNumber;
-			}
-			set
-			{
-				if ((this._LicenseNumber != value))
-				{
-					this.OnLicenseNumberChanging(value);
-					this.SendPropertyChanging();
-					this._LicenseNumber = value;
-					this.SendPropertyChanged("LicenseNumber");
-					this.OnLicenseNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginningDate", DbType="Date")]
-		public System.Nullable<System.DateTime> BeginningDate
-		{
-			get
-			{
-				return this._BeginningDate;
-			}
-			set
-			{
-				if ((this._BeginningDate != value))
-				{
-					this.OnBeginningDateChanging(value);
-					this.SendPropertyChanging();
-					this._BeginningDate = value;
-					this.SendPropertyChanged("BeginningDate");
-					this.OnBeginningDateChanged();
+					this._Seats = value;
+					this.SendPropertyChanged("Seats");
+					this.OnSeatsChanged();
 				}
 			}
 		}
@@ -3973,6 +3947,66 @@ namespace DAL
 					this._StatusID = value;
 					this.SendPropertyChanged("StatusID");
 					this.OnStatusIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartMaintenaceDate", DbType="Date")]
+		public System.Nullable<System.DateTime> StartMaintenaceDate
+		{
+			get
+			{
+				return this._StartMaintenaceDate;
+			}
+			set
+			{
+				if ((this._StartMaintenaceDate != value))
+				{
+					this.OnStartMaintenaceDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartMaintenaceDate = value;
+					this.SendPropertyChanged("StartMaintenaceDate");
+					this.OnStartMaintenaceDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndMaintenaceDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EndMaintenaceDate
+		{
+			get
+			{
+				return this._EndMaintenaceDate;
+			}
+			set
+			{
+				if ((this._EndMaintenaceDate != value))
+				{
+					this.OnEndMaintenaceDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndMaintenaceDate = value;
+					this.SendPropertyChanged("EndMaintenaceDate");
+					this.OnEndMaintenaceDateChanged();
 				}
 			}
 		}
@@ -4017,7 +4051,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Schedule", Storage="_Schedules", ThisKey="TeacherID", OtherKey="TeacherID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Schedule", Storage="_Schedules", ThisKey="VehicleID", OtherKey="VehicleID")]
 		public EntitySet<Schedule> Schedules
 		{
 			get
@@ -4030,41 +4064,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Teacher", Storage="_License", ThisKey="LicenseID", OtherKey="LicenseID", IsForeignKey=true)]
-		public License License
-		{
-			get
-			{
-				return this._License.Entity;
-			}
-			set
-			{
-				License previousValue = this._License.Entity;
-				if (((previousValue != value) 
-							|| (this._License.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._License.Entity = null;
-						previousValue.Teachers.Remove(this);
-					}
-					this._License.Entity = value;
-					if ((value != null))
-					{
-						value.Teachers.Add(this);
-						this._LicenseID = value.LicenseID;
-					}
-					else
-					{
-						this._LicenseID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("License");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Teacher", Storage="_Status", ThisKey="StatusID", OtherKey="StatusID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Vehicle", Storage="_Status", ThisKey="StatusID", OtherKey="StatusID", IsForeignKey=true)]
 		public Status Status
 		{
 			get
@@ -4081,12 +4081,12 @@ namespace DAL
 					if ((previousValue != null))
 					{
 						this._Status.Entity = null;
-						previousValue.Teachers.Remove(this);
+						previousValue.Vehicles.Remove(this);
 					}
 					this._Status.Entity = value;
 					if ((value != null))
 					{
-						value.Teachers.Add(this);
+						value.Vehicles.Add(this);
 						this._StatusID = value.StatusID;
 					}
 					else
@@ -4121,13 +4121,13 @@ namespace DAL
 		private void attach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
-			entity.Teacher = this;
+			entity.Vehicle = this;
 		}
 		
 		private void detach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
-			entity.Teacher = null;
+			entity.Vehicle = null;
 		}
 	}
 }

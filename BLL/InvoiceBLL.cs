@@ -70,5 +70,20 @@ namespace BLL
         public bool DeleteInvoice(string invoiceCode) {
             return InvoiceDAL.Instance.DeleteInvoice(invoiceCode);
         }
-    }
+
+		public void AssignInvoicesToCombobox(Guna2ComboBox cbo)
+		{
+			List<Invoice> invoices = InvoiceDAL.Instance.GetAllInvoices();
+			this.AddInvoicesToCombobox(cbo, invoices);
+		}
+		private void AddInvoicesToCombobox(Guna2ComboBox cbo, List<Invoice> invoices)
+		{
+			Invoice invoice = new Invoice();
+			invoice.InvoiceCode = "Select invoice";
+
+			cbo.DataSource = invoices;
+            cbo.ValueMember = "InvoiceID";
+            cbo.DisplayMember = "InvoiceCode";
+		}
+	}
 }

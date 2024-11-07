@@ -41,5 +41,5 @@ namespace BLL.Services
         {
             InvoiceBLL.Instance.FilterInvoicesByStatus(dgv, status);
         }
-    }
+	}
 }

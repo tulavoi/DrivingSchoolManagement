@@ -175,9 +175,21 @@ namespace DAL
         {
             return DeleteData(inv => inv.InvoiceCode == invoiceCode); // Điều kiện tìm invoice theo code
         }
-        #endregion
+		#endregion
+	
+        #region Get invoice by invoice id
+		public Invoice GetInvoice(int invoiceId)
+		{
+			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+			{
+				var invoice = db.Invoices.Where(i => i.InvoiceID == invoiceId).FirstOrDefault();
+				if (invoice == null) return null;
+				return invoice;
+			}
+		}
+		#endregion
 
-        private Invoice MapToInvoice(dynamic item)
+		private Invoice MapToInvoice(dynamic item)
         {
             return new Invoice
             {

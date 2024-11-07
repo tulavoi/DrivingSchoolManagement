@@ -44,7 +44,6 @@
 			this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlInvoiceTo = new Guna.UI2.WinForms.Guna2Panel();
-			this.txtSearchLearner = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlMethod = new Guna.UI2.WinForms.Guna2Panel();
@@ -67,7 +66,8 @@
 			this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
 			this.lblAdd = new System.Windows.Forms.Label();
 			this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
-			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
+			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+			this.lblName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlLineTop.SuspendLayout();
 			this.pnlMain.SuspendLayout();
 			this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -230,6 +230,7 @@
 			this.btnAdd.Size = new System.Drawing.Size(150, 35);
 			this.btnAdd.TabIndex = 17;
 			this.btnAdd.Text = "Add";
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// pnlSpace10
 			// 
@@ -252,8 +253,7 @@
 			// 
 			// pnlInvoiceTo
 			// 
-			this.pnlInvoiceTo.Controls.Add(this.txtLearnerName);
-			this.pnlInvoiceTo.Controls.Add(this.txtSearchLearner);
+			this.pnlInvoiceTo.Controls.Add(this.lblName);
 			this.pnlInvoiceTo.Controls.Add(this.lblLearner);
 			this.pnlInvoiceTo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlInvoiceTo.FillColor = System.Drawing.Color.White;
@@ -261,31 +261,6 @@
 			this.pnlInvoiceTo.Name = "pnlInvoiceTo";
 			this.pnlInvoiceTo.Size = new System.Drawing.Size(517, 36);
 			this.pnlInvoiceTo.TabIndex = 171;
-			// 
-			// txtSearchLearner
-			// 
-			this.txtSearchLearner.BackColor = System.Drawing.Color.White;
-			this.txtSearchLearner.BorderRadius = 8;
-			this.txtSearchLearner.BorderThickness = 0;
-			this.txtSearchLearner.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtSearchLearner.DefaultText = "";
-			this.txtSearchLearner.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-			this.txtSearchLearner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-			this.txtSearchLearner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.txtSearchLearner.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.txtSearchLearner.Dock = System.Windows.Forms.DockStyle.Right;
-			this.txtSearchLearner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-			this.txtSearchLearner.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
-			this.txtSearchLearner.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.txtSearchLearner.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-			this.txtSearchLearner.Location = new System.Drawing.Point(354, 0);
-			this.txtSearchLearner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.txtSearchLearner.Name = "txtSearchLearner";
-			this.txtSearchLearner.PasswordChar = '\0';
-			this.txtSearchLearner.PlaceholderText = "Search...";
-			this.txtSearchLearner.SelectedText = "";
-			this.txtSearchLearner.Size = new System.Drawing.Size(163, 36);
-			this.txtSearchLearner.TabIndex = 30;
 			// 
 			// lblLearner
 			// 
@@ -606,31 +581,44 @@
 			this.pnlSpace5.Size = new System.Drawing.Size(534, 15);
 			this.pnlSpace5.TabIndex = 135;
 			// 
-			// txtLearnerName
+			// toolTip
 			// 
-			this.txtLearnerName.BackColor = System.Drawing.Color.White;
-			this.txtLearnerName.BorderRadius = 5;
-			this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtLearnerName.DefaultText = "";
-			this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
-			this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-			this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Left;
-			this.txtLearnerName.Enabled = false;
-			this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.txtLearnerName.Location = new System.Drawing.Point(141, 0);
-			this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.txtLearnerName.Name = "txtLearnerName";
-			this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
-			this.txtLearnerName.PasswordChar = '\0';
-			this.txtLearnerName.PlaceholderText = "";
-			this.txtLearnerName.SelectedText = "";
-			this.txtLearnerName.Size = new System.Drawing.Size(207, 36);
-			this.txtLearnerName.TabIndex = 35;
+			this.toolTip.AllowLinksHandling = true;
+			this.toolTip.AutoPopDelay = 3000;
+			this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+			this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+			this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.toolTip.ForeColor = System.Drawing.Color.White;
+			this.toolTip.InitialDelay = 500;
+			this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+			this.toolTip.ReshowDelay = 100;
+			this.toolTip.StripAmpersands = true;
+			// 
+			// lblName
+			// 
+			this.lblName.BackColor = System.Drawing.Color.White;
+			this.lblName.BorderRadius = 5;
+			this.lblName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.lblName.DefaultText = "";
+			this.lblName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.lblName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.lblName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.lblName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.lblName.Dock = System.Windows.Forms.DockStyle.Left;
+			this.lblName.Enabled = false;
+			this.lblName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.lblName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.lblName.Location = new System.Drawing.Point(141, 0);
+			this.lblName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.lblName.Name = "lblName";
+			this.lblName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+			this.lblName.PasswordChar = '\0';
+			this.lblName.PlaceholderText = "";
+			this.lblName.SelectedText = "";
+			this.lblName.Size = new System.Drawing.Size(370, 36);
+			this.lblName.TabIndex = 35;
 			// 
 			// AddPaymentForm
 			// 
@@ -681,7 +669,6 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace10;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace8;
 		private Guna.UI2.WinForms.Guna2Panel pnlInvoiceTo;
-		private Guna.UI2.WinForms.Guna2TextBox txtSearchLearner;
 		private System.Windows.Forms.Label lblLearner;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace7;
 		private Guna.UI2.WinForms.Guna2Panel pnlMethod;
@@ -701,6 +688,7 @@
 		private Guna.UI2.WinForms.Guna2ComboBox cboInvoices;
 		private System.Windows.Forms.Label lblInvoice;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace1;
-		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
+		private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+		private Guna.UI2.WinForms.Guna2TextBox lblName;
 	}
 }

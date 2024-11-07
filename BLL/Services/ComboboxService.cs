@@ -75,5 +75,13 @@ namespace BLL.Services
 		{
 			StatusBLL.Instance.AssignCoursesToCombobox(cbo);
 		}
+		public static void AssignInvoicesToCombobox(Guna2ComboBox cbo)
+		{
+			InvoiceBLL.Instance.AssignInvoicesToCombobox(cbo);
+		}	
+		public static void AssignPaymentsToCombobox(Guna2ComboBox cbo)
+		{
+			PaymentBLL.Instance.AssignPaymentsToCombobox(cbo);
+		}
 	}
 }
