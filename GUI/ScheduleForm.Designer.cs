@@ -528,6 +528,7 @@
             // 
             // dgvSchedules
             // 
+            this.dgvSchedules.AllowUserToAddRows = false;
             this.dgvSchedules.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSchedules.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
