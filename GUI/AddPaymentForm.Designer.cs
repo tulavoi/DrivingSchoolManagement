@@ -44,6 +44,7 @@
 			this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlInvoiceTo = new Guna.UI2.WinForms.Guna2Panel();
+			this.lblName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlMethod = new Guna.UI2.WinForms.Guna2Panel();
@@ -67,7 +68,6 @@
 			this.lblAdd = new System.Windows.Forms.Label();
 			this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
 			this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-			this.lblName = new Guna.UI2.WinForms.Guna2TextBox();
 			this.pnlLineTop.SuspendLayout();
 			this.pnlMain.SuspendLayout();
 			this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -262,6 +262,32 @@
 			this.pnlInvoiceTo.Size = new System.Drawing.Size(517, 36);
 			this.pnlInvoiceTo.TabIndex = 171;
 			// 
+			// lblName
+			// 
+			this.lblName.BackColor = System.Drawing.Color.White;
+			this.lblName.BorderRadius = 5;
+			this.lblName.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.lblName.DefaultText = "";
+			this.lblName.DisabledState.BorderColor = System.Drawing.Color.White;
+			this.lblName.DisabledState.FillColor = System.Drawing.Color.White;
+			this.lblName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.lblName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+			this.lblName.Dock = System.Windows.Forms.DockStyle.Left;
+			this.lblName.Enabled = false;
+			this.lblName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+			this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+			this.lblName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.lblName.Location = new System.Drawing.Point(141, 0);
+			this.lblName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.lblName.Name = "lblName";
+			this.lblName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+			this.lblName.PasswordChar = '\0';
+			this.lblName.PlaceholderText = "";
+			this.lblName.SelectedText = "";
+			this.lblName.Size = new System.Drawing.Size(370, 36);
+			this.lblName.TabIndex = 35;
+			// 
 			// lblLearner
 			// 
 			this.lblLearner.BackColor = System.Drawing.Color.White;
@@ -322,6 +348,7 @@
 			this.cboMethods.Size = new System.Drawing.Size(376, 36);
 			this.cboMethods.StartIndex = 0;
 			this.cboMethods.TabIndex = 127;
+			this.cboMethods.SelectedIndexChanged += new System.EventHandler(this.cboMethods_SelectedIndexChanged);
 			// 
 			// lblMethod
 			// 
@@ -519,6 +546,7 @@
 			this.cboInvoices.Size = new System.Drawing.Size(376, 36);
 			this.cboInvoices.StartIndex = 0;
 			this.cboInvoices.TabIndex = 129;
+			this.cboInvoices.SelectedIndexChanged += new System.EventHandler(this.cboInvoices_SelectedIndexChanged);
 			// 
 			// lblInvoice
 			// 
@@ -593,32 +621,6 @@
 			this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
 			this.toolTip.ReshowDelay = 100;
 			this.toolTip.StripAmpersands = true;
-			// 
-			// lblName
-			// 
-			this.lblName.BackColor = System.Drawing.Color.White;
-			this.lblName.BorderRadius = 5;
-			this.lblName.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.lblName.DefaultText = "";
-			this.lblName.DisabledState.BorderColor = System.Drawing.Color.White;
-			this.lblName.DisabledState.FillColor = System.Drawing.Color.White;
-			this.lblName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.lblName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-			this.lblName.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lblName.Enabled = false;
-			this.lblName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-			this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-			this.lblName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-			this.lblName.Location = new System.Drawing.Point(141, 0);
-			this.lblName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.lblName.Name = "lblName";
-			this.lblName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-			this.lblName.PasswordChar = '\0';
-			this.lblName.PlaceholderText = "";
-			this.lblName.SelectedText = "";
-			this.lblName.Size = new System.Drawing.Size(370, 36);
-			this.lblName.TabIndex = 35;
 			// 
 			// AddPaymentForm
 			// 

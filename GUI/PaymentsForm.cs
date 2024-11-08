@@ -31,9 +31,12 @@ namespace GUI
         }
 
         private void PaymentsForm_Load(object sender, EventArgs e)
-        {
-            this.LoadAllPayments();
-            LoadComboboxes();
+		{
+			dtpPaymentDate.Value = DateTime.Now;
+
+			this.LoadAllPayments();
+			// Gán ngày giờ hiện tại cho DateTimePicker
+			LoadComboboxes();
         }
 
         private void LoadComboboxes()
@@ -143,11 +146,11 @@ namespace GUI
             if (payment == null) return;
 
             FormHelper.SetLabelID(lblPaymentID, payment.PaymentID.ToString());
-			//txtLearnerName.Text = payment.Invoice.Enrollment.Learner.FullName;
-			//txtLearnerName.Text=payment.InvoiceID.ToString();
-			//txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? "N/A";
-			txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
-			txtInvoiceName.Text = payment.InvoiceID.ToString();
+            //txtLearnerName.Text = payment.Invoice.Enrollment.Learner.FullName;
+            //txtLearnerName.Text=payment.InvoiceID.ToString();
+            //txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? "N/A";
+            txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
+            txtInvoiceName.Text = payment.InvoiceID.ToString();
             txtAmount.Text = payment.Amount.ToString();
             dtpPaymentDate.Value = payment.PaymentDate ?? DateTime.Now;
             cboMethods.Text = payment.PaymentMethod;
@@ -168,7 +171,16 @@ namespace GUI
 
         private void cboLearners_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FormHelper.ClearDataGridViewRow(dgvPayments);
+
+			//if (!FormHelper.HasSelectedItem(cboLearners_Filter))
+				//         {
+				//             this.LoadAllPayments();
+				//             return;
+				//}
+				//int selectedPaymentID = Convert.ToInt32(cboLearners_Filter.SelectedValue);
+				//         PaymentService.FilterPaymentsByPaymentID(dgvPayments, selectedPaymentID);
+				//         UpdateControlsWithSelectedRowData();
+				FormHelper.ClearDataGridViewRow(dgvPayments);
 
             if (cboLearners_Filter.SelectedItem.ToString() == "Selected All")
             {
@@ -178,7 +190,7 @@ namespace GUI
 			else
             {
 				int selectedPaymentID = ((KeyValuePair<string, int>)cboLearners_Filter.SelectedItem).Value;
-				PaymentService.FilterPaymentsByPaymentID(dgvPayments, selectedPaymentID);
+				PaymentService.FilterPaymentsByInvoiceID(dgvPayments, selectedPaymentID);
 				UpdateControlsWithSelectedRowData();
             }
         }

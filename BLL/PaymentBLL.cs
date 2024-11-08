@@ -26,20 +26,45 @@ namespace BLL
 			var filteredPayments = payments.FindAll(p => p.PaymentID == paymentID);
 			AddPaymentsToDataGridView(dgv, filteredPayments);
 		}
+		public void FilterPaymentsByInvoiceID(Guna2DataGridView dgv, int invoiceID)
+		{
+			List<Payment> payments = PaymentDAL.Instance.GetAllPayments();
+			var filteredPayments = payments.FindAll(p => p.InvoiceID == invoiceID);
+			AddPaymentsToDataGridView(dgv, filteredPayments);
+		}
 
 		public void AssignPaymentsToCombobox(Guna2ComboBox cbo)
 		{
 			List<Payment> payments = PaymentDAL.Instance.GetAllPayments();
 			cbo.Items.Clear();
 			cbo.Items.Add("Selected All");
+
+			// Tạo một HashSet để lưu các InvoiceID đã thêm
+			HashSet<int> addedInvoiceIDs = new HashSet<int>();
+
 			foreach (var payment in payments)
 			{
-				cbo.Items.Add(new KeyValuePair<string, int>(payment.Invoice.Enrollment.Learner.FullName, payment.PaymentID));
+				int invoiceID = payment.InvoiceID ?? 0; // Sử dụng 0 nếu InvoiceID là null
+
+				// Kiểm tra xem InvoiceID đã tồn tại trong HashSet chưa
+				if (!addedInvoiceIDs.Contains(invoiceID))
+				{
+					// Nếu chưa tồn tại, thêm vào ComboBox và HashSet
+					cbo.Items.Add(new KeyValuePair<string, int>(
+						payment.Invoice.Enrollment.Learner.FullName,
+						invoiceID
+					));
+
+					addedInvoiceIDs.Add(invoiceID);
+				}
 			}
+
+			// Thiết lập DisplayMember và ValueMember cho ComboBox
 			cbo.DisplayMember = "Key";
 			cbo.ValueMember = "Value";
 			cbo.SelectedIndex = 0;
 		}
+
 
 		public void LoadAllPayments(Guna2DataGridView dgv)
 		{

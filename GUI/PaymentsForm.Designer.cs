@@ -69,7 +69,6 @@
 			this.pnlBasicDetails = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlInvoiceTo = new Guna.UI2.WinForms.Guna2Panel();
 			this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
-			this.txtSearchLearner = new Guna.UI2.WinForms.Guna2TextBox();
 			this.lblLearner = new System.Windows.Forms.Label();
 			this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
 			this.pnlAmount_Method = new Guna.UI2.WinForms.Guna2Panel();
@@ -291,6 +290,7 @@
 			// 
 			// dgvPayments
 			// 
+			this.dgvPayments.AllowUserToAddRows = false;
 			this.dgvPayments.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			this.dgvPayments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -625,7 +625,6 @@
 			// pnlInvoiceTo
 			// 
 			this.pnlInvoiceTo.Controls.Add(this.txtLearnerName);
-			this.pnlInvoiceTo.Controls.Add(this.txtSearchLearner);
 			this.pnlInvoiceTo.Controls.Add(this.lblLearner);
 			this.pnlInvoiceTo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnlInvoiceTo.FillColor = System.Drawing.Color.White;
@@ -657,34 +656,8 @@
 			this.txtLearnerName.PasswordChar = '\0';
 			this.txtLearnerName.PlaceholderText = "";
 			this.txtLearnerName.SelectedText = "";
-			this.txtLearnerName.Size = new System.Drawing.Size(304, 36);
+			this.txtLearnerName.Size = new System.Drawing.Size(381, 36);
 			this.txtLearnerName.TabIndex = 34;
-			// 
-			// txtSearchLearner
-			// 
-			this.txtSearchLearner.BackColor = System.Drawing.Color.White;
-			this.txtSearchLearner.BorderRadius = 8;
-			this.txtSearchLearner.BorderThickness = 0;
-			this.txtSearchLearner.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.txtSearchLearner.DefaultText = "";
-			this.txtSearchLearner.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-			this.txtSearchLearner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-			this.txtSearchLearner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.txtSearchLearner.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.txtSearchLearner.Dock = System.Windows.Forms.DockStyle.Right;
-			this.txtSearchLearner.Enabled = false;
-			this.txtSearchLearner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-			this.txtSearchLearner.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
-			this.txtSearchLearner.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.txtSearchLearner.HoverState.BorderColor = System.Drawing.SystemColors.ControlLight;
-			this.txtSearchLearner.Location = new System.Drawing.Point(418, 0);
-			this.txtSearchLearner.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.txtSearchLearner.Name = "txtSearchLearner";
-			this.txtSearchLearner.PasswordChar = '\0';
-			this.txtSearchLearner.PlaceholderText = "Search...";
-			this.txtSearchLearner.SelectedText = "";
-			this.txtSearchLearner.Size = new System.Drawing.Size(352, 36);
-			this.txtSearchLearner.TabIndex = 30;
 			// 
 			// lblLearner
 			// 
@@ -1109,7 +1082,6 @@
 		private System.Windows.Forms.Label lblPaymentDate;
 		private Guna.UI2.WinForms.Guna2DateTimePicker dtpPaymentDate;
 		private Guna.UI2.WinForms.Guna2Panel pnlInvoiceTo;
-		private Guna.UI2.WinForms.Guna2TextBox txtSearchLearner;
 		private System.Windows.Forms.Label lblLearner;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace21;

@@ -188,6 +188,41 @@ namespace DAL
 			}
 		}
 		#endregion
+		public Invoice GetInvoiceID(int invoiceId)
+		{
+			// Tạo một đối tượng DataContext trong phạm vi using
+			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+			{
+				// Lấy hóa đơn từ cơ sở dữ liệu
+				var invoice = db.Invoices
+								.Where(i => i.InvoiceID == invoiceId)
+								.FirstOrDefault();
+
+				if (invoice == null)
+					return null;  
+
+				// thay vào đó tạo bản sao các đối tượng cần thiết từ DB để trả về.
+				var result = new Invoice
+				{
+					InvoiceID = invoice.InvoiceID,
+					InvoiceCode = invoice.InvoiceCode,
+					EnrollmentID = invoice.EnrollmentID,
+					// Lấy dữ liệu liên quan từ Enrollment và Learner
+					Enrollment = new Enrollment
+					{
+						EnrollmentID = invoice.Enrollment.EnrollmentID,
+						Learner = new Learner
+						{
+							LearnerID = invoice.Enrollment.Learner.LearnerID,
+							FullName = invoice.Enrollment.Learner.FullName
+							// Có thể thêm các thuộc tính khác nếu cần
+						}
+					}
+				};
+
+				return result;  // Trả về bản sao của đối tượng Invoice và các đối tượng liên quan
+			}
+		}
 
 		private Invoice MapToInvoice(dynamic item)
         {

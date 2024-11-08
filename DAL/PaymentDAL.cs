@@ -80,7 +80,12 @@ namespace DAL
 			using (var db = DataAccess.GetDataContext())
 			{
 				var data = from payment in db.Payments
-						   where payment.InvoiceID.ToString().Contains(keyword) || payment.PaymentMethod.Contains(keyword)
+						   join invoice in db.Invoices on payment.InvoiceID equals invoice.InvoiceID
+						   join enrollment in db.Enrollments on invoice.EnrollmentID equals enrollment.EnrollmentID
+						   join learner in db.Learners on enrollment.LearnerID equals learner.LearnerID
+						   where payment.InvoiceID.ToString().Contains(keyword)
+								 || payment.PaymentMethod.Contains(keyword)
+								 || learner.FullName.Contains(keyword)
 						   select new
 						   {
 							   payment.PaymentID,
@@ -89,8 +94,8 @@ namespace DAL
 							   payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
-							   payment.Updated_At
-							   
+							   payment.Updated_At,
+							   learner.FullName
 						   };
 				return data.ToList();
 			}
@@ -107,38 +112,33 @@ namespace DAL
 				PaymentMethod = item.PaymentMethod,
 				Created_At = item.Created_At,
 				Updated_At = item.Updated_At,
+				Invoice = new Invoice
+				{
+					InvoiceID = item.InvoiceID,
+					Enrollment = new Enrollment
+					{
+						Learner = new Learner
+						{
+							FullName = item.FullName
+						}
+					}
+				}
 			});
 		}
-
 		#endregion
+
 		#region Filter by Date
 		public List<Payment> FilterPaymentsByDate(DateTime paymentDate)
 		{
-			// Chuyển ngày thành chuỗi theo định dạng yyyy-MM-dd
-			string filterDate = paymentDate.ToString("yyyy-MM-dd");
-
-			// Gọi phương thức FilterData với chuỗi ngày đã chuyển
-			return FilterData(filterDate, item => new Payment
-			{
-				PaymentID = item.PaymentID,
-				InvoiceID = item.InvoiceID,
-				PaymentDate = item.PaymentDate,
-				Amount = item.Amount,
-				PaymentMethod = item.PaymentMethod,
-				Created_At = item.Created_At,
-				Updated_At = item.Updated_At
-			});
-		}
-
-		protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
-		{
-			DateTime dateFilter = DateTime.Parse(filterString); // Chuyển chuỗi thành DateTime
+			DateTime filterDate = paymentDate.Date;
 
 			using (var db = DataAccess.GetDataContext())
 			{
-				// Lọc dữ liệu trong bảng Payments theo PaymentDate
 				var data = from payment in db.Payments
-						   where payment.PaymentDate.HasValue && payment.PaymentDate.Value.Date == dateFilter.Date
+						   join invoice in db.Invoices on payment.InvoiceID equals invoice.InvoiceID
+						   join enrollment in db.Enrollments on invoice.EnrollmentID equals enrollment.EnrollmentID
+						   join learner in db.Learners on enrollment.LearnerID equals learner.LearnerID
+						   where payment.PaymentDate.HasValue && payment.PaymentDate.Value.Date == filterDate
 						   select new
 						   {
 							   payment.PaymentID,
@@ -147,9 +147,10 @@ namespace DAL
 							   payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
-							   payment.Updated_At
+							   payment.Updated_At,
+							   learner.FullName
 						   };
-				return data.ToList();
+				return data.Select(item => MapToPayment(item)).ToList();
 			}
 		}
 		#endregion
@@ -190,6 +191,11 @@ namespace DAL
 		public bool DeletePayment(int paymentID)
 		{
 			return DeleteData(pay => pay.PaymentID == paymentID);
+		}
+
+		protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
+		{
+			throw new NotImplementedException();
 		}
 		#endregion
 	}
