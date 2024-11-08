@@ -35,7 +35,13 @@ namespace BLL
             this.AddTeachersToCombobox(cbo, teachers);
         }
 
-        private void AddTeachersToCombobox(Guna2ComboBox cbo, List<Teacher> teachers)
+		public void AssignTeacherInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+		{
+			List<Teacher> teachers = TeacherDAL.Instance.GetTeacherForCourseAndInCourse(courseID, sessionID, curDate);
+			this.AddTeachersToCombobox(cbo, teachers);
+		}
+
+		private void AddTeachersToCombobox(Guna2ComboBox cbo, List<Teacher> teachers)
         {
             Teacher teacher = new Teacher();
             teacher.FullName = "Select Teacher";
@@ -81,10 +87,17 @@ namespace BLL
                 {
                     dgv.Rows[rowIndex].Tag = teacher;
 
-                    dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
+                    if (dgv.Columns.Contains("TeacherID"))
+                        dgv.Rows[rowIndex].Cells["TeacherID"].Tag = teacher.TeacherID;
+
                     dgv.Rows[rowIndex].Cells["FullName"].Value = teacher.FullName;
                     dgv.Rows[rowIndex].Cells["CitizenID"].Value = teacher.CitizenID;
-                    dgv.Rows[rowIndex].Cells["Status"].Value = teacher.Status.StatusName;
+
+                    if (dgv.Columns.Contains("License"))
+                        dgv.Rows[rowIndex].Cells["License"].Value = teacher.License.LicenseName;
+
+                    if (dgv.Columns.Contains("Status"))
+                        dgv.Rows[rowIndex].Cells["Status"].Value = teacher.Status.StatusName;
                 }
             }
         }

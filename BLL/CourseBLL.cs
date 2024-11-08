@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 
 namespace BLL
@@ -25,20 +26,26 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-		public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+        {
+            List<Course> courses = CourseDAL.Instance.GetCoursesInvoiced(status);
+            this.AddCoursesToCombobox(cbo, courses);
+        }
+
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
 		{
-			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status);
+			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status, curDate);
 			this.AddCoursesToCombobox(cbo, courses);
 		}
 
 		// Gán các course có learner đăng ký vào cbo
-		public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
-        {
-            //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
-            //this.AddCoursesToCombobox(cbo, courses);
-        }
+		//public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+  //      {
+  //          //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
+  //          //this.AddCoursesToCombobox(cbo, courses);
+  //      }
 
-        public void AssignAvailableToCombobox(Guna2ComboBox cbo)
+        public void AssignAvailableCourseToCombobox(Guna2ComboBox cbo)
         {
 			List<Course> courses = CourseDAL.Instance.GetAvailableCourses();
 			this.AddCoursesToCombobox(cbo, courses);
@@ -65,6 +72,11 @@ namespace BLL
         {
             List<Course> courses = CourseDAL.Instance.GetAllCourses();
             this.AddCoursesToDataGridView(dgv, courses);
+        }
+
+        public List<Course> GetAllCourses()
+        {
+            return CourseDAL.Instance.GetAllCourses();
         }
 
         public void SearchCourses(Guna2DataGridView dgv, string keyword)
@@ -96,9 +108,15 @@ namespace BLL
                 {
                     dgv.Rows[rowIndex].Tag = course;
                     dgv.Rows[rowIndex].Cells["CourseName"].Value = course.CourseName;
-                    dgv.Rows[rowIndex].Cells["Fee"].Value = course.Fee;
-                    dgv.Rows[rowIndex].Cells["Status"].Value = course.Status.StatusName;
-                    dgv.Rows[rowIndex].Cells["LicenseType"].Value = course.License.LicenseName;
+                    dgv.Rows[rowIndex].Cells["Fee"].Value = course.Fee + " VND";
+                    if (dgv.Columns.Contains("LicenseType"))
+                        dgv.Rows[rowIndex].Cells["LicenseType"].Value = course.License.LicenseName;
+
+                    if (dgv.Columns.Contains("Status"))
+                        dgv.Rows[rowIndex].Cells["Status"].Value = course.Status.StatusName;
+
+                    if (dgv.Columns.Contains("StartDate"))
+                        dgv.Rows[rowIndex].Cells["StartDate"].Value = course.StartDate.Value.ToString("dd/MM/yyyy");
                 }
             }
         }

@@ -293,7 +293,7 @@ namespace DAL
 			}
 		}
 		#endregion
-
+		
 		#region Lấy các khóa học ở thời điểm hiện tại trở đi, chưa có người học và của 1 learner
 		public List<Course> GetAvailableAndLearnerCourses(int learnerID)
 		{
@@ -316,7 +316,7 @@ namespace DAL
 		#endregion
 
 		#region Lấy các khóa học đã có người đăng ký
-		public List<Course> GetCourseEnrolled(string statusName)
+		public List<Course> GetCourseEnrolled(string statusName, DateTime curDate)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
@@ -325,8 +325,9 @@ namespace DAL
 						   join status in db.Status on course.StatusID equals status.StatusID
 						   where status.StatusName == statusName 
 								 && db.Enrollments.Any(e => e.CourseID == course.CourseID)
+								 && course.StartDate.Value.Date <= curDate.Date
 						   select course;
-				if (data == null) return new List<Course>();
+                if (data == null) return new List<Course>();
 				return data.ToList();
 			}
 		}
@@ -349,6 +350,24 @@ namespace DAL
 				return data.ToList();
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        #region Lấy các khóa học chưa được tạo hóa đơn
+        public List<Course> GetCoursesInvoiced(string statusName)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from course in db.Courses
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join status in db.Status on course.StatusID equals status.StatusID
+                           where status.StatusName == statusName
+								 && !db.Invoices.Any(inv => inv.Enrollment.CourseID == course.CourseID)
+                                 && db.Enrollments.Any(e => e.CourseID == course.CourseID)
+                           select course;
+                if (data == null) return new List<Course>();
+                return data.ToList();
+            }
+        }
+        #endregion 
+    }
 }

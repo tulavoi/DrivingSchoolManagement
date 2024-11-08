@@ -81,9 +81,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtpDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlSpace17 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlCourseName = new Guna.UI2.WinForms.Guna2Panel();
@@ -871,9 +871,9 @@
             // 
             // guna2Panel10
             // 
-            this.guna2Panel10.Controls.Add(this.guna2DateTimePicker1);
+            this.guna2Panel10.Controls.Add(this.dtpEndDate);
             this.guna2Panel10.Controls.Add(this.label6);
-            this.guna2Panel10.Controls.Add(this.dtpDOB);
+            this.guna2Panel10.Controls.Add(this.dtpStartDate);
             this.guna2Panel10.Controls.Add(this.label5);
             this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel10.FillColor = System.Drawing.Color.White;
@@ -882,27 +882,27 @@
             this.guna2Panel10.Size = new System.Drawing.Size(441, 36);
             this.guna2Panel10.TabIndex = 131;
             // 
-            // guna2DateTimePicker1
+            // dtpEndDate
             // 
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.BorderRadius = 5;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2DateTimePicker1.Enabled = false;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(296, 0);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(145, 36);
-            this.guna2DateTimePicker1.TabIndex = 112;
-            this.guna2DateTimePicker1.Tag = "Date of Birth";
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpEndDate.BorderColor = System.Drawing.Color.White;
+            this.dtpEndDate.BorderRadius = 5;
+            this.dtpEndDate.Checked = true;
+            this.dtpEndDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEndDate.Enabled = false;
+            this.dtpEndDate.FillColor = System.Drawing.Color.White;
+            this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(296, 0);
+            this.dtpEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(145, 36);
+            this.dtpEndDate.TabIndex = 112;
+            this.dtpEndDate.Tag = "Date of Birth";
+            this.dtpEndDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // label6
             // 
@@ -917,27 +917,27 @@
             this.label6.Text = "  End: ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dtpDOB
+            // dtpStartDate
             // 
-            this.dtpDOB.BorderColor = System.Drawing.Color.White;
-            this.dtpDOB.BorderRadius = 5;
-            this.dtpDOB.Checked = true;
-            this.dtpDOB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDOB.CustomFormat = "dd-MM-yyyy";
-            this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtpDOB.Enabled = false;
-            this.dtpDOB.FillColor = System.Drawing.Color.White;
-            this.dtpDOB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpDOB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOB.Location = new System.Drawing.Point(79, 0);
-            this.dtpDOB.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpDOB.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(147, 36);
-            this.dtpDOB.TabIndex = 110;
-            this.dtpDOB.Tag = "Date of Birth";
-            this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpStartDate.BorderColor = System.Drawing.Color.White;
+            this.dtpStartDate.BorderRadius = 5;
+            this.dtpStartDate.Checked = true;
+            this.dtpStartDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpStartDate.Enabled = false;
+            this.dtpStartDate.FillColor = System.Drawing.Color.White;
+            this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(79, 0);
+            this.dtpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(147, 36);
+            this.dtpStartDate.TabIndex = 110;
+            this.dtpStartDate.Tag = "Date of Birth";
+            this.dtpStartDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
             // 
             // label5
             // 
@@ -1508,9 +1508,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Status;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
 		private System.Windows.Forms.Label label5;
-		private Guna.UI2.WinForms.Guna2DateTimePicker dtpDOB;
+		private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
 		private System.Windows.Forms.Label label6;
-		private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+		private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
 	}
 }
