@@ -133,6 +133,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ComboboxService.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\EnrollmentService.cs" />
