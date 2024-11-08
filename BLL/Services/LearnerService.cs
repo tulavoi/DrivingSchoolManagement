@@ -12,14 +12,14 @@ namespace BLL.Services
 {
     public class LearnerService
     {
-        public static bool AddLearner(Learner learner)
+        public static bool AddLearner(Learner learner, int courseID)
         {
-            return LearnerBLL.Instance.AddLearner(learner);
+            return LearnerBLL.Instance.AddLearner(learner, courseID);
         }
 
-        public static bool EditLearner(Learner learner)
+        public static bool EditLearner(Learner learner, int courseID)
         {
-            return LearnerBLL.Instance.EditLearner(learner);
+            return LearnerBLL.Instance.EditLearner(learner, courseID);
         }
 
         public static bool DeleteLearner(int learnerID)
@@ -40,6 +40,11 @@ namespace BLL.Services
         public static void LoadAllLearners(Guna2DataGridView dgv)
         {
             LearnerBLL.Instance.LoadAllLearners(dgv);
+        }
+
+        public static List<Learner> GetAllLearners()
+        {
+            return LearnerBLL.Instance.GetAllLearners();
         }
 
         public static void SearchLearners(Guna2DataGridView dgv, string keyword)

@@ -12,8 +12,11 @@ namespace BLL.Services
 {
     public class CourseService
     {
+        public static List<Course> GetAllCourses()
+        {
+            return CourseBLL.Instance.GetAllCourses();
+        }
 
-     
         public static void LoadAllCourses(Guna2DataGridView dgv)
         {
             CourseBLL.Instance.LoadAllCourses(dgv);
@@ -24,14 +27,14 @@ namespace BLL.Services
             CourseBLL.Instance.SearchCourses(dgv, keyword);
         }
 
-        public static void SearchCourses(Guna2ComboBox cbo, string keyword)
+        public static void SearchCourses(Guna2ComboBox cbo, string keyword, string status)
         {
-            CourseBLL.Instance.SearchCourses(cbo, keyword);
+            CourseBLL.Instance.SearchCourses(cbo, keyword, status);
         }
 
         public static void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
         {
-            CourseBLL.Instance.FilterLearnersByStatus(dgv, status);
+            CourseBLL.Instance.FilterCoursesByStatus(dgv, status);
         }
 
         public static bool AddCourse(Course course)

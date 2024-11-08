@@ -18,7 +18,7 @@ namespace GUI
 	public partial class CreateInvoiceForm : Form
 	{
         #region Properties
-        private int? scheduleID;
+        private int? enrollmentID;
 
         #endregion
 
@@ -28,10 +28,11 @@ namespace GUI
 			FormHelper.ApplyRoundedCorners(this, 20);
 		}
 
-		private void CreateInvoiceForm_Load(object sender, EventArgs e)
-		{
-			shadowForm.SetShadowForm(this);
-            ComboboxService.AssignCoursesToCombobox(cboCourses);
+        private void CreateInvoiceForm_Load(object sender, EventArgs e)
+        {
+            shadowForm.SetShadowForm(this);
+            string status = "Active";
+            ComboboxService.AssignCoursesToCombobox(cboCourses, status);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -60,11 +61,12 @@ namespace GUI
         {
             return new Invoice()
             {
+                EnrollmentID = this.enrollmentID,
                 InvoiceCode = this.GetInvoiceCode(),
-                ScheduleID = this.scheduleID,
                 TotalAmount = this.GetTotalAmount(),
                 IsPaid = Constant.DefaultInvoiceStatus,
-                StatusID = Constant.StatusID_Active, // Mặc định là active
+                Notes = "",
+				StatusID = Constant.StatusID_Active,
                 Created_At = DateTime.Now
             };
         }
@@ -97,24 +99,23 @@ namespace GUI
             if (cboCourses.SelectedIndex < 1) return;
             int courseID = Convert.ToInt32(cboCourses.SelectedValue);
 
-            Schedule schedule = ScheduleBLL.Instance.GetLearnerByCourseID(courseID);
-            
-            this.AssignLearnerNameToTextBox(schedule);
-        }
+            var enrollment = EnrollmentService.GetEnrollmentByCourseID(courseID);
+            this.AssignLearnerNameToTextBox(enrollment);
+		}
 
-        private void AssignLearnerNameToTextBox(Schedule schedule)
+		private void AssignLearnerNameToTextBox(Enrollment enrollment)
         {
-            if (schedule == null)
+            if (enrollment == null)
             {
-                FormHelper.ShowNotify("This course has not been scheduled, please choose another invoice.");
+                FormHelper.ShowNotify("This course has not been enrolled, please choose another course.");
                 this.ResetControls(cboCourses, txtLearnerName);
                 return;
             }
-            txtLearnerName.Text = schedule.Learner.FullName;
-            this.scheduleID = schedule.ScheduleID;
-        }
+            txtLearnerName.Text = enrollment.Learner.FullName;
+            this.enrollmentID = enrollment.EnrollmentID;
+		}
 
-        private void ResetControls(Guna2ComboBox cboCourses, Guna2TextBox txtLearnerName)
+		private void ResetControls(Guna2ComboBox cboCourses, Guna2TextBox txtLearnerName)
         {
             cboCourses.SelectedIndex = 0;
             txtLearnerName.Text = "";

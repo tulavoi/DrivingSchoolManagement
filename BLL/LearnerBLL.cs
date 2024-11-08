@@ -49,6 +49,11 @@ namespace BLL
             this.AddLearnersToDataGridView(dgv, learners);
         }
 
+        public List<Learner> GetAllLearners()
+        {
+            return LearnerDAL.Instance.GetAllLearners();
+        }
+
         public void SearchLearners(Guna2DataGridView dgv, string keyword)
         {
             List<Learner> learners = LearnerDAL.Instance.SearchLearners(keyword);
@@ -84,14 +89,14 @@ namespace BLL
             }
         }
 
-        public bool AddLearner(Learner learner)
+        public bool AddLearner(Learner learner, int courseID)
         {
-            return LearnerDAL.Instance.AddLearner(learner);
+            return LearnerDAL.Instance.AddLearner(learner, courseID);
         }
 
-        public bool EditLearner(Learner learner)
+        public bool EditLearner(Learner learner, int courseID)
         {
-            return LearnerDAL.Instance.EditLearner(learner);
+            return LearnerDAL.Instance.EditLearner(learner, courseID);
         }
 
         public bool DeleteLearner(int learnerID)
@@ -101,7 +106,7 @@ namespace BLL
 
         public void UpdateLicense(int learnerID, int courseID)
         {
-            LearnerDAL.Instance.UpdateLicense(learnerID, courseID);
+            //LearnerDAL.Instance.UpdateLicense(learnerID, courseID);
         }
 
         public Learner GetLearner(int learnerID)

@@ -30,7 +30,8 @@ namespace GUI
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
-			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, cboInvoices, dtpPaymentDate, txtAmount, cboMethods, cboLearners, txtSearchLearner);
+			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEdit, dtpPaymentDate, txtAmount,
+				cboMethods, txtSearchLearner);
 		}
 
 		private void btnDelete_Click(object sender, EventArgs e)

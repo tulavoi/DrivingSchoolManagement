@@ -67,6 +67,8 @@ namespace GUI
             cboStates.Text = course.Status.StatusName;
             this.SetLearnerName(course.CourseID);
             txtHoursStudied.Text = hoursStudied.ToString();
+            dtpStartDate.Value = course.StartDate.Value;
+            dtpEndDate.Value = course.EndDate.Value;
 
             if (hoursStudied == durationHours)
             {
@@ -86,15 +88,15 @@ namespace GUI
 
         private void SetLearnerName(int courseID)
         {
-            Schedule schedule = ScheduleBLL.Instance.GetLearnerByCourseID(courseID);
-            if (schedule == null)
+            var enrollment = EnrollmentService.GetEnrollmentByCourseID(courseID);
+            if (enrollment == null)
             {
                 txtLearner.Text = string.Empty;
                 txtLearner.Tag = string.Empty;
                 return;
             }
-            txtLearner.Text = schedule.Learner.FullName;
-            txtLearner.Tag = schedule.Learner.LearnerID;
+            txtLearner.Text = enrollment.Learner.FullName;
+            txtLearner.Tag = enrollment.Learner.LearnerID;
         }
 
         private Course GetSelectedCourse()

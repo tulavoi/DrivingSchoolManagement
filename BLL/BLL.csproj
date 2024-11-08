@@ -126,6 +126,7 @@
     <Compile Include="AccountBLL.cs" />
     <Compile Include="CourseBLL.cs" />
     <Compile Include="DataAccessBLL.cs" />
+    <Compile Include="EnrollmentBLL.cs" />
     <Compile Include="InvoiceBLL.cs" />
     <Compile Include="LearnerBLL.cs" />
     <Compile Include="LicenseBLL.cs" />
@@ -134,12 +135,14 @@
     <Compile Include="ScheduleBLL.cs" />
     <Compile Include="Services\ComboboxService.cs" />
     <Compile Include="Services\CourseService.cs" />
+    <Compile Include="Services\EnrollmentService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\LearnerService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="Services\SendEmail\MailContent.cs" />
     <Compile Include="Services\SendEmail\MailSettings.cs" />
     <Compile Include="Services\SendEmail\SendMailService.cs" />
+    <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="SessionBLL.cs" />

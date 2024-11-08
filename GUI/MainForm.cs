@@ -79,7 +79,7 @@ namespace GUI
             Container(new VehiclesForm(), this.btnVehicles.Text, this.btnVehicles);
         }
 
-		private void btnSchedules_Click(object sender, EventArgs e)
+		public void btnSchedules_Click(object sender, EventArgs e)
 		{
 			Container(new ScheduleForm(), this.btnSchedules.Text, this.btnSchedules);
 		}

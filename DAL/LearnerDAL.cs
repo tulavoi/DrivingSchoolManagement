@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Linq;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
 
@@ -27,14 +28,10 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            select new
-                           {
+						   {
                                learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
                                learner.FullName,
                                learner.DateOfBirth,
                                learner.Gender,
@@ -42,9 +39,10 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
+                               learner.Nationality,
                                status.StatusID,
                                status.StatusName,
-                               learner.Created_At,
+							   learner.Created_At,
                                learner.Updated_At
                            };
                 return data.ToList();
@@ -63,27 +61,24 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
                            select new
                            {
-                               learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
-                               learner.FullName,
-                               learner.DateOfBirth,
-                               learner.Gender,
-                               learner.PhoneNumber,
-                               learner.Email,
-                               learner.Address,
-                               learner.CitizenID,
-                               status.StatusID,
-                               status.StatusName,
-                               learner.Created_At,
-                               learner.Updated_At
-                           };
+							   learner.LearnerID,
+							   learner.FullName,
+							   learner.DateOfBirth,
+							   learner.Gender,
+							   learner.PhoneNumber,
+							   learner.Email,
+							   learner.Address,
+							   learner.CitizenID,
+							   learner.Nationality,
+							   status.StatusID,
+							   status.StatusName,
+							   learner.Created_At,
+							   learner.Updated_At
+						   };
                 return data.ToList();
             }
         }
@@ -100,15 +95,11 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from learner in db.Learners
-                           join license in db.Licenses on learner.CurrentLicenseID equals license.LicenseID into licenseGroup
-                           from license in licenseGroup.DefaultIfEmpty()
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where status.StatusName == statusName
                            select new
                            {
                                learner.LearnerID,
-                               license.LicenseID,
-                               license.LicenseName,
                                learner.FullName,
                                learner.DateOfBirth,
                                learner.Gender,
@@ -116,8 +107,9 @@ namespace DAL
                                learner.Email,
                                learner.Address,
                                learner.CitizenID,
+                               learner.Nationality,
                                status.StatusID,
-                               status.StatusName,
+							   status.StatusName,
                                learner.Created_At,
                                learner.Updated_At
                            };
@@ -132,36 +124,55 @@ namespace DAL
         #endregion
 
         #region Create
-        public bool AddLearner(Learner learner)
+        public bool AddLearner(Learner learner, int courseID)
         {
-            return AddData(learner);
+            try
+            {
+                using (var db = DataAccess.GetDataContext())
+                {
+                    db.Learners.InsertOnSubmit(learner);
+                    db.SubmitChanges();
+
+                    int learnerID = learner.LearnerID;
+                    EnrollmentDAL.Instance.AddEnrollment(learnerID, courseID);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return true;
         }
         #endregion
 
         #region Edit
-        public bool EditLearner(Learner learner)
+        public bool EditLearner(Learner learner, int courseID)
         {
-            return EditData(lear => lear.LearnerID == learner.LearnerID,        // Điều kiện tìm learner theo ID
-                            lear =>                                             // Action cập nhật các thuộc tính
+            if (!EnrollmentDAL.Instance.EditEnrollment(learner, courseID))
+                return false;
+
+            return EditData(l => l.LearnerID == learner.LearnerID,           // Điều kiện tìm learner theo ID
+                            l =>                                             // Action cập nhật các thuộc tính
                             {
-                                lear.CurrentLicenseID = learner.CurrentLicenseID;
-                                lear.FullName = learner.FullName;
-                                lear.DateOfBirth = learner.DateOfBirth;
-                                lear.Gender = learner.Gender;
-                                lear.PhoneNumber = learner.PhoneNumber;
-                                lear.Email = learner.Email;
-                                lear.Address = learner.Address;
-                                lear.CitizenID = learner.CitizenID;
-                                lear.StatusID = learner.StatusID;
-                                lear.Updated_At = DateTime.Now;
+                                l.FullName = learner.FullName;
+                                l.DateOfBirth = learner.DateOfBirth;
+                                l.Gender = learner.Gender;
+                                l.PhoneNumber = learner.PhoneNumber;
+                                l.Email = learner.Email;
+                                l.Address = learner.Address;
+                                l.Nationality = learner.Nationality;
+                                l.CitizenID = learner.CitizenID;
+                                l.StatusID = learner.StatusID;
+                                l.Updated_At = learner.Updated_At;
                             });
         }
-        #endregion
+		#endregion
 
-        #region Delete
-        public bool DeleteLearner(int learnerID)
+		#region Delete
+		public bool DeleteLearner(int learnerID)
         {
-            return UpdateStatus(lear => lear.LearnerID == learnerID, 1002); // Điều kiện tìm learner theo ID
+            return UpdateStatus(lear => lear.LearnerID == learnerID, StatusID_Inactive); // Điều kiện tìm learner theo ID
         }
         #endregion
 
@@ -177,15 +188,11 @@ namespace DAL
                 Email = item.Email,
                 Address = item.Address,
                 CitizenID = item.CitizenID,
+                Nationality = item.Nationality,
                 Status = new Status
                 {
                     StatusID = item.StatusID,
                     StatusName = item.StatusName,
-                },
-                License = new License
-                {
-                    LicenseID = item.LicenseID,
-                    LicenseName = item.LicenseName,
                 },
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
@@ -205,20 +212,20 @@ namespace DAL
         #endregion
 
         #region Update license
-        public void UpdateLicense(int learnerID, int courseID)
-        {
-            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-            {
-                var course = CourseDAL.Instance.GetCourse(courseID);
+        //public void UpdateLicense(int learnerID, int courseID)
+        //{
+        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+        //    {
+        //        var course = CourseDAL.Instance.GetCourse(courseID);
 
-                var learner = db.Learners.Where(l => l.LearnerID == learnerID).FirstOrDefault();
+        //        var learner = db.Learners.Where(l => l.LearnerID == learnerID).FirstOrDefault();
 
-                if (learner == null || course == null) return;
-                if (learner.CurrentLicenseID >= 1005) return; // Nếu như learner này có bằng E thì return
-                learner.CurrentLicenseID = course.LicenseID; // Nâng bằng hiện tại thành bằng của khóa học mà học viênhoàn thành
-                db.SubmitChanges();
-            }
-        }
+        //        if (learner == null || course == null) return;
+        //        if (learner.CurrentLicenseID >= 1005) return; // Nếu như learner này có bằng E thì return
+        //        learner.CurrentLicenseID = course.LicenseID; // Nâng bằng hiện tại thành bằng của khóa học mà học viênhoàn thành
+        //        db.SubmitChanges();
+        //    }
+        //}
         #endregion
     }
 }

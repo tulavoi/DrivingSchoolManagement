@@ -34,68 +34,6 @@ namespace GUI
 
         private void btnEdit_BasicDetail_Click(object sender, EventArgs e)
         {
-            // Nếu xe là truck thì bật trường weight, tắt passenger car và đóng seats
-            //if (this.chkTruck.Checked)
-            //{
-            //    this.txtWeight.Enabled = true;
-            //    this.txtSeats.Enabled = false; // Tắt trường seats
-            //    this.chkPassengerCar.Checked = false; // Tắt passenger car
-            //}
-            //else
-            //{
-            //    txtWeight.Clear();
-            //    this.txtWeight.Enabled = false; // Tắt trường weight nếu không chọn truck
-            //}
-
-            //// Nếu xe là passenger car thì bật trường seats, tắt truck và đóng weight
-            //if (this.chkPassengerCar.Checked)
-            //{
-            //    this.txtSeats.Enabled = true;
-            //    this.txtWeight.Enabled = false; // Tắt trường weight
-            //    this.chkTruck.Checked = false; // Tắt truck
-            //}
-            //else
-            //{
-            //    txtSeats.Clear();
-            //    this.txtSeats.Enabled = false; // Tắt trường seats nếu không chọn passenger car
-            //}
-
-            //// Gán giá trị cho thuộc tính IsTruck và IsPassengerCar
-            //bool isTruck = this.chkTruck.Checked; // Gán true nếu truck được chọn, ngược lại gán false
-            //bool isPassengerCar = this.chkPassengerCar.Checked; // Gán true nếu passenger car được chọn, ngược lại gán false          
-
-            //// Nếu đang ở chế độ lưu
-
-            //if (!this.InSaveMode())
-            //{
-            //    this.ToggleEditMode();
-            //    return;
-            //}
-            //// Xác thực thông tin
-            //if (!this.ValidateFields()) return;
-
-            //// Xác nhận hành động
-            //if (this.ConfirmAction($"Are you sure to edit vehicle '{txtCarName.Text}'?"))
-            //{
-            //    // Lấy thông tin xe từ các điều khiển
-            //    Vehicle vehicle = this.GetVehicle();
-            //    vehicle.IsTruck = isTruck; // Gán giá trị IsTruck cho vehicle
-            //    vehicle.IsPassengerCar = isPassengerCar; // Gán giá trị IsPassengerCar cho vehicle
-
-            //    // Chỉnh sửa xe
-            //    if (VehicleService.EditVehicle(vehicle))
-            //    {
-            //        FormHelper.ShowNotify("Vehicle edited successfully.");
-            //        this.LoadAllVehicles(); // Tải lại danh sách xe
-            //    }
-            //    else
-            //    {
-            //        FormHelper.ShowError("Failed to edit vehicle.");
-            //    }
-
-            //}
-            //this.ToggleEditMode();
-
             if (this.chkTruck.Checked) this.txtWeight.Enabled = true;
             //else this.txtWeight.Enabled = false;
 

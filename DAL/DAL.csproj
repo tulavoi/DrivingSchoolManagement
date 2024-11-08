@@ -46,15 +46,12 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="CourseDAL.cs" />
     <Compile Include="DataAccess.cs" />
-    <Compile Include="DrivingSchool.cs">
-      <DependentUpon>DrivingSchool.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DrivingSchool.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DrivingSchool.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\LearnerExtension.cs" />
+    <Compile Include="EnrollmentDAL.cs" />
     <Compile Include="InvoiceDAL.cs" />
     <Compile Include="LearnerDAL.cs" />
     <Compile Include="LicenseDAL.cs" />

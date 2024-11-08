@@ -2,252 +2,283 @@
 using BLL.Services.SendEmail;
 using DAL;
 using GUI.Validators;
-using Org.BouncyCastle.Utilities.Bzip2;
 using System;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class LearnersForm : Form
-    {
-        #region Properties
-        private bool isEditing = false;
+	public partial class LearnersForm : Form
+	{
+		#region Properties
+		private bool isEditing = false;
 
-        private static LearnersForm instance;
+		private static LearnersForm instance;
 
-        public static LearnersForm Instance
-        {
-            get
-            {
-                if (instance == null) instance = new LearnersForm();
-                return instance;
-            }
-        }
-        #endregion
+		public static LearnersForm Instance
+		{
+			get
+			{
+				if (instance == null) instance = new LearnersForm();
+				return instance;
+			}
+		}
+		#endregion
 
-        public LearnersForm()
-        {
-            InitializeComponent();
-            FormHelper.ApplyRoundedCorners(this, 20);
-        }
+		public LearnersForm()
+		{
+			InitializeComponent();
+			FormHelper.ApplyRoundedCorners(this, 20);
+		}
 
-        public void LearnersForm_Load(object sender, EventArgs e)
-        {
-            this.LoadAllLearners();
-            this.LoadComboboxes();
+		public void LearnersForm_Load(object sender, EventArgs e)
+		{
+			this.LoadAllLearners();
+			this.LoadComboboxes();
 
-            // cboStatus_Filter đang được set mặc định seelctedIndex = 1
-            // Gọi event để lọc ngay form vừa load
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-        }
+			// cboStatus_Filter đang được set mặc định selectedIndex = 1
+			// Gọi event để lọc ngay form vừa load
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+		}
 
-        private void LoadComboboxes()
-        {
-            ComboboxService.AssignStatesToCombobox(cboStates);
-            ComboboxService.AssignLicensesToCombobox(cboLicenses);
-        }
+		private void LoadComboboxes()
+		{
+			ComboboxService.AssignStatesToCombobox(cboStates);
+			ComboboxService.GetAvailableAndLearnerCourses(cboCourses, FormHelper.GetObjectID(lblLearnerID.Text));
+		}
 
-        public void LoadAllLearners()
-        {
-            LearnerService.LoadAllLearners(dgvLearners);
-            this.UpdateControlsWithSelectedRowData();
-        }
+		public void LoadAllLearners()
+		{
+			LearnerService.LoadAllLearners(dgvLearners);
+			this.UpdateControlsWithSelectedRowData();
+		}
 
-        private void btnEditLearner_Click(object sender, EventArgs e)
-        {
-            if (!this.InSaveMode())
-            {
-                this.ToggleEditMode();
-                return;
-            }
+		private void btnEditLearner_Click(object sender, EventArgs e)
+		{
+			if (!this.InSaveMode())
+			{
+				this.ToggleEditMode();
+				return;
+			}
 
-            if (!this.ValidateFields()) return;
+			if (!this.ValidateFields()) return;
 
-            if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
-            {
-                Learner learner = this.GetLearner();
-                var result = LearnerService.EditLearner(learner);
-                FormHelper.ShowActionResult(result, "Learner edited successfully.", "Failed to edit learner.");
-            }
+			if (this.ConfirmAction($"Are you sure to edit learner '{txtLearnerName.Text}'?"))
+			{
+				Learner learner = this.GetLearner();
+				int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+				var result = LearnerService.EditLearner(learner, courseID);
+				FormHelper.ShowActionResult(result, "Learner edited successfully.", "Failed to edit learner.");
+			}
 
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-            this.ToggleEditMode();
-        }
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+			this.ToggleEditMode();
+		}
 
-        private bool ValidateFields()
-        {
-            // Kiểm tra các trường thông tin của học viên
-            if (!LearnerValidator.ValidateFullName(txtLearnerName, toolTip)) return false;
+		private bool ValidateFields()
+		{
+			if (!LearnerValidator.ValidateFullName(txtLearnerName, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
+			if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
+			if (!LearnerValidator.ValidateEmail(txtEmail, toolTip)) return false;
 
-            if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
+			if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+			if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
-            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+			if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-            return true;
-        }
+			if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
 
-        private void ToggleEditMode()
-        {
-            FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId, cboStates);
-        }
+			if (!LearnerValidator.ValidateEligibleCourse(dtpDOB, lblLicenseName.Text, cboCourses, toolTip)) return false;
 
-        private bool InSaveMode()
-        {
-            return btnEditLearner.Text == Constant.SAVE_MODE;
-        }
+			return true;
+		}
 
-        private bool ConfirmAction(string message)
-        {
-            DialogResult result = FormHelper.ShowConfirm(message);
-            return result == DialogResult.Yes;
-        }
+		private void ToggleEditMode()
+		{
+			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId, cboStates, cboCourses);
+		}
 
-        private Learner GetLearner()
-        {
-            return new Learner
-            {
-                LearnerID = FormHelper.GetObjectID(lblLearnerID.Text),
-                FullName = txtLearnerName.Text,
-                Address = txtAddress.Text,
-                Email = txtEmail.Text,
-                CitizenID = txtCitizenId.Text,
-                PhoneNumber = txtPhone.Text,
-                Gender = cboGender.Text,
-                DateOfBirth = dtpDOB.Value,
-                StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
-                CurrentLicenseID = Convert.ToInt32(cboLicenses.SelectedValue.ToString()),
-                Updated_At = DateTime.Now,
-            };
-        }
+		private bool InSaveMode()
+		{
+			return btnEditLearner.Text == Constant.SAVE_MODE;
+		}
 
-        private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
-        {
-            FormHelper.OpenFormDialog(new AddLearnerForm());
-            cboStatus_Filter_SelectedIndexChanged(sender, e);
-        }
+		private bool ConfirmAction(string message)
+		{
+			DialogResult result = FormHelper.ShowConfirm(message);
+			return result == DialogResult.Yes;
+		}
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            // Clear old rows in the DataGridView, get the search keyword, and load matching learner data
-            FormHelper.ClearDataGridViewRow(dgvLearners);
+		private Learner GetLearner()
+		{
+			return new Learner
+			{
+				LearnerID = FormHelper.GetObjectID(lblLearnerID.Text),
+				FullName = txtLearnerName.Text,
+				Address = txtAddress.Text,
+				Email = txtEmail.Text,
+				CitizenID = txtCitizenId.Text,
+				PhoneNumber = txtPhone.Text,
+				Gender = cboGender.Text,
+				DateOfBirth = dtpDOB.Value,
+				Nationality = cboNationality.Text,
+				StatusID = Convert.ToInt32(cboStates.SelectedValue.ToString()),
+				Updated_At = DateTime.Now,
+			};
+		}
 
-            string keyword = txtSearch.Text.ToLower();
+		private void btnOpenAddLearnerForm_Click(object sender, EventArgs e)
+		{
+			FormHelper.OpenFormDialog(new AddLearnerForm());
+			cboStatus_Filter_SelectedIndexChanged(sender, e);
+		}
 
-            // Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
-            if (string.IsNullOrEmpty(keyword))
-                cboStatus_Filter_SelectedIndexChanged(sender, e);
-            else
-            {
-                LearnerService.SearchLearners(dgvLearners, keyword);
-                this.UpdateControlsWithSelectedRowData();
-            }
-        }
+		private void txtSearch_TextChanged(object sender, EventArgs e)
+		{
+			// Clear old rows in the DataGridView, get the search keyword, and load matching learner data
+			FormHelper.ClearDataGridViewRow(dgvLearners);
 
-        private void dgvLearners_SelectionChanged(object sender, EventArgs e)
-        {
-            this.UpdateControlsWithSelectedRowData();
-        }
+			string keyword = txtSearch.Text.ToLower();
 
-        private void UpdateControlsWithSelectedRowData()
-        {
-            // Check if a row is selected and assign selected learner data to controls
-            if (!this.HasSelectedRow()) return;
+			// Nếu không nhập ký tự tìm kiếm thì sẽ hiển thị data dựa vào cboStatus
+			if (string.IsNullOrEmpty(keyword))
+				cboStatus_Filter_SelectedIndexChanged(sender, e);
+			else
+			{
+				LearnerService.SearchLearners(dgvLearners, keyword);
+				this.UpdateControlsWithSelectedRowData();
+			}
+		}
 
-            var selectedRow = dgvLearners.SelectedRows[0];
+		private void dgvLearners_SelectionChanged(object sender, EventArgs e)
+		{
+			this.UpdateControlsWithSelectedRowData();
+		}
 
-            if (selectedRow.Tag is Learner selectedLearner)
-                this.AssignDataToControls(selectedLearner);
-        }
+		private void UpdateControlsWithSelectedRowData()
+		{
+			// Check if a row is selected and assign selected learner data to controls
+			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
 
-        private void AssignDataToControls(Learner selectedLearner)
-        {
-            // Assign learner data to form controls
-            string learnerID = "ID: " + selectedLearner.LearnerID.ToString();
+			var selectedRow = dgvLearners.SelectedRows[0];
 
-            FormHelper.SetLabelID(lblLearnerID, learnerID);
-            txtLearnerName.Text = selectedLearner.FullName;
-            txtAddress.Text = selectedLearner.Address;
-            txtCitizenId.Text = selectedLearner.CitizenID.ToString();
-            txtEmail.Text = selectedLearner.Email;
-            txtPhone.Text = selectedLearner.PhoneNumber;
-            cboGender.Text = selectedLearner.Gender;
-            dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
-            cboStates.Text = selectedLearner.Status.StatusName;
-            cboLicenses.Text = selectedLearner.License.LicenseName;
-        }
+			if (selectedRow.Tag is Learner selectedLearner)
+				this.AssignDataToControls(selectedLearner);
+		}
 
-        private void btnDeleteLearner_Click(object sender, EventArgs e)
-        {
-            if (!this.HasSelectedRow()) return;
+		private void AssignDataToControls(Learner selectedLearner)
+		{
+			// Assign learner data to form controls
+			string learnerID = "ID: " + selectedLearner.LearnerID.ToString();
 
-            if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
-            {
-                int learnerID = FormHelper.GetObjectID(lblLearnerID.Text);
+			FormHelper.SetLabelID(lblLearnerID, learnerID);
+			txtLearnerName.Text = selectedLearner.FullName;
+			txtAddress.Text = selectedLearner.Address;
+			txtCitizenId.Text = selectedLearner.CitizenID.ToString();
+			txtEmail.Text = selectedLearner.Email;
+			txtPhone.Text = selectedLearner.PhoneNumber;
+			cboGender.Text = selectedLearner.Gender;
+			dtpDOB.Value = (DateTime)selectedLearner.DateOfBirth;
+			cboStates.Text = selectedLearner.Status.StatusName;
+			cboNationality.Text = selectedLearner.Nationality;
 
-                var result = LearnerService.DeleteLearner(learnerID);
+			ComboboxService.GetAvailableAndLearnerCourses(cboCourses, FormHelper.GetObjectID(lblLearnerID.Text));
 
-                FormHelper.ShowActionResult(result, "Learner deleted successfully.", "Failed to delete learner.");
+			var enrollment = EnrollmentService.GetEnrollmentByLearnerID(selectedLearner.LearnerID);
+			if (enrollment == null)
+			{
+				cboCourses.SelectedIndex = 0;
+				return;
+			}
+			cboCourses.Text = enrollment.Course.CourseName;
+		}
 
-                // Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
-                cboStatus_Filter_SelectedIndexChanged(sender, e);
-            }
-        }
+		private void btnDeleteLearner_Click(object sender, EventArgs e)
+		{
+			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
 
-        private bool HasSelectedRow()
-        {
-            // Check if any row is selected in the DataGridView
-            return dgvLearners.SelectedRows.Count > 0;
-        }
+			if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
+			{
+				int learnerID = FormHelper.GetObjectID(lblLearnerID.Text);
 
-        private MailContent CreateMailContent(Learner learner)
-        {
-            // Tạo nội dung mail dựa trên thông tin của học viên
-            return new MailContent
-            {
-                To = learner.Email, // Địa chỉ email học viên
-                Subject = $"Driving School", // Tiêu đề email chứa tên học viên
-                Body = $"<h1>Hello {learner.FullName},</h1>" +
-                       $"<p>{txtMessage.Text}</p>"
-            };
-        }
+				var result = LearnerService.DeleteLearner(learnerID);
 
-        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
+				FormHelper.ShowActionResult(result, "Learner deleted successfully.", "Failed to delete learner.");
 
-        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
+				// Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
+				cboStatus_Filter_SelectedIndexChanged(sender, e);
+			}
+		}
 
-        private async void btnSendMail_Click(object sender, EventArgs e)
-        {
-            var learner = this.GetLearner();
-            var mailContent = this.CreateMailContent(learner);
-            var result = await FormHelper.SendMailAsync(mailContent);
+		private MailContent CreateMailContent(Learner learner)
+		{
+			// Tạo nội dung mail dựa trên thông tin của học viên
+			return new MailContent
+			{
+				To = learner.Email, // Địa chỉ email học viên
+				Subject = $"Driving School", // Tiêu đề email chứa tên học viên
+				Body = $"<h1>Hello {learner.FullName},</h1>" +
+					   $"<p>{txtMessage.Text}</p>"
+			};
+		}
 
-            FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
-        }
+		private async void btnSendMail_Click(object sender, EventArgs e)
+		{
+			var learner = this.GetLearner();
+			var mailContent = this.CreateMailContent(learner);
+			var result = await FormHelper.SendMailAsync(mailContent);
 
-        private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FormHelper.ClearDataGridViewRow(dgvLearners);
+			FormHelper.ShowActionResult(result, "Email sent successfully.", "Failed to send email.");
+		}
 
-            if (FormHelper.HasSelectedItem(cboStatus_Filter))
-            {
-                string status = cboStatus_Filter.Text;
-                LearnerService.FilterLearnersByStatus(dgvLearners, status);
-                this.UpdateControlsWithSelectedRowData();
-            }
-            else
-                this.LoadAllLearners();
-        }
-    }
+		private void cboStatus_Filter_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			FormHelper.ClearDataGridViewRow(dgvLearners);
+
+			if (FormHelper.HasSelectedItem(cboStatus_Filter))
+			{
+				string status = cboStatus_Filter.Text;
+				LearnerService.FilterLearnersByStatus(dgvLearners, status);
+				this.UpdateControlsWithSelectedRowData();
+			}
+			else
+				this.LoadAllLearners();
+		}
+
+		private void numericKeyPress(object sender, KeyPressEventArgs e)
+		{
+			FormHelper.CheckNumericKeyPress(e);
+		}
+
+		private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (!FormHelper.HasSelectedItem(cboCourses))
+			{
+				this.ConfigureForm(false);
+				return;
+			}
+			this.ConfigureForm(true);
+			this.AssignCourseToDetailLabels();
+		}
+
+		private void AssignCourseToDetailLabels()
+		{
+			int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+			var course = CourseService.GetCourse(courseID);
+			if (course == null) return;
+			lblLicenseName.Text = course.License.LicenseName;
+			lblDurationHours.Text = course.DurationInHours.ToString();
+			lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
+			lblEndDate.Text = course.EndDate.Value.ToString("dd/MM/yyyy");
+		}
+
+		private void ConfigureForm(bool showDetails)
+		{
+			pnlCourseDetails.Visible = showDetails;
+			pnlBasicDetails.Width = 670;
+			pnlBasicDetails.Height = showDetails ? 435 : 400;
+		}
+	}
 }

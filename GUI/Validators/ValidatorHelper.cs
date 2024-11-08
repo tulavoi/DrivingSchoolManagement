@@ -27,7 +27,12 @@ namespace GUI.Validators
             return citizenID.Length == 12;
         }
 
-        public static bool IsEligibleAge(DateTime dob)
+		public static bool IsValidLicenseNumber(string licenseNumber)
+		{
+			return licenseNumber.Length == 12;
+		}
+
+		public static bool IsEligibleAge(DateTime dob)
         {
             int age = DateTime.Now.Year - dob.Year;
             if (dob > DateTime.Now.AddYears(-age)) age--; // Kiểm tra chính xác ngày sinh nhật đã qua chưa

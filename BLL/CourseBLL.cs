@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class CourseBLL
+	public class CourseBLL
     {
         #region Properties
         private static CourseBLL instance;
@@ -26,13 +26,38 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-        public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
         {
-            List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
+            List<Course> courses = CourseDAL.Instance.GetCoursesInvoiced(status);
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-        private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
+		{
+			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status, curDate);
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
+		// Gán các course có learner đăng ký vào cbo
+		//public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
+  //      {
+  //          //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
+  //          //this.AddCoursesToCombobox(cbo, courses);
+  //      }
+
+        public void AssignAvailableCourseToCombobox(Guna2ComboBox cbo)
+        {
+			List<Course> courses = CourseDAL.Instance.GetAvailableCourses();
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
+		public void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
+        {
+			List<Course> courses = CourseDAL.Instance.GetAvailableAndLearnerCourses(learnerID);
+			this.AddCoursesToCombobox(cbo, courses);
+		}
+
+		private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
         {
             Course course = new Course();
             course.CourseName = "Select Course";
@@ -49,19 +74,24 @@ namespace BLL
             this.AddCoursesToDataGridView(dgv, courses);
         }
 
+        public List<Course> GetAllCourses()
+        {
+            return CourseDAL.Instance.GetAllCourses();
+        }
+
         public void SearchCourses(Guna2DataGridView dgv, string keyword)
         {
             List<Course> courses = CourseDAL.Instance.SearchCourses(keyword);
             this.AddCoursesToDataGridView(dgv, courses);
         }
 
-        public void SearchCourses(Guna2ComboBox cbo, string keyword)
+        public void SearchCourses(Guna2ComboBox cbo, string keyword, string status)
         {
-            List<Course> courses = CourseDAL.Instance.SearchCourses(keyword);
+            List<Course> courses = CourseDAL.Instance.SearchCourses(keyword, status);
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-        public void FilterLearnersByStatus(Guna2DataGridView dgv, string status)
+        public void FilterCoursesByStatus(Guna2DataGridView dgv, string status)
         {
             List<Course> course = CourseDAL.Instance.FilterCoursesByStatus(status);
             this.AddCoursesToDataGridView(dgv, course);
@@ -78,9 +108,15 @@ namespace BLL
                 {
                     dgv.Rows[rowIndex].Tag = course;
                     dgv.Rows[rowIndex].Cells["CourseName"].Value = course.CourseName;
-                    dgv.Rows[rowIndex].Cells["Fee"].Value = course.Fee;
-                    dgv.Rows[rowIndex].Cells["Status"].Value = course.Status.StatusName;
-                    dgv.Rows[rowIndex].Cells["LicenseType"].Value = course.License.LicenseName;
+                    dgv.Rows[rowIndex].Cells["Fee"].Value = course.Fee + " VND";
+                    if (dgv.Columns.Contains("LicenseType"))
+                        dgv.Rows[rowIndex].Cells["LicenseType"].Value = course.License.LicenseName;
+
+                    if (dgv.Columns.Contains("Status"))
+                        dgv.Rows[rowIndex].Cells["Status"].Value = course.Status.StatusName;
+
+                    if (dgv.Columns.Contains("StartDate"))
+                        dgv.Rows[rowIndex].Cells["StartDate"].Value = course.StartDate.Value.ToString("dd/MM/yyyy");
                 }
             }
         }

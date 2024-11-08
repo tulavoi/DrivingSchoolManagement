@@ -34,8 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleForm));
             this.pnlBottomLeft = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddScheduleForm = new Guna.UI2.WinForms.Guna2Button();
@@ -64,6 +64,13 @@
             this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvSchedules = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSchedules_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace23 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -77,6 +84,8 @@
             this.pnlBottom = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlScheduleDetail = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlButtonEdit_Delete = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRefreshForm = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace17 = new Guna.UI2.WinForms.Guna2Panel();
@@ -84,26 +93,28 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.cboVehicles = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblVehicles = new System.Windows.Forms.Label();
-            this.pnlSpace24 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlTeachers = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboSessions = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblSession = new System.Windows.Forms.Label();
-            this.dtpSessionDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
             this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlLearners = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboCourses = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblCourses = new System.Windows.Forms.Label();
-            this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlDate_Session = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSendSchedule_Teacher = new Guna.UI2.WinForms.Guna2Button();
             this.cboTeachers = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlCourse_Vehicle = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSendSchedule_Learner = new Guna.UI2.WinForms.Guna2Button();
-            this.cboLearners = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblLearner = new System.Windows.Forms.Label();
+            this.pnlSpace24 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlTeachers = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboSessions = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblNewSession = new System.Windows.Forms.Label();
+            this.txtCurrentSession = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCurrentSession = new System.Windows.Forms.Label();
+            this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlLearners = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpSessionDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.txtCourseName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblCourses = new System.Windows.Forms.Label();
             this.pnlSpace14 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace19 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlScheduleDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
@@ -116,13 +127,6 @@
             this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpaceTop_Bottom = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LearnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Session = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBottomLeft.SuspendLayout();
             this.pnlSpace10.SuspendLayout();
             this.pnlCalendar.SuspendLayout();
@@ -136,10 +140,10 @@
             this.pnlScheduleDetail.SuspendLayout();
             this.pnlButtonEdit_Delete.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.pnlTeachers.SuspendLayout();
-            this.pnlLearners.SuspendLayout();
             this.pnlDate_Session.SuspendLayout();
             this.pnlCourse_Vehicle.SuspendLayout();
+            this.pnlTeachers.SuspendLayout();
+            this.pnlLearners.SuspendLayout();
             this.pnlScheduleDetails_Top.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -450,7 +454,7 @@
             this.dtpSchedule.Name = "dtpSchedule";
             this.dtpSchedule.Size = new System.Drawing.Size(282, 35);
             this.dtpSchedule.TabIndex = 2;
-            this.dtpSchedule.Value = new System.DateTime(2024, 10, 3, 15, 52, 47, 0);
+            this.dtpSchedule.Value = new System.DateTime(2024, 10, 6, 0, 0, 0, 0);
             this.dtpSchedule.ValueChanged += new System.EventHandler(this.dtpSchedule_ValueChanged);
             // 
             // btnToday
@@ -600,8 +604,87 @@
             this.dgvSchedules.ThemeStyle.RowsStyle.Height = 45;
             this.dgvSchedules.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvSchedules.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvSchedules.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSchedules_CellFormatting);
             this.dgvSchedules.SelectionChanged += new System.EventHandler(this.dgvSchedules_SelectionChanged);
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Space";
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 18;
+            // 
+            // CourseName
+            // 
+            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CourseName.DataPropertyName = "CourseName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CourseName.FillWeight = 53.63456F;
+            this.CourseName.Frozen = true;
+            this.CourseName.HeaderText = "Course";
+            this.CourseName.MinimumWidth = 6;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            this.CourseName.Width = 140;
+            // 
+            // LearnerName
+            // 
+            this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LearnerName.DataPropertyName = "LearnerName";
+            this.LearnerName.Frozen = true;
+            this.LearnerName.HeaderText = "Learner";
+            this.LearnerName.MinimumWidth = 6;
+            this.LearnerName.Name = "LearnerName";
+            this.LearnerName.ReadOnly = true;
+            this.LearnerName.Width = 190;
+            // 
+            // TeacherName
+            // 
+            this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TeacherName.DataPropertyName = "TeacherName";
+            this.TeacherName.Frozen = true;
+            this.TeacherName.HeaderText = "Teacher";
+            this.TeacherName.MinimumWidth = 6;
+            this.TeacherName.Name = "TeacherName";
+            this.TeacherName.ReadOnly = true;
+            this.TeacherName.Width = 140;
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.VehicleName.DataPropertyName = "VehicleName";
+            this.VehicleName.Frozen = true;
+            this.VehicleName.HeaderText = "Vehicle";
+            this.VehicleName.MinimumWidth = 6;
+            this.VehicleName.Name = "VehicleName";
+            this.VehicleName.ReadOnly = true;
+            this.VehicleName.Width = 230;
+            // 
+            // SessionDate
+            // 
+            this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SessionDate.DataPropertyName = "Date";
+            this.SessionDate.Frozen = true;
+            this.SessionDate.HeaderText = "Date";
+            this.SessionDate.MinimumWidth = 6;
+            this.SessionDate.Name = "SessionDate";
+            this.SessionDate.ReadOnly = true;
+            this.SessionDate.Width = 110;
+            // 
+            // Session
+            // 
+            this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Session.DataPropertyName = "Session";
+            this.Session.Frozen = true;
+            this.Session.HeaderText = "Time";
+            this.Session.MinimumWidth = 6;
+            this.Session.Name = "Session";
+            this.Session.ReadOnly = true;
+            this.Session.Width = 120;
             // 
             // pnlSchedules_Top
             // 
@@ -773,14 +856,14 @@
             this.pnlScheduleDetail.Controls.Add(this.pnlButtonEdit_Delete);
             this.pnlScheduleDetail.Controls.Add(this.guna2Panel2);
             this.pnlScheduleDetail.Controls.Add(this.guna2Panel1);
+            this.pnlScheduleDetail.Controls.Add(this.pnlSpace7);
+            this.pnlScheduleDetail.Controls.Add(this.pnlDate_Session);
+            this.pnlScheduleDetail.Controls.Add(this.pnlSpace8);
+            this.pnlScheduleDetail.Controls.Add(this.pnlCourse_Vehicle);
             this.pnlScheduleDetail.Controls.Add(this.pnlSpace24);
             this.pnlScheduleDetail.Controls.Add(this.pnlTeachers);
-            this.pnlScheduleDetail.Controls.Add(this.pnlSpace7);
-            this.pnlScheduleDetail.Controls.Add(this.pnlLearners);
-            this.pnlScheduleDetail.Controls.Add(this.pnlSpace8);
-            this.pnlScheduleDetail.Controls.Add(this.pnlDate_Session);
             this.pnlScheduleDetail.Controls.Add(this.pnlSpace5);
-            this.pnlScheduleDetail.Controls.Add(this.pnlCourse_Vehicle);
+            this.pnlScheduleDetail.Controls.Add(this.pnlLearners);
             this.pnlScheduleDetail.Controls.Add(this.pnlSpace14);
             this.pnlScheduleDetail.Controls.Add(this.pnlSpace19);
             this.pnlScheduleDetail.Controls.Add(this.pnlScheduleDetails_Top);
@@ -792,6 +875,8 @@
             // 
             // pnlButtonEdit_Delete
             // 
+            this.pnlButtonEdit_Delete.Controls.Add(this.btnRefreshForm);
+            this.pnlButtonEdit_Delete.Controls.Add(this.guna2Panel3);
             this.pnlButtonEdit_Delete.Controls.Add(this.btnDelete);
             this.pnlButtonEdit_Delete.Controls.Add(this.btnEdit);
             this.pnlButtonEdit_Delete.Controls.Add(this.pnlSpace17);
@@ -801,6 +886,36 @@
             this.pnlButtonEdit_Delete.Name = "pnlButtonEdit_Delete";
             this.pnlButtonEdit_Delete.Size = new System.Drawing.Size(480, 35);
             this.pnlButtonEdit_Delete.TabIndex = 162;
+            // 
+            // btnRefreshForm
+            // 
+            this.btnRefreshForm.BorderRadius = 5;
+            this.btnRefreshForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefreshForm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefreshForm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefreshForm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefreshForm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefreshForm.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRefreshForm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnRefreshForm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefreshForm.ForeColor = System.Drawing.Color.White;
+            this.btnRefreshForm.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshForm.Image")));
+            this.btnRefreshForm.Location = new System.Drawing.Point(175, 0);
+            this.btnRefreshForm.Name = "btnRefreshForm";
+            this.btnRefreshForm.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRefreshForm.Size = new System.Drawing.Size(40, 35);
+            this.btnRefreshForm.TabIndex = 20;
+            this.btnRefreshForm.Click += new System.EventHandler(this.btnRefreshForm_Click);
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(165, 0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel3.TabIndex = 21;
             // 
             // btnDelete
             // 
@@ -910,168 +1025,14 @@
             this.lblVehicles.Text = "   Vehicles: ";
             this.lblVehicles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlSpace24
-            // 
-            this.pnlSpace24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace24.FillColor = System.Drawing.Color.White;
-            this.pnlSpace24.Location = new System.Drawing.Point(0, 234);
-            this.pnlSpace24.Name = "pnlSpace24";
-            this.pnlSpace24.Size = new System.Drawing.Size(480, 10);
-            this.pnlSpace24.TabIndex = 161;
-            // 
-            // pnlTeachers
-            // 
-            this.pnlTeachers.Controls.Add(this.cboSessions);
-            this.pnlTeachers.Controls.Add(this.lblSession);
-            this.pnlTeachers.Controls.Add(this.dtpSessionDate);
-            this.pnlTeachers.Controls.Add(this.lblDate);
-            this.pnlTeachers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTeachers.FillColor = System.Drawing.Color.White;
-            this.pnlTeachers.Location = new System.Drawing.Point(0, 198);
-            this.pnlTeachers.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pnlTeachers.Name = "pnlTeachers";
-            this.pnlTeachers.Size = new System.Drawing.Size(480, 36);
-            this.pnlTeachers.TabIndex = 157;
-            // 
-            // cboSessions
-            // 
-            this.cboSessions.BackColor = System.Drawing.Color.White;
-            this.cboSessions.BorderRadius = 5;
-            this.cboSessions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboSessions.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboSessions.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboSessions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboSessions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboSessions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboSessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSessions.Enabled = false;
-            this.cboSessions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboSessions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboSessions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboSessions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboSessions.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboSessions.ItemHeight = 30;
-            this.cboSessions.Location = new System.Drawing.Point(330, 0);
-            this.cboSessions.Name = "cboSessions";
-            this.cboSessions.Size = new System.Drawing.Size(150, 36);
-            this.cboSessions.TabIndex = 8;
-            this.cboSessions.Tag = "Session";
-            // 
-            // lblSession
-            // 
-            this.lblSession.BackColor = System.Drawing.Color.White;
-            this.lblSession.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblSession.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblSession.Location = new System.Drawing.Point(254, 0);
-            this.lblSession.Name = "lblSession";
-            this.lblSession.Size = new System.Drawing.Size(76, 36);
-            this.lblSession.TabIndex = 1;
-            this.lblSession.Text = "Sessions: ";
-            this.lblSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dtpSessionDate
-            // 
-            this.dtpSessionDate.BorderColor = System.Drawing.Color.White;
-            this.dtpSessionDate.BorderRadius = 5;
-            this.dtpSessionDate.Checked = true;
-            this.dtpSessionDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpSessionDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpSessionDate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtpSessionDate.Enabled = false;
-            this.dtpSessionDate.FillColor = System.Drawing.Color.White;
-            this.dtpSessionDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpSessionDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpSessionDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSessionDate.Location = new System.Drawing.Point(94, 0);
-            this.dtpSessionDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpSessionDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpSessionDate.Name = "dtpSessionDate";
-            this.dtpSessionDate.Size = new System.Drawing.Size(160, 36);
-            this.dtpSessionDate.TabIndex = 10;
-            this.dtpSessionDate.Tag = "Date";
-            this.dtpSessionDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
-            // 
-            // lblDate
-            // 
-            this.lblDate.BackColor = System.Drawing.Color.White;
-            this.lblDate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblDate.Location = new System.Drawing.Point(0, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(94, 36);
-            this.lblDate.TabIndex = 9;
-            this.lblDate.Text = "    Date: ";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pnlSpace7
             // 
             this.pnlSpace7.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace7.FillColor = System.Drawing.Color.White;
-            this.pnlSpace7.Location = new System.Drawing.Point(0, 188);
+            this.pnlSpace7.Location = new System.Drawing.Point(0, 234);
             this.pnlSpace7.Name = "pnlSpace7";
             this.pnlSpace7.Size = new System.Drawing.Size(480, 10);
             this.pnlSpace7.TabIndex = 156;
-            // 
-            // pnlLearners
-            // 
-            this.pnlLearners.Controls.Add(this.cboCourses);
-            this.pnlLearners.Controls.Add(this.lblCourses);
-            this.pnlLearners.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLearners.FillColor = System.Drawing.Color.White;
-            this.pnlLearners.Location = new System.Drawing.Point(0, 152);
-            this.pnlLearners.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.pnlLearners.Name = "pnlLearners";
-            this.pnlLearners.Size = new System.Drawing.Size(480, 36);
-            this.pnlLearners.TabIndex = 155;
-            // 
-            // cboCourses
-            // 
-            this.cboCourses.BackColor = System.Drawing.Color.White;
-            this.cboCourses.BorderRadius = 5;
-            this.cboCourses.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboCourses.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboCourses.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboCourses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboCourses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboCourses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCourses.Enabled = false;
-            this.cboCourses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboCourses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboCourses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboCourses.ItemHeight = 30;
-            this.cboCourses.Location = new System.Drawing.Point(94, 0);
-            this.cboCourses.Name = "cboCourses";
-            this.cboCourses.Size = new System.Drawing.Size(386, 36);
-            this.cboCourses.TabIndex = 2;
-            this.cboCourses.Tag = "Course";
-            this.cboCourses.SelectedIndexChanged += new System.EventHandler(this.cboCourses_SelectedIndexChanged);
-            // 
-            // lblCourses
-            // 
-            this.lblCourses.BackColor = System.Drawing.Color.White;
-            this.lblCourses.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblCourses.Location = new System.Drawing.Point(0, 0);
-            this.lblCourses.Name = "lblCourses";
-            this.lblCourses.Size = new System.Drawing.Size(94, 36);
-            this.lblCourses.TabIndex = 0;
-            this.lblCourses.Text = "    Courses: ";
-            this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlSpace8
-            // 
-            this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace8.FillColor = System.Drawing.Color.White;
-            this.pnlSpace8.Location = new System.Drawing.Point(0, 142);
-            this.pnlSpace8.Name = "pnlSpace8";
-            this.pnlSpace8.Size = new System.Drawing.Size(480, 10);
-            this.pnlSpace8.TabIndex = 152;
             // 
             // pnlDate_Session
             // 
@@ -1080,7 +1041,7 @@
             this.pnlDate_Session.Controls.Add(this.label1);
             this.pnlDate_Session.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDate_Session.FillColor = System.Drawing.Color.White;
-            this.pnlDate_Session.Location = new System.Drawing.Point(0, 106);
+            this.pnlDate_Session.Location = new System.Drawing.Point(0, 198);
             this.pnlDate_Session.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlDate_Session.Name = "pnlDate_Session";
             this.pnlDate_Session.Size = new System.Drawing.Size(480, 36);
@@ -1099,10 +1060,10 @@
             this.btnSendSchedule_Teacher.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendSchedule_Teacher.ForeColor = System.Drawing.Color.White;
             this.btnSendSchedule_Teacher.Image = ((System.Drawing.Image)(resources.GetObject("btnSendSchedule_Teacher.Image")));
-            this.btnSendSchedule_Teacher.Location = new System.Drawing.Point(330, 0);
+            this.btnSendSchedule_Teacher.Location = new System.Drawing.Point(319, 0);
             this.btnSendSchedule_Teacher.Name = "btnSendSchedule_Teacher";
             this.btnSendSchedule_Teacher.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSendSchedule_Teacher.Size = new System.Drawing.Size(150, 36);
+            this.btnSendSchedule_Teacher.Size = new System.Drawing.Size(161, 36);
             this.btnSendSchedule_Teacher.TabIndex = 20;
             this.btnSendSchedule_Teacher.Text = "  For Teacher";
             this.btnSendSchedule_Teacher.Click += new System.EventHandler(this.btnSendSchedule_Teacher_ClickAsync);
@@ -1127,7 +1088,7 @@
             this.cboTeachers.ItemHeight = 30;
             this.cboTeachers.Location = new System.Drawing.Point(94, 0);
             this.cboTeachers.Name = "cboTeachers";
-            this.cboTeachers.Size = new System.Drawing.Size(225, 36);
+            this.cboTeachers.Size = new System.Drawing.Size(219, 36);
             this.cboTeachers.TabIndex = 10;
             this.cboTeachers.Tag = "Teacher";
             // 
@@ -1144,27 +1105,53 @@
             this.label1.Text = "    Teachers: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlSpace5
+            // pnlSpace8
             // 
-            this.pnlSpace5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace5.FillColor = System.Drawing.Color.White;
-            this.pnlSpace5.Location = new System.Drawing.Point(0, 96);
-            this.pnlSpace5.Name = "pnlSpace5";
-            this.pnlSpace5.Size = new System.Drawing.Size(480, 10);
-            this.pnlSpace5.TabIndex = 148;
+            this.pnlSpace8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace8.FillColor = System.Drawing.Color.White;
+            this.pnlSpace8.Location = new System.Drawing.Point(0, 188);
+            this.pnlSpace8.Name = "pnlSpace8";
+            this.pnlSpace8.Size = new System.Drawing.Size(480, 10);
+            this.pnlSpace8.TabIndex = 152;
             // 
             // pnlCourse_Vehicle
             // 
+            this.pnlCourse_Vehicle.Controls.Add(this.txtLearnerName);
             this.pnlCourse_Vehicle.Controls.Add(this.btnSendSchedule_Learner);
-            this.pnlCourse_Vehicle.Controls.Add(this.cboLearners);
             this.pnlCourse_Vehicle.Controls.Add(this.lblLearner);
             this.pnlCourse_Vehicle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCourse_Vehicle.FillColor = System.Drawing.Color.White;
-            this.pnlCourse_Vehicle.Location = new System.Drawing.Point(0, 60);
+            this.pnlCourse_Vehicle.Location = new System.Drawing.Point(0, 152);
             this.pnlCourse_Vehicle.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlCourse_Vehicle.Name = "pnlCourse_Vehicle";
             this.pnlCourse_Vehicle.Size = new System.Drawing.Size(480, 36);
             this.pnlCourse_Vehicle.TabIndex = 147;
+            // 
+            // txtLearnerName
+            // 
+            this.txtLearnerName.BackColor = System.Drawing.Color.White;
+            this.txtLearnerName.BorderRadius = 5;
+            this.txtLearnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLearnerName.DefaultText = "";
+            this.txtLearnerName.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtLearnerName.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtLearnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtLearnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtLearnerName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtLearnerName.Enabled = false;
+            this.txtLearnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtLearnerName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtLearnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtLearnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtLearnerName.Location = new System.Drawing.Point(94, 0);
+            this.txtLearnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLearnerName.Name = "txtLearnerName";
+            this.txtLearnerName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.txtLearnerName.PasswordChar = '\0';
+            this.txtLearnerName.PlaceholderText = "";
+            this.txtLearnerName.SelectedText = "";
+            this.txtLearnerName.Size = new System.Drawing.Size(219, 36);
+            this.txtLearnerName.TabIndex = 20;
             // 
             // btnSendSchedule_Learner
             // 
@@ -1179,37 +1166,13 @@
             this.btnSendSchedule_Learner.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendSchedule_Learner.ForeColor = System.Drawing.Color.White;
             this.btnSendSchedule_Learner.Image = ((System.Drawing.Image)(resources.GetObject("btnSendSchedule_Learner.Image")));
-            this.btnSendSchedule_Learner.Location = new System.Drawing.Point(330, 0);
+            this.btnSendSchedule_Learner.Location = new System.Drawing.Point(319, 0);
             this.btnSendSchedule_Learner.Name = "btnSendSchedule_Learner";
             this.btnSendSchedule_Learner.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSendSchedule_Learner.Size = new System.Drawing.Size(150, 36);
+            this.btnSendSchedule_Learner.Size = new System.Drawing.Size(161, 36);
             this.btnSendSchedule_Learner.TabIndex = 19;
             this.btnSendSchedule_Learner.Text = "  For Learner";
             this.btnSendSchedule_Learner.Click += new System.EventHandler(this.btnSendSchedule_Learner_ClickAsync);
-            // 
-            // cboLearners
-            // 
-            this.cboLearners.BackColor = System.Drawing.Color.White;
-            this.cboLearners.BorderRadius = 5;
-            this.cboLearners.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboLearners.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboLearners.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboLearners.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cboLearners.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboLearners.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLearners.Enabled = false;
-            this.cboLearners.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboLearners.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboLearners.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboLearners.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboLearners.ItemHeight = 30;
-            this.cboLearners.Location = new System.Drawing.Point(94, 0);
-            this.cboLearners.Name = "cboLearners";
-            this.cboLearners.Size = new System.Drawing.Size(225, 36);
-            this.cboLearners.TabIndex = 7;
-            this.cboLearners.Tag = "Learner";
             // 
             // lblLearner
             // 
@@ -1221,8 +1184,206 @@
             this.lblLearner.Name = "lblLearner";
             this.lblLearner.Size = new System.Drawing.Size(94, 36);
             this.lblLearner.TabIndex = 0;
-            this.lblLearner.Text = "    Learners: ";
+            this.lblLearner.Text = "    Learner: ";
             this.lblLearner.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlSpace24
+            // 
+            this.pnlSpace24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace24.FillColor = System.Drawing.Color.White;
+            this.pnlSpace24.Location = new System.Drawing.Point(0, 142);
+            this.pnlSpace24.Name = "pnlSpace24";
+            this.pnlSpace24.Size = new System.Drawing.Size(480, 10);
+            this.pnlSpace24.TabIndex = 161;
+            // 
+            // pnlTeachers
+            // 
+            this.pnlTeachers.Controls.Add(this.cboSessions);
+            this.pnlTeachers.Controls.Add(this.lblNewSession);
+            this.pnlTeachers.Controls.Add(this.txtCurrentSession);
+            this.pnlTeachers.Controls.Add(this.lblCurrentSession);
+            this.pnlTeachers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTeachers.FillColor = System.Drawing.Color.White;
+            this.pnlTeachers.Location = new System.Drawing.Point(0, 106);
+            this.pnlTeachers.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pnlTeachers.Name = "pnlTeachers";
+            this.pnlTeachers.Size = new System.Drawing.Size(480, 36);
+            this.pnlTeachers.TabIndex = 157;
+            // 
+            // cboSessions
+            // 
+            this.cboSessions.BackColor = System.Drawing.Color.White;
+            this.cboSessions.BorderRadius = 5;
+            this.cboSessions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboSessions.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboSessions.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboSessions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboSessions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboSessions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSessions.Enabled = false;
+            this.cboSessions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboSessions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboSessions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboSessions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboSessions.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboSessions.ItemHeight = 30;
+            this.cboSessions.Location = new System.Drawing.Point(319, 0);
+            this.cboSessions.Name = "cboSessions";
+            this.cboSessions.Size = new System.Drawing.Size(161, 36);
+            this.cboSessions.TabIndex = 8;
+            this.cboSessions.Tag = "Session";
+            this.cboSessions.SelectedIndexChanged += new System.EventHandler(this.cboSessions_SelectedIndexChanged);
+            // 
+            // lblNewSession
+            // 
+            this.lblNewSession.BackColor = System.Drawing.Color.White;
+            this.lblNewSession.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblNewSession.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewSession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblNewSession.Location = new System.Drawing.Point(215, 0);
+            this.lblNewSession.Name = "lblNewSession";
+            this.lblNewSession.Size = new System.Drawing.Size(104, 36);
+            this.lblNewSession.TabIndex = 1;
+            this.lblNewSession.Text = " New Session: ";
+            this.lblNewSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCurrentSession
+            // 
+            this.txtCurrentSession.BackColor = System.Drawing.Color.White;
+            this.txtCurrentSession.BorderRadius = 5;
+            this.txtCurrentSession.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCurrentSession.DefaultText = "";
+            this.txtCurrentSession.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtCurrentSession.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtCurrentSession.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCurrentSession.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtCurrentSession.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtCurrentSession.Enabled = false;
+            this.txtCurrentSession.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCurrentSession.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtCurrentSession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCurrentSession.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCurrentSession.Location = new System.Drawing.Point(94, 0);
+            this.txtCurrentSession.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCurrentSession.Name = "txtCurrentSession";
+            this.txtCurrentSession.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.txtCurrentSession.PasswordChar = '\0';
+            this.txtCurrentSession.PlaceholderText = "";
+            this.txtCurrentSession.SelectedText = "";
+            this.txtCurrentSession.Size = new System.Drawing.Size(121, 36);
+            this.txtCurrentSession.TabIndex = 10;
+            // 
+            // lblCurrentSession
+            // 
+            this.lblCurrentSession.BackColor = System.Drawing.Color.White;
+            this.lblCurrentSession.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCurrentSession.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentSession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblCurrentSession.Location = new System.Drawing.Point(0, 0);
+            this.lblCurrentSession.Name = "lblCurrentSession";
+            this.lblCurrentSession.Size = new System.Drawing.Size(94, 36);
+            this.lblCurrentSession.TabIndex = 9;
+            this.lblCurrentSession.Text = "   Sessions: ";
+            this.lblCurrentSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlSpace5
+            // 
+            this.pnlSpace5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace5.FillColor = System.Drawing.Color.White;
+            this.pnlSpace5.Location = new System.Drawing.Point(0, 96);
+            this.pnlSpace5.Name = "pnlSpace5";
+            this.pnlSpace5.Size = new System.Drawing.Size(480, 10);
+            this.pnlSpace5.TabIndex = 148;
+            // 
+            // pnlLearners
+            // 
+            this.pnlLearners.Controls.Add(this.dtpSessionDate);
+            this.pnlLearners.Controls.Add(this.lblDate);
+            this.pnlLearners.Controls.Add(this.txtCourseName);
+            this.pnlLearners.Controls.Add(this.lblCourses);
+            this.pnlLearners.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLearners.FillColor = System.Drawing.Color.White;
+            this.pnlLearners.Location = new System.Drawing.Point(0, 60);
+            this.pnlLearners.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.pnlLearners.Name = "pnlLearners";
+            this.pnlLearners.Size = new System.Drawing.Size(480, 36);
+            this.pnlLearners.TabIndex = 155;
+            // 
+            // dtpSessionDate
+            // 
+            this.dtpSessionDate.BorderColor = System.Drawing.Color.White;
+            this.dtpSessionDate.BorderRadius = 5;
+            this.dtpSessionDate.Checked = true;
+            this.dtpSessionDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpSessionDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpSessionDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpSessionDate.Enabled = false;
+            this.dtpSessionDate.FillColor = System.Drawing.Color.White;
+            this.dtpSessionDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpSessionDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpSessionDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSessionDate.Location = new System.Drawing.Point(319, 0);
+            this.dtpSessionDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpSessionDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpSessionDate.Name = "dtpSessionDate";
+            this.dtpSessionDate.Size = new System.Drawing.Size(161, 36);
+            this.dtpSessionDate.TabIndex = 10;
+            this.dtpSessionDate.Tag = "Date";
+            this.dtpSessionDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpSessionDate.ValueChanged += new System.EventHandler(this.dtpSessionDate_ValueChanged);
+            // 
+            // lblDate
+            // 
+            this.lblDate.BackColor = System.Drawing.Color.White;
+            this.lblDate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblDate.Location = new System.Drawing.Point(215, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(104, 36);
+            this.lblDate.TabIndex = 9;
+            this.lblDate.Text = " Date: ";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtCourseName
+            // 
+            this.txtCourseName.BackColor = System.Drawing.Color.White;
+            this.txtCourseName.BorderRadius = 5;
+            this.txtCourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCourseName.DefaultText = "";
+            this.txtCourseName.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtCourseName.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtCourseName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCourseName.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtCourseName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtCourseName.Enabled = false;
+            this.txtCourseName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCourseName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtCourseName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtCourseName.Location = new System.Drawing.Point(94, 0);
+            this.txtCourseName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.txtCourseName.PasswordChar = '\0';
+            this.txtCourseName.PlaceholderText = "";
+            this.txtCourseName.SelectedText = "";
+            this.txtCourseName.Size = new System.Drawing.Size(121, 36);
+            this.txtCourseName.TabIndex = 4;
+            // 
+            // lblCourses
+            // 
+            this.lblCourses.BackColor = System.Drawing.Color.White;
+            this.lblCourses.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblCourses.Location = new System.Drawing.Point(0, 0);
+            this.lblCourses.Name = "lblCourses";
+            this.lblCourses.Size = new System.Drawing.Size(94, 36);
+            this.lblCourses.TabIndex = 0;
+            this.lblCourses.Text = "    Course: ";
+            this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSpace14
             // 
@@ -1369,86 +1530,6 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Space";
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 18;
-            // 
-            // CourseName
-            // 
-            this.CourseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CourseName.DataPropertyName = "CourseName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CourseName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CourseName.FillWeight = 53.63456F;
-            this.CourseName.Frozen = true;
-            this.CourseName.HeaderText = "Course";
-            this.CourseName.MinimumWidth = 6;
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            this.CourseName.Width = 140;
-            // 
-            // LearnerName
-            // 
-            this.LearnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LearnerName.DataPropertyName = "LearnerName";
-            this.LearnerName.Frozen = true;
-            this.LearnerName.HeaderText = "Learner";
-            this.LearnerName.MinimumWidth = 6;
-            this.LearnerName.Name = "LearnerName";
-            this.LearnerName.ReadOnly = true;
-            this.LearnerName.Width = 190;
-            // 
-            // TeacherName
-            // 
-            this.TeacherName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TeacherName.DataPropertyName = "TeacherName";
-            this.TeacherName.Frozen = true;
-            this.TeacherName.HeaderText = "Teacher";
-            this.TeacherName.MinimumWidth = 6;
-            this.TeacherName.Name = "TeacherName";
-            this.TeacherName.ReadOnly = true;
-            this.TeacherName.Width = 160;
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.VehicleName.DataPropertyName = "VehicleName";
-            this.VehicleName.Frozen = true;
-            this.VehicleName.HeaderText = "Vehicle";
-            this.VehicleName.MinimumWidth = 6;
-            this.VehicleName.Name = "VehicleName";
-            this.VehicleName.ReadOnly = true;
-            this.VehicleName.Width = 160;
-            // 
-            // SessionDate
-            // 
-            this.SessionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SessionDate.DataPropertyName = "Date";
-            this.SessionDate.Frozen = true;
-            this.SessionDate.HeaderText = "Date";
-            this.SessionDate.MinimumWidth = 6;
-            this.SessionDate.Name = "SessionDate";
-            this.SessionDate.ReadOnly = true;
-            this.SessionDate.Width = 125;
-            // 
-            // Session
-            // 
-            this.Session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Session.DataPropertyName = "Session";
-            this.Session.Frozen = true;
-            this.Session.HeaderText = "Time";
-            this.Session.MinimumWidth = 6;
-            this.Session.Name = "Session";
-            this.Session.ReadOnly = true;
-            this.Session.Width = 125;
-            // 
             // ScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1476,10 +1557,10 @@
             this.pnlScheduleDetail.ResumeLayout(false);
             this.pnlButtonEdit_Delete.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            this.pnlTeachers.ResumeLayout(false);
-            this.pnlLearners.ResumeLayout(false);
             this.pnlDate_Session.ResumeLayout(false);
             this.pnlCourse_Vehicle.ResumeLayout(false);
+            this.pnlTeachers.ResumeLayout(false);
+            this.pnlLearners.ResumeLayout(false);
             this.pnlScheduleDetails_Top.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1530,11 +1611,10 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace8;
         private Guna.UI2.WinForms.Guna2Panel pnlDate_Session;
         private Guna.UI2.WinForms.Guna2ComboBox cboSessions;
-        private System.Windows.Forms.Label lblSession;
+        private System.Windows.Forms.Label lblNewSession;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpSessionDate;
         private System.Windows.Forms.Label lblDate;
         private Guna.UI2.WinForms.Guna2Panel pnlCourse_Vehicle;
-        private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
         private System.Windows.Forms.Label lblCourses;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace14;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
@@ -1549,7 +1629,6 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlTeachers;
 		private Guna.UI2.WinForms.Guna2ComboBox cboTeachers;
 		private System.Windows.Forms.Label label1;
-		private Guna.UI2.WinForms.Guna2ComboBox cboLearners;
 		private Guna.UI2.WinForms.Guna2Panel pnlButtonEdit_Delete;
 		private Guna.UI2.WinForms.Guna2Button btnDelete;
 		private Guna.UI2.WinForms.Guna2Button btnEdit;
@@ -1567,6 +1646,12 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboVehicles;
         private System.Windows.Forms.Label lblVehicles;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
+		private Guna.UI2.WinForms.Guna2TextBox txtCourseName;
+		private Guna.UI2.WinForms.Guna2Button btnRefreshForm;
+		private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+		private System.Windows.Forms.Label lblCurrentSession;
+		private Guna.UI2.WinForms.Guna2TextBox txtCurrentSession;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LearnerName;
