@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BLL.Services
 {
@@ -13,11 +14,16 @@ namespace BLL.Services
 		}
 
 		public static void AssignCoursesToCombobox(Guna2ComboBox cbo)
-		{
-			CourseBLL.Instance.AssignCoursesToCombobox(cbo);
-		}
+        {
+            CourseBLL.Instance.AssignCoursesToCombobox(cbo);
+        }
 
-		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
+		public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+		{
+            CourseBLL.Instance.AssignCoursesToCombobox(cbo, status);
+        }
+
+        public static void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
 		{
 			CourseBLL.Instance.AssignCoursesToCombobox(cbo, status, curDate);
 		}

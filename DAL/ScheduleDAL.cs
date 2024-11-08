@@ -282,16 +282,7 @@ namespace DAL
         }
         #endregion
 
-        #region Lấy ra Schedule bằng LearnerID
-        //public List<Schedule> GetSchedulesByLearnerId(int learnerId)
-        //{
-        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-        //    {
-        //        return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
-        //    }
-        //}
-        #endregion
-
+        #region Map to Schedule
         private Schedule MapToSchedule(dynamic item)
         {
             return new Schedule
@@ -345,7 +336,9 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
 
+        #region Lấy 1 lịch học dựa vào courseID
         public Schedule GetSchedule(int courseID)
         {
             using (var db = DataAccess.GetDataContext())
@@ -355,5 +348,6 @@ namespace DAL
                 return schedule;
             }
         }
+        #endregion
     }
 }

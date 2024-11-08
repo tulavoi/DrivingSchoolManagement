@@ -26,7 +26,13 @@ namespace BLL
             this.AddCoursesToCombobox(cbo, courses);
         }
 
-		public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status)
+        {
+            List<Course> courses = CourseDAL.Instance.GetCoursesInvoiced(status);
+            this.AddCoursesToCombobox(cbo, courses);
+        }
+
+        public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
 		{
 			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status, curDate);
 			this.AddCoursesToCombobox(cbo, courses);
