@@ -27,7 +27,6 @@ namespace GUI
 			InitializeComponent();
 			FormHelper.ApplyRoundedCorners(this, 20);
 
-            dtpSchedule.Value = DateTime.Now;
 			calendarManager = new CalendarManager(pnlMatrix, dtpSchedule.Value);
 			calendarManager.LoadMatrix();
 
