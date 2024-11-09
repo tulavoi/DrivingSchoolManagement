@@ -12,7 +12,6 @@ namespace GUI
 	public partial class PaymentsForm : Form
 	{
 		#region Properties
-		private string invoiceStatus = "Pending";
 		private bool isEditing = false;
 		private static PaymentsForm instance;
 		public static PaymentsForm Instance
@@ -164,7 +163,7 @@ namespace GUI
 		{
 			return new Payment
 			{
-				PaymentID = int.Parse(lblPaymentID.Text),
+				PaymentID = Convert.ToInt32(FormHelper.GetObjectID(lblPaymentID.Text)),
 				InvoiceID = int.Parse(txtInvoiceName.Text),
 				PaymentDate = dtpPaymentDate.Value,
 				Amount = int.Parse(txtAmount.Text),
@@ -209,7 +208,8 @@ namespace GUI
 		{
 			if (payment == null) return;
 
-			FormHelper.SetLabelID(lblPaymentID, payment.PaymentID.ToString());
+			string paymentID = $"ID: {payment.PaymentID.ToString()}";
+			FormHelper.SetLabelID(lblPaymentID, paymentID);
 			txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
 			txtInvoiceName.Text = payment.InvoiceID.ToString();
 			txtAmount.Text = payment.Amount.ToString();
@@ -217,7 +217,7 @@ namespace GUI
 			cboMethods.Text = payment.PaymentMethod;
 			int invoiceID = payment.InvoiceID ?? 0;
 			decimal remainingAmount = CalculateRemainingAmount(invoiceID);
-			lblOwed.Text = remainingAmount.ToString();
+			txtOwed.Text = remainingAmount.ToString();
 		}
 
 		private void btnDelete_Click(object sender, EventArgs e)

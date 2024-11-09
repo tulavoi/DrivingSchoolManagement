@@ -104,7 +104,7 @@ namespace BLL
 				if (rowIndex != -1 && rowIndex < dgv.Rows.Count)
 				{
 					dgv.Rows[rowIndex].Tag = payment;
-					dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = payment.InvoiceID;
+					dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = payment.Invoice.InvoiceCode;
 					dgv.Rows[rowIndex].Cells["PaymentDate"].Value = payment.PaymentDate?.ToString("yyyy-MM-dd");
 					dgv.Rows[rowIndex].Cells["InvoiceTo"].Value = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
 					dgv.Rows[rowIndex].Cells["Amount"].Value = payment.Amount.ToString();

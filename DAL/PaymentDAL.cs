@@ -32,6 +32,7 @@ namespace DAL
 						   {
 							   payment.PaymentID,
 							   payment.InvoiceID,
+							   invoice.InvoiceCode,
 							   payment.PaymentDate,
 							   payment.Amount,
 							   payment.PaymentMethod,
@@ -55,6 +56,7 @@ namespace DAL
 				Invoice = new Invoice
 				{
 					InvoiceID = item.InvoiceID,
+					InvoiceCode = item.InvoiceCode,
 					Enrollment = new Enrollment
 					{
 						Learner = new Learner()
@@ -90,8 +92,9 @@ namespace DAL
 						   {
 							   payment.PaymentID,
 							   payment.InvoiceID,
+							   invoice.InvoiceCode,
 							   payment.PaymentDate,
-							   payment.Amount,
+                               payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
 							   payment.Updated_At,
@@ -143,8 +146,9 @@ namespace DAL
 						   {
 							   payment.PaymentID,
 							   payment.InvoiceID,
+							   invoice.InvoiceCode,
 							   payment.PaymentDate,
-							   payment.Amount,
+                               payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
 							   payment.Updated_At,
@@ -187,6 +191,7 @@ namespace DAL
 			}
 		}
 		#endregion
+
 		#region Delete
 		public bool DeletePayment(int paymentID)
 		{
@@ -198,6 +203,7 @@ namespace DAL
 			throw new NotImplementedException();
 		}
 		#endregion
+
 		// Trong lớp PaymentDAL
 		public List<Payment> GetPaymentsByInvoiceID(int invoiceID)
 		{
