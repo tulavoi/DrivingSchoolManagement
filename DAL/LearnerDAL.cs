@@ -176,6 +176,7 @@ namespace DAL
         }
         #endregion
 
+        #region Map to learner
         private Learner MapToLearner(dynamic item)
         {
             return new Learner
@@ -198,6 +199,7 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
 
         #region Get learner by learner id
         public Learner GetLearner(int learnerId)

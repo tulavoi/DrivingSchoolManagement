@@ -77,7 +77,6 @@ namespace GUI
 
                 if (string.IsNullOrEmpty(txtLearner.Tag.ToString())) return;
                 int learnerID = Convert.ToInt32(txtLearner.Tag.ToString());
-                LearnerService.UpdateLicense(learnerID, FormHelper.GetObjectID(lblCourseID.Text));
             }
             else
             {

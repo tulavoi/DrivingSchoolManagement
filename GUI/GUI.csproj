@@ -192,6 +192,7 @@
     <Compile Include="CreateInvoiceForm.Designer.cs">
       <DependentUpon>CreateInvoiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreatorChart.cs" />
     <Compile Include="DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>

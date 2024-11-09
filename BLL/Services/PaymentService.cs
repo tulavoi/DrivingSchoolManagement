@@ -60,5 +60,10 @@ namespace BLL.Services
 		{
 			return PaymentBLL.Instance.GetPaymentsByInvoiceID(invoiceID);
 		}
-	}
+
+        public static List<Payment> GetAllPayments()
+        {
+			return PaymentBLL.Instance.GetAllPayments();
+        }
+    }
 }
