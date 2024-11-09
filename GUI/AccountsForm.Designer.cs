@@ -39,11 +39,13 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddAccountForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
+
             this.dgvAccounts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Permission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.pnlAccounts_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.cboPermission_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -102,10 +104,12 @@
             this.lblAccountDetails = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
+
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlAccounts.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
+
             this.pnlAccounts_Top.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlBottom_Right.SuspendLayout();
@@ -128,7 +132,9 @@
             this.pnlAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlAccounts.BorderRadius = 15;
             this.pnlAccounts.Controls.Add(this.pnlButtonAdd);
+
             this.pnlAccounts.Controls.Add(this.dgvAccounts);
+
             this.pnlAccounts.Controls.Add(this.pnlAccounts_Top);
             this.pnlAccounts.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlAccounts.Location = new System.Drawing.Point(0, 0);
@@ -265,6 +271,7 @@
             this.dgvAccounts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvAccounts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvAccounts.SelectionChanged += new System.EventHandler(this.dgvAccounts_SelectionChanged);
+
             // 
             // Column2
             // 
@@ -312,6 +319,7 @@
             this.Created_At.Name = "Created_At";
             this.Created_At.ReadOnly = true;
             this.Created_At.Width = 120;
+
             // 
             // pnlAccounts_Top
             // 
@@ -359,6 +367,7 @@
             this.cboPermission_Filter.Size = new System.Drawing.Size(131, 36);
             this.cboPermission_Filter.StartIndex = 0;
             this.cboPermission_Filter.TabIndex = 31;
+
             this.cboPermission_Filter.SelectedIndexChanged += new System.EventHandler(this.cboPermission_Filter_SelectedIndexChanged);
             // 
             // txtSearch
@@ -385,7 +394,9 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(161, 37);
             this.txtSearch.TabIndex = 13;
+
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+
             // 
             // pnlSpace8
             // 
@@ -837,7 +848,9 @@
             this.btnDelete.Size = new System.Drawing.Size(150, 35);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Delete";
+
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+
             // 
             // btnEdit
             // 
@@ -857,7 +870,9 @@
             this.btnEdit.Size = new System.Drawing.Size(150, 35);
             this.btnEdit.TabIndex = 17;
             this.btnEdit.Text = "Edit";
+
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+
             // 
             // pnlSpace13
             // 
@@ -1145,10 +1160,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountsForm";
             this.Text = "AccountsForm";
+
             this.Load += new System.EventHandler(this.AccountsForm_Load);
             this.pnlAccounts.ResumeLayout(false);
             this.pnlButtonAdd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).EndInit();
+
             this.pnlAccounts_Top.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
             this.pnlBottom_Right.ResumeLayout(false);
@@ -1165,7 +1182,6 @@
             this.pnlPhone_Email.ResumeLayout(false);
             this.pnlAccountDetails_Top.ResumeLayout(false);
             this.ResumeLayout(false);
-
 		}
 
 		#endregion
