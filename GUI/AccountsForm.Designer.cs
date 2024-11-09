@@ -28,22 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlAccounts = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddAccountForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvSchedules = new Guna.UI2.WinForms.Guna2DataGridView();
+
+            this.dgvAccounts = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmploymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Permission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Created_At = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.pnlAccounts_Top = new Guna.UI2.WinForms.Guna2Panel();
             this.cboPermission_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -102,9 +104,12 @@
             this.lblAccountDetails = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
+
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlAccounts.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
+
             this.pnlAccounts_Top.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlBottom_Right.SuspendLayout();
@@ -127,7 +132,9 @@
             this.pnlAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlAccounts.BorderRadius = 15;
             this.pnlAccounts.Controls.Add(this.pnlButtonAdd);
-            this.pnlAccounts.Controls.Add(this.dgvSchedules);
+
+            this.pnlAccounts.Controls.Add(this.dgvAccounts);
+
             this.pnlAccounts.Controls.Add(this.pnlAccounts_Top);
             this.pnlAccounts.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlAccounts.Location = new System.Drawing.Point(0, 0);
@@ -187,81 +194,84 @@
             this.pnlSpace15.Size = new System.Drawing.Size(15, 35);
             this.pnlSpace15.TabIndex = 10;
             // 
-            // dgvSchedules
+            // dgvAccounts
             // 
-            this.dgvSchedules.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvSchedules.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedules.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSchedules.ColumnHeadersHeight = 40;
-            this.dgvSchedules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAccounts.AllowUserToAddRows = false;
+            this.dgvAccounts.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvAccounts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvAccounts.ColumnHeadersHeight = 40;
+            this.dgvAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column5,
-            this.EmploymentDate});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSchedules.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvSchedules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvSchedules.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvSchedules.Location = new System.Drawing.Point(0, 59);
-            this.dgvSchedules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvSchedules.Name = "dgvSchedules";
-            this.dgvSchedules.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSchedules.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvSchedules.RowHeadersVisible = false;
-            this.dgvSchedules.RowHeadersWidth = 30;
-            this.dgvSchedules.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvSchedules.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvSchedules.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSchedules.RowTemplate.DividerHeight = 2;
-            this.dgvSchedules.RowTemplate.Height = 45;
-            this.dgvSchedules.Size = new System.Drawing.Size(430, 604);
-            this.dgvSchedules.TabIndex = 43;
-            this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvSchedules.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSchedules.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvSchedules.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dgvSchedules.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvSchedules.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvSchedules.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
-            this.dgvSchedules.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvSchedules.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvSchedules.ThemeStyle.ReadOnly = true;
-            this.dgvSchedules.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvSchedules.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvSchedules.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvSchedules.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvSchedules.ThemeStyle.RowsStyle.Height = 45;
-            this.dgvSchedules.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvSchedules.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.Email,
+            this.Permission,
+            this.Created_At});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccounts.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvAccounts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvAccounts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvAccounts.Location = new System.Drawing.Point(0, 59);
+            this.dgvAccounts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAccounts.Name = "dgvAccounts";
+            this.dgvAccounts.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccounts.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvAccounts.RowHeadersVisible = false;
+            this.dgvAccounts.RowHeadersWidth = 30;
+            this.dgvAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvAccounts.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvAccounts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAccounts.RowTemplate.DividerHeight = 2;
+            this.dgvAccounts.RowTemplate.Height = 45;
+            this.dgvAccounts.Size = new System.Drawing.Size(430, 604);
+            this.dgvAccounts.TabIndex = 43;
+            this.dgvAccounts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccounts.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAccounts.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAccounts.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAccounts.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAccounts.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccounts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvAccounts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.dgvAccounts.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAccounts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAccounts.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvAccounts.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAccounts.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvAccounts.ThemeStyle.ReadOnly = true;
+            this.dgvAccounts.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccounts.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAccounts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvAccounts.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvAccounts.ThemeStyle.RowsStyle.Height = 45;
+            this.dgvAccounts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAccounts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvAccounts.SelectionChanged += new System.EventHandler(this.dgvAccounts_SelectionChanged);
+
             // 
             // Column2
             // 
@@ -274,41 +284,42 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 18;
             // 
-            // dataGridViewTextBoxColumn3
+            // Email
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Email";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn3.FillWeight = 53.63456F;
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Email.DataPropertyName = "Email";
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Email.FillWeight = 53.63456F;
+            this.Email.Frozen = true;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 150;
             // 
-            // Column5
+            // Permission
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "Permission";
-            this.Column5.Frozen = true;
-            this.Column5.HeaderText = "Permission";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 120;
+            this.Permission.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Permission.DataPropertyName = "Permission";
+            this.Permission.Frozen = true;
+            this.Permission.HeaderText = "Permission";
+            this.Permission.MinimumWidth = 6;
+            this.Permission.Name = "Permission";
+            this.Permission.ReadOnly = true;
+            this.Permission.Width = 120;
             // 
-            // EmploymentDate
+            // Created_At
             // 
-            this.EmploymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmploymentDate.DataPropertyName = "Created_At";
-            this.EmploymentDate.Frozen = true;
-            this.EmploymentDate.HeaderText = "Date Created";
-            this.EmploymentDate.MinimumWidth = 6;
-            this.EmploymentDate.Name = "EmploymentDate";
-            this.EmploymentDate.ReadOnly = true;
-            this.EmploymentDate.Width = 120;
+            this.Created_At.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Created_At.DataPropertyName = "Created_At";
+            this.Created_At.Frozen = true;
+            this.Created_At.HeaderText = "Date Created";
+            this.Created_At.MinimumWidth = 6;
+            this.Created_At.Name = "Created_At";
+            this.Created_At.ReadOnly = true;
+            this.Created_At.Width = 120;
+
             // 
             // pnlAccounts_Top
             // 
@@ -356,6 +367,8 @@
             this.cboPermission_Filter.Size = new System.Drawing.Size(131, 36);
             this.cboPermission_Filter.StartIndex = 0;
             this.cboPermission_Filter.TabIndex = 31;
+
+            this.cboPermission_Filter.SelectedIndexChanged += new System.EventHandler(this.cboPermission_Filter_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -381,6 +394,9 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(161, 37);
             this.txtSearch.TabIndex = 13;
+
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+
             // 
             // pnlSpace8
             // 
@@ -832,6 +848,9 @@
             this.btnDelete.Size = new System.Drawing.Size(150, 35);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Delete";
+
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+
             // 
             // btnEdit
             // 
@@ -851,6 +870,9 @@
             this.btnEdit.Size = new System.Drawing.Size(150, 35);
             this.btnEdit.TabIndex = 17;
             this.btnEdit.Text = "Edit";
+
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+
             // 
             // pnlSpace13
             // 
@@ -1115,6 +1137,16 @@
             this.pnlSpace9.Size = new System.Drawing.Size(19, 50);
             this.pnlSpace9.TabIndex = 18;
             // 
+            // toolTip
+            // 
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.StripAmpersands = true;
+            // 
             // AccountsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1128,9 +1160,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountsForm";
             this.Text = "AccountsForm";
+
+            this.Load += new System.EventHandler(this.AccountsForm_Load);
             this.pnlAccounts.ResumeLayout(false);
             this.pnlButtonAdd.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).EndInit();
+
             this.pnlAccounts_Top.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
             this.pnlBottom_Right.ResumeLayout(false);
@@ -1147,7 +1182,6 @@
             this.pnlPhone_Email.ResumeLayout(false);
             this.pnlAccountDetails_Top.ResumeLayout(false);
             this.ResumeLayout(false);
-
 		}
 
 		#endregion
@@ -1164,11 +1198,7 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace5;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace6;
 		private Guna.UI2.WinForms.Guna2ComboBox cboPermission_Filter;
-		private Guna.UI2.WinForms.Guna2DataGridView dgvSchedules;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EmploymentDate;
+		private Guna.UI2.WinForms.Guna2DataGridView dgvAccounts;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace11;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
 		private Guna.UI2.WinForms.Guna2Panel pnlRight;
@@ -1220,5 +1250,10 @@
 		private Guna.UI2.WinForms.Guna2Button btnChangePass;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace14;
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace10;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Permission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+    }
 }
