@@ -92,7 +92,22 @@ namespace BLL.Services
 		{
 			StatusBLL.Instance.AssignCoursesToCombobox(cbo);
 		}
-
+    
+		public static void AssignInvoicesToCombobox(Guna2ComboBox cbo)
+		{
+			InvoiceBLL.Instance.AssignInvoicesToCombobox(cbo);
+		}
+    
+		public static void AssignInvoicesToCombobox(Guna2ComboBox cbo, string status)
+		{
+			InvoiceBLL.Instance.AssignInvoicesToCombobox(cbo, status);
+		}
+    
+		public static void AssignPaymentsToCombobox(Guna2ComboBox cbo)
+		{
+			PaymentBLL.Instance.AssignPaymentsToCombobox(cbo);
+    }
+    
 		public static void AssignVehicleInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
 		{
 			VehicleBLL.Instance.AssignVehicleInCourseToCombobox(cbo, courseID, sessionID, curDate);

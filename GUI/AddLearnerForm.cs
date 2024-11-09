@@ -125,5 +125,7 @@ namespace GUI
 			this.Height = showDetails ? 455 : 390;
 			FormHelper.ApplyRoundedCorners(this, 20);
 		}
+
+		
 	}
 }

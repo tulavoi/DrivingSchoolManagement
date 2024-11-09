@@ -37,8 +37,12 @@ namespace BLL
             List<Invoice> invoices = InvoiceDAL.Instance.FilterInvoicesByStatus(status);
             this.AddInvoicesToDataGridView(dgv, invoices);
         }
+		public Invoice GetInvoice(int invoiceID)
+		{
+			return InvoiceDAL.Instance.GetInvoice(invoiceID);
+		}
 
-        private void AddInvoicesToDataGridView(Guna2DataGridView dgv, List<Invoice> invoices)
+		private void AddInvoicesToDataGridView(Guna2DataGridView dgv, List<Invoice> invoices)
         {
             dgv.Rows.Clear();
             foreach (var invoice in invoices)
@@ -70,5 +74,36 @@ namespace BLL
         public bool DeleteInvoice(string invoiceCode) {
             return InvoiceDAL.Instance.DeleteInvoice(invoiceCode);
         }
-    }
+
+		public void AssignInvoicesToCombobox(Guna2ComboBox cbo)
+		{
+			List<Invoice> invoices = InvoiceDAL.Instance.GetAllInvoices();
+			this.AddInvoicesToCombobox(cbo, invoices);
+		}
+		public void AssignInvoicesToCombobox(Guna2ComboBox cbo, string status)
+		{
+			List<Invoice> invoices = InvoiceDAL.Instance.FilterInvoicesByStatus(status);
+			this.AddInvoicesToCombobox(cbo, invoices);
+		}
+		private void AddInvoicesToCombobox(Guna2ComboBox cbo, List<Invoice> invoices)
+		{
+			// Tạo mục "Select Invoice" mặc định
+			Invoice defaultInvoice = new Invoice
+			{
+				InvoiceID = 0, // hoặc null nếu `InvoiceID` là nullable
+				InvoiceCode = "Select invoice"
+			};
+
+			// Tạo một danh sách mới và thêm mục mặc định vào đầu
+			List<Invoice> updatedInvoices = new List<Invoice> { defaultInvoice };
+			updatedInvoices.AddRange(invoices); // Thêm tất cả hóa đơn vào danh sách
+
+			// Gán danh sách cập nhật làm DataSource
+			cbo.DataSource = updatedInvoices;
+			cbo.ValueMember = "InvoiceID";
+			cbo.DisplayMember = "InvoiceCode";
+			cbo.SelectedIndex = 0; // Đặt mục mặc định là mục đầu tiên
+		}
+
+	}
 }
