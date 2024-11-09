@@ -198,5 +198,15 @@ namespace DAL
 			throw new NotImplementedException();
 		}
 		#endregion
+		// Trong lớp PaymentDAL
+		public List<Payment> GetPaymentsByInvoiceID(int invoiceID)
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+				// Truy vấn cơ sở dữ liệu với InvoiceID và trả về danh sách Payment tương ứng
+				return db.Payments.Where(p => p.InvoiceID == invoiceID).ToList();
+			}
+		}
+
 	}
 }

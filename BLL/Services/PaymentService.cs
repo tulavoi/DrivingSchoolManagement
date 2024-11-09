@@ -52,6 +52,12 @@ namespace BLL.Services
 		{
 			PaymentBLL.Instance.FilterPaymentsByDate(dgv, selectedDate); // Gọi phương thức BLL để lọc Payment theo ngày
 		}
+		// Trong lớp PaymentService
+		public static List<Payment> GetPaymentsByInvoiceID(int invoiceID)
+		{
+			return PaymentBLL.Instance.GetPaymentsByInvoiceID(invoiceID);
+		}
+
 
 		// Phương thức lọc Payment theo phương thức thanh toán (PaymentMethod)
 		//public static void FilterPaymentsByMethod(Guna2DataGridView dgv, string paymentMethod)

@@ -32,6 +32,15 @@ namespace BLL
 			var filteredPayments = payments.FindAll(p => p.InvoiceID == invoiceID);
 			AddPaymentsToDataGridView(dgv, filteredPayments);
 		}
+		// Trong lớp PaymentBLL
+		// Trong lớp PaymentBLL
+		public List<Payment> GetPaymentsByInvoiceID(int invoiceID)
+		{
+			// Lấy dữ liệu thông qua tầng DAL
+			List<Payment> payments = PaymentDAL.Instance.GetPaymentsByInvoiceID(invoiceID);
+			return payments;
+		}
+
 
 		public void AssignPaymentsToCombobox(Guna2ComboBox cbo)
 		{

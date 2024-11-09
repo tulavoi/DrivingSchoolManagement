@@ -18,12 +18,14 @@ namespace GUI
 	{
 		private int? paymentID;
 		private int? enrollmentID;
+
 		public AddPaymentForm()
 		{
 			InitializeComponent();
 			FormHelper.ApplyRoundedCorners(this, 20);
 		}
 
+		// Hàm này được gọi khi form được tải, dùng để thiết lập các giá trị ban đầu
 		private void AddPaymentForm_Load(object sender, EventArgs e)
 		{
 			dtpPaymentDate.Value = DateTime.Now;
@@ -31,33 +33,47 @@ namespace GUI
 			LoadComboBoxes();
 		}
 
+		// Hàm này dùng để tải danh sách hóa đơn vào combobox
 		private void LoadComboBoxes()
 		{
 			string status = "Pending";
 			ComboboxService.AssignInvoicesToCombobox(cboInvoices, status);   // Gán danh sách hóa đơn vào combobox
 		}
+
+		// Hàm này gán tên học viên vào Label
 		private void AssignLearnerNameToTextBox(Payment payment)
 		{
-			// Kiểm tra nếu Payment không có dữ liệu Enrollment
 			if (payment?.Invoice?.Enrollment == null)
 			{
 				FormHelper.ShowNotify("This payment is not associated with an enrolled course, please choose another payment.");
-				//this.ResetControls(cboPayments, txtLearnerName);
 				return;
 			}
 
-			// Gán tên học viên vào TextBox và lưu trữ PaymentID
 			lblName.Text = payment.Invoice.Enrollment.Learner.FullName;
 			this.paymentID = payment.PaymentID;
 		}
 
+		// Hàm này xử lý sự kiện khi nhấn nút Add Payment
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
 			if (!ValidateFields()) return;
 
 			Payment payment = GetPaymentData();
-			string errorMessage = "";
-			var result = PaymentService.AddPayment(payment);
+
+			if (payment == null || !payment.InvoiceID.HasValue || payment.InvoiceID.Value <= 0)
+			{
+				FormHelper.ShowNotify("Invalid payment or invoice ID.");
+				return;
+			}
+
+			decimal remainingAmount = GetRemainingAmount(payment.InvoiceID.Value);
+			if (payment.Amount > remainingAmount)
+			{
+				FormHelper.ShowNotify("The payment amount cannot exceed the remaining balance.");
+				return;
+			}
+
+			bool result = PaymentService.AddPayment(payment);
 
 			if (result)
 			{
@@ -66,26 +82,43 @@ namespace GUI
 			}
 			else
 			{
-				if (!string.IsNullOrEmpty(errorMessage))
-					FormHelper.ShowError(errorMessage);
-				else
-					FormHelper.ShowError("Failed to add payment.");
+				FormHelper.ShowError("Failed to add payment.");
 			}
 		}
 
+		// Hàm này tính toán số tiền nợ còn lại cho hóa đơn
+		private decimal GetRemainingAmount(int invoiceID)
+		{
+			var invoice = InvoiceService.GetInvoice(invoiceID);
+			if (invoice == null)
+			{
+				FormHelper.ShowNotify("Invoice not found.");
+				return 0;
+			}
+
+			var payments = PaymentService.GetPaymentsByInvoiceID(invoiceID);
+			decimal totalPaid = payments.Sum(p => p.Amount.GetValueOrDefault());
+
+			decimal remainingAmount = (invoice.TotalAmount ?? 0) - totalPaid;
+
+			return remainingAmount;
+		}
+
+		// Hàm này dùng để kiểm tra các trường hợp nhập liệu không hợp lệ
 		private bool ValidateFields()
 		{
 			if (!PaymentValidator.CheckRequiredAndShowToolTip(txtAmount, toolTip)) return false;
-			// Validate số tiền
 			if (!decimal.TryParse(txtAmount.Text, out _))
 			{
 				toolTip.Show("Invalid amount", txtAmount);
 				return false;
 			}
+			if (!PaymentValidator.ValidatePaymentMethod(cboMethods, toolTip)) return false;
 
 			return true;
 		}
 
+		// Hàm này lấy dữ liệu Payment từ các điều khiển trên form
 		private Payment GetPaymentData()
 		{
 			return new Payment
@@ -98,20 +131,13 @@ namespace GUI
 			};
 		}
 
+		// Hàm này xử lý sự kiện khi nhấn nút Cancel
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
-		private void LoadStudentName()
-		{
-			//if (cboInvoices.SelectedValue is int invoiceID)
-			//{
-			//	string studentName = ComboboxService.GetStudentNameByInvoiceID(invoiceID); // Giả sử hàm này trả về tên học viên
-			//	.Text = studentName; // Hiển thị tên học viên
-			//}
-		}
-
+		// Hàm này dùng để hiển thị tên học viên của hóa đơn đã chọn
 		private void cboInvoices_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (cboInvoices.SelectedIndex < 1)
@@ -125,7 +151,7 @@ namespace GUI
 			AssignLearnerNameToLabel();
 		}
 
-		// Hiển thị tên học viên lên label dựa trên hóa đơn đã chọn
+		// Hàm này gán tên học viên vào label dựa trên hóa đơn đã chọn
 		private void AssignLearnerNameToLabel()
 		{
 			int invoiceID = Convert.ToInt32(cboInvoices.SelectedValue);
@@ -141,14 +167,14 @@ namespace GUI
 			this.enrollmentID = invoice.EnrollmentID;
 		}
 
-		// Đặt lại tên học viên và làm trống các điều khiển liên quan
+		// Hàm này làm trống tên học viên khi không có hóa đơn được chọn
 		private void ResetLearnerName()
 		{
 			lblName.Text = string.Empty;
 			enrollmentID = 0;
 		}
 
-		// Điều chỉnh hiển thị của form dựa trên việc có chọn hóa đơn hay không
+		// Hàm này điều chỉnh giao diện của form dựa trên việc có chọn hóa đơn hay không
 		private void ConfigureForm(bool showDetails)
 		{
 			pnlInvoiceTo.Visible = showDetails;
@@ -157,11 +183,9 @@ namespace GUI
 			FormHelper.ApplyRoundedCorners(this, 20);
 		}
 
-		//584, 423
 		private void cboMethods_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
+			// Có thể thêm logic xử lý nếu cần
 		}
 	}
 }
-
