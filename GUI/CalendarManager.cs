@@ -109,6 +109,7 @@ namespace GUI
 
 		public void AddNumberToMatrixByDate(DateTime date)
 		{
+			_dtpValue = date; // Cập nhật lại _dateValue
 			this.ResetMatrixButtons(); // Các nút sẽ được làm mới, sau đó điền các ngày vào các nút tương ứng.
 
 			DateTime curDate = new DateTime(date.Year, date.Month, 1);

@@ -231,7 +231,7 @@ namespace DAL
         #region Delete
         public bool DeleteSchedule(int scheduleID)
         {
-            return DeleteData(sche => sche.ScheduleID == scheduleID);
+            return UpdateStatus(sche => sche.ScheduleID == scheduleID, 2); // StatusID = 2, StatusName = "Inactive"
         }
         #endregion
 
@@ -282,16 +282,7 @@ namespace DAL
         }
         #endregion
 
-        #region Lấy ra Schedule bằng LearnerID
-        //public List<Schedule> GetSchedulesByLearnerId(int learnerId)
-        //{
-        //    using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-        //    {
-        //        return db.Schedules.Where(s => s.LearnerID == learnerId).ToList();
-        //    }
-        //}
-        #endregion
-
+        #region Map to Schedule
         private Schedule MapToSchedule(dynamic item)
         {
             return new Schedule
@@ -345,7 +336,9 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
 
+        #region Lấy 1 lịch học dựa vào courseID
         public Schedule GetSchedule(int courseID)
         {
             using (var db = DataAccess.GetDataContext())
@@ -355,5 +348,6 @@ namespace DAL
                 return schedule;
             }
         }
+        #endregion
     }
 }

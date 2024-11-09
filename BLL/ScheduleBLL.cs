@@ -78,10 +78,10 @@ namespace BLL
                 {
                     dgv.Rows[rowIndex].Tag = schedule;
 
-                    //dgv.Rows[rowIndex].Cells["CourseName"].Value = schedule.Enrollment.Course.CourseName;
-                    //dgv.Rows[rowIndex].Cells["LearnerName"].Value = schedule.Enrollment.Learner.FullName;
+                    dgv.Rows[rowIndex].Cells["CourseName"].Value = schedule.Enrollment.Course.CourseName;
+                    dgv.Rows[rowIndex].Cells["LearnerName"].Value = schedule.Enrollment.Learner.FullName;
                     dgv.Rows[rowIndex].Cells["TeacherName"].Value = schedule.Teacher.FullName;
-                    dgv.Rows[rowIndex].Cells["VehicleName"].Value = schedule.Vehicle.VehicleName;
+                    dgv.Rows[rowIndex].Cells["VehicleName"].Value = schedule.Vehicle.VehicleName + " - " + schedule.Vehicle.VehicleNumber;
                     dgv.Rows[rowIndex].Cells["SessionDate"].Value = schedule.SessionDate.Value.ToString("dd-MM-yyyy");
                     dgv.Rows[rowIndex].Cells["Session"].Value = schedule.Session.Session1;
                 }

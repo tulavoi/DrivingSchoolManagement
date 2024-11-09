@@ -49,6 +49,11 @@ namespace BLL
             this.AddLearnersToDataGridView(dgv, learners);
         }
 
+        public List<Learner> GetAllLearners()
+        {
+            return LearnerDAL.Instance.GetAllLearners();
+        }
+
         public void SearchLearners(Guna2DataGridView dgv, string keyword)
         {
             List<Learner> learners = LearnerDAL.Instance.SearchLearners(keyword);

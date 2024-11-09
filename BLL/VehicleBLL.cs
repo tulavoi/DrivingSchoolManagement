@@ -26,16 +26,22 @@ namespace BLL
         public void AssignVehiclesToCombobox(Guna2ComboBox cbo)
         {
             List<Vehicle> vehicles = VehicleDAL.Instance.GetAllVehiclesNotMaintenance();
-            this.AddVehiclesToCombobox(cbo, vehicles);
-        }
-
-        public void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID)
-        {
-            List<Vehicle> vehicles = VehicleDAL.Instance.GetVehicleForCourse(courseID);
             this.AddVehiclesToCombobox_HasVehicleNumber(cbo, vehicles);
         }
 
-        private void AddVehiclesToCombobox(Guna2ComboBox cbo, List<Vehicle> vehicles)
+        public void AssignVehiclesToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+        {
+            List<Vehicle> vehicles = VehicleDAL.Instance.GetVehicleForCourse(courseID, sessionID, curDate);
+            this.AddVehiclesToCombobox_HasVehicleNumber(cbo, vehicles);
+        }
+
+		public void AssignVehicleInCourseToCombobox(Guna2ComboBox cbo, int courseID, int sessionID, DateTime curDate)
+		{
+			List<Vehicle> vehicles = VehicleDAL.Instance.GetVehicleForCourseAndInCourse(courseID, sessionID, curDate);
+			this.AddVehiclesToCombobox_HasVehicleNumber(cbo, vehicles);
+		}
+
+		private void AddVehiclesToCombobox(Guna2ComboBox cbo, List<Vehicle> vehicles)
         {
             Vehicle vehicle = new Vehicle();
             vehicle.VehicleName = "Select Vehicle";
@@ -98,15 +104,21 @@ namespace BLL
                     dgv.Rows[rowIndex].Tag = vehicle;
                     dgv.Rows[rowIndex].Cells["CarName"].Value = vehicle.VehicleName;
                     dgv.Rows[rowIndex].Cells["CarNumber"].Value = vehicle.VehicleNumber;
-                    dgv.Rows[rowIndex].Cells["ManufactureYear"].Value = vehicle.ManufacturerYear;
-                    if (vehicle.IsMaintenance == true)
+
+                    if (dgv.Columns.Contains("ManufactureYear"))
+                        dgv.Rows[rowIndex].Cells["ManufactureYear"].Value = vehicle.ManufacturerYear;
+
+                    if (dgv.Columns.Contains("Status"))
                     {
-                        dgv.Rows[rowIndex].Cells["Status"].Value = "Maintenance";
+                        if (vehicle.IsMaintenance == true)
+                            dgv.Rows[rowIndex].Cells["Status"].Value = "Maintenance";
+                        else
+                            dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
                     }
-                    else
-                    {
-                        dgv.Rows[rowIndex].Cells["Status"].Value = "Available";
-                    }
+
+                    if (dgv.Columns.Contains("CarType"))
+                        dgv.Rows[rowIndex].Cells["CarType"].Value = vehicle.IsTruck == true ? "Truck" : 
+                                                                    vehicle.IsPassengerCar == true ? "Passenger Car" : "";
                 }
             }
         }

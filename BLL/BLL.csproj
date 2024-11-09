@@ -134,6 +134,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ComboboxService.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\EnrollmentService.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Services\SendEmail\MailContent.cs" />
     <Compile Include="Services\SendEmail\MailSettings.cs" />
     <Compile Include="Services\SendEmail\SendMailService.cs" />
+    <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\VehicleService.cs" />
     <Compile Include="SessionBLL.cs" />
