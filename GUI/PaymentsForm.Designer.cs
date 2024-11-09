@@ -47,12 +47,6 @@
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlPayments = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvPayments = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvoiceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvoiceTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddPaymentForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
@@ -68,6 +62,9 @@
             this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlBasicDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlInvoiceTo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtOwed = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtLearnerName = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblLearner = new System.Windows.Forms.Label();
             this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
@@ -91,6 +88,12 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvoiceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvoiceTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFilter.SuspendLayout();
             this.pnlPayments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
@@ -368,75 +371,6 @@
             this.dgvPayments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvPayments.SelectionChanged += new System.EventHandler(this.dgvPayments_SelectionChanged);
             // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Space";
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 18;
-            // 
-            // InvoiceCode
-            // 
-            this.InvoiceCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.InvoiceCode.DataPropertyName = "InvoiceCode";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle3;
-            this.InvoiceCode.FillWeight = 53.63456F;
-            this.InvoiceCode.Frozen = true;
-            this.InvoiceCode.HeaderText = "Invoice";
-            this.InvoiceCode.MinimumWidth = 6;
-            this.InvoiceCode.Name = "InvoiceCode";
-            this.InvoiceCode.ReadOnly = true;
-            this.InvoiceCode.Width = 110;
-            // 
-            // PaymentDate
-            // 
-            this.PaymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PaymentDate.DataPropertyName = "PaymentDate";
-            this.PaymentDate.Frozen = true;
-            this.PaymentDate.HeaderText = "Payment Date";
-            this.PaymentDate.MinimumWidth = 6;
-            this.PaymentDate.Name = "PaymentDate";
-            this.PaymentDate.ReadOnly = true;
-            this.PaymentDate.Width = 130;
-            // 
-            // InvoiceTo
-            // 
-            this.InvoiceTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.InvoiceTo.DataPropertyName = "InvoiceTo";
-            this.InvoiceTo.Frozen = true;
-            this.InvoiceTo.HeaderText = "Invoice To";
-            this.InvoiceTo.MinimumWidth = 6;
-            this.InvoiceTo.Name = "InvoiceTo";
-            this.InvoiceTo.ReadOnly = true;
-            this.InvoiceTo.Width = 200;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.Frozen = true;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 120;
-            // 
-            // Method
-            // 
-            this.Method.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Method.DataPropertyName = "Method";
-            this.Method.Frozen = true;
-            this.Method.HeaderText = "Method";
-            this.Method.MinimumWidth = 6;
-            this.Method.Name = "Method";
-            this.Method.ReadOnly = true;
-            this.Method.Width = 130;
-            // 
             // pnlButtonAdd
             // 
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddPaymentForm);
@@ -624,6 +558,9 @@
             // 
             // pnlInvoiceTo
             // 
+            this.pnlInvoiceTo.Controls.Add(this.guna2TextBox1);
+            this.pnlInvoiceTo.Controls.Add(this.txtOwed);
+            this.pnlInvoiceTo.Controls.Add(this.label1);
             this.pnlInvoiceTo.Controls.Add(this.txtLearnerName);
             this.pnlInvoiceTo.Controls.Add(this.lblLearner);
             this.pnlInvoiceTo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -632,6 +569,70 @@
             this.pnlInvoiceTo.Name = "pnlInvoiceTo";
             this.pnlInvoiceTo.Size = new System.Drawing.Size(770, 36);
             this.pnlInvoiceTo.TabIndex = 128;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BackColor = System.Drawing.Color.White;
+            this.guna2TextBox1.BorderRadius = 5;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "VND";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2TextBox1.Enabled = false;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(713, 0);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(57, 36);
+            this.guna2TextBox1.TabIndex = 37;
+            // 
+            // txtOwed
+            // 
+            this.txtOwed.BackColor = System.Drawing.Color.White;
+            this.txtOwed.BorderRadius = 5;
+            this.txtOwed.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtOwed.DefaultText = "";
+            this.txtOwed.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtOwed.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtOwed.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtOwed.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtOwed.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtOwed.Enabled = false;
+            this.txtOwed.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtOwed.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtOwed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtOwed.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtOwed.Location = new System.Drawing.Point(525, 0);
+            this.txtOwed.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOwed.Name = "txtOwed";
+            this.txtOwed.Padding = new System.Windows.Forms.Padding(0, 11, 0, 11);
+            this.txtOwed.PasswordChar = '\0';
+            this.txtOwed.PlaceholderText = "";
+            this.txtOwed.SelectedText = "";
+            this.txtOwed.Size = new System.Drawing.Size(181, 36);
+            this.txtOwed.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(412, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 36);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Amount Owed:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtLearnerName
             // 
@@ -656,7 +657,7 @@
             this.txtLearnerName.PasswordChar = '\0';
             this.txtLearnerName.PlaceholderText = "";
             this.txtLearnerName.SelectedText = "";
-            this.txtLearnerName.Size = new System.Drawing.Size(381, 36);
+            this.txtLearnerName.Size = new System.Drawing.Size(304, 36);
             this.txtLearnerName.TabIndex = 34;
             // 
             // lblLearner
@@ -787,6 +788,7 @@
             this.txtAmount.SelectedText = "";
             this.txtAmount.Size = new System.Drawing.Size(232, 36);
             this.txtAmount.TabIndex = 34;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // lblAmount
             // 
@@ -1004,6 +1006,75 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Space";
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 18;
+            // 
+            // InvoiceCode
+            // 
+            this.InvoiceCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.InvoiceCode.DataPropertyName = "InvoiceCode";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle3;
+            this.InvoiceCode.FillWeight = 53.63456F;
+            this.InvoiceCode.Frozen = true;
+            this.InvoiceCode.HeaderText = "Invoice";
+            this.InvoiceCode.MinimumWidth = 6;
+            this.InvoiceCode.Name = "InvoiceCode";
+            this.InvoiceCode.ReadOnly = true;
+            this.InvoiceCode.Width = 160;
+            // 
+            // PaymentDate
+            // 
+            this.PaymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PaymentDate.DataPropertyName = "PaymentDate";
+            this.PaymentDate.Frozen = true;
+            this.PaymentDate.HeaderText = "Payment Date";
+            this.PaymentDate.MinimumWidth = 6;
+            this.PaymentDate.Name = "PaymentDate";
+            this.PaymentDate.ReadOnly = true;
+            this.PaymentDate.Width = 130;
+            // 
+            // InvoiceTo
+            // 
+            this.InvoiceTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.InvoiceTo.DataPropertyName = "InvoiceTo";
+            this.InvoiceTo.Frozen = true;
+            this.InvoiceTo.HeaderText = "Invoice To";
+            this.InvoiceTo.MinimumWidth = 6;
+            this.InvoiceTo.Name = "InvoiceTo";
+            this.InvoiceTo.ReadOnly = true;
+            this.InvoiceTo.Width = 200;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.Frozen = true;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 120;
+            // 
+            // Method
+            // 
+            this.Method.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Method.DataPropertyName = "Method";
+            this.Method.Frozen = true;
+            this.Method.HeaderText = "Method";
+            this.Method.MinimumWidth = 6;
+            this.Method.Name = "Method";
+            this.Method.ReadOnly = true;
+            this.Method.Width = 130;
+            // 
             // PaymentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1087,12 +1158,15 @@
 		private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
 		private Guna.UI2.WinForms.Guna2TextBox txtLearnerName;
 		private Guna.UI2.WinForms.Guna2TextBox txtInvoiceName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceCode;
-		private System.Windows.Forms.DataGridViewTextBoxColumn PaymentDate;
-		private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceTo;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Method;
 		private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
-	}
+		private Guna.UI2.WinForms.Guna2TextBox txtOwed;
+		private System.Windows.Forms.Label label1;
+		private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Method;
+    }
 }

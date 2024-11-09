@@ -43,20 +43,22 @@ namespace BLL.Services
 		{
 			PaymentBLL.Instance.FilterPaymentsByPaymentID(dgv, paymentID); // Gọi phương thức BLL để lọc Payment theo PaymentID
 		}
+
 		public static void FilterPaymentsByInvoiceID(Guna2DataGridView dgv, int invoiceID)
 		{
 			PaymentBLL.Instance.FilterPaymentsByInvoiceID(dgv, invoiceID); // Gọi phương thức BLL để lọc Payment theo PaymentID
 		}
+
 		// Phương thức lọc Payment theo ngày thanh toán (ví dụ: DateTime)
 		public static void FilterPaymentsByDate(Guna2DataGridView dgv, DateTime selectedDate)
 		{
 			PaymentBLL.Instance.FilterPaymentsByDate(dgv, selectedDate); // Gọi phương thức BLL để lọc Payment theo ngày
 		}
 
-		// Phương thức lọc Payment theo phương thức thanh toán (PaymentMethod)
-		//public static void FilterPaymentsByMethod(Guna2DataGridView dgv, string paymentMethod)
-		//{
-		//	PaymentBLL.Instance.FilterPaymentsByMethod(dgv, paymentMethod); // Gọi phương thức BLL để lọc Payment theo phương thức thanh toán
-		//}
+		// Trong lớp PaymentService
+		public static List<Payment> GetPaymentsByInvoiceID(int invoiceID)
+		{
+			return PaymentBLL.Instance.GetPaymentsByInvoiceID(invoiceID);
+		}
 	}
 }

@@ -32,6 +32,15 @@ namespace BLL
 			var filteredPayments = payments.FindAll(p => p.InvoiceID == invoiceID);
 			AddPaymentsToDataGridView(dgv, filteredPayments);
 		}
+		// Trong lớp PaymentBLL
+		// Trong lớp PaymentBLL
+		public List<Payment> GetPaymentsByInvoiceID(int invoiceID)
+		{
+			// Lấy dữ liệu thông qua tầng DAL
+			List<Payment> payments = PaymentDAL.Instance.GetPaymentsByInvoiceID(invoiceID);
+			return payments;
+		}
+
 
 		public void AssignPaymentsToCombobox(Guna2ComboBox cbo)
 		{
@@ -95,7 +104,7 @@ namespace BLL
 				if (rowIndex != -1 && rowIndex < dgv.Rows.Count)
 				{
 					dgv.Rows[rowIndex].Tag = payment;
-					dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = payment.InvoiceID;
+					dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = payment.Invoice.InvoiceCode;
 					dgv.Rows[rowIndex].Cells["PaymentDate"].Value = payment.PaymentDate?.ToString("yyyy-MM-dd");
 					dgv.Rows[rowIndex].Cells["InvoiceTo"].Value = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
 					dgv.Rows[rowIndex].Cells["Amount"].Value = payment.Amount.ToString();
