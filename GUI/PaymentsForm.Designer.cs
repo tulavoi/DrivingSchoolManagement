@@ -1032,7 +1032,6 @@
 			this.pnlInvoice.ResumeLayout(false);
 			this.pnlDetails_Top.ResumeLayout(false);
 			this.ResumeLayout(false);
-
 		}
 
 		#endregion
