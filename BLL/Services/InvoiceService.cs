@@ -31,8 +31,16 @@ namespace BLL.Services
         {
             InvoiceBLL.Instance.LoadAllInvoices(dgv);
         }
+		public static Invoice GetInvoice(int invoiceID)
+		{
+			return InvoiceDAL.Instance.GetInvoice(invoiceID);
+		}
+		public static Invoice GetInvoiceID(int invoiceID)
+		{
+			return InvoiceDAL.Instance.GetInvoiceID(invoiceID);
+		}
 
-        public static void SearchInvoices(Guna2DataGridView dgv, string keyword)
+		public static void SearchInvoices(Guna2DataGridView dgv, string keyword)
         {
             InvoiceBLL.Instance.SearchInvoices(dgv, keyword);
         }
@@ -41,5 +49,5 @@ namespace BLL.Services
         {
             InvoiceBLL.Instance.FilterInvoicesByStatus(dgv, status);
         }
-    }
+	}
 }

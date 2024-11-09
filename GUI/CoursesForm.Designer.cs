@@ -1427,7 +1427,6 @@
             this.pnlLicense.ResumeLayout(false);
             this.pnlCourseDetails_Top.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

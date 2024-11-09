@@ -130,6 +130,7 @@
     <Compile Include="InvoiceBLL.cs" />
     <Compile Include="LearnerBLL.cs" />
     <Compile Include="LicenseBLL.cs" />
+    <Compile Include="PaymentBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleBLL.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Services\EnrollmentService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\LearnerService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="Services\SendEmail\MailContent.cs" />
     <Compile Include="Services\SendEmail\MailSettings.cs" />
