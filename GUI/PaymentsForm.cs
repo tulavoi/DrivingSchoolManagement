@@ -1,7 +1,5 @@
-﻿using BLL;
-using BLL.Services;
+﻿using BLL.Services;
 using DAL;
-using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -11,7 +9,6 @@ namespace GUI
     public partial class PaymentsForm : Form
     {
         #region Properties
-        private string invoiceStatus = "Pending";
         private bool isEditing = false;
         private static PaymentsForm instance;
         public static PaymentsForm Instance
@@ -31,12 +28,11 @@ namespace GUI
         }
 
         private void PaymentsForm_Load(object sender, EventArgs e)
-		{
-			dtpPaymentDate.Value = DateTime.Now;
+        {
+            dtpPaymentDate.Value = DateTime.Now;
+            this.LoadAllPayments();
 
-			this.LoadAllPayments();
-			// Gán ngày giờ hiện tại cho DateTimePicker
-			LoadComboboxes();
+            this.LoadComboboxes();
         }
 
         private void LoadComboboxes()
@@ -100,7 +96,7 @@ namespace GUI
         {
             return new Payment
             {
-                PaymentID = int.Parse(lblPaymentID.Text),
+                PaymentID = Convert.ToInt32(FormHelper.GetObjectID(lblPaymentID.Text)),
                 InvoiceID = int.Parse(txtInvoiceName.Text),
                 PaymentDate = dtpPaymentDate.Value,
                 Amount = int.Parse(txtAmount.Text),
@@ -145,10 +141,8 @@ namespace GUI
         {
             if (payment == null) return;
 
-            FormHelper.SetLabelID(lblPaymentID, payment.PaymentID.ToString());
-            //txtLearnerName.Text = payment.Invoice.Enrollment.Learner.FullName;
-            //txtLearnerName.Text=payment.InvoiceID.ToString();
-            //txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? "N/A";
+            string paymentID = $"ID: {payment.PaymentID}";
+            FormHelper.SetLabelID(lblPaymentID, paymentID);
             txtLearnerName.Text = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
             txtInvoiceName.Text = payment.InvoiceID.ToString();
             txtAmount.Text = payment.Amount.ToString();
@@ -171,36 +165,24 @@ namespace GUI
 
         private void cboLearners_Filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-			//if (!FormHelper.HasSelectedItem(cboLearners_Filter))
-				//         {
-				//             this.LoadAllPayments();
-				//             return;
-				//}
-				//int selectedPaymentID = Convert.ToInt32(cboLearners_Filter.SelectedValue);
-				//         PaymentService.FilterPaymentsByPaymentID(dgvPayments, selectedPaymentID);
-				//         UpdateControlsWithSelectedRowData();
-				FormHelper.ClearDataGridViewRow(dgvPayments);
+            FormHelper.ClearDataGridViewRow(dgvPayments);
 
             if (cboLearners_Filter.SelectedItem.ToString() == "Selected All")
-            {
-				LoadAllPayments();
+                LoadAllPayments();
 
-			}
-			else
+            else
             {
-				int selectedPaymentID = ((KeyValuePair<string, int>)cboLearners_Filter.SelectedItem).Value;
-				PaymentService.FilterPaymentsByInvoiceID(dgvPayments, selectedPaymentID);
-				UpdateControlsWithSelectedRowData();
+                int selectedPaymentID = ((KeyValuePair<string, int>)cboLearners_Filter.SelectedItem).Value;
+                PaymentService.FilterPaymentsByInvoiceID(dgvPayments, selectedPaymentID);
+                UpdateControlsWithSelectedRowData();
             }
         }
 
         private void dtpPaymentDate_Filter_ValueChanged(object sender, EventArgs e)
         {
-			DateTime selectedPaymentDate = dtpPaymentDate_Filter.Value.Date;
-			PaymentService.FilterPaymentsByDate(dgvPayments, selectedPaymentDate);
-			this.UpdateControlsWithSelectedRowData();
-            
-		}
-	}
+            DateTime selectedPaymentDate = dtpPaymentDate_Filter.Value.Date;
+            PaymentService.FilterPaymentsByDate(dgvPayments, selectedPaymentDate);
+            this.UpdateControlsWithSelectedRowData();
+        }
+    }
 }
