@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL;
+using GUI.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -25,7 +29,38 @@ namespace GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            Account account = this.GetAccount();
 
+            if (!this.ValidateFields()) return;
+
+            if (AccountService.AddAccount(account))
+                FormHelper.ShowNotify("Account added successfully.");
+            else
+                FormHelper.ShowError("Failed to add account.");
+
+        }
+
+        private Account GetAccount()
+        {
+            return new Account
+            {
+                Email = txtEmail.Text,
+                Permission = cboPermission.SelectedItem.ToString() == "Admin" ? true : false,
+                Created_At = DateTime.Now,
+                Updated_At = DateTime.Now
+            };
+        }
+
+        private bool ValidateFields()
+        {
+            if (!AccountValidator.ValidatePermission(cboPermission, toolTip)) return false;
+            if (!AccountValidator.ValidateEmail(txtEmail, toolTip)) return false;
+            return true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

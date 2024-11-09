@@ -160,7 +160,7 @@ namespace GUI
 		private void UpdateControlsWithSelectedRowData()
 		{
 			// Check if a row is selected and assign selected learner data to controls
-			if (!this.HasSelectedRow()) return;
+			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
 
 			var selectedRow = dgvLearners.SelectedRows[0];
 
@@ -197,7 +197,7 @@ namespace GUI
 
 		private void btnDeleteLearner_Click(object sender, EventArgs e)
 		{
-			if (!this.HasSelectedRow()) return;
+			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
 
 			if (this.ConfirmAction($"Are you sure to delete learner '{txtLearnerName.Text}'?"))
 			{
@@ -210,12 +210,6 @@ namespace GUI
 				// Sau khi xóa xong, hiển thị lại toàn bộ data có status Active
 				cboStatus_Filter_SelectedIndexChanged(sender, e);
 			}
-		}
-
-		private bool HasSelectedRow()
-		{
-			// Check if any row is selected in the DataGridView
-			return dgvLearners.SelectedRows.Count > 0;
 		}
 
 		private MailContent CreateMailContent(Learner learner)

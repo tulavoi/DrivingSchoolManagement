@@ -24,7 +24,7 @@ namespace GUI
 
         private void LoadCombobox()
         {
-            ComboboxService.AssignAvailableToCombobox(cboCourses);
+            ComboboxService.AssignAvailableCourseToCombobox(cboCourses);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
