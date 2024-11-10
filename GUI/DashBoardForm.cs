@@ -158,5 +158,23 @@ namespace GUI
 
             return dataTable;
         }
+
+        private void btnChart3_Click(object sender, EventArgs e)
+        {
+            CreatorChart.ChartHorizontalBar(statisticChart, GetEnrollmentData(), "Number of Enrollments by License");
+        }
+
+        private DataTable GetEnrollmentData()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Lincense", typeof(string));
+            dataTable.Columns.Add("Count", typeof(int));
+
+            var enrollments = LicenseEnrollmentCountService.GetEnrollmentsByLicense();
+            foreach (var enrollment in enrollments)
+                dataTable.Rows.Add(enrollment.LicenseName, enrollment.Count);
+
+            return dataTable;
+        }
     }
 }

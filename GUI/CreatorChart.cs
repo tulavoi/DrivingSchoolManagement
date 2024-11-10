@@ -67,5 +67,30 @@ namespace GUI
             else
                 MessageBox.Show("Not enough data.", "Error");
         }
+
+        public static void ChartHorizontalBar(GunaChart chart, DataTable data, string nameChart)
+        {
+            if (checkEmpty(data))
+            {
+                chart.Datasets.Clear();
+                //Chart configuration 
+                chart.Legend.Display = false;
+                chart.XAxes.Display = true;
+                chart.YAxes.Display = true;
+                chart.Title.Text = nameChart;
+
+                var dataset = new GunaHorizontalBarDataset();
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    dataset.DataPoints.Add(
+                        Convert.ToString(data.Rows[i][0]),
+                        Convert.ToInt32(data.Rows[i][1])
+                    );
+                }
+                chart.Datasets.Add(dataset);
+            }
+            else
+                MessageBox.Show("Insufficient data.", "Error");
+        }
     }
 }
