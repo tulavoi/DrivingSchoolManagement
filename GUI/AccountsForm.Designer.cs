@@ -103,6 +103,9 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.btnHideOldPass = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNewPass = new Guna.UI2.WinForms.Guna2Button();
+            this.btnConfirmPass = new Guna.UI2.WinForms.Guna2Button();
             this.pnlAccounts.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
@@ -525,6 +528,7 @@
             this.btnChangePass.Size = new System.Drawing.Size(165, 35);
             this.btnChangePass.TabIndex = 18;
             this.btnChangePass.Text = "Change Password";
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // pnlSpace14
             // 
@@ -547,6 +551,7 @@
             // 
             // pnlConfirmPass
             // 
+            this.pnlConfirmPass.Controls.Add(this.btnConfirmPass);
             this.pnlConfirmPass.Controls.Add(this.txtConfirmPass);
             this.pnlConfirmPass.Controls.Add(this.lblConfirmPass);
             this.pnlConfirmPass.Dock = System.Windows.Forms.DockStyle.Top;
@@ -566,7 +571,7 @@
             this.txtConfirmPass.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtConfirmPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtConfirmPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtConfirmPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtConfirmPass.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtConfirmPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtConfirmPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -577,8 +582,9 @@
             this.txtConfirmPass.PasswordChar = '*';
             this.txtConfirmPass.PlaceholderText = "";
             this.txtConfirmPass.SelectedText = "";
-            this.txtConfirmPass.Size = new System.Drawing.Size(315, 36);
+            this.txtConfirmPass.Size = new System.Drawing.Size(269, 36);
             this.txtConfirmPass.TabIndex = 28;
+            this.txtConfirmPass.Tag = "Confirm Password";
             // 
             // lblConfirmPass
             // 
@@ -604,6 +610,7 @@
             // 
             // pnlNewPass
             // 
+            this.pnlNewPass.Controls.Add(this.btnNewPass);
             this.pnlNewPass.Controls.Add(this.txtNewPass);
             this.pnlNewPass.Controls.Add(this.lblNewPass);
             this.pnlNewPass.Dock = System.Windows.Forms.DockStyle.Top;
@@ -623,7 +630,7 @@
             this.txtNewPass.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtNewPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtNewPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtNewPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNewPass.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtNewPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtNewPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtNewPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -634,8 +641,9 @@
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.PlaceholderText = "";
             this.txtNewPass.SelectedText = "";
-            this.txtNewPass.Size = new System.Drawing.Size(315, 36);
+            this.txtNewPass.Size = new System.Drawing.Size(269, 36);
             this.txtNewPass.TabIndex = 28;
+            this.txtNewPass.Tag = "New Password";
             // 
             // lblNewPass
             // 
@@ -661,6 +669,7 @@
             // 
             // pnlOldPass
             // 
+            this.pnlOldPass.Controls.Add(this.btnHideOldPass);
             this.pnlOldPass.Controls.Add(this.txtOldPass);
             this.pnlOldPass.Controls.Add(this.lblOldPass);
             this.pnlOldPass.Dock = System.Windows.Forms.DockStyle.Top;
@@ -680,7 +689,7 @@
             this.txtOldPass.DisabledState.FillColor = System.Drawing.Color.White;
             this.txtOldPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.txtOldPass.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtOldPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtOldPass.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtOldPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.txtOldPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.txtOldPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -691,8 +700,9 @@
             this.txtOldPass.PasswordChar = '*';
             this.txtOldPass.PlaceholderText = "";
             this.txtOldPass.SelectedText = "";
-            this.txtOldPass.Size = new System.Drawing.Size(315, 36);
+            this.txtOldPass.Size = new System.Drawing.Size(269, 36);
             this.txtOldPass.TabIndex = 24;
+            this.txtOldPass.Tag = "Old Password";
             // 
             // lblOldPass
             // 
@@ -1132,6 +1142,81 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.StripAmpersands = true;
             // 
+            // btnHideOldPass
+            // 
+            this.btnHideOldPass.BackColor = System.Drawing.Color.White;
+            this.btnHideOldPass.BorderColor = System.Drawing.Color.White;
+            this.btnHideOldPass.BorderRadius = 5;
+            this.btnHideOldPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHideOldPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHideOldPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHideOldPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHideOldPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHideOldPass.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnHideOldPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnHideOldPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnHideOldPass.ForeColor = System.Drawing.Color.White;
+            this.btnHideOldPass.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnHideOldPass.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnHideOldPass.HoverState.Image = global::GUI.Properties.Resources.hidden;
+            this.btnHideOldPass.Image = global::GUI.Properties.Resources.hidden_2;
+            this.btnHideOldPass.Location = new System.Drawing.Point(431, 0);
+            this.btnHideOldPass.Name = "btnHideOldPass";
+            this.btnHideOldPass.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnHideOldPass.PressedDepth = 5;
+            this.btnHideOldPass.Size = new System.Drawing.Size(40, 36);
+            this.btnHideOldPass.TabIndex = 25;
+            // 
+            // btnNewPass
+            // 
+            this.btnNewPass.BackColor = System.Drawing.Color.White;
+            this.btnNewPass.BorderColor = System.Drawing.Color.White;
+            this.btnNewPass.BorderRadius = 5;
+            this.btnNewPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNewPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNewPass.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNewPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnNewPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnNewPass.ForeColor = System.Drawing.Color.White;
+            this.btnNewPass.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnNewPass.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnNewPass.HoverState.Image = global::GUI.Properties.Resources.hidden;
+            this.btnNewPass.Image = global::GUI.Properties.Resources.hidden_2;
+            this.btnNewPass.Location = new System.Drawing.Point(431, 0);
+            this.btnNewPass.Name = "btnNewPass";
+            this.btnNewPass.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNewPass.PressedDepth = 5;
+            this.btnNewPass.Size = new System.Drawing.Size(40, 36);
+            this.btnNewPass.TabIndex = 29;
+            // 
+            // btnConfirmPass
+            // 
+            this.btnConfirmPass.BackColor = System.Drawing.Color.White;
+            this.btnConfirmPass.BorderColor = System.Drawing.Color.White;
+            this.btnConfirmPass.BorderRadius = 5;
+            this.btnConfirmPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnConfirmPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnConfirmPass.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnConfirmPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnConfirmPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmPass.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmPass.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnConfirmPass.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnConfirmPass.HoverState.Image = global::GUI.Properties.Resources.hidden;
+            this.btnConfirmPass.Image = global::GUI.Properties.Resources.hidden_2;
+            this.btnConfirmPass.Location = new System.Drawing.Point(431, 0);
+            this.btnConfirmPass.Name = "btnConfirmPass";
+            this.btnConfirmPass.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnConfirmPass.PressedDepth = 5;
+            this.btnConfirmPass.Size = new System.Drawing.Size(40, 36);
+            this.btnConfirmPass.TabIndex = 29;
+            // 
             // AccountsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1239,5 +1324,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Permission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Created_At;
         private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
+        private Guna.UI2.WinForms.Guna2Button btnHideOldPass;
+        private Guna.UI2.WinForms.Guna2Button btnConfirmPass;
+        private Guna.UI2.WinForms.Guna2Button btnNewPass;
     }
 }

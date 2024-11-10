@@ -61,6 +61,7 @@ namespace DAL
                             c =>                                          // Action cập nhật các thuộc tính
                             {
                                 c.Email = account.Email;
+                                c.Password = account.Password;
                                 c.Permission = account.Permission;
                                 c.Updated_At = DateTime.Now;
                             });
