@@ -71,6 +71,12 @@ namespace GUI
                 FormHelper.ShowToolTip(cboPaymentStatus, toolTip, "Please select status.");
                 return false;
             }
+
+            if (Convert.ToInt32(txtTotalAmount.Text) > 25000000)
+            {
+                FormHelper.ShowToolTip(cboPaymentStatus, toolTip, $"{txtTotalAmount.Tag} must be less than 25000000.");
+                return false;
+            }
             return true;
         }
 
