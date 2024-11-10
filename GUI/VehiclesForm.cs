@@ -115,6 +115,8 @@ namespace GUI
                 Seats = string.IsNullOrWhiteSpace(txtSeats.Text) ? (int?)null : int.Parse(txtSeats.Text),
                 IsMaintenance = cboStatus.SelectedItem.ToString() == "Available",
                 Notes = txtNotes.Text,
+                StartMaintenaceDate = dtpStartMaintenance.Value,
+                EndMaintenaceDate = dtpEndMaintenance.Value,
                 Updated_At = DateTime.Now,
             };
 
@@ -123,7 +125,8 @@ namespace GUI
 
         private void ToggleEditModeNote()
         {
-            FormHelper.ToggleEditMode(ref this.isEditing_MaintenanceDetails, this.btnEdit_MaintenanceDetail, cboStatus, txtNotes);
+            FormHelper.ToggleEditMode(ref this.isEditing_MaintenanceDetails, 
+                this.btnEdit_MaintenanceDetail, cboStatus, txtNotes, dtpStartMaintenance, dtpEndMaintenance);
         }
 
         private bool InSaveModeNote()
@@ -133,7 +136,6 @@ namespace GUI
 
         private void btnEdit_Maintenance_Click(object sender, EventArgs e)
         {
-
             if (!this.InSaveModeNote())
             {
                 this.ToggleEditModeNote();
@@ -230,6 +232,9 @@ namespace GUI
 
             txtWeight.Enabled = false;
             txtSeats.Enabled = false;
+            
+            dtpStartMaintenance.Value = selectedVehicle.StartMaintenaceDate == null ? DateTime.Now : selectedVehicle.StartMaintenaceDate.Value;
+            dtpEndMaintenance.Value = selectedVehicle.EndMaintenaceDate == null ? DateTime.Now : selectedVehicle.EndMaintenaceDate.Value;
         }
 
         private bool HasSelectedRow()

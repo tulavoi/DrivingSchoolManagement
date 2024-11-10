@@ -4,6 +4,7 @@ using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -38,9 +39,27 @@ namespace GUI
 
             Teacher teacher = this.GetTeacher();
             if (TeacherService.AddTeacher(teacher))
+            {
                 FormHelper.ShowNotify("Teacher added successfully.");
+                this.ResetControls();
+            }
             else
                 FormHelper.ShowError("Failed to add teacher.");
+        }
+
+        private void ResetControls()
+        {
+            txtFullName.Text = "";
+            txtCitizenId.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+            dtpDOB.Value = DateTime.Now;
+            txtAddress.Text = "";
+            cboGender.SelectedIndex = 0;
+            cboNationality.SelectedIndex = 0;
+            cboLicenses.SelectedIndex = 0;
+            txtLicenseNumber.Text = "";
+            dtpBeginningDate.Value = DateTime.Now;
         }
 
         private Teacher GetTeacher()

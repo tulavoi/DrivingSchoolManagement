@@ -39,8 +39,8 @@
             this.btnAccounts = new Guna.UI2.WinForms.Guna2Button();
             this.btnPayments = new Guna.UI2.WinForms.Guna2Button();
             this.btnInvoice = new Guna.UI2.WinForms.Guna2Button();
-            this.btnVehicles = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedules = new Guna.UI2.WinForms.Guna2Button();
+            this.btnVehicles = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCourses = new Guna.UI2.WinForms.Guna2Button();
@@ -137,11 +137,11 @@
             this.pnlMenu.Controls.Add(this.btnInvoice);
             this.pnlMenu.Controls.Add(this.btnSchedules);
             this.pnlMenu.Controls.Add(this.btnVehicles);
+            this.pnlMenu.Controls.Add(this.btnTeachers);
+            this.pnlMenu.Controls.Add(this.btnLearners);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.pnlSpace10);
             this.pnlMenu.Controls.Add(this.btnCourses);
-            this.pnlMenu.Controls.Add(this.btnTeachers);
-            this.pnlMenu.Controls.Add(this.btnLearners);
             this.pnlMenu.Controls.Add(this.btnDashboard);
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -256,40 +256,6 @@
             this.btnInvoice.TextOffset = new System.Drawing.Point(25, 0);
             this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
             // 
-            // btnVehicles
-            // 
-            this.btnVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            this.btnVehicles.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            this.btnVehicles.BorderThickness = 2;
-            this.btnVehicles.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.btnVehicles.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnVehicles.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
-            this.btnVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVehicles.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
-            this.btnVehicles.DisabledState.FillColor = System.Drawing.Color.White;
-            this.btnVehicles.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
-            this.btnVehicles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVehicles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            this.btnVehicles.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnVehicles.ForeColor = System.Drawing.Color.White;
-            this.btnVehicles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.btnVehicles.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnVehicles.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            this.btnVehicles.HoverState.Image = global::GUI.Properties.Resources.car_2;
-            this.btnVehicles.Image = global::GUI.Properties.Resources.car_1;
-            this.btnVehicles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnVehicles.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnVehicles.Location = new System.Drawing.Point(0, 395);
-            this.btnVehicles.Name = "btnVehicles";
-            this.btnVehicles.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.btnVehicles.PressedDepth = 10;
-            this.btnVehicles.Size = new System.Drawing.Size(200, 65);
-            this.btnVehicles.TabIndex = 32;
-            this.btnVehicles.Text = "Vehicles";
-            this.btnVehicles.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnVehicles.TextOffset = new System.Drawing.Point(25, 0);
-            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
-            // 
             // btnSchedules
             // 
             this.btnSchedules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
@@ -323,6 +289,40 @@
             this.btnSchedules.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSchedules.TextOffset = new System.Drawing.Point(25, 0);
             this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
+            // 
+            // btnVehicles
+            // 
+            this.btnVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            this.btnVehicles.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            this.btnVehicles.BorderThickness = 2;
+            this.btnVehicles.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnVehicles.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnVehicles.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
+            this.btnVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVehicles.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
+            this.btnVehicles.DisabledState.FillColor = System.Drawing.Color.White;
+            this.btnVehicles.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(100)))), ((int)(((byte)(230)))));
+            this.btnVehicles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVehicles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            this.btnVehicles.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnVehicles.ForeColor = System.Drawing.Color.White;
+            this.btnVehicles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.btnVehicles.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnVehicles.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            this.btnVehicles.HoverState.Image = global::GUI.Properties.Resources.car_2;
+            this.btnVehicles.Image = global::GUI.Properties.Resources.car_1;
+            this.btnVehicles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnVehicles.ImageOffset = new System.Drawing.Point(20, 0);
+            this.btnVehicles.Location = new System.Drawing.Point(0, 395);
+            this.btnVehicles.Name = "btnVehicles";
+            this.btnVehicles.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.btnVehicles.PressedDepth = 10;
+            this.btnVehicles.Size = new System.Drawing.Size(200, 65);
+            this.btnVehicles.TabIndex = 32;
+            this.btnVehicles.Text = "Vehicles";
+            this.btnVehicles.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnVehicles.TextOffset = new System.Drawing.Point(25, 0);
+            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
             // 
             // btnLogout
             // 
@@ -395,7 +395,7 @@
             this.btnCourses.Image = global::GUI.Properties.Resources.course_1;
             this.btnCourses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCourses.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnCourses.Location = new System.Drawing.Point(0, 330);
+            this.btnCourses.Location = new System.Drawing.Point(0, 200);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnCourses.PressedDepth = 10;
@@ -429,7 +429,7 @@
             this.btnTeachers.Image = global::GUI.Properties.Resources.driving_instructor_1;
             this.btnTeachers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTeachers.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnTeachers.Location = new System.Drawing.Point(0, 265);
+            this.btnTeachers.Location = new System.Drawing.Point(0, 330);
             this.btnTeachers.Name = "btnTeachers";
             this.btnTeachers.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnTeachers.PressedDepth = 10;
@@ -463,7 +463,7 @@
             this.btnLearners.Image = global::GUI.Properties.Resources.students_1;
             this.btnLearners.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLearners.ImageOffset = new System.Drawing.Point(20, 0);
-            this.btnLearners.Location = new System.Drawing.Point(0, 200);
+            this.btnLearners.Location = new System.Drawing.Point(0, 265);
             this.btnLearners.Name = "btnLearners";
             this.btnLearners.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnLearners.PressedDepth = 10;

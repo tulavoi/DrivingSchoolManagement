@@ -30,21 +30,8 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from vehicle in db.Vehicles
-                           select new
-                           {
-                               vehicle.VehicleID,
-                               vehicle.VehicleName,
-                               vehicle.VehicleNumber,
-                               vehicle.IsTruck,
-                               vehicle.IsPassengerCar,
-                               vehicle.IsMaintenance,
-                               vehicle.ManufacturerYear,
-                               vehicle.Weight,
-                               vehicle.Seats,
-                               vehicle.Notes,
-                               vehicle.Created_At,
-                               vehicle.Updated_At
-                           };
+                           select vehicle;
+                           
                 return data.ToList();
             }
         }
@@ -76,21 +63,7 @@ namespace DAL
             {
                 var data = from vehicle in db.Vehicles
                            where vehicle.VehicleName.Contains(keyword) || vehicle.VehicleNumber.Contains(keyword)
-                           select new
-                           {
-                               vehicle.VehicleID,
-                               vehicle.VehicleName,
-                               vehicle.VehicleNumber,
-                               vehicle.IsTruck,
-                               vehicle.IsPassengerCar,
-                               vehicle.IsMaintenance,
-                               vehicle.ManufacturerYear,
-                               vehicle.Weight,
-                               vehicle.Seats,
-                               vehicle.Notes,
-                               vehicle.Created_At,
-                               vehicle.Updated_At
-                           };
+                           select vehicle;
                 return data.ToList();
             }
         }
@@ -114,22 +87,8 @@ namespace DAL
             {
                 var data = from vehicle in db.Vehicles
                            where vehicle.IsTruck.ToString() == filterString || 
-                           vehicle.IsPassengerCar.ToString() == filterString
-                           select new
-                           {
-                               vehicle.VehicleID,
-                               vehicle.VehicleName,
-                               vehicle.VehicleNumber,
-                               vehicle.IsTruck,
-                               vehicle.IsPassengerCar,
-                               vehicle.IsMaintenance,
-                               vehicle.ManufacturerYear,
-                               vehicle.Weight,
-                               vehicle.Seats,
-                               vehicle.Notes,
-                               vehicle.Created_At,
-                               vehicle.Updated_At
-                           };
+                                 vehicle.IsPassengerCar.ToString() == filterString
+                           select vehicle;
                 return data.ToList();
             }
         }
@@ -260,6 +219,8 @@ namespace DAL
                 Weight = item.Weight,
                 Seats = item.Seats,
                 Notes = item.Notes,
+                StartMaintenaceDate = item.StartMaintenaceDate,
+                EndMaintenaceDate = item.EndMaintenaceDate,
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };

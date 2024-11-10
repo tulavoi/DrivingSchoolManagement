@@ -38,13 +38,14 @@ namespace GUI
 
             var learners = LearnerService.GetAllLearners();
 
-            // Đếm số lượng giới tính
+            // Lấy ra giới tính và tổng số lượng của mỗi giới tính
             var genderCounts = learners
                                .GroupBy(l => l.Gender)
                                .Select(group => new { Gender = group.Key, Count = group.Count() });
 
             foreach (var genderCount in genderCounts)
                 dataTable.Rows.Add(genderCount.Gender, genderCount.Count);
+
             return dataTable;
         }
 
@@ -140,6 +141,7 @@ namespace GUI
 
             var payments = PaymentService.GetAllPayments();
 
+            // Lấy ra tháng/năm và tổng tiền thanh toán trong 1 tháng/năm
             var paymentData = payments
                             .Where(p => p.PaymentDate.HasValue)
                             .GroupBy(p => new { Year = p.PaymentDate.Value.Year, Month = p.PaymentDate.Value.Month })
@@ -169,6 +171,8 @@ namespace GUI
             dataTable.Columns.Add("Count", typeof(int));
 
             var enrollments = EnrollmentService.GetAllEnrollments();
+
+            // Lấy ra tên bằng lái và số lượng của mỗi bằng lái
             var enrollmentsData = enrollments
                                     .Where(enr => enr.Course != null && enr.Course.License != null)
                                     .GroupBy(enr => enr.Course.License.LicenseName)

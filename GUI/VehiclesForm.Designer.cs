@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvVehicles = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -115,6 +115,12 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpStartMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpEndMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
@@ -135,6 +141,7 @@
             this.pnlCarNo_ManuYear.SuspendLayout();
             this.pnlName.SuspendLayout();
             this.pnlDetails_Top.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSpace10
@@ -164,16 +171,16 @@
             // 
             this.dgvVehicles.AllowUserToAddRows = false;
             this.dgvVehicles.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvVehicles.ColumnHeadersHeight = 40;
             this.dgvVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceID,
@@ -181,36 +188,36 @@
             this.CarNumber,
             this.ManufactureYear,
             this.Status});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvVehicles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvVehicles.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvVehicles.Location = new System.Drawing.Point(0, 50);
             this.dgvVehicles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvVehicles.RowHeadersVisible = false;
             this.dgvVehicles.RowHeadersWidth = 30;
             this.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvVehicles.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvVehicles.RowTemplate.DividerHeight = 2;
             this.dgvVehicles.RowTemplate.Height = 45;
@@ -254,8 +261,8 @@
             // 
             this.CarName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CarName.DataPropertyName = "CarName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CarName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CarName.DefaultCellStyle = dataGridViewCellStyle27;
             this.CarName.FillWeight = 53.63456F;
             this.CarName.Frozen = true;
             this.CarName.HeaderText = "Name";
@@ -533,6 +540,8 @@
             // pnlMaitenanceDetail
             // 
             this.pnlMaitenanceDetail.Controls.Add(this.pnlEdit_Maintenance);
+            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel2);
+            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel1);
             this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace24);
             this.pnlMaitenanceDetail.Controls.Add(this.pnlNotes);
             this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace18);
@@ -543,7 +552,7 @@
             this.pnlMaitenanceDetail.FillColor = System.Drawing.Color.White;
             this.pnlMaitenanceDetail.Location = new System.Drawing.Point(0, 407);
             this.pnlMaitenanceDetail.Name = "pnlMaitenanceDetail";
-            this.pnlMaitenanceDetail.Size = new System.Drawing.Size(420, 172);
+            this.pnlMaitenanceDetail.Size = new System.Drawing.Size(420, 224);
             this.pnlMaitenanceDetail.TabIndex = 111;
             // 
             // pnlEdit_Maintenance
@@ -552,7 +561,7 @@
             this.pnlEdit_Maintenance.Controls.Add(this.pnlSpace20);
             this.pnlEdit_Maintenance.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEdit_Maintenance.FillColor = System.Drawing.Color.White;
-            this.pnlEdit_Maintenance.Location = new System.Drawing.Point(0, 132);
+            this.pnlEdit_Maintenance.Location = new System.Drawing.Point(0, 178);
             this.pnlEdit_Maintenance.Name = "pnlEdit_Maintenance";
             this.pnlEdit_Maintenance.Size = new System.Drawing.Size(401, 35);
             this.pnlEdit_Maintenance.TabIndex = 131;
@@ -593,7 +602,7 @@
             this.pnlSpace24.FillColor = System.Drawing.Color.White;
             this.pnlSpace24.Location = new System.Drawing.Point(0, 117);
             this.pnlSpace24.Name = "pnlSpace24";
-            this.pnlSpace24.Size = new System.Drawing.Size(401, 15);
+            this.pnlSpace24.Size = new System.Drawing.Size(401, 10);
             this.pnlSpace24.TabIndex = 133;
             // 
             // pnlNotes
@@ -723,7 +732,7 @@
             this.pnlSpace25.FillColor = System.Drawing.Color.White;
             this.pnlSpace25.Location = new System.Drawing.Point(401, 0);
             this.pnlSpace25.Name = "pnlSpace25";
-            this.pnlSpace25.Size = new System.Drawing.Size(19, 172);
+            this.pnlSpace25.Size = new System.Drawing.Size(19, 224);
             this.pnlSpace25.TabIndex = 91;
             // 
             // lblMaintenance
@@ -1372,6 +1381,96 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.dtpEndMaintenance);
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.dtpStartMaintenance);
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 127);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(401, 36);
+            this.guna2Panel1.TabIndex = 134;
+            // 
+            // dtpStartMaintenance
+            // 
+            this.dtpStartMaintenance.BorderColor = System.Drawing.Color.White;
+            this.dtpStartMaintenance.BorderRadius = 5;
+            this.dtpStartMaintenance.Checked = true;
+            this.dtpStartMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpStartMaintenance.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartMaintenance.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpStartMaintenance.Enabled = false;
+            this.dtpStartMaintenance.FillColor = System.Drawing.Color.White;
+            this.dtpStartMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpStartMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpStartMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartMaintenance.Location = new System.Drawing.Point(75, 0);
+            this.dtpStartMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStartMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStartMaintenance.Name = "dtpStartMaintenance";
+            this.dtpStartMaintenance.Size = new System.Drawing.Size(135, 36);
+            this.dtpStartMaintenance.TabIndex = 5;
+            this.dtpStartMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 36);
+            this.label1.TabIndex = 112;
+            this.label1.Text = "    Start:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dtpEndMaintenance
+            // 
+            this.dtpEndMaintenance.BorderColor = System.Drawing.Color.White;
+            this.dtpEndMaintenance.BorderRadius = 5;
+            this.dtpEndMaintenance.Checked = true;
+            this.dtpEndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpEndMaintenance.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndMaintenance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEndMaintenance.Enabled = false;
+            this.dtpEndMaintenance.FillColor = System.Drawing.Color.White;
+            this.dtpEndMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpEndMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpEndMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndMaintenance.Location = new System.Drawing.Point(265, 0);
+            this.dtpEndMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEndMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEndMaintenance.Name = "dtpEndMaintenance";
+            this.dtpEndMaintenance.Size = new System.Drawing.Size(136, 36);
+            this.dtpEndMaintenance.TabIndex = 113;
+            this.dtpEndMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label2.Location = new System.Drawing.Point(210, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 36);
+            this.label2.TabIndex = 114;
+            this.label2.Text = "  End:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 163);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(401, 15);
+            this.guna2Panel2.TabIndex = 135;
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1406,6 +1505,7 @@
             this.pnlCarNo_ManuYear.ResumeLayout(false);
             this.pnlName.ResumeLayout(false);
             this.pnlDetails_Top.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1493,5 +1593,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2Panel pnlCboTeacher_License;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartMaintenance;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndMaintenance;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
     }
 }

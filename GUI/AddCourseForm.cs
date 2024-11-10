@@ -35,6 +35,18 @@ namespace GUI
             Course course = this.GetCourse();
             var result = CourseService.AddCourse(course);
             FormHelper.ShowActionResult(result, "Course added successfully.", "Failed to add course.");
+            if (result) // Nếu thêm thành công thì reset controls
+                this.ResetControls();
+        }
+
+        private void ResetControls()
+        {
+            cboLicense.SelectedIndex = 0;
+            txtFee.Text = "";
+            txtDurationInHours.Text = "";
+            txtName.Text = "";
+            dtpStartDate.Value = DateTime.Now;
+            dtpEndDate.Value = DateTime.Now;
         }
 
         private Course GetCourse()
