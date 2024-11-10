@@ -1,5 +1,4 @@
-﻿using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Linq;
@@ -21,10 +20,34 @@ namespace DAL
         }
         #endregion
 
+        #region Get all
         protected override IEnumerable<dynamic> QueryAllData()
         {
-            throw new NotImplementedException();
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from enr in db.Enrollments
+                           join course in db.Courses on enr.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join learner in db.Learners on enr.LearnerID equals learner.LearnerID
+                           select new
+                           {
+                               enr.EnrollmentID,
+                               course.CourseID,
+                               license.LicenseID,
+                               license.LicenseName,
+                               learner.LearnerID,
+                               enr.EnrollmentDate,
+                               enr.IsComplete
+                           };
+                return data.ToList();
+            }
         }
+
+        public List<Enrollment> GetAllEnrollments()
+        {
+            return GetAll(item => this.MapToEnrollment(item));
+        }
+        #endregion
 
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
@@ -35,6 +58,31 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        #region Map to enrollment
+        private Enrollment MapToEnrollment(dynamic item)
+        {
+            return new Enrollment
+            {
+                EnrollmentID = item.EnrollmentID,
+                Course = new Course
+                {
+                    CourseID = item.CourseID,
+                    License = new License
+                    {
+                        LicenseID = item.LicenseID,
+                        LicenseName = item.LicenseName,
+                    }
+                },
+                Learner = new Learner
+                {
+                    LearnerID = item.LearnerID,
+                },
+                EnrollmentDate = item.EnrollmentDate,
+                IsComplete = item.IsComplete
+            };
+        }
+        #endregion
 
         #region Create
         public bool AddEnrollment(int learnerID, int courseID)

@@ -220,12 +220,6 @@ namespace DAL
 															  && sche.Enrollment.CourseID != courseID
 														select sche.VehicleID).Distinct().ToList();
 
-				//var scheduledTeachersForOtherCourses = (from sche in db.Schedules
-				//										where sche.SessionID == sessionID
-				//											  && sche.SessionDate == curDate
-				//											  && sche.Enrollment.CourseID != courseID
-				//										select sche.TeacherID).Distinct().ToList();
-
 				var licenseId = (from course in db.Courses
 								 where course.CourseID == courseID
 								 select course.LicenseID).FirstOrDefault();
@@ -247,25 +241,13 @@ namespace DAL
                                                      select sche.VehicleID).Any())
                                          select vehicle).ToList();
 
-                //var availableTeachers = (from teacher in db.Teachers
-                //						 where (teacher.LicenseID >= courseLicenseID)
-                //							   // Giáo viên không nằm trong `scheduledTeachersForOtherCourses` 
-                //							   // hoặc là giáo viên đang dạy cho `courseID` hiện tại
-                //							   && (!scheduledTeachersForOtherCourses.Contains(teacher.TeacherID)
-                //								   || (from sche in db.Schedules
-                //									   where sche.TeacherID == teacher.TeacherID
-                //											 && sche.SessionID == sessionID
-                //											 && sche.SessionDate == curDate
-                //											 && sche.Enrollment.CourseID == courseID
-                //									   select sche.TeacherID).Any())
-                //						 select teacher).ToList();
-
                 return availableVehicles ?? new List<Vehicle>();
 			}
 		}
-		#endregion
+        #endregion
 
-		private Vehicle MapToVehicle(dynamic item)
+        #region Map to vehicle
+        private Vehicle MapToVehicle(dynamic item)
         {
             return new Vehicle {
                 VehicleID = item.VehicleID,
@@ -282,5 +264,6 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
     }
 }

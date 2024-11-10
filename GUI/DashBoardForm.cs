@@ -1,7 +1,5 @@
 ﻿using BLL.Services;
-using DAL;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -170,8 +168,19 @@ namespace GUI
             dataTable.Columns.Add("Lincense", typeof(string));
             dataTable.Columns.Add("Count", typeof(int));
 
-            var enrollments = LicenseEnrollmentCountService.GetEnrollmentsByLicense();
-            foreach (var enrollment in enrollments)
+            var enrollments = EnrollmentService.GetAllEnrollments();
+            var enrollmentsData = enrollments
+                                    .Where(enr => enr.Course != null && enr.Course.License != null)
+                                    .GroupBy(enr => enr.Course.License.LicenseName)
+                                    .Select(gr => new
+                                    {
+                                        LicenseName = gr.Key,
+                                        Count = gr.Count()
+                                    })
+                                    .OrderBy(result => result.LicenseName)
+                                    .ToList();
+
+            foreach (var enrollment in enrollmentsData)
                 dataTable.Rows.Add(enrollment.LicenseName, enrollment.Count);
 
             return dataTable;

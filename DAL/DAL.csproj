@@ -55,7 +55,6 @@
     <Compile Include="InvoiceDAL.cs" />
     <Compile Include="LearnerDAL.cs" />
     <Compile Include="LicenseDAL.cs" />
-    <Compile Include="LicenseEnrollmentCountDAL.cs" />
     <Compile Include="PaymentDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -86,12 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{e1b29152-f6fc-4743-ad98-2baccbe4c92c}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

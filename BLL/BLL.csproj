@@ -130,7 +130,6 @@
     <Compile Include="InvoiceBLL.cs" />
     <Compile Include="LearnerBLL.cs" />
     <Compile Include="LicenseBLL.cs" />
-    <Compile Include="LicenseEnrollmentCountBLL.cs" />
     <Compile Include="PaymentBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,7 +140,6 @@
     <Compile Include="Services\EnrollmentService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\LearnerService.cs" />
-    <Compile Include="Services\LicenseEnrollmentCountService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\ScheduleService.cs" />
     <Compile Include="Services\SendEmail\MailContent.cs" />
@@ -181,10 +179,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{e445bb97-fc43-4ea1-bb46-83027eadcc5f}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{E1B29152-F6FC-4743-AD98-2BACCBE4C92C}</Project>
-      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
