@@ -47,6 +47,12 @@
             this.pnlSpace9 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlPayments = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvPayments = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvoiceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvoiceTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddPaymentForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
@@ -88,12 +94,6 @@
             this.lblDetails = new System.Windows.Forms.Label();
             this.pnlSpace16 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvoiceCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InvoiceTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFilter.SuspendLayout();
             this.pnlPayments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayments)).BeginInit();
@@ -370,6 +370,75 @@
             this.dgvPayments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPayments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvPayments.SelectionChanged += new System.EventHandler(this.dgvPayments_SelectionChanged);
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Space";
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 18;
+            // 
+            // InvoiceCode
+            // 
+            this.InvoiceCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.InvoiceCode.DataPropertyName = "InvoiceCode";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle3;
+            this.InvoiceCode.FillWeight = 53.63456F;
+            this.InvoiceCode.Frozen = true;
+            this.InvoiceCode.HeaderText = "Invoice";
+            this.InvoiceCode.MinimumWidth = 6;
+            this.InvoiceCode.Name = "InvoiceCode";
+            this.InvoiceCode.ReadOnly = true;
+            this.InvoiceCode.Width = 160;
+            // 
+            // PaymentDate
+            // 
+            this.PaymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PaymentDate.DataPropertyName = "PaymentDate";
+            this.PaymentDate.Frozen = true;
+            this.PaymentDate.HeaderText = "Payment Date";
+            this.PaymentDate.MinimumWidth = 6;
+            this.PaymentDate.Name = "PaymentDate";
+            this.PaymentDate.ReadOnly = true;
+            this.PaymentDate.Width = 130;
+            // 
+            // InvoiceTo
+            // 
+            this.InvoiceTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.InvoiceTo.DataPropertyName = "InvoiceTo";
+            this.InvoiceTo.Frozen = true;
+            this.InvoiceTo.HeaderText = "Invoice To";
+            this.InvoiceTo.MinimumWidth = 6;
+            this.InvoiceTo.Name = "InvoiceTo";
+            this.InvoiceTo.ReadOnly = true;
+            this.InvoiceTo.Width = 200;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.Frozen = true;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 120;
+            // 
+            // Method
+            // 
+            this.Method.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Method.DataPropertyName = "Method";
+            this.Method.Frozen = true;
+            this.Method.HeaderText = "Method";
+            this.Method.MinimumWidth = 6;
+            this.Method.Name = "Method";
+            this.Method.ReadOnly = true;
+            this.Method.Width = 130;
             // 
             // pnlButtonAdd
             // 
@@ -1005,75 +1074,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Space";
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 18;
-            // 
-            // InvoiceCode
-            // 
-            this.InvoiceCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.InvoiceCode.DataPropertyName = "InvoiceCode";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvoiceCode.DefaultCellStyle = dataGridViewCellStyle3;
-            this.InvoiceCode.FillWeight = 53.63456F;
-            this.InvoiceCode.Frozen = true;
-            this.InvoiceCode.HeaderText = "Invoice";
-            this.InvoiceCode.MinimumWidth = 6;
-            this.InvoiceCode.Name = "InvoiceCode";
-            this.InvoiceCode.ReadOnly = true;
-            this.InvoiceCode.Width = 160;
-            // 
-            // PaymentDate
-            // 
-            this.PaymentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PaymentDate.DataPropertyName = "PaymentDate";
-            this.PaymentDate.Frozen = true;
-            this.PaymentDate.HeaderText = "Payment Date";
-            this.PaymentDate.MinimumWidth = 6;
-            this.PaymentDate.Name = "PaymentDate";
-            this.PaymentDate.ReadOnly = true;
-            this.PaymentDate.Width = 130;
-            // 
-            // InvoiceTo
-            // 
-            this.InvoiceTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.InvoiceTo.DataPropertyName = "InvoiceTo";
-            this.InvoiceTo.Frozen = true;
-            this.InvoiceTo.HeaderText = "Invoice To";
-            this.InvoiceTo.MinimumWidth = 6;
-            this.InvoiceTo.Name = "InvoiceTo";
-            this.InvoiceTo.ReadOnly = true;
-            this.InvoiceTo.Width = 200;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.Frozen = true;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 120;
-            // 
-            // Method
-            // 
-            this.Method.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Method.DataPropertyName = "Method";
-            this.Method.Frozen = true;
-            this.Method.HeaderText = "Method";
-            this.Method.MinimumWidth = 6;
-            this.Method.Name = "Method";
-            this.Method.ReadOnly = true;
-            this.Method.Width = 130;
             // 
             // PaymentsForm
             // 

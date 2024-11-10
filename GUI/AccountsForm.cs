@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using DAL;
 using GUI.Validators;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,11 @@ namespace GUI
 {
 	public partial class AccountsForm : Form
 	{
-		public AccountsForm()
+        #region Properties
+        private Account selectedAccount;
+        #endregion
+
+        public AccountsForm()
 		{
 			InitializeComponent();
 			FormHelper.ApplyRoundedCorners(this, 20);
@@ -25,6 +30,7 @@ namespace GUI
         {
             AccountService.LoadAllAccounts(dgvAccounts);
             this.UpdateControlsWithSelectedRowData();
+            this.ResetChangePassControls();
         }
 
         private bool isEditing = false;
@@ -33,8 +39,8 @@ namespace GUI
         {
             if (!FormHelper.HasSelectedRow(dgvAccounts)) return;
 
-            var account = this.GetSelectedAccount();
-            this.AssignDataToControls(account);
+            this.selectedAccount = this.GetSelectedAccount();
+            this.AssignDataToControls(this.selectedAccount);
         }
 
         private void AssignDataToControls(Account selectedAccount)
@@ -52,7 +58,6 @@ namespace GUI
             {
                 cboPermission.Text = "Teacher";
             }
-
         }
 
         private Account GetSelectedAccount()
@@ -143,9 +148,9 @@ namespace GUI
             return new Account
             {
                 AccountID = FormHelper.GetObjectID(lblAccountID.Text),
-                
+                Password = string.IsNullOrEmpty(txtConfirmPass.Text) ? this.selectedAccount.Password : txtConfirmPass.Text,
                 Email = txtEmail.Text,
-                Permission = cboPermission.Text == "admin" ? true:false,
+                Permission = cboPermission.Text == "Admin" ? true:false,
                 Updated_At = DateTime.Now
             };
         }
@@ -166,12 +171,52 @@ namespace GUI
         {
             AccountService.FilterAccounts(dgvAccounts, cboPermission_Filter.Text);
             this.UpdateControlsWithSelectedRowData();
+            this.ResetChangePassControls();
+        }
+
+        private void ResetChangePassControls()
+        {
+            txtOldPass.Text = "";
+            txtNewPass.Text = "";
+            txtConfirmPass.Text = "";
         }
 
         private bool ValidateFields()
         {
             if (!AccountValidator.ValidatePermission(cboPermission, toolTip)) return false;
             if (!AccountValidator.ValidateEmail(txtEmail, toolTip)) return false;
+            return true;
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFieldsForChangePass()) return;
+
+            if (this.ConfirmAction($"Are you sure to change password?"))
+            {
+                Account account = this.GetAccount();
+
+                var result = AccountService.EditAccount(account);
+                FormHelper.ShowActionResult(result, "Change password successfully.", "Failed to change password.");
+                this.LoadAllAccounts();
+            }
+        }
+
+        private bool ValidateFieldsForChangePass()
+        {
+            var textboxes = new List<Guna2TextBox>
+            {
+                txtOldPass, txtNewPass, txtConfirmPass
+            };
+
+            if (!AccountValidator.ValidateRequiedPass(textboxes, toolTip)) return false;
+
+            if (!AccountValidator.ValidateOldPass(txtOldPass, toolTip, this.selectedAccount.Password)) return false;
+
+            if (!AccountValidator.ValidateNewPass(txtNewPass, toolTip)) return false;
+
+            if (!AccountValidator.ValidateConfirmPass(txtConfirmPass, toolTip, txtNewPass.Text)) return false;
+
             return true;
         }
     }

@@ -29,6 +29,7 @@ namespace DAL
             {
                 var data = from learner in db.Learners
                            join status in db.Status on learner.StatusID equals status.StatusID
+                           orderby learner.LearnerID descending
                            select new
 						   {
                                learner.LearnerID,
@@ -63,6 +64,7 @@ namespace DAL
                 var data = from learner in db.Learners
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where (learner.FullName.Contains(keyword) || learner.Email.Contains(keyword) || learner.CitizenID.Contains(keyword))
+                           orderby learner.LearnerID descending
                            select new
                            {
 							   learner.LearnerID,
@@ -97,6 +99,7 @@ namespace DAL
                 var data = from learner in db.Learners
                            join status in db.Status on learner.StatusID equals status.StatusID
                            where status.StatusName == statusName
+                           orderby learner.LearnerID descending
                            select new
                            {
                                learner.LearnerID,
@@ -176,6 +179,7 @@ namespace DAL
         }
         #endregion
 
+        #region Map to learner
         private Learner MapToLearner(dynamic item)
         {
             return new Learner
@@ -198,6 +202,7 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
 
         #region Get learner by learner id
         public Learner GetLearner(int learnerId)

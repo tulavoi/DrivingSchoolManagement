@@ -36,6 +36,7 @@ namespace DAL
                            join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
                            join course in db.Courses on enroll.CourseID equals course.CourseID
                            join status in db.Status on invoice.StatusID equals status.StatusID
+						   orderby invoice.InvoiceID descending
                            select new
                            {
                                invoice.InvoiceID,
@@ -75,6 +76,7 @@ namespace DAL
 						   join course in db.Courses on enroll.CourseID equals course.CourseID
 						   join status in db.Status on invoice.StatusID equals status.StatusID
 						   where (invoice.InvoiceCode.Contains(keyword) || learner.FullName.Contains(keyword))
+						   orderby invoice.InvoiceID descending
                            select new
                            {
                                invoice.InvoiceID,
@@ -104,11 +106,6 @@ namespace DAL
         #endregion
          
         #region Filter by status
-        public List<Invoice> FilterInvoicesByStatus(string status)
-        {
-            return FilterData(status, item => this.MapToInvoice(item));
-        }
-
         protected override IEnumerable<dynamic> QueryDataByFilter(string filterString)
         {
             using (var db = DataAccess.GetDataContext())
@@ -125,6 +122,7 @@ namespace DAL
 						   join course in db.Courses on enroll.CourseID equals course.CourseID
 						   join status in db.Status on invoice.StatusID equals status.StatusID
 						   where invoice.IsPaid == isPaid
+						   orderby invoice.InvoiceID descending
                            select new
                            {
                                invoice.InvoiceID,
@@ -145,6 +143,11 @@ namespace DAL
                            };
                 return data.ToList();
             }
+        }
+
+        public List<Invoice> FilterInvoicesByStatus(string status)
+        {
+            return FilterData(status, item => this.MapToInvoice(item));
         }
         #endregion
 
@@ -188,6 +191,7 @@ namespace DAL
 			}
 		}
 		#endregion
+
 		public Invoice GetInvoiceID(int invoiceId)
 		{
 			// Tạo một đối tượng DataContext trong phạm vi using

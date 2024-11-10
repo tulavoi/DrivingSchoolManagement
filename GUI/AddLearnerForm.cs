@@ -36,9 +36,24 @@ namespace GUI
 			var result = LearnerService.AddLearner(learner, courseID); // Tạo learner mới
 
 			FormHelper.ShowActionResult(result, "Learner added successfully.", "Failed to add learner.");
+            if (result) // Nếu thêm thành công thì reset controls
+                this.ResetControls();
         }
 
-		private bool ValidateFields()
+        private void ResetControls()
+        {
+            txtName.Text = "";
+            txtCitizenId.Text = "";
+            txtEmail.Text = "";
+            txtPhone.Text = "";
+            dtpDOB.Value = DateTime.Now;
+            txtAddress.Text = "";
+            cboGender.SelectedIndex = 0;
+            cboNationality.SelectedIndex = 0;
+            cboCourses.SelectedIndex = 0;
+        }
+
+        private bool ValidateFields()
         {
             if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
