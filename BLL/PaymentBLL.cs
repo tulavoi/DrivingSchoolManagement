@@ -7,7 +7,7 @@ namespace BLL
 {
 	public class PaymentBLL
 	{
-		#region Singleton
+		#region Properties
 		private static PaymentBLL instance;
 
 		public static PaymentBLL Instance
@@ -20,7 +20,12 @@ namespace BLL
 		}
 		#endregion
 
-		public void FilterPaymentsByPaymentID(Guna2DataGridView dgv, int paymentID)
+		public List<Payment> GetAllPayments()
+		{
+			return PaymentDAL.Instance.GetAllPayments();
+		}
+
+        public void FilterPaymentsByPaymentID(Guna2DataGridView dgv, int paymentID)
 		{
 			List<Payment> payments = PaymentDAL.Instance.GetAllPayments();
 			var filteredPayments = payments.FindAll(p => p.PaymentID == paymentID);
@@ -105,7 +110,7 @@ namespace BLL
 				{
 					dgv.Rows[rowIndex].Tag = payment;
 					dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = payment.Invoice.InvoiceCode;
-					dgv.Rows[rowIndex].Cells["PaymentDate"].Value = payment.PaymentDate?.ToString("yyyy-MM-dd");
+					dgv.Rows[rowIndex].Cells["PaymentDate"].Value = payment.PaymentDate?.ToString("dd-MM-yyyy");
 					dgv.Rows[rowIndex].Cells["InvoiceTo"].Value = payment.Invoice?.Enrollment?.Learner?.FullName ?? payment.InvoiceID.ToString();
 					dgv.Rows[rowIndex].Cells["Amount"].Value = payment.Amount.ToString();
 					dgv.Rows[rowIndex].Cells["Method"].Value = payment.PaymentMethod;

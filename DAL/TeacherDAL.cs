@@ -26,8 +26,9 @@ namespace DAL
 				var data = from teacher in db.Teachers
 						   join license in db.Licenses on teacher.LicenseID equals license.LicenseID
 						   join status in db.Status on teacher.StatusID equals status.StatusID
+                           orderby teacher.TeacherID descending
 						   select new
-						   {
+                           {
 							   teacher.TeacherID,
 							   teacher.FullName,
 							   teacher.CitizenID,
@@ -67,8 +68,9 @@ namespace DAL
 						   join license in db.Licenses on teacher.LicenseID equals license.LicenseID
 						   join status in db.Status on teacher.StatusID equals status.StatusID
 						   where status.StatusName == statusName
+                           orderby teacher.TeacherID descending
 						   select new
-						   {
+                           {
 							   teacher.TeacherID,
 							   teacher.FullName,
 							   teacher.CitizenID,
@@ -107,8 +109,9 @@ namespace DAL
 						   join license in db.Licenses on teacher.LicenseID equals license.LicenseID
 						   join status in db.Status on teacher.StatusID equals status.StatusID
 						   where (teacher.FullName.Contains(keyword) || teacher.Nationality.Contains(keyword))
+                           orderby teacher.TeacherID descending
 						   select new
-						   {
+                           {
 							   teacher.TeacherID,
 							   teacher.FullName,
 							   teacher.CitizenID,
@@ -236,9 +239,10 @@ namespace DAL
 				return availableTeachers ?? new List<Teacher>();
 			}
 		}
-		#endregion
+        #endregion
 
-		private Teacher MapToTeacher(dynamic item)
+        #region Map to teacher
+        private Teacher MapToTeacher(dynamic item)
 		{
 			return new Teacher
 			{
@@ -268,5 +272,6 @@ namespace DAL
 				Updated_At = item.Updated_At
 			};
 		}
-	}
+        #endregion
+    }
 }

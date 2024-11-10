@@ -30,5 +30,10 @@ namespace BLL
 		{
 			return EnrollmentDAL.Instance.GetEnrollmentByCourseID(id);
 		}
-	}
+
+		public List<Enrollment> GetAllEnrollments()
+		{
+            return EnrollmentDAL.Instance.GetAllEnrollments();
+        }
+    }
 }

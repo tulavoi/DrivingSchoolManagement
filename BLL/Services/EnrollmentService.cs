@@ -18,5 +18,10 @@ namespace BLL.Services
 		{
 			return EnrollmentBLL.Instance.GetEnrollmentByCourseID(id);
 		}
-	}
+
+        public static List<Enrollment> GetAllEnrollments()
+        {
+            return EnrollmentBLL.Instance.GetAllEnrollments();
+        }
+    }
 }

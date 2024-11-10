@@ -242,33 +242,33 @@ VALUES
 ('Pham Thi I', 678901245876, '1993-01-12', 'Female', '0909123464', 'thii@gmail.com', 'Vietnam', '147 YZ Street', '2014-05-30', 2, 987654321123, '2013-04-01', GETDATE(), GETDATE()),
 ('Nguyen Van J', 789012356536, '1994-10-05', 'Male', '0909123465', 'vanj@gmail.com', 'Vietnam', '258 ABCD Street', '2019-04-20', 3, 321456789012, '2018-03-15', GETDATE(), GETDATE());
 
-INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, StatusID, Created_At, Updated_At)
+INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, StatusID, StartMaintenaceDate, EndMaintenaceDate, Created_At, Updated_At)
 VALUES 
 -- Xe dành cho bằng B (xe con dưới 9 chỗ)
-('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, GETDATE(), GETDATE()),
-('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, GETDATE(), GETDATE()),
-('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, GETDATE(), GETDATE()),
-('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, GETDATE(), GETDATE()),
-('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Sedan, good condition', 1, GETDATE(), GETDATE()),
+('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Sedan, good condition', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
 -- Xe dành cho bằng C (xe tải)
-('61C-23523', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, GETDATE(), GETDATE()),
-('61C-56434', 'Isuzu Truck', 1, 0, 0, 2016, 5000, null, '', 1, GETDATE(), GETDATE()),
-('61C-96793', 'Isuzu Truck', 1, 0, 0, 2019, 5000, null, '', 1, GETDATE(), GETDATE()),
-('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, GETDATE(), GETDATE()),
-('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, '', 1, GETDATE(), GETDATE()),
-('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, '', 1, GETDATE(), GETDATE()),
+('61C-23523', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-56434', 'Isuzu Truck', 1, 0, 0, 2016, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-96793', 'Isuzu Truck', 1, 0, 0, 2019, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, '', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, '', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
 -- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
-('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, GETDATE(), GETDATE()),
-('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, '', 1, GETDATE(), GETDATE()),
-('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, GETDATE(), GETDATE()),
-('61D-53463', 'Mercedes-Benz Bus', 0, 1, 0, 2018, null, 20, '', 1, GETDATE(), GETDATE()),
-('61D-32435', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', 1, GETDATE(), GETDATE()),
+('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, '', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
+('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, DATEADD(DAY, -RAND() * 130, GETDATE()), DATEADD(DAY, -RAND() * 70, GETDATE()), GETDATE(), GETDATE()),
+('61D-53463', 'Mercedes-Benz Bus', 0, 1, 0, 2018, null, 20, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61D-32435', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 -- Xe dành cho bằng E (xe khách trên 30 chỗ)
-('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, GETDATE(), GETDATE()),
-('70E-65346', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, GETDATE(), GETDATE()),
-('70E-32455', 'Hyundai Universe', 0, 1, 1, 2016, null, 40, '', 1, GETDATE(), GETDATE()),
-('70E-47478', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, GETDATE(), GETDATE()),
-('70E-69632', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, GETDATE(), GETDATE());
+('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('70E-65346', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('70E-32455', 'Hyundai Universe', 0, 1, 1, 2016, null, 40, '', 1, DATEADD(DAY, -RAND() * 90, GETDATE()), DATEADD(DAY, -RAND() * 40, GETDATE()), GETDATE(), GETDATE()),
+('70E-47478', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('70E-69632', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE());
 
 INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
 VALUES 

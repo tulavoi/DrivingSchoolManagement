@@ -256,21 +256,20 @@ namespace GUI
 
 		private MailContent CreateMailContent(Schedule schedule, bool isForLearner)
 		{
-			//string recipientMail = isForLearner ? schedule.Learner.Email : schedule.Teacher.Email;
-			//string recipientInfo = isForLearner
-			//                        ? $"{schedule.Teacher.FullName} – {schedule.Teacher.Phone} – {schedule.Teacher.Email}"
-			//                        : $"{schedule.Learner.FullName} – {schedule.Learner.PhoneNumber} – {schedule.Learner.Email}";
-			//string role = isForLearner ? "Learner" : "Teacher";
+			string recipientMail = isForLearner ? schedule.Enrollment.Learner.Email : schedule.Teacher.Email;
+			string recipientInfo = isForLearner
+									? $"{schedule.Teacher.FullName} – {schedule.Teacher.PhoneNumber} – {schedule.Teacher.Email}"
+									: $"{schedule.Enrollment.Learner.FullName} – {schedule.Enrollment.Learner.PhoneNumber} – {schedule.Enrollment.Learner.Email}";
+			string role = isForLearner ? "Learner" : "Teacher";
 
-			//string emailBody = this.GetScheduleEmailBody(schedule, recipientInfo, role);
+			string emailBody = this.GetScheduleEmailBody(schedule, recipientInfo, role);
 
-			//return new MailContent
-			//{
-			//    To = recipientMail,
-			//    Subject = $"Driving School",
-			//    Body = emailBody
-			//};
-			return null;
+			return new MailContent
+			{
+				To = recipientMail,
+				Subject = $"Driving School",
+				Body = emailBody
+			};
 		}
 
 		private string GetScheduleEmailBody(Schedule schedule, string recipientInfo, string role)

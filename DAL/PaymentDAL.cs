@@ -43,41 +43,44 @@ namespace DAL
 				return data.ToList();
 			}
 		}
-		private Payment MapToPayment(dynamic item)
-		{
-			return new Payment
-			{
-
-				PaymentID = item.PaymentID,
-				InvoiceID = item.InvoiceID,
-				PaymentDate = item.PaymentDate,
-				Amount = item.Amount,
-				PaymentMethod = item.PaymentMethod,
-				Invoice = new Invoice
-				{
-					InvoiceID = item.InvoiceID,
-					InvoiceCode = item.InvoiceCode,
-					Enrollment = new Enrollment
-					{
-						Learner = new Learner()
-						{
-							FullName = item.FullName,
-						}
-					}
-				},
-				Created_At = item.Created_At,
-				Updated_At = item.Updated_At
-
-			};
-		}
 		public List<Payment> GetAllPayments()
 		{
 			return GetAll(item => this.MapToPayment(item));
 		}
-		#endregion
+        #endregion
 
-		#region Search
-		protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
+        #region Map to payment
+        private Payment MapToPayment(dynamic item)
+        {
+            return new Payment
+            {
+
+                PaymentID = item.PaymentID,
+                InvoiceID = item.InvoiceID,
+                PaymentDate = item.PaymentDate,
+                Amount = item.Amount,
+                PaymentMethod = item.PaymentMethod,
+                Invoice = new Invoice
+                {
+                    InvoiceID = item.InvoiceID,
+                    InvoiceCode = item.InvoiceCode,
+                    Enrollment = new Enrollment
+                    {
+                        Learner = new Learner()
+                        {
+                            FullName = item.FullName,
+                        }
+                    }
+                },
+                Created_At = item.Created_At,
+                Updated_At = item.Updated_At
+
+            };
+        }
+#endregion
+
+        #region Search
+        protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
