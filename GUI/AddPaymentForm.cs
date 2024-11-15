@@ -53,7 +53,6 @@ namespace GUI
 
             Payment payment = GetPaymentData();
 
-
             if (payment == null || !payment.InvoiceID.HasValue || payment.InvoiceID.Value <= 0)
             {
                 FormHelper.ShowNotify("Invalid payment or invoice ID.");

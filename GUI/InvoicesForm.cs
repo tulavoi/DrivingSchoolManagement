@@ -6,6 +6,8 @@ using Guna.UI2.WinForms;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FastReport;
+using System.Data;
 
 namespace GUI
 {
@@ -231,6 +233,11 @@ namespace GUI
                 Subject = $"Course Invoice: {lblInvoiceCode.Text}",
                 Body = $"<h1>{txtMessage.Text}</h1>"
             };
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
