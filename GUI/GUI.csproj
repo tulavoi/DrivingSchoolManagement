@@ -162,6 +162,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSets\InvoiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AccountsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,26 +237,6 @@
     <Compile Include="Forms\DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSets\DrivingSchool_V2DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DrivingSchool_V2DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSets\DrivingSchool_V2DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DrivingSchool_V2DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSets\DrivingSchool_V2DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DrivingSchool_V2DataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSets\DrivingSchool_V2DataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DrivingSchool_V2DataSet4.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Forms\PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,11 +270,11 @@
     <Compile Include="Forms\LearnersForm.Designer.cs">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportViewers\ReportViewer_Invoice.cs">
+    <Compile Include="ReportViewers\InvoiceRV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportViewers\ReportViewer_Invoice.Designer.cs">
-      <DependentUpon>ReportViewer_Invoice.cs</DependentUpon>
+    <Compile Include="ReportViewers\InvoiceRV.Designer.cs">
+      <DependentUpon>InvoiceRV.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ScheduleForm.cs">
       <SubType>Form</SubType>
@@ -377,8 +362,8 @@
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
-    <EmbeddedResource Include="ReportViewers\ReportViewer_Invoice.resx">
-      <DependentUpon>ReportViewer_Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
+      <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
@@ -389,51 +374,19 @@
     <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSets\DrivingSchool_V2DataSet1.xsc">
-      <DependentUpon>DrivingSchool_V2DataSet1.xsd</DependentUpon>
+    <None Include="DataSets\InvoiceDataSet.xsc">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet1.xsd">
+    <None Include="DataSets\InvoiceDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DrivingSchool_V2DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>InvoiceDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet1.xss">
-      <DependentUpon>DrivingSchool_V2DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet2.xsc">
-      <DependentUpon>DrivingSchool_V2DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DrivingSchool_V2DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet2.xss">
-      <DependentUpon>DrivingSchool_V2DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet3.xsc">
-      <DependentUpon>DrivingSchool_V2DataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DrivingSchool_V2DataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet3.xss">
-      <DependentUpon>DrivingSchool_V2DataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet4.xsc">
-      <DependentUpon>DrivingSchool_V2DataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DrivingSchool_V2DataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSets\DrivingSchool_V2DataSet4.xss">
-      <DependentUpon>DrivingSchool_V2DataSet4.xsd</DependentUpon>
+    <None Include="DataSets\InvoiceDataSet.xss">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -537,6 +490,10 @@
       <Project>{e445bb97-fc43-4ea1-bb46-83027eadcc5f}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{5f111caf-6121-4b4c-88f2-c8b0191fcd87}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hidden_2.png" />
@@ -563,6 +520,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

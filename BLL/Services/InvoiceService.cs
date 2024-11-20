@@ -3,6 +3,7 @@ using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,5 +50,10 @@ namespace BLL.Services
         {
             InvoiceBLL.Instance.FilterInvoicesByStatus(dgv, status);
         }
-	}
+
+        public static DataTable GetInvoiceData(string invoiceCode)
+        {
+            return InvoiceBLL.Instance.GetInvoiceData(invoiceCode);
+        }
+    }
 }

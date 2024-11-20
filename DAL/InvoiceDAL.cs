@@ -1,13 +1,18 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Globalization;
+using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Linq;
 
 namespace DAL
 {
@@ -36,7 +41,7 @@ namespace DAL
                            join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
                            join course in db.Courses on enroll.CourseID equals course.CourseID
                            join status in db.Status on invoice.StatusID equals status.StatusID
-						   orderby invoice.InvoiceID descending
+                           orderby invoice.InvoiceID descending
                            select new
                            {
                                invoice.InvoiceID,
@@ -190,9 +195,9 @@ namespace DAL
 				return invoice;
 			}
 		}
-		#endregion
+        #endregion
 
-		public Invoice GetInvoiceID(int invoiceId)
+        public Invoice GetInvoiceID(int invoiceId)
 		{
 			// Tạo một đối tượng DataContext trong phạm vi using
 			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
@@ -228,7 +233,8 @@ namespace DAL
 			}
 		}
 
-		private Invoice MapToInvoice(dynamic item)
+        #region Map to invoice
+        private Invoice MapToInvoice(dynamic item)
         {
             return new Invoice
             {
@@ -261,6 +267,79 @@ namespace DAL
                 Updated_At = item.Updated_At
             };
         }
+        #endregion
+
+        #region Get data invoice by Id
+        public DataTable GetInvoiceData(string invoiceCode)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from invoice in db.Invoices
+                           join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+                           join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
+                           where invoice.InvoiceCode == invoiceCode
+                           select new InvoiceDTO
+                           {
+                               InvoiceCode = invoice.InvoiceCode,
+                               Created_At = invoice.Created_At.Value,
+                               FullName = learner.FullName,
+                               EnrollmentDate = (DateTime)(enroll.EnrollmentDate.HasValue ? enroll.EnrollmentDate.Value.Date : (DateTime?)null),
+                               Address = learner.Address,
+                               PhoneNumber = learner.PhoneNumber,
+                               Email = learner.Email,
+                               CourseName = course.CourseName,
+                               DurationInHours = course.DurationInHours,
+                               StartDate = course.StartDate.Value,
+                               EndDate = course.EndDate.Value,
+                               TotalAmount = invoice.TotalAmount,
+                               Notes = invoice.Notes
+                           };
+
+                //DataTable dt = this.CreateDatable();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("InvoiceCode", typeof(string));
+                dt.Columns.Add("Created_At", typeof(DateTime));
+                dt.Columns.Add("FullName", typeof(string));
+                dt.Columns.Add("EnrollmentDate", typeof(DateTime));
+                dt.Columns.Add("Address", typeof(string));
+                dt.Columns.Add("PhoneNumber", typeof(string));
+                dt.Columns.Add("Email", typeof(string));
+                dt.Columns.Add("CourseName", typeof(string));
+                dt.Columns.Add("DurationInHours", typeof(int));
+                dt.Columns.Add("StartDate", typeof(DateTime));
+                dt.Columns.Add("EndDate", typeof(DateTime));
+                dt.Columns.Add("TotalAmount", typeof(decimal));
+                dt.Columns.Add("Notes", typeof(string));
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.InvoiceCode, item.Created_At, item.FullName, item.EnrollmentDate,
+                       item.Address, item.PhoneNumber, item.Email, item.CourseName,
+                       item.DurationInHours, item.StartDate, item.EndDate, item.TotalAmount, item.Notes);
+                }
+                return dt;
+            }
+        }
+
+        private DataTable CreateDatable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("InvoiceCode", typeof(string));
+            dt.Columns.Add("Created_At", typeof(DateTime));
+            dt.Columns.Add("FullName", typeof(string));
+            dt.Columns.Add("EnrollmentDate", typeof(DateTime));
+            dt.Columns.Add("Address", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("DurationInHours", typeof(int));
+            dt.Columns.Add("StartDate", typeof(DateTime));
+            dt.Columns.Add("EndDate", typeof(DateTime));
+            dt.Columns.Add("TotalAmount", typeof(decimal));
+            dt.Columns.Add("Notes", typeof(string));
+            return dt;
+        }
+        #endregion
 
     }
 }

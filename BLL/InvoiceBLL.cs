@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BLL
 {
@@ -105,5 +106,9 @@ namespace BLL
 			cbo.SelectedIndex = 0; // Đặt mục mặc định là mục đầu tiên
 		}
 
-	}
+        public DataTable GetInvoiceData(string invoiceCode)
+        {
+            return InvoiceDAL.Instance.GetInvoiceData(invoiceCode);
+        }
+    }
 }
