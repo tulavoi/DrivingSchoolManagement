@@ -6,7 +6,7 @@
         <Top>0.155in</Top>
         <Left>0.40556in</Left>
         <Height>0in</Height>
-        <Width>7.62222in</Width>
+        <Width>6.87222in</Width>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -31,7 +31,7 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -60,7 +60,7 @@
               <TextRun>
                 <Value>Full Name</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -75,59 +75,8 @@
         <Top>1.08833in</Top>
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
-        <Width>1.65834in</Width>
+        <Width>1.45001in</Width>
         <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Address</Value>
-                <Style>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#060b33</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#060b33</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>1.72333in</Top>
-        <Left>0.40556in</Left>
-        <Height>0.25in</Height>
-        <Width>1in</Width>
-        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -147,7 +96,7 @@
               <TextRun>
                 <Value>Phone</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -163,7 +112,7 @@
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -183,7 +132,7 @@
               <TextRun>
                 <Value>Email</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -199,7 +148,7 @@
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -214,8 +163,8 @@
         <Top>3.85833in</Top>
         <Left>0.40556in</Left>
         <Height>0in</Height>
-        <Width>7.62222in</Width>
-        <ZIndex>6</ZIndex>
+        <Width>6.87222in</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -233,7 +182,7 @@
               <TextRun>
                 <Value>Enrollment Date</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -246,10 +195,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.08833in</Top>
-        <Left>2.13334in</Left>
+        <Left>1.92501in</Left>
         <Height>0.25in</Height>
-        <Width>1.26667in</Width>
-        <ZIndex>7</ZIndex>
+        <Width>1.45in</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -276,16 +225,16 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>0.52167in</Top>
-        <Left>5.53611in</Left>
+        <Left>4.78611in</Left>
         <Height>0.35in</Height>
         <Width>2.49167in</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -305,7 +254,7 @@
               <TextRun>
                 <Value>Course Name</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -318,10 +267,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.08833in</Top>
-        <Left>5.53611in</Left>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.44167in</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -341,7 +290,7 @@
               <TextRun>
                 <Value>Durations(H)</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -354,10 +303,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.72333in</Top>
-        <Left>5.53611in</Left>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.44167in</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -377,7 +326,7 @@
               <TextRun>
                 <Value>Start</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -390,10 +339,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.36666in</Top>
-        <Left>5.53611in</Left>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.2in</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -413,7 +362,7 @@
               <TextRun>
                 <Value>End</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -426,10 +375,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.36666in</Top>
-        <Left>6.82778in</Left>
+        <Left>6.07778in</Left>
         <Height>0.25in</Height>
         <Width>1.2in</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -449,7 +398,7 @@
               <TextRun>
                 <Value>Notes</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -464,8 +413,8 @@
         <Top>4.07166in</Top>
         <Left>0.43334in</Left>
         <Height>0.25in</Height>
-        <Width>5.82222in</Width>
-        <ZIndex>13</ZIndex>
+        <Width>5.08611in</Width>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -486,7 +435,7 @@
               <TextRun>
                 <Value>Total</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -499,10 +448,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>4.07166in</Top>
-        <Left>6.29723in</Left>
+        <Left>5.56112in</Left>
         <Height>0.25in</Height>
-        <Width>1.73055in</Width>
-        <ZIndex>14</ZIndex>
+        <Width>1.71666in</Width>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -518,8 +467,8 @@
         <Top>5.34722in</Top>
         <Left>0.40556in</Left>
         <Height>0in</Height>
-        <Width>7.62222in</Width>
-        <ZIndex>15</ZIndex>
+        <Width>6.87222in</Width>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -548,11 +497,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.82166in</Top>
-        <Left>6.29723in</Left>
+        <Top>4.84943in</Top>
+        <Left>4.95556in</Left>
         <Height>0.29167in</Height>
         <Width>0.56389in</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -572,7 +521,7 @@
               <TextRun>
                 <Value>=First(Fields!FullName.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -583,11 +532,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FullName</rd:DefaultName>
-        <Top>1.35222in</Top>
+        <Top>1.36611in</Top>
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
-        <Width>1.65834in</Width>
-        <ZIndex>17</ZIndex>
+        <Width>1.45001in</Width>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -605,9 +554,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!EnrollmentDate.Value, "InvoiceDataSet")</Value>
+                <Value>=First(Format(Fields!EnrollmentDate.Value, "dd/MM/yyyy"), "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -618,11 +567,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>1.35222in</Top>
-        <Left>2.13334in</Left>
+        <Top>1.36611in</Top>
+        <Left>1.92501in</Left>
         <Height>0.25in</Height>
-        <Width>1.26667in</Width>
-        <ZIndex>18</ZIndex>
+        <Width>1.45in</Width>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -642,7 +591,7 @@
               <TextRun>
                 <Value>=First(Fields!Address.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -653,11 +602,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Address</rd:DefaultName>
-        <Top>1.98722in</Top>
-        <Left>0.40556in</Left>
+        <Top>2.00111in</Top>
+        <Left>0.40555in</Left>
         <Height>0.25in</Height>
-        <Width>2.99445in</Width>
-        <ZIndex>19</ZIndex>
+        <Width>1.45001in</Width>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -677,7 +626,7 @@
               <TextRun>
                 <Value>=First(Fields!PhoneNumber.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -688,11 +637,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PhoneNumber</rd:DefaultName>
-        <Top>2.63055in</Top>
+        <Top>2.64444in</Top>
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
         <Width>1.65834in</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -712,7 +661,7 @@
               <TextRun>
                 <Value>=First(Fields!Email.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -723,11 +672,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Email</rd:DefaultName>
-        <Top>3.25in</Top>
+        <Top>3.27778in</Top>
         <Left>0.40556in</Left>
         <Height>0.25in</Height>
         <Width>1.65834in</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -747,7 +696,7 @@
               <TextRun>
                 <Value>=First(Fields!CourseName.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -758,11 +707,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CourseName</rd:DefaultName>
-        <Top>1.35222in</Top>
-        <Left>5.53611in</Left>
+        <Top>1.36611in</Top>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.44167in</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -782,7 +731,7 @@
               <TextRun>
                 <Value>=First(Fields!DurationInHours.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -793,11 +742,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DurationInHours</rd:DefaultName>
-        <Top>1.98722in</Top>
-        <Left>5.53611in</Left>
+        <Top>2.00111in</Top>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.44167in</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -815,9 +764,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!EndDate.Value, "InvoiceDataSet")</Value>
+                <Value>=First(Format(Fields!EndDate.Value, "dd/MM/yyyy"), "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -828,11 +777,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EndDate</rd:DefaultName>
-        <Top>2.61666in</Top>
-        <Left>6.82778in</Left>
+        <Top>2.64444in</Top>
+        <Left>6.07778in</Left>
         <Height>0.25in</Height>
         <Width>1.2in</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -850,9 +799,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!StartDate.Value, "InvoiceDataSet")</Value>
+                <Value>=First(Format(Fields!StartDate.Value, "dd/MM/yyyy"), "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -863,11 +812,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>StartDate</rd:DefaultName>
-        <Top>2.61666in</Top>
-        <Left>5.53611in</Left>
+        <Top>2.64444in</Top>
+        <Left>4.78611in</Left>
         <Height>0.25in</Height>
         <Width>1.2in</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -887,7 +836,7 @@
               <TextRun>
                 <Value>=First(Fields!Notes.Value, "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -896,11 +845,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Notes</rd:DefaultName>
-        <Top>4.32166in</Top>
+        <Top>4.34944in</Top>
         <Left>0.43334in</Left>
         <Height>0.45833in</Height>
-        <Width>5.82222in</Width>
-        <ZIndex>26</ZIndex>
+        <Width>5.08611in</Width>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -918,22 +867,24 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!TotalAmount.Value + " VND", "InvoiceDataSet")</Value>
+                <Value>=First(Format(Fields!TotalAmount.Value, "N0") &amp; " VND", "InvoiceDataSet")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>4.33555in</Top>
-        <Left>6.29723in</Left>
+        <Top>4.34944in</Top>
+        <Left>5.56112in</Left>
         <Height>0.45833in</Height>
         <Width>1.71666in</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -951,7 +902,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!TotalAmount.Value, "InvoiceDataSet")</Value>
+                <Value>=First(Format(Fields!TotalAmount.Value, "N0") &amp; " VND", "InvoiceDataSet")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
@@ -964,10 +915,46 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>4.82166in</Top>
-        <Left>6.93056in</Left>
+        <Top>4.83555in</Top>
+        <Left>5.56112in</Left>
         <Height>0.29167in</Height>
-        <Width>1.06943in</Width>
+        <Width>1.71666in</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Address</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>#060b33</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>1.72333in</Top>
+        <Left>0.40555in</Left>
+        <Height>0.25in</Height>
+        <Width>1.45001in</Width>
         <ZIndex>28</ZIndex>
         <Style>
           <Border>
@@ -985,7 +972,7 @@
       <BackgroundColor>#fdfdfd</BackgroundColor>
     </Style>
   </Body>
-  <Width>8.42778in</Width>
+  <Width>7.68611in</Width>
   <Page>
     <PageHeader>
       <Height>1.2in</Height>
@@ -1049,21 +1036,22 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Created_At.Value, "InvoiceDataSet")</Value>
+                  <Value>=First(Format(Fields!Created_At.Value, "dd/MM/yyyy"), "InvoiceDataSet")</Value>
                   <Style>
+                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                     <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Created_At</rd:DefaultName>
           <Top>0.23056in</Top>
-          <Left>6.08611in</Left>
+          <Left>5.3639in</Left>
           <Height>0.25in</Height>
           <Width>1.91388in</Width>
           <ZIndex>2</ZIndex>
@@ -1086,19 +1074,20 @@
                 <TextRun>
                   <Value>=First(Fields!InvoiceCode.Value, "InvoiceDataSet")</Value>
                   <Style>
+                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                     <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>InvoiceCode</rd:DefaultName>
           <Top>0.53612in</Top>
-          <Left>6.08611in</Left>
+          <Left>5.3639in</Left>
           <Height>0.25in</Height>
           <Width>1.91388in</Width>
           <ZIndex>3</ZIndex>
@@ -1121,7 +1110,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.71667in</Height>
+      <Height>0.43334in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1144,10 +1133,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.22167in</Top>
-          <Left>6.29723in</Left>
+          <Top>0.06944in</Top>
+          <Left>5.56112in</Left>
           <Height>0.23333in</Height>
-          <Width>1.73055in</Width>
+          <Width>1.71666in</Width>
           <Style>
             <Border>
               <Style>None</Style>
