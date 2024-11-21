@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.Remoting.Contexts;
 using static System.Collections.Specialized.BitVector32;
 
 namespace DAL
@@ -349,5 +351,69 @@ namespace DAL
             }
         }
         #endregion
+
+        #region Data table Schedule trong 1 khoảng thời gian
+        public DataTable GetScheduleDataByDate(DateTime startDate, DateTime endDate)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                            join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                            join l in db.Learners on e.LearnerID equals l.LearnerID
+                            join t in db.Teachers on s.TeacherID equals t.TeacherID
+                            join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                            join c in db.Courses on e.CourseID equals c.CourseID
+                            join ses in db.Sessions on s.SessionID equals ses.SessionID
+                            where s.SessionDate >= startDate.Date && s.SessionDate <= endDate.Date
+                            select new
+                            {
+                                ScheduleID = s.ScheduleID,
+                                LearnerFullName = l.FullName,
+                                LearnerPhoneNumber = l.PhoneNumber,
+                                LearnerEmail = l.Email,
+                                TeacherFullName = t.FullName,
+                                TeacherPhoneNumber = t.PhoneNumber,
+                                TeacherEmail = t.Email,
+                                VehicleName = v.VehicleName,
+                                VehicleNumber = v.VehicleNumber,
+                                CourseName = c.CourseName,
+                                SessionName = ses.Session1,
+                                SessionDate = s.SessionDate
+                            };
+
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"), startDate.ToString("dd/MM/yyyy"), 
+                        endDate.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
+        #endregion
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ScheduleID", typeof(int));
+            dt.Columns.Add("LearnerFullName", typeof(string));
+            dt.Columns.Add("LearnerPhoneNumber", typeof(string));
+            dt.Columns.Add("LearnerEmail", typeof(string));
+            dt.Columns.Add("TeacherFullName", typeof(string));
+            dt.Columns.Add("TeacherPhoneNumber", typeof(string));
+            dt.Columns.Add("TeacherEmail", typeof(string));
+            dt.Columns.Add("VehicleName", typeof(string));
+            dt.Columns.Add("VehicleNumber", typeof(string));
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("SessionName", typeof(string));
+            dt.Columns.Add("SessionDate", typeof(string));
+            dt.Columns.Add("FromDate", typeof(string));
+            dt.Columns.Add("ToDate", typeof(string));
+            return dt;
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
+using System.Data;
 
 namespace BLL
 {
@@ -86,6 +87,11 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["Session"].Value = schedule.Session.Session1;
                 }
             }
+        }
+
+        public DataTable GetScheduleDataByDate(DateTime startDate, DateTime endDate)
+        {
+            return ScheduleDAL.Instance.GetScheduleDataByDate(startDate, endDate);
         }
     }
 }

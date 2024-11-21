@@ -304,9 +304,9 @@ values
 
 INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDate, StatusID, Created_At, Updated_At)
 VALUES
-(1, 1, 1, 1, '15/10/2024', 1, GETDATE(), GETDATE()),
-(2, 2, 2, 2, '20/10/2024', 1, GETDATE(), GETDATE()),
-(3, 2, 6, 3, '25/10/2024', 1, GETDATE(), GETDATE());
+(1, 1, 1, 1, '15/11/2024', 1, GETDATE(), GETDATE()),
+(2, 2, 2, 2, '20/11/2024', 1, GETDATE(), GETDATE()),
+(3, 2, 6, 3, '25/11/2024', 1, GETDATE(), GETDATE());
 
 INSERT INTO Invoices (InvoiceCode, EnrollmentID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 

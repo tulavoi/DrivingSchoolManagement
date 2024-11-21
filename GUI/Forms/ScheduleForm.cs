@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using BLL.Services.SendEmail;
 using DAL;
+using GUI.ReportViewers;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
@@ -20,6 +21,7 @@ namespace GUI
 		private bool isEditing = false;
 		private Schedule selectedSchedule;
 		private string vehicleNameNumber = "";
+		private bool isClicked = false;
 		#endregion
 
 		public ScheduleForm()
@@ -31,6 +33,9 @@ namespace GUI
 			calendarManager.LoadMatrix();
 
 			this.SetCurrentDate();
+
+			pnlMenuButtonPrint.Visible = false; // ẩn panel menu button print khi form khởi động
+			isClicked = false;
 		}
 
 		private void ScheduleForm_Load(object sender, EventArgs e)
@@ -395,5 +400,18 @@ namespace GUI
 			int sessionIDInRow = this.selectedSchedule.Session.SessionID; // Lấy sessionID của schedule đang chọn trên datagridview
 			ComboboxService.AssignSessionsToCombobox(cboSessions, courseID, dtpSessionDate.Value, sessionIDInRow);
 		}
-	}
+
+        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
+        {
+            isClicked = !isClicked;
+            pnlMenuButtonPrint.Visible = isClicked;
+            btnOpenMenuButtonPrint.Checked = isClicked;
+        }
+
+        private void btnPrintScheduleByDate_Click(object sender, EventArgs e)
+        {
+			ScheduleByDateRV scheduleByDateRV = new ScheduleByDateRV();
+			scheduleByDateRV.Show();
+        }
+    }
 }
