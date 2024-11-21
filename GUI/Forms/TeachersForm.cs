@@ -298,5 +298,10 @@ namespace GUI
 		{
 			this.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
 		}
-	}
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using GUI.ReportViewers;
 using System;
 using System.Data;
 using System.Linq;
@@ -188,6 +189,12 @@ namespace GUI
                 dataTable.Rows.Add(enrollment.LicenseName, enrollment.Count);
 
             return dataTable;
+        }
+
+        private void btnPrintTeachers_Click(object sender, EventArgs e)
+        {
+            TeacherListRV teacherListRV = new TeacherListRV();
+            teacherListRV.Show();
         }
     }
 }
