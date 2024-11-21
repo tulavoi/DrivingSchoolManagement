@@ -50,5 +50,10 @@ namespace BLL.Services
         {
             return ScheduleBLL.Instance.GetScheduleDataByDate(startDate, endDate);
         }
+
+        public static DataTable GetScheduleDetailData(int scheduleID)
+        {
+            return ScheduleDAL.Instance.GetScheduleDetailData(scheduleID);
+        }
     }
 }

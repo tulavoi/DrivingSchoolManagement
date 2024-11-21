@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
 using System.Data;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace BLL
 {
@@ -92,6 +93,11 @@ namespace BLL
         public DataTable GetScheduleDataByDate(DateTime startDate, DateTime endDate)
         {
             return ScheduleDAL.Instance.GetScheduleDataByDate(startDate, endDate);
+        }
+
+        public DataTable GetScheduleDetailData(int scheduleID)
+        {
+            return ScheduleDAL.Instance.GetScheduleDetailData(scheduleID);
         }
     }
 }

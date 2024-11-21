@@ -364,7 +364,8 @@ namespace DAL
                             join v in db.Vehicles on s.VehicleID equals v.VehicleID
                             join c in db.Courses on e.CourseID equals c.CourseID
                             join ses in db.Sessions on s.SessionID equals ses.SessionID
-                            where s.SessionDate >= startDate.Date && s.SessionDate <= endDate.Date
+                            where s.SessionDate >= startDate.Date && s.SessionDate <= endDate.Date 
+                                && s.StatusID == 1
                             select new
                             {
                                 ScheduleID = s.ScheduleID,
@@ -415,5 +416,48 @@ namespace DAL
             dt.Columns.Add("ToDate", typeof(string));
             return dt;
         }
+
+        #region Get schudule details data
+        public DataTable GetScheduleDetailData(int scheduleID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                           join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                           join l in db.Learners on e.LearnerID equals l.LearnerID
+                           join t in db.Teachers on s.TeacherID equals t.TeacherID
+                           join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                           join c in db.Courses on e.CourseID equals c.CourseID
+                           join ses in db.Sessions on s.SessionID equals ses.SessionID
+                           where s.ScheduleID == scheduleID && s.StatusID == 1
+                           select new
+                           {
+                               ScheduleID = s.ScheduleID,
+                               LearnerFullName = l.FullName,
+                               LearnerPhoneNumber = l.PhoneNumber,
+                               LearnerEmail = l.Email,
+                               TeacherFullName = t.FullName,
+                               TeacherPhoneNumber = t.PhoneNumber,
+                               TeacherEmail = t.Email,
+                               VehicleName = v.VehicleName,
+                               VehicleNumber = v.VehicleNumber,
+                               CourseName = c.CourseName,
+                               SessionName = ses.Session1,
+                               SessionDate = s.SessionDate
+                           };
+
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
+        #endregion
     }
 }

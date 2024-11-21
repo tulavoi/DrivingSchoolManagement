@@ -381,6 +381,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleByDateReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleDetailReport.rdlc" />
     <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>

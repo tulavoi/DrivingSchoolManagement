@@ -413,5 +413,11 @@ namespace GUI
 			ScheduleByDateRV scheduleByDateRV = new ScheduleByDateRV();
 			scheduleByDateRV.Show();
         }
+
+        private void btnPrintScheduleDetails_Click(object sender, EventArgs e)
+        {
+			ScheduleDetailRV scheduleDetailRV = new ScheduleDetailRV(FormHelper.GetObjectID(lblScheduleID.Text));
+			scheduleDetailRV.Show();
+        }
     }
 }

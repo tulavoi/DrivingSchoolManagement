@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,20 @@ namespace GUI.ReportViewers
 {
     public partial class ScheduleDetailRV : Form
     {
-        public ScheduleDetailRV()
+        private int _scheduleID;
+
+        public ScheduleDetailRV(int scheduleID)
         {
             InitializeComponent();
             FormHelper.ApplyRoundedCorners(this, 20);
             shadowForm.SetShadowForm(this);
+            _scheduleID = scheduleID;
         }
 
         private void ScheduleReport_Load(object sender, EventArgs e)
         {
-
-            this.reportViewer1.RefreshReport();
+            var data = ScheduleService.GetScheduleDetailData(_scheduleID);
+            FormHelper.LoadReport(reportViewer1, "ScheduleDetailReport", data, "ScheduleDataSet");
         }
     }
 }
