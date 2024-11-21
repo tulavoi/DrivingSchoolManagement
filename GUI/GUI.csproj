@@ -40,6 +40,10 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FastReport, Version=2025.1.0.0, Culture=neutral, PublicKeyToken=5ceb240df42bf6e8, processorArchitecture=MSIL">
       <HintPath>..\packages\FastReport.OpenSource.2025.1.0\lib\net462\FastReport.dll</HintPath>
     </Reference>
@@ -91,6 +95,24 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="MimeKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.4.8.0\lib\net48\MimeKit.dll</HintPath>
     </Reference>
@@ -128,6 +150,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -139,119 +162,131 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountsForm.cs">
+    <Compile Include="DataSets\InvoiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountsForm.Designer.cs">
+    <Compile Include="Forms\AccountsForm.Designer.cs">
       <DependentUpon>AccountsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCourseForm.cs">
+    <Compile Include="Forms\AddCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCourseForm.Designer.cs">
+    <Compile Include="Forms\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddLearnerForm.cs">
+    <Compile Include="Forms\AddLearnerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddLearnerForm.Designer.cs">
+    <Compile Include="Forms\AddLearnerForm.Designer.cs">
       <DependentUpon>AddLearnerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPaymentForm.cs">
+    <Compile Include="Forms\AddPaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPaymentForm.Designer.cs">
+    <Compile Include="Forms\AddPaymentForm.Designer.cs">
       <DependentUpon>AddPaymentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTeacherForm.cs">
+    <Compile Include="Forms\AddTeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTeacherForm.Designer.cs">
+    <Compile Include="Forms\AddTeacherForm.Designer.cs">
       <DependentUpon>AddTeacherForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddVehicleForm.cs">
+    <Compile Include="Forms\AddVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddVehicleForm.Designer.cs">
+    <Compile Include="Forms\AddVehicleForm.Designer.cs">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssignScheduleForm.cs">
+    <Compile Include="Forms\AssignScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AssignScheduleForm.Designer.cs">
+    <Compile Include="Forms\AssignScheduleForm.Designer.cs">
       <DependentUpon>AssignScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ButtonStyleHelper.cs" />
     <Compile Include="CalendarManager.cs" />
     <Compile Include="Constant.cs" />
-    <Compile Include="CoursesForm.cs">
+    <Compile Include="Forms\CoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoursesForm.Designer.cs">
+    <Compile Include="Forms\CoursesForm.Designer.cs">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateAccountForm.cs">
+    <Compile Include="Forms\CreateAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateAccountForm.Designer.cs">
+    <Compile Include="Forms\CreateAccountForm.Designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateInvoiceForm.cs">
+    <Compile Include="Forms\CreateInvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateInvoiceForm.Designer.cs">
+    <Compile Include="Forms\CreateInvoiceForm.Designer.cs">
       <DependentUpon>CreateInvoiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CreatorChart.cs" />
-    <Compile Include="DashBoardForm.cs">
+    <Compile Include="Forms\DashBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashBoardForm.Designer.cs">
+    <Compile Include="Forms\DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PaymentsForm.cs">
+    <Compile Include="Forms\PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PaymentsForm.Designer.cs">
+    <Compile Include="Forms\PaymentsForm.Designer.cs">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InvoicesForm.cs">
+    <Compile Include="Forms\InvoicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InvoicesForm.Designer.cs">
+    <Compile Include="Forms\InvoicesForm.Designer.cs">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHelper.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LearnersForm.cs">
+    <Compile Include="Forms\LearnersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LearnersForm.Designer.cs">
+    <Compile Include="Forms\LearnersForm.Designer.cs">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleForm.cs">
+    <Compile Include="ReportViewers\InvoiceRV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScheduleForm.Designer.cs">
+    <Compile Include="ReportViewers\InvoiceRV.Designer.cs">
+      <DependentUpon>InvoiceRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeachersForm.cs">
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Forms\TeachersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeachersForm.Designer.cs">
+    <Compile Include="Forms\TeachersForm.Designer.cs">
       <DependentUpon>TeachersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Validators\AccountValidator.cs" />
@@ -262,55 +297,55 @@
     <Compile Include="Validators\ValidatorHelper.cs" />
     <Compile Include="Validators\TeacherValidator.cs" />
     <Compile Include="Validators\VehicleValidator.cs" />
-    <Compile Include="VehiclesForm.cs">
+    <Compile Include="Forms\VehiclesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VehiclesForm.Designer.cs">
+    <Compile Include="Forms\VehiclesForm.Designer.cs">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountsForm.resx">
+    <EmbeddedResource Include="Forms\AccountsForm.resx">
       <DependentUpon>AccountsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCourseForm.resx">
+    <EmbeddedResource Include="Forms\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddLearnerForm.resx">
+    <EmbeddedResource Include="Forms\AddLearnerForm.resx">
       <DependentUpon>AddLearnerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPaymentForm.resx">
+    <EmbeddedResource Include="Forms\AddPaymentForm.resx">
       <DependentUpon>AddPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTeacherForm.resx">
+    <EmbeddedResource Include="Forms\AddTeacherForm.resx">
       <DependentUpon>AddTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddVehicleForm.resx">
+    <EmbeddedResource Include="Forms\AddVehicleForm.resx">
       <DependentUpon>AddVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AssignScheduleForm.resx">
+    <EmbeddedResource Include="Forms\AssignScheduleForm.resx">
       <DependentUpon>AssignScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CoursesForm.resx">
+    <EmbeddedResource Include="Forms\CoursesForm.resx">
       <DependentUpon>CoursesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateAccountForm.resx">
+    <EmbeddedResource Include="Forms\CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateInvoiceForm.resx">
+    <EmbeddedResource Include="Forms\CreateInvoiceForm.resx">
       <DependentUpon>CreateInvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DashBoardForm.resx">
+    <EmbeddedResource Include="Forms\DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InvoicesForm.resx">
+    <EmbeddedResource Include="Forms\InvoicesForm.resx">
       <DependentUpon>InvoicesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PaymentsForm.resx">
+    <EmbeddedResource Include="Forms\PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -323,19 +358,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="LearnersForm.resx">
+    <EmbeddedResource Include="Forms\LearnersForm.resx">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleForm.resx">
+    <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
+    <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
+      <DependentUpon>InvoiceRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeachersForm.resx">
+    <EmbeddedResource Include="Forms\TeachersForm.resx">
       <DependentUpon>TeachersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VehiclesForm.resx">
+    <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSets\InvoiceDataSet.xsc">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\InvoiceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\InvoiceDataSet.xss">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -439,6 +490,10 @@
       <Project>{e445bb97-fc43-4ea1-bb46-83027eadcc5f}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{5f111caf-6121-4b4c-88f2-c8b0191fcd87}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hidden_2.png" />
@@ -446,6 +501,26 @@
   <ItemGroup>
     <None Include="Resources\hidden.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivingschoollogo-removebg.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

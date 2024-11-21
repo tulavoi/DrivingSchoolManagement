@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastReport;
 using System.Data;
+using Microsoft.Reporting.WinForms;
+using System.Data.Common;
+using GUI.ReportViewers;
 
 namespace GUI
 {
@@ -237,7 +240,9 @@ namespace GUI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrEmpty(lblInvoiceCode.Text)) return;
+            InvoiceRV invoiceRV = new InvoiceRV(lblInvoiceCode.Text);
+            invoiceRV.Show();
         }
     }
 }

@@ -21,8 +21,15 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+# Ignore toàn bộ thư mục x64 và x86
 x64/
 x86/
+# Nhưng không ignore các file DLL cụ thể
+!GUI/SqlServerTypes/x64/msvcr120.dll
+!GUI/SqlServerTypes/x86/msvcr120.dll
+!GUI/SqlServerTypes/x64/SqlServerSpatial140.dll
+!GUI/SqlServerTypes/x86/SqlServerSpatial140.dll
+
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/

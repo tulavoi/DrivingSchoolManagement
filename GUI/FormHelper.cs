@@ -1,13 +1,17 @@
 ﻿using BLL.Services.SendEmail;
 using Guna.UI2.WinForms;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI
@@ -201,5 +205,20 @@ namespace GUI
 		{
             control.Focus();
 		}
-	}
+
+        public static void PrintReport(System.Data.DataSet ds, string reportPath)
+        {
+            using (ReportViewer reportViewer = new ReportViewer())
+            {
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                reportViewer.LocalReport.ReportPath = reportPath;
+                ReportDataSource rds = new ReportDataSource("InvoiceDataSet", ds.Tables[0]);
+                reportViewer.LocalReport.DataSources.Clear();
+                reportViewer.LocalReport.DataSources.Add(rds);
+
+                // Hiển thị hoặc in báo cáo
+                reportViewer.RefreshReport();
+            }
+        }
+    }
 }
