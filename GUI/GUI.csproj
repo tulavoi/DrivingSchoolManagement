@@ -282,6 +282,12 @@
     <Compile Include="Forms\ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\TeacherListRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\TeacherListRV.Designer.cs">
+      <DependentUpon>TeacherListRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Forms\TeachersForm.cs">
       <SubType>Form</SubType>
@@ -362,6 +368,7 @@
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
+    <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\TeacherListRV.resx">
+      <DependentUpon>TeacherListRV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSets\InvoiceDataSet.xsc">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
@@ -387,6 +397,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.TeacherDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

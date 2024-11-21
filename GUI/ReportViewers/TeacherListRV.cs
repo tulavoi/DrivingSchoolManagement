@@ -7,46 +7,36 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.ReportViewers
 {
-    public partial class InvoiceRV : Form
+    public partial class TeacherListRV : Form
     {
-        private string _invoiceCode;
-
-        public InvoiceRV(string invoiceCode)
+        public TeacherListRV()
         {
             InitializeComponent();
-            _invoiceCode = invoiceCode;
-        }
-
-        private void ReportViewer_Invoice_Load(object sender, EventArgs e)
-        {
-            shadowForm.SetShadowForm(this);
             FormHelper.ApplyRoundedCorners(this, 20);
-
-            this.DisplayReport();
+            shadowForm.SetShadowForm(this);
         }
 
-        private void DisplayReport()
+        private void TeacherListRV_Load(object sender, EventArgs e)
         {
             try
-            {   
-                var invoiceData = InvoiceService.GetInvoiceData(_invoiceCode);
-                if (invoiceData.Rows.Count == 0)
+            {
+                var teachers = TeacherService.GetTeachersDTO();
+                if (teachers.Rows.Count == 0)
                 {
                     MessageBox.Show("Data null");
                     return;
                 }
 
-                reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Reports.InvoiceReport.rdlc";
+                reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Reports.TeacherListReport.rdlc";
                 reportViewer1.LocalReport.DataSources.Clear();
 
                 // Tạo và thêm ReportDataSource
-                ReportDataSource rds = new ReportDataSource("InvoiceDataSet", invoiceData);
+                ReportDataSource rds = new ReportDataSource("TeacherDataSet", teachers);
                 reportViewer1.LocalReport.DataSources.Add(rds);
 
                 // Làm mới ReportViewer

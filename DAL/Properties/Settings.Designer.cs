@@ -77,5 +77,16 @@ namespace DAL.Properties {
                 return ((string)(this["DrivingSchool_V2ConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=TULAVOI\\HOANGVU;Initial Catalog=DrivingSchool_V2;Integrated Security=" +
+            "True;Encrypt=True;TrustServerCertificate=True")]
+        public string DrivingSchool_V2ConnectionString2 {
+            get {
+                return ((string)(this["DrivingSchool_V2ConnectionString2"]));
+            }
+        }
     }
 }

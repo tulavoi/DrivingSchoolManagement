@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace DAL
@@ -273,5 +275,60 @@ namespace DAL
 			};
 		}
         #endregion
+
+		public DataTable GetTeachersDTO()
+		{
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from teacher in db.Teachers
+                           join license in db.Licenses on teacher.LicenseID equals license.LicenseID
+                           where teacher.StatusID == 1
+                           orderby teacher.TeacherID descending
+                           select new
+                           {
+                               FullName = teacher.FullName,
+                               CitizenID = teacher.CitizenID,
+                               DateOfBirth = teacher.DateOfBirth.Value,
+                               Gender = teacher.Gender,
+                               PhoneNumber = teacher.PhoneNumber,
+                               Email = teacher.Email,
+                               Nationality = teacher.Nationality,
+                               Address = teacher.Address,
+                               EmploymentDate = teacher.EmploymentDate.Value,
+                               LicenseName = license.LicenseName,
+                               LicenseNumber = teacher.LicenseNumber,
+                               BeginningDate = teacher.BeginningDate.Value
+                           };
+
+				DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.FullName, item.CitizenID, item.DateOfBirth.ToString("dd/MM/yyyy"), item.Gender, 
+                         item.PhoneNumber, item.Email, item.Nationality,
+                         item.Address, item.EmploymentDate.ToString("dd/MM/yyyy"), 
+						 item.LicenseName, item.LicenseNumber, item.BeginningDate.ToString("dd/MM/yyyy"));
+                }
+				return dt;
+            }
+        }
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FullName", typeof(string));
+            dt.Columns.Add("CitizenID", typeof(string));
+            dt.Columns.Add("DateOfBirth", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("Nationality", typeof(string));
+            dt.Columns.Add("Address", typeof(string));
+            dt.Columns.Add("EmploymentDate", typeof(string));
+            dt.Columns.Add("LicenseName", typeof(string));
+            dt.Columns.Add("LicenseNumber", typeof(string));
+            dt.Columns.Add("BeginningDate", typeof(string));
+            return dt;
+        }
     }
 }

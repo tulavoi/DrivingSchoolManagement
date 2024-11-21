@@ -3,6 +3,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,11 @@ namespace BLL.Services
         public static bool DeleteTeacher(int teacherID)
         {
             return TeacherBLL.Instance.DeleteTeacher(teacherID);
+        }
+
+        public static DataTable GetTeachersDTO()
+        {
+            return TeacherBLL.Instance.GetTeachersDTO();
         }
     }
 }
