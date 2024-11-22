@@ -287,6 +287,12 @@
     <Compile Include="ReportViewers\CourseListRV.Designer.cs">
       <DependentUpon>CourseListRV.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\EligibleLearnersRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\EligibleLearnersRV.Designer.cs">
+      <DependentUpon>EligibleLearnersRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\InvoiceRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,7 +316,7 @@
     </Compile>
     <Compile Include="ReportViewers\PaymentRV.Designer.cs">
       <DependentUpon>PaymentRV.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="ReportViewers\LearnerListRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,7 @@
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CourseListReport.rdlc" />
+    <EmbeddedResource Include="Reports\EligibleLearnersReport.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
     <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
@@ -434,6 +441,9 @@
     <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\CourseListRV.resx">
       <DependentUpon>CourseListRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\EligibleLearnersRV.resx">
+      <DependentUpon>EligibleLearnersRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
@@ -452,8 +462,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\PaymentRV.resx">
       <DependentUpon>PaymentRV.cs</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Include="ReportViewers\LearnerListRV.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\LearnerListRV.resx">
       <DependentUpon>LearnerListRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\ScheduleByDateRV.resx">

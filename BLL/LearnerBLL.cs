@@ -114,5 +114,15 @@ namespace BLL
         {
             return LearnerDAL.Instance.GetAllLearnersData();
         }
+
+        public bool ConfirmPass(int learnerID)
+        {
+            return LearnerDAL.Instance.ConfirmPass(learnerID);
+        }
+
+        public DataTable GetEligibleLearnersData()
+        {
+            return LearnerDAL.Instance.GetEligibleLearnersData();
+        }
     }
 }
