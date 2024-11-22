@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace DAL
@@ -127,6 +129,8 @@ namespace DAL
                             {
                                 v.IsMaintenance = vehicle.IsMaintenance;
                                 v.Notes = vehicle.Notes;
+                                v.StartMaintenaceDate = vehicle.EndMaintenaceDate;
+                                v.EndMaintenaceDate=vehicle.EndMaintenaceDate;
                                 v.Updated_At = DateTime.Now;
                             });
         }
@@ -226,5 +230,243 @@ namespace DAL
             };
         }
         #endregion
+
+
+        public DataTable GetVehiclesTypeB()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lấy danh sách các xe loại B (xe chở khách với số ghế <= 9)
+                var data = from vehicle in db.Vehicles
+                           where vehicle.IsPassengerCar == true && vehicle.Seats <= 9  // Điều kiện lọc xe loại B
+                           orderby vehicle.VehicleName  // Sắp xếp theo tên xe (hoặc có thể theo tiêu chí khác)
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = "B",  // Gán loại xe là 'B' trực tiếp
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,  // Loại xe 'B'
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes
+                    );
+                }
+
+                return dt;
+            }
+        }
+        public DataTable GetVehiclesTypeC()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lọc xe loại C: Xe tải (IsTruck = true) và có trọng lượng >= 3500
+                var data = from vehicle in db.Vehicles
+                           where vehicle.IsTruck == true && vehicle.Weight >= 3500 // Điều kiện lọc xe loại C
+                           orderby vehicle.VehicleName  // Sắp xếp theo tên xe
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = "C",  // Gán loại xe là 'C'
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,  // Loại xe 'C'
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes
+                    );
+                }
+
+                return dt;
+            }
+        }
+        public DataTable GetVehiclesTypeD()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lọc xe loại D: Xe chở khách (IsPassengerCar = true) với số ghế từ 10 đến 30
+                var data = from vehicle in db.Vehicles
+                           where vehicle.IsPassengerCar == true && vehicle.Seats >= 10 && vehicle.Seats <= 30 // Điều kiện lọc xe loại D
+                           orderby vehicle.VehicleName  // Sắp xếp theo tên xe
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = "D",  // Gán loại xe là 'D'
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,  // Loại xe 'D'
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes
+                    );
+                }
+
+                return dt;
+            }
+        }
+        public DataTable GetVehiclesTypeE()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lọc xe loại E: Xe chở khách (IsPassengerCar = true) với số ghế lớn hơn 30
+                var data = from vehicle in db.Vehicles
+                           where vehicle.IsPassengerCar == true && vehicle.Seats > 30 // Điều kiện lọc xe loại E
+                           orderby vehicle.VehicleName  // Sắp xếp theo tên xe
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = "E",  // Gán loại xe là 'E'
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,  // Loại xe 'E'
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes
+                    );
+                }
+
+                return dt;
+            }
+        }
+        public DataTable GetVehiclesMT()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lấy danh sách các xe thuộc các loại B, C, D, E và đang trong tình trạng bảo trì
+                var data = from vehicle in db.Vehicles
+                           where (vehicle.IsTruck == true || vehicle.IsPassengerCar == true) // Chỉ lấy xe thuộc loại B, C, D, E
+                                 && (vehicle.IsMaintenance == true // Đang bảo trì
+                                     || (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now)) // Trong thời gian bảo trì
+                           orderby vehicle.VehicleName
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = vehicle.IsTruck == true ? "Xe loại C" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats <= 9 ? "Xe loại B" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats > 30 ? "Xe loại E" :
+                                             "Xe loại D",
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes,
+                               vehicle.StartMaintenaceDate,
+                               vehicle.EndMaintenaceDate,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Đang bảo trì" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Không bảo trì"
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes,
+                        item.MaintenanceStatus
+                    );
+                }
+
+                return dt;
+            }
+        }
+
+
+        private DataTable CreateVehicleDatatable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("VehicleID", typeof(int));
+            dt.Columns.Add("VehicleName", typeof(string));
+            dt.Columns.Add("VehicleNumber", typeof(string));
+            dt.Columns.Add("VehicleType", typeof(string));  // Loại xe (B)
+            dt.Columns.Add("ManufacturerYear", typeof(int));
+            dt.Columns.Add("Seats", typeof(int));
+            dt.Columns.Add("Weight", typeof(decimal));
+            dt.Columns.Add("Notes", typeof(string));
+            dt.Columns.Add("MaintenanceStatus", typeof(string));
+
+
+            return dt;
+        }
+
     }
 }

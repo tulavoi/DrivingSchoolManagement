@@ -172,6 +172,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PaymentDatSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\VehicleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehicleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AccountsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +310,36 @@
     <Compile Include="ReportViewers\PaymentRV.Designer.cs">
       <DependentUpon>PaymentRV.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\VehicleMTRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleMTRV.Designer.cs">
+      <DependentUpon>VehicleMTRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeBRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeBRV.Designer.cs">
+      <DependentUpon>VehicleTypeBRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeCRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeCRV.Designer.cs">
+      <DependentUpon>VehicleTypeCRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeDRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeDRV.Designer.cs">
+      <DependentUpon>VehicleTypeDRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeERV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleTypeERV.Designer.cs">
+      <DependentUpon>VehicleTypeERV.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Forms\TeachersForm.cs">
       <SubType>Form</SubType>
@@ -390,6 +425,8 @@
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
     <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
+    <EmbeddedResource Include="Reports\VehicleReportMT.rdlc" />
+    <EmbeddedResource Include="Reports\VehicleReportType.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +444,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\PaymentRV.resx">
       <DependentUpon>PaymentRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleMTRV.resx">
+      <DependentUpon>VehicleMTRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleTypeBRV.resx">
+      <DependentUpon>VehicleTypeBRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleTypeCRV.resx">
+      <DependentUpon>VehicleTypeCRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleTypeDRV.resx">
+      <DependentUpon>VehicleTypeDRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleTypeERV.resx">
+      <DependentUpon>VehicleTypeERV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSets\InvoiceDataSet.xsc">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
@@ -430,10 +482,22 @@
     <None Include="DataSets\PaymentDatSet.xss">
       <DependentUpon>PaymentDatSet.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\VehicleDataSet.xsc">
+      <DependentUpon>VehicleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\VehicleDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehicleDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\VehicleDataSet.xss">
+      <DependentUpon>VehicleDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDetail.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.VehicleDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
