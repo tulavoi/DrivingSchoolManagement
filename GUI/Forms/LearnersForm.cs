@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using BLL.Services.SendEmail;
 using DAL;
+using GUI.ReportViewers;
 using GUI.Validators;
 using System;
 using System.Windows.Forms;
@@ -11,8 +12,9 @@ namespace GUI
 	{
 		#region Properties
 		private bool isEditing = false;
+		private bool isClicked = false;
 
-		private static LearnersForm instance;
+        private static LearnersForm instance;
 
 		public static LearnersForm Instance
 		{
@@ -38,7 +40,10 @@ namespace GUI
 			// cboStatus_Filter đang được set mặc định selectedIndex = 1
 			// Gọi event để lọc ngay form vừa load
 			cboStatus_Filter_SelectedIndexChanged(sender, e);
-		}
+
+            pnlMenuButtonPrint.Visible = false;
+            this.isClicked = false;
+        }
 
 		private void LoadComboboxes()
 		{
@@ -280,5 +285,18 @@ namespace GUI
 			pnlBasicDetails.Width = 670;
 			pnlBasicDetails.Height = showDetails ? 435 : 400;
 		}
-	}
+
+        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
+        {
+            this.isClicked = !this.isClicked;
+            pnlMenuButtonPrint.Visible = this.isClicked;
+            btnOpenMenuButtonPrint.Checked = this.isClicked;
+        }
+
+        private void btnPrintLearnerList_Click(object sender, EventArgs e)
+        {
+			LearnerListRV learnerListRV = new LearnerListRV();
+			learnerListRV.Show();
+        }
+    }
 }

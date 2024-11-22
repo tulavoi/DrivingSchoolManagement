@@ -2,7 +2,7 @@
 CREATE DATABASE DrivingSchool_V2
 GO
 USE DrivingSchool_V2
-SET DATEFORMAT DMY
+--SET DATEFORMAT DMY
 
 --DROP DATABASE DrivingSchool_V2
 
@@ -37,16 +37,16 @@ CREATE TABLE Teachers (
     TeacherID INT PRIMARY KEY IDENTITY,
     FullName NVARCHAR(100),
 	CitizenID nvarchar(12) unique,
-    DateOfBirth DATE,
+    DateOfBirth DATETIME,
     Gender NVARCHAR(10),
     PhoneNumber NVARCHAR(11) unique,
     Email NVARCHAR(100),
 	Nationality nvarchar(100),
     [Address] NVARCHAR(255),
-    EmploymentDate DATE,
+    EmploymentDate DATETIME,
     LicenseID INT,
 	LicenseNumber nvarchar(12) unique,
-	BeginningDate DATE,
+	BeginningDate DATETIME,
     StatusID int default 1,
 	Created_At DATETIME,
     Updated_At DATETIME
@@ -65,8 +65,8 @@ CREATE TABLE Vehicles (
 	Seats int,
 	StatusID int default 1,
 	Notes nvarchar(max),
-	StartMaintenaceDate date,
-	EndMaintenaceDate date,
+	StartMaintenaceDate DATETIME,
+	EndMaintenaceDate DATETIME,
 	Created_At DATETIME,
     Updated_At DATETIME
 )
@@ -80,8 +80,8 @@ create TABLE Courses (
 	StatusID int,
     DurationInHours INT,
 	HoursStudied int,
-	StartDate date,
-	EndDate date,
+	StartDate DATETIME,
+	EndDate DATETIME,
 	Created_At DATETIME,
     Updated_At DATETIME
 )
@@ -91,7 +91,7 @@ create table Enrollments(
 	EnrollmentID int primary key identity,
 	CourseID int,
 	LearnerID int,
-	EnrollmentDate date,
+	EnrollmentDate DATETIME,
 	IsComplete bit default 0,
 )
 
@@ -102,7 +102,7 @@ CREATE TABLE Schedules (
     TeacherID INT,
     VehicleID INT,
     SessionID INT,
-	SessionDate DATE,
+	SessionDate DATETIME,
 	StatusID int default 1,
 	Created_At DATETIME,
     Updated_At DATETIME
@@ -132,7 +132,7 @@ go
 CREATE TABLE Payments (
     PaymentID INT PRIMARY KEY IDENTITY,
     InvoiceID int,
-    PaymentDate DATE, 
+    PaymentDate DATETIME, 
     Amount int,
     PaymentMethod NVARCHAR(50),
     Created_At DATETIME,
@@ -219,28 +219,29 @@ VALUES ('Active'), ('Inactive');
 
 INSERT INTO Learners (FullName, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, Created_At, Updated_At)
 VALUES 
-('Mai Nguyen Hoang Vu', '1996-07-22', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Nguyen Xuan Duoc','1995-05-15', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', GETDATE(), GETDATE()),
-('Truong Anh Thanh Cong', '1998-07-20', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', GETDATE(), GETDATE()),
-('Nguyen Van A', '1990-01-01', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', GETDATE(), GETDATE()),
-('Tran Thi B', '1992-02-02', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Van C', '1988-03-03', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Van H', '1996-08-08', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', GETDATE(), GETDATE()),
-('Pham Thi I', '1997-09-09', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', GETDATE(), GETDATE());
+('Mai Nguyen Hoang Vu', '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', GETDATE(), GETDATE()),
+('Le Nguyen Xuan Duoc','15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', GETDATE(), GETDATE()),
+('Truong Anh Thanh Cong', '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', GETDATE(), GETDATE()),
+('Nguyen Van A', '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', GETDATE(), GETDATE()),
+('Tran Thi B', '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', GETDATE(), GETDATE()),
+('Le Van C', '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', GETDATE(), GETDATE()),
+('Le Van H', '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', GETDATE(), GETDATE()),
+('Pham Thi I', '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', GETDATE(), GETDATE());
 
-INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At)
+INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At) 
 VALUES 
-('Le Van C', 123456789534, '1980-11-25', 'Male', '0909123456', '22211tt4304@mail.tdc.edu.vn', 'Vietnam', '789 DEF Street', '2010-06-15', 1, 923481231231, '2009-06-01', GETDATE(), GETDATE()),
-('Mai Thi Z', 987654321756, '1985-03-30', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '2015-08-20', 2, 873456123456, '2014-07-15', GETDATE(), GETDATE()),
-('Nguyen Thi A', 987654321345, '1985-03-20', 'Female', '0909123457', 'thia@gmail.com', 'Vietnam', '123 ABC Street', '2012-07-10', 2, 762341237891, '2010-05-20', GETDATE(), GETDATE()),
-('Tran Van B', 192837465875, '1990-08-14', 'Male', '0909123458', 'vanb@gmail.com', 'Vietnam', '456 GHI Street', '2015-09-25', 1, 634567238910, '2014-05-10', GETDATE(), GETDATE()),
-('Pham Thi D', 123456780876, '1992-12-30', 'Female', '0909123459', 'thid@gmail.com', 'Vietnam', '321 JKL Street', '2016-01-15', 4, 123987456321, '2015-06-01', GETDATE(), GETDATE()),
-('Nguyen Van E', 234567891546, '1988-02-18', 'Male', '0909123460', 'vane@gmail.com', 'Vietnam', '654 MNO Street', '2013-03-28', 3, 456789231234, '2012-05-25', GETDATE(), GETDATE()),
-('Hoang Thi F', 345678912645, '1995-05-11', 'Female', '0909123461', 'thif@gmail.com', 'Vietnam', '987 PQR Street', '2018-11-05', 4, 324159678231, '2017-07-15', GETDATE(), GETDATE()),
-('Le Van G', 456789023756, '1991-07-21', 'Male', '0909123462', 'vang@gmail.com', 'Vietnam', '258 STU Street', '2017-10-30', 3, 789132456876, '2016-09-01', GETDATE(), GETDATE()),
-('Tran Van H', 567890134534, '1989-04-15', 'Male', '0909123463', 'vanh@gmail.com', 'Vietnam', '369 VWX Street', '2011-08-20', 1, 564738291034, '2010-06-10', GETDATE(), GETDATE()),
-('Pham Thi I', 678901245876, '1993-01-12', 'Female', '0909123464', 'thii@gmail.com', 'Vietnam', '147 YZ Street', '2014-05-30', 2, 987654321123, '2013-04-01', GETDATE(), GETDATE()),
-('Nguyen Van J', 789012356536, '1994-10-05', 'Male', '0909123465', 'vanj@gmail.com', 'Vietnam', '258 ABCD Street', '2019-04-20', 3, 321456789012, '2018-03-15', GETDATE(), GETDATE());
+('Le Van C', 123456789534, '25/11/1980', 'Male', '0909123456', '22211tt4304@mail.tdc.edu.vn', 'Vietnam', '789 DEF Street', '15/06/2010', 1, 923481231231, '01/06/2009', GETDATE(), GETDATE()),
+('Mai Thi Z', 987654321756, '30/03/1985', 'Female', '0909876543', 'thid@gmail.com', 'Vietnam', '101 GHI Street', '20/08/2015', 2, 873456123456, '15/07/2014', GETDATE(), GETDATE()),
+('Nguyen Thi A', 987654321345, '20/03/1985', 'Female', '0909123457', 'thia@gmail.com', 'Vietnam', '123 ABC Street', '10/07/2012', 2, 762341237891, '20/05/2010', GETDATE(), GETDATE()),
+('Tran Van B', 192837465875, '14/08/1990', 'Male', '0909123458', 'vanb@gmail.com', 'Vietnam', '456 GHI Street', '25/09/2015', 1, 634567238910, '10/05/2014', GETDATE(), GETDATE()),
+('Pham Thi D', 123456780876, '30/12/1992', 'Female', '0909123459', 'thid@gmail.com', 'Vietnam', '321 JKL Street', '15/01/2016', 4, 123987456321, '01/06/2015', GETDATE(), GETDATE()),
+('Nguyen Van E', 234567891546, '18/02/1988', 'Male', '0909123460', 'vane@gmail.com', 'Vietnam', '654 MNO Street', '28/03/2013', 3, 456789231234, '25/05/2012', GETDATE(), GETDATE()),
+('Hoang Thi F', 345678912645, '11/05/1995', 'Female', '0909123461', 'thif@gmail.com', 'Vietnam', '987 PQR Street', '05/11/2018', 4, 324159678231, '15/07/2017', GETDATE(), GETDATE()),
+('Le Van G', 456789023756, '21/07/1991', 'Male', '0909123462', 'vang@gmail.com', 'Vietnam', '258 STU Street', '30/10/2017', 3, 789132456876, '01/09/2016', GETDATE(), GETDATE()),
+('Tran Van H', 567890134534, '15/04/1989', 'Male', '0909123463', 'vanh@gmail.com', 'Vietnam', '369 VWX Street', '20/08/2011', 1, 564738291034, '10/06/2010', GETDATE(), GETDATE()),
+('Pham Thi I', 678901245876, '12/01/1993', 'Female', '0909123464', 'thii@gmail.com', 'Vietnam', '147 YZ Street', '30/05/2014', 2, 987654321123, '01/04/2013', GETDATE(), GETDATE()),
+('Nguyen Van J', 789012356536, '05/10/1994', 'Male', '0909123465', 'vanj@gmail.com', 'Vietnam', '258 ABCD Street', '20/04/2019', 3, 321456789012, '15/03/2018', GETDATE(), GETDATE());
+
 
 INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, StatusID, StartMaintenaceDate, EndMaintenaceDate, Created_At, Updated_At)
 VALUES 
@@ -303,9 +304,9 @@ values
 
 INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDate, StatusID, Created_At, Updated_At)
 VALUES
-(1, 1, 1, 1, '2024-10-15', 1, GETDATE(), GETDATE()),
-(2, 2, 2, 2, '2024-10-20', 1, GETDATE(), GETDATE()),
-(3, 2, 6, 3, '2024-10-25', 1, GETDATE(), GETDATE());
+(1, 1, 1, 1, '15/11/2024', 1, GETDATE(), GETDATE()),
+(2, 2, 2, 2, '20/11/2024', 1, GETDATE(), GETDATE()),
+(3, 2, 6, 3, '25/11/2024', 1, GETDATE(), GETDATE());
 
 INSERT INTO Invoices (InvoiceCode, EnrollmentID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 
@@ -314,9 +315,9 @@ VALUES
 
 INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
 VALUES 
-(1, '2024-10-12', 7000000, 'Credit Card', GETDATE(), GETDATE()),
-(2, '2024-10-13', 5000000, 'Cash', GETDATE(), GETDATE()),
-(1, '2024-11-02', 4000000, 'Credit Card', GETDATE(), GETDATE());
+(1, '12/10/2024', 7000000, 'Credit Card', GETDATE(), GETDATE()),
+(2, '13/10/2024', 5000000, 'Cash', GETDATE(), GETDATE()),
+(1, '02/10/2024', 4000000, 'Credit Card', GETDATE(), GETDATE());
 
 INSERT INTO Accounts (Email, [Password], Permission, Created_At, Updated_At)
 VALUES 

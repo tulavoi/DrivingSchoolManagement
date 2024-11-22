@@ -3,6 +3,7 @@ using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,11 @@ namespace BLL.Services
         public static void FilterLearnersByStatus(Guna2DataGridView dgv, string license)
         {
             LearnerBLL.Instance.FilterLearnersByStatus(dgv, license);
+        }
+
+        public static DataTable GetAllLearnersData()
+        {
+            return LearnerBLL.Instance.GetAllLearnersData();
         }
     }
 }

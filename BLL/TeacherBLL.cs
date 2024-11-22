@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,6 +116,11 @@ namespace BLL
         public bool DeleteTeacher(int teacherID)
         {
             return TeacherDAL.Instance.DeleteTeacher(teacherID);
+        }
+
+        public DataTable GetTeachersDTO()
+        {
+            return TeacherDAL.Instance.GetTeachersDTO();
         }
     }
 }
