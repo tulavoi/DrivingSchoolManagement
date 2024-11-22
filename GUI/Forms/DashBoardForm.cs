@@ -196,5 +196,11 @@ namespace GUI
             TeacherListRV teacherListRV = new TeacherListRV();
             teacherListRV.Show();
         }
+
+        private void btnPrintCourses_Click(object sender, EventArgs e)
+        {
+            CourseListRV courseListRV = new CourseListRV();
+            courseListRV.Show();
+        }
     }
 }
