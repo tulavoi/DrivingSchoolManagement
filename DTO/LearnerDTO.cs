@@ -18,5 +18,7 @@ namespace DTO
         public string CitizenID { get; set; } 
         public string Nationality { get; set; }
         public string EnrollmentDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 CREATE DATABASE DrivingSchool_V2
 GO
 USE DrivingSchool_V2
---SET DATEFORMAT DMY
+SET DATEFORMAT DMY
 
 --DROP DATABASE DrivingSchool_V2
 
@@ -28,6 +28,7 @@ create TABLE Learners (
     CitizenID NVARCHAR(12) unique,
 	Nationality nvarchar(100),
     StatusID int default 1,
+	IsPass bit,
     Created_At DATETIME,
     Updated_At DATETIME
 )
@@ -217,16 +218,16 @@ VALUES('B', 1), ('C', 2), ('D', 3), ('E', 4);
 INSERT INTO [Status] (StatusName)
 VALUES ('Active'), ('Inactive');
 
-INSERT INTO Learners (FullName, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, Created_At, Updated_At)
+INSERT INTO Learners (FullName, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, IsPass, Created_At, Updated_At)
 VALUES 
-('Mai Nguyen Hoang Vu', '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Nguyen Xuan Duoc','15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', GETDATE(), GETDATE()),
-('Truong Anh Thanh Cong', '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', GETDATE(), GETDATE()),
-('Nguyen Van A', '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', GETDATE(), GETDATE()),
-('Tran Thi B', '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Van C', '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', GETDATE(), GETDATE()),
-('Le Van H', '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', GETDATE(), GETDATE()),
-('Pham Thi I', '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', GETDATE(), GETDATE());
+('Mai Nguyen Hoang Vu', '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Le Nguyen Xuan Duoc','15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Truong Anh Thanh Cong', '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Nguyen Van A', '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Tran Thi B', '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Le Van C', '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Le Van H', '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', 0, GETDATE(), GETDATE()),
+('Pham Thi I', '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', 0, GETDATE(), GETDATE());
 
 INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At) 
 VALUES 
@@ -275,10 +276,10 @@ INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, 
 VALUES 
 ('B-090532131024', 1, 11000000, 588, 0, 1, '2024-10-01', DATEADD(MONTH, 6, CAST('2024-10-01' AS DATE)), GETDATE(), GETDATE()),
 ('B-080756241024', 1, 11000000, 588, 0, 1, '2024-10-02', DATEADD(MONTH, 6, CAST('2024-10-02' AS DATE)), GETDATE(), GETDATE()),
-('B-080756241027', 1, 11000000, 588, 584, 1, '2024-10-03', DATEADD(MONTH, 6, CAST('2024-10-03' AS DATE)), GETDATE(), GETDATE()),
-('C-020654131027', 2, 12000000, 920, 0, 1, '2024-11-02', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), GETDATE(), GETDATE()),
-('C-053354131024', 2, 12000000, 920, 0, 1, '2024-11-03', DATEADD(MONTH, 6, CAST('2024-11-03' AS DATE)), GETDATE(), GETDATE()),
-('C-540856241024', 2, 12000000, 920, 0, 1, '2024-11-04', DATEADD(MONTH, 6, CAST('2024-11-04' AS DATE)), GETDATE(), GETDATE()),
+('B-080756241027', 1, 11000000, 588, 588, 1, '2024-04-03', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '2024-04-03', GETDATE()),
+('C-020654131027', 2, 12000000, 920, 918, 1, '2024-11-02', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), GETDATE(), GETDATE()),
+('C-053354131024', 2, 12000000, 920, 920, 1, '2024-05-03', DATEADD(MONTH, 6, CAST('2024-05-03' AS DATE)), '2024-05-03', GETDATE()),
+('C-540856241024', 2, 12000000, 920, 920, 1, '2024-03-05', DATEADD(MONTH, 6, CAST('2024-03-04' AS DATE)), '2024-03-05', GETDATE()),
 ('D-091122131024', 3, 15000000, 192, 0, 1, '2024-11-05', DATEADD(MONTH, 6, CAST('2024-11-05' AS DATE)), GETDATE(), GETDATE()),
 ('D-450456241024', 3, 15000000, 192, 0, 1, '2024-11-06', DATEADD(MONTH, 6, CAST('2024-11-06' AS DATE)), GETDATE(), GETDATE()),
 ('E-092433131024', 4, 20000000, 192, 0, 1, '2024-11-07', DATEADD(MONTH, 6, CAST('2024-11-07' AS DATE)), GETDATE(), GETDATE()),

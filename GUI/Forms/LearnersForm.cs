@@ -13,7 +13,7 @@ namespace GUI
 		#region Properties
 		private bool isEditing = false;
 		private bool isClicked = false;
-
+		private Learner selectedLearner;
         private static LearnersForm instance;
 
 		public static LearnersForm Instance
@@ -43,6 +43,8 @@ namespace GUI
 
             pnlMenuButtonPrint.Visible = false;
             this.isClicked = false;
+
+			if ((bool)!this.selectedLearner.IsPass) btnConfirmPass.Visible = true;
         }
 
 		private void LoadComboboxes()
@@ -164,17 +166,32 @@ namespace GUI
 
 		private void UpdateControlsWithSelectedRowData()
 		{
-			// Check if a row is selected and assign selected learner data to controls
-			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
+            // Check if a row is selected and assign selected learner data to controls
+            //if (!FormHelper.HasSelectedRow(dgvLearners)) return;
+
+            //var selectedRow = dgvLearners.SelectedRows[0];
+
+            //if (selectedRow.Tag is Learner selectedLearner)
+            //	this.AssignDataToControls(selectedLearner);
+            this.selectedLearner = this.GetSelectedLearner();
+			this.AssignDataToControls(this.selectedLearner);
+		}
+
+        private Learner GetSelectedLearner()
+        {
+            if (!FormHelper.HasSelectedRow(dgvLearners)) return null;
 
 			var selectedRow = dgvLearners.SelectedRows[0];
 
-			if (selectedRow.Tag is Learner selectedLearner)
-				this.AssignDataToControls(selectedLearner);
+			if (selectedRow.Tag is Learner selectedLearner) return selectedLearner;
+
+			return null;
 		}
 
-		private void AssignDataToControls(Learner selectedLearner)
+        private void AssignDataToControls(Learner selectedLearner)
 		{
+			if (selectedLearner == null) return;
+
 			// Assign learner data to form controls
 			string learnerID = "ID: " + selectedLearner.LearnerID.ToString();
 
@@ -286,6 +303,19 @@ namespace GUI
 			pnlBasicDetails.Height = showDetails ? 435 : 400;
 		}
 
+        private void btnConfirmPass_Click(object sender, EventArgs e)
+        {
+			if (string.IsNullOrEmpty(lblLearnerID.Text)) return;
+
+			if (this.ConfirmAction($"Are you sure the leanrer '{txtLearnerName.Text}' passed?"))
+			{
+				var result = LearnerService.ConfirmPass(FormHelper.GetObjectID(lblLearnerID.Text));
+                FormHelper.ShowActionResult(result, "Updated successfully", "Failed to update");
+            }
+            cboStatus_Filter_SelectedIndexChanged(sender, e);
+            this.ToggleEditMode();
+        }
+
         private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
         {
             this.isClicked = !this.isClicked;
@@ -297,6 +327,17 @@ namespace GUI
         {
 			LearnerListRV learnerListRV = new LearnerListRV();
 			learnerListRV.Show();
+        }
+
+        private void btnPrintLearnerDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEligibleLearners_Click(object sender, EventArgs e)
+        {
+			EligibleLearnersRV eligibleLearnersRV = new EligibleLearnersRV();
+			eligibleLearnersRV.Show();
         }
     }
 }

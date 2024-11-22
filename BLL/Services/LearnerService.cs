@@ -62,5 +62,15 @@ namespace BLL.Services
         {
             return LearnerBLL.Instance.GetAllLearnersData();
         }
+
+        public static bool ConfirmPass(int learnerID)
+        {
+            return LearnerBLL.Instance.ConfirmPass(learnerID);
+        }
+
+        public static DataTable GetEligibleLearnersData()
+        {
+            return LearnerBLL.Instance.GetEligibleLearnersData();
+        }
     }
 }
