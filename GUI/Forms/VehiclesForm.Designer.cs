@@ -28,14 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVehicles = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlMenuButtonPrint = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnOpenMenuButtonPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel16 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel17 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvVehicles = new Guna.UI2.WinForms.Guna2DataGridView();
             this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +58,7 @@
             this.ManufactureYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddVehicleForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -57,28 +73,15 @@
             this.pnlSpace6 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblCourses = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlDetails = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.pnlMaitenanceDetail = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlEdit_Maintenance = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnEdit_MaintenanceDetail = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dtpEndMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpStartMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlSpace24 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlNotes = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.pnlSpace18 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlStatus = new Guna.UI2.WinForms.Guna2Panel();
-            this.cboStatus = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblMaintenance = new System.Windows.Forms.Label();
+            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.pnlDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblVehicleID = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace26 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblDetails = new System.Windows.Forms.Label();
+            this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblBasicDetails = new System.Windows.Forms.Label();
             this.pnlBasicDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlButtonEdit_Delete = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
@@ -112,29 +115,37 @@
             this.lblCarName = new System.Windows.Forms.Label();
             this.pnlSpace19 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblBasicDetails = new System.Windows.Forms.Label();
-            this.pnlDetails_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblVehicleID = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlSpace12 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace11 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace26 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblDetails = new System.Windows.Forms.Label();
-            this.pnlSpace27 = new Guna.UI2.WinForms.Guna2Panel();
-            this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblMaintenance = new System.Windows.Forms.Label();
+            this.pnlMaitenanceDetail = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlEdit_Maintenance = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEdit_MaintenanceDetail = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlSpace20 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpEndMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpStartMaintenance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlSpace24 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlNotes = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.pnlSpace18 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlStatus = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlDetails = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlVehicles.SuspendLayout();
+            this.guna2Panel12.SuspendLayout();
+            this.pnlMenuButtonPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
             this.pnlVehicles_Top.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlCboTeacher_License.SuspendLayout();
-            this.pnlDetails.SuspendLayout();
-            this.pnlMaitenanceDetail.SuspendLayout();
-            this.pnlEdit_Maintenance.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
-            this.pnlNotes.SuspendLayout();
-            this.pnlStatus.SuspendLayout();
+            this.pnlDetails_Top.SuspendLayout();
             this.pnlBasicDetails.SuspendLayout();
             this.pnlButtonEdit_Delete.SuspendLayout();
             this.pnlWeight_Seats.SuspendLayout();
@@ -143,7 +154,12 @@
             this.pnlChkTruck.SuspendLayout();
             this.pnlCarNo_ManuYear.SuspendLayout();
             this.pnlName.SuspendLayout();
-            this.pnlDetails_Top.SuspendLayout();
+            this.pnlMaitenanceDetail.SuspendLayout();
+            this.pnlEdit_Maintenance.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.pnlNotes.SuspendLayout();
+            this.pnlStatus.SuspendLayout();
+            this.pnlDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSpace10
@@ -159,6 +175,8 @@
             // 
             this.pnlVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlVehicles.BorderRadius = 15;
+            this.pnlVehicles.Controls.Add(this.guna2Panel12);
+            this.pnlVehicles.Controls.Add(this.guna2Panel17);
             this.pnlVehicles.Controls.Add(this.dgvVehicles);
             this.pnlVehicles.Controls.Add(this.pnlButtonAdd);
             this.pnlVehicles.Controls.Add(this.pnlSpace2);
@@ -169,20 +187,243 @@
             this.pnlVehicles.Size = new System.Drawing.Size(500, 715);
             this.pnlVehicles.TabIndex = 51;
             // 
+            // guna2Panel12
+            // 
+            this.guna2Panel12.Controls.Add(this.pnlMenuButtonPrint);
+            this.guna2Panel12.Controls.Add(this.btnOpenMenuButtonPrint);
+            this.guna2Panel12.Controls.Add(this.guna2Panel16);
+            this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel12.FillColor = System.Drawing.Color.White;
+            this.guna2Panel12.Location = new System.Drawing.Point(0, 619);
+            this.guna2Panel12.Name = "guna2Panel12";
+            this.guna2Panel12.Size = new System.Drawing.Size(500, 35);
+            this.guna2Panel12.TabIndex = 132;
+            // 
+            // pnlMenuButtonPrint
+            // 
+            this.pnlMenuButtonPrint.BackColor = System.Drawing.Color.White;
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Button6);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel10);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Button5);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel9);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Button4);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel8);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Button3);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel6);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Button2);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel15);
+            this.pnlMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMenuButtonPrint.Location = new System.Drawing.Point(55, 0);
+            this.pnlMenuButtonPrint.Name = "pnlMenuButtonPrint";
+            this.pnlMenuButtonPrint.Size = new System.Drawing.Size(445, 35);
+            this.pnlMenuButtonPrint.TabIndex = 45;
+            // 
+            // guna2Button6
+            // 
+            this.guna2Button6.BorderRadius = 5;
+            this.guna2Button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button6.ForeColor = System.Drawing.Color.White;
+            this.guna2Button6.Location = new System.Drawing.Point(278, 0);
+            this.guna2Button6.Name = "guna2Button6";
+            this.guna2Button6.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button6.Size = new System.Drawing.Size(127, 35);
+            this.guna2Button6.TabIndex = 172;
+            this.guna2Button6.Text = "Maintenance";
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel10.FillColor = System.Drawing.Color.White;
+            this.guna2Panel10.Location = new System.Drawing.Point(268, 0);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel10.TabIndex = 173;
+            // 
+            // guna2Button5
+            // 
+            this.guna2Button5.BorderRadius = 5;
+            this.guna2Button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button5.ForeColor = System.Drawing.Color.White;
+            this.guna2Button5.Location = new System.Drawing.Point(211, 0);
+            this.guna2Button5.Name = "guna2Button5";
+            this.guna2Button5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button5.Size = new System.Drawing.Size(57, 35);
+            this.guna2Button5.TabIndex = 170;
+            this.guna2Button5.Text = "E";
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(201, 0);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel9.TabIndex = 172;
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.BorderRadius = 5;
+            this.guna2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Location = new System.Drawing.Point(144, 0);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button4.Size = new System.Drawing.Size(57, 35);
+            this.guna2Button4.TabIndex = 168;
+            this.guna2Button4.Text = "D";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(134, 0);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel8.TabIndex = 171;
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BorderRadius = 5;
+            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(77, 0);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button3.Size = new System.Drawing.Size(57, 35);
+            this.guna2Button3.TabIndex = 166;
+            this.guna2Button3.Text = "C";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(67, 0);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel6.TabIndex = 165;
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(10, 0);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button2.Size = new System.Drawing.Size(57, 35);
+            this.guna2Button2.TabIndex = 164;
+            this.guna2Button2.Text = "B";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // guna2Panel15
+            // 
+            this.guna2Panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel15.FillColor = System.Drawing.Color.White;
+            this.guna2Panel15.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel15.Name = "guna2Panel15";
+            this.guna2Panel15.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel15.TabIndex = 44;
+            // 
+            // btnOpenMenuButtonPrint
+            // 
+            this.btnOpenMenuButtonPrint.BorderRadius = 5;
+            this.btnOpenMenuButtonPrint.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.CheckedState.Image = global::GUI.Properties.Resources.menu2;
+            this.btnOpenMenuButtonPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenMenuButtonPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpenMenuButtonPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpenMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnOpenMenuButtonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnOpenMenuButtonPrint.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.Image = global::GUI.Properties.Resources.menu1;
+            this.btnOpenMenuButtonPrint.Location = new System.Drawing.Point(15, 0);
+            this.btnOpenMenuButtonPrint.Name = "btnOpenMenuButtonPrint";
+            this.btnOpenMenuButtonPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpenMenuButtonPrint.Size = new System.Drawing.Size(40, 35);
+            this.btnOpenMenuButtonPrint.TabIndex = 43;
+            this.btnOpenMenuButtonPrint.Click += new System.EventHandler(this.btnOpenMenuButtonPrint_Click);
+            // 
+            // guna2Panel16
+            // 
+            this.guna2Panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel16.FillColor = System.Drawing.Color.White;
+            this.guna2Panel16.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel16.Name = "guna2Panel16";
+            this.guna2Panel16.Size = new System.Drawing.Size(15, 35);
+            this.guna2Panel16.TabIndex = 10;
+            // 
+            // guna2Panel17
+            // 
+            this.guna2Panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel17.FillColor = System.Drawing.Color.White;
+            this.guna2Panel17.Location = new System.Drawing.Point(0, 654);
+            this.guna2Panel17.Name = "guna2Panel17";
+            this.guna2Panel17.Size = new System.Drawing.Size(500, 10);
+            this.guna2Panel17.TabIndex = 131;
+            // 
             // dgvVehicles
             // 
             this.dgvVehicles.AllowUserToAddRows = false;
             this.dgvVehicles.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvVehicles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvVehicles.ColumnHeadersHeight = 40;
             this.dgvVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceID,
@@ -190,40 +431,40 @@
             this.CarNumber,
             this.ManufactureYear,
             this.Status});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVehicles.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvVehicles.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvVehicles.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvVehicles.Location = new System.Drawing.Point(0, 50);
             this.dgvVehicles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehicles.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvVehicles.RowHeadersVisible = false;
             this.dgvVehicles.RowHeadersWidth = 30;
             this.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvVehicles.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvVehicles.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvVehicles.RowTemplate.DividerHeight = 2;
             this.dgvVehicles.RowTemplate.Height = 45;
-            this.dgvVehicles.Size = new System.Drawing.Size(500, 565);
+            this.dgvVehicles.Size = new System.Drawing.Size(500, 564);
             this.dgvVehicles.TabIndex = 110;
             this.dgvVehicles.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvVehicles.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -263,8 +504,8 @@
             // 
             this.CarName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CarName.DataPropertyName = "CarName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CarName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CarName.DefaultCellStyle = dataGridViewCellStyle9;
             this.CarName.FillWeight = 53.63456F;
             this.CarName.Frozen = true;
             this.CarName.HeaderText = "Name";
@@ -307,7 +548,6 @@
             // 
             // pnlButtonAdd
             // 
-            this.pnlButtonAdd.Controls.Add(this.btnPrint);
             this.pnlButtonAdd.Controls.Add(this.guna2Panel3);
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddVehicleForm);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace1);
@@ -317,6 +557,16 @@
             this.pnlButtonAdd.Name = "pnlButtonAdd";
             this.pnlButtonAdd.Size = new System.Drawing.Size(500, 35);
             this.pnlButtonAdd.TabIndex = 42;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(487, 0);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(13, 35);
+            this.guna2Panel3.TabIndex = 21;
             // 
             // btnOpenAddVehicleForm
             // 
@@ -526,321 +776,128 @@
             this.pnlSpace5.Size = new System.Drawing.Size(13, 50);
             this.pnlSpace5.TabIndex = 14;
             // 
-            // pnlDetails
+            // toolTip
             // 
-            this.pnlDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlDetails.BorderRadius = 15;
-            this.pnlDetails.Controls.Add(this.pnlMaitenanceDetail);
-            this.pnlDetails.Controls.Add(this.lblMaintenance);
-            this.pnlDetails.Controls.Add(this.pnlBasicDetails);
-            this.pnlDetails.Controls.Add(this.lblBasicDetails);
-            this.pnlDetails.Controls.Add(this.pnlDetails_Top);
-            this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDetails.Location = new System.Drawing.Point(520, 0);
-            this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(420, 715);
-            this.pnlDetails.TabIndex = 53;
+            this.toolTip.AllowLinksHandling = true;
+            this.toolTip.AutoPopDelay = 3000;
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
+            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip.ForeColor = System.Drawing.Color.White;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.StripAmpersands = true;
             // 
-            // pnlMaitenanceDetail
+            // pnlDetails_Top
             // 
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlEdit_Maintenance);
-            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel2);
-            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel1);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace24);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlNotes);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace18);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlStatus);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace15);
-            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace25);
-            this.pnlMaitenanceDetail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMaitenanceDetail.FillColor = System.Drawing.Color.White;
-            this.pnlMaitenanceDetail.Location = new System.Drawing.Point(0, 407);
-            this.pnlMaitenanceDetail.Name = "pnlMaitenanceDetail";
-            this.pnlMaitenanceDetail.Size = new System.Drawing.Size(420, 224);
-            this.pnlMaitenanceDetail.TabIndex = 111;
+            this.pnlDetails_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlDetails_Top.BorderRadius = 15;
+            this.pnlDetails_Top.Controls.Add(this.lblVehicleID);
+            this.pnlDetails_Top.Controls.Add(this.pnlSpace12);
+            this.pnlDetails_Top.Controls.Add(this.pnlSpace11);
+            this.pnlDetails_Top.Controls.Add(this.pnlSpace26);
+            this.pnlDetails_Top.Controls.Add(this.lblDetails);
+            this.pnlDetails_Top.Controls.Add(this.pnlSpace27);
+            this.pnlDetails_Top.CustomizableEdges.TopLeft = false;
+            this.pnlDetails_Top.CustomizableEdges.TopRight = false;
+            this.pnlDetails_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDetails_Top.FillColor = System.Drawing.Color.White;
+            this.pnlDetails_Top.Location = new System.Drawing.Point(0, 0);
+            this.pnlDetails_Top.Name = "pnlDetails_Top";
+            this.pnlDetails_Top.Size = new System.Drawing.Size(420, 50);
+            this.pnlDetails_Top.TabIndex = 1;
             // 
-            // pnlEdit_Maintenance
+            // lblVehicleID
             // 
-            this.pnlEdit_Maintenance.Controls.Add(this.btnEdit_MaintenanceDetail);
-            this.pnlEdit_Maintenance.Controls.Add(this.pnlSpace20);
-            this.pnlEdit_Maintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEdit_Maintenance.FillColor = System.Drawing.Color.White;
-            this.pnlEdit_Maintenance.Location = new System.Drawing.Point(0, 178);
-            this.pnlEdit_Maintenance.Name = "pnlEdit_Maintenance";
-            this.pnlEdit_Maintenance.Size = new System.Drawing.Size(401, 35);
-            this.pnlEdit_Maintenance.TabIndex = 131;
+            this.lblVehicleID.BackColor = System.Drawing.Color.White;
+            this.lblVehicleID.BorderRadius = 5;
+            this.lblVehicleID.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.lblVehicleID.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.lblVehicleID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.lblVehicleID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.lblVehicleID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblVehicleID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.lblVehicleID.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehicleID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblVehicleID.Location = new System.Drawing.Point(292, 15);
+            this.lblVehicleID.Name = "lblVehicleID";
+            this.lblVehicleID.PressedDepth = 5;
+            this.lblVehicleID.Size = new System.Drawing.Size(109, 25);
+            this.lblVehicleID.TabIndex = 22;
+            this.lblVehicleID.Text = "Vehicle ID";
             // 
-            // btnEdit_MaintenanceDetail
+            // pnlSpace12
             // 
-            this.btnEdit_MaintenanceDetail.BorderRadius = 5;
-            this.btnEdit_MaintenanceDetail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit_MaintenanceDetail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit_MaintenanceDetail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit_MaintenanceDetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit_MaintenanceDetail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit_MaintenanceDetail.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEdit_MaintenanceDetail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(90)))));
-            this.btnEdit_MaintenanceDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit_MaintenanceDetail.ForeColor = System.Drawing.Color.White;
-            this.btnEdit_MaintenanceDetail.Location = new System.Drawing.Point(19, 0);
-            this.btnEdit_MaintenanceDetail.Name = "btnEdit_MaintenanceDetail";
-            this.btnEdit_MaintenanceDetail.Padding = new System.Windows.Forms.Padding(5);
-            this.btnEdit_MaintenanceDetail.Size = new System.Drawing.Size(150, 35);
-            this.btnEdit_MaintenanceDetail.TabIndex = 17;
-            this.btnEdit_MaintenanceDetail.Text = "Edit";
-            this.btnEdit_MaintenanceDetail.Click += new System.EventHandler(this.btnEdit_Maintenance_Click);
+            this.pnlSpace12.BackColor = System.Drawing.Color.White;
+            this.pnlSpace12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSpace12.Location = new System.Drawing.Point(292, 40);
+            this.pnlSpace12.Name = "pnlSpace12";
+            this.pnlSpace12.Size = new System.Drawing.Size(109, 10);
+            this.pnlSpace12.TabIndex = 21;
             // 
-            // pnlSpace20
+            // pnlSpace11
             // 
-            this.pnlSpace20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace20.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSpace20.FillColor = System.Drawing.Color.White;
-            this.pnlSpace20.Location = new System.Drawing.Point(0, 0);
-            this.pnlSpace20.Name = "pnlSpace20";
-            this.pnlSpace20.Size = new System.Drawing.Size(19, 35);
-            this.pnlSpace20.TabIndex = 18;
+            this.pnlSpace11.BackColor = System.Drawing.Color.White;
+            this.pnlSpace11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace11.Location = new System.Drawing.Point(292, 0);
+            this.pnlSpace11.Name = "pnlSpace11";
+            this.pnlSpace11.Size = new System.Drawing.Size(109, 15);
+            this.pnlSpace11.TabIndex = 20;
             // 
-            // guna2Panel2
+            // pnlSpace26
             // 
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 163);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(401, 15);
-            this.guna2Panel2.TabIndex = 135;
+            this.pnlSpace26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace26.BorderRadius = 15;
+            this.pnlSpace26.CustomizableEdges.BottomLeft = false;
+            this.pnlSpace26.CustomizableEdges.BottomRight = false;
+            this.pnlSpace26.CustomizableEdges.TopLeft = false;
+            this.pnlSpace26.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSpace26.FillColor = System.Drawing.Color.White;
+            this.pnlSpace26.Location = new System.Drawing.Point(401, 0);
+            this.pnlSpace26.Name = "pnlSpace26";
+            this.pnlSpace26.Size = new System.Drawing.Size(19, 50);
+            this.pnlSpace26.TabIndex = 18;
             // 
-            // guna2Panel1
+            // lblDetails
             // 
-            this.guna2Panel1.Controls.Add(this.dtpEndMaintenance);
-            this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.dtpStartMaintenance);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 127);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(401, 36);
-            this.guna2Panel1.TabIndex = 134;
+            this.lblDetails.BackColor = System.Drawing.Color.White;
+            this.lblDetails.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblDetails.Location = new System.Drawing.Point(13, 0);
+            this.lblDetails.Name = "lblDetails";
+            this.lblDetails.Size = new System.Drawing.Size(279, 50);
+            this.lblDetails.TabIndex = 17;
+            this.lblDetails.Text = "Vehicle Details";
+            this.lblDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtpEndMaintenance
+            // pnlSpace27
             // 
-            this.dtpEndMaintenance.BorderColor = System.Drawing.Color.White;
-            this.dtpEndMaintenance.BorderRadius = 5;
-            this.dtpEndMaintenance.Checked = true;
-            this.dtpEndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpEndMaintenance.CustomFormat = "dd-MM-yyyy";
-            this.dtpEndMaintenance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpEndMaintenance.Enabled = false;
-            this.dtpEndMaintenance.FillColor = System.Drawing.Color.White;
-            this.dtpEndMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpEndMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpEndMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndMaintenance.Location = new System.Drawing.Point(265, 0);
-            this.dtpEndMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEndMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEndMaintenance.Name = "dtpEndMaintenance";
-            this.dtpEndMaintenance.Size = new System.Drawing.Size(136, 36);
-            this.dtpEndMaintenance.TabIndex = 113;
-            this.dtpEndMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
+            this.pnlSpace27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace27.BorderRadius = 15;
+            this.pnlSpace27.CustomizableEdges.BottomLeft = false;
+            this.pnlSpace27.CustomizableEdges.BottomRight = false;
+            this.pnlSpace27.CustomizableEdges.TopRight = false;
+            this.pnlSpace27.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSpace27.FillColor = System.Drawing.Color.White;
+            this.pnlSpace27.Location = new System.Drawing.Point(0, 0);
+            this.pnlSpace27.Name = "pnlSpace27";
+            this.pnlSpace27.Size = new System.Drawing.Size(13, 50);
+            this.pnlSpace27.TabIndex = 16;
             // 
-            // label2
+            // lblBasicDetails
             // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label2.Location = new System.Drawing.Point(210, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 36);
-            this.label2.TabIndex = 114;
-            this.label2.Text = "  End:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dtpStartMaintenance
-            // 
-            this.dtpStartMaintenance.BorderColor = System.Drawing.Color.White;
-            this.dtpStartMaintenance.BorderRadius = 5;
-            this.dtpStartMaintenance.Checked = true;
-            this.dtpStartMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpStartMaintenance.CustomFormat = "dd-MM-yyyy";
-            this.dtpStartMaintenance.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtpStartMaintenance.Enabled = false;
-            this.dtpStartMaintenance.FillColor = System.Drawing.Color.White;
-            this.dtpStartMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpStartMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpStartMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartMaintenance.Location = new System.Drawing.Point(75, 0);
-            this.dtpStartMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpStartMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpStartMaintenance.Name = "dtpStartMaintenance";
-            this.dtpStartMaintenance.Size = new System.Drawing.Size(135, 36);
-            this.dtpStartMaintenance.TabIndex = 5;
-            this.dtpStartMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 36);
-            this.label1.TabIndex = 112;
-            this.label1.Text = "    Start:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlSpace24
-            // 
-            this.pnlSpace24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace24.FillColor = System.Drawing.Color.White;
-            this.pnlSpace24.Location = new System.Drawing.Point(0, 117);
-            this.pnlSpace24.Name = "pnlSpace24";
-            this.pnlSpace24.Size = new System.Drawing.Size(401, 10);
-            this.pnlSpace24.TabIndex = 133;
-            // 
-            // pnlNotes
-            // 
-            this.pnlNotes.Controls.Add(this.txtNotes);
-            this.pnlNotes.Controls.Add(this.lblNotes);
-            this.pnlNotes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlNotes.FillColor = System.Drawing.Color.White;
-            this.pnlNotes.Location = new System.Drawing.Point(0, 56);
-            this.pnlNotes.Name = "pnlNotes";
-            this.pnlNotes.Size = new System.Drawing.Size(401, 61);
-            this.pnlNotes.TabIndex = 132;
-            // 
-            // txtNotes
-            // 
-            this.txtNotes.BackColor = System.Drawing.Color.White;
-            this.txtNotes.BorderRadius = 5;
-            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNotes.DefaultText = "";
-            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNotes.Enabled = false;
-            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtNotes.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.txtNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtNotes.Location = new System.Drawing.Point(125, 0);
-            this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.txtNotes.PasswordChar = '\0';
-            this.txtNotes.PlaceholderText = "Notes...";
-            this.txtNotes.SelectedText = "";
-            this.txtNotes.Size = new System.Drawing.Size(276, 61);
-            this.txtNotes.TabIndex = 30;
-            this.txtNotes.Tag = "Notes";
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.BackColor = System.Drawing.Color.White;
-            this.lblNotes.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblNotes.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblNotes.Location = new System.Drawing.Point(0, 0);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(125, 61);
-            this.lblNotes.TabIndex = 29;
-            this.lblNotes.Text = "    Notes: ";
-            this.lblNotes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlSpace18
-            // 
-            this.pnlSpace18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace18.FillColor = System.Drawing.Color.White;
-            this.pnlSpace18.Location = new System.Drawing.Point(0, 46);
-            this.pnlSpace18.Name = "pnlSpace18";
-            this.pnlSpace18.Size = new System.Drawing.Size(401, 10);
-            this.pnlSpace18.TabIndex = 130;
-            // 
-            // pnlStatus
-            // 
-            this.pnlStatus.Controls.Add(this.cboStatus);
-            this.pnlStatus.Controls.Add(this.lblStatus);
-            this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlStatus.FillColor = System.Drawing.Color.White;
-            this.pnlStatus.Location = new System.Drawing.Point(0, 10);
-            this.pnlStatus.Name = "pnlStatus";
-            this.pnlStatus.Size = new System.Drawing.Size(401, 36);
-            this.pnlStatus.TabIndex = 125;
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.BackColor = System.Drawing.Color.White;
-            this.cboStatus.BorderRadius = 5;
-            this.cboStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboStatus.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.cboStatus.DisabledState.FillColor = System.Drawing.Color.White;
-            this.cboStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Enabled = false;
-            this.cboStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.cboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.cboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.cboStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.cboStatus.ItemHeight = 30;
-            this.cboStatus.Items.AddRange(new object[] {
-            "Available",
-            "Maintenance"});
-            this.cboStatus.Location = new System.Drawing.Point(125, 0);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(276, 36);
-            this.cboStatus.StartIndex = 0;
-            this.cboStatus.TabIndex = 112;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.BackColor = System.Drawing.Color.White;
-            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblStatus.Location = new System.Drawing.Point(0, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(125, 36);
-            this.lblStatus.TabIndex = 111;
-            this.lblStatus.Text = "    Status:";
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlSpace15
-            // 
-            this.pnlSpace15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace15.FillColor = System.Drawing.Color.White;
-            this.pnlSpace15.Location = new System.Drawing.Point(0, 0);
-            this.pnlSpace15.Name = "pnlSpace15";
-            this.pnlSpace15.Size = new System.Drawing.Size(401, 10);
-            this.pnlSpace15.TabIndex = 104;
-            // 
-            // pnlSpace25
-            // 
-            this.pnlSpace25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace25.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSpace25.FillColor = System.Drawing.Color.White;
-            this.pnlSpace25.Location = new System.Drawing.Point(401, 0);
-            this.pnlSpace25.Name = "pnlSpace25";
-            this.pnlSpace25.Size = new System.Drawing.Size(19, 224);
-            this.pnlSpace25.TabIndex = 91;
-            // 
-            // lblMaintenance
-            // 
-            this.lblMaintenance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.lblMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblMaintenance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblMaintenance.Location = new System.Drawing.Point(0, 362);
-            this.lblMaintenance.Name = "lblMaintenance";
-            this.lblMaintenance.Size = new System.Drawing.Size(420, 45);
-            this.lblMaintenance.TabIndex = 110;
-            this.lblMaintenance.Text = "  Maintenance Details";
-            this.lblMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBasicDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.lblBasicDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBasicDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasicDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblBasicDetails.Location = new System.Drawing.Point(0, 50);
+            this.lblBasicDetails.Name = "lblBasicDetails";
+            this.lblBasicDetails.Size = new System.Drawing.Size(420, 45);
+            this.lblBasicDetails.TabIndex = 108;
+            this.lblBasicDetails.Text = "  Basic Details";
+            this.lblBasicDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlBasicDetails
             // 
@@ -1352,157 +1409,321 @@
             this.pnlSpace21.Size = new System.Drawing.Size(19, 267);
             this.pnlSpace21.TabIndex = 91;
             // 
-            // lblBasicDetails
+            // lblMaintenance
             // 
-            this.lblBasicDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.lblBasicDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblBasicDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasicDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblBasicDetails.Location = new System.Drawing.Point(0, 50);
-            this.lblBasicDetails.Name = "lblBasicDetails";
-            this.lblBasicDetails.Size = new System.Drawing.Size(420, 45);
-            this.lblBasicDetails.TabIndex = 108;
-            this.lblBasicDetails.Text = "  Basic Details";
-            this.lblBasicDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMaintenance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.lblMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMaintenance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblMaintenance.Location = new System.Drawing.Point(0, 362);
+            this.lblMaintenance.Name = "lblMaintenance";
+            this.lblMaintenance.Size = new System.Drawing.Size(420, 45);
+            this.lblMaintenance.TabIndex = 110;
+            this.lblMaintenance.Text = "  Maintenance Details";
+            this.lblMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlDetails_Top
+            // pnlMaitenanceDetail
             // 
-            this.pnlDetails_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlDetails_Top.BorderRadius = 15;
-            this.pnlDetails_Top.Controls.Add(this.lblVehicleID);
-            this.pnlDetails_Top.Controls.Add(this.pnlSpace12);
-            this.pnlDetails_Top.Controls.Add(this.pnlSpace11);
-            this.pnlDetails_Top.Controls.Add(this.pnlSpace26);
-            this.pnlDetails_Top.Controls.Add(this.lblDetails);
-            this.pnlDetails_Top.Controls.Add(this.pnlSpace27);
-            this.pnlDetails_Top.CustomizableEdges.TopLeft = false;
-            this.pnlDetails_Top.CustomizableEdges.TopRight = false;
-            this.pnlDetails_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDetails_Top.FillColor = System.Drawing.Color.White;
-            this.pnlDetails_Top.Location = new System.Drawing.Point(0, 0);
-            this.pnlDetails_Top.Name = "pnlDetails_Top";
-            this.pnlDetails_Top.Size = new System.Drawing.Size(420, 50);
-            this.pnlDetails_Top.TabIndex = 1;
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlEdit_Maintenance);
+            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel2);
+            this.pnlMaitenanceDetail.Controls.Add(this.guna2Panel1);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace24);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlNotes);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace18);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlStatus);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace15);
+            this.pnlMaitenanceDetail.Controls.Add(this.pnlSpace25);
+            this.pnlMaitenanceDetail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMaitenanceDetail.FillColor = System.Drawing.Color.White;
+            this.pnlMaitenanceDetail.Location = new System.Drawing.Point(0, 407);
+            this.pnlMaitenanceDetail.Name = "pnlMaitenanceDetail";
+            this.pnlMaitenanceDetail.Size = new System.Drawing.Size(420, 224);
+            this.pnlMaitenanceDetail.TabIndex = 111;
             // 
-            // lblVehicleID
+            // pnlEdit_Maintenance
             // 
-            this.lblVehicleID.BackColor = System.Drawing.Color.White;
-            this.lblVehicleID.BorderRadius = 5;
-            this.lblVehicleID.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.lblVehicleID.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.lblVehicleID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.lblVehicleID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.lblVehicleID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblVehicleID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.lblVehicleID.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVehicleID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblVehicleID.Location = new System.Drawing.Point(292, 15);
-            this.lblVehicleID.Name = "lblVehicleID";
-            this.lblVehicleID.PressedDepth = 5;
-            this.lblVehicleID.Size = new System.Drawing.Size(109, 25);
-            this.lblVehicleID.TabIndex = 22;
-            this.lblVehicleID.Text = "Vehicle ID";
+            this.pnlEdit_Maintenance.Controls.Add(this.btnEdit_MaintenanceDetail);
+            this.pnlEdit_Maintenance.Controls.Add(this.pnlSpace20);
+            this.pnlEdit_Maintenance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlEdit_Maintenance.FillColor = System.Drawing.Color.White;
+            this.pnlEdit_Maintenance.Location = new System.Drawing.Point(0, 178);
+            this.pnlEdit_Maintenance.Name = "pnlEdit_Maintenance";
+            this.pnlEdit_Maintenance.Size = new System.Drawing.Size(401, 35);
+            this.pnlEdit_Maintenance.TabIndex = 131;
             // 
-            // pnlSpace12
+            // btnEdit_MaintenanceDetail
             // 
-            this.pnlSpace12.BackColor = System.Drawing.Color.White;
-            this.pnlSpace12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpace12.Location = new System.Drawing.Point(292, 40);
-            this.pnlSpace12.Name = "pnlSpace12";
-            this.pnlSpace12.Size = new System.Drawing.Size(109, 10);
-            this.pnlSpace12.TabIndex = 21;
+            this.btnEdit_MaintenanceDetail.BorderRadius = 5;
+            this.btnEdit_MaintenanceDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit_MaintenanceDetail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit_MaintenanceDetail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit_MaintenanceDetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit_MaintenanceDetail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit_MaintenanceDetail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEdit_MaintenanceDetail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(90)))));
+            this.btnEdit_MaintenanceDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit_MaintenanceDetail.ForeColor = System.Drawing.Color.White;
+            this.btnEdit_MaintenanceDetail.Location = new System.Drawing.Point(19, 0);
+            this.btnEdit_MaintenanceDetail.Name = "btnEdit_MaintenanceDetail";
+            this.btnEdit_MaintenanceDetail.Padding = new System.Windows.Forms.Padding(5);
+            this.btnEdit_MaintenanceDetail.Size = new System.Drawing.Size(150, 35);
+            this.btnEdit_MaintenanceDetail.TabIndex = 17;
+            this.btnEdit_MaintenanceDetail.Text = "Edit";
+            this.btnEdit_MaintenanceDetail.Click += new System.EventHandler(this.btnEdit_Maintenance_Click);
             // 
-            // pnlSpace11
+            // pnlSpace20
             // 
-            this.pnlSpace11.BackColor = System.Drawing.Color.White;
-            this.pnlSpace11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace11.Location = new System.Drawing.Point(292, 0);
-            this.pnlSpace11.Name = "pnlSpace11";
-            this.pnlSpace11.Size = new System.Drawing.Size(109, 15);
-            this.pnlSpace11.TabIndex = 20;
+            this.pnlSpace20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSpace20.FillColor = System.Drawing.Color.White;
+            this.pnlSpace20.Location = new System.Drawing.Point(0, 0);
+            this.pnlSpace20.Name = "pnlSpace20";
+            this.pnlSpace20.Size = new System.Drawing.Size(19, 35);
+            this.pnlSpace20.TabIndex = 18;
             // 
-            // pnlSpace26
+            // guna2Panel2
             // 
-            this.pnlSpace26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace26.BorderRadius = 15;
-            this.pnlSpace26.CustomizableEdges.BottomLeft = false;
-            this.pnlSpace26.CustomizableEdges.BottomRight = false;
-            this.pnlSpace26.CustomizableEdges.TopLeft = false;
-            this.pnlSpace26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSpace26.FillColor = System.Drawing.Color.White;
-            this.pnlSpace26.Location = new System.Drawing.Point(401, 0);
-            this.pnlSpace26.Name = "pnlSpace26";
-            this.pnlSpace26.Size = new System.Drawing.Size(19, 50);
-            this.pnlSpace26.TabIndex = 18;
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 163);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(401, 15);
+            this.guna2Panel2.TabIndex = 135;
             // 
-            // lblDetails
+            // guna2Panel1
             // 
-            this.lblDetails.BackColor = System.Drawing.Color.White;
-            this.lblDetails.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblDetails.Location = new System.Drawing.Point(13, 0);
-            this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(279, 50);
-            this.lblDetails.TabIndex = 17;
-            this.lblDetails.Text = "Vehicle Details";
-            this.lblDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guna2Panel1.Controls.Add(this.dtpEndMaintenance);
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.dtpStartMaintenance);
+            this.guna2Panel1.Controls.Add(this.label1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.FillColor = System.Drawing.Color.White;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 127);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(401, 36);
+            this.guna2Panel1.TabIndex = 134;
             // 
-            // pnlSpace27
+            // dtpEndMaintenance
             // 
-            this.pnlSpace27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace27.BorderRadius = 15;
-            this.pnlSpace27.CustomizableEdges.BottomLeft = false;
-            this.pnlSpace27.CustomizableEdges.BottomRight = false;
-            this.pnlSpace27.CustomizableEdges.TopRight = false;
-            this.pnlSpace27.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSpace27.FillColor = System.Drawing.Color.White;
-            this.pnlSpace27.Location = new System.Drawing.Point(0, 0);
-            this.pnlSpace27.Name = "pnlSpace27";
-            this.pnlSpace27.Size = new System.Drawing.Size(13, 50);
-            this.pnlSpace27.TabIndex = 16;
+            this.dtpEndMaintenance.BorderColor = System.Drawing.Color.White;
+            this.dtpEndMaintenance.BorderRadius = 5;
+            this.dtpEndMaintenance.Checked = true;
+            this.dtpEndMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpEndMaintenance.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndMaintenance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpEndMaintenance.Enabled = false;
+            this.dtpEndMaintenance.FillColor = System.Drawing.Color.White;
+            this.dtpEndMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpEndMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpEndMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndMaintenance.Location = new System.Drawing.Point(265, 0);
+            this.dtpEndMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEndMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEndMaintenance.Name = "dtpEndMaintenance";
+            this.dtpEndMaintenance.Size = new System.Drawing.Size(136, 36);
+            this.dtpEndMaintenance.TabIndex = 113;
+            this.dtpEndMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
             // 
-            // toolTip
+            // label2
             // 
-            this.toolTip.AllowLinksHandling = true;
-            this.toolTip.AutoPopDelay = 3000;
-            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
-            this.toolTip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(100)))), ((int)(((byte)(119)))));
-            this.toolTip.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolTip.ForeColor = System.Drawing.Color.White;
-            this.toolTip.InitialDelay = 500;
-            this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
-            this.toolTip.ReshowDelay = 100;
-            this.toolTip.StripAmpersands = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label2.Location = new System.Drawing.Point(210, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 36);
+            this.label2.TabIndex = 114;
+            this.label2.Text = "  End:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnPrint
+            // dtpStartMaintenance
             // 
-            this.btnPrint.BorderRadius = 5;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(356, 0);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrint.Size = new System.Drawing.Size(131, 35);
-            this.btnPrint.TabIndex = 22;
-            this.btnPrint.Text = "Print";
+            this.dtpStartMaintenance.BorderColor = System.Drawing.Color.White;
+            this.dtpStartMaintenance.BorderRadius = 5;
+            this.dtpStartMaintenance.Checked = true;
+            this.dtpStartMaintenance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpStartMaintenance.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartMaintenance.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtpStartMaintenance.Enabled = false;
+            this.dtpStartMaintenance.FillColor = System.Drawing.Color.White;
+            this.dtpStartMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpStartMaintenance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpStartMaintenance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartMaintenance.Location = new System.Drawing.Point(75, 0);
+            this.dtpStartMaintenance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStartMaintenance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStartMaintenance.Name = "dtpStartMaintenance";
+            this.dtpStartMaintenance.Size = new System.Drawing.Size(135, 36);
+            this.dtpStartMaintenance.TabIndex = 5;
+            this.dtpStartMaintenance.Value = new System.DateTime(2024, 10, 22, 0, 0, 0, 0);
             // 
-            // guna2Panel3
+            // label1
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(487, 0);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(13, 35);
-            this.guna2Panel3.TabIndex = 21;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 36);
+            this.label1.TabIndex = 112;
+            this.label1.Text = "    Start:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlSpace24
+            // 
+            this.pnlSpace24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace24.FillColor = System.Drawing.Color.White;
+            this.pnlSpace24.Location = new System.Drawing.Point(0, 117);
+            this.pnlSpace24.Name = "pnlSpace24";
+            this.pnlSpace24.Size = new System.Drawing.Size(401, 10);
+            this.pnlSpace24.TabIndex = 133;
+            // 
+            // pnlNotes
+            // 
+            this.pnlNotes.Controls.Add(this.txtNotes);
+            this.pnlNotes.Controls.Add(this.lblNotes);
+            this.pnlNotes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNotes.FillColor = System.Drawing.Color.White;
+            this.pnlNotes.Location = new System.Drawing.Point(0, 56);
+            this.pnlNotes.Name = "pnlNotes";
+            this.pnlNotes.Size = new System.Drawing.Size(401, 61);
+            this.pnlNotes.TabIndex = 132;
+            // 
+            // txtNotes
+            // 
+            this.txtNotes.BackColor = System.Drawing.Color.White;
+            this.txtNotes.BorderRadius = 5;
+            this.txtNotes.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNotes.DefaultText = "";
+            this.txtNotes.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtNotes.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtNotes.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNotes.Enabled = false;
+            this.txtNotes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtNotes.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtNotes.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtNotes.Location = new System.Drawing.Point(125, 0);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.txtNotes.PasswordChar = '\0';
+            this.txtNotes.PlaceholderText = "Notes...";
+            this.txtNotes.SelectedText = "";
+            this.txtNotes.Size = new System.Drawing.Size(276, 61);
+            this.txtNotes.TabIndex = 30;
+            this.txtNotes.Tag = "Notes";
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.BackColor = System.Drawing.Color.White;
+            this.lblNotes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblNotes.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblNotes.Location = new System.Drawing.Point(0, 0);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(125, 61);
+            this.lblNotes.TabIndex = 29;
+            this.lblNotes.Text = "    Notes: ";
+            this.lblNotes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlSpace18
+            // 
+            this.pnlSpace18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace18.FillColor = System.Drawing.Color.White;
+            this.pnlSpace18.Location = new System.Drawing.Point(0, 46);
+            this.pnlSpace18.Name = "pnlSpace18";
+            this.pnlSpace18.Size = new System.Drawing.Size(401, 10);
+            this.pnlSpace18.TabIndex = 130;
+            // 
+            // pnlStatus
+            // 
+            this.pnlStatus.Controls.Add(this.cboStatus);
+            this.pnlStatus.Controls.Add(this.lblStatus);
+            this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlStatus.FillColor = System.Drawing.Color.White;
+            this.pnlStatus.Location = new System.Drawing.Point(0, 10);
+            this.pnlStatus.Name = "pnlStatus";
+            this.pnlStatus.Size = new System.Drawing.Size(401, 36);
+            this.pnlStatus.TabIndex = 125;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.BackColor = System.Drawing.Color.White;
+            this.cboStatus.BorderRadius = 5;
+            this.cboStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboStatus.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboStatus.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.Enabled = false;
+            this.cboStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboStatus.ItemHeight = 30;
+            this.cboStatus.Items.AddRange(new object[] {
+            "Available",
+            "Maintenance"});
+            this.cboStatus.Location = new System.Drawing.Point(125, 0);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(276, 36);
+            this.cboStatus.StartIndex = 0;
+            this.cboStatus.TabIndex = 112;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.BackColor = System.Drawing.Color.White;
+            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblStatus.Location = new System.Drawing.Point(0, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(125, 36);
+            this.lblStatus.TabIndex = 111;
+            this.lblStatus.Text = "    Status:";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlSpace15
+            // 
+            this.pnlSpace15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace15.FillColor = System.Drawing.Color.White;
+            this.pnlSpace15.Location = new System.Drawing.Point(0, 0);
+            this.pnlSpace15.Name = "pnlSpace15";
+            this.pnlSpace15.Size = new System.Drawing.Size(401, 10);
+            this.pnlSpace15.TabIndex = 104;
+            // 
+            // pnlSpace25
+            // 
+            this.pnlSpace25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSpace25.FillColor = System.Drawing.Color.White;
+            this.pnlSpace25.Location = new System.Drawing.Point(401, 0);
+            this.pnlSpace25.Name = "pnlSpace25";
+            this.pnlSpace25.Size = new System.Drawing.Size(19, 224);
+            this.pnlSpace25.TabIndex = 91;
+            // 
+            // pnlDetails
+            // 
+            this.pnlDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlDetails.BorderRadius = 15;
+            this.pnlDetails.Controls.Add(this.pnlMaitenanceDetail);
+            this.pnlDetails.Controls.Add(this.lblMaintenance);
+            this.pnlDetails.Controls.Add(this.pnlBasicDetails);
+            this.pnlDetails.Controls.Add(this.lblBasicDetails);
+            this.pnlDetails.Controls.Add(this.pnlDetails_Top);
+            this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDetails.Location = new System.Drawing.Point(520, 0);
+            this.pnlDetails.Name = "pnlDetails";
+            this.pnlDetails.Size = new System.Drawing.Size(420, 715);
+            this.pnlDetails.TabIndex = 53;
             // 
             // VehiclesForm
             // 
@@ -1519,17 +1740,14 @@
             this.Text = "Vehicles";
             this.Load += new System.EventHandler(this.VehiclesForm_Load);
             this.pnlVehicles.ResumeLayout(false);
+            this.guna2Panel12.ResumeLayout(false);
+            this.pnlMenuButtonPrint.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).EndInit();
             this.pnlButtonAdd.ResumeLayout(false);
             this.pnlVehicles_Top.ResumeLayout(false);
             this.pnlSearch.ResumeLayout(false);
             this.pnlCboTeacher_License.ResumeLayout(false);
-            this.pnlDetails.ResumeLayout(false);
-            this.pnlMaitenanceDetail.ResumeLayout(false);
-            this.pnlEdit_Maintenance.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
-            this.pnlNotes.ResumeLayout(false);
-            this.pnlStatus.ResumeLayout(false);
+            this.pnlDetails_Top.ResumeLayout(false);
             this.pnlBasicDetails.ResumeLayout(false);
             this.pnlButtonEdit_Delete.ResumeLayout(false);
             this.pnlWeight_Seats.ResumeLayout(false);
@@ -1538,7 +1756,12 @@
             this.pnlChkTruck.ResumeLayout(false);
             this.pnlCarNo_ManuYear.ResumeLayout(false);
             this.pnlName.ResumeLayout(false);
-            this.pnlDetails_Top.ResumeLayout(false);
+            this.pnlMaitenanceDetail.ResumeLayout(false);
+            this.pnlEdit_Maintenance.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
+            this.pnlNotes.ResumeLayout(false);
+            this.pnlStatus.ResumeLayout(false);
+            this.pnlDetails.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1560,63 +1783,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace6;
         private System.Windows.Forms.Label lblCourses;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace5;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel pnlDetails;
-        private Guna.UI2.WinForms.Guna2Panel pnlDetails_Top;
-        private Guna.UI2.WinForms.Guna2Button lblVehicleID;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace12;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace11;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
-        private System.Windows.Forms.Label lblDetails;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace27;
-        private Guna.UI2.WinForms.Guna2Panel pnlBasicDetails;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace19;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
-        private System.Windows.Forms.Label lblBasicDetails;
-        private Guna.UI2.WinForms.Guna2Panel pnlButtonEdit_Delete;
-        private Guna.UI2.WinForms.Guna2Button btnDelete;
-        private Guna.UI2.WinForms.Guna2Button btnEdit_BasicDetail;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace13;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace17;
-        private Guna.UI2.WinForms.Guna2Panel pnlWeight_Seats;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace16;
-        private Guna.UI2.WinForms.Guna2Panel pnlCarNo_ManuYear;
-        private Guna.UI2.WinForms.Guna2TextBox txtCarNo;
-        private System.Windows.Forms.Label lblCarNo;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
-        private Guna.UI2.WinForms.Guna2Panel pnlName;
-        private Guna.UI2.WinForms.Guna2TextBox txtCarName;
-        private System.Windows.Forms.Label lblCarName;
-        private System.Windows.Forms.Label lblMaintenance;
-        private Guna.UI2.WinForms.Guna2Panel pnlMaitenanceDetail;
-        private Guna.UI2.WinForms.Guna2Panel pnlStatus;
-        private Guna.UI2.WinForms.Guna2ComboBox cboStatus;
-        private System.Windows.Forms.Label lblStatus;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace15;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
-        private Guna.UI2.WinForms.Guna2Panel pnlEdit_Maintenance;
-        private Guna.UI2.WinForms.Guna2Button btnEdit_MaintenanceDetail;
-        private Guna.UI2.WinForms.Guna2Panel pnlNotes;
-        private Guna.UI2.WinForms.Guna2TextBox txtNotes;
-        private System.Windows.Forms.Label lblNotes;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace24;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace20;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpManuYear;
-        private System.Windows.Forms.Label lblManufactureYear;
-        private Guna.UI2.WinForms.Guna2TextBox txtWeight;
-        private System.Windows.Forms.Label lblWeight;
-        private Guna.UI2.WinForms.Guna2TextBox txtKG;
-        private System.Windows.Forms.Label lblSeats;
-        private Guna.UI2.WinForms.Guna2TextBox txtSeats;
-        private Guna.UI2.WinForms.Guna2Panel pnlCarType;
-        private System.Windows.Forms.Label lblCarType;
-        private Guna.UI2.WinForms.Guna2Panel pnlChkPassengerCar;
-        private System.Windows.Forms.Label lblPassengerCar;
-        private Guna.UI2.WinForms.Guna2CustomCheckBox chkPassengerCar;
-        private Guna.UI2.WinForms.Guna2Panel pnlSpace28;
-		private Guna.UI2.WinForms.Guna2Panel pnlChkTruck;
-		private System.Windows.Forms.Label lblTruck;
-		private Guna.UI2.WinForms.Guna2CustomCheckBox chkTruck;
         private Guna.UI2.WinForms.Guna2HtmlToolTip toolTip;
         private Guna.UI2.WinForms.Guna2DataGridView dgvVehicles;
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceID;
@@ -1626,13 +1792,84 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2Panel pnlCboTeacher_License;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private Guna.UI2.WinForms.Guna2Panel pnlMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
+        private Guna.UI2.WinForms.Guna2Button btnOpenMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel16;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel17;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2Panel pnlDetails_Top;
+        private Guna.UI2.WinForms.Guna2Button lblVehicleID;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace12;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace11;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace26;
+        private System.Windows.Forms.Label lblDetails;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace27;
+        private System.Windows.Forms.Label lblBasicDetails;
+        private Guna.UI2.WinForms.Guna2Panel pnlBasicDetails;
+        private Guna.UI2.WinForms.Guna2Panel pnlButtonEdit_Delete;
+        private Guna.UI2.WinForms.Guna2Button btnDelete;
+        private Guna.UI2.WinForms.Guna2Button btnEdit_BasicDetail;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace13;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace17;
+        private Guna.UI2.WinForms.Guna2Panel pnlWeight_Seats;
+        private Guna.UI2.WinForms.Guna2TextBox txtSeats;
+        private System.Windows.Forms.Label lblSeats;
+        private Guna.UI2.WinForms.Guna2TextBox txtKG;
+        private Guna.UI2.WinForms.Guna2TextBox txtWeight;
+        private System.Windows.Forms.Label lblWeight;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace28;
+        private Guna.UI2.WinForms.Guna2Panel pnlCarType;
+        private Guna.UI2.WinForms.Guna2Panel pnlChkPassengerCar;
+        private System.Windows.Forms.Label lblPassengerCar;
+        private Guna.UI2.WinForms.Guna2CustomCheckBox chkPassengerCar;
+        private Guna.UI2.WinForms.Guna2Panel pnlChkTruck;
+        private System.Windows.Forms.Label lblTruck;
+        private Guna.UI2.WinForms.Guna2CustomCheckBox chkTruck;
+        private System.Windows.Forms.Label lblCarType;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace16;
+        private Guna.UI2.WinForms.Guna2Panel pnlCarNo_ManuYear;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpManuYear;
+        private System.Windows.Forms.Label lblManufactureYear;
+        private Guna.UI2.WinForms.Guna2TextBox txtCarNo;
+        private System.Windows.Forms.Label lblCarNo;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace22;
+        private Guna.UI2.WinForms.Guna2Panel pnlName;
+        private Guna.UI2.WinForms.Guna2TextBox txtCarName;
+        private System.Windows.Forms.Label lblCarName;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace19;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace21;
+        private System.Windows.Forms.Label lblMaintenance;
+        private Guna.UI2.WinForms.Guna2Panel pnlMaitenanceDetail;
+        private Guna.UI2.WinForms.Guna2Panel pnlEdit_Maintenance;
+        private Guna.UI2.WinForms.Guna2Button btnEdit_MaintenanceDetail;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace20;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartMaintenance;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndMaintenance;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartMaintenance;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace24;
+        private Guna.UI2.WinForms.Guna2Panel pnlNotes;
+        private Guna.UI2.WinForms.Guna2TextBox txtNotes;
+        private System.Windows.Forms.Label lblNotes;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace18;
+        private Guna.UI2.WinForms.Guna2Panel pnlStatus;
+        private Guna.UI2.WinForms.Guna2ComboBox cboStatus;
+        private System.Windows.Forms.Label lblStatus;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace15;
+        private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel pnlDetails;
     }
 }

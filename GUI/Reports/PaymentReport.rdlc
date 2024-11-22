@@ -36,7 +36,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.12778in</Top>
+        <Top>0.2361in</Top>
         <Left>0.40417in</Left>
         <Height>0.39167in</Height>
         <Width>2.06667in</Width>
@@ -444,7 +444,7 @@
         <Top>4.19806cm</Top>
         <Left>6.15599cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.683cm</Width>
+        <Width>4.72017cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -591,7 +591,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Format(Fields!StartDate.Value, "dd/MM/yyyy"), "PaymentDataSet")</Value>
+                <Value>=First(Fields!StartDate.Value, "PaymentDataSet")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -623,7 +623,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Format(Fields!EndDate.Value, "dd/MM/yyyy"), "PaymentDataSet")</Value>
+                <Value>=First(Fields!EndDate.Value, "PaymentDataSet")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1022,8 +1022,8 @@
           <Source>Embedded</Source>
           <Value>drivingschoollogo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.1625in</Top>
-          <Left>0.40417in</Left>
+          <Top>0.155in</Top>
+          <Left>0.39584in</Left>
           <Height>0.675in</Height>
           <Width>0.65in</Width>
           <Style>
@@ -1076,7 +1076,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!PaymentDate.Value, "PaymentDataSet")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -1108,7 +1110,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!InvoiceCode.Value, "PaymentDataSet")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -1140,7 +1144,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!PaymentID.Value, "PaymentDataSet")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -1172,7 +1178,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>PaymentID:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1181,7 +1189,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1189,7 +1199,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox31</rd:DefaultName>
           <Top>1.09953cm</Top>
-          <Left>11.46387cm</Left>
+          <Left>11.4427cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>5</ZIndex>
@@ -1211,7 +1221,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Date Created:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1241,7 +1253,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Course Name:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1249,7 +1263,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox33</rd:DefaultName>
           <Top>1.73481cm</Top>
-          <Left>11.46387cm</Left>
+          <Left>11.4427cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>7</ZIndex>

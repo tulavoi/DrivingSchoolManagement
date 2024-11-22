@@ -279,8 +279,8 @@ namespace DAL
                         item.Email,
                         item.CourseName,
                         item.DurationInHours,
-                        item.StartDate,
-                        item.EndDate,
+                        item.StartDate.Value.ToString("dd/MM/yyyy"),
+                        item.EndDate.Value.ToString("dd/MM/yyyy"),
                         item.TotalAmount,
                         item.Amount, // Giá trị Amount từ bảng Payments
                         remainingDebt,

@@ -22,7 +22,7 @@ namespace GUI.DataSets {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("DrivingSchool_V2DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class InvoiceDataSet : global::System.Data.DataSet {
+    public partial class DrivingSchool_V2DataSet : global::System.Data.DataSet {
         
         private CoursesDataTable tableCourses;
         
@@ -32,17 +32,17 @@ namespace GUI.DataSets {
         
         private LearnersDataTable tableLearners;
         
-        private global::System.Data.DataRelation relationFK_Enrollment_Course;
+        private global::System.Data.DataRelation relationFK_Invoices_Enrollment;
         
         private global::System.Data.DataRelation relationFK_Enrollment_Learner;
         
-        private global::System.Data.DataRelation relationFK_Invoices_Enrollment;
+        private global::System.Data.DataRelation relationFK_Enrollment_Course;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public InvoiceDataSet() {
+        public DrivingSchool_V2DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -53,7 +53,7 @@ namespace GUI.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected InvoiceDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DrivingSchool_V2DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -178,7 +178,7 @@ namespace GUI.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            InvoiceDataSet cln = ((InvoiceDataSet)(base.Clone()));
+            DrivingSchool_V2DataSet cln = ((DrivingSchool_V2DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -272,9 +272,9 @@ namespace GUI.DataSets {
                     this.tableLearners.InitVars();
                 }
             }
-            this.relationFK_Enrollment_Course = this.Relations["FK_Enrollment_Course"];
-            this.relationFK_Enrollment_Learner = this.Relations["FK_Enrollment_Learner"];
             this.relationFK_Invoices_Enrollment = this.Relations["FK_Invoices_Enrollment"];
+            this.relationFK_Enrollment_Learner = this.Relations["FK_Enrollment_Learner"];
+            this.relationFK_Enrollment_Course = this.Relations["FK_Enrollment_Course"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -293,18 +293,18 @@ namespace GUI.DataSets {
             base.Tables.Add(this.tableInvoices);
             this.tableLearners = new LearnersDataTable();
             base.Tables.Add(this.tableLearners);
-            this.relationFK_Enrollment_Course = new global::System.Data.DataRelation("FK_Enrollment_Course", new global::System.Data.DataColumn[] {
-                        this.tableCourses.CourseIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEnrollments.CourseIDColumn}, false);
-            this.Relations.Add(this.relationFK_Enrollment_Course);
-            this.relationFK_Enrollment_Learner = new global::System.Data.DataRelation("FK_Enrollment_Learner", new global::System.Data.DataColumn[] {
-                        this.tableLearners.LearnerIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEnrollments.LearnerIDColumn}, false);
-            this.Relations.Add(this.relationFK_Enrollment_Learner);
             this.relationFK_Invoices_Enrollment = new global::System.Data.DataRelation("FK_Invoices_Enrollment", new global::System.Data.DataColumn[] {
                         this.tableEnrollments.EnrollmentIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvoices.EnrollmentIDColumn}, false);
             this.Relations.Add(this.relationFK_Invoices_Enrollment);
+            this.relationFK_Enrollment_Learner = new global::System.Data.DataRelation("FK_Enrollment_Learner", new global::System.Data.DataColumn[] {
+                        this.tableLearners.LearnerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEnrollments.LearnerIDColumn}, false);
+            this.Relations.Add(this.relationFK_Enrollment_Learner);
+            this.relationFK_Enrollment_Course = new global::System.Data.DataRelation("FK_Enrollment_Course", new global::System.Data.DataColumn[] {
+                        this.tableCourses.CourseIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEnrollments.CourseIDColumn}, false);
+            this.Relations.Add(this.relationFK_Enrollment_Course);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -342,7 +342,7 @@ namespace GUI.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            InvoiceDataSet ds = new InvoiceDataSet();
+            DrivingSchool_V2DataSet ds = new DrivingSchool_V2DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -700,7 +700,7 @@ namespace GUI.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InvoiceDataSet ds = new InvoiceDataSet();
+                DrivingSchool_V2DataSet ds = new DrivingSchool_V2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1010,7 +1010,7 @@ namespace GUI.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InvoiceDataSet ds = new InvoiceDataSet();
+                DrivingSchool_V2DataSet ds = new DrivingSchool_V2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1361,7 +1361,7 @@ namespace GUI.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InvoiceDataSet ds = new InvoiceDataSet();
+                DrivingSchool_V2DataSet ds = new DrivingSchool_V2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1756,7 +1756,7 @@ namespace GUI.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InvoiceDataSet ds = new InvoiceDataSet();
+                DrivingSchool_V2DataSet ds = new DrivingSchool_V2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2123,23 +2123,23 @@ namespace GUI.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CoursesRow CoursesRow {
-                get {
-                    return ((CoursesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Enrollment_Course"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Enrollment_Course"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public LearnersRow LearnersRow {
                 get {
                     return ((LearnersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Enrollment_Learner"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Enrollment_Learner"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public CoursesRow CoursesRow {
+                get {
+                    return ((CoursesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Enrollment_Course"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Enrollment_Course"]);
                 }
             }
             
@@ -3038,7 +3038,7 @@ SELECT CourseID, CourseName, Fee, DurationInHours, HoursStudied, StartDate, EndD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InvoiceDataSet.CoursesDataTable dataTable) {
+        public virtual int Fill(DrivingSchool_V2DataSet.CoursesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3051,9 +3051,9 @@ SELECT CourseID, CourseName, Fee, DurationInHours, HoursStudied, StartDate, EndD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InvoiceDataSet.CoursesDataTable GetData() {
+        public virtual DrivingSchool_V2DataSet.CoursesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InvoiceDataSet.CoursesDataTable dataTable = new InvoiceDataSet.CoursesDataTable();
+            DrivingSchool_V2DataSet.CoursesDataTable dataTable = new DrivingSchool_V2DataSet.CoursesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3061,14 +3061,14 @@ SELECT CourseID, CourseName, Fee, DurationInHours, HoursStudied, StartDate, EndD
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet.CoursesDataTable dataTable) {
+        public virtual int Update(DrivingSchool_V2DataSet.CoursesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet dataSet) {
+        public virtual int Update(DrivingSchool_V2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Courses");
         }
         
@@ -3559,7 +3559,7 @@ SELECT EnrollmentID, CourseID, LearnerID, EnrollmentDate FROM Enrollments WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InvoiceDataSet.EnrollmentsDataTable dataTable) {
+        public virtual int Fill(DrivingSchool_V2DataSet.EnrollmentsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3572,9 +3572,9 @@ SELECT EnrollmentID, CourseID, LearnerID, EnrollmentDate FROM Enrollments WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InvoiceDataSet.EnrollmentsDataTable GetData() {
+        public virtual DrivingSchool_V2DataSet.EnrollmentsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InvoiceDataSet.EnrollmentsDataTable dataTable = new InvoiceDataSet.EnrollmentsDataTable();
+            DrivingSchool_V2DataSet.EnrollmentsDataTable dataTable = new DrivingSchool_V2DataSet.EnrollmentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3582,14 +3582,14 @@ SELECT EnrollmentID, CourseID, LearnerID, EnrollmentDate FROM Enrollments WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet.EnrollmentsDataTable dataTable) {
+        public virtual int Update(DrivingSchool_V2DataSet.EnrollmentsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet dataSet) {
+        public virtual int Update(DrivingSchool_V2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Enrollments");
         }
         
@@ -3973,7 +3973,7 @@ SELECT InvoiceID, InvoiceCode, EnrollmentID, TotalAmount, Notes, IsPaid, Created
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InvoiceDataSet.InvoicesDataTable dataTable) {
+        public virtual int Fill(DrivingSchool_V2DataSet.InvoicesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3986,9 +3986,9 @@ SELECT InvoiceID, InvoiceCode, EnrollmentID, TotalAmount, Notes, IsPaid, Created
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InvoiceDataSet.InvoicesDataTable GetData() {
+        public virtual DrivingSchool_V2DataSet.InvoicesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InvoiceDataSet.InvoicesDataTable dataTable = new InvoiceDataSet.InvoicesDataTable();
+            DrivingSchool_V2DataSet.InvoicesDataTable dataTable = new DrivingSchool_V2DataSet.InvoicesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3996,14 +3996,14 @@ SELECT InvoiceID, InvoiceCode, EnrollmentID, TotalAmount, Notes, IsPaid, Created
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet.InvoicesDataTable dataTable) {
+        public virtual int Update(DrivingSchool_V2DataSet.InvoicesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet dataSet) {
+        public virtual int Update(DrivingSchool_V2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Invoices");
         }
         
@@ -4492,7 +4492,7 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InvoiceDataSet.LearnersDataTable dataTable) {
+        public virtual int Fill(DrivingSchool_V2DataSet.LearnersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4505,9 +4505,9 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InvoiceDataSet.LearnersDataTable GetData() {
+        public virtual DrivingSchool_V2DataSet.LearnersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InvoiceDataSet.LearnersDataTable dataTable = new InvoiceDataSet.LearnersDataTable();
+            DrivingSchool_V2DataSet.LearnersDataTable dataTable = new DrivingSchool_V2DataSet.LearnersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4515,14 +4515,14 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet.LearnersDataTable dataTable) {
+        public virtual int Update(DrivingSchool_V2DataSet.LearnersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InvoiceDataSet dataSet) {
+        public virtual int Update(DrivingSchool_V2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Learners");
         }
         
@@ -5067,23 +5067,23 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(InvoiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DrivingSchool_V2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._coursesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._coursesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._learnersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Learners.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._learnersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._coursesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._coursesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5113,21 +5113,21 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(InvoiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DrivingSchool_V2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._coursesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._coursesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._learnersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Learners.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._learnersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._coursesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._coursesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5155,7 +5155,7 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(InvoiceDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DrivingSchool_V2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._invoicesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Invoices.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -5173,19 +5173,19 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._learnersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Learners.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._learnersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._coursesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._coursesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._learnersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Learners.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._learnersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5221,7 +5221,7 @@ SELECT LearnerID, FullName, DateOfBirth, Gender, PhoneNumber, Email, Address, Ci
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(InvoiceDataSet dataSet) {
+        public virtual int UpdateAll(DrivingSchool_V2DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
