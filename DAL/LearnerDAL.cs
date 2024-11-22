@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.Linq;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
@@ -231,6 +232,56 @@ namespace DAL
         //        db.SubmitChanges();
         //    }
         //}
+        #endregion
+
+        #region Get all learner data
+        public DataTable GetAllLearnersData()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from enr in db.Enrollments
+                           join course in db.Courses on enr.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join learner in db.Learners on enr.LearnerID equals learner.LearnerID
+                           select new
+                           {
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Nationality,
+                               course.CourseName,
+                               learner.Created_At,
+                           };
+                var dt = this.CreateDataTable();
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender, 
+                        item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality, 
+                        item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName);
+                }
+                return dt;
+            }
+        }
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FullName", typeof(string));
+            dt.Columns.Add("DateOfBirth", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("Address", typeof(string));
+            dt.Columns.Add("CitizenID", typeof(string));
+            dt.Columns.Add("Nationality", typeof(string));
+            dt.Columns.Add("EnrollmentDate", typeof(string));
+            dt.Columns.Add("CourseName", typeof(string));
+            return dt;
+        }
         #endregion
     }
 }
