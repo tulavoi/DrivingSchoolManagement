@@ -2,6 +2,7 @@ using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,26 @@ namespace BLL.Services
         public static void SearchVehicles(Guna2ComboBox cbo, string keyword)
         {
             VehicleBLL.Instance.SearchVehicles(cbo, keyword);
+        }
+        public static DataTable GetVehiclesTypeB()
+        {
+            return VehicleBLL.Instance.GetVehiclesTypeB();
+        }
+        public static DataTable GetVehiclesTypeD()
+        {
+            return VehicleBLL.Instance.GetVehiclesTypeD();
+        }
+        public static DataTable GetVehiclesTypeC()
+        {
+            return VehicleBLL.Instance.GetVehiclesTypeC();
+        }
+        public static DataTable GetVehiclesTypeE()
+        {
+            return VehicleBLL.Instance.GetVehiclesTypeE();
+        }
+        public static DataTable GetVehiclesMT()
+        {
+            return VehicleBLL.Instance.GetVehiclesMT();
         }
     }
 }
