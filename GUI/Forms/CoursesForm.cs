@@ -1,6 +1,6 @@
-﻿using BLL;
-using BLL.Services;
+﻿using BLL.Services;
 using DAL;
+using GUI.ReportViewers;
 using GUI.Validators;
 using System;
 using System.Drawing;
@@ -251,7 +251,7 @@ namespace GUI
                 txtFee.Text = Constant.Tuition_D.ToString();
                 txtDurationInHours.Text = Constant.DurationHours_D.ToString();
             }
-                
+
             if (licenseName == "E")
             {
                 txtFee.Text = Constant.Tuition_E.ToString();
@@ -262,6 +262,12 @@ namespace GUI
         private void numeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            CourseListRV courseListRV = new CourseListRV();
+            courseListRV.Show();
         }
     }
 }
