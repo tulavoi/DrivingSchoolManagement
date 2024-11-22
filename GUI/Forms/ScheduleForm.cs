@@ -385,6 +385,7 @@ namespace GUI
 			cboSession_Filter.SelectedIndex = 0;
 			dtpSchedule.Value = DateTime.Now;
 			txtSearch.Text = "";
+			this.isClicked = !this.isClicked;
 		}
 
 		private void dtpSessionDate_ValueChanged(object sender, EventArgs e)
@@ -418,6 +419,15 @@ namespace GUI
         {
 			ScheduleDetailRV scheduleDetailRV = new ScheduleDetailRV(FormHelper.GetObjectID(lblScheduleID.Text));
 			scheduleDetailRV.Show();
+        }
+
+        private void btnPrintScheduleInADate_Click(object sender, EventArgs e)
+        {
+			string learnerName = selectedSchedule.Enrollment.Learner.FullName;
+			int learnerID = Convert.ToInt32(selectedSchedule.Enrollment.LearnerID);
+			var sessionDate = selectedSchedule.SessionDate.Value;
+            ScheduleInDayRV scheduleInDayRV = new ScheduleInDayRV(learnerName, learnerID, sessionDate);
+            scheduleInDayRV.Show();
         }
     }
 }

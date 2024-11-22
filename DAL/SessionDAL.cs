@@ -75,7 +75,7 @@ namespace DAL
 
                 var availableSessions = from session in db.Sessions
                                         where !scheduledSessions.Any(sche => sche.SessionID == session.SessionID
-                                                          && sche.SessionDate == curDate)
+                                                          && sche.SessionDate == curDate.Date)
                                         select session;
 
                 return availableSessions.ToList() ?? new List<Session>();

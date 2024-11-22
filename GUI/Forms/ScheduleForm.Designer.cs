@@ -67,6 +67,8 @@
             this.pnlMenuButtonPrint = new Guna.UI2.WinForms.Guna2Panel();
             this.btnPrintScheduleByDate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrintScheduleInDay = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnPrintScheduleDetails = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenMenuButtonPrint = new Guna.UI2.WinForms.Guna2Button();
@@ -169,7 +171,7 @@
             this.pnlBottomLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlBottomLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlBottomLeft.Name = "pnlBottomLeft";
-            this.pnlBottomLeft.Size = new System.Drawing.Size(425, 350);
+            this.pnlBottomLeft.Size = new System.Drawing.Size(425, 344);
             this.pnlBottomLeft.TabIndex = 46;
             // 
             // pnlSpace10
@@ -536,7 +538,7 @@
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(940, 350);
+            this.pnlTop.Size = new System.Drawing.Size(940, 356);
             this.pnlTop.TabIndex = 54;
             // 
             // guna2Panel8
@@ -546,7 +548,7 @@
             this.guna2Panel8.Controls.Add(this.guna2Panel4);
             this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(0, 302);
+            this.guna2Panel8.Location = new System.Drawing.Point(0, 308);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(940, 35);
             this.guna2Panel8.TabIndex = 163;
@@ -556,6 +558,8 @@
             this.pnlMenuButtonPrint.BackColor = System.Drawing.Color.White;
             this.pnlMenuButtonPrint.Controls.Add(this.btnPrintScheduleByDate);
             this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel5);
+            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintScheduleInDay);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel9);
             this.pnlMenuButtonPrint.Controls.Add(this.btnPrintScheduleDetails);
             this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel6);
             this.pnlMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -576,7 +580,7 @@
             this.btnPrintScheduleByDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
             this.btnPrintScheduleByDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintScheduleByDate.ForeColor = System.Drawing.Color.White;
-            this.btnPrintScheduleByDate.Location = new System.Drawing.Point(189, 0);
+            this.btnPrintScheduleByDate.Location = new System.Drawing.Point(363, 0);
             this.btnPrintScheduleByDate.Name = "btnPrintScheduleByDate";
             this.btnPrintScheduleByDate.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrintScheduleByDate.Size = new System.Drawing.Size(159, 35);
@@ -589,10 +593,40 @@
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(174, 0);
+            this.guna2Panel5.Location = new System.Drawing.Point(348, 0);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(15, 35);
             this.guna2Panel5.TabIndex = 46;
+            // 
+            // btnPrintScheduleInDay
+            // 
+            this.btnPrintScheduleInDay.BorderRadius = 5;
+            this.btnPrintScheduleInDay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintScheduleInDay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintScheduleInDay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintScheduleInDay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintScheduleInDay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintScheduleInDay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintScheduleInDay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnPrintScheduleInDay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintScheduleInDay.ForeColor = System.Drawing.Color.White;
+            this.btnPrintScheduleInDay.Location = new System.Drawing.Point(189, 0);
+            this.btnPrintScheduleInDay.Name = "btnPrintScheduleInDay";
+            this.btnPrintScheduleInDay.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintScheduleInDay.Size = new System.Drawing.Size(159, 35);
+            this.btnPrintScheduleInDay.TabIndex = 47;
+            this.btnPrintScheduleInDay.Text = "Schedule in Day";
+            this.btnPrintScheduleInDay.Click += new System.EventHandler(this.btnPrintScheduleInADate_Click);
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(174, 0);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(15, 35);
+            this.guna2Panel9.TabIndex = 48;
             // 
             // btnPrintScheduleDetails
             // 
@@ -664,7 +698,7 @@
             this.guna2Panel7.CustomizableEdges.TopRight = false;
             this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(0, 340);
+            this.guna2Panel7.Location = new System.Drawing.Point(0, 346);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(940, 10);
             this.guna2Panel7.TabIndex = 157;
@@ -725,7 +759,7 @@
             this.dgvSchedules.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSchedules.RowTemplate.DividerHeight = 2;
             this.dgvSchedules.RowTemplate.Height = 45;
-            this.dgvSchedules.Size = new System.Drawing.Size(940, 252);
+            this.dgvSchedules.Size = new System.Drawing.Size(940, 258);
             this.dgvSchedules.TabIndex = 31;
             this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSchedules.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -988,9 +1022,9 @@
             this.pnlBottom.Controls.Add(this.pnlSpace11);
             this.pnlBottom.Controls.Add(this.pnlBottomLeft);
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 365);
+            this.pnlBottom.Location = new System.Drawing.Point(0, 371);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(940, 350);
+            this.pnlBottom.Size = new System.Drawing.Size(940, 344);
             this.pnlBottom.TabIndex = 55;
             // 
             // pnlScheduleDetail
@@ -1014,7 +1048,7 @@
             this.pnlScheduleDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlScheduleDetail.Location = new System.Drawing.Point(440, 0);
             this.pnlScheduleDetail.Name = "pnlScheduleDetail";
-            this.pnlScheduleDetail.Size = new System.Drawing.Size(500, 350);
+            this.pnlScheduleDetail.Size = new System.Drawing.Size(500, 344);
             this.pnlScheduleDetail.TabIndex = 50;
             // 
             // pnlButtonEdit_Delete
@@ -1547,7 +1581,7 @@
             this.pnlSpace19.FillColor = System.Drawing.Color.White;
             this.pnlSpace19.Location = new System.Drawing.Point(485, 50);
             this.pnlSpace19.Name = "pnlSpace19";
-            this.pnlSpace19.Size = new System.Drawing.Size(15, 300);
+            this.pnlSpace19.Size = new System.Drawing.Size(15, 294);
             this.pnlSpace19.TabIndex = 145;
             // 
             // pnlScheduleDetails_Top
@@ -1653,14 +1687,14 @@
             this.pnlSpace11.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSpace11.Location = new System.Drawing.Point(425, 0);
             this.pnlSpace11.Name = "pnlSpace11";
-            this.pnlSpace11.Size = new System.Drawing.Size(15, 350);
+            this.pnlSpace11.Size = new System.Drawing.Size(15, 344);
             this.pnlSpace11.TabIndex = 49;
             // 
             // pnlSpaceTop_Bottom
             // 
             this.pnlSpaceTop_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlSpaceTop_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlSpaceTop_Bottom.Location = new System.Drawing.Point(0, 350);
+            this.pnlSpaceTop_Bottom.Location = new System.Drawing.Point(0, 356);
             this.pnlSpaceTop_Bottom.Name = "pnlSpaceTop_Bottom";
             this.pnlSpaceTop_Bottom.Size = new System.Drawing.Size(940, 15);
             this.pnlSpaceTop_Bottom.TabIndex = 56;
@@ -1818,5 +1852,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Button btnPrintScheduleInDay;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
     }
 }

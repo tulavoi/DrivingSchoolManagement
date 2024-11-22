@@ -294,6 +294,12 @@
     <Compile Include="ReportViewers\ScheduleDetailRV.Designer.cs">
       <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.Designer.cs">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\TeacherListRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +388,7 @@
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleByDateReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleDetailReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleInDayReport.rdlc" />
     <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
@@ -400,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\ScheduleDetailRV.resx">
       <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleInDayRV.resx">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\TeacherListRV.resx">
       <DependentUpon>TeacherListRV.cs</DependentUpon>

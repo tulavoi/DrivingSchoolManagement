@@ -53,7 +53,12 @@ namespace BLL.Services
 
         public static DataTable GetScheduleDetailData(int scheduleID)
         {
-            return ScheduleDAL.Instance.GetScheduleDetailData(scheduleID);
+            return ScheduleBLL.Instance.GetScheduleDetailData(scheduleID);
+        }
+
+        public static DataTable GetScheduleInDayData(int learnerID, DateTime date)
+        {
+            return ScheduleBLL.Instance.GetScheduleInDayData(learnerID, date);
         }
     }
 }

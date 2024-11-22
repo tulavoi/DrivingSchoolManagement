@@ -33,7 +33,7 @@ namespace BLL
 
         public void LoadAllSchedules(Guna2DataGridView dgv)
         {
-            List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedules();
+            List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedulesActive();
             this.AddSchedulesToDataGridView(dgv, schedules);
         }
 
@@ -98,6 +98,11 @@ namespace BLL
         public DataTable GetScheduleDetailData(int scheduleID)
         {
             return ScheduleDAL.Instance.GetScheduleDetailData(scheduleID);
+        }
+
+        public DataTable GetScheduleInDayData(int learnerID, DateTime date)
+        {
+            return ScheduleDAL.Instance.GetScheduleInDayData(learnerID, date);
         }
     }
 }
