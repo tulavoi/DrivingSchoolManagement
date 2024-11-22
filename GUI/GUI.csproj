@@ -310,6 +310,7 @@
     </Compile>
     <Compile Include="ReportViewers\PaymentRV.Designer.cs">
       <DependentUpon>PaymentRV.cs</DependentUpon>
+	</Compile>
     <Compile Include="ReportViewers\LearnerListRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,7 +452,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\PaymentRV.resx">
       <DependentUpon>PaymentRV.cs</DependentUpon>
-    <EmbeddedResource Include="ReportViewers\LearnerListRV.resx">
+	</EmbeddedResource>
+	<EmbeddedResource Include="ReportViewers\LearnerListRV.resx">
       <DependentUpon>LearnerListRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\ScheduleByDateRV.resx">
