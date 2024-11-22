@@ -185,6 +185,7 @@
             this.btnPrint.Size = new System.Drawing.Size(131, 35);
             this.btnPrint.TabIndex = 22;
             this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // guna2Panel6
             // 
@@ -211,7 +212,7 @@
             this.btnOpenAddTeacherForm.Location = new System.Drawing.Point(15, 0);
             this.btnOpenAddTeacherForm.Name = "btnOpenAddTeacherForm";
             this.btnOpenAddTeacherForm.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOpenAddTeacherForm.Size = new System.Drawing.Size(150, 35);
+            this.btnOpenAddTeacherForm.Size = new System.Drawing.Size(130, 35);
             this.btnOpenAddTeacherForm.TabIndex = 17;
             this.btnOpenAddTeacherForm.Text = "Add";
             this.btnOpenAddTeacherForm.Click += new System.EventHandler(this.btnOpenAddTeacherForm_Click);

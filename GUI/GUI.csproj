@@ -286,6 +286,18 @@
     <Compile Include="Forms\LearnersForm.Designer.cs">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\CourseListRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\CourseListRV.Designer.cs">
+      <DependentUpon>CourseListRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\EligibleLearnersRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\EligibleLearnersRV.Designer.cs">
+      <DependentUpon>EligibleLearnersRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\InvoiceRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +322,7 @@
     <Compile Include="ReportViewers\PaymentRV.Designer.cs">
       <DependentUpon>PaymentRV.cs</DependentUpon>
     </Compile>
+
     <Compile Include="ReportViewers\VehicleMTRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +352,37 @@
     </Compile>
     <Compile Include="ReportViewers\VehicleTypeERV.Designer.cs">
       <DependentUpon>VehicleTypeERV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\LearnerListRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\LearnerListRV.Designer.cs">
+      <DependentUpon>LearnerListRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleByDateRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleByDateRV.Designer.cs">
+      <DependentUpon>ScheduleByDateRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleDetailRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleDetailRV.Designer.cs">
+      <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.Designer.cs">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\TeacherListRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\TeacherListRV.Designer.cs">
+      <DependentUpon>TeacherListRV.cs</DependentUpon>
+    </Compile>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Forms\TeachersForm.cs">
@@ -422,11 +466,27 @@
     <EmbeddedResource Include="Forms\LearnersForm.resx">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CourseListReport.rdlc" />
+    <EmbeddedResource Include="Reports\EligibleLearnersReport.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
     <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
+
     <EmbeddedResource Include="Reports\VehicleReportMT.rdlc" />
     <EmbeddedResource Include="Reports\VehicleReportType.rdlc" />
+
+    <EmbeddedResource Include="Reports\LearnerListReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleByDateReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleDetailReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleInDayReport.rdlc" />
+    <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
+    <EmbeddedResource Include="ReportViewers\CourseListRV.resx">
+      <DependentUpon>CourseListRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\EligibleLearnersRV.resx">
+      <DependentUpon>EligibleLearnersRV.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +505,7 @@
     <EmbeddedResource Include="ReportViewers\PaymentRV.resx">
       <DependentUpon>PaymentRV.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="ReportViewers\VehicleMTRV.resx">
       <DependentUpon>VehicleMTRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,6 +520,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\VehicleTypeERV.resx">
       <DependentUpon>VehicleTypeERV.cs</DependentUpon>
+ </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\LearnerListRV.resx">
+      <DependentUpon>LearnerListRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleByDateRV.resx">
+      <DependentUpon>ScheduleByDateRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleDetailRV.resx">
+      <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleInDayRV.resx">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\TeacherListRV.resx">
+      <DependentUpon>TeacherListRV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSets\InvoiceDataSet.xsc">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
@@ -494,10 +570,14 @@
       <DependentUpon>VehicleDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.CourseDTO.datasource" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDetail.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDTO.datasource" />
     <None Include="Properties\DataSources\DTO.VehicleDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.LearnerDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.ScheduleDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.TeacherDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -614,6 +694,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drivingschoollogo-removebg.png" />
+    <None Include="Resources\menu1.png" />
+    <None Include="Resources\menu2.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

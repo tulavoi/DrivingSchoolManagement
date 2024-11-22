@@ -220,5 +220,33 @@ namespace GUI
                 reportViewer.RefreshReport();
             }
         }
+
+        public static void LoadReport(ReportViewer reportViewer, string reportFileName, DataTable data, string dataSetName)
+        {
+            try
+            {
+                // Kiểm tra dữ liệu
+                if (data == null || data.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data available to display.");
+                    return;
+                }
+
+                // Thiết lập ReportViewer
+                reportViewer.LocalReport.ReportEmbeddedResource = $"GUI.Reports.{reportFileName}.rdlc";
+                reportViewer.LocalReport.DataSources.Clear();
+
+                // Tạo và thêm ReportDataSource
+                ReportDataSource rds = new ReportDataSource(dataSetName, data);
+                reportViewer.LocalReport.DataSources.Add(rds);
+
+                // Làm mới ReportViewer
+                reportViewer.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
     }
 }

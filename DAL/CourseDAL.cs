@@ -312,6 +312,55 @@ namespace DAL
                 return data.ToList();
             }
         }
-        #endregion 
+		#endregion
+
+		#region Get all course data
+		public DataTable GetAllCoursesData()
+		{
+			using (var db = DataAccess.GetDataContext())
+			{
+                var data = from course in db.Courses
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join status in db.Status on course.StatusID equals status.StatusID
+                           orderby course.CourseName
+                           select new
+                           {
+                               course.CourseID,
+                               course.CourseName,
+                               course.LicenseID,
+                               license.LicenseName,
+                               status.StatusID,
+                               status.StatusName,
+                               course.Fee,
+                               course.DurationInHours,
+                               course.HoursStudied,
+                               course.StartDate,
+                               course.EndDate,
+                               course.Created_At,
+                               course.Updated_At
+                           };
+
+				var dt = this.CreateDataTable();
+				foreach (var item in data)
+				{
+					dt.Rows.Add(item.CourseName, item.LicenseName, item.Fee, item.DurationInHours,
+						item.StartDate.Value.ToString("dd/MM/yyyy"), item.EndDate.Value.ToString("dd/MM/yyyy"));
+                }
+				return dt;
+            }
+		}
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("LicenseName", typeof(string));
+            dt.Columns.Add("Fee", typeof(int));
+            dt.Columns.Add("DurationInHours", typeof(int));
+            dt.Columns.Add("StartDate", typeof(string));
+            dt.Columns.Add("EndDate", typeof(string));
+            return dt;
+        }
+        #endregion
     }
 }

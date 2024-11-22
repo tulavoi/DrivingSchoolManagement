@@ -59,6 +59,8 @@
             this.lblLicenseName = new System.Windows.Forms.Label();
             this.lblLicense = new System.Windows.Forms.Label();
             this.pnlButtonEdit_Delete = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnConfirmPass = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDeleteLearner = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditLearner = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
@@ -106,19 +108,27 @@
             this.pnlSpace10 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlTeachers = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlMenuButtonPrint = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEligibleLearners = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrintLearnerDetail = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrintLearnerList = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnOpenMenuButtonPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvLearners = new Guna.UI2.WinForms.Guna2DataGridView();
             this.InvoiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddLearnerForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLearners_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.cboStatus_Filter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlSpace8 = new Guna.UI2.WinForms.Guna2Panel();
@@ -128,6 +138,7 @@
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLearnerDetails.SuspendLayout();
             this.pnlMessage.SuspendLayout();
             this.pnlButtonSMS_Mail.SuspendLayout();
@@ -144,6 +155,8 @@
             this.pnlLearnerName.SuspendLayout();
             this.pnlLearnerDetails_Top.SuspendLayout();
             this.pnlTeachers.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.pnlMenuButtonPrint.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).BeginInit();
             this.pnlButtonAdd.SuspendLayout();
             this.pnlLearners_Top.SuspendLayout();
@@ -469,6 +482,8 @@
             // 
             // pnlButtonEdit_Delete
             // 
+            this.pnlButtonEdit_Delete.Controls.Add(this.btnConfirmPass);
+            this.pnlButtonEdit_Delete.Controls.Add(this.guna2Panel14);
             this.pnlButtonEdit_Delete.Controls.Add(this.btnDeleteLearner);
             this.pnlButtonEdit_Delete.Controls.Add(this.btnEditLearner);
             this.pnlButtonEdit_Delete.Controls.Add(this.pnlSpace13);
@@ -478,6 +493,36 @@
             this.pnlButtonEdit_Delete.Name = "pnlButtonEdit_Delete";
             this.pnlButtonEdit_Delete.Size = new System.Drawing.Size(481, 35);
             this.pnlButtonEdit_Delete.TabIndex = 103;
+            // 
+            // btnConfirmPass
+            // 
+            this.btnConfirmPass.BorderRadius = 5;
+            this.btnConfirmPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmPass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmPass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmPass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnConfirmPass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnConfirmPass.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnConfirmPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnConfirmPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmPass.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmPass.Location = new System.Drawing.Point(175, 0);
+            this.btnConfirmPass.Name = "btnConfirmPass";
+            this.btnConfirmPass.Padding = new System.Windows.Forms.Padding(5);
+            this.btnConfirmPass.Size = new System.Drawing.Size(81, 35);
+            this.btnConfirmPass.TabIndex = 21;
+            this.btnConfirmPass.Text = "Pass";
+            this.btnConfirmPass.Click += new System.EventHandler(this.btnConfirmPass_Click);
+            // 
+            // guna2Panel14
+            // 
+            this.guna2Panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel14.FillColor = System.Drawing.Color.White;
+            this.guna2Panel14.Location = new System.Drawing.Point(165, 0);
+            this.guna2Panel14.Name = "guna2Panel14";
+            this.guna2Panel14.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel14.TabIndex = 20;
             // 
             // btnDeleteLearner
             // 
@@ -1199,6 +1244,8 @@
             // 
             this.pnlTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlTeachers.BorderRadius = 15;
+            this.pnlTeachers.Controls.Add(this.guna2Panel9);
+            this.pnlTeachers.Controls.Add(this.guna2Panel10);
             this.pnlTeachers.Controls.Add(this.dgvLearners);
             this.pnlTeachers.Controls.Add(this.pnlButtonAdd);
             this.pnlTeachers.Controls.Add(this.pnlSpace25);
@@ -1208,6 +1255,165 @@
             this.pnlTeachers.Name = "pnlTeachers";
             this.pnlTeachers.Size = new System.Drawing.Size(420, 715);
             this.pnlTeachers.TabIndex = 47;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.pnlMenuButtonPrint);
+            this.guna2Panel9.Controls.Add(this.btnOpenMenuButtonPrint);
+            this.guna2Panel9.Controls.Add(this.guna2Panel11);
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(0, 622);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(420, 35);
+            this.guna2Panel9.TabIndex = 110;
+            // 
+            // pnlMenuButtonPrint
+            // 
+            this.pnlMenuButtonPrint.BackColor = System.Drawing.Color.White;
+            this.pnlMenuButtonPrint.Controls.Add(this.btnEligibleLearners);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel8);
+            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintLearnerDetail);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel12);
+            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintLearnerList);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel13);
+            this.pnlMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMenuButtonPrint.Location = new System.Drawing.Point(55, 0);
+            this.pnlMenuButtonPrint.Name = "pnlMenuButtonPrint";
+            this.pnlMenuButtonPrint.Size = new System.Drawing.Size(365, 35);
+            this.pnlMenuButtonPrint.TabIndex = 45;
+            // 
+            // btnEligibleLearners
+            // 
+            this.btnEligibleLearners.BorderRadius = 5;
+            this.btnEligibleLearners.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEligibleLearners.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEligibleLearners.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEligibleLearners.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEligibleLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEligibleLearners.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEligibleLearners.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnEligibleLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEligibleLearners.ForeColor = System.Drawing.Color.White;
+            this.btnEligibleLearners.Location = new System.Drawing.Point(204, 0);
+            this.btnEligibleLearners.Name = "btnEligibleLearners";
+            this.btnEligibleLearners.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEligibleLearners.Size = new System.Drawing.Size(115, 35);
+            this.btnEligibleLearners.TabIndex = 51;
+            this.btnEligibleLearners.Text = "Eligible List";
+            this.btnEligibleLearners.Click += new System.EventHandler(this.btnEligibleLearners_Click);
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(194, 0);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel8.TabIndex = 50;
+            // 
+            // btnPrintLearnerDetail
+            // 
+            this.btnPrintLearnerDetail.BorderRadius = 5;
+            this.btnPrintLearnerDetail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintLearnerDetail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintLearnerDetail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintLearnerDetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintLearnerDetail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintLearnerDetail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintLearnerDetail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnPrintLearnerDetail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintLearnerDetail.ForeColor = System.Drawing.Color.White;
+            this.btnPrintLearnerDetail.Location = new System.Drawing.Point(107, 0);
+            this.btnPrintLearnerDetail.Name = "btnPrintLearnerDetail";
+            this.btnPrintLearnerDetail.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintLearnerDetail.Size = new System.Drawing.Size(87, 35);
+            this.btnPrintLearnerDetail.TabIndex = 49;
+            this.btnPrintLearnerDetail.Text = "Details";
+            this.btnPrintLearnerDetail.Click += new System.EventHandler(this.btnPrintLearnerDetail_Click);
+            // 
+            // guna2Panel12
+            // 
+            this.guna2Panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel12.FillColor = System.Drawing.Color.White;
+            this.guna2Panel12.Location = new System.Drawing.Point(97, 0);
+            this.guna2Panel12.Name = "guna2Panel12";
+            this.guna2Panel12.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel12.TabIndex = 48;
+            // 
+            // btnPrintLearnerList
+            // 
+            this.btnPrintLearnerList.BorderRadius = 5;
+            this.btnPrintLearnerList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintLearnerList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintLearnerList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintLearnerList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintLearnerList.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintLearnerList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintLearnerList.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnPrintLearnerList.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintLearnerList.ForeColor = System.Drawing.Color.White;
+            this.btnPrintLearnerList.Location = new System.Drawing.Point(10, 0);
+            this.btnPrintLearnerList.Name = "btnPrintLearnerList";
+            this.btnPrintLearnerList.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintLearnerList.Size = new System.Drawing.Size(87, 35);
+            this.btnPrintLearnerList.TabIndex = 17;
+            this.btnPrintLearnerList.Text = "List";
+            this.btnPrintLearnerList.Click += new System.EventHandler(this.btnPrintLearnerList_Click);
+            // 
+            // guna2Panel13
+            // 
+            this.guna2Panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel13.FillColor = System.Drawing.Color.White;
+            this.guna2Panel13.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel13.Name = "guna2Panel13";
+            this.guna2Panel13.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel13.TabIndex = 44;
+            // 
+            // btnOpenMenuButtonPrint
+            // 
+            this.btnOpenMenuButtonPrint.BorderRadius = 5;
+            this.btnOpenMenuButtonPrint.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.CheckedState.Image = global::GUI.Properties.Resources.menu2;
+            this.btnOpenMenuButtonPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenMenuButtonPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpenMenuButtonPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpenMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnOpenMenuButtonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnOpenMenuButtonPrint.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.Image = global::GUI.Properties.Resources.menu1;
+            this.btnOpenMenuButtonPrint.Location = new System.Drawing.Point(15, 0);
+            this.btnOpenMenuButtonPrint.Name = "btnOpenMenuButtonPrint";
+            this.btnOpenMenuButtonPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpenMenuButtonPrint.Size = new System.Drawing.Size(40, 35);
+            this.btnOpenMenuButtonPrint.TabIndex = 43;
+            this.btnOpenMenuButtonPrint.Click += new System.EventHandler(this.btnOpenMenuButtonPrint_Click);
+            // 
+            // guna2Panel11
+            // 
+            this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel11.FillColor = System.Drawing.Color.White;
+            this.guna2Panel11.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel11.Name = "guna2Panel11";
+            this.guna2Panel11.Size = new System.Drawing.Size(15, 35);
+            this.guna2Panel11.TabIndex = 10;
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel10.FillColor = System.Drawing.Color.White;
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 657);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Size = new System.Drawing.Size(420, 8);
+            this.guna2Panel10.TabIndex = 111;
             // 
             // dgvLearners
             // 
@@ -1262,7 +1468,7 @@
             this.dgvLearners.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLearners.RowTemplate.DividerHeight = 2;
             this.dgvLearners.RowTemplate.Height = 45;
-            this.dgvLearners.Size = new System.Drawing.Size(420, 600);
+            this.dgvLearners.Size = new System.Drawing.Size(420, 560);
             this.dgvLearners.TabIndex = 109;
             this.dgvLearners.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvLearners.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1338,8 +1544,6 @@
             // 
             // pnlButtonAdd
             // 
-            this.pnlButtonAdd.Controls.Add(this.btnPrint);
-            this.pnlButtonAdd.Controls.Add(this.guna2Panel8);
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddLearnerForm);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace15);
             this.pnlButtonAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1348,35 +1552,6 @@
             this.pnlButtonAdd.Name = "pnlButtonAdd";
             this.pnlButtonAdd.Size = new System.Drawing.Size(420, 35);
             this.pnlButtonAdd.TabIndex = 42;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BorderRadius = 5;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(276, 0);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrint.Size = new System.Drawing.Size(131, 35);
-            this.btnPrint.TabIndex = 22;
-            this.btnPrint.Text = "Print";
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(407, 0);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(13, 35);
-            this.guna2Panel8.TabIndex = 21;
             // 
             // btnOpenAddLearnerForm
             // 
@@ -1393,7 +1568,7 @@
             this.btnOpenAddLearnerForm.Location = new System.Drawing.Point(15, 0);
             this.btnOpenAddLearnerForm.Name = "btnOpenAddLearnerForm";
             this.btnOpenAddLearnerForm.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOpenAddLearnerForm.Size = new System.Drawing.Size(150, 35);
+            this.btnOpenAddLearnerForm.Size = new System.Drawing.Size(130, 35);
             this.btnOpenAddLearnerForm.TabIndex = 17;
             this.btnOpenAddLearnerForm.Text = "Enroll";
             this.btnOpenAddLearnerForm.Click += new System.EventHandler(this.btnOpenAddLearnerForm_Click);
@@ -1424,9 +1599,9 @@
             // 
             this.pnlLearners_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlLearners_Top.BorderRadius = 15;
+            this.pnlLearners_Top.Controls.Add(this.txtSearch);
             this.pnlLearners_Top.Controls.Add(this.guna2Panel2);
             this.pnlLearners_Top.Controls.Add(this.cboStatus_Filter);
-            this.pnlLearners_Top.Controls.Add(this.txtSearch);
             this.pnlLearners_Top.Controls.Add(this.pnlSpace8);
             this.pnlLearners_Top.Controls.Add(this.pnlSpace7);
             this.pnlLearners_Top.Controls.Add(this.pnlSpace6);
@@ -1440,16 +1615,6 @@
             this.pnlLearners_Top.Name = "pnlLearners_Top";
             this.pnlLearners_Top.Size = new System.Drawing.Size(420, 60);
             this.pnlLearners_Top.TabIndex = 0;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(282, 12);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(10, 38);
-            this.guna2Panel2.TabIndex = 34;
             // 
             // cboStatus_Filter
             // 
@@ -1490,7 +1655,7 @@
             this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -1501,7 +1666,7 @@
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(172, 38);
+            this.txtSearch.Size = new System.Drawing.Size(162, 38);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -1586,6 +1751,16 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(282, 12);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(10, 38);
+            this.guna2Panel2.TabIndex = 36;
+            // 
             // LearnersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1617,6 +1792,8 @@
             this.pnlLearnerName.ResumeLayout(false);
             this.pnlLearnerDetails_Top.ResumeLayout(false);
             this.pnlTeachers.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.pnlMenuButtonPrint.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLearners)).EndInit();
             this.pnlButtonAdd.ResumeLayout(false);
             this.pnlLearners_Top.ResumeLayout(false);
@@ -1695,7 +1872,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CitizenID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private Guna.UI2.WinForms.Guna2ComboBox cboStatus_Filter;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox cboStates;
         private Guna.UI2.WinForms.Guna2Panel pnlStates;
@@ -1716,7 +1892,19 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label lblLicenseName;
 		private System.Windows.Forms.Label lblLicense;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
+        private Guna.UI2.WinForms.Guna2Button btnOpenMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Panel pnlMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private Guna.UI2.WinForms.Guna2Button btnPrintLearnerList;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
+        private Guna.UI2.WinForms.Guna2Button btnPrintLearnerDetail;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Button btnEligibleLearners;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
+        private Guna.UI2.WinForms.Guna2Button btnConfirmPass;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
     }
 }

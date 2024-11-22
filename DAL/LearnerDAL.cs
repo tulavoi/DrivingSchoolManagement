@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.Linq;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 
 namespace DAL
 {
@@ -43,6 +46,7 @@ namespace DAL
                                learner.Nationality,
                                status.StatusID,
                                status.StatusName,
+                               learner.IsPass,
 							   learner.Created_At,
                                learner.Updated_At
                            };
@@ -78,8 +82,9 @@ namespace DAL
 							   learner.Nationality,
 							   status.StatusID,
 							   status.StatusName,
+                               learner.IsPass,
 							   learner.Created_At,
-							   learner.Updated_At
+                               learner.Updated_At
 						   };
                 return data.ToList();
             }
@@ -113,6 +118,7 @@ namespace DAL
                                learner.Nationality,
                                status.StatusID,
 							   status.StatusName,
+                               learner.IsPass,
                                learner.Created_At,
                                learner.Updated_At
                            };
@@ -198,6 +204,7 @@ namespace DAL
                     StatusID = item.StatusID,
                     StatusName = item.StatusName,
                 },
+                IsPass = item.IsPass,
                 Created_At = item.Created_At,
                 Updated_At = item.Updated_At
             };
@@ -231,6 +238,113 @@ namespace DAL
         //        db.SubmitChanges();
         //    }
         //}
+        #endregion
+
+        #region Get all learner data
+        public DataTable GetAllLearnersData()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from enr in db.Enrollments
+                           join course in db.Courses on enr.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join learner in db.Learners on enr.LearnerID equals learner.LearnerID
+                           select new
+                           {
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Nationality,
+                               course.CourseName,
+                               learner.Created_At,
+                           };
+                var dt = this.CreateDataTable();
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender, 
+                        item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality, 
+                        item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName);
+                }
+                return dt;
+            }
+        }
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FullName", typeof(string));
+            dt.Columns.Add("DateOfBirth", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Email", typeof(string));
+            dt.Columns.Add("Address", typeof(string));
+            dt.Columns.Add("CitizenID", typeof(string));
+            dt.Columns.Add("Nationality", typeof(string));
+            dt.Columns.Add("EnrollmentDate", typeof(string));
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("StartDate", typeof(string));
+            dt.Columns.Add("EndDate", typeof(string));
+            return dt; 
+        }
+        #endregion
+
+        #region Update IsPass
+        public bool ConfirmPass(int learnerID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = db.Learners.FirstOrDefault(l => l.LearnerID == learnerID);
+                data.IsPass = true;
+                db.SubmitChanges();
+                return true;
+            }
+        }
+        #endregion
+
+        #region Get eligible learners
+        public DataTable GetEligibleLearnersData()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from enrollment in db.Enrollments
+                           join course in db.Courses on enrollment.CourseID equals course.CourseID
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join learner in db.Learners on enrollment.LearnerID equals learner.LearnerID
+                           where course.EndDate <= DateTime.Now
+                                 && course.HoursStudied == course.DurationInHours
+                                 && learner.IsPass == false
+                           select new
+                           {
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Nationality,
+                               course.CourseName,
+                               course.StartDate,
+                               course.EndDate,
+                               learner.Created_At,
+                           };
+
+                var dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender,
+                        item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality,
+                        item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName, 
+                        item.StartDate.Value.ToString("dd/MM/yyyy"), item.EndDate.Value.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
         #endregion
     }
 }

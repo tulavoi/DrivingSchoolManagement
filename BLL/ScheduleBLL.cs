@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Guna.UI2.WinForms;
 using System.Windows.Forms;
+using System.Data;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace BLL
 {
@@ -31,7 +33,7 @@ namespace BLL
 
         public void LoadAllSchedules(Guna2DataGridView dgv)
         {
-            List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedules();
+            List<Schedule> schedules = ScheduleDAL.Instance.GetAllSchedulesActive();
             this.AddSchedulesToDataGridView(dgv, schedules);
         }
 
@@ -86,6 +88,21 @@ namespace BLL
                     dgv.Rows[rowIndex].Cells["Session"].Value = schedule.Session.Session1;
                 }
             }
+        }
+
+        public DataTable GetScheduleDataByDate(DateTime startDate, DateTime endDate)
+        {
+            return ScheduleDAL.Instance.GetScheduleDataByDate(startDate, endDate);
+        }
+
+        public DataTable GetScheduleDetailData(int scheduleID)
+        {
+            return ScheduleDAL.Instance.GetScheduleDetailData(scheduleID);
+        }
+
+        public DataTable GetScheduleInDayData(int learnerID, DateTime date)
+        {
+            return ScheduleDAL.Instance.GetScheduleInDayData(learnerID, date);
         }
     }
 }

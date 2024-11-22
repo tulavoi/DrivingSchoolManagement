@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.Remoting.Contexts;
 using static System.Collections.Specialized.BitVector32;
 
 namespace DAL
@@ -37,6 +39,7 @@ namespace DAL
                            join licenseOfTeacher in db.Licenses on teacher.LicenseID equals licenseOfTeacher.LicenseID
                            join vehicle in db.Vehicles on schedule.VehicleID equals vehicle.VehicleID
                            join session in db.Sessions on schedule.SessionID equals session.SessionID
+                           where schedule.StatusID == 1
                            select new
                            {
                                schedule.ScheduleID,
@@ -75,7 +78,7 @@ namespace DAL
             }
         }
 
-        public List<Schedule> GetAllSchedules()
+        public List<Schedule> GetAllSchedulesActive()
         {
             return GetAll(item => this.MapToSchedule(item));
         }
@@ -231,7 +234,8 @@ namespace DAL
         #region Delete
         public bool DeleteSchedule(int scheduleID)
         {
-            return UpdateStatus(sche => sche.ScheduleID == scheduleID, 2); // StatusID = 2, StatusName = "Inactive"
+            //return UpdateStatus(sche => sche.ScheduleID == scheduleID, 2); // StatusID = 2, StatusName = "Inactive"
+            return DeleteData(sche => sche.ScheduleID == scheduleID);
         }
         #endregion
 
@@ -346,6 +350,160 @@ namespace DAL
                 var schedule = db.Schedules.Where(sch => sch.Enrollment.CourseID == courseID).FirstOrDefault();
                 if (schedule == null) return null;
                 return schedule;
+            }
+        }
+        #endregion
+
+        #region Data table Schedule trong 1 khoảng thời gian
+        public DataTable GetScheduleDataByDate(DateTime startDate, DateTime endDate)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                            join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                            join l in db.Learners on e.LearnerID equals l.LearnerID
+                            join t in db.Teachers on s.TeacherID equals t.TeacherID
+                            join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                            join c in db.Courses on e.CourseID equals c.CourseID
+                            join ses in db.Sessions on s.SessionID equals ses.SessionID
+                            where s.SessionDate >= startDate.Date && s.SessionDate <= endDate.Date 
+                                && s.StatusID == 1
+                            select new
+                            {
+                                ScheduleID = s.ScheduleID,
+                                LearnerFullName = l.FullName,
+                                LearnerPhoneNumber = l.PhoneNumber,
+                                LearnerEmail = l.Email,
+                                TeacherFullName = t.FullName,
+                                TeacherPhoneNumber = t.PhoneNumber,
+                                TeacherEmail = t.Email,
+                                VehicleName = v.VehicleName,
+                                VehicleNumber = v.VehicleNumber,
+                                CourseName = c.CourseName,
+                                SessionName = ses.Session1,
+                                SessionDate = s.SessionDate
+                            };
+
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"), startDate.ToString("dd/MM/yyyy"), 
+                        endDate.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
+        #endregion
+
+        #region Create data table
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ScheduleID", typeof(int));
+            dt.Columns.Add("LearnerFullName", typeof(string));
+            dt.Columns.Add("LearnerPhoneNumber", typeof(string));
+            dt.Columns.Add("LearnerEmail", typeof(string));
+            dt.Columns.Add("TeacherFullName", typeof(string));
+            dt.Columns.Add("TeacherPhoneNumber", typeof(string));
+            dt.Columns.Add("TeacherEmail", typeof(string));
+            dt.Columns.Add("VehicleName", typeof(string));
+            dt.Columns.Add("VehicleNumber", typeof(string));
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("SessionName", typeof(string));
+            dt.Columns.Add("SessionDate", typeof(string));
+            dt.Columns.Add("FromDate", typeof(string));
+            dt.Columns.Add("ToDate", typeof(string));
+            return dt;
+        }
+        #endregion
+
+        #region Get schudule details data
+        public DataTable GetScheduleDetailData(int scheduleID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                           join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                           join l in db.Learners on e.LearnerID equals l.LearnerID
+                           join t in db.Teachers on s.TeacherID equals t.TeacherID
+                           join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                           join c in db.Courses on e.CourseID equals c.CourseID
+                           join ses in db.Sessions on s.SessionID equals ses.SessionID
+                           where s.ScheduleID == scheduleID && s.StatusID == 1
+                           select new
+                           {
+                               ScheduleID = s.ScheduleID,
+                               LearnerFullName = l.FullName,
+                               LearnerPhoneNumber = l.PhoneNumber,
+                               LearnerEmail = l.Email,
+                               TeacherFullName = t.FullName,
+                               TeacherPhoneNumber = t.PhoneNumber,
+                               TeacherEmail = t.Email,
+                               VehicleName = v.VehicleName,
+                               VehicleNumber = v.VehicleNumber,
+                               CourseName = c.CourseName,
+                               SessionName = ses.Session1,
+                               SessionDate = s.SessionDate
+                           };
+
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
+        #endregion
+
+        #region Get schudule of leaner in day
+        public DataTable GetScheduleInDayData(int learnerID, DateTime date)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                           join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                           join l in db.Learners on e.LearnerID equals l.LearnerID
+                           join t in db.Teachers on s.TeacherID equals t.TeacherID
+                           join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                           join c in db.Courses on e.CourseID equals c.CourseID
+                           join ses in db.Sessions on s.SessionID equals ses.SessionID
+                           where s.Enrollment.LearnerID == learnerID && s.StatusID == 1 
+                                && s.SessionDate == date.Date
+                           select new
+                           {
+                               ScheduleID = s.ScheduleID,
+                               LearnerFullName = l.FullName,
+                               LearnerPhoneNumber = l.PhoneNumber,
+                               LearnerEmail = l.Email,
+                               TeacherFullName = t.FullName,
+                               TeacherPhoneNumber = t.PhoneNumber,
+                               TeacherEmail = t.Email,
+                               VehicleName = v.VehicleName,
+                               VehicleNumber = v.VehicleNumber,
+                               CourseName = c.CourseName,
+                               SessionName = ses.Session1,
+                               SessionDate = s.SessionDate
+                           };
+
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"));
+                }
+                return dt;
             }
         }
         #endregion

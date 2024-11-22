@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BLL
 {
@@ -107,6 +108,21 @@ namespace BLL
         public Learner GetLearner(int learnerID)
         {
             return LearnerDAL.Instance.GetLearner(learnerID);
+        }
+
+        public DataTable GetAllLearnersData()
+        {
+            return LearnerDAL.Instance.GetAllLearnersData();
+        }
+
+        public bool ConfirmPass(int learnerID)
+        {
+            return LearnerDAL.Instance.ConfirmPass(learnerID);
+        }
+
+        public DataTable GetEligibleLearnersData()
+        {
+            return LearnerDAL.Instance.GetEligibleLearnersData();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DrivingSchool_V2" Class="DrivingSchoolDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DANOITXD\SQLEXPRESS;Initial Catalog=DrivingSchool_V2;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DrivingSchool_V2ConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TULAVOI\HOANGVU;Initial Catalog=DrivingSchool_V2;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DrivingSchool_V2ConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Accounts" Member="Accounts">
     <Type Name="Account">
       <Column Name="AccountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -10,27 +10,25 @@
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Teachers" Member="Teachers">
-    <Type Name="Teacher">
-      <Column Name="TeacherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="EmploymentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="LicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LicenseNumber" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-      <Column Name="BeginningDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+  <Table Name="dbo.Vehicles" Member="Vehicles">
+    <Type Name="Vehicle">
+      <Column Name="VehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VehicleName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VehicleNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsTruck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsPassengerCar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsMaintenance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ManufacturerYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Seats" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StartMaintenaceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndMaintenaceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Teacher_Schedule" Member="Schedules" ThisKey="TeacherID" OtherKey="TeacherID" Type="Schedule" />
-      <Association Name="License_Teacher" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
-      <Association Name="Status_Teacher" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+      <Association Name="Vehicle_Schedule" Member="Schedules" ThisKey="VehicleID" OtherKey="VehicleID" Type="Schedule" />
+      <Association Name="Status_Vehicle" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Courses" Member="Courses">
@@ -42,8 +40,8 @@
       <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DurationInHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HoursStudied" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Course_Enrollment" Member="Enrollments" ThisKey="CourseID" OtherKey="CourseID" Type="Enrollment" />
@@ -56,7 +54,7 @@
       <Column Name="EnrollmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CourseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LearnerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EnrollmentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EnrollmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IsComplete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Enrollment_Invoice" Member="Invoices" ThisKey="EnrollmentID" OtherKey="EnrollmentID" Type="Invoice" />
       <Association Name="Enrollment_Schedule" Member="Schedules" ThisKey="EnrollmentID" OtherKey="EnrollmentID" Type="Schedule" />
@@ -80,38 +78,20 @@
       <Association Name="Status_Invoice" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Learners" Member="Learners">
-    <Type Name="Learner">
-      <Column Name="LearnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Learner_Enrollment" Member="Enrollments" ThisKey="LearnerID" OtherKey="LearnerID" Type="Enrollment" />
-      <Association Name="Status_Learner" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Licenses" Member="Licenses">
     <Type Name="License">
       <Column Name="LicenseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LicenseName" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="License_Teacher" Member="Teachers" ThisKey="LicenseID" OtherKey="LicenseID" Type="Teacher" />
       <Association Name="License_Course" Member="Courses" ThisKey="LicenseID" OtherKey="LicenseID" Type="Course" />
+      <Association Name="License_Teacher" Member="Teachers" ThisKey="LicenseID" OtherKey="LicenseID" Type="Teacher" />
     </Type>
   </Table>
   <Table Name="dbo.Payments" Member="Payments">
     <Type Name="Payment">
       <Column Name="PaymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="InvoiceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PaymentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PaymentMethod" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -126,15 +106,15 @@
       <Column Name="TeacherID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="VehicleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SessionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SessionDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SessionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Enrollment_Schedule" Member="Enrollment" ThisKey="EnrollmentID" OtherKey="EnrollmentID" Type="Enrollment" IsForeignKey="true" />
-      <Association Name="Teacher_Schedule" Member="Teacher" ThisKey="TeacherID" OtherKey="TeacherID" Type="Teacher" IsForeignKey="true" />
+      <Association Name="Vehicle_Schedule" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
       <Association Name="Session_Schedule" Member="Session" ThisKey="SessionID" OtherKey="SessionID" Type="Session" IsForeignKey="true" />
       <Association Name="Status_Schedule" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
-      <Association Name="Vehicle_Schedule" Member="Vehicle" ThisKey="VehicleID" OtherKey="VehicleID" Type="Vehicle" IsForeignKey="true" />
+      <Association Name="Teacher_Schedule" Member="Teacher" ThisKey="TeacherID" OtherKey="TeacherID" Type="Teacher" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Sessions" Member="Sessions">
@@ -150,33 +130,54 @@
     <Type Name="Status">
       <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="StatusName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Status_Teacher" Member="Teachers" ThisKey="StatusID" OtherKey="StatusID" Type="Teacher" />
+      <Association Name="Status_Vehicle" Member="Vehicles" ThisKey="StatusID" OtherKey="StatusID" Type="Vehicle" />
       <Association Name="Status_Course" Member="Courses" ThisKey="StatusID" OtherKey="StatusID" Type="Course" />
       <Association Name="Status_Invoice" Member="Invoices" ThisKey="StatusID" OtherKey="StatusID" Type="Invoice" />
-      <Association Name="Status_Learner" Member="Learners" ThisKey="StatusID" OtherKey="StatusID" Type="Learner" />
       <Association Name="Status_Schedule" Member="Schedules" ThisKey="StatusID" OtherKey="StatusID" Type="Schedule" />
-      <Association Name="Status_Vehicle" Member="Vehicles" ThisKey="StatusID" OtherKey="StatusID" Type="Vehicle" />
+      <Association Name="Status_Teacher" Member="Teachers" ThisKey="StatusID" OtherKey="StatusID" Type="Teacher" />
+      <Association Name="Status_Learner" Member="Learners" ThisKey="StatusID" OtherKey="StatusID" Type="Learner" />
     </Type>
   </Table>
-  <Table Name="dbo.Vehicles" Member="Vehicles">
-    <Type Name="Vehicle">
-      <Column Name="VehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="VehicleName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="VehicleNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IsTruck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IsPassengerCar" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IsMaintenance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ManufacturerYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Weight" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Seats" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Table Name="dbo.Teachers" Member="Teachers">
+    <Type Name="Teacher">
+      <Column Name="TeacherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EmploymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LicenseNumber" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="BeginningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="StartMaintenaceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="EndMaintenaceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Vehicle_Schedule" Member="Schedules" ThisKey="VehicleID" OtherKey="VehicleID" Type="Schedule" />
-      <Association Name="Status_Vehicle" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+      <Association Name="Teacher_Schedule" Member="Schedules" ThisKey="TeacherID" OtherKey="TeacherID" Type="Schedule" />
+      <Association Name="License_Teacher" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
+      <Association Name="Status_Teacher" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Learners" Member="Learners">
+    <Type Name="Learner">
+      <Column Name="LearnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CitizenID" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsPass" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Learner_Enrollment" Member="Enrollments" ThisKey="LearnerID" OtherKey="LearnerID" Type="Enrollment" />
+      <Association Name="Status_Learner" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

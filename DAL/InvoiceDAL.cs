@@ -296,21 +296,8 @@ namespace DAL
                                Notes = invoice.Notes
                            };
 
-                //DataTable dt = this.CreateDatable();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("InvoiceCode", typeof(string));
-                dt.Columns.Add("Created_At", typeof(DateTime));
-                dt.Columns.Add("FullName", typeof(string));
-                dt.Columns.Add("EnrollmentDate", typeof(DateTime));
-                dt.Columns.Add("Address", typeof(string));
-                dt.Columns.Add("PhoneNumber", typeof(string));
-                dt.Columns.Add("Email", typeof(string));
-                dt.Columns.Add("CourseName", typeof(string));
-                dt.Columns.Add("DurationInHours", typeof(int));
-                dt.Columns.Add("StartDate", typeof(DateTime));
-                dt.Columns.Add("EndDate", typeof(DateTime));
-                dt.Columns.Add("TotalAmount", typeof(decimal));
-                dt.Columns.Add("Notes", typeof(string));
+                DataTable dt = this.CreateDataTable();
+               
                 foreach (var item in data)
                 {
                     dt.Rows.Add(item.InvoiceCode, item.Created_At, item.FullName, item.EnrollmentDate,
@@ -320,8 +307,9 @@ namespace DAL
                 return dt;
             }
         }
+        #endregion
 
-        private DataTable CreateDatable()
+        private DataTable CreateDataTable()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("InvoiceCode", typeof(string));
@@ -339,7 +327,5 @@ namespace DAL
             dt.Columns.Add("Notes", typeof(string));
             return dt;
         }
-        #endregion
-
     }
 }

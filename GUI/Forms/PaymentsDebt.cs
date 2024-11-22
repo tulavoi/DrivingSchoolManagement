@@ -17,11 +17,13 @@ namespace GUI.Forms
         public PaymentsDebt()
         {
             InitializeComponent();
+            FormHelper.ApplyRoundedCorners(this, 20);
+            shadowForm.SetShadowForm(this);
         }
+
         private void PaymentDebtFrom_Load(object sender, EventArgs e)
         {
             this.LoadAllPayments();
-
         }
 
         public void LoadAllPayments()

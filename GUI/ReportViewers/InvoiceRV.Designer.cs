@@ -31,30 +31,21 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.invoiceDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.shadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlLineTop = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimizeForm = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnCloseForm = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDTOBindingSource)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
             this.pnlLineTop.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // invoiceDTOBindingSource
             // 
             this.invoiceDTOBindingSource.DataSource = typeof(DTO.InvoiceDTO);
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.reportViewer1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 30);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(935, 870);
-            this.guna2Panel2.TabIndex = 2;
             // 
             // reportViewer1
             // 
@@ -119,12 +110,21 @@
             this.btnCloseForm.Size = new System.Drawing.Size(50, 30);
             this.btnCloseForm.TabIndex = 30;
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.reportViewer1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 30);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(935, 870);
+            this.guna2Panel1.TabIndex = 38;
+            // 
             // InvoiceRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 900);
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.pnlLineTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InvoiceRV";
@@ -132,14 +132,13 @@
             this.Text = "ReportViewer_Invoice";
             this.Load += new System.EventHandler(this.ReportViewer_Invoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.invoiceDTOBindingSource)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
             this.pnlLineTop.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2ShadowForm shadowForm;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Panel pnlLineTop;
@@ -147,5 +146,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox btnCloseForm;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource invoiceDTOBindingSource;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

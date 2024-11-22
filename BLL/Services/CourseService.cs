@@ -3,6 +3,7 @@ using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,11 @@ namespace BLL.Services
         public static void UpdateHoursStudied(int courseID, int hours)
         {
             CourseBLL.Instance.UpdateHoursStudied(courseID, hours);
+        }
+
+        public static DataTable GetAllCoursesData()
+        {
+            return CourseBLL.Instance.GetAllCoursesData();
         }
     }
 }

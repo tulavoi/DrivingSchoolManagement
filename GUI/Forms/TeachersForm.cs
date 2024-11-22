@@ -1,6 +1,7 @@
 ﻿using BLL.Services;
 using BLL.Services.SendEmail;
 using DAL;
+using GUI.ReportViewers;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
@@ -298,5 +299,11 @@ namespace GUI
 		{
 			this.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
 		}
-	}
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+			TeacherListRV teacherListRV = new TeacherListRV();
+			teacherListRV.Show();
+        }
+    }
 }
