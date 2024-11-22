@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,26 @@ namespace BLL
         public bool DeleteVehicle(int vehicleID)
         {
             return VehicleDAL.Instance.DeleteVehicle(vehicleID);
+        }
+        public DataTable GetVehiclesTypeB()
+        {
+            return VehicleDAL.Instance.GetVehiclesTypeB();
+        }
+        public DataTable GetVehiclesTypeC()
+        {
+            return VehicleDAL.Instance.GetVehiclesTypeC();
+        }
+        public DataTable GetVehiclesTypeD()
+        {
+            return VehicleDAL.Instance.GetVehiclesTypeD();
+        }
+        public DataTable GetVehiclesTypeE()
+        {
+            return VehicleDAL.Instance.GetVehiclesTypeE();
+        }
+        public DataTable GetVehiclesMT()
+        {
+            return VehicleDAL.Instance.GetVehiclesMT();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL.Services;
 using DAL;
+using GUI.ReportViewers;
 using GUI.Validators;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
@@ -12,6 +13,7 @@ namespace GUI
         #region Properties
         private bool isEditing_BasicDetails = false;
         private bool isEditing_MaintenanceDetails = false;
+        private bool isClicked = false;
         #endregion
 
         public VehiclesForm()
@@ -232,9 +234,13 @@ namespace GUI
 
             txtWeight.Enabled = false;
             txtSeats.Enabled = false;
-            
-            dtpStartMaintenance.Value = selectedVehicle.StartMaintenaceDate == null ? DateTime.Now : selectedVehicle.StartMaintenaceDate.Value;
-            dtpEndMaintenance.Value = selectedVehicle.EndMaintenaceDate == null ? DateTime.Now : selectedVehicle.EndMaintenaceDate.Value;
+            // Gán giá trị StartMaintenaceDate với định dạng yyyy-MM-dd
+            dtpStartMaintenance.Value = (selectedVehicle.StartMaintenaceDate ?? DateTime.Now).Date;
+
+            // Gán giá trị EndMaintenaceDate với định dạng yyyy-MM-dd
+            dtpEndMaintenance.Value = (selectedVehicle.EndMaintenaceDate ?? DateTime.Now).Date;
+
+
         }
 
         private bool HasSelectedRow()
@@ -302,6 +308,44 @@ namespace GUI
             string keyword = txtSearch.Text.ToLower();
             VehicleService.SearchVehicles(dgvVehicles, keyword);
             this.UpdateControlsWithSelectedRowData();
+        }
+
+        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
+        {
+
+            isClicked = !isClicked;
+            pnlMenu.Visible = isClicked;
+            btnOpenMenuButtonPrint.Checked = isClicked;
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            VehicleTypeBRV vehicleType = new VehicleTypeBRV();
+            vehicleType.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            VehicleTypeCRV vehicleType = new VehicleTypeCRV();
+            vehicleType.Show();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            VehicleTypeDRV vehicleType = new VehicleTypeDRV();
+            vehicleType.Show();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            VehicleTypeERV vehicleType = new VehicleTypeERV();
+            vehicleType.Show();
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            VehicleMTRV vehicleMT = new VehicleMTRV();
+            vehicleMT.Show();
         }
     }
 }
