@@ -15,42 +15,6 @@
           </Border>
         </Style>
       </Line>
-      <Textbox Name="Textbox22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Eligible Learners</Value>
-                <Style>
-                  <FontSize>22pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#060b33</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.18889in</Top>
-        <Left>3.31598in</Left>
-        <Height>0.43333in</Height>
-        <Width>2.81667in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix4">
         <TablixBody>
           <TablixColumns>
@@ -812,7 +776,7 @@
         <Left>0.28056in</Left>
         <Height>0.5in</Height>
         <Width>10.90018in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -824,7 +788,7 @@
         <Left>0.28056in</Left>
         <Height>0in</Height>
         <Width>10.90018in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -858,7 +822,7 @@
         <Left>0.27423in</Left>
         <Height>0.25in</Height>
         <Width>0.51667in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -893,6 +857,42 @@
         <Left>0.80479in</Left>
         <Height>0.25in</Height>
         <Width>0.77223in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Eligible Learners</Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>#060b33</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>0.18889in</Top>
+        <Left>4.32014in</Left>
+        <Height>0.43333in</Height>
+        <Width>2.81667in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
