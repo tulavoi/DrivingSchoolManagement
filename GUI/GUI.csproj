@@ -383,7 +383,6 @@
     <Compile Include="ReportViewers\TeacherListRV.Designer.cs">
       <DependentUpon>TeacherListRV.cs</DependentUpon>
     </Compile>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Forms\TeachersForm.cs">
       <SubType>Form</SubType>

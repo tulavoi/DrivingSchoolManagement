@@ -32,6 +32,8 @@ namespace GUI
         {
             VehicleService.LoadAllVehicles(dgvVehicles);
             this.UpdateControlsWithSelectedRowData();
+            pnlMenuButtonPrint.Visible = false;
+            this.isClicked = false;
         }
 
         private void btnEdit_BasicDetail_Click(object sender, EventArgs e)
@@ -310,14 +312,6 @@ namespace GUI
             this.UpdateControlsWithSelectedRowData();
         }
 
-        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
-        {
-
-            isClicked = !isClicked;
-            pnlMenu.Visible = isClicked;
-            btnOpenMenuButtonPrint.Checked = isClicked;
-        }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             VehicleTypeBRV vehicleType = new VehicleTypeBRV();
@@ -346,6 +340,13 @@ namespace GUI
         {
             VehicleMTRV vehicleMT = new VehicleMTRV();
             vehicleMT.Show();
+        }
+
+        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
+        {
+            this.isClicked = !this.isClicked;
+            pnlMenuButtonPrint.Visible = this.isClicked;
+            btnOpenMenuButtonPrint.Checked = this.isClicked;
         }
     }
 }
