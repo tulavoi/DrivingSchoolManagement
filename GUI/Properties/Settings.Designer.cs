@@ -33,5 +33,16 @@ namespace GUI.Properties {
                 return ((string)(this["DrivingSchool_V2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DANOITXD\\SQLEXPRESS;Initial Catalog=DrivingSchool_V2;Integrated Secur" +
+            "ity=True;TrustServerCertificate=True")]
+        public string DrivingSchool_V2ConnectionString1 {
+            get {
+                return ((string)(this["DrivingSchool_V2ConnectionString1"]));
+            }
+        }
     }
 }

@@ -112,6 +112,8 @@
             this.CitizenID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddLearnerForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
@@ -126,8 +128,6 @@
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLearnerDetails.SuspendLayout();
             this.pnlMessage.SuspendLayout();
             this.pnlButtonSMS_Mail.SuspendLayout();
@@ -1349,6 +1349,35 @@
             this.pnlButtonAdd.Size = new System.Drawing.Size(420, 35);
             this.pnlButtonAdd.TabIndex = 42;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BorderRadius = 5;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(276, 0);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrint.Size = new System.Drawing.Size(131, 35);
+            this.btnPrint.TabIndex = 22;
+            this.btnPrint.Text = "Print";
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(407, 0);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(13, 35);
+            this.guna2Panel8.TabIndex = 21;
+            // 
             // btnOpenAddLearnerForm
             // 
             this.btnOpenAddLearnerForm.BorderRadius = 5;
@@ -1556,35 +1585,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BorderRadius = 5;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(276, 0);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrint.Size = new System.Drawing.Size(131, 35);
-            this.btnPrint.TabIndex = 22;
-            this.btnPrint.Text = "Print";
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(407, 0);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(13, 35);
-            this.guna2Panel8.TabIndex = 21;
             // 
             // LearnersForm
             // 

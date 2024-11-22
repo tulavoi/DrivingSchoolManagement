@@ -54,6 +54,10 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddPaymentForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace21 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
@@ -346,7 +350,7 @@
             this.dgvPayments.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvPayments.RowTemplate.DividerHeight = 2;
             this.dgvPayments.RowTemplate.Height = 45;
-            this.dgvPayments.Size = new System.Drawing.Size(781, 374);
+            this.dgvPayments.Size = new System.Drawing.Size(758, 374);
             this.dgvPayments.TabIndex = 43;
             this.dgvPayments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvPayments.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -442,15 +446,77 @@
             // 
             // pnlButtonAdd
             // 
+            this.pnlButtonAdd.Controls.Add(this.guna2Button2);
+            this.pnlButtonAdd.Controls.Add(this.guna2Panel2);
+            this.pnlButtonAdd.Controls.Add(this.guna2Button1);
+            this.pnlButtonAdd.Controls.Add(this.guna2Panel1);
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddPaymentForm);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace21);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace15);
             this.pnlButtonAdd.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlButtonAdd.FillColor = System.Drawing.Color.White;
-            this.pnlButtonAdd.Location = new System.Drawing.Point(781, 15);
+            this.pnlButtonAdd.Location = new System.Drawing.Point(758, 15);
             this.pnlButtonAdd.Name = "pnlButtonAdd";
-            this.pnlButtonAdd.Size = new System.Drawing.Size(159, 374);
+            this.pnlButtonAdd.Size = new System.Drawing.Size(182, 374);
             this.pnlButtonAdd.TabIndex = 45;
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(0, 102);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button2.Size = new System.Drawing.Size(167, 36);
+            this.guna2Button2.TabIndex = 25;
+            this.guna2Button2.Text = "Print";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 92);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(167, 10);
+            this.guna2Panel2.TabIndex = 24;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(0, 56);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button1.Size = new System.Drawing.Size(167, 36);
+            this.guna2Button1.TabIndex = 23;
+            this.guna2Button1.Text = "ListPaymentDebt";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 46);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(167, 10);
+            this.guna2Panel1.TabIndex = 22;
             // 
             // btnOpenAddPaymentForm
             // 
@@ -467,7 +533,7 @@
             this.btnOpenAddPaymentForm.Location = new System.Drawing.Point(0, 10);
             this.btnOpenAddPaymentForm.Name = "btnOpenAddPaymentForm";
             this.btnOpenAddPaymentForm.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOpenAddPaymentForm.Size = new System.Drawing.Size(144, 36);
+            this.btnOpenAddPaymentForm.Size = new System.Drawing.Size(167, 36);
             this.btnOpenAddPaymentForm.TabIndex = 17;
             this.btnOpenAddPaymentForm.Text = "Add";
             this.btnOpenAddPaymentForm.Click += new System.EventHandler(this.btnOpenAddPaymentForm_Click);
@@ -478,7 +544,7 @@
             this.pnlSpace21.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace21.Location = new System.Drawing.Point(0, 0);
             this.pnlSpace21.Name = "pnlSpace21";
-            this.pnlSpace21.Size = new System.Drawing.Size(144, 10);
+            this.pnlSpace21.Size = new System.Drawing.Size(167, 10);
             this.pnlSpace21.TabIndex = 21;
             // 
             // pnlSpace15
@@ -486,7 +552,7 @@
             this.pnlSpace15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlSpace15.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlSpace15.FillColor = System.Drawing.Color.White;
-            this.pnlSpace15.Location = new System.Drawing.Point(144, 0);
+            this.pnlSpace15.Location = new System.Drawing.Point(167, 0);
             this.pnlSpace15.Name = "pnlSpace15";
             this.pnlSpace15.Size = new System.Drawing.Size(15, 374);
             this.pnlSpace15.TabIndex = 10;
@@ -1168,5 +1234,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InvoiceTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Method;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

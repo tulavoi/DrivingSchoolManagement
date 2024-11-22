@@ -1,5 +1,7 @@
 ﻿using BLL.Services;
 using DAL;
+using GUI.Forms;
+using GUI.ReportViewers;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
@@ -227,7 +229,8 @@ namespace GUI
 
 			if (this.ConfirmAction($"Are you sure to delete payment for '{txtLearnerName.Text}'?"))
 			{
-				var result = PaymentService.DeletePayment(int.Parse(lblPaymentID.Text));
+                var id = FormHelper.GetObjectID(lblPaymentID.Text);
+                var result = PaymentService.DeletePayment(id);
 				FormHelper.ShowActionResult(result, "Payment deleted successfully.", "Failed to delete payment.");
 				this.LoadAllPayments();
 			}
@@ -260,5 +263,19 @@ namespace GUI
 		{
 			FormHelper.CheckNumericKeyPress(e);
 		}
-	}
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+                FormHelper.OpenFormDialog(new PaymentsDebt());
+                this.LoadAllPayments();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            var id = FormHelper.GetObjectID(lblPaymentID.Text);
+            if (string.IsNullOrEmpty(id.ToString())) return;
+            PaymentRV paymentRV = new PaymentRV(id);
+            paymentRV.Show();
+        }
+    }
 }

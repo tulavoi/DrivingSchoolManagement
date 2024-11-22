@@ -167,6 +167,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\PaymentDatSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentDatSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AccountsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +242,12 @@
     <Compile Include="Forms\DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PaymentsDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PaymentsDebt.Designer.cs">
+      <DependentUpon>PaymentsDebt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +292,18 @@
     </Compile>
     <Compile Include="Forms\ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ListPaymentDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ListPaymentDebt.Designer.cs">
+      <DependentUpon>ListPaymentDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\PaymentRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\PaymentRV.Designer.cs">
+      <DependentUpon>PaymentRV.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Forms\TeachersForm.cs">
@@ -345,6 +368,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PaymentsDebt.resx">
+      <DependentUpon>PaymentsDebt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +388,8 @@
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
+    <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
+    <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +402,12 @@
     <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ListPaymentDebt.resx">
+      <DependentUpon>ListPaymentDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\PaymentRV.resx">
+      <DependentUpon>PaymentRV.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSets\InvoiceDataSet.xsc">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </None>
@@ -385,8 +419,21 @@
     <None Include="DataSets\InvoiceDataSet.xss">
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\PaymentDatSet.xsc">
+      <DependentUpon>PaymentDatSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\PaymentDatSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentDatSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\PaymentDatSet.xss">
+      <DependentUpon>PaymentDatSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.PaymentDetail.datasource" />
+    <None Include="Properties\DataSources\DTO.PaymentDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

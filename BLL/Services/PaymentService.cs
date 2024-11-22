@@ -3,6 +3,7 @@ using DAL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BLL.Services
 {
@@ -31,9 +32,12 @@ namespace BLL.Services
 		{
 			PaymentBLL.Instance.LoadAllPayments(dgv); // Gọi phương thức BLL để tải tất cả Payments và hiển thị trên DataGridView
 		}
-
-		// Phương thức tìm kiếm Payment theo từ khóa
-		public static void SearchPayments(Guna2DataGridView dgv, string keyword)
+        public static void LoadAllPaymentDebt(Guna2DataGridView dgv)
+        {
+            PaymentBLL.Instance.LoadAllPaymentDebt(dgv); // Gọi phương thức BLL để tải tất cả Payments và hiển thị trên DataGridView
+        }
+        // Phương thức tìm kiếm Payment theo từ khóa
+        public static void SearchPayments(Guna2DataGridView dgv, string keyword)
 		{
 			PaymentBLL.Instance.SearchPayments(dgv, keyword); // Gọi phương thức BLL để tìm kiếm Payment theo từ khóa
 		}
@@ -65,5 +69,14 @@ namespace BLL.Services
         {
 			return PaymentBLL.Instance.GetAllPayments();
         }
+        public static DataTable GetPaymentData(int paymentID)
+        {
+            return PaymentBLL.Instance.GetPaymentData(paymentID);
+        }
+        public static DataTable GetOutstandingPayments()
+        {
+            return PaymentBLL.Instance.GetOutstandingPayments();
+        }
+
     }
 }
