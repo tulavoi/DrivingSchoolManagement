@@ -2,6 +2,8 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace BLL
 {
@@ -85,8 +87,13 @@ namespace BLL
 			List<Payment> payments = PaymentDAL.Instance.GetAllPayments();
 			AddPaymentsToDataGridView(dgv, payments);
 		}
+        public void LoadAllPaymentDebt(Guna2DataGridView dgv)
+        {
+            List<Payment> payments = PaymentDAL.Instance.GetAllPayments();
+            AddPaymentDebtToDataGridView(dgv, payments);
+        }
 
-		public void SearchPayments(Guna2DataGridView dgv, string keyword)
+        public void SearchPayments(Guna2DataGridView dgv, string keyword)
 		{
 			List<Payment> payments = PaymentDAL.Instance.SearchPayments(keyword);
 			AddPaymentsToDataGridView(dgv, payments);
@@ -117,8 +124,42 @@ namespace BLL
 				}
 			}
 		}
+        private void AddPaymentDebtToDataGridView(Guna2DataGridView dgv, List<Payment> payments)
+        {
+            dgv.Rows.Clear();
 
-		public bool AddPayment(Payment payment)
+            var groupedPayments = payments
+                .GroupBy(p => p.Invoice?.InvoiceCode)
+                .Select(group => new
+                {
+                    InvoiceCode = group.Key,
+                    TotalAmount = group.First().Invoice?.TotalAmount ?? 0,
+                    TotalPaid = group.Sum(p => p.Amount ?? 0)
+                })
+                .Where(group => group.TotalAmount - group.TotalPaid > 0)
+                .ToList();
+
+            foreach (var group in groupedPayments)
+            {
+                int remainingDebt = group.TotalAmount - group.TotalPaid;
+                int rowIndex = dgv.Rows.Add();
+
+                if (rowIndex != -1 && rowIndex < dgv.Rows.Count)
+                {
+                    var firstPayment = payments.First(p => p.Invoice?.InvoiceCode == group.InvoiceCode);
+                    dgv.Rows[rowIndex].Tag = firstPayment;
+                    dgv.Rows[rowIndex].Cells["InvoiceCode"].Value = group.InvoiceCode;
+                    dgv.Rows[rowIndex].Cells["InvoiceTo"].Value = firstPayment.Invoice?.Enrollment?.Learner?.FullName ?? $"Invoice #{firstPayment.InvoiceID}";
+                    dgv.Rows[rowIndex].Cells["AmountOwed"].Value = remainingDebt.ToString();
+                    dgv.Rows[rowIndex].Cells["Method"].Value = firstPayment.PaymentMethod;
+                    dgv.Rows[rowIndex].Cells["Phone"].Value = firstPayment.Invoice?.Enrollment?.Learner?.PhoneNumber;
+                    dgv.Rows[rowIndex].Cells["Email"].Value = firstPayment.Invoice?.Enrollment?.Learner?.Email;
+
+                }
+            }
+        }
+
+        public bool AddPayment(Payment payment)
 		{
 			return PaymentDAL.Instance.AddPayment(payment);
 		}
@@ -143,5 +184,13 @@ namespace BLL
 				cboMethods.Items.Add(method);
 			}
 		}
-	}
+        public DataTable GetPaymentData(int paymentID)
+        {
+            return PaymentDAL.Instance.GetPaymentData(paymentID);
+        }
+        public DataTable GetOutstandingPayments()
+        {
+            return PaymentDAL.Instance.GetOutstandingPayments();
+        }
+    }
 }

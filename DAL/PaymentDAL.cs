@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace DAL
@@ -38,7 +40,10 @@ namespace DAL
 							   payment.PaymentMethod,
 							   payment.Created_At,
 							   payment.Updated_At,
-							   learner.FullName
+							   invoice.TotalAmount,
+							   learner.FullName,
+							   learner.PhoneNumber,
+							   learner.Email
 						   };
 				return data.ToList();
 			}
@@ -47,40 +52,43 @@ namespace DAL
 		{
 			return GetAll(item => this.MapToPayment(item));
 		}
-        #endregion
+		#endregion
 
-        #region Map to payment
-        private Payment MapToPayment(dynamic item)
-        {
-            return new Payment
-            {
+		#region Map to payment
+		private Payment MapToPayment(dynamic item)
+		{
+			return new Payment
+			{
 
-                PaymentID = item.PaymentID,
-                InvoiceID = item.InvoiceID,
-                PaymentDate = item.PaymentDate,
-                Amount = item.Amount,
-                PaymentMethod = item.PaymentMethod,
-                Invoice = new Invoice
-                {
-                    InvoiceID = item.InvoiceID,
-                    InvoiceCode = item.InvoiceCode,
-                    Enrollment = new Enrollment
-                    {
-                        Learner = new Learner()
-                        {
-                            FullName = item.FullName,
-                        }
-                    }
-                },
-                Created_At = item.Created_At,
-                Updated_At = item.Updated_At
+				PaymentID = item.PaymentID,
+				InvoiceID = item.InvoiceID,
+				PaymentDate = item.PaymentDate,
+				Amount = item.Amount,
+				PaymentMethod = item.PaymentMethod,
+				Invoice = new Invoice
+				{
+					InvoiceID = item.InvoiceID,
+					InvoiceCode = item.InvoiceCode,
+					TotalAmount = item.TotalAmount,
+					Enrollment = new Enrollment
+					{
+						Learner = new Learner()
+						{
+							FullName = item.FullName,
+							PhoneNumber = item.PhoneNumber,
+							Email = item.Email,
+						}
+					}
+				},
+				Created_At = item.Created_At,
+				Updated_At = item.Updated_At
 
-            };
-        }
-#endregion
+			};
+		}
+		#endregion
 
-        #region Search
-        protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
+		#region Search
+		protected override IEnumerable<dynamic> QueryDataByKeyword(string keyword)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
@@ -97,7 +105,7 @@ namespace DAL
 							   payment.InvoiceID,
 							   invoice.InvoiceCode,
 							   payment.PaymentDate,
-                               payment.Amount,
+							   payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
 							   payment.Updated_At,
@@ -151,7 +159,7 @@ namespace DAL
 							   payment.InvoiceID,
 							   invoice.InvoiceCode,
 							   payment.PaymentDate,
-                               payment.Amount,
+							   payment.Amount,
 							   payment.PaymentMethod,
 							   payment.Created_At,
 							   payment.Updated_At,
@@ -217,5 +225,166 @@ namespace DAL
 			}
 		}
 
-	}
+        #region Get data payment by InvoiceId
+        public DataTable GetPaymentData(int paymentID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lấy dữ liệu thanh toán từ các bảng liên kết
+                var data = from payment in db.Payments
+                           join invoice in db.Invoices on payment.InvoiceID equals invoice.InvoiceID
+                           join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+                           join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
+                           where payment.PaymentID == paymentID
+                           select new
+                           {
+                               payment.PaymentID,
+                               invoice.InvoiceCode,
+                               invoice.Created_At,
+                               learner.FullName,
+                               enroll.EnrollmentDate,
+                               learner.Address,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               course.CourseName,
+                               course.DurationInHours,
+                               course.StartDate,
+                               course.EndDate,
+                               invoice.TotalAmount,
+                               payment.Amount, // Số tiền thanh toán từ bảng Payments
+                               invoice.Notes,
+                               payment.PaymentDate,
+                               payment.PaymentMethod
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreatePaymentDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    // Tính toán RemainingDebt (Số tiền còn nợ)
+                    decimal remainingDebt = (item.TotalAmount ?? 0) - (item.Amount ?? 0);
+
+                    // Thêm dữ liệu vào DataTable
+                    dt.Rows.Add(
+                        item.PaymentID,
+                        item.InvoiceCode,
+                        item.Created_At,
+                        item.FullName,
+                        item.EnrollmentDate,
+                        item.Address,
+                        item.PhoneNumber,
+                        item.Email,
+                        item.CourseName,
+                        item.DurationInHours,
+                        item.StartDate,
+                        item.EndDate,
+                        item.TotalAmount,
+                        item.Amount, // Giá trị Amount từ bảng Payments
+                        remainingDebt,
+                        item.Notes,
+                        item.PaymentDate,
+                        item.PaymentMethod
+                    );
+                }
+
+                return dt;
+            }
+        }
+        public DataTable GetOutstandingPayments()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Lấy dữ liệu thanh toán từ các bảng liên kết và lọc ra các khoản nợ
+                var data = from payment in db.Payments
+                           join invoice in db.Invoices on payment.InvoiceID equals invoice.InvoiceID
+                           join enroll in db.Enrollments on invoice.EnrollmentID equals enroll.EnrollmentID
+                           join learner in db.Learners on enroll.LearnerID equals learner.LearnerID
+                           join course in db.Courses on enroll.CourseID equals course.CourseID
+                           where (invoice.TotalAmount ?? 0) > (payment.Amount ?? 0) // Điều kiện lọc nợ
+                           orderby learner.FullName
+                           select new
+                           {
+                               payment.PaymentID,
+                               invoice.InvoiceCode,
+                               invoice.Created_At,
+                               learner.FullName,
+                               enroll.EnrollmentDate,
+                               learner.Address,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               course.CourseName,
+                               course.DurationInHours,
+                               course.StartDate,
+                               course.EndDate,
+                               invoice.TotalAmount,
+                               payment.Amount, // Số tiền thanh toán từ bảng Payments
+                               payment.PaymentDate,
+                               payment.PaymentMethod,
+                               RemainingDebt = (invoice.TotalAmount ?? 0) - (payment.Amount ?? 0) // Số tiền còn nợ
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreatePaymentDatatable();
+
+                // Thêm các dòng dữ liệu vào DataTable
+                foreach (var item in data)
+                {
+                    // Thêm dữ liệu vào DataTable, chuyển các trường DateTime thành string với định dạng "dd/MM/yyyy"
+                    dt.Rows.Add(
+                        item.PaymentID,
+                        item.InvoiceCode,
+                        item.Created_At.Value.ToString("dd/MM/yyyy"),  // Chuyển Created_At thành string
+                        item.FullName,
+                        item.EnrollmentDate.Value.ToString("dd/MM/yyyy"),  // Chuyển EnrollmentDate thành string
+                        item.Address,
+                        item.PhoneNumber,
+                        item.Email,
+                        item.CourseName,
+                        item.DurationInHours,
+                        item.StartDate.Value.ToString("dd/MM/yyyy"),  // Chuyển StartDate thành string
+                        item.EndDate.Value.ToString("dd/MM/yyyy"),    // Chuyển EndDate thành string
+                        item.TotalAmount,
+                        item.Amount, // Giá trị Amount từ bảng Payments
+                        item.RemainingDebt, // Số tiền còn nợ
+                        item.PaymentDate?.ToString("dd/MM/yyyy"), // Chuyển PaymentDate thành string, có thể null
+                        item.PaymentMethod
+                    );
+                }
+
+                return dt;
+            }
+        }
+
+        private DataTable CreatePaymentDatatable()
+        {
+            DataTable dt = new DataTable();
+
+            // Các cột kiểu dữ liệu string, int, decimal
+            dt.Columns.Add("PaymentID", typeof(string));      // Mã thanh toán
+            dt.Columns.Add("InvoiceCode", typeof(string));    // Mã hóa đơn
+            dt.Columns.Add("Created_At", typeof(string));     // Ngày tạo hóa đơn (chuyển thành string)
+            dt.Columns.Add("FullName", typeof(string));       // Tên học viên
+            dt.Columns.Add("EnrollmentDate", typeof(string)); // Ngày nhập học (chuyển thành string)
+            dt.Columns.Add("Address", typeof(string));        // Địa chỉ
+            dt.Columns.Add("PhoneNumber", typeof(string));    // Số điện thoại
+            dt.Columns.Add("Email", typeof(string));          // Email
+            dt.Columns.Add("CourseName", typeof(string));     // Tên khóa học
+            dt.Columns.Add("DurationInHours", typeof(int));   // Số giờ khóa học
+            dt.Columns.Add("StartDate", typeof(string));      // Ngày bắt đầu khóa học (chuyển thành string)
+            dt.Columns.Add("EndDate", typeof(string));        // Ngày kết thúc khóa học (chuyển thành string)
+            dt.Columns.Add("TotalAmount", typeof(decimal));   // Tổng số tiền hóa đơn
+            dt.Columns.Add("Amount", typeof(decimal));        // Số tiền thanh toán (Amount từ bảng Payments)
+            dt.Columns.Add("RemainingDebt", typeof(decimal)); // Số tiền còn nợ
+            dt.Columns.Add("Notes", typeof(string));          // Ghi chú
+            dt.Columns.Add("PaymentDate", typeof(string));    // Ngày thanh toán (chuyển thành string)
+            dt.Columns.Add("PaymentMethod", typeof(string));  // Phương thức thanh toán
+
+            return dt;
+        }
+
+        #endregion
+    }
 }
