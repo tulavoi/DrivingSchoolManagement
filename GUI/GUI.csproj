@@ -270,6 +270,12 @@
     <Compile Include="Forms\LearnersForm.Designer.cs">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\CourseListRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\CourseListRV.Designer.cs">
+      <DependentUpon>CourseListRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\InvoiceRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,11 +391,15 @@
     <EmbeddedResource Include="Forms\LearnersForm.resx">
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CourseListReport.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleByDateReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleDetailReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleInDayReport.rdlc" />
     <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
+    <EmbeddedResource Include="ReportViewers\CourseListRV.resx">
+      <DependentUpon>CourseListRV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +436,7 @@
       <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.CourseDTO.datasource" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\DataSources\DTO.ScheduleDTO.datasource" />
     <None Include="Properties\DataSources\DTO.TeacherDTO.datasource" />

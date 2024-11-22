@@ -2,10 +2,11 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BLL
 {
-	public class CourseBLL
+    public class CourseBLL
     {
         #region Properties
         private static CourseBLL instance;
@@ -33,31 +34,24 @@ namespace BLL
         }
 
         public void AssignCoursesToCombobox(Guna2ComboBox cbo, string status, DateTime curDate)
-		{
-			List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status, curDate);
-			this.AddCoursesToCombobox(cbo, courses);
-		}
-
-		// Gán các course có learner đăng ký vào cbo
-		//public void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
-  //      {
-  //          //List<Course> courses = CourseDAL.Instance.GetCoursesForLearner(learnerID);
-  //          //this.AddCoursesToCombobox(cbo, courses);
-  //      }
+        {
+            List<Course> courses = CourseDAL.Instance.GetCourseEnrolled(status, curDate);
+            this.AddCoursesToCombobox(cbo, courses);
+        }
 
         public void AssignAvailableCourseToCombobox(Guna2ComboBox cbo)
         {
-			List<Course> courses = CourseDAL.Instance.GetAvailableCourses();
-			this.AddCoursesToCombobox(cbo, courses);
-		}
+            List<Course> courses = CourseDAL.Instance.GetAvailableCourses();
+            this.AddCoursesToCombobox(cbo, courses);
+        }
 
-		public void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
+        public void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
         {
-			List<Course> courses = CourseDAL.Instance.GetAvailableAndLearnerCourses(learnerID);
-			this.AddCoursesToCombobox(cbo, courses);
-		}
+            List<Course> courses = CourseDAL.Instance.GetAvailableAndLearnerCourses(learnerID);
+            this.AddCoursesToCombobox(cbo, courses);
+        }
 
-		private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
+        private void AddCoursesToCombobox(Guna2ComboBox cbo, List<Course> courses)
         {
             Course course = new Course();
             course.CourseName = "Select Course";
@@ -144,6 +138,11 @@ namespace BLL
         public void UpdateHoursStudied(int courseID, int hours)
         {
             CourseDAL.Instance.UpdateHoursStudied(courseID, hours);
+        }
+
+        public DataTable GetAllCoursesData()
+        {
+            return CourseDAL.Instance.GetAllCoursesData();
         }
     }
 }
