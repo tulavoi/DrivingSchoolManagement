@@ -136,6 +136,9 @@
   <data name="teacher_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teacher_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="drivingschoollogo-removebg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drivingschoollogo-removebg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logout_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,6 +175,9 @@
   <data name="invoice_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\invoice_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="course_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\course_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,7 +211,7 @@
   <data name="payment_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\payment_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="drivingschoollogo-removebg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drivingschoollogo-removebg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="menu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

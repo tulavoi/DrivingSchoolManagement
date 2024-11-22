@@ -282,6 +282,24 @@
     <Compile Include="Forms\ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\ScheduleByDateRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleByDateRV.Designer.cs">
+      <DependentUpon>ScheduleByDateRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleDetailRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleDetailRV.Designer.cs">
+      <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ScheduleInDayRV.Designer.cs">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\TeacherListRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +386,9 @@
       <DependentUpon>LearnersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleByDateReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleDetailReport.rdlc" />
+    <EmbeddedResource Include="Reports\ScheduleInDayReport.rdlc" />
     <EmbeddedResource Include="Reports\TeacherListReport.rdlc" />
     <EmbeddedResource Include="ReportViewers\InvoiceRV.resx">
       <DependentUpon>InvoiceRV.cs</DependentUpon>
@@ -380,6 +401,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleByDateRV.resx">
+      <DependentUpon>ScheduleByDateRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleDetailRV.resx">
+      <DependentUpon>ScheduleDetailRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\ScheduleInDayRV.resx">
+      <DependentUpon>ScheduleInDayRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\TeacherListRV.resx">
       <DependentUpon>TeacherListRV.cs</DependentUpon>
@@ -397,6 +427,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.ScheduleDTO.datasource" />
     <None Include="Properties\DataSources\DTO.TeacherDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -514,6 +545,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drivingschoollogo-removebg.png" />
+    <None Include="Resources\menu1.png" />
+    <None Include="Resources\menu2.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

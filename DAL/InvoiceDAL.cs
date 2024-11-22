@@ -296,7 +296,7 @@ namespace DAL
                                Notes = invoice.Notes
                            };
 
-                DataTable dt = this.CreateDatable();
+                DataTable dt = this.CreateDataTable();
                
                 foreach (var item in data)
                 {
@@ -307,8 +307,9 @@ namespace DAL
                 return dt;
             }
         }
+        #endregion
 
-        private DataTable CreateDatable()
+        private DataTable CreateDataTable()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("InvoiceCode", typeof(string));
@@ -326,7 +327,5 @@ namespace DAL
             dt.Columns.Add("Notes", typeof(string));
             return dt;
         }
-        #endregion
-
     }
 }

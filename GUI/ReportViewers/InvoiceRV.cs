@@ -33,30 +33,8 @@ namespace GUI.ReportViewers
 
         private void DisplayReport()
         {
-            try
-            {   
-                var invoiceData = InvoiceService.GetInvoiceData(_invoiceCode);
-                if (invoiceData.Rows.Count == 0)
-                {
-                    MessageBox.Show("Data null");
-                    return;
-                }
-
-                reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Reports.InvoiceReport.rdlc";
-                reportViewer1.LocalReport.DataSources.Clear();
-
-                // Tạo và thêm ReportDataSource
-                ReportDataSource rds = new ReportDataSource("InvoiceDataSet", invoiceData);
-                reportViewer1.LocalReport.DataSources.Add(rds);
-
-                // Làm mới ReportViewer
-                reportViewer1.RefreshReport();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                this.Close();
-            }
+            var invoiceData = InvoiceService.GetInvoiceData(_invoiceCode);
+            FormHelper.LoadReport(reportViewer1, "InvoiceReport", invoiceData, "InvoiceDataSet");
         }
     }
 }
