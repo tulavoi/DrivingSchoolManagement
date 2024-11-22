@@ -488,7 +488,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!RemainingDebt.Value</Value>
+                              <Value>=Format(Fields!RemainingDebt.Value, "N0") &amp; " VND"</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
