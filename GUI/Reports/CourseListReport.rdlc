@@ -2,56 +2,29 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Line Name="Line1">
-        <Top>0.125in</Top>
-        <Left>0.28056in</Left>
-        <Height>0in</Height>
-        <Width>7.37501in</Width>
-        <Style>
-          <Border>
-            <Color>#999a99</Color>
-            <Style>Solid</Style>
-            <Width>3pt</Width>
-          </Border>
-        </Style>
-      </Line>
-      <Line Name="Line2">
-        <Top>1.55556in</Top>
-        <Left>0.28056in</Left>
-        <Height>0in</Height>
-        <Width>7.375in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Color>#999a99</Color>
-            <Style>Solid</Style>
-            <Width>3pt</Width>
-          </Border>
-        </Style>
-      </Line>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.45in</Width>
+              <Width>0.42859in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.29167in</Width>
+              <Width>1.27026in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.85in</Width>
+              <Width>0.82859in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.225in</Width>
+              <Width>1.20359in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.125in</Width>
+              <Width>1.10359in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.21667in</Width>
+              <Width>1.19526in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.21667in</Width>
+              <Width>1.19526in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -69,7 +42,6 @@
                             <TextRun>
                               <Value>No</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -106,7 +78,6 @@
                             <TextRun>
                               <Value>Course</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -141,7 +112,6 @@
                             <TextRun>
                               <Value>License </Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -176,7 +146,6 @@
                             <TextRun>
                               <Value>Durations (H)</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -211,7 +180,6 @@
                             <TextRun>
                               <Value>Fee</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -246,7 +214,6 @@
                             <TextRun>
                               <Value>Start Date</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -281,7 +248,6 @@
                             <TextRun>
                               <Value>End Date</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -321,6 +287,7 @@
                             <TextRun>
                               <Value>=RowNumber("CourseDataSet")</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -355,6 +322,7 @@
                             <TextRun>
                               <Value>=Fields!CourseName.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -387,6 +355,7 @@
                             <TextRun>
                               <Value>=Fields!LicenseName.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -419,11 +388,14 @@
                             <TextRun>
                               <Value>=Fields!DurationInHours.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>DurationInHours</rd:DefaultName>
@@ -451,6 +423,7 @@
                             <TextRun>
                               <Value>=First(Format(Fields!Fee.Value, "N0") &amp; " VND", "CourseDataSet")</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -470,7 +443,6 @@
                         <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -484,6 +456,7 @@
                             <TextRun>
                               <Value>=Fields!StartDate.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -516,6 +489,7 @@
                             <TextRun>
                               <Value>=Fields!EndDate.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -564,16 +538,29 @@
         </TablixRowHierarchy>
         <DataSetName>CourseDataSet</DataSetName>
         <Top>0.84667in</Top>
-        <Left>0.28056in</Left>
+        <Left>0.13741in</Left>
         <Height>0.5in</Height>
-        <Width>7.37501in</Width>
-        <ZIndex>2</ZIndex>
+        <Width>7.22517in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Line Name="Line1">
+        <Top>0.125in</Top>
+        <Left>0.13741in</Left>
+        <Height>0in</Height>
+        <Width>7.22517in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Color>#999a99</Color>
+            <Style>Solid</Style>
+            <Width>3pt</Width>
+          </Border>
+        </Style>
+      </Line>
       <Textbox Name="Textbox22">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -583,7 +570,7 @@
               <TextRun>
                 <Value>Course List</Value>
                 <Style>
-                  <FontSize>22pt</FontSize>
+                  <FontSize>20pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -596,10 +583,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>0.19444in</Top>
-        <Left>2.73056in</Left>
+        <Left>2.50416in</Left>
         <Height>0.43333in</Height>
         <Width>2.49167in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -614,7 +601,7 @@
     <Height>1.725in</Height>
     <Style />
   </Body>
-  <Width>7.925in</Width>
+  <Width>7.5in</Width>
   <Page>
     <PageHeader>
       <Height>1.2in</Height>
@@ -643,7 +630,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.38056in</Top>
-          <Left>0.93056in</Left>
+          <Left>0.78741in</Left>
           <Height>0.39167in</Height>
           <Width>2.06667in</Width>
           <Style>
@@ -661,7 +648,7 @@
           <Value>drivingschoollogo</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.23056in</Top>
-          <Left>0.28056in</Left>
+          <Left>0.13741in</Left>
           <Height>0.675in</Height>
           <Width>0.65in</Width>
           <ZIndex>1</ZIndex>
@@ -704,7 +691,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.06944in</Top>
-          <Left>5.93891in</Left>
+          <Left>5.64592in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>
@@ -724,10 +711,12 @@
         </Border>
       </Style>
     </PageFooter>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <InteractiveHeight>11in</InteractiveHeight>
+    <InteractiveWidth>9in</InteractiveWidth>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
