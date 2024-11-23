@@ -412,17 +412,17 @@ namespace DAL
                                vehicle.VehicleID,
                                vehicle.VehicleName,
                                vehicle.VehicleNumber,
-                               VehicleType = vehicle.IsTruck == true ? "Xe loại C" :
-                                             vehicle.IsPassengerCar == true && vehicle.Seats <= 9 ? "Xe loại B" :
-                                             vehicle.IsPassengerCar == true && vehicle.Seats > 30 ? "Xe loại E" :
-                                             "Xe loại D",
+                               VehicleType = vehicle.IsTruck == true ? "C" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats <= 9 ? "B" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats > 30 ? "E" :
+                                             "D",
                                vehicle.ManufacturerYear,
                                vehicle.Seats,
                                vehicle.Weight,
                                vehicle.Notes,
                                vehicle.StartMaintenaceDate,
                                vehicle.EndMaintenaceDate,
-                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Đang bảo trì" :
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Mantenance" :
                                                    (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
                                                    "Không bảo trì"
                            };

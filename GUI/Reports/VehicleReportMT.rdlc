@@ -6,36 +6,36 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.28716cm</Width>
+              <Width>0.91914cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.68491cm</Width>
+              <Width>0.8787cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.41048cm</Width>
+              <Width>2.47777cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.85956cm</Width>
+              <Width>2.62473cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.77258cm</Width>
+              <Width>2.14225cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.61276cm</Width>
+              <Width>1.02694cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.00386cm</Width>
+              <Width>1.09925cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.3518cm</Width>
+              <Width>1.26576cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.19267cm</Width>
+              <Width>2.1671cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.94925cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -46,15 +46,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>STT</Value>
+                              <Value>NO</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -64,10 +64,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -81,15 +82,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Vehicle ID</Value>
+                              <Value>ID</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -99,10 +100,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -118,13 +120,13 @@
                             <TextRun>
                               <Value>Vehicle Name</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -134,10 +136,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -153,13 +156,13 @@
                             <TextRun>
                               <Value>Vehicle Number</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -169,10 +172,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -188,13 +192,13 @@
                             <TextRun>
                               <Value>Vehicle Type</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -204,10 +208,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -221,15 +226,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Manufacturer Year</Value>
+                              <Value>Year</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -239,10 +244,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -258,13 +264,13 @@
                             <TextRun>
                               <Value>Seats</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -274,10 +280,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -293,13 +300,13 @@
                             <TextRun>
                               <Value>Weight</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -309,10 +316,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -326,15 +334,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Maintenance Status</Value>
+                              <Value>Maintenance </Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -344,10 +352,11 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -355,7 +364,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.94925cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -367,7 +376,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=RowNumber(nothing)</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -399,7 +410,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!VehicleID.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -431,7 +444,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!VehicleName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -463,7 +478,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!VehicleNumber.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -495,7 +512,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!VehicleType.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -527,7 +546,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ManufacturerYear.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -559,7 +580,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Seats.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -591,7 +614,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Weight.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -623,7 +648,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MaintenanceStatus.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -674,9 +701,9 @@
         </TablixRowHierarchy>
         <DataSetName>VehicleDataSetMT</DataSetName>
         <Top>3.67714cm</Top>
-        <Left>0.78717cm</Left>
-        <Height>1.2cm</Height>
-        <Width>25.17577cm</Width>
+        <Left>0.42334cm</Left>
+        <Height>1.8985cm</Height>
+        <Width>14.60163cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -693,19 +720,20 @@
                 <Value>List of vehicles under maintenance</Value>
                 <Style>
                   <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox37</rd:DefaultName>
         <Top>0.78288cm</Top>
-        <Left>3.49685cm</Left>
+        <Left>0.78717cm</Left>
         <Height>1.26689cm</Height>
-        <Width>19.65036cm</Width>
+        <Width>14.23781cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -719,9 +747,9 @@
       </Textbox>
       <Line Name="Line1">
         <Top>2.49361cm</Top>
-        <Left>0.78717cm</Left>
+        <Left>0.42334cm</Left>
         <Height>0cm</Height>
-        <Width>25.17577cm</Width>
+        <Width>14.60163cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -731,10 +759,24 @@
       </Line>
       <Line Name="Line2">
         <Top>0.16027in</Top>
+        <Left>0.16667in</Left>
+        <Height>0in</Height>
+        <Width>5.74867in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Color>#999a99</Color>
+            <Style>Solid</Style>
+            <Width>3pt</Width>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line3">
+        <Top>2.39723in</Top>
         <Left>0.81667in</Left>
         <Height>0in</Height>
-        <Width>8.8375in</Width>
-        <ZIndex>3</ZIndex>
+        <Width>4.24548in</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -747,10 +789,10 @@
     <Height>2.46667in</Height>
     <Style />
   </Body>
-  <Width>11.04032in</Width>
+  <Width>6.16271in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>1in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -848,7 +890,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox32</rd:DefaultName>
           <Top>0.41275cm</Top>
-          <Left>17.2004cm</Left>
+          <Left>9.91302cm</Left>
           <Height>0.97694cm</Height>
           <Width>1.738cm</Width>
           <ZIndex>2</ZIndex>
@@ -881,8 +923,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.4406cm</Top>
-          <Left>19.45793cm</Left>
+          <Top>0.41275cm</Top>
+          <Left>12.2915cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -904,13 +946,56 @@
         <BackgroundColor>#2c80ff</BackgroundColor>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageFooter>
+      <Height>0.45238in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Print date: " + DateTime.Now.ToString("dd/MM/yyyy")</Value>
+                  <Style>
+                    <Color>#060b33</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.02778in</Top>
+          <Left>3.34549in</Left>
+          <Height>0.23333in</Height>
+          <Width>1.71666in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1165,6 +1250,6 @@ D48sYczY2lGdn+t+36yVLWeKfDDP8+tLfvDVsBXu5xZdmyTZzZ5tPyoE+Z7u3w2CgOb1fDCKo2GLEsMO
 B4QABCAAgcUkgKBdTHcb1woBCEAAAvMugKCdd3IcEAIQgAAEFpMAgnYx3W1cKwQgAAEIzLsAgnbeyXFACEAAAhBYTAII2sV0t3GtEIAABCAw7wII2nknxwEhAAEIQGAxCSBoF9PdxrVCAAIQgMC8CyBo550cB4QABCAAgcUk8P8BLkFf+SUmdMYAAAAASUVORK5CYII=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>3bb1d0a7-fb6b-44c4-b8c2-f2735e8e461f</rd:ReportID>
 </Report>
