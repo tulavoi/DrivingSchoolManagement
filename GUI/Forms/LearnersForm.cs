@@ -331,7 +331,7 @@ namespace GUI
 
         private void btnPrintLearnerDetail_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnEligibleLearners_Click(object sender, EventArgs e)

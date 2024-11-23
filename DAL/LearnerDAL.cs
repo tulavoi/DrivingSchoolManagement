@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Linq;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
@@ -247,11 +248,13 @@ namespace DAL
             {
                 var data = from enr in db.Enrollments
                            join course in db.Courses on enr.CourseID equals course.CourseID
-                           join license in db.Licenses on course.LicenseID equals license.LicenseID
                            join learner in db.Learners on enr.LearnerID equals learner.LearnerID
+                           let age = DateTime.Now.Year - learner.DateOfBirth.Value.Year - 
+                                    (DateTime.Now.DayOfYear < learner.DateOfBirth.Value.DayOfYear ? 1 : 0)
                            select new
                            {
                                learner.FullName,
+                               AgeGroup = this.GetAgeGroup(age),
                                learner.DateOfBirth,
                                learner.Gender,
                                learner.PhoneNumber,
@@ -265,7 +268,8 @@ namespace DAL
                 var dt = this.CreateDataTable();
                 foreach (var item in data)
                 {
-                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender, 
+
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.AgeGroup, item.Gender, 
                         item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality, 
                         item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName);
                 }
@@ -273,11 +277,24 @@ namespace DAL
             }
         }
 
+        private object GetAgeGroup(int age)
+        {
+            if (age <= 25)
+                return "18-25 Age";
+            else if (age <= 35)
+                return "26-35";
+            else if (age <= 45)
+                return "36-45 Age";
+            else
+                return "46+";
+        }
+
         private DataTable CreateDataTable()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("FullName", typeof(string));
             dt.Columns.Add("DateOfBirth", typeof(string));
+            dt.Columns.Add("AgeGroup", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
             dt.Columns.Add("PhoneNumber", typeof(string));
             dt.Columns.Add("Email", typeof(string));
