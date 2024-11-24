@@ -223,13 +223,12 @@ namespace DAL
 			using (var db = DataAccess.GetDataContext())
 			{
 				var courses = from c in db.Courses
-							  where c.StartDate >= DateTime.Now
+							  where c.StartDate >= DateTime.Now.Date
 							  && c.StatusID == 1
 							  && !db.Enrollments.Any(e => e.CourseID == c.CourseID) // Chỉ lấy các khóa học chưa có trong Enrollment
 							  orderby c.CourseName
 							  select c;
-                if (courses == null) return new List<Course>();
-				return courses.ToList();
+				return courses.ToList() ?? new List<Course>();
 			}
 		}
 		#endregion

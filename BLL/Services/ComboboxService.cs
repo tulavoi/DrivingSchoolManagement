@@ -38,11 +38,6 @@ namespace BLL.Services
 			CourseBLL.Instance.GetAvailableAndLearnerCourses(cbo, learnerID);
 		}
 
-		//public static void AssignCoursesToCombobox(Guna2ComboBox cbo, int learnerID)
-		//{
-		//	CourseBLL.Instance.AssignCoursesToCombobox(cbo, learnerID);
-		//}
-
 		public static void AssignTeachersToCombobox(Guna2ComboBox cbo)
 		{
 			TeacherBLL.Instance.AssignTeachersToCombobox(cbo);

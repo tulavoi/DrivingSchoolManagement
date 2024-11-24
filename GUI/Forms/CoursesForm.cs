@@ -183,6 +183,7 @@ namespace GUI
         private void btnOpenAddCourseForm_Click(object sender, EventArgs e)
         {
             FormHelper.OpenFormDialog(new AddCourseForm());
+            this.LoadAllCourses();
             cboStatus_Filter_SelectedIndexChanged(sender, e);
         }
 
