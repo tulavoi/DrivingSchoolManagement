@@ -323,12 +323,6 @@ namespace GUI
             btnOpenMenuButtonPrint.Checked = this.isClicked;
         }
 
-        private void btnPrintLearnerList_Click(object sender, EventArgs e)
-        {
-			LearnerListRV learnerListRV = new LearnerListRV();
-			learnerListRV.Show();
-        }
-
         private void btnPrintLearnerDetail_Click(object sender, EventArgs e)
         {
             
@@ -338,6 +332,12 @@ namespace GUI
         {
 			EligibleLearnersRV eligibleLearnersRV = new EligibleLearnersRV();
 			eligibleLearnersRV.Show();
+        }
+
+        private void btnPrintAllLearners_Click(object sender, EventArgs e)
+        {
+            AllLearnersRV allLearnersRV = new AllLearnersRV();
+            allLearnersRV.Show();
         }
     }
 }

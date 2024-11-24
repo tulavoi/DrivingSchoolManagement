@@ -70,5 +70,15 @@ namespace BLL.Services
         {
             return VehicleBLL.Instance.GetVehiclesMT();
         }
+
+        public static DataTable GetVehicleForLicense(string license)
+        {
+            return VehicleBLL.Instance.GetVehicleForLicense(license);
+        }
+
+        public static DataTable GetAllVehiclesData()
+        {
+            return VehicleBLL.Instance.GetAllVehiclesData();
+        }
     }
 }

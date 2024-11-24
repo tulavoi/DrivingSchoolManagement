@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace GUI.ReportViewers
 {
-    public partial class TeacherListRV : Form
+    public partial class AllTeachersRV : Form
     {
-        public TeacherListRV()
+        public AllTeachersRV()
         {
             InitializeComponent();
             FormHelper.ApplyRoundedCorners(this, 20);
@@ -16,7 +16,7 @@ namespace GUI.ReportViewers
         private void TeacherListRV_Load(object sender, EventArgs e)
         {
             var teachers = TeacherService.GetTeachersDTO();
-            FormHelper.LoadReport(reportViewer1, "TeacherListReport", teachers, "TeacherDataSet");
+            FormHelper.LoadReport(reportViewer1, "AllTeachersReport", teachers, "TeacherDataSet");
         }
     }
 }

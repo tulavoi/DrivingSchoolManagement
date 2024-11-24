@@ -114,7 +114,7 @@
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnPrintLearnerDetail = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnPrintLearnerList = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPrintAllLearners = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenMenuButtonPrint = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
@@ -1275,7 +1275,7 @@
             this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel8);
             this.pnlMenuButtonPrint.Controls.Add(this.btnPrintLearnerDetail);
             this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel12);
-            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintLearnerList);
+            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintAllLearners);
             this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel13);
             this.pnlMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMenuButtonPrint.Location = new System.Drawing.Point(55, 0);
@@ -1343,25 +1343,25 @@
             this.guna2Panel12.Size = new System.Drawing.Size(10, 35);
             this.guna2Panel12.TabIndex = 48;
             // 
-            // btnPrintLearnerList
+            // btnPrintAllLearners
             // 
-            this.btnPrintLearnerList.BorderRadius = 5;
-            this.btnPrintLearnerList.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrintLearnerList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrintLearnerList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrintLearnerList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrintLearnerList.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrintLearnerList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnPrintLearnerList.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
-            this.btnPrintLearnerList.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintLearnerList.ForeColor = System.Drawing.Color.White;
-            this.btnPrintLearnerList.Location = new System.Drawing.Point(10, 0);
-            this.btnPrintLearnerList.Name = "btnPrintLearnerList";
-            this.btnPrintLearnerList.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrintLearnerList.Size = new System.Drawing.Size(87, 35);
-            this.btnPrintLearnerList.TabIndex = 17;
-            this.btnPrintLearnerList.Text = "List";
-            this.btnPrintLearnerList.Click += new System.EventHandler(this.btnPrintLearnerList_Click);
+            this.btnPrintAllLearners.BorderRadius = 5;
+            this.btnPrintAllLearners.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintAllLearners.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintAllLearners.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintAllLearners.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintAllLearners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintAllLearners.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintAllLearners.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnPrintAllLearners.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintAllLearners.ForeColor = System.Drawing.Color.White;
+            this.btnPrintAllLearners.Location = new System.Drawing.Point(10, 0);
+            this.btnPrintAllLearners.Name = "btnPrintAllLearners";
+            this.btnPrintAllLearners.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintAllLearners.Size = new System.Drawing.Size(87, 35);
+            this.btnPrintAllLearners.TabIndex = 17;
+            this.btnPrintAllLearners.Text = "All";
+            this.btnPrintAllLearners.Click += new System.EventHandler(this.btnPrintAllLearners_Click);
             // 
             // guna2Panel13
             // 
@@ -1898,7 +1898,7 @@
         private Guna.UI2.WinForms.Guna2Button btnOpenMenuButtonPrint;
         private Guna.UI2.WinForms.Guna2Panel pnlMenuButtonPrint;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
-        private Guna.UI2.WinForms.Guna2Button btnPrintLearnerList;
+        private Guna.UI2.WinForms.Guna2Button btnPrintAllLearners;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
         private Guna.UI2.WinForms.Guna2Button btnPrintLearnerDetail;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;

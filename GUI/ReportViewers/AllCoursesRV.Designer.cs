@@ -1,6 +1,6 @@
 ﻿namespace GUI.ReportViewers
 {
-    partial class CourseListRV
+    partial class AllCoursesRV
     {
         /// <summary>
         /// Required designer variable.

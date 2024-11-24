@@ -266,7 +266,7 @@ namespace GUI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            CourseListRV courseListRV = new CourseListRV();
+            AllCoursesRV courseListRV = new AllCoursesRV();
             courseListRV.Show();
         }
     }

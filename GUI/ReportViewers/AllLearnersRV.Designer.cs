@@ -1,6 +1,6 @@
 ﻿namespace GUI.ReportViewers
 {
-    partial class TeacherListRV
+    partial class AllLearnersRV
     {
         /// <summary>
         /// Required designer variable.
@@ -29,51 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.teacherDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.shadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlLineTop = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimizeForm = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnCloseForm = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ResizeForm1 = new Guna.UI2.WinForms.Guna2ResizeForm(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherDTOBindingSource)).BeginInit();
-            this.guna2Panel2.SuspendLayout();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.pnlLineTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // teacherDTOBindingSource
-            // 
-            this.teacherDTOBindingSource.DataSource = typeof(DTO.TeacherDTO);
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.reportViewer1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 30);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(920, 770);
-            this.guna2Panel2.TabIndex = 38;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "TeacherDataSet";
-            reportDataSource1.Value = this.teacherDTOBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Reports.TeacherListReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(920, 770);
-            this.reportViewer1.TabIndex = 0;
             // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.pnlLineTop;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // pnlLineTop
@@ -85,7 +52,7 @@
             this.pnlLineTop.Location = new System.Drawing.Point(0, 0);
             this.pnlLineTop.Name = "pnlLineTop";
             this.pnlLineTop.Size = new System.Drawing.Size(920, 30);
-            this.pnlLineTop.TabIndex = 39;
+            this.pnlLineTop.TabIndex = 38;
             // 
             // btnMinimizeForm
             // 
@@ -120,38 +87,39 @@
             this.btnCloseForm.Size = new System.Drawing.Size(50, 30);
             this.btnCloseForm.TabIndex = 30;
             // 
-            // guna2ResizeForm1
+            // reportViewer1
             // 
-            this.guna2ResizeForm1.TargetForm = this;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 30);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(920, 770);
+            this.reportViewer1.TabIndex = 39;
             // 
-            // TeacherListRV
+            // LearnerListRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 800);
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.pnlLineTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TeacherListRV";
+            this.Name = "LearnerListRV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TeacherListRV";
-            this.Load += new System.EventHandler(this.TeacherListRV_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherDTOBindingSource)).EndInit();
-            this.guna2Panel2.ResumeLayout(false);
+            this.Text = "LearnerRV";
+            this.Load += new System.EventHandler(this.LearnerRV_Load);
             this.pnlLineTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+
         private Guna.UI2.WinForms.Guna2ShadowForm shadowForm;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Panel pnlLineTop;
         private Guna.UI2.WinForms.Guna2ControlBox btnMinimizeForm;
         private Guna.UI2.WinForms.Guna2ControlBox btnCloseForm;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource teacherDTOBindingSource;
-        private Guna.UI2.WinForms.Guna2ResizeForm guna2ResizeForm1;
     }
 }
