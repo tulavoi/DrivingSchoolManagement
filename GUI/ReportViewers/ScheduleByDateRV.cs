@@ -23,15 +23,27 @@ namespace GUI.ReportViewers
 
         private void ScheduleByDateRV_Load(object sender, EventArgs e)
         {
-            dtpFromDate.Value = DateTime.Now;
-            dtpToDate.Value = DateTime.Now;
+            dtpStartDate.Value = DateTime.Now;
+            dtpEndDate.Value = DateTime.Now;
             this.reportViewer1.RefreshReport();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            var data = ScheduleService.GetScheduleDataByDate(dtpFromDate.Value, dtpToDate.Value);
+            var data = ScheduleService.GetScheduleDataByDate(dtpStartDate.Value, dtpEndDate.Value);
             FormHelper.LoadReport(reportViewer1, "ScheduleByDateReport", data, "ScheduleDataSet");
+        }
+
+        private void dtpFromDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpEndDate.Value.Date < dtpStartDate.Value.Date)
+                dtpEndDate.Value = dtpStartDate.Value;
+        }
+
+        private void dtpToDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpEndDate.Value.Date < dtpStartDate.Value.Date)
+                dtpStartDate.Value = dtpEndDate.Value;
         }
     }
 }

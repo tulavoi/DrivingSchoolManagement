@@ -51,7 +51,7 @@
             this.pnlLineTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLineTop.Location = new System.Drawing.Point(0, 0);
             this.pnlLineTop.Name = "pnlLineTop";
-            this.pnlLineTop.Size = new System.Drawing.Size(800, 30);
+            this.pnlLineTop.Size = new System.Drawing.Size(920, 30);
             this.pnlLineTop.TabIndex = 38;
             // 
             // btnMinimizeForm
@@ -66,7 +66,7 @@
             this.btnMinimizeForm.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.btnMinimizeForm.HoverState.IconColor = System.Drawing.Color.Black;
             this.btnMinimizeForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.btnMinimizeForm.Location = new System.Drawing.Point(701, 0);
+            this.btnMinimizeForm.Location = new System.Drawing.Point(821, 0);
             this.btnMinimizeForm.Name = "btnMinimizeForm";
             this.btnMinimizeForm.Size = new System.Drawing.Size(49, 30);
             this.btnMinimizeForm.TabIndex = 31;
@@ -82,7 +82,7 @@
             this.btnCloseForm.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCloseForm.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnCloseForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.btnCloseForm.Location = new System.Drawing.Point(750, 0);
+            this.btnCloseForm.Location = new System.Drawing.Point(870, 0);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.Size = new System.Drawing.Size(50, 30);
             this.btnCloseForm.TabIndex = 30;
@@ -93,14 +93,14 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 30);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 770);
+            this.reportViewer1.Size = new System.Drawing.Size(920, 770);
             this.reportViewer1.TabIndex = 39;
             // 
             // LearnerListRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 800);
+            this.ClientSize = new System.Drawing.Size(920, 800);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.pnlLineTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

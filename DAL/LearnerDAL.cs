@@ -269,9 +269,9 @@ namespace DAL
                 foreach (var item in data)
                 {
 
-                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.AgeGroup, item.Gender, 
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender, 
                         item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality, 
-                        item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName);
+                        item.Created_At.Value.ToString("dd/MM/yyyy"), "", "", item.CourseName, item.AgeGroup);
                 }
                 return dt;
             }
@@ -282,7 +282,7 @@ namespace DAL
             if (age <= 25)
                 return "18-25 Age";
             else if (age <= 35)
-                return "26-35";
+                return "26-35 Age";
             else if (age <= 45)
                 return "36-45 Age";
             else
@@ -294,7 +294,6 @@ namespace DAL
             DataTable dt = new DataTable();
             dt.Columns.Add("FullName", typeof(string));
             dt.Columns.Add("DateOfBirth", typeof(string));
-            dt.Columns.Add("AgeGroup", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
             dt.Columns.Add("PhoneNumber", typeof(string));
             dt.Columns.Add("Email", typeof(string));
@@ -302,10 +301,11 @@ namespace DAL
             dt.Columns.Add("CitizenID", typeof(string));
             dt.Columns.Add("Nationality", typeof(string));
             dt.Columns.Add("EnrollmentDate", typeof(string));
-            dt.Columns.Add("CourseName", typeof(string));
             dt.Columns.Add("StartDate", typeof(string));
             dt.Columns.Add("EndDate", typeof(string));
-            return dt; 
+            dt.Columns.Add("CourseName", typeof(string));
+            dt.Columns.Add("AgeGroup", typeof(string));
+            return dt;
         }
         #endregion
 
@@ -356,8 +356,9 @@ namespace DAL
                 {
                     dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender,
                         item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality,
-                        item.Created_At.Value.ToString("dd/MM/yyyy"), item.CourseName, 
-                        item.StartDate.Value.ToString("dd/MM/yyyy"), item.EndDate.Value.ToString("dd/MM/yyyy"));
+                        item.Created_At.Value.ToString("dd/MM/yyyy"), 
+                        item.StartDate.Value.ToString("dd/MM/yyyy"), item.EndDate.Value.ToString("dd/MM/yyyy"),
+                        item.CourseName);
                 }
                 return dt;
             }

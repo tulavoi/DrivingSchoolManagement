@@ -2,19 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Line Name="Line1">
-        <Top>0.155in</Top>
-        <Left>0.18472in</Left>
-        <Height>0in</Height>
-        <Width>11.76666in</Width>
-        <Style>
-          <Border>
-            <Color>#999a99</Color>
-            <Style>Solid</Style>
-            <Width>3pt</Width>
-          </Border>
-        </Style>
-      </Line>
       <Textbox Name="Textbox9">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -24,7 +11,7 @@
               <TextRun>
                 <Value>From</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -37,10 +24,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>0.80417in</Top>
-        <Left>0.18472in</Left>
+        <Left>0.13741in</Left>
         <Height>0.25in</Height>
         <Width>1.45001in</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -60,7 +46,7 @@
               <TextRun>
                 <Value>To</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -73,10 +59,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>0.80417in</Top>
-        <Left>1.70417in</Left>
+        <Left>1.65686in</Left>
         <Height>0.25in</Height>
         <Width>1.45in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -96,7 +82,6 @@
               <TextRun>
                 <Value>=First(Fields!ToDate.Value, "ScheduleDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -106,10 +91,10 @@
         </Paragraphs>
         <rd:DefaultName>ToDate</rd:DefaultName>
         <Top>1.08195in</Top>
-        <Left>1.70417in</Left>
+        <Left>1.65686in</Left>
         <Height>0.25in</Height>
         <Width>1.45001in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -124,76 +109,37 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.34167in</Width>
+              <Width>0.85543in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.65833in</Width>
+              <Width>0.76587in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.86612in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55833in</Width>
+              <Width>0.85543in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.5in</Width>
+              <Width>0.76587in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.86612in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.4in</Width>
+              <Width>0.74112in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.30833in</Width>
+              <Width>0.68466in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.82454in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
               <Height>0.29611in</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>No</Value>
-                              <Style>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>#f0effa</BackgroundColor>
-                        <PaddingLeft>3pt</PaddingLeft>
-                        <PaddingRight>3pt</PaddingRight>
-                        <PaddingTop>3pt</PaddingTop>
-                        <PaddingBottom>3pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox7">
@@ -205,7 +151,6 @@
                             <TextRun>
                               <Value>Learner</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -239,7 +184,6 @@
                             <TextRun>
                               <Value>Phone </Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -273,7 +217,6 @@
                             <TextRun>
                               <Value>Email</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -307,7 +250,6 @@
                             <TextRun>
                               <Value>Teacher</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -341,7 +283,6 @@
                             <TextRun>
                               <Value>Phone</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -375,7 +316,6 @@
                             <TextRun>
                               <Value>Email</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -409,7 +349,6 @@
                             <TextRun>
                               <Value>Vehicle</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -443,7 +382,6 @@
                             <TextRun>
                               <Value>Session</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -477,7 +415,6 @@
                             <TextRun>
                               <Value>Date</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -507,40 +444,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=RowNumber("ScheduleDataSet")</Value>
-                              <Style>
-                                <Color>#515667</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>5pt</PaddingLeft>
-                        <PaddingRight>5pt</PaddingRight>
-                        <PaddingTop>5pt</PaddingTop>
-                        <PaddingBottom>5pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="LearnerFullName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -550,6 +453,7 @@
                             <TextRun>
                               <Value>=Fields!LearnerFullName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -582,6 +486,7 @@
                             <TextRun>
                               <Value>=Fields!LearnerPhoneNumber.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -614,6 +519,7 @@
                             <TextRun>
                               <Value>=Fields!LearnerEmail.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -646,6 +552,7 @@
                             <TextRun>
                               <Value>=Fields!TeacherFullName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -678,6 +585,7 @@
                             <TextRun>
                               <Value>=Fields!TeacherPhoneNumber.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -710,6 +618,7 @@
                             <TextRun>
                               <Value>=Fields!TeacherEmail.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -742,6 +651,7 @@
                             <TextRun>
                               <Value>=Fields!VehicleName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -774,6 +684,7 @@
                             <TextRun>
                               <Value>=Fields!SessionName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -806,6 +717,7 @@
                             <TextRun>
                               <Value>=Fields!SessionDate.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -842,7 +754,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -857,52 +768,16 @@
         </TablixRowHierarchy>
         <DataSetName>ScheduleDataSet</DataSetName>
         <Top>1.46333in</Top>
-        <Left>0.18472in</Left>
+        <Left>0.13741in</Left>
         <Height>0.59222in</Height>
-        <Width>11.76666in</Width>
-        <ZIndex>4</ZIndex>
+        <Width>7.22517in</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Schedule</Value>
-                <Style>
-                  <FontSize>22pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#060b33</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.22444in</Top>
-        <Left>4.82222in</Left>
-        <Height>0.43333in</Height>
-        <Width>2.49167in</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox11">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -925,10 +800,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.125in</Top>
-        <Left>0.18472in</Left>
+        <Left>0.13741in</Left>
         <Height>0.25in</Height>
         <Width>0.51667in</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -948,7 +823,7 @@
               <TextRun>
                 <Value>=Count(Fields!ScheduleID.Value)</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -960,10 +835,10 @@
         </Paragraphs>
         <rd:DefaultName>ToDate</rd:DefaultName>
         <Top>2.125in</Top>
-        <Left>0.71528in</Left>
+        <Left>0.66797in</Left>
         <Height>0.25in</Height>
         <Width>0.77223in</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -983,7 +858,6 @@
               <TextRun>
                 <Value>=First(Fields!FromDate.Value, "ScheduleDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -993,9 +867,59 @@
         </Paragraphs>
         <rd:DefaultName>FromDate</rd:DefaultName>
         <Top>1.08195in</Top>
-        <Left>0.18472in</Left>
+        <Left>0.13741in</Left>
         <Height>0.25in</Height>
         <Width>1.45001in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>0.11778in</Top>
+        <Left>0.13741in</Left>
+        <Height>0in</Height>
+        <Width>7.22517in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Color>#999a99</Color>
+            <Style>Solid</Style>
+            <Width>3pt</Width>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Schedule</Value>
+                <Style>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>#060b33</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>0.18722in</Top>
+        <Left>2.50416in</Left>
+        <Height>0.43333in</Height>
+        <Width>2.49167in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -1007,13 +931,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line3">
+        <Top>2.575in</Top>
+        <Left>0.13741in</Left>
+        <Height>0in</Height>
+        <Width>7.22517in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Color>#999a99</Color>
+            <Style>Solid</Style>
+            <Width>3pt</Width>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>2.50001in</Height>
+    <Height>2.70001in</Height>
     <Style>
       <BackgroundColor>#fdfdfd</BackgroundColor>
     </Style>
   </Body>
-  <Width>12.13611in</Width>
+  <Width>7.5in</Width>
   <Page>
     <PageHeader>
       <Height>1.2in</Height>
@@ -1042,7 +980,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.38056in</Top>
-          <Left>0.83472in</Left>
+          <Left>0.78741in</Left>
           <Height>0.39167in</Height>
           <Width>2.06667in</Width>
           <Style>
@@ -1060,7 +998,7 @@
           <Value>drivingschoollogo</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.23056in</Top>
-          <Left>0.18472in</Left>
+          <Left>0.13741in</Left>
           <Height>0.675in</Height>
           <Width>0.65in</Width>
           <ZIndex>1</ZIndex>
@@ -1103,7 +1041,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.06944in</Top>
-          <Left>10.23472in</Left>
+          <Left>5.64592in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>
@@ -1123,10 +1061,10 @@
         </Border>
       </Style>
     </PageFooter>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

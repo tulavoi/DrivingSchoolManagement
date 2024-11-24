@@ -41,13 +41,13 @@
             this.pnlSpace13 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLearners = new Guna.UI2.WinForms.Guna2Panel();
-            this.dtpToDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.dtpFromDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.lblCourses = new System.Windows.Forms.Label();
-            this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCourses = new System.Windows.Forms.Label();
+            this.dtpStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.dtpEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlSpace7 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLineTop.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.pnlSpace10.SuspendLayout();
@@ -68,7 +68,7 @@
             this.pnlLineTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLineTop.Location = new System.Drawing.Point(0, 0);
             this.pnlLineTop.Name = "pnlLineTop";
-            this.pnlLineTop.Size = new System.Drawing.Size(1100, 30);
+            this.pnlLineTop.Size = new System.Drawing.Size(920, 30);
             this.pnlLineTop.TabIndex = 39;
             // 
             // btnMinimizeForm
@@ -83,7 +83,7 @@
             this.btnMinimizeForm.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.btnMinimizeForm.HoverState.IconColor = System.Drawing.Color.Black;
             this.btnMinimizeForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.btnMinimizeForm.Location = new System.Drawing.Point(1001, 0);
+            this.btnMinimizeForm.Location = new System.Drawing.Point(821, 0);
             this.btnMinimizeForm.Name = "btnMinimizeForm";
             this.btnMinimizeForm.Size = new System.Drawing.Size(49, 30);
             this.btnMinimizeForm.TabIndex = 31;
@@ -99,7 +99,7 @@
             this.btnCloseForm.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCloseForm.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.btnCloseForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.btnCloseForm.Location = new System.Drawing.Point(1050, 0);
+            this.btnCloseForm.Location = new System.Drawing.Point(870, 0);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.Size = new System.Drawing.Size(50, 30);
             this.btnCloseForm.TabIndex = 30;
@@ -110,7 +110,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 130);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1100, 770);
+            this.reportViewer1.Size = new System.Drawing.Size(920, 670);
             this.reportViewer1.TabIndex = 40;
             // 
             // guna2Panel1
@@ -123,7 +123,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 30);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1100, 100);
+            this.guna2Panel1.Size = new System.Drawing.Size(920, 100);
             this.guna2Panel1.TabIndex = 41;
             // 
             // pnlSpace10
@@ -134,7 +134,7 @@
             this.pnlSpace10.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSpace10.Location = new System.Drawing.Point(0, 56);
             this.pnlSpace10.Name = "pnlSpace10";
-            this.pnlSpace10.Size = new System.Drawing.Size(1100, 35);
+            this.pnlSpace10.Size = new System.Drawing.Size(920, 35);
             this.pnlSpace10.TabIndex = 157;
             // 
             // btnPrint
@@ -172,111 +172,24 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 46);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1100, 10);
+            this.guna2Panel2.Size = new System.Drawing.Size(920, 10);
             this.guna2Panel2.TabIndex = 159;
             // 
             // pnlLearners
             // 
             this.pnlLearners.Controls.Add(this.label1);
             this.pnlLearners.Controls.Add(this.lblCourses);
-            this.pnlLearners.Controls.Add(this.dtpFromDate);
+            this.pnlLearners.Controls.Add(this.dtpStartDate);
             this.pnlLearners.Controls.Add(this.lblDate);
-            this.pnlLearners.Controls.Add(this.dtpToDate);
+            this.pnlLearners.Controls.Add(this.dtpEndDate);
             this.pnlLearners.Controls.Add(this.pnlSpace15);
             this.pnlLearners.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLearners.FillColor = System.Drawing.Color.White;
             this.pnlLearners.Location = new System.Drawing.Point(0, 10);
             this.pnlLearners.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.pnlLearners.Name = "pnlLearners";
-            this.pnlLearners.Size = new System.Drawing.Size(1100, 36);
+            this.pnlLearners.Size = new System.Drawing.Size(920, 36);
             this.pnlLearners.TabIndex = 156;
-            // 
-            // dtpToDate
-            // 
-            this.dtpToDate.BorderColor = System.Drawing.Color.White;
-            this.dtpToDate.BorderRadius = 5;
-            this.dtpToDate.Checked = true;
-            this.dtpToDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpToDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpToDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dtpToDate.FillColor = System.Drawing.Color.White;
-            this.dtpToDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpToDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(789, 0);
-            this.dtpToDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpToDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(296, 36);
-            this.dtpToDate.TabIndex = 10;
-            this.dtpToDate.Tag = "Date";
-            this.dtpToDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
-            // 
-            // lblDate
-            // 
-            this.lblDate.BackColor = System.Drawing.Color.White;
-            this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblDate.Location = new System.Drawing.Point(696, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(93, 36);
-            this.lblDate.TabIndex = 9;
-            this.lblDate.Text = " To: ";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dtpFromDate
-            // 
-            this.dtpFromDate.BorderColor = System.Drawing.Color.White;
-            this.dtpFromDate.BorderRadius = 5;
-            this.dtpFromDate.Checked = true;
-            this.dtpFromDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpFromDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpFromDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dtpFromDate.FillColor = System.Drawing.Color.White;
-            this.dtpFromDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.dtpFromDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(400, 0);
-            this.dtpFromDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpFromDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(296, 36);
-            this.dtpFromDate.TabIndex = 11;
-            this.dtpFromDate.Tag = "Date";
-            this.dtpFromDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
-            // 
-            // lblCourses
-            // 
-            this.lblCourses.BackColor = System.Drawing.Color.White;
-            this.lblCourses.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.lblCourses.Location = new System.Drawing.Point(307, 0);
-            this.lblCourses.Name = "lblCourses";
-            this.lblCourses.Size = new System.Drawing.Size(93, 36);
-            this.lblCourses.TabIndex = 0;
-            this.lblCourses.Text = "    From: ";
-            this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlSpace7
-            // 
-            this.pnlSpace7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpace7.FillColor = System.Drawing.Color.White;
-            this.pnlSpace7.Location = new System.Drawing.Point(0, 0);
-            this.pnlSpace7.Name = "pnlSpace7";
-            this.pnlSpace7.Size = new System.Drawing.Size(1100, 10);
-            this.pnlSpace7.TabIndex = 158;
-            // 
-            // pnlSpace15
-            // 
-            this.pnlSpace15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.pnlSpace15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlSpace15.FillColor = System.Drawing.Color.White;
-            this.pnlSpace15.Location = new System.Drawing.Point(1085, 0);
-            this.pnlSpace15.Name = "pnlSpace15";
-            this.pnlSpace15.Size = new System.Drawing.Size(15, 36);
-            this.pnlSpace15.TabIndex = 12;
             // 
             // label1
             // 
@@ -286,16 +199,105 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 36);
+            this.label1.Size = new System.Drawing.Size(229, 36);
             this.label1.TabIndex = 13;
             this.label1.Text = "  Schedule by Date";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCourses
+            // 
+            this.lblCourses.BackColor = System.Drawing.Color.White;
+            this.lblCourses.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblCourses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblCourses.Location = new System.Drawing.Point(229, 0);
+            this.lblCourses.Name = "lblCourses";
+            this.lblCourses.Size = new System.Drawing.Size(93, 36);
+            this.lblCourses.TabIndex = 0;
+            this.lblCourses.Text = "    From: ";
+            this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.BorderColor = System.Drawing.Color.White;
+            this.dtpStartDate.BorderRadius = 5;
+            this.dtpStartDate.Checked = true;
+            this.dtpStartDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dtpStartDate.FillColor = System.Drawing.Color.White;
+            this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(322, 0);
+            this.dtpStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(245, 36);
+            this.dtpStartDate.TabIndex = 11;
+            this.dtpStartDate.Tag = "Date";
+            this.dtpStartDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpFromDate_ValueChanged);
+            // 
+            // lblDate
+            // 
+            this.lblDate.BackColor = System.Drawing.Color.White;
+            this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblDate.Location = new System.Drawing.Point(567, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(93, 36);
+            this.lblDate.TabIndex = 9;
+            this.lblDate.Text = " To: ";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.BorderColor = System.Drawing.Color.White;
+            this.dtpEndDate.BorderRadius = 5;
+            this.dtpEndDate.Checked = true;
+            this.dtpEndDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpEndDate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dtpEndDate.FillColor = System.Drawing.Color.White;
+            this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(660, 0);
+            this.dtpEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(245, 36);
+            this.dtpEndDate.TabIndex = 10;
+            this.dtpEndDate.Tag = "Date";
+            this.dtpEndDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpToDate_ValueChanged);
+            // 
+            // pnlSpace15
+            // 
+            this.pnlSpace15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.pnlSpace15.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlSpace15.FillColor = System.Drawing.Color.White;
+            this.pnlSpace15.Location = new System.Drawing.Point(905, 0);
+            this.pnlSpace15.Name = "pnlSpace15";
+            this.pnlSpace15.Size = new System.Drawing.Size(15, 36);
+            this.pnlSpace15.TabIndex = 12;
+            // 
+            // pnlSpace7
+            // 
+            this.pnlSpace7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpace7.FillColor = System.Drawing.Color.White;
+            this.pnlSpace7.Location = new System.Drawing.Point(0, 0);
+            this.pnlSpace7.Name = "pnlSpace7";
+            this.pnlSpace7.Size = new System.Drawing.Size(920, 10);
+            this.pnlSpace7.TabIndex = 158;
             // 
             // ScheduleByDateRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 900);
+            this.ClientSize = new System.Drawing.Size(920, 800);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.pnlLineTop);
@@ -322,10 +324,10 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel pnlLearners;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpToDate;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblCourses;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpFromDate;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace10;
         private Guna.UI2.WinForms.Guna2Button btnPrint;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace13;
