@@ -67,6 +67,7 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(935, 870);
             this.reportViewer1.TabIndex = 2;
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer1.Load += new System.EventHandler(this.PaymentRV_Load);
             // 
             // guna2DragControl1

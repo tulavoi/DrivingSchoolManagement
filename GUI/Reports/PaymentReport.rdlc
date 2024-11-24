@@ -751,7 +751,7 @@
         <Top>3.32361in</Top>
         <Left>4.50592in</Left>
         <Height>0.25in</Height>
-        <Width>1.71666in</Width>
+        <Width>2.77047in</Width>
         <ZIndex>22</ZIndex>
         <Style>
           <Border>
@@ -782,14 +782,14 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Notes</rd:DefaultName>
-        <Top>3.60139in</Top>
+        <Top>3.61528in</Top>
         <Left>0.41148in</Left>
         <Height>0.45833in</Height>
         <Width>4.05278in</Width>
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -817,14 +817,14 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>3.60139in</Top>
+        <Top>3.61528in</Top>
         <Left>4.50592in</Left>
         <Height>0.45833in</Height>
-        <Width>1.71666in</Width>
+        <Width>1.96418in</Width>
         <ZIndex>24</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -887,14 +887,14 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>4.49028in</Top>
+        <Top>4.4625in</Top>
         <Left>4.50592in</Left>
         <Height>0.29167in</Height>
-        <Width>1.71666in</Width>
+        <Width>1.96418in</Width>
         <ZIndex>26</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -922,10 +922,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>4.12917in</Top>
-        <Left>6.29203in</Left>
+        <Top>4.11527in</Top>
+        <Left>6.53954in</Left>
         <Height>0.29167in</Height>
-        <Width>0.98436in</Width>
+        <Width>1.16896in</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>
@@ -992,14 +992,14 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TotalAmount</rd:DefaultName>
-        <Top>4.15694in</Top>
+        <Top>4.11527in</Top>
         <Left>4.50973in</Left>
         <Height>0.29167in</Height>
-        <Width>1.71666in</Width>
+        <Width>1.96037in</Width>
         <ZIndex>29</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -1007,14 +1007,32 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line3">
+        <Top>5.28712in</Top>
+        <Left>0.41992in</Left>
+        <Height>0in</Height>
+        <Width>6.87222in</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Color>#999a99</Color>
+            <Style>Solid</Style>
+            <Width>3pt</Width>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>5.65in</Height>
-    <Style />
+    <Height>5.46061in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
   <Width>7.86702in</Width>
   <Page>
     <PageHeader>
-      <Height>2.96333cm</Height>
+      <Height>1.16667in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1285,13 +1303,56 @@
         <BackgroundColor>#2c80ff</BackgroundColor>
       </Style>
     </PageHeader>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
-    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <PageFooter>
+      <Height>0.53283in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Print date: " + DateTime.Now.ToString("dd/MM/yyyy")</Value>
+                  <Style>
+                    <Color>#060b33</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.13081in</Top>
+          <Left>5.81508in</Left>
+          <Height>0.23333in</Height>
+          <Width>1.71666in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -1578,6 +1639,6 @@ D48sYczY2lGdn+t+36yVLWeKfDDP8+tLfvDVsBXu5xZdmyTZzZ5tPyoE+Z7u3w2CgOb1fDCKo2GLEsMO
 B4QABCAAgcUkgKBdTHcb1woBCEAAAvMugKCdd3IcEAIQgAAEFpMAgnYx3W1cKwQgAAEIzLsAgnbeyXFACEAAAhBYTAII2sV0t3GtEIAABCAw7wII2nknxwEhAAEIQGAxCSBoF9PdxrVCAAIQgMC8CyBo550cB4QABCAAgcUk8P8BLkFf+SUmdMYAAAAASUVORK5CYII=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>f26f4e42-06c9-4a54-9352-59e14608b4f8</rd:ReportID>
 </Report>
