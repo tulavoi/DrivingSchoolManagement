@@ -22,7 +22,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.VehicleDTOBingdingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.shadowForm = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
@@ -30,11 +31,14 @@
             this.pnlLineTop = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimizeForm = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnCloseForm = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.VehicleDTOBingdingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.VehicleDTOBingdingSource)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.pnlLineTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VehicleDTOBingdingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // VehicleDTOBingdingSource
+            // 
+            this.VehicleDTOBingdingSource.DataSource = typeof(DTO.VehicleDTO);
             // 
             // guna2Panel2
             // 
@@ -48,15 +52,16 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "InvoiceDataSet";
-            reportDataSource2.Value = this.VehicleDTOBingdingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "InvoiceDataSet";
+            reportDataSource1.Value = this.VehicleDTOBingdingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Reports.VehicleReportMT.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1031, 685);
             this.reportViewer1.TabIndex = 2;
+            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer1.ZoomPercent = 75;
             // 
             // guna2DragControl1
@@ -109,10 +114,6 @@
             this.btnCloseForm.Size = new System.Drawing.Size(50, 30);
             this.btnCloseForm.TabIndex = 30;
             // 
-            // VehicleDTOBingdingSource
-            // 
-            this.VehicleDTOBingdingSource.DataSource = typeof(DTO.VehicleDTO);
-            // 
             // VehicleMTRV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -125,9 +126,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportViewer_VehicleMT";
             this.Load += new System.EventHandler(this.VehicleMTRV_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.VehicleDTOBingdingSource)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.pnlLineTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.VehicleDTOBingdingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -54,5 +54,7 @@ namespace GUI.ReportViewers
             // Gọi phương thức để lấy dữ liệu nợ và hiển thị báo cáo
             this.DisplayReport();
         }
+
+    
     }
 }
