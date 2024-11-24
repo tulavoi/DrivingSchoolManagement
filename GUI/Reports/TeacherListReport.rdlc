@@ -6,31 +6,31 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.39862in</Width>
+              <Width>0.36133in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.24167in</Width>
+              <Width>0.94427in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.88333in</Width>
+              <Width>0.70153in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.00694in</Width>
+              <Width>0.70954in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.76806in</Width>
+              <Width>0.92172in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.90417in</Width>
+              <Width>0.7151in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.18055in</Width>
+              <Width>0.99982in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.15833in</Width>
+              <Width>0.86093in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.1in</Width>
+              <Width>1.01093in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -48,7 +48,6 @@
                             <TextRun>
                               <Value>No</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -85,7 +84,6 @@
                             <TextRun>
                               <Value>Full Name</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -120,7 +118,6 @@
                             <TextRun>
                               <Value>Gender</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -155,7 +152,6 @@
                             <TextRun>
                               <Value>Phone No</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -190,7 +186,6 @@
                             <TextRun>
                               <Value>Email</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -225,7 +220,6 @@
                             <TextRun>
                               <Value>License</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -260,7 +254,6 @@
                             <TextRun>
                               <Value>License No</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -295,7 +288,6 @@
                             <TextRun>
                               <Value>Citizen ID</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -330,7 +322,6 @@
                             <TextRun>
                               <Value>Employment </Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#060b33</Color>
                               </Style>
@@ -370,6 +361,7 @@
                             <TextRun>
                               <Value>=RowNumber("TeacherDataSet")</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -404,6 +396,7 @@
                             <TextRun>
                               <Value>=Fields!FullName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -436,6 +429,7 @@
                             <TextRun>
                               <Value>=Fields!Gender.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -468,6 +462,7 @@
                             <TextRun>
                               <Value>=Fields!PhoneNumber.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -500,6 +495,7 @@
                             <TextRun>
                               <Value>=Fields!Email.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -532,6 +528,7 @@
                             <TextRun>
                               <Value>=Fields!LicenseName.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -564,6 +561,7 @@
                             <TextRun>
                               <Value>=Fields!LicenseNumber.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -596,6 +594,7 @@
                             <TextRun>
                               <Value>=Fields!CitizenID.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -628,6 +627,7 @@
                             <TextRun>
                               <Value>=Fields!EmploymentDate.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Color>#515667</Color>
                               </Style>
                             </TextRun>
@@ -678,20 +678,20 @@
         </TablixRowHierarchy>
         <DataSetName>TeacherDataSet</DataSetName>
         <Top>1.03833in</Top>
-        <Left>0.39028in</Left>
+        <Left>0.13741in</Left>
         <Height>0.5in</Height>
-        <Width>9.64167in</Width>
+        <Width>7.22517in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Line Name="Line1">
-        <Top>0.155in</Top>
-        <Left>0.39028in</Left>
+      <Line Name="Line2">
+        <Top>1.89167in</Top>
+        <Left>0.13741in</Left>
         <Height>0in</Height>
-        <Width>9.64167in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -710,7 +710,7 @@
               <TextRun>
                 <Value>Teacher List</Value>
                 <Style>
-                  <FontSize>22pt</FontSize>
+                  <FontSize>20pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -723,7 +723,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>0.22444in</Top>
-        <Left>4.26181in</Left>
+        <Left>2.50416in</Left>
         <Height>0.43333in</Height>
         <Width>2.49167in</Width>
         <ZIndex>2</ZIndex>
@@ -737,11 +737,11 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line2">
-        <Top>1.89167in</Top>
-        <Left>0.39028in</Left>
+      <Line Name="Line1">
+        <Top>0.11778in</Top>
+        <Left>0.13741in</Left>
         <Height>0in</Height>
-        <Width>9.64167in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -757,7 +757,7 @@
       <BackgroundColor>#fdfdfd</BackgroundColor>
     </Style>
   </Body>
-  <Width>10.47362in</Width>
+  <Width>7.5in</Width>
   <Page>
     <PageHeader>
       <Height>1.2in</Height>
@@ -786,7 +786,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.38056in</Top>
-          <Left>1.05556in</Left>
+          <Left>0.78741in</Left>
           <Height>0.39167in</Height>
           <Width>2.06667in</Width>
           <Style>
@@ -804,7 +804,7 @@
           <Value>drivingschoollogo</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.23056in</Top>
-          <Left>0.40556in</Left>
+          <Left>0.13741in</Left>
           <Height>0.675in</Height>
           <Width>0.65in</Width>
           <ZIndex>1</ZIndex>
@@ -847,7 +847,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.06944in</Top>
-          <Left>8.31529in</Left>
+          <Left>5.64592in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>

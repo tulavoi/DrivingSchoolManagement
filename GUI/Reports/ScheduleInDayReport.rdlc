@@ -23,8 +23,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>0.59167in</Top>
-        <Left>6.14095in</Left>
+        <Top>0.69166in</Top>
+        <Left>5.24868in</Left>
         <Height>0.25in</Height>
         <Width>0.65in</Width>
         <Style>
@@ -57,8 +57,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>SessionDate</rd:DefaultName>
-        <Top>0.59167in</Top>
-        <Left>6.80484in</Left>
+        <Top>0.69166in</Top>
+        <Left>5.91257in</Left>
         <Height>0.25in</Height>
         <Width>1.45001in</Width>
         <ZIndex>1</ZIndex>
@@ -94,7 +94,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.00514in</Top>
-        <Left>0.28265in</Left>
+        <Left>0.13847in</Left>
         <Height>0.35in</Height>
         <Width>2.68334in</Width>
         <ZIndex>2</ZIndex>
@@ -130,7 +130,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.5718in</Top>
-        <Left>0.28265in</Left>
+        <Left>0.13847in</Left>
         <Height>0.25in</Height>
         <Width>1.92223in</Width>
         <ZIndex>3</ZIndex>
@@ -163,7 +163,7 @@
         </Paragraphs>
         <rd:DefaultName>LearnerFullName</rd:DefaultName>
         <Top>1.84958in</Top>
-        <Left>0.28265in</Left>
+        <Left>0.13847in</Left>
         <Height>0.25in</Height>
         <Width>1.92223in</Width>
         <ZIndex>4</ZIndex>
@@ -196,7 +196,7 @@
         </Paragraphs>
         <rd:DefaultName>LearnerEmail</rd:DefaultName>
         <Top>2.48847in</Top>
-        <Left>0.28159in</Left>
+        <Left>0.13741in</Left>
         <Height>0.25in</Height>
         <Width>2.99167in</Width>
         <ZIndex>5</ZIndex>
@@ -232,7 +232,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>2.21069in</Top>
-        <Left>0.28612in</Left>
+        <Left>0.14194in</Left>
         <Height>0.25in</Height>
         <Width>1.91875in</Width>
         <ZIndex>6</ZIndex>
@@ -268,7 +268,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.5718in</Top>
-        <Left>2.49445in</Left>
+        <Left>2.35027in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>7</ZIndex>
@@ -301,7 +301,7 @@
         </Paragraphs>
         <rd:DefaultName>LearnerPhoneNumber</rd:DefaultName>
         <Top>1.84958in</Top>
-        <Left>2.49445in</Left>
+        <Left>2.35027in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>8</ZIndex>
@@ -337,7 +337,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>1.00514in</Top>
-        <Left>5.89651in</Left>
+        <Left>5.00424in</Left>
         <Height>0.35in</Height>
         <Width>2.35834in</Width>
         <ZIndex>9</ZIndex>
@@ -370,7 +370,7 @@
         </Paragraphs>
         <rd:DefaultName>CourseName</rd:DefaultName>
         <Top>1.83653in</Top>
-        <Left>5.89651in</Left>
+        <Left>5.00424in</Left>
         <Height>0.25in</Height>
         <Width>1.12501in</Width>
         <ZIndex>10</ZIndex>
@@ -406,7 +406,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>1.55875in</Top>
-        <Left>5.89651in</Left>
+        <Left>5.00424in</Left>
         <Height>0.25in</Height>
         <Width>1.12501in</Width>
         <ZIndex>11</ZIndex>
@@ -424,67 +424,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.39365in</Width>
+              <Width>1.3704in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55198in</Width>
+              <Width>0.9954in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.05198in</Width>
+              <Width>1.50373in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.45198in</Width>
+              <Width>1.30373in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.36031in</Width>
+              <Width>1.03985in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.09643in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.05198in</Width>
+              <Width>1.01207in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
               <Height>0.29611in</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>No</Value>
-                              <Style>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <BackgroundColor>#f0effa</BackgroundColor>
-                        <PaddingLeft>3pt</PaddingLeft>
-                        <PaddingRight>3pt</PaddingRight>
-                        <PaddingTop>3pt</PaddingTop>
-                        <PaddingBottom>3pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox15">
@@ -696,40 +657,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=RowNumber(Nothing)</Value>
-                              <Style>
-                                <Color>#515667</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>5pt</PaddingLeft>
-                        <PaddingRight>5pt</PaddingRight>
-                        <PaddingTop>5pt</PaddingTop>
-                        <PaddingBottom>5pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="TeacherFullName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -932,7 +859,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -947,9 +873,9 @@
         </TablixRowHierarchy>
         <DataSetName>ScheduleDataSet</DataSetName>
         <Top>3.21348in</Top>
-        <Left>0.28265in</Left>
+        <Left>0.13741in</Left>
         <Height>0.59222in</Height>
-        <Width>7.95833in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -957,11 +883,11 @@
           </Border>
         </Style>
       </Tablix>
-      <Line Name="Line1">
-        <Top>0.06944in</Top>
-        <Left>0.28159in</Left>
+      <Line Name="Line4">
+        <Top>0.11778in</Top>
+        <Left>0.13741in</Left>
         <Height>0in</Height>
-        <Width>7.95833in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -980,7 +906,7 @@
               <TextRun>
                 <Value>Schedule</Value>
                 <Style>
-                  <FontSize>22pt</FontSize>
+                  <FontSize>20pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -992,8 +918,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.13889in</Top>
-        <Left>3.01492in</Left>
+        <Top>0.18722in</Top>
+        <Left>2.49445in</Left>
         <Height>0.43333in</Height>
         <Width>2.49167in</Width>
         <ZIndex>14</ZIndex>
@@ -1007,11 +933,11 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line2">
-        <Top>3.04584in</Top>
-        <Left>0.28159in</Left>
+      <Line Name="Line5">
+        <Top>3.04167in</Top>
+        <Left>0.14194in</Left>
         <Height>0in</Height>
-        <Width>7.95833in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1021,11 +947,11 @@
           </Border>
         </Style>
       </Line>
-      <Line Name="Line3">
-        <Top>4in</Top>
-        <Left>0.29652in</Left>
+      <Line Name="Line6">
+        <Top>4.025in</Top>
+        <Left>0.1408in</Left>
         <Height>0in</Height>
-        <Width>7.95833in</Width>
+        <Width>7.22517in</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
@@ -1039,7 +965,7 @@
     <Height>4.18334in</Height>
     <Style />
   </Body>
-  <Width>8.5215in</Width>
+  <Width>7.5in</Width>
   <Page>
     <PageHeader>
       <Height>1.2in</Height>
@@ -1129,7 +1055,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.06944in</Top>
-          <Left>6.67432in</Left>
+          <Left>5.64592in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>
@@ -1149,10 +1075,10 @@
         </Border>
       </Style>
     </PageFooter>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
