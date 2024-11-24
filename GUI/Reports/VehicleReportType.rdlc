@@ -17,7 +17,7 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -661,7 +661,7 @@
         <Top>3.45379cm</Top>
         <Left>0.66987cm</Left>
         <Height>1.9386cm</Height>
-        <Width>14.63232cm</Width>
+        <Width>14.63233cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -687,8 +687,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>VehicleType1</rd:DefaultName>
-        <Top>0.71514cm</Top>
-        <Left>9.25239cm</Left>
+        <Top>0.7143cm</Top>
+        <Left>9.34625cm</Left>
         <Height>0.99484cm</Height>
         <Width>2.75066cm</Width>
         <ZIndex>2</ZIndex>
