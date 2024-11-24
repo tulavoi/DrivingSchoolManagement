@@ -757,6 +757,10 @@
                       </ChartDataLabel>
                       <ToolTip>=Fields!Gender.Value</ToolTip>
                       <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Width>2pt</Width>
+                        </Border>
                         <Color>=Switch(
     Fields!Gender.Value = "Male", "#74b8ff",
     Fields!Gender.Value = "Female", "#ff7779",
@@ -1268,6 +1272,7 @@
                 </ChartCategoryAxes>
                 <ChartValueAxes>
                   <ChartAxis Name="Primary">
+                    <Visible>False</Visible>
                     <Style>
                       <Border>
                         <Color>Gainsboro</Color>
