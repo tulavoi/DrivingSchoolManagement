@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace GUI.ReportViewers
 {
-    public partial class LearnerListRV : Form
+    public partial class AllCoursesRV : Form
     {
-        public LearnerListRV()
+        public AllCoursesRV()
         {
             InitializeComponent();
             FormHelper.ApplyRoundedCorners(this, 20);
             shadowForm.SetShadowForm(this);
         }
 
-        private void LearnerRV_Load(object sender, EventArgs e)
+        private void CourseListRV_Load(object sender, EventArgs e)
         {
-            var data = LearnerService.GetAllLearnersData();
-            FormHelper.LoadReport(reportViewer1, "LearnerListReport", data, "LearnerDataSet");
+            var data = CourseService.GetAllCoursesData();
+            FormHelper.LoadReport(reportViewer1, "AllCoursesReport", data, "CourseDataSet");
         }
     }
 }

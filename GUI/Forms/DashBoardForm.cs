@@ -193,14 +193,20 @@ namespace GUI
 
         private void btnPrintTeachers_Click(object sender, EventArgs e)
         {
-            TeacherListRV teacherListRV = new TeacherListRV();
-            teacherListRV.Show();
+            AllTeachersRV allTeachesrRV = new AllTeachersRV();
+            allTeachesrRV.Show();
         }
 
         private void btnPrintCourses_Click(object sender, EventArgs e)
         {
-            CourseListRV courseListRV = new CourseListRV();
-            courseListRV.Show();
+            AllCoursesRV allCoursesRV = new AllCoursesRV();
+            allCoursesRV.Show();
+        }
+
+        private void btnPrintVehicles_Click(object sender, EventArgs e)
+        {
+            AllVehiclesRV allVehiclesRV = new AllVehiclesRV();
+            allVehiclesRV.Show();
         }
     }
 }

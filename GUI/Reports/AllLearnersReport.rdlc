@@ -755,6 +755,7 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ToolTip>=Fields!Gender.Value</ToolTip>
                       <Style>
                         <Color>=Switch(
     Fields!Gender.Value = "Male", "#74b8ff",
@@ -1121,6 +1122,7 @@
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
+                      <ToolTip>=Fields!AgeGroup.Value</ToolTip>
                       <Style>
                         <Color>#77b2ff</Color>
                       </Style>
@@ -1402,7 +1404,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Learners by Age</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>

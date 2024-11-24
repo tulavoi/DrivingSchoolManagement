@@ -162,5 +162,15 @@ namespace BLL
         {
             return VehicleDAL.Instance.GetVehiclesMT();
         }
+
+        public DataTable GetVehicleForLicense(string license)
+        {
+            return VehicleDAL.Instance.GetVehicleForLicense(license);
+        }
+
+        public DataTable GetAllVehiclesData()
+        {
+            return VehicleDAL.Instance.GetAllVehiclesData();
+        }
     }
 }

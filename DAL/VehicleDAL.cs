@@ -1,6 +1,6 @@
-﻿using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 
@@ -33,7 +33,7 @@ namespace DAL
             {
                 var data = from vehicle in db.Vehicles
                            select vehicle;
-                           
+
                 return data.ToList();
             }
         }
@@ -88,7 +88,7 @@ namespace DAL
             using (var db = DataAccess.GetDataContext())
             {
                 var data = from vehicle in db.Vehicles
-                           where vehicle.IsTruck.ToString() == filterString || 
+                           where vehicle.IsTruck.ToString() == filterString ||
                                  vehicle.IsPassengerCar.ToString() == filterString
                            select vehicle;
                 return data.ToList();
@@ -130,7 +130,7 @@ namespace DAL
                                 v.IsMaintenance = vehicle.IsMaintenance;
                                 v.Notes = vehicle.Notes;
                                 v.StartMaintenaceDate = vehicle.EndMaintenaceDate;
-                                v.EndMaintenaceDate=vehicle.EndMaintenaceDate;
+                                v.EndMaintenaceDate = vehicle.EndMaintenaceDate;
                                 v.Updated_At = DateTime.Now;
                             });
         }
@@ -148,12 +148,12 @@ namespace DAL
         {
             using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
             {
-				var scheduledVehicles = (from sche in db.Schedules
-										 where sche.SessionID == sessionID
-											   && sche.SessionDate == curDate
-										 select sche.VehicleID).Distinct().ToList();
+                var scheduledVehicles = (from sche in db.Schedules
+                                         where sche.SessionID == sessionID
+                                               && sche.SessionDate == curDate
+                                         select sche.VehicleID).Distinct().ToList();
 
-				var licenseId = (from course in db.Courses
+                var licenseId = (from course in db.Courses
                                  where course.CourseID == courseID
                                  select course.LicenseID).FirstOrDefault();
 
@@ -165,27 +165,27 @@ namespace DAL
                         (licenseId == licenseID_D && v.IsPassengerCar == true && v.Seats >= 10 && v.Seats <= 30) ||    // D
                         (licenseId == licenseID_E && v.IsPassengerCar == true && v.Seats > 30))                         // E
                     .Where(vehicle => !scheduledVehicles.Contains(vehicle.VehicleID))
-					.ToList();
+                    .ToList();
 
                 return vehicles;
             }
         }
-		#endregion
+        #endregion
 
-		#region Lấy phương tiện hiện có trong khóa học và các phương tiện phù hợp
-		public List<Vehicle> GetVehicleForCourseAndInCourse(int courseID, int sessionID, DateTime curDate)
-		{
-			using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
-			{
-				var scheduledVehicleForOtherCourses = (from sche in db.Schedules
-														where sche.SessionID == sessionID
-															  && sche.SessionDate == curDate
-															  && sche.Enrollment.CourseID != courseID
-														select sche.VehicleID).Distinct().ToList();
+        #region Lấy phương tiện hiện có trong khóa học và các phương tiện phù hợp
+        public List<Vehicle> GetVehicleForCourseAndInCourse(int courseID, int sessionID, DateTime curDate)
+        {
+            using (DrivingSchoolDataContext db = DataAccess.GetDataContext())
+            {
+                var scheduledVehicleForOtherCourses = (from sche in db.Schedules
+                                                       where sche.SessionID == sessionID
+                                                             && sche.SessionDate == curDate
+                                                             && sche.Enrollment.CourseID != courseID
+                                                       select sche.VehicleID).Distinct().ToList();
 
-				var licenseId = (from course in db.Courses
-								 where course.CourseID == courseID
-								 select course.LicenseID).FirstOrDefault();
+                var licenseId = (from course in db.Courses
+                                 where course.CourseID == courseID
+                                 select course.LicenseID).FirstOrDefault();
 
                 var availableVehicles = (from vehicle in db.Vehicles
                                          where vehicle.IsMaintenance == false
@@ -205,14 +205,15 @@ namespace DAL
                                          select vehicle).ToList();
 
                 return availableVehicles ?? new List<Vehicle>();
-			}
-		}
+            }
+        }
         #endregion
 
         #region Map to vehicle
         private Vehicle MapToVehicle(dynamic item)
         {
-            return new Vehicle {
+            return new Vehicle
+            {
                 VehicleID = item.VehicleID,
                 VehicleName = item.VehicleName,
                 VehicleNumber = item.VehicleNumber,
@@ -422,7 +423,7 @@ namespace DAL
                                vehicle.Notes,
                                vehicle.StartMaintenaceDate,
                                vehicle.EndMaintenaceDate,
-                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Mantenance" :
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
                                                    (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
                                                    "Không bảo trì"
                            };
@@ -457,16 +458,80 @@ namespace DAL
             dt.Columns.Add("VehicleID", typeof(int));
             dt.Columns.Add("VehicleName", typeof(string));
             dt.Columns.Add("VehicleNumber", typeof(string));
-            dt.Columns.Add("VehicleType", typeof(string));  // Loại xe (B)
+            dt.Columns.Add("VehicleType", typeof(string));
             dt.Columns.Add("ManufacturerYear", typeof(int));
             dt.Columns.Add("Seats", typeof(int));
             dt.Columns.Add("Weight", typeof(decimal));
             dt.Columns.Add("Notes", typeof(string));
             dt.Columns.Add("MaintenanceStatus", typeof(string));
-
-
             return dt;
         }
 
+        #region Get vehicle by license
+        public DataTable GetVehicleForLicense(string license)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from vehicle in db.Vehicles
+                           where (license == "B" && vehicle.IsPassengerCar == true && vehicle.Seats <= 9) ||
+                                 (license == "C" && vehicle.IsTruck == true && vehicle.Weight >= 3500) ||
+                                 (license == "D" && vehicle.IsPassengerCar == true && vehicle.Seats >= 10 && vehicle.Seats <= 30) ||
+                                 (license == "E" && vehicle.IsPassengerCar == true && vehicle.Seats > 30)
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = license,
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" : ""
+                           };
+
+                var dt = this.CreateVehicleDatatable();
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.VehicleID, item.VehicleName, item.VehicleNumber, item.VehicleType, item.ManufacturerYear, item.Seats,
+                                item.Weight, item.Notes, item.MaintenanceStatus);
+                }
+                return dt;
+            }
+        }
+        #endregion
+
+        #region Get all vehicles data
+        public DataTable GetAllVehiclesData()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from vehicle in db.Vehicles
+                            select new
+                            {
+                                vehicle.VehicleID,
+                                vehicle.VehicleName,
+                                vehicle.VehicleNumber,
+                                VehicleType = vehicle.IsPassengerCar == true && vehicle.Seats <= 9 ? "B" :
+                                              vehicle.IsTruck == true && vehicle.Weight >= 3500 ? "C" :
+                                              vehicle.IsPassengerCar == true && vehicle.Seats >= 10 && vehicle.Seats <= 30 ? "D" :
+                                              vehicle.IsPassengerCar == true && vehicle.Seats > 30 ? "E" : "",
+                                vehicle.ManufacturerYear,
+                                vehicle.Seats,
+                                vehicle.Weight,
+                                vehicle.Notes,
+                                MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" : ""
+                            };
+
+                var dt = this.CreateVehicleDatatable();
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.VehicleID, item.VehicleName, item.VehicleNumber, item.VehicleType, item.ManufacturerYear, item.Seats,
+                                item.Weight, item.Notes, item.MaintenanceStatus);
+                }
+                return dt;
+            }
+        }
+        #endregion
     }
 }

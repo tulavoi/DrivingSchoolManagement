@@ -302,7 +302,7 @@ namespace GUI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-			TeacherListRV teacherListRV = new TeacherListRV();
+			AllTeachersRV teacherListRV = new AllTeachersRV();
 			teacherListRV.Show();
         }
     }
