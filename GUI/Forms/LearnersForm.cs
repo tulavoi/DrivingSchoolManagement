@@ -43,8 +43,6 @@ namespace GUI
 
             pnlMenuButtonPrint.Visible = false;
             this.isClicked = false;
-
-			if ((bool)!this.selectedLearner.IsPass) btnConfirmPass.Visible = true;
         }
 
 		private void LoadComboboxes()
@@ -166,13 +164,6 @@ namespace GUI
 
 		private void UpdateControlsWithSelectedRowData()
 		{
-            // Check if a row is selected and assign selected learner data to controls
-            //if (!FormHelper.HasSelectedRow(dgvLearners)) return;
-
-            //var selectedRow = dgvLearners.SelectedRows[0];
-
-            //if (selectedRow.Tag is Learner selectedLearner)
-            //	this.AssignDataToControls(selectedLearner);
             this.selectedLearner = this.GetSelectedLearner();
 			this.AssignDataToControls(this.selectedLearner);
 		}
@@ -215,9 +206,12 @@ namespace GUI
 				return;
 			}
 			cboCourses.Text = enrollment.Course.CourseName;
-		}
 
-		private void btnDeleteLearner_Click(object sender, EventArgs e)
+            if (selectedLearner.IsPass == true) btnConfirmPass.Visible = false;
+			else btnConfirmPass.Visible = true;
+        }
+
+        private void btnDeleteLearner_Click(object sender, EventArgs e)
 		{
 			if (!FormHelper.HasSelectedRow(dgvLearners)) return;
 
