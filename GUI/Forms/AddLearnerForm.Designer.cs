@@ -89,6 +89,17 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlLicenseDetails = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cboLicenses = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpBeginningDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlLineTop.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -100,6 +111,9 @@
             this.pnlGender_DOB.SuspendLayout();
             this.pnlPhone_Email.SuspendLayout();
             this.pnlName.SuspendLayout();
+            this.pnlLicenseDetails.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLineTop
@@ -152,14 +166,14 @@
             this.pnlLineRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlLineRight.Location = new System.Drawing.Point(645, 25);
             this.pnlLineRight.Name = "pnlLineRight";
-            this.pnlLineRight.Size = new System.Drawing.Size(25, 410);
+            this.pnlLineRight.Size = new System.Drawing.Size(25, 495);
             this.pnlLineRight.TabIndex = 41;
             // 
             // pnlLineBottom
             // 
             this.pnlLineBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlLineBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLineBottom.Location = new System.Drawing.Point(0, 435);
+            this.pnlLineBottom.Location = new System.Drawing.Point(0, 520);
             this.pnlLineBottom.Name = "pnlLineBottom";
             this.pnlLineBottom.Size = new System.Drawing.Size(670, 20);
             this.pnlLineBottom.TabIndex = 40;
@@ -170,7 +184,7 @@
             this.pnlLineLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLineLeft.Location = new System.Drawing.Point(0, 25);
             this.pnlLineLeft.Name = "pnlLineLeft";
-            this.pnlLineLeft.Size = new System.Drawing.Size(25, 410);
+            this.pnlLineLeft.Size = new System.Drawing.Size(25, 495);
             this.pnlLineLeft.TabIndex = 39;
             // 
             // guna2DragControl1
@@ -184,6 +198,8 @@
             this.pnlMain.BorderRadius = 15;
             this.pnlMain.Controls.Add(this.pnlButtonAdd_Cancel);
             this.pnlMain.Controls.Add(this.guna2Panel5);
+            this.pnlMain.Controls.Add(this.pnlLicenseDetails);
+            this.pnlMain.Controls.Add(this.guna2Panel6);
             this.pnlMain.Controls.Add(this.pnlCourseDetails);
             this.pnlMain.Controls.Add(this.guna2Panel2);
             this.pnlMain.Controls.Add(this.guna2Panel1);
@@ -203,7 +219,7 @@
             this.pnlMain.FillColor = System.Drawing.Color.White;
             this.pnlMain.Location = new System.Drawing.Point(25, 25);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(620, 410);
+            this.pnlMain.Size = new System.Drawing.Size(620, 495);
             this.pnlMain.TabIndex = 42;
             // 
             // pnlButtonAdd_Cancel
@@ -213,7 +229,7 @@
             this.pnlButtonAdd_Cancel.Controls.Add(this.pnlSpace15);
             this.pnlButtonAdd_Cancel.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlButtonAdd_Cancel.FillColor = System.Drawing.Color.White;
-            this.pnlButtonAdd_Cancel.Location = new System.Drawing.Point(0, 361);
+            this.pnlButtonAdd_Cancel.Location = new System.Drawing.Point(0, 446);
             this.pnlButtonAdd_Cancel.Name = "pnlButtonAdd_Cancel";
             this.pnlButtonAdd_Cancel.Size = new System.Drawing.Size(603, 35);
             this.pnlButtonAdd_Cancel.TabIndex = 129;
@@ -272,7 +288,7 @@
             // 
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(0, 346);
+            this.guna2Panel5.Location = new System.Drawing.Point(0, 431);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(603, 15);
             this.guna2Panel5.TabIndex = 133;
@@ -922,7 +938,7 @@
             this.pnlSpace6.FillColor = System.Drawing.Color.White;
             this.pnlSpace6.Location = new System.Drawing.Point(603, 55);
             this.pnlSpace6.Name = "pnlSpace6";
-            this.pnlSpace6.Size = new System.Drawing.Size(17, 355);
+            this.pnlSpace6.Size = new System.Drawing.Size(17, 440);
             this.pnlSpace6.TabIndex = 115;
             // 
             // lblAdd
@@ -960,12 +976,175 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.StripAmpersands = true;
             // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(0, 346);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(603, 5);
+            this.guna2Panel6.TabIndex = 134;
+            // 
+            // pnlLicenseDetails
+            // 
+            this.pnlLicenseDetails.Controls.Add(this.guna2Panel8);
+            this.pnlLicenseDetails.Controls.Add(this.guna2Panel7);
+            this.pnlLicenseDetails.Controls.Add(this.guna2Panel9);
+            this.pnlLicenseDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLicenseDetails.FillColor = System.Drawing.Color.White;
+            this.pnlLicenseDetails.Location = new System.Drawing.Point(0, 351);
+            this.pnlLicenseDetails.Name = "pnlLicenseDetails";
+            this.pnlLicenseDetails.Size = new System.Drawing.Size(603, 80);
+            this.pnlLicenseDetails.TabIndex = 135;
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel9.Controls.Add(this.label6);
+            this.guna2Panel9.Controls.Add(this.cboLicenses);
+            this.guna2Panel9.Controls.Add(this.label14);
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(603, 36);
+            this.guna2Panel9.TabIndex = 132;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.White;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(144, 36);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "     License:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cboLicenses
+            // 
+            this.cboLicenses.BackColor = System.Drawing.Color.White;
+            this.cboLicenses.BorderRadius = 5;
+            this.cboLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboLicenses.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.FillColor = System.Drawing.Color.White;
+            this.cboLicenses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cboLicenses.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLicenses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLicenses.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.cboLicenses.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.cboLicenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.cboLicenses.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboLicenses.ItemHeight = 30;
+            this.cboLicenses.Location = new System.Drawing.Point(144, 0);
+            this.cboLicenses.Name = "cboLicenses";
+            this.cboLicenses.Size = new System.Drawing.Size(164, 36);
+            this.cboLicenses.TabIndex = 26;
+            this.cboLicenses.Tag = "Course";
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BackColor = System.Drawing.Color.White;
+            this.guna2TextBox1.BorderRadius = 5;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(448, 0);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(155, 36);
+            this.guna2TextBox1.TabIndex = 28;
+            this.guna2TextBox1.Tag = "Citizen ID";
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label6.Location = new System.Drawing.Point(308, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 36);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "  License Number: ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel7.FillColor = System.Drawing.Color.White;
+            this.guna2Panel7.Location = new System.Drawing.Point(0, 36);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.Size = new System.Drawing.Size(603, 5);
+            this.guna2Panel7.TabIndex = 133;
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BorderColor = System.Drawing.Color.Black;
+            this.guna2Panel8.BorderThickness = 1;
+            this.guna2Panel8.Controls.Add(this.dtpBeginningDate);
+            this.guna2Panel8.Controls.Add(this.label9);
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(0, 41);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(603, 36);
+            this.guna2Panel8.TabIndex = 134;
+            // 
+            // dtpBeginningDate
+            // 
+            this.dtpBeginningDate.BorderColor = System.Drawing.Color.White;
+            this.dtpBeginningDate.BorderRadius = 5;
+            this.dtpBeginningDate.Checked = true;
+            this.dtpBeginningDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpBeginningDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpBeginningDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpBeginningDate.FillColor = System.Drawing.Color.White;
+            this.dtpBeginningDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dtpBeginningDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.dtpBeginningDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBeginningDate.Location = new System.Drawing.Point(144, 0);
+            this.dtpBeginningDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpBeginningDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpBeginningDate.Name = "dtpBeginningDate";
+            this.dtpBeginningDate.Size = new System.Drawing.Size(459, 36);
+            this.dtpBeginningDate.TabIndex = 27;
+            this.dtpBeginningDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 36);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "     Beginning Date:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // AddLearnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(670, 455);
+            this.ClientSize = new System.Drawing.Size(670, 540);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlLineRight);
             this.Controls.Add(this.pnlLineLeft);
@@ -987,6 +1166,9 @@
             this.pnlGender_DOB.ResumeLayout(false);
             this.pnlPhone_Email.ResumeLayout(false);
             this.pnlName.ResumeLayout(false);
+            this.pnlLicenseDetails.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.guna2Panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1053,5 +1235,16 @@
 		private System.Windows.Forms.Label label5;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
 		private System.Windows.Forms.Label label4;
-	}
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel pnlLicenseDetails;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLicenses;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpBeginningDate;
+        private System.Windows.Forms.Label label9;
+    }
 }
