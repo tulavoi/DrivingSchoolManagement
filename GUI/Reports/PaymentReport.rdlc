@@ -1270,7 +1270,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Course Name:</Value>
+                  <Value>Invoice Name:</Value>
                   <Style>
                     <Color>White</Color>
                   </Style>
