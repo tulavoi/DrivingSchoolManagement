@@ -19,8 +19,9 @@ create table [Status](
 
 create TABLE Learners (
 	LearnerID INT PRIMARY KEY IDENTITY,
+	LicenseID int,
 	FullName NVARCHAR(100),
-    DateOfBirth DATE,
+    DateOfBirth DATETIME,
     Gender NVARCHAR(10),
     PhoneNumber NVARCHAR(11),
     Email NVARCHAR(100),
@@ -153,6 +154,8 @@ go
 
 alter table Learners
 add constraint FK_Learner_Status foreign key (StatusID) references [Status](StatusID)
+alter table Learners
+add constraint FK_Learner_License foreign key (LicenseID) references Licenses(LicenseID)
 go
 
 alter table Teachers
@@ -213,21 +216,33 @@ alter table Payments
 add constraint FK_Payments_Invoice foreign key (InvoiceID) references Invoices(InvoiceID)
 
 INSERT INTO Licenses (LicenseName, [Level])
-VALUES('B', 1), ('C', 2), ('D', 3), ('E', 4);
+VALUES('B', 1), ('C', 2), ('D', 3), ('E', 4), ('None', 5);
 
 INSERT INTO [Status] (StatusName)
 VALUES ('Active'), ('Inactive');
 
-INSERT INTO Learners (FullName, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, IsPass, Created_At, Updated_At)
+INSERT INTO Learners (FullName, LicenseID, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, IsPass, Created_At, Updated_At)
 VALUES 
-('Mai Nguyen Hoang Vu', '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Le Nguyen Xuan Duoc','15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Truong Anh Thanh Cong', '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Nguyen Van A', '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Tran Thi B', '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Le Van C', '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Le Van H', '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', 0, GETDATE(), GETDATE()),
-('Pham Thi I', '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', 0, GETDATE(), GETDATE());
+('Mai Nguyen Hoang Vu', 5, '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', 0, '22/11/2024', GETDATE()),
+('Le Nguyen Xuan Duoc', 5, '15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', 0, '24/11/2024', GETDATE()),
+('Truong Anh Thanh Cong', 5, '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', 0, '02/10/2024', GETDATE()),
+('Nguyen Van A', 5, '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Tran Thi B', 5, '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Le Van C', 5, '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Le Van H', 5, '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Pham Thi I', 5, '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', 0, '20/11/2024', GETDATE()),
+('Nguyen Thanh Binh', 5, '15/04/1993', 'Male', '0912345682', 'nguyenthanhbinh@gmail.com', '654 QWE Street', '012345678127', 'Viet Nam', 0, '02/11/2024', GETDATE()),
+('Doan Thi Lan', 5, '25/12/1995', 'Female', '0912345683', 'doanlan@gmail.com', '852 RTY Street', '012345678128', 'Viet Nam', 0, '03/05/2024', GETDATE()),
+('Pham Van D', 5, '18/10/1989', 'Male', '0912345684', 'phamvand@gmail.com', '963 UIO Street', '012345678129', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Hoang Thi Hanh', 5, '07/03/1997', 'Female', '0912345685', 'hoanghanh@gmail.com', '147 ASD Street', '012345678130', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Bui Minh Chau', 5, '23/05/1994', 'Male', '0912345688', 'buiminhchau@gmail.com', '951 FGH Street', '012345678133', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Ngo Van Lam', 5, '13/07/1987', 'Male', '0912345689', 'ngovanlam@gmail.com', '753 VBN Street', '012345678134', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Trinh Thi Dao', 2, '21/11/1996', 'Female', '0912345690', 'trinhdao@gmail.com', '258 MNO Street', '012345678135', 'Viet Nam', 0, '15/11/2024', GETDATE()),
+('Vu Van Tan', 1, '30/06/1998', 'Male', '0912345691', 'vuvantan@gmail.com', '369 PQR Street', '012345678136', 'Viet Nam', 0, '16/11/2024', GETDATE()),
+('Ngo Thi Hue', 1, '19/01/1995', 'Female', '0912345692', 'ngothihue@gmail.com', '159 XYZ Street', '012345678137', 'Viet Nam', 0, '06/05/2024', GETDATE()),
+('Tran Van Huy', 2, '19/10/1996', 'Male', '0912432692', 'tranvanhuy@gmail.com', '321 ASD Street', '012345219347', 'Viet Nam', 0, '16/11/2024', GETDATE()),
+('Mai Nam Hai', 2, '21/10/1993', 'Male', '0903235692', 'mainamhai@gmail.com', '534 VCX Street', '012335341237', 'Viet Nam', 0, '30/04/2024', GETDATE()),
+('Pham Van Khoa', 3, '10/02/1992', 'Male', '0912345693', 'phamkhoa@gmail.com', '753 KLM Street', '012345678138', 'Viet Nam', 0, '22/11/2024', GETDATE());
 
 INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At) 
 VALUES 
@@ -243,47 +258,73 @@ VALUES
 ('Pham Thi I', 678901245876, '12/01/1993', 'Female', '0909123464', 'thii@gmail.com', 'Vietnam', '147 YZ Street', '30/05/2014', 2, 987654321123, '01/04/2013', GETDATE(), GETDATE()),
 ('Nguyen Van J', 789012356536, '05/10/1994', 'Male', '0909123465', 'vanj@gmail.com', 'Vietnam', '258 ABCD Street', '20/04/2019', 3, 321456789012, '15/03/2018', GETDATE(), GETDATE());
 
-
 INSERT INTO Vehicles (VehicleNumber, VehicleName, IsTruck, IsPassengerCar, IsMaintenance, ManufacturerYear, [Weight], Seats, Notes, StatusID, StartMaintenaceDate, EndMaintenaceDate, Created_At, Updated_At)
 VALUES 
 -- Xe dành cho bằng B (xe con dưới 9 chỗ)
-('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, 'Sedan, good condition', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Sedan, good condition', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61A-56478', 'Toyota Camry', 0, 1, 0, 2018, null, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-23467', 'Toyota Camry', 0, 1, 0, 2018, null, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-89625', 'Toyota Camry', 0, 1, 0, 2018, null, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-75832', 'Toyota Camry', 0, 1, 0, 2018, null, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-84784', 'Toyota Camry', 0, 1, 1, 2018, null, 5, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61A-65456', 'Hyundai Sonata', 0, 1, 0, 2018, NULL, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-83551', 'Hyundai Sonata', 0, 1, 0, 2018, NULL, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61A-56853', 'Hyundai Sonata', 0, 1, 1, 2018, NULL, 5, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61A-65846', 'Hyundai Sonata', 0, 1, 1, 2018, NULL, 5, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61A-35672', 'Hyundai Sonata', 0, 1, 0, 2018, NULL, 5, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 -- Xe dành cho bằng C (xe tải)
 ('61C-23523', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('61C-56434', 'Isuzu Truck', 1, 0, 0, 2016, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('61C-96793', 'Isuzu Truck', 1, 0, 0, 2019, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()),
-('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, '', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
-('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, '', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
+('61C-02354', 'Isuzu Truck', 1, 0, 0, 2020, 5000, null, '', 1, NULL, NULL, GETDATE(), GETDATE()), 
+('61C-87345', 'Isuzu Truck', 1, 0, 1, 2021, 5000, null, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61C-80346', 'Isuzu Truck', 1, 0, 1, 2020, 5000, null, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
+('61C-65474', 'Hino Truck', 1, 0, 0, 2020, 5200, NULL, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-16342', 'Hino Truck', 1, 0, 0, 2020, 5200, NULL, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-45987', 'Hino Truck', 1, 0, 1, 2020, 5200, NULL, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61C-03943', 'Hino Truck', 1, 0, 0, 2020, 5200, NULL, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61C-80923', 'Hino Truck', 1, 0, 0, 2020, 5200, NULL, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 -- Xe dành cho bằng D (xe khách từ 10 đến 30 chỗ)
-('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
-('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, '', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
-('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, '', 1, DATEADD(DAY, -RAND() * 130, GETDATE()), DATEADD(DAY, -RAND() * 70, GETDATE()), GETDATE(), GETDATE()),
+('61D-98765', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 100, GETDATE()), DATEADD(DAY, -RAND() * 50, GETDATE()), GETDATE(), GETDATE()),
+('61D-42345', 'Mercedes-Benz Bus', 0, 1, 1, 2019, null, 20, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 120, GETDATE()), DATEADD(DAY, -RAND() * 60, GETDATE()), GETDATE(), GETDATE()),
+('61D-64565', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 130, GETDATE()), DATEADD(DAY, -RAND() * 70, GETDATE()), GETDATE(), GETDATE()),
 ('61D-53463', 'Mercedes-Benz Bus', 0, 1, 0, 2018, null, 20, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('61D-32435', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('61D-20942', 'Mercedes-Benz Bus', 0, 1, 1, 2017, null, 20, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 130, GETDATE()), DATEADD(DAY, -RAND() * 70, GETDATE()), GETDATE(), GETDATE()),
+('61D-14853', 'Mercedes-Benz Bus', 0, 1, 0, 2017, null, 20, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 -- Xe dành cho bằng E (xe khách trên 30 chỗ)
 ('70E-54321', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('70E-65346', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('70E-32455', 'Hyundai Universe', 0, 1, 1, 2016, null, 40, '', 1, DATEADD(DAY, -RAND() * 90, GETDATE()), DATEADD(DAY, -RAND() * 40, GETDATE()), GETDATE(), GETDATE()),
 ('70E-47478', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
+('70E-90230', 'Hyundai Universe', 0, 1, 1, 2017, null, 40, 'Vehicle is currently under warranty', 1, DATEADD(DAY, -RAND() * 90, GETDATE()), DATEADD(DAY, -RAND() * 40, GETDATE()), GETDATE(), GETDATE()),
+('70E-57203', 'Hyundai Universe', 0, 1, 0, 2017, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE()),
 ('70E-69632', 'Hyundai Universe', 0, 1, 0, 2016, null, 40, '', 1, NULL, NULL, GETDATE(), GETDATE());
 
 INSERT INTO Courses (CourseName, LicenseID, Fee, DurationInHours, HoursStudied, StatusID, StartDate, EndDate, Created_At, Updated_At)
 VALUES 
-('B-090532131024', 1, 11000000, 588, 0, 1, '2024-10-01', DATEADD(MONTH, 6, CAST('2024-10-01' AS DATE)), GETDATE(), GETDATE()),
-('B-080756241024', 1, 11000000, 588, 0, 1, '2024-10-02', DATEADD(MONTH, 6, CAST('2024-10-02' AS DATE)), GETDATE(), GETDATE()),
-('B-080756241027', 1, 11000000, 588, 588, 1, '2024-04-03', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '2024-04-03', GETDATE()),
-('C-020654131027', 2, 12000000, 920, 918, 1, '2024-11-02', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), GETDATE(), GETDATE()),
-('C-053354131024', 2, 12000000, 920, 920, 1, '2024-05-03', DATEADD(MONTH, 6, CAST('2024-05-03' AS DATE)), '2024-05-03', GETDATE()),
-('C-540856241024', 2, 12000000, 920, 920, 1, '2024-03-05', DATEADD(MONTH, 6, CAST('2024-03-04' AS DATE)), '2024-03-05', GETDATE()),
-('D-091122131024', 3, 15000000, 192, 0, 1, '2024-11-05', DATEADD(MONTH, 6, CAST('2024-11-05' AS DATE)), GETDATE(), GETDATE()),
-('D-450456241024', 3, 15000000, 192, 0, 1, '2024-11-06', DATEADD(MONTH, 6, CAST('2024-11-06' AS DATE)), GETDATE(), GETDATE()),
-('E-092433131024', 4, 20000000, 192, 0, 1, '2024-11-07', DATEADD(MONTH, 6, CAST('2024-11-07' AS DATE)), GETDATE(), GETDATE()),
-('E-540826241024', 4, 20000000, 192, 0, 1, '2024-11-07', DATEADD(MONTH, 6, CAST('2024-11-07' AS DATE)), GETDATE(), GETDATE());
+('B-112342231024', 1, 11000000, 588, 0, 1, '22/11/2024', DATEADD(MONTH, 6, CAST('2024-11-22' AS DATE)), '22/11/2024', GETDATE()),
+('B-080756241024', 1, 11000000, 588, 0, 1, '24/11/2024', DATEADD(MONTH, 6, CAST('2024-11-24' AS DATE)), '24/11/2024', GETDATE()),
+('B-080702341024', 1, 11000000, 588, 0, 1, '02/10/2024', DATEADD(MONTH, 6, CAST('2024-10-02' AS DATE)), '02/10/2024', GETDATE()),
+('B-092312351024', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
+('B-030420030424', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
+('B-100425030424', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
+('B-100515030424', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
+
+('C-252034571024', 2, 12000000, 920, 0, 1, '20/11/2024', DATEADD(MONTH, 6, CAST('2024-11-20' AS DATE)), '20/11/2024', GETDATE()),
+('C-020654131024', 2, 12000000, 920, 918, 1, '02/11/2024', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), '02/11/2024', GETDATE()),
+('C-053354131024', 2, 12000000, 920, 920, 1, '03/05/2024', DATEADD(MONTH, 6, CAST('2024-05-03' AS DATE)), '03/05/2024', GETDATE()),
+('C-540856241024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
+('C-029230531024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
+('C-237502331024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
+('C-042043261024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
+
+('D-091122131024', 3, 15000000, 192, 0, 1, '15/11/2024', DATEADD(MONTH, 6, CAST('2024-11-15' AS DATE)), '15/11/2024', GETDATE()),
+('D-450456241024', 3, 15000000, 192, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
+('D-852304231024', 3, 15000000, 192, 192, 1, '06/05/2024', DATEADD(MONTH, 6, CAST('2024-05-06' AS DATE)), '06/05/2024', GETDATE()),
+('D-023178521024', 3, 15000000, 192, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
+
+('E-092433131024', 4, 20000000, 192, 192, 1, '30/04/2024', DATEADD(MONTH, 6, CAST('2024-04-30' AS DATE)), '30/04/2024', GETDATE()),
+('E-092412351024', 4, 20000000, 192, 0, 1, '22/11/2024', DATEADD(MONTH, 6, CAST('2024-11-22' AS DATE)), '22/11/2024', GETDATE());
 
 INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
 VALUES 
@@ -294,14 +335,28 @@ VALUES
 
 insert into Enrollments(LearnerID, CourseID, EnrollmentDate)
 values
-(1, 1, GETDATE()),
-(2, 2, GETDATE()),
-(3, 4, GETDATE()),
-(4, 3, GETDATE()),
-(5, 5, GETDATE()),
-(6, 6, GETDATE()),
-(7, 7, GETDATE()),
-(8, 8, GETDATE());
+(1, 1, '22/11/2024'),
+(2, 2, '24/11/2024'),
+(3, 3, '02/10/2024'),
+(4, 4, '03/04/2024'),
+(5, 5, '03/04/2024'),
+(6, 6, '03/04/2024'),
+(7, 7, '03/04/2024'),
+(8, 8, '20/11/2024'),
+
+(9, 9, '02/11/2024'),
+(10, 10, '03/05/2024'),
+(11, 11, '05/03/2024'),
+(12, 12, '05/03/2024'),
+(13, 13, '05/03/2024'),
+(14, 14, '05/03/2024'),
+(15, 15, '15/11/2024'),
+
+(16, 16, '16/11/2024'),
+(17, 17, '06/05/2024'),
+(18, 18, '16/11/2024'),
+(19, 19, '30/04/2024'),
+(20, 20, '22/11/2024');
 
 INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDate, StatusID, Created_At, Updated_At)
 VALUES
@@ -312,7 +367,12 @@ VALUES
 INSERT INTO Invoices (InvoiceCode, EnrollmentID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 
 ('INV-092444131024', 1, 11000000, 0, 1, GETDATE(), GETDATE()),
-('INV-093023131024', 2, 11000000, 1, 1, GETDATE(), GETDATE());
+('INV-093023131024', 2, 11000000, 0, 1, GETDATE(), GETDATE()),
+('INV-891232321124', 3, 11000000, 0, 1, GETDATE(), GETDATE()),
+('INV-012823231124', 4, 11000000, 0, 1, GETDATE(), GETDATE()),
+('INV-032185231124', 5, 11000000, 1, 1, GETDATE(), GETDATE()),
+('INV-093458341124', 6, 11000000, 1, 1, GETDATE(), GETDATE()),
+('INV-018534031124', 7, 11000000, 1, 1, GETDATE(), GETDATE());
 
 INSERT INTO Payments (InvoiceID, PaymentDate, Amount, PaymentMethod, Created_At, Updated_At)
 VALUES 
