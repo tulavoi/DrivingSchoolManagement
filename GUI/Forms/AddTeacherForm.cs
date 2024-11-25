@@ -21,6 +21,7 @@ namespace GUI
         {
             shadowAddTeacherForm.SetShadowForm(this);
             this.LoadComboboxes();
+            FormHelper.SetCurrentDate(dtpDOB, dtpBeginningDate);
         }
 
         private void LoadComboboxes()
@@ -120,5 +121,5 @@ namespace GUI
 		{
 			TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
 		}
-	}
+    }
 }

@@ -43,7 +43,7 @@ namespace GUI
         {
             cboLicense.SelectedIndex = 0;
             txtFee.Text = "";
-            txtDurationInHours.Text = "";
+            //txtDurationInHours.Text = "";
             txtName.Text = "";
             dtpStartDate.Value = DateTime.Now;
             dtpEndDate.Value = DateTime.Now;
@@ -56,7 +56,8 @@ namespace GUI
                 CourseName = txtName.Text,
                 LicenseID = this.GetLicenseID(),
                 Fee = Convert.ToInt32(txtFee.Text),
-                DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
+                //DurationInHours = Convert.ToInt32(txtDurationInHours.Text),
+                DurationInHours = 0,
                 StatusID = Constant.StatusID_Active,
                 HoursStudied = 0,
                 StartDate = dtpStartDate.Value,
@@ -97,15 +98,14 @@ namespace GUI
 
             if (!CourseValidator.ValidateFee(txtFee, toolTip)) return false;
 
-            if (!CourseValidator.ValidateDuration(txtDurationInHours, toolTip)) return false;
-            
+            //if (!CourseValidator.ValidateDuration(txtDurationInHours, toolTip)) return false;
             return true;
         }
 
         private void cboLicense_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!FormHelper.HasSelectedItem(cboLicense)) return;
-            LoadCourseDetails();
+            this.LoadCourseDetails();
         }
 
         private void LoadCourseDetails()
@@ -121,29 +121,29 @@ namespace GUI
                 case "B":
                     price = Constant.Tuition_B;
                     prefix = "B-";
-                    hours = Constant.DurationHours_B.ToString();
+                    //hours = Constant.DurationHours_B.ToString();
                     break;
                 case "C":
                     price = Constant.Tuition_C;
                     prefix = "C-";
-                    hours = Constant.DurationHours_C.ToString();
+                    //hours = Constant.DurationHours_C.ToString();
                     break;
                 case "D":
                     price = Constant.Tuition_D;
                     prefix = "D-";
-                    hours = Constant.DurationHours_D.ToString();
+                    //hours = "";
                     break;
                 case "E":
                     price = Constant.Tuition_E;
                     prefix = "E-";
-                    hours = Constant.DurationHours_E.ToString();
+                    //hours = "";
                     break;
                 default:
                     break;
             }
 
             txtFee.Text = price.ToString();
-            txtDurationInHours.Text = hours.ToString();
+            //txtDurationInHours.Text = hours.ToString();
 
             // Cập nhật tên tự sinh vào txtName
             txtName.Text = $"{prefix}{DateTime.Now.ToString("yyMMddhhmmss")}"; 

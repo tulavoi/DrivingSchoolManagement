@@ -20,6 +20,8 @@ create table [Status](
 create TABLE Learners (
 	LearnerID INT PRIMARY KEY IDENTITY,
 	LicenseID int,
+	LicenseNumber nvarchar(12) unique,
+	BeginningDate DATETIME,
 	FullName NVARCHAR(100),
     DateOfBirth DATETIME,
     Gender NVARCHAR(10),

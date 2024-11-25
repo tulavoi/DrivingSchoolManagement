@@ -154,6 +154,13 @@ namespace GUI.Validators
 				cbo.Focus();
 				return false;
             }
+
+            if(cbo.Text == "None")
+            {
+                FormHelper.ShowToolTip(cbo, toolTip, $"Teacher's license not 'None'.");
+                cbo.Focus();
+                return false;
+            }
 			return true;
 		}
 	}

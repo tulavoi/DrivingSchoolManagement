@@ -56,7 +56,6 @@
             this.lblLicenseName = new System.Windows.Forms.Label();
             this.lblLicense = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.cboCourses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblCourses = new System.Windows.Forms.Label();
@@ -89,17 +88,19 @@
             this.lblAdd = new System.Windows.Forms.Label();
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLicenseDetails = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.cboLicenses = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtLicenseNumber = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.dtpBeginningDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblGraduated = new System.Windows.Forms.Label();
+            this.txtBeginningYears = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlLineTop.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlButtonAdd_Cancel.SuspendLayout();
@@ -198,11 +199,11 @@
             this.pnlMain.BorderRadius = 15;
             this.pnlMain.Controls.Add(this.pnlButtonAdd_Cancel);
             this.pnlMain.Controls.Add(this.guna2Panel5);
-            this.pnlMain.Controls.Add(this.pnlLicenseDetails);
-            this.pnlMain.Controls.Add(this.guna2Panel6);
             this.pnlMain.Controls.Add(this.pnlCourseDetails);
             this.pnlMain.Controls.Add(this.guna2Panel2);
             this.pnlMain.Controls.Add(this.guna2Panel1);
+            this.pnlMain.Controls.Add(this.guna2Panel6);
+            this.pnlMain.Controls.Add(this.pnlLicenseDetails);
             this.pnlMain.Controls.Add(this.pnlSpace9);
             this.pnlMain.Controls.Add(this.pnlCitizenId_Address);
             this.pnlMain.Controls.Add(this.pnlSpace7);
@@ -300,7 +301,7 @@
             this.pnlCourseDetails.Controls.Add(this.label1);
             this.pnlCourseDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCourseDetails.FillColor = System.Drawing.Color.White;
-            this.pnlCourseDetails.Location = new System.Drawing.Point(0, 275);
+            this.pnlCourseDetails.Location = new System.Drawing.Point(0, 360);
             this.pnlCourseDetails.Name = "pnlCourseDetails";
             this.pnlCourseDetails.Size = new System.Drawing.Size(603, 71);
             this.pnlCourseDetails.TabIndex = 132;
@@ -460,22 +461,13 @@
             this.label1.Text = "     Details: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 270);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(603, 5);
-            this.guna2Panel2.TabIndex = 131;
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.cboCourses);
             this.guna2Panel1.Controls.Add(this.lblCourses);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 234);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 319);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(603, 36);
             this.guna2Panel1.TabIndex = 130;
@@ -703,7 +695,7 @@
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(190, 36);
             this.dtpDOB.TabIndex = 4;
-            this.dtpDOB.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpDOB.Value = new System.DateTime(2024, 11, 25, 0, 0, 0, 0);
             // 
             // lblDOB_Title
             // 
@@ -976,15 +968,6 @@
             this.toolTip.MaximumSize = new System.Drawing.Size(0, 0);
             this.toolTip.StripAmpersands = true;
             // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(0, 346);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(603, 5);
-            this.guna2Panel6.TabIndex = 134;
-            // 
             // pnlLicenseDetails
             // 
             this.pnlLicenseDetails.Controls.Add(this.guna2Panel8);
@@ -992,15 +975,15 @@
             this.pnlLicenseDetails.Controls.Add(this.guna2Panel9);
             this.pnlLicenseDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLicenseDetails.FillColor = System.Drawing.Color.White;
-            this.pnlLicenseDetails.Location = new System.Drawing.Point(0, 351);
+            this.pnlLicenseDetails.Location = new System.Drawing.Point(0, 234);
             this.pnlLicenseDetails.Name = "pnlLicenseDetails";
             this.pnlLicenseDetails.Size = new System.Drawing.Size(603, 80);
             this.pnlLicenseDetails.TabIndex = 135;
             // 
             // guna2Panel9
             // 
-            this.guna2Panel9.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel9.Controls.Add(this.label6);
+            this.guna2Panel9.Controls.Add(this.txtLicenseNumber);
+            this.guna2Panel9.Controls.Add(this.guna2Panel10);
             this.guna2Panel9.Controls.Add(this.cboLicenses);
             this.guna2Panel9.Controls.Add(this.label14);
             this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1042,47 +1025,9 @@
             this.cboLicenses.ItemHeight = 30;
             this.cboLicenses.Location = new System.Drawing.Point(144, 0);
             this.cboLicenses.Name = "cboLicenses";
-            this.cboLicenses.Size = new System.Drawing.Size(164, 36);
+            this.cboLicenses.Size = new System.Drawing.Size(190, 36);
             this.cboLicenses.TabIndex = 26;
             this.cboLicenses.Tag = "Course";
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.White;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(448, 0);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(155, 36);
-            this.guna2TextBox1.TabIndex = 28;
-            this.guna2TextBox1.Tag = "Citizen ID";
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label6.Location = new System.Drawing.Point(308, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 36);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "  License Number: ";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel7
             // 
@@ -1098,13 +1043,67 @@
             this.guna2Panel8.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel8.BorderThickness = 1;
             this.guna2Panel8.Controls.Add(this.dtpBeginningDate);
-            this.guna2Panel8.Controls.Add(this.label9);
+            this.guna2Panel8.Controls.Add(this.lblGraduated);
+            this.guna2Panel8.Controls.Add(this.txtBeginningYears);
             this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
             this.guna2Panel8.Location = new System.Drawing.Point(0, 41);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(603, 36);
             this.guna2Panel8.TabIndex = 134;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(0, 314);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(603, 5);
+            this.guna2Panel6.TabIndex = 136;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 355);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(603, 5);
+            this.guna2Panel2.TabIndex = 137;
+            // 
+            // txtLicenseNumber
+            // 
+            this.txtLicenseNumber.BackColor = System.Drawing.Color.White;
+            this.txtLicenseNumber.BorderRadius = 5;
+            this.txtLicenseNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLicenseNumber.DefaultText = "";
+            this.txtLicenseNumber.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtLicenseNumber.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtLicenseNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtLicenseNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtLicenseNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLicenseNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtLicenseNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtLicenseNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtLicenseNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtLicenseNumber.Location = new System.Drawing.Point(344, 0);
+            this.txtLicenseNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtLicenseNumber.Name = "txtLicenseNumber";
+            this.txtLicenseNumber.PasswordChar = '\0';
+            this.txtLicenseNumber.PlaceholderText = "License No";
+            this.txtLicenseNumber.SelectedText = "";
+            this.txtLicenseNumber.Size = new System.Drawing.Size(259, 36);
+            this.txtLicenseNumber.TabIndex = 35;
+            this.txtLicenseNumber.Tag = "License Number";
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel10.FillColor = System.Drawing.Color.White;
+            this.guna2Panel10.Location = new System.Drawing.Point(334, 0);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Size = new System.Drawing.Size(10, 36);
+            this.guna2Panel10.TabIndex = 36;
             // 
             // dtpBeginningDate
             // 
@@ -1113,7 +1112,7 @@
             this.dtpBeginningDate.Checked = true;
             this.dtpBeginningDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpBeginningDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpBeginningDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpBeginningDate.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtpBeginningDate.FillColor = System.Drawing.Color.White;
             this.dtpBeginningDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dtpBeginningDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
@@ -1122,22 +1121,50 @@
             this.dtpBeginningDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpBeginningDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpBeginningDate.Name = "dtpBeginningDate";
-            this.dtpBeginningDate.Size = new System.Drawing.Size(459, 36);
-            this.dtpBeginningDate.TabIndex = 27;
-            this.dtpBeginningDate.Value = new System.DateTime(2024, 9, 22, 18, 8, 37, 767);
+            this.dtpBeginningDate.Size = new System.Drawing.Size(284, 36);
+            this.dtpBeginningDate.TabIndex = 32;
+            this.dtpBeginningDate.Tag = "Graduated Date";
+            this.dtpBeginningDate.Value = new System.DateTime(2024, 11, 25, 0, 0, 0, 0);
+            this.dtpBeginningDate.ValueChanged += new System.EventHandler(this.dtpBeginningDate_ValueChanged);
             // 
-            // label9
+            // lblGraduated
             // 
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 36);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "     Beginning Date:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblGraduated.BackColor = System.Drawing.Color.White;
+            this.lblGraduated.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblGraduated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGraduated.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblGraduated.Location = new System.Drawing.Point(0, 0);
+            this.lblGraduated.Name = "lblGraduated";
+            this.lblGraduated.Size = new System.Drawing.Size(144, 36);
+            this.lblGraduated.TabIndex = 33;
+            this.lblGraduated.Text = "     Beginning Date:";
+            this.lblGraduated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtBeginningYears
+            // 
+            this.txtBeginningYears.BackColor = System.Drawing.Color.White;
+            this.txtBeginningYears.BorderRadius = 5;
+            this.txtBeginningYears.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBeginningYears.DefaultText = "Years";
+            this.txtBeginningYears.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.txtBeginningYears.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtBeginningYears.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtBeginningYears.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txtBeginningYears.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtBeginningYears.Enabled = false;
+            this.txtBeginningYears.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtBeginningYears.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.txtBeginningYears.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.txtBeginningYears.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtBeginningYears.Location = new System.Drawing.Point(428, 0);
+            this.txtBeginningYears.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBeginningYears.Name = "txtBeginningYears";
+            this.txtBeginningYears.PasswordChar = '\0';
+            this.txtBeginningYears.PlaceholderText = "";
+            this.txtBeginningYears.SelectedText = "";
+            this.txtBeginningYears.Size = new System.Drawing.Size(175, 36);
+            this.txtBeginningYears.TabIndex = 31;
+            this.txtBeginningYears.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AddLearnerForm
             // 
@@ -1220,7 +1247,6 @@
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
 		private Guna.UI2.WinForms.Guna2ComboBox cboCourses;
 		private System.Windows.Forms.Label lblCourses;
-		private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
 		private Guna.UI2.WinForms.Guna2Panel pnlCourseDetails;
 		private System.Windows.Forms.Label label1;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
@@ -1235,16 +1261,18 @@
 		private System.Windows.Forms.Label label5;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
 		private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel pnlLicenseDetails;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2ComboBox cboLicenses;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2TextBox txtLicenseNumber;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpBeginningDate;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblGraduated;
+        private Guna.UI2.WinForms.Guna2TextBox txtBeginningYears;
     }
 }

@@ -1,9 +1,9 @@
-﻿using DAL;
-using BLL.Services;
-using Guna.UI2.WinForms.Suite;
+﻿using BLL.Services;
+using DAL;
+using GUI.Validators;
+using Guna.UI2.WinForms;
 using System;
 using System.Windows.Forms;
-using GUI.Validators;
 
 namespace GUI
 {
@@ -17,13 +17,15 @@ namespace GUI
 
         private void AddLearnerForm_Load(object sender, EventArgs e)
         {
-            shadowAddLearnerForm.SetShadowForm(this); 
+            shadowAddLearnerForm.SetShadowForm(this);
+            FormHelper.SetCurrentDate(dtpBeginningDate, dtpDOB);
             this.LoadCombobox();
             FormHelper.FocusControl(txtName);
         }
 
         private void LoadCombobox()
         {
+            ComboboxService.AssignLicensesToCombobox(cboLicenses);
             ComboboxService.AssignAvailableCourseToCombobox(cboCourses);
         }
 
@@ -33,9 +35,9 @@ namespace GUI
 
             Learner learner = this.GetLearner();
             int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-			var result = LearnerService.AddLearner(learner, courseID); // Tạo learner mới
+            var result = LearnerService.AddLearner(learner, courseID); // Tạo learner mới
 
-			FormHelper.ShowActionResult(result, "Learner added successfully.", "Failed to add learner.");
+            FormHelper.ShowActionResult(result, "Learner added successfully.", "Failed to add learner.");
             if (result) // Nếu thêm thành công thì reset controls
                 this.ResetControls();
         }
@@ -63,15 +65,15 @@ namespace GUI
 
             if (!LearnerValidator.ValidatePhoneNumber(txtPhone, toolTip)) return false;
 
-			if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
+            if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
-			if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+            if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
 
-			if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
+            if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
 
-			if (!LearnerValidator.ValidateEligibleCourse(dtpDOB, lblLicenseName.Text, cboCourses, toolTip)) return false;
+            if (!LearnerValidator.ValidateEligibleCourse(dtpDOB, lblLicenseName.Text, cboCourses, toolTip)) return false;
 
-			return true;
+            return true;
         }
 
         private Learner GetLearner()
@@ -111,36 +113,74 @@ namespace GUI
             FormHelper.CheckLetterKeyPress(e, txtName);
         }
 
-		private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
-		{
+        private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
             if (!FormHelper.HasSelectedItem(cboCourses))
             {
-				this.ConfigureForm(false);
+                this.DisplayOrHideCourseDetail(false);
                 return;
-			}
-			this.ConfigureForm(true);
+            }
+            this.DisplayOrHideCourseDetail(true);
             this.AssignCourseToDetailLabels();
-		}
 
-		private void AssignCourseToDetailLabels()
-		{
-			int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-			var course = CourseService.GetCourse(courseID);
+            string licenseName = cboCourses.Text.Split('-')[0];
+
+            //if (!FormHelper.HasSelectedItem(cboCourses))
+            //{
+            //    this.TogglePanelVisibility(false, pnlCourseDetails);
+            //    this.TogglePanelVisibility(false, pnlLicenseDetails);
+            //    return;
+            //}
+            //this.TogglePanelVisibility(true, pnlCourseDetails);
+            //AssignCourseToDetailLabels();
+
+            //string licenseName = cboCourses.Text.Split('-')[0];
+            //bool isLicenseVisibleDetails = licenseName == "D" || licenseName == "E";
+            //this.TogglePanelVisibility(isLicenseVisibleDetails, pnlLicenseDetails);
+        }
+
+        //private void TogglePanelVisibility(bool isVisible, Guna2Panel pnl)
+        //{
+        //    pnl.Visible = isVisible;
+
+        //    int baseHeight = 390; // Form Height mặc định
+        //    int courseDetailsHeight = pnlCourseDetails.Visible ? 455 : baseHeight;
+        //    int licenseDetailsHeight = pnlLicenseDetails.Visible ? 540 : courseDetailsHeight;
+
+        //    this.Height = licenseDetailsHeight;
+        //    FormHelper.ApplyRoundedCorners(this, 20);
+        //}
+
+        //private void DisplayOrHideLicenseDetail(bool showDetails)
+        //{
+        //    pnlLicenseDetails.Visible = showDetails;
+        //    this.Height = showDetails ? 540 : 390;
+        //    FormHelper.ApplyRoundedCorners(this, 20);
+        //}
+
+        private void AssignCourseToDetailLabels()
+        {
+            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
+            var course = CourseService.GetCourse(courseID);
             if (course == null) return;
             lblLicenseName.Text = course.License.LicenseName;
-            lblDurationHours.Text = course.DurationInHours.ToString();
+            if (course.License.LicenseName != "D" && course.License.LicenseName != "E")
+                lblDurationHours.Text = course.DurationInHours.ToString();
             lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
             lblEndDate.Text = course.EndDate.Value.ToString("dd/MM/yyyy");
-		}
+        }
 
-		private void ConfigureForm(bool showDetails)
-		{
-			pnlCourseDetails.Visible = showDetails;
-			this.Width = 670;
-			this.Height = showDetails ? 455 : 390;
-			FormHelper.ApplyRoundedCorners(this, 20);
-		}
+        private void DisplayOrHideCourseDetail(bool showDetails)
+        {
+            pnlCourseDetails.Visible = showDetails;
+            this.Height = showDetails ? 540 : 465;
+            FormHelper.ApplyRoundedCorners(this, 20);
+        }
 
-		
-	}
+        private void dtpBeginningDate_ValueChanged(object sender, EventArgs e)
+        {
+            // Lấy hàm có sẵn ở TeachersForm
+            TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears); 
+        }
+    }
 }
