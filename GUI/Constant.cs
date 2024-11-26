@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using Org.BouncyCastle.Bcpg.Sig;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace GUI
 {
@@ -35,12 +37,30 @@ namespace GUI
         public static int DurationHours_D = 192;
         public static int DurationHours_E = 192;
 
-        public static int LicenseID_None = 5;
         public static int LicenseID_B = 1;
         public static int LicenseID_C = 2;
         public static int LicenseID_D = 3;
         public static int LicenseID_E = 4;
+        public static int LicenseID_None = 5;
 
         public static int StatusID_Active = 1;
+
+        public static Dictionary<string, int> UpgradeHours = new Dictionary<string, int>()
+        {
+            { "B-C", 192 },
+            { "B-D", 336 },
+            { "C-D", 192 },
+            { "C-E", 336 },
+            { "D-E", 192 },
+        };
+
+        public static Dictionary<string, int> UpgradeFee = new Dictionary<string, int>()
+        {
+            { "B-C", 5000000 },
+            { "B-D", 7000000 },
+            { "C-D", 5500000 },
+            { "C-E", 7500000 },
+            { "D-E", 7000000 },
+        };
     }
 }

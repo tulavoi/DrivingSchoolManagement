@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LearnersForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlLearnerDetails = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnlMessage = new Guna.UI2.WinForms.Guna2Panel();
             this.txtMessage = new Guna.UI2.WinForms.Guna2TextBox();
@@ -54,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblDurationHours = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblLicenseName = new System.Windows.Forms.Label();
             this.lblLicense = new System.Windows.Forms.Label();
@@ -139,6 +138,8 @@
             this.pnlSpace5 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace1 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblFee = new System.Windows.Forms.Label();
             this.pnlLearnerDetails.SuspendLayout();
             this.pnlMessage.SuspendLayout();
             this.pnlButtonSMS_Mail.SuspendLayout();
@@ -405,8 +406,9 @@
             // 
             // guna2Panel7
             // 
+            this.guna2Panel7.Controls.Add(this.lblFee);
+            this.guna2Panel7.Controls.Add(this.label7);
             this.guna2Panel7.Controls.Add(this.lblDurationHours);
-            this.guna2Panel7.Controls.Add(this.label5);
             this.guna2Panel7.Controls.Add(this.label6);
             this.guna2Panel7.Controls.Add(this.lblLicenseName);
             this.guna2Panel7.Controls.Add(this.lblLicense);
@@ -420,27 +422,14 @@
             // lblDurationHours
             // 
             this.lblDurationHours.BackColor = System.Drawing.Color.White;
-            this.lblDurationHours.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDurationHours.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblDurationHours.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDurationHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.lblDurationHours.Location = new System.Drawing.Point(305, 0);
+            this.lblDurationHours.Location = new System.Drawing.Point(239, 0);
             this.lblDurationHours.Name = "lblDurationHours";
-            this.lblDurationHours.Size = new System.Drawing.Size(100, 36);
+            this.lblDurationHours.Size = new System.Drawing.Size(66, 36);
             this.lblDurationHours.TabIndex = 30;
             this.lblDurationHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.label5.Location = new System.Drawing.Point(405, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 36);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "(Hours)";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -448,11 +437,11 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label6.Location = new System.Drawing.Point(222, 0);
+            this.label6.Location = new System.Drawing.Point(159, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 36);
+            this.label6.Size = new System.Drawing.Size(80, 36);
             this.label6.TabIndex = 29;
-            this.label6.Text = "  Duration:";
+            this.label6.Text = "Duration:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblLicenseName
@@ -463,7 +452,7 @@
             this.lblLicenseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.lblLicenseName.Location = new System.Drawing.Point(86, 0);
             this.lblLicenseName.Name = "lblLicenseName";
-            this.lblLicenseName.Size = new System.Drawing.Size(136, 36);
+            this.lblLicenseName.Size = new System.Drawing.Size(73, 36);
             this.lblLicenseName.TabIndex = 26;
             this.lblLicenseName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -832,9 +821,9 @@
             this.cboGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cboGender.Location = new System.Drawing.Point(362, 0);
+            this.cboGender.Location = new System.Drawing.Point(361, 0);
             this.cboGender.Name = "cboGender";
-            this.cboGender.Size = new System.Drawing.Size(119, 36);
+            this.cboGender.Size = new System.Drawing.Size(120, 36);
             this.cboGender.StartIndex = 0;
             this.cboGender.TabIndex = 6;
             this.cboGender.Tag = "Gender";
@@ -847,7 +836,7 @@
             this.lblGender_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.lblGender_Title.Location = new System.Drawing.Point(277, 0);
             this.lblGender_Title.Name = "lblGender_Title";
-            this.lblGender_Title.Size = new System.Drawing.Size(85, 36);
+            this.lblGender_Title.Size = new System.Drawing.Size(84, 36);
             this.lblGender_Title.TabIndex = 5;
             this.lblGender_Title.Text = "  Gender: ";
             this.lblGender_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1419,52 +1408,52 @@
             // 
             this.dgvLearners.AllowUserToAddRows = false;
             this.dgvLearners.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvLearners.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            this.dgvLearners.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLearners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dgvLearners.ColumnHeadersHeight = 40;
             this.dgvLearners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InvoiceID,
             this.FullName,
             this.CitizenID,
             this.Status});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLearners.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLearners.DefaultCellStyle = dataGridViewCellStyle40;
             this.dgvLearners.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvLearners.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dgvLearners.Location = new System.Drawing.Point(0, 60);
             this.dgvLearners.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvLearners.Name = "dgvLearners";
             this.dgvLearners.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLearners.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLearners.RowHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dgvLearners.RowHeadersVisible = false;
             this.dgvLearners.RowHeadersWidth = 30;
             this.dgvLearners.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvLearners.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(96)))), ((int)(((byte)(236)))));
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLearners.RowsDefaultCellStyle = dataGridViewCellStyle42;
             this.dgvLearners.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLearners.RowTemplate.DividerHeight = 2;
             this.dgvLearners.RowTemplate.Height = 45;
@@ -1508,8 +1497,8 @@
             // 
             this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.FullName.DataPropertyName = "FullName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullName.DefaultCellStyle = dataGridViewCellStyle39;
             this.FullName.FillWeight = 53.63456F;
             this.FullName.Frozen = true;
             this.FullName.HeaderText = "Name";
@@ -1761,6 +1750,31 @@
             this.toolTip.ReshowDelay = 100;
             this.toolTip.StripAmpersands = true;
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.label7.Location = new System.Drawing.Point(305, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 36);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Fee:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblFee
+            // 
+            this.lblFee.BackColor = System.Drawing.Color.White;
+            this.lblFee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblFee.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.lblFee.Location = new System.Drawing.Point(349, 0);
+            this.lblFee.Name = "lblFee";
+            this.lblFee.Size = new System.Drawing.Size(132, 36);
+            this.lblFee.TabIndex = 33;
+            this.lblFee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // LearnersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1888,7 +1902,6 @@
 		private System.Windows.Forms.Label label3;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
 		private System.Windows.Forms.Label lblDurationHours;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label lblLicenseName;
 		private System.Windows.Forms.Label lblLicense;
@@ -1906,5 +1919,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private Guna.UI2.WinForms.Guna2Button btnConfirmPass;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblFee;
     }
 }

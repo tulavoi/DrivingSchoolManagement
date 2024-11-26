@@ -3,7 +3,9 @@ using DAL;
 using GUI.Validators;
 using Guna.UI2.WinForms;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUI
 {
@@ -18,15 +20,13 @@ namespace GUI
         private void AddLearnerForm_Load(object sender, EventArgs e)
         {
             shadowAddLearnerForm.SetShadowForm(this);
-            FormHelper.SetCurrentDate(dtpBeginningDate, dtpDOB);
-            this.LoadCombobox();
+            
             FormHelper.FocusControl(txtName);
-        }
-
-        private void LoadCombobox()
-        {
-            ComboboxService.AssignLicensesToCombobox(cboLicenses);
-            ComboboxService.AssignAvailableCourseToCombobox(cboCourses);
+            if (cboCourses.SelectedIndex == -1)
+            {
+                this.DisplayOrHideCourseDetail(false);
+                return;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -34,29 +34,46 @@ namespace GUI
             if (!this.ValidateFields()) return;
 
             Learner learner = this.GetLearner();
-            int courseID = Convert.ToInt32(cboCourses.SelectedValue.ToString());
-            var result = LearnerService.AddLearner(learner, courseID); // Tạo learner mới
+            Course course = this.GetCourse();
+            var result = LearnerService.AddLearner(learner, course); // Tạo learner mới
 
             FormHelper.ShowActionResult(result, "Learner added successfully.", "Failed to add learner.");
             if (result) // Nếu thêm thành công thì reset controls
-                this.ResetControls();
+                this.Close();
+        }
+
+        private Course GetCourse()
+        {
+            return new Course
+            {
+                CourseID = Convert.ToInt32(cboCourses.SelectedValue.ToString()),
+                DurationInHours = Convert.ToInt32(lblDurationHours.Text),
+                Fee = Convert.ToInt32(lblFee.Text.Replace(",", ""))
+            };
         }
 
         private void ResetControls()
         {
-            txtName.Text = "";
-            txtCitizenId.Text = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
+            txtName.Clear();
+            txtCitizenId.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
             dtpDOB.Value = DateTime.Now;
-            txtAddress.Text = "";
+            txtAge.Clear();
+            dtpBeginningDate.Value = DateTime.Now;
+            txtAddress.Clear();
             cboGender.SelectedIndex = 0;
             cboNationality.SelectedIndex = 0;
-            cboCourses.SelectedIndex = 0;
+            //cboLicenses.Items.Clear();
+            //cboCourses.Items.Clear();
+            txtBeginningYears.Text = "Year";
+            txtLicenseNumber.Clear();
         }
 
         private bool ValidateFields()
         {
+            string license = cboLicenses.Text;
+
             if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
             if (!LearnerValidator.ValidateCitizenID(txtCitizenId, toolTip)) return false;
@@ -68,6 +85,13 @@ namespace GUI
             if (!LearnerValidator.IsLearnerEligible(dtpDOB, toolTip)) return false;
 
             if (!LearnerValidator.ValidateAddress(txtAddress, toolTip)) return false;
+
+            if (license != "None")
+            {
+                if (!TeacherValidator.ValidateLicenseNumber(txtLicenseNumber, toolTip)) return false;
+
+                if (!LearnerValidator.IsBeginningDateValid(dtpDOB, dtpBeginningDate, toolTip)) return false;
+            }
 
             if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
 
@@ -88,7 +112,10 @@ namespace GUI
                 Address = txtAddress.Text,
                 CitizenID = txtCitizenId.Text,
                 Nationality = cboNationality.Text,
-                StatusID = Constant.StatusID_Active, // Mặc định là 'Active', StatusID = 1001, StatusName = Active
+                StatusID = Constant.StatusID_Active,
+                LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
+                LicenseNumber = Convert.ToInt32(cboLicenses.SelectedValue) == 5 ? "" : (txtLicenseNumber.Text ?? ""),
+                BeginningDate = Convert.ToInt32(cboLicenses.SelectedValue) == 5 ? (DateTime?)null : dtpBeginningDate.Value,
                 Created_At = DateTime.Now
             };
         }
@@ -98,12 +125,7 @@ namespace GUI
             this.Close();
         }
 
-        private void txtCitizenId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            FormHelper.CheckNumericKeyPress(e);
-        }
-
-        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        private void numeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormHelper.CheckNumericKeyPress(e);
         }
@@ -124,39 +146,7 @@ namespace GUI
             this.AssignCourseToDetailLabels();
 
             string licenseName = cboCourses.Text.Split('-')[0];
-
-            //if (!FormHelper.HasSelectedItem(cboCourses))
-            //{
-            //    this.TogglePanelVisibility(false, pnlCourseDetails);
-            //    this.TogglePanelVisibility(false, pnlLicenseDetails);
-            //    return;
-            //}
-            //this.TogglePanelVisibility(true, pnlCourseDetails);
-            //AssignCourseToDetailLabels();
-
-            //string licenseName = cboCourses.Text.Split('-')[0];
-            //bool isLicenseVisibleDetails = licenseName == "D" || licenseName == "E";
-            //this.TogglePanelVisibility(isLicenseVisibleDetails, pnlLicenseDetails);
         }
-
-        //private void TogglePanelVisibility(bool isVisible, Guna2Panel pnl)
-        //{
-        //    pnl.Visible = isVisible;
-
-        //    int baseHeight = 390; // Form Height mặc định
-        //    int courseDetailsHeight = pnlCourseDetails.Visible ? 455 : baseHeight;
-        //    int licenseDetailsHeight = pnlLicenseDetails.Visible ? 540 : courseDetailsHeight;
-
-        //    this.Height = licenseDetailsHeight;
-        //    FormHelper.ApplyRoundedCorners(this, 20);
-        //}
-
-        //private void DisplayOrHideLicenseDetail(bool showDetails)
-        //{
-        //    pnlLicenseDetails.Visible = showDetails;
-        //    this.Height = showDetails ? 540 : 390;
-        //    FormHelper.ApplyRoundedCorners(this, 20);
-        //}
 
         private void AssignCourseToDetailLabels()
         {
@@ -164,23 +154,86 @@ namespace GUI
             var course = CourseService.GetCourse(courseID);
             if (course == null) return;
             lblLicenseName.Text = course.License.LicenseName;
-            if (course.License.LicenseName != "D" && course.License.LicenseName != "E")
-                lblDurationHours.Text = course.DurationInHours.ToString();
             lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
             lblEndDate.Text = course.EndDate.Value.ToString("dd/MM/yyyy");
+
+            var currLicense = cboLicenses.Text;
+            var courseLicense = course.License.LicenseName;
+
+            if (currLicense == "None")
+            {
+                lblDurationHours.Text = course.DurationInHours.ToString();
+                if (courseLicense == "B") lblFee.Text = Constant.Tuition_B.ToString("N0");
+                else if (courseLicense == "C") lblFee.Text = Constant.Tuition_C.ToString("N0");
+            }
+
+            else
+            {
+                if (Constant.UpgradeHours.TryGetValue($"{currLicense}-{courseLicense}", out int durationHours))
+                    lblDurationHours.Text = durationHours.ToString();
+                if (Constant.UpgradeFee.TryGetValue($"{currLicense}-{courseLicense}", out int fee))
+                    lblFee.Text = fee.ToString("N0");
+            }
         }
 
         private void DisplayOrHideCourseDetail(bool showDetails)
         {
             pnlCourseDetails.Visible = showDetails;
-            this.Height = showDetails ? 540 : 465;
+            this.Height = showDetails ? 580 : 465;
             FormHelper.ApplyRoundedCorners(this, 20);
         }
 
         private void dtpBeginningDate_ValueChanged(object sender, EventArgs e)
         {
             // Lấy hàm có sẵn ở TeachersForm
-            TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears); 
+            TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
+        }
+
+        private void cboLicenses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var licenseName = cboLicenses.Text;
+
+            this.EnableLicenseNumberAndBeginningDate(licenseName);
+           
+            if (licenseName == "None" || licenseName == "B" || licenseName == "C" || licenseName == "D")
+                ComboboxService.AssignAvailableCourseToCombobox(cboCourses, licenseName);
+        }
+
+        private void EnableLicenseNumberAndBeginningDate(string licenseName)
+        {
+            if (licenseName == "None" || cboLicenses.SelectedIndex == 0)
+            {
+                txtLicenseNumber.Clear();
+                dtpBeginningDate.Value = DateTime.Now;   
+                txtLicenseNumber.Enabled = false;
+                dtpBeginningDate.Enabled = false;
+            }
+            else if (licenseName == "B" || licenseName == "C" || licenseName == "D")
+            {
+                txtLicenseNumber.Enabled = true;
+                dtpBeginningDate.Enabled = true;
+            }
+        }
+
+        private void dtpDOB_ValueChanged(object sender, EventArgs e)
+        {
+            var age = this.GetAge();
+
+            if (age > 18)
+            {
+                txtAge.Text = age.ToString();
+                ComboboxService.AssignLicensesToCombobox_ForLearner(cboLicenses, age);
+            }
+            else
+                txtAge.Clear();
+        }
+
+        private int GetAge()
+        {
+            var age = DateTime.Now.Year - dtpDOB.Value.Year;
+            if (dtpDOB.Value.AddYears(age) > DateTime.Now.Date)
+                age--;
+            return age;
         }
     }
 }

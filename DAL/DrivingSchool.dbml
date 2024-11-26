@@ -85,6 +85,7 @@
       <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="License_Course" Member="Courses" ThisKey="LicenseID" OtherKey="LicenseID" Type="Course" />
       <Association Name="License_Teacher" Member="Teachers" ThisKey="LicenseID" OtherKey="LicenseID" Type="Teacher" />
+      <Association Name="License_Learner" Member="Learners" ThisKey="LicenseID" OtherKey="LicenseID" Type="Learner" />
     </Type>
   </Table>
   <Table Name="dbo.Payments" Member="Payments">
@@ -164,8 +165,11 @@
   <Table Name="dbo.Learners" Member="Learners">
     <Type Name="Learner">
       <Column Name="LearnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LicenseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LicenseNumber" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="BeginningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -177,6 +181,7 @@
       <Column Name="Created_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Updated_At" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Learner_Enrollment" Member="Enrollments" ThisKey="LearnerID" OtherKey="LearnerID" Type="Enrollment" />
+      <Association Name="License_Learner" Member="License" ThisKey="LicenseID" OtherKey="LicenseID" Type="License" IsForeignKey="true" />
       <Association Name="Status_Learner" Member="Status" ThisKey="StatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>

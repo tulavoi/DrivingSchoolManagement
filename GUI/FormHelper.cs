@@ -248,11 +248,5 @@ namespace GUI
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
-
-        public static void SetCurrentDate(params Guna2DateTimePicker[] dtp)
-        {
-            foreach (var item in dtp)
-                item.Value = DateTime.Now;
-        }
     }
 }

@@ -134,22 +134,26 @@ namespace DAL
         #endregion
 
         #region Create
-        public bool AddLearner(Learner learner, int courseID)
+        public bool AddLearner(Learner learner, Course course)
         {
             try
             {
                 using (var db = DataAccess.GetDataContext())
                 {
+                    var data = db.Courses.Where(c => c.CourseID == course.CourseID).FirstOrDefault();
+                    data.DurationInHours = course.DurationInHours;
+                    data.Fee = course.Fee;
+                    db.SubmitChanges();
+
                     db.Learners.InsertOnSubmit(learner);
                     db.SubmitChanges();
 
                     int learnerID = learner.LearnerID;
-                    EnrollmentDAL.Instance.AddEnrollment(learnerID, courseID);
+                    EnrollmentDAL.Instance.AddEnrollment(learnerID, course.CourseID);
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
             return true;

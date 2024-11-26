@@ -90,9 +90,9 @@ namespace BLL
             }
         }
 
-        public bool AddLearner(Learner learner, int courseID)
+        public bool AddLearner(Learner learner, Course course)
         {
-            return LearnerDAL.Instance.AddLearner(learner, courseID);
+            return LearnerDAL.Instance.AddLearner(learner, course);
         }
 
         public bool EditLearner(Learner learner, int courseID)

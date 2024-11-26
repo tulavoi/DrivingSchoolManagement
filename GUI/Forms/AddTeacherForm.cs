@@ -21,7 +21,6 @@ namespace GUI
         {
             shadowAddTeacherForm.SetShadowForm(this);
             this.LoadComboboxes();
-            FormHelper.SetCurrentDate(dtpDOB, dtpBeginningDate);
         }
 
         private void LoadComboboxes()

@@ -102,7 +102,8 @@ namespace GUI
 
 		private void ToggleEditMode()
 		{
-			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName, txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId, cboStates, cboCourses);
+			FormHelper.ToggleEditMode(ref this.isEditing, this.btnEditLearner, txtLearnerName,
+				txtAddress, txtEmail, txtPhone, cboGender, dtpDOB, cboNationality, txtCitizenId, cboStates);
 		}
 
 		private bool InSaveMode()
@@ -285,8 +286,9 @@ namespace GUI
 			var course = CourseService.GetCourse(courseID);
 			if (course == null) return;
 			lblLicenseName.Text = course.License.LicenseName;
-			lblDurationHours.Text = course.DurationInHours.ToString();
-			lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
+            lblDurationHours.Text = course.DurationInHours + " (h)";
+			lblFee.Text = course.Fee?.ToString("N0") + " VND" ?? "N/A";
+            lblStartDate.Text = course.StartDate.Value.ToString("dd/MM/yyyy");
 			lblEndDate.Text = course.EndDate.Value.ToString("dd/MM/yyyy");
 		}
 

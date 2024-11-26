@@ -143,5 +143,17 @@ namespace GUI.Validators
 			}
             return "";
 		}
-	}
+
+        public static bool IsBeginningDateValid(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpBeginningDate, Guna2HtmlToolTip toolTip)
+        {
+            DateTime dateOf18thBirthday = dtpDOB.Value.AddYears(18);
+            // Kiểm tra ngày nhận bằng có sau ngày đủ 18 tuổi không
+            if (dtpBeginningDate.Value < dateOf18thBirthday)
+            {
+                FormHelper.ShowToolTip(dtpBeginningDate, toolTip, "The beginning date must be after the learner turns 18.");
+                return false;
+            }
+            return true;
+        }
+    }
 }

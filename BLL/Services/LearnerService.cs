@@ -13,9 +13,9 @@ namespace BLL.Services
 {
     public class LearnerService
     {
-        public static bool AddLearner(Learner learner, int courseID)
+        public static bool AddLearner(Learner learner, Course course)
         {
-            return LearnerBLL.Instance.AddLearner(learner, courseID);
+            return LearnerBLL.Instance.AddLearner(learner, course);
         }
 
         public static bool EditLearner(Learner learner, int courseID)

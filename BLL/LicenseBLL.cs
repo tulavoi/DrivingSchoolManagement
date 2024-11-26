@@ -29,12 +29,14 @@ namespace BLL
             this.AddTeachersToCombobox(cbo, licenses);
         }
 
+        public void AssignLicensesToCombobox_ForLearner(Guna2ComboBox cbo, int age)
+        {
+            List<License> licenses = LicenseDAL.Instance.GetLicensesForLearner(age);
+            this.AddTeachersToCombobox(cbo, licenses);
+        }
+
         private void AddTeachersToCombobox(Guna2ComboBox cbo, List<License> licenses)
         {
-            License license = new License();
-            license.LicenseName = "Select License";
-            licenses.Insert(0, license);
-
             cbo.DataSource = licenses;
             cbo.ValueMember = "LicenseID";
             cbo.DisplayMember = "LicenseName";

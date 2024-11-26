@@ -55,21 +55,21 @@ namespace GUI.Validators
             return ValidatorHelper.CheckRequiredAndShowToolTip(txt, toolTip);
         }
 
-        public static bool IsTeacherEligible(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpBeginning, string license, Guna2HtmlToolTip toolTip)
+        public static bool IsTeacherEligible(Guna2DateTimePicker dtpDOB, Guna2DateTimePicker dtpBeginningDate, string license, Guna2HtmlToolTip toolTip)
         {
             // Kiểm tra độ tuổi
             if (!ValidateDOB(dtpDOB, toolTip)) return false;
 
             // Kiểm tra ngày nhận bằng
-            if (!IsBeginningDateValid(dtpDOB, dtpBeginning, toolTip)) return false;
+            if (!IsBeginningDateValid(dtpDOB, dtpBeginningDate, toolTip)) return false;
 
             // Kiểm tra năm kinh nghiệm
-            if (!IsExperienceValid(dtpBeginning, license, toolTip)) return false;
+            if (!IsExperienceValid(dtpBeginningDate, license, toolTip)) return false;
 
             return true;
         }
 
-        public static bool IsExperienceValid(Guna2DateTimePicker dtpBeginning, string license, Guna2HtmlToolTip toolTip)
+        private static bool IsExperienceValid(Guna2DateTimePicker dtpBeginning, string license, Guna2HtmlToolTip toolTip)
         {
             int experienceYears = GetExperienceYears(dtpBeginning.Value);
             string errorMessage = GetErrorMessage(experienceYears, license);
@@ -117,7 +117,7 @@ namespace GUI.Validators
             // Kiểm tra ngày nhận bằng có sau ngày đủ 18 tuổi không
             if (dtpBeginning.Value < dateOf18thBirthday)
             {
-                FormHelper.ShowToolTip(dtpBeginning, toolTip, "The graduation date must be after the teacher turns 18.");
+                FormHelper.ShowToolTip(dtpBeginning, toolTip, "The beginning date must be after the teacher turns 18.");
                 return false;
             }
             return true;
