@@ -581,7 +581,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Seats.Value</Value>
+                                  <Value>=IIF(IsNothing(Fields!Seats.Value) OR Trim(Fields!Seats.Value) = "", "---//---", Fields!Seats.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -615,7 +615,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Weight.Value</Value>
+                                  <Value>=IIF(IsNothing(Fields!Weight.Value) OR Trim(Fields!Weight.Value) = "", "---//---", Fields!Weight.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1333,13 +1333,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.02778in</Top>
-              <Left>3.34549in</Left>
+              <Top>0.06944in</Top>
+              <Left>4.19868in</Left>
               <Height>0.23333in</Height>
               <Width>1.71666in</Width>
               <Style>

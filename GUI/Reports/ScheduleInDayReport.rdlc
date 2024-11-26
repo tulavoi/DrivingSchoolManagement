@@ -875,7 +875,7 @@
         <Top>3.21348in</Top>
         <Left>0.13741in</Left>
         <Height>0.59222in</Height>
-        <Width>7.22517in</Width>
+        <Width>7.22518in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1049,7 +1049,7 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>

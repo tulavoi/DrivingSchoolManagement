@@ -1322,13 +1322,13 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.13081in</Top>
-          <Left>5.81508in</Left>
+          <Left>5.57548in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>

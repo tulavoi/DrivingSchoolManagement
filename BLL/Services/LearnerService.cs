@@ -72,5 +72,10 @@ namespace BLL.Services
         {
             return LearnerBLL.Instance.GetEligibleLearnersData();
         }
+
+        public static DataTable GetLearnerDetailData(int learnerID)
+        {
+            return LearnerBLL.Instance.GetLearnerDetailData(learnerID);
+        }
     }
 }

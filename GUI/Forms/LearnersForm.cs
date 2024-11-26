@@ -321,7 +321,8 @@ namespace GUI
 
         private void btnPrintLearnerDetail_Click(object sender, EventArgs e)
         {
-            
+            LearnerDetailsRV learnerDetailsRV = new LearnerDetailsRV(selectedLearner.LearnerID);
+			learnerDetailsRV.Show();
         }
 
         private void btnEligibleLearners_Click(object sender, EventArgs e)

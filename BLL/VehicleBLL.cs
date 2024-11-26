@@ -167,7 +167,10 @@ namespace BLL
         {
             return VehicleDAL.Instance.GetVehicleForLicense(license);
         }
-
+        public DataTable GetVehicleByVehicleID(int vehicleID)
+        {
+            return VehicleDAL.Instance.GetVehicleByVehicleID(vehicleID);
+        }
         public DataTable GetAllVehiclesData()
         {
             return VehicleDAL.Instance.GetAllVehiclesData();
