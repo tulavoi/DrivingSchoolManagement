@@ -120,5 +120,5 @@ namespace GUI
 		{
 			TeachersForm.Instance.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
 		}
-	}
+    }
 }

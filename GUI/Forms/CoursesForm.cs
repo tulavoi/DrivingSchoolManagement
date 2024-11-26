@@ -70,7 +70,7 @@ namespace GUI
             dtpStartDate.Value = course.StartDate.Value;
             dtpEndDate.Value = course.EndDate.Value;
 
-            if (hoursStudied == durationHours)
+            if (hoursStudied == durationHours && durationHours != 0)
             {
                 lblCompleteCourse.Text = "Complete";
                 lblCompleteCourse.ForeColor = Color.FromArgb(90, 211, 116);

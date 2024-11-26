@@ -28,9 +28,9 @@ namespace BLL.Services
 			CourseBLL.Instance.AssignCoursesToCombobox(cbo, status, curDate);
 		}
 
-		public static void AssignAvailableCourseToCombobox(Guna2ComboBox cbo)
+		public static void AssignAvailableCourseToCombobox(Guna2ComboBox cbo, string licenseName)
 		{
-			CourseBLL.Instance.AssignAvailableCourseToCombobox(cbo);
+			CourseBLL.Instance.AssignAvailableCourseToCombobox(cbo, licenseName);
 		}
 
 		public static void GetAvailableAndLearnerCourses(Guna2ComboBox cbo, int learnerID)
@@ -83,7 +83,12 @@ namespace BLL.Services
 			LicenseBLL.Instance.AssignLicensesToCombobox(cbo);
 		}
 
-		public static void AssignStatesToCombobox(Guna2ComboBox cbo)
+        public static void AssignLicensesToCombobox_ForLearner(Guna2ComboBox cbo, int age)
+        {
+            LicenseBLL.Instance.AssignLicensesToCombobox_ForLearner(cbo, age);
+        }
+
+        public static void AssignStatesToCombobox(Guna2ComboBox cbo)
 		{
 			StatusBLL.Instance.AssignCoursesToCombobox(cbo);
 		}

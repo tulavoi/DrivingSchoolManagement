@@ -1932,6 +1932,8 @@ namespace DAL
 		
 		private EntitySet<Teacher> _Teachers;
 		
+		private EntitySet<Learner> _Learners;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1948,6 +1950,7 @@ namespace DAL
 		{
 			this._Courses = new EntitySet<Course>(new Action<Course>(this.attach_Courses), new Action<Course>(this.detach_Courses));
 			this._Teachers = new EntitySet<Teacher>(new Action<Teacher>(this.attach_Teachers), new Action<Teacher>(this.detach_Teachers));
+			this._Learners = new EntitySet<Learner>(new Action<Learner>(this.attach_Learners), new Action<Learner>(this.detach_Learners));
 			OnCreated();
 		}
 		
@@ -2037,6 +2040,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Learner", Storage="_Learners", ThisKey="LicenseID", OtherKey="LicenseID")]
+		public EntitySet<Learner> Learners
+		{
+			get
+			{
+				return this._Learners;
+			}
+			set
+			{
+				this._Learners.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2076,6 +2092,18 @@ namespace DAL
 		}
 		
 		private void detach_Teachers(Teacher entity)
+		{
+			this.SendPropertyChanging();
+			entity.License = null;
+		}
+		
+		private void attach_Learners(Learner entity)
+		{
+			this.SendPropertyChanging();
+			entity.License = this;
+		}
+		
+		private void detach_Learners(Learner entity)
 		{
 			this.SendPropertyChanging();
 			entity.License = null;
@@ -3744,6 +3772,12 @@ namespace DAL
 		
 		private int _LearnerID;
 		
+		private System.Nullable<int> _LicenseID;
+		
+		private string _LicenseNumber;
+		
+		private System.Nullable<System.DateTime> _BeginningDate;
+		
 		private string _FullName;
 		
 		private System.Nullable<System.DateTime> _DateOfBirth;
@@ -3770,6 +3804,8 @@ namespace DAL
 		
 		private EntitySet<Enrollment> _Enrollments;
 		
+		private EntityRef<License> _License;
+		
 		private EntityRef<Status> _Status;
 		
     #region Extensibility Method Definitions
@@ -3778,6 +3814,12 @@ namespace DAL
     partial void OnCreated();
     partial void OnLearnerIDChanging(int value);
     partial void OnLearnerIDChanged();
+    partial void OnLicenseIDChanging(System.Nullable<int> value);
+    partial void OnLicenseIDChanged();
+    partial void OnLicenseNumberChanging(string value);
+    partial void OnLicenseNumberChanged();
+    partial void OnBeginningDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBeginningDateChanged();
     partial void OnFullNameChanging(string value);
     partial void OnFullNameChanged();
     partial void OnDateOfBirthChanging(System.Nullable<System.DateTime> value);
@@ -3807,6 +3849,7 @@ namespace DAL
 		public Learner()
 		{
 			this._Enrollments = new EntitySet<Enrollment>(new Action<Enrollment>(this.attach_Enrollments), new Action<Enrollment>(this.detach_Enrollments));
+			this._License = default(EntityRef<License>);
 			this._Status = default(EntityRef<Status>);
 			OnCreated();
 		}
@@ -3831,6 +3874,70 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseID", DbType="Int")]
+		public System.Nullable<int> LicenseID
+		{
+			get
+			{
+				return this._LicenseID;
+			}
+			set
+			{
+				if ((this._LicenseID != value))
+				{
+					if (this._License.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLicenseIDChanging(value);
+					this.SendPropertyChanging();
+					this._LicenseID = value;
+					this.SendPropertyChanged("LicenseID");
+					this.OnLicenseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicenseNumber", DbType="NVarChar(12)")]
+		public string LicenseNumber
+		{
+			get
+			{
+				return this._LicenseNumber;
+			}
+			set
+			{
+				if ((this._LicenseNumber != value))
+				{
+					this.OnLicenseNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LicenseNumber = value;
+					this.SendPropertyChanged("LicenseNumber");
+					this.OnLicenseNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BeginningDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BeginningDate
+		{
+			get
+			{
+				return this._BeginningDate;
+			}
+			set
+			{
+				if ((this._BeginningDate != value))
+				{
+					this.OnBeginningDateChanging(value);
+					this.SendPropertyChanging();
+					this._BeginningDate = value;
+					this.SendPropertyChanged("BeginningDate");
+					this.OnBeginningDateChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100)")]
 		public string FullName
 		{
@@ -3851,7 +3958,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="DateTime")]
 		public System.Nullable<System.DateTime> DateOfBirth
 		{
 			get
@@ -4085,6 +4192,40 @@ namespace DAL
 			set
 			{
 				this._Enrollments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="License_Learner", Storage="_License", ThisKey="LicenseID", OtherKey="LicenseID", IsForeignKey=true)]
+		public License License
+		{
+			get
+			{
+				return this._License.Entity;
+			}
+			set
+			{
+				License previousValue = this._License.Entity;
+				if (((previousValue != value) 
+							|| (this._License.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._License.Entity = null;
+						previousValue.Learners.Remove(this);
+					}
+					this._License.Entity = value;
+					if ((value != null))
+					{
+						value.Learners.Add(this);
+						this._LicenseID = value.LicenseID;
+					}
+					else
+					{
+						this._LicenseID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("License");
+				}
 			}
 		}
 		

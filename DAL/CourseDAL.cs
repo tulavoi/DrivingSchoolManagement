@@ -218,17 +218,30 @@ namespace DAL
 		#endregion
 
 		#region Lấy các khóa học ở thời điểm hiện tại trở đi và chưa có người học
-		public List<Course> GetAvailableCourses()
+		public List<Course> GetAvailableCourses(string licenseName)
 		{
 			using (var db = DataAccess.GetDataContext())
 			{
-				var courses = from c in db.Courses
-							  where c.StartDate >= DateTime.Now.Date
+                IQueryable<Course> courses = from c in db.Courses
+							  where c.StartDate.Value.Date >= DateTime.Now.Date
 							  && c.StatusID == 1
 							  && !db.Enrollments.Any(e => e.CourseID == c.CourseID) // Chỉ lấy các khóa học chưa có trong Enrollment
 							  orderby c.CourseName
 							  select c;
-				return courses.ToList() ?? new List<Course>();
+
+                if (licenseName == "None")
+                    courses = courses.Where(c => c.License.LicenseName == "B" || c.License.LicenseName == "C");
+
+                else if (licenseName == "B")
+                    courses = courses.Where(c => c.License.LicenseName == "C" || c.License.LicenseName == "D");
+
+                else if (licenseName == "C")
+                    courses = courses.Where(c => c.License.LicenseName == "D" || c.License.LicenseName == "E");
+
+                else if (licenseName == "D")
+                    courses = courses.Where(c => c.License.LicenseName == "E");
+
+                return courses.ToList() ?? new List<Course>();
 			}
 		}
 		#endregion

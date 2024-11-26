@@ -20,6 +20,8 @@ create table [Status](
 create TABLE Learners (
 	LearnerID INT PRIMARY KEY IDENTITY,
 	LicenseID int,
+	LicenseNumber nvarchar(12) unique,
+	BeginningDate DATETIME,
 	FullName NVARCHAR(100),
     DateOfBirth DATETIME,
     Gender NVARCHAR(10),
@@ -221,28 +223,28 @@ VALUES('B', 1), ('C', 2), ('D', 3), ('E', 4), ('None', 5);
 INSERT INTO [Status] (StatusName)
 VALUES ('Active'), ('Inactive');
 
-INSERT INTO Learners (FullName, LicenseID, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, IsPass, Created_At, Updated_At)
+INSERT INTO Learners (FullName, LicenseID, LicenseNumber, BeginningDate, DateOfBirth, Gender, PhoneNumber, Email, [Address], CitizenID, Nationality, IsPass, Created_At, Updated_At)
 VALUES 
-('Mai Nguyen Hoang Vu', 5, '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', 0, '22/11/2024', GETDATE()),
-('Le Nguyen Xuan Duoc', 5, '15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', 0, '24/11/2024', GETDATE()),
-('Truong Anh Thanh Cong', 5, '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', 0, '02/10/2024', GETDATE()),
-('Nguyen Van A', 5, '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', 0, '03/04/2024', GETDATE()),
-('Tran Thi B', 5, '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', 0, '03/04/2024', GETDATE()),
-('Le Van C', 5, '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', 0, '03/04/2024', GETDATE()),
-('Le Van H', 5, '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', 0, '03/04/2024', GETDATE()),
-('Pham Thi I', 5, '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', 0, '20/11/2024', GETDATE()),
-('Nguyen Thanh Binh', 5, '15/04/1993', 'Male', '0912345682', 'nguyenthanhbinh@gmail.com', '654 QWE Street', '012345678127', 'Viet Nam', 0, '02/11/2024', GETDATE()),
-('Doan Thi Lan', 5, '25/12/1995', 'Female', '0912345683', 'doanlan@gmail.com', '852 RTY Street', '012345678128', 'Viet Nam', 0, '03/05/2024', GETDATE()),
-('Pham Van D', 5, '18/10/1989', 'Male', '0912345684', 'phamvand@gmail.com', '963 UIO Street', '012345678129', 'Viet Nam', 0, '05/03/2024', GETDATE()),
-('Hoang Thi Hanh', 5, '07/03/1997', 'Female', '0912345685', 'hoanghanh@gmail.com', '147 ASD Street', '012345678130', 'Viet Nam', 0, '05/03/2024', GETDATE()),
-('Bui Minh Chau', 5, '23/05/1994', 'Male', '0912345688', 'buiminhchau@gmail.com', '951 FGH Street', '012345678133', 'Viet Nam', 0, '05/03/2024', GETDATE()),
-('Ngo Van Lam', 5, '13/07/1987', 'Male', '0912345689', 'ngovanlam@gmail.com', '753 VBN Street', '012345678134', 'Viet Nam', 0, '05/03/2024', GETDATE()),
-('Trinh Thi Dao', 2, '21/11/1996', 'Female', '0912345690', 'trinhdao@gmail.com', '258 MNO Street', '012345678135', 'Viet Nam', 0, '15/11/2024', GETDATE()),
-('Vu Van Tan', 1, '30/06/1998', 'Male', '0912345691', 'vuvantan@gmail.com', '369 PQR Street', '012345678136', 'Viet Nam', 0, '16/11/2024', GETDATE()),
-('Ngo Thi Hue', 1, '19/01/1995', 'Female', '0912345692', 'ngothihue@gmail.com', '159 XYZ Street', '012345678137', 'Viet Nam', 0, '06/05/2024', GETDATE()),
-('Tran Van Huy', 2, '19/10/1996', 'Male', '0912432692', 'tranvanhuy@gmail.com', '321 ASD Street', '012345219347', 'Viet Nam', 0, '16/11/2024', GETDATE()),
-('Mai Nam Hai', 2, '21/10/1993', 'Male', '0903235692', 'mainamhai@gmail.com', '534 VCX Street', '012335341237', 'Viet Nam', 0, '30/04/2024', GETDATE()),
-('Pham Van Khoa', 3, '10/02/1992', 'Male', '0912345693', 'phamkhoa@gmail.com', '753 KLM Street', '012345678138', 'Viet Nam', 0, '22/11/2024', GETDATE());
+('Mai Nguyen Hoang Vu', 5, '123456789012', '22/07/2015', '22/07/1996', 'Male', '0354377798', 'mainguyenhoangvu.tdc4304@gmail.com', '123 ABC Street', '012345678123', 'Viet Nam', 0, '22/11/2024', GETDATE()),
+('Le Nguyen Xuan Duoc', 5, '234567890123', '15/05/2016', '15/05/1995', 'Male', '0912345678', 'lenguyenxuanduoc@gmail.com', '123 ABC Street', '012345234123', 'Viet Nam', 0, '24/11/2024', GETDATE()),
+('Truong Anh Thanh Cong', 5, '345678901234', '20/07/2017', '20/07/1998', 'Female', '0987654321', 'xcongit@gmail.com', '456 XYZ Street', '987654321432', 'Viet Nam', 0, '02/10/2024', GETDATE()),
+('Nguyen Van A', 5, '456789012345', '01/01/2018', '01/01/1990', 'Male', '0912345679', 'nguyenvana@gmail.com', '456 DEF Street', '012345678124', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Tran Thi B', 5, '567890123456', '02/02/2019', '02/02/1992', 'Female', '0912345680', 'tranthib@gmail.com', '789 GHI Street', '012345678125', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Le Van C', 5, '678901234567', '03/03/2020', '03/03/1988', 'Male', '0912345681', 'levanc@gmail.com', '321 JKL Street', '012345678126', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Le Van H', 5, '789012345678', '08/08/2021', '08/08/1996', 'Male', '0912345686', 'levanh@gmail.com', '357 YZ Street', '012345678131', 'Viet Nam', 0, '03/04/2024', GETDATE()),
+('Pham Thi I', 1, '890123456789', '09/09/2022', '09/09/1997', 'Female', '0912345687', 'phamthi@gmail.com', '468 ABCD Street', '012345678132', 'Viet Nam', 0, '20/11/2024', GETDATE()),
+('Nguyen Thanh Binh', 1, '901234567890', '15/04/2023', '15/04/1993', 'Male', '0912345682', 'nguyenthanhbinh@gmail.com', '654 QWE Street', '012345678127', 'Viet Nam', 0, '02/11/2024', GETDATE()),
+('Doan Thi Lan', 5, '012345678901', '25/12/2023', '25/12/1995', 'Female', '0912345683', 'doanlan@gmail.com', '852 RTY Street', '012345678128', 'Viet Nam', 0, '03/05/2024', GETDATE()),
+('Pham Van D', 5, '123456780001', '18/10/2015', '18/10/1989', 'Male', '0912345684', 'phamvand@gmail.com', '963 UIO Street', '012345678129', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Hoang Thi Hanh', 5, '123456780002', '07/03/2016', '07/03/1997', 'Female', '0912345685', 'hoanghanh@gmail.com', '147 ASD Street', '012345678130', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Bui Minh Chau', 5, '123456780003', '23/05/2017', '23/05/1994', 'Male', '0912345688', 'buiminhchau@gmail.com', '951 FGH Street', '012345678133', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Ngo Van Lam', 5, '123456780004', '13/07/2018', '13/07/1987', 'Male', '0912345689', 'ngovanlam@gmail.com', '753 VBN Street', '012345678134', 'Viet Nam', 0, '05/03/2024', GETDATE()),
+('Trinh Thi Dao', 2, '123456780005', '21/11/2019', '21/11/1996', 'Female', '0912345690', 'trinhdao@gmail.com', '258 MNO Street', '012345678135', 'Viet Nam', 0, '15/11/2024', GETDATE()),
+('Vu Van Tan', 1, '123456780006', '30/06/2020', '30/06/1998', 'Male', '0912345691', 'vuvantan@gmail.com', '369 PQR Street', '012345678136', 'Viet Nam', 0, '16/11/2024', GETDATE()),
+('Ngo Thi Hue', 1, '123456780007', '19/01/2021', '19/01/1995', 'Female', '0912345692', 'ngothihue@gmail.com', '159 XYZ Street', '012345678137', 'Viet Nam', 0, '06/05/2024', GETDATE()),
+('Tran Van Huy', 2, '123456780008', '19/10/2022', '19/10/1996', 'Male', '0912432692', 'tranvanhuy@gmail.com', '321 ASD Street', '012345219347', 'Viet Nam', 0, '16/11/2024', GETDATE()),
+('Mai Nam Hai', 2, '123456780009', '21/10/2023', '21/10/1993', 'Male', '0903235692', 'mainamhai@gmail.com', '534 VCX Street', '012335341237', 'Viet Nam', 0, '30/04/2024', GETDATE()),
+('Pham Van Khoa', 3, '123456780010', '10/02/2024', '10/02/1992', 'Male', '0912345693', 'phamkhoa@gmail.com', '753 KLM Street', '012345678138', 'Viet Nam', 0, '22/11/2024', GETDATE());
 
 INSERT INTO Teachers (FullName, CitizenID, DateOfBirth, Gender, PhoneNumber, Email, Nationality, [Address], EmploymentDate, LicenseID, LicenseNumber, BeginningDate, Created_At, Updated_At) 
 VALUES 
@@ -310,21 +312,26 @@ VALUES
 ('B-100425030424', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
 ('B-100515030424', 1, 11000000, 588, 588, 1, '03/04/2024', DATEADD(MONTH, 6, CAST('2024-04-03' AS DATE)), '03/04/2024', GETDATE()),
 
-('C-252034571024', 2, 12000000, 920, 0, 1, '20/11/2024', DATEADD(MONTH, 6, CAST('2024-11-20' AS DATE)), '20/11/2024', GETDATE()),
-('C-020654131024', 2, 12000000, 920, 918, 1, '02/11/2024', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), '02/11/2024', GETDATE()),
+('C-252034571024', 2, 55000000, 192, 0, 1, '20/11/2024', DATEADD(MONTH, 6, CAST('2024-11-20' AS DATE)), '20/11/2024', GETDATE()),
+('C-020654131024', 2, 55000000, 192, 918, 1, '02/11/2024', DATEADD(MONTH, 6, CAST('2024-11-02' AS DATE)), '02/11/2024', GETDATE()),
 ('C-053354131024', 2, 12000000, 920, 920, 1, '03/05/2024', DATEADD(MONTH, 6, CAST('2024-05-03' AS DATE)), '03/05/2024', GETDATE()),
 ('C-540856241024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
 ('C-029230531024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
 ('C-237502331024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
 ('C-042043261024', 2, 12000000, 920, 920, 1, '05/03/2024', DATEADD(MONTH, 6, CAST('2024-03-05' AS DATE)), '05/03/2024', GETDATE()),
 
-('D-091122131024', 3, 15000000, 192, 0, 1, '15/11/2024', DATEADD(MONTH, 6, CAST('2024-11-15' AS DATE)), '15/11/2024', GETDATE()),
-('D-450456241024', 3, 15000000, 192, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
-('D-852304231024', 3, 15000000, 192, 192, 1, '06/05/2024', DATEADD(MONTH, 6, CAST('2024-05-06' AS DATE)), '06/05/2024', GETDATE()),
-('D-023178521024', 3, 15000000, 192, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
+('D-091122131024', 3, 5500000, 192, 0, 1, '15/11/2024', DATEADD(MONTH, 6, CAST('2024-11-15' AS DATE)), '15/11/2024', GETDATE()),
+('D-450456241024', 3, 7000000, 336, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
+('D-852304231024', 3, 7000000, 336, 336, 1, '06/05/2024', DATEADD(MONTH, 6, CAST('2024-05-06' AS DATE)), '06/05/2024', GETDATE()),
+('D-023178521024', 3, 5500000, 192, 0, 1, '16/11/2024', DATEADD(MONTH, 6, CAST('2024-11-16' AS DATE)), '16/11/2024', GETDATE()),
 
-('E-092433131024', 4, 20000000, 192, 192, 1, '30/04/2024', DATEADD(MONTH, 6, CAST('2024-04-30' AS DATE)), '30/04/2024', GETDATE()),
-('E-092412351024', 4, 20000000, 192, 0, 1, '22/11/2024', DATEADD(MONTH, 6, CAST('2024-11-22' AS DATE)), '22/11/2024', GETDATE());
+('E-092433131024', 4, 7500000, 336, 336, 1, '30/04/2024', DATEADD(MONTH, 6, CAST('2024-04-30' AS DATE)), '30/04/2024', GETDATE()),
+('E-092412351024', 4, 7000000, 192, 0, 1, '22/11/2024', DATEADD(MONTH, 6, CAST('2024-11-22' AS DATE)), '22/11/2024', GETDATE()),
+
+('B-058295241024', 1, 0, 0, 0, 1,  GETDATE(), DATEADD(MONTH, 6, CAST(GETDATE() AS DATE)),  GETDATE(), GETDATE()),
+('C-038265201124', 2, 0, 0, 0, 1,  GETDATE(), DATEADD(MONTH, 6, CAST(GETDATE() AS DATE)),  GETDATE(), GETDATE()),
+('D-054834571124', 3, 0, 0, 0, 1,  GETDATE(), DATEADD(MONTH, 6, CAST(GETDATE() AS DATE)),  GETDATE(), GETDATE()),
+('E-034245371124', 4, 0, 0, 0, 1,  GETDATE(), DATEADD(MONTH, 6, CAST(GETDATE() AS DATE)),  GETDATE(), GETDATE());
 
 INSERT INTO [Sessions] ([Session], Created_At, Updated_At)
 VALUES 
