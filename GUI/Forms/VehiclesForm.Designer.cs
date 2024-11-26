@@ -137,6 +137,8 @@
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlDetails = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pnlVehicles.SuspendLayout();
             this.guna2Panel12.SuspendLayout();
             this.pnlMenuButtonPrint.SuspendLayout();
@@ -548,6 +550,8 @@
             // 
             // pnlButtonAdd
             // 
+            this.pnlButtonAdd.Controls.Add(this.guna2Button1);
+            this.pnlButtonAdd.Controls.Add(this.guna2Panel4);
             this.pnlButtonAdd.Controls.Add(this.guna2Panel3);
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddVehicleForm);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace1);
@@ -1725,6 +1729,36 @@
             this.pnlDetails.Size = new System.Drawing.Size(420, 715);
             this.pnlDetails.TabIndex = 53;
             // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
+            this.guna2Panel4.Location = new System.Drawing.Point(143, 0);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(228, 35);
+            this.guna2Panel4.TabIndex = 166;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(371, 0);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button1.Size = new System.Drawing.Size(127, 35);
+            this.guna2Button1.TabIndex = 173;
+            this.guna2Button1.Text = "Print";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // VehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1871,5 +1905,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlSpace15;
         private Guna.UI2.WinForms.Guna2Panel pnlSpace25;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel pnlDetails;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
     }
 }

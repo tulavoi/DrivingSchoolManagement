@@ -23,7 +23,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.28122in</Top>
-        <Left>1.53152in</Left>
+        <Left>1.90652in</Left>
         <Height>0.39167in</Height>
         <Width>2.26101in</Width>
         <Style>
@@ -62,6 +62,9 @@
             </TablixColumn>
             <TablixColumn>
               <Width>1.88766cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.75434cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -354,6 +357,42 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox8">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Maintenance</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#f0effa</BackgroundColor>
+                        <PaddingLeft>3pt</PaddingLeft>
+                        <PaddingRight>3pt</PaddingRight>
+                        <PaddingTop>3pt</PaddingTop>
+                        <PaddingBottom>3pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -538,7 +577,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Seats.Value</Value>
+                              <Value>=IIF(IsNothing(Fields!Seats.Value) OR Trim(Fields!Seats.Value) = "", "---//---", Fields!Seats.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -572,7 +611,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Weight.Value</Value>
+                              <Value>=IIF(IsNothing(Fields!Weight.Value) OR Trim(Fields!Weight.Value) = "", "---//---", Fields!Weight.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -606,7 +645,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Notes.Value</Value>
+                              <Value>=IIF(IsNothing(Fields!Notes.Value) OR Trim(Fields!Notes.Value) = "", "---//---", Fields!Notes.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -618,6 +657,40 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Notes</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MaintenanceStatus">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MaintenanceStatus.Value</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MaintenanceStatus</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -645,6 +718,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -659,9 +733,9 @@
         </TablixRowHierarchy>
         <DataSetName>VehicleDataSet</DataSetName>
         <Top>3.45379cm</Top>
-        <Left>0.66987cm</Left>
+        <Left>0.71678cm</Left>
         <Height>1.9386cm</Height>
-        <Width>14.63233cm</Width>
+        <Width>17.38667cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -688,7 +762,7 @@
         </Paragraphs>
         <rd:DefaultName>VehicleType1</rd:DefaultName>
         <Top>0.7143cm</Top>
-        <Left>9.34625cm</Left>
+        <Left>10.29875cm</Left>
         <Height>0.99484cm</Height>
         <Width>2.75066cm</Width>
         <ZIndex>2</ZIndex>
@@ -706,7 +780,7 @@
         <Top>0.16813in</Top>
         <Left>0.67535in</Left>
         <Height>0in</Height>
-        <Width>5.06469in</Width>
+        <Width>5.91911in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -720,7 +794,7 @@
         <Top>2.86905in</Top>
         <Left>0.67534in</Left>
         <Height>0in</Height>
-        <Width>5.06469in</Width>
+        <Width>5.91912in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -734,7 +808,7 @@
     <Height>3.16667in</Height>
     <Style />
   </Body>
-  <Width>6.39575in</Width>
+  <Width>7.46115in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -811,6 +885,19 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
+                  <Value>Time</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
                   <Value />
                   <Style>
                     <Color>White</Color>
@@ -822,8 +909,8 @@
           </Paragraphs>
           <rd:DefaultName>Textbox32</rd:DefaultName>
           <Top>0.36373cm</Top>
-          <Left>11.157cm</Left>
-          <Height>0.6cm</Height>
+          <Left>12.1095cm</Left>
+          <Height>0.97511cm</Height>
           <Width>1.738cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -856,7 +943,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.41275cm</Top>
-          <Left>13.41453cm</Left>
+          <Left>14.36703cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -923,10 +1010,10 @@
         </Border>
       </Style>
     </PageFooter>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
   </Page>
@@ -959,6 +1046,10 @@
           <DataField>IsTruck</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="MaintenanceStatus">
+          <DataField>MaintenanceStatus</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ManufacturerYear">
           <DataField>ManufacturerYear</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -973,7 +1064,7 @@
         </Field>
         <Field Name="VehicleID">
           <DataField>VehicleID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="VehicleName">
           <DataField>VehicleName</DataField>

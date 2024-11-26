@@ -348,5 +348,13 @@ namespace GUI
             pnlMenuButtonPrint.Visible = this.isClicked;
             btnOpenMenuButtonPrint.Checked = this.isClicked;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var id = FormHelper.GetObjectID(lblVehicleID.Text);
+            if (string.IsNullOrEmpty(id.ToString())) return;
+            VehicleRV vehicleRV = new VehicleRV(id);
+            vehicleRV.Show();
+        }
     }
 }
