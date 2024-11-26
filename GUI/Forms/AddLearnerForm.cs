@@ -52,24 +52,6 @@ namespace GUI
             };
         }
 
-        private void ResetControls()
-        {
-            txtName.Clear();
-            txtCitizenId.Clear();
-            txtEmail.Clear();
-            txtPhone.Clear();
-            dtpDOB.Value = DateTime.Now;
-            txtAge.Clear();
-            dtpBeginningDate.Value = DateTime.Now;
-            txtAddress.Clear();
-            cboGender.SelectedIndex = 0;
-            cboNationality.SelectedIndex = 0;
-            //cboLicenses.Items.Clear();
-            //cboCourses.Items.Clear();
-            txtBeginningYears.Text = "Year";
-            txtLicenseNumber.Clear();
-        }
-
         private bool ValidateFields()
         {
             string license = cboLicenses.Text;
@@ -116,6 +98,7 @@ namespace GUI
                 LicenseID = Convert.ToInt32(cboLicenses.SelectedValue),
                 LicenseNumber = Convert.ToInt32(cboLicenses.SelectedValue) == 5 ? "" : (txtLicenseNumber.Text ?? ""),
                 BeginningDate = Convert.ToInt32(cboLicenses.SelectedValue) == 5 ? (DateTime?)null : dtpBeginningDate.Value,
+                IsPass = false,
                 Created_At = DateTime.Now
             };
         }
