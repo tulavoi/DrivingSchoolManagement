@@ -764,13 +764,13 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.16667in</Top>
-          <Left>4.66667in</Left>
+          <Left>4.42363in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>

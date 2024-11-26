@@ -124,5 +124,10 @@ namespace BLL
         {
             return LearnerDAL.Instance.GetEligibleLearnersData();
         }
+
+        public DataTable GetLearnerDetailData(int learnerID)
+        {
+            return LearnerDAL.Instance.GetLearnerDetailData(learnerID);
+        }
     }
 }

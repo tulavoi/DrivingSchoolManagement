@@ -2,41 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Learner</Value>
-                <Style>
-                  <FontSize>22pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#060b33</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.17917in</Top>
-        <Left>2.78611in</Left>
-        <Height>0.43333in</Height>
-        <Width>1.425in</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox9">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -58,11 +23,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>1.30417in</Top>
+        <Top>1.42917in</Top>
         <Left>0.36111in</Left>
         <Height>0.25in</Height>
         <Width>0.92501in</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -94,11 +58,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>1.72083in</Top>
+        <Top>1.84583in</Top>
         <Left>0.36111in</Left>
         <Height>0.25in</Height>
         <Width>0.92501in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -130,11 +94,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.10417in</Top>
+        <Top>2.22917in</Top>
         <Left>0.36111in</Left>
         <Height>0.25in</Height>
         <Width>1.15001in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -166,11 +130,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.10417in</Top>
-        <Left>3.54444in</Left>
+        <Top>2.22917in</Top>
+        <Left>4.33751in</Left>
         <Height>0.25in</Height>
         <Width>0.71668in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -202,11 +166,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.47917in</Top>
-        <Left>3.54444in</Left>
+        <Top>2.60417in</Top>
+        <Left>4.33751in</Left>
         <Height>0.25in</Height>
         <Width>0.95835in</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -238,11 +202,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.87083in</Top>
-        <Left>0.36111in</Left>
+        <Top>1.42917in</Top>
+        <Left>4.33751in</Left>
         <Height>0.25in</Height>
         <Width>0.65in</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -274,11 +238,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>3.27083in</Top>
-        <Left>0.36111in</Left>
+        <Top>1.82917in</Top>
+        <Left>4.33751in</Left>
         <Height>0.25in</Height>
         <Width>0.65in</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -310,11 +274,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.47917in</Top>
+        <Top>2.60417in</Top>
         <Left>0.36111in</Left>
         <Height>0.25in</Height>
         <Width>0.77501in</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -332,7 +296,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Course Name:</Value>
+                <Value>Course:</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -346,11 +310,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>0.76944in</Left>
+        <Top>0.80694in</Top>
+        <Left>0.36111in</Left>
         <Height>0.25in</Height>
-        <Width>1.19168in</Width>
-        <ZIndex>9</ZIndex>
+        <Width>0.77501in</Width>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -370,7 +334,7 @@
               <TextRun>
                 <Value>Start:</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -382,11 +346,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>3.5111in</Left>
+        <Top>0.60973in</Top>
+        <Left>5.6375in</Left>
         <Height>0.25in</Height>
         <Width>0.60001in</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -406,7 +370,7 @@
               <TextRun>
                 <Value>End:</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                   <Color>#060b33</Color>
                 </Style>
@@ -418,11 +382,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>5.22361in</Left>
+        <Top>0.91528in</Top>
+        <Left>5.6375in</Left>
         <Height>0.25in</Height>
-        <Width>0.47501in</Width>
-        <ZIndex>11</ZIndex>
+        <Width>0.60001in</Width>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -442,7 +406,7 @@
               <TextRun>
                 <Value>=First(Fields!FullName.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -453,11 +417,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>1.3125in</Top>
+        <Top>1.4375in</Top>
         <Left>1.66944in</Left>
         <Height>0.25in</Height>
         <Width>1.45in</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -477,7 +441,7 @@
               <TextRun>
                 <Value>=First(Fields!CitizenID.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -488,11 +452,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>1.72917in</Top>
+        <Top>1.85417in</Top>
         <Left>1.66944in</Left>
         <Height>0.25in</Height>
         <Width>1.45in</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -510,9 +474,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Format(Fields!DateOfBirth.Value,"dd/MM/yyyy"), "LearnerDataSet")</Value>
+                <Value>=Fields!DateOfBirth.Value</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -523,11 +487,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>2.1125in</Top>
+        <Top>2.2375in</Top>
         <Left>1.66944in</Left>
         <Height>0.25in</Height>
         <Width>1.45in</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -547,7 +511,7 @@
               <TextRun>
                 <Value>=First(Fields!Address.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -558,11 +522,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>2.4875in</Top>
+        <Top>2.6125in</Top>
         <Left>1.66944in</Left>
         <Height>0.25in</Height>
         <Width>1.45in</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -582,7 +546,7 @@
               <TextRun>
                 <Value>=First(Fields!PhoneNumber.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -593,11 +557,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>2.87083in</Top>
-        <Left>1.66944in</Left>
+        <Top>1.42917in</Top>
+        <Left>5.41805in</Left>
         <Height>0.25in</Height>
-        <Width>1.45in</Width>
-        <ZIndex>16</ZIndex>
+        <Width>1.67779in</Width>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -617,7 +581,7 @@
               <TextRun>
                 <Value>=First(Fields!Email.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -628,11 +592,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>3.27083in</Top>
-        <Left>1.66944in</Left>
+        <Top>1.82917in</Top>
+        <Left>5.41805in</Left>
         <Height>0.25in</Height>
-        <Width>1.45in</Width>
-        <ZIndex>17</ZIndex>
+        <Width>1.67779in</Width>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -652,7 +616,7 @@
               <TextRun>
                 <Value>=First(Fields!Gender.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -663,11 +627,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>2.10417in</Top>
-        <Left>4.33056in</Left>
+        <Top>2.22917in</Top>
+        <Left>5.41805in</Left>
         <Height>0.25in</Height>
-        <Width>1.45in</Width>
-        <ZIndex>18</ZIndex>
+        <Width>1.67779in</Width>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -687,7 +651,7 @@
               <TextRun>
                 <Value>=First(Fields!Nationality.Value, "LearnerDataSet")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
@@ -698,46 +662,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>2.47917in</Top>
-        <Left>4.55835in</Left>
+        <Top>2.60417in</Top>
+        <Left>5.41805in</Left>
         <Height>0.25in</Height>
-        <Width>1.45in</Width>
-        <ZIndex>19</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="EnrollmentDate9">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Format(Fields!EnrollmentDate.Value, "dd/MM/yyyy"), "InvoiceDataSet")</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <Color>#515667</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>1.99166in</Left>
-        <Height>0.25in</Height>
-        <Width>1.45in</Width>
-        <ZIndex>20</ZIndex>
+        <Width>1.67779in</Width>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -755,24 +684,23 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Format(Fields!StartDate.Value,"dd/MM/yyyy"), "LearnerDataSet")</Value>
+                <Value>=Fields!StartDate.Value</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>4.12362in</Left>
+        <Top>0.60973in</Top>
+        <Left>6.27917in</Left>
         <Height>0.25in</Height>
-        <Width>0.95in</Width>
-        <ZIndex>21</ZIndex>
+        <Width>0.81667in</Width>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -790,24 +718,23 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Format(Fields!EndDate.Value,"dd/MM/yyyy"), "LearnerDataSet")</Value>
+                <Value>=Fields!EndDate.Value</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <Color>#515667</Color>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EnrollmentDate</rd:DefaultName>
-        <Top>0.68194in</Top>
-        <Left>5.7125in</Left>
+        <Top>0.91528in</Top>
+        <Left>6.27917in</Left>
         <Height>0.25in</Height>
-        <Width>0.86666in</Width>
-        <ZIndex>22</ZIndex>
+        <Width>0.81667in</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -822,8 +749,8 @@
         <Top>0.12361in</Top>
         <Left>0.36111in</Left>
         <Height>0in</Height>
-        <Width>6.21806in</Width>
-        <ZIndex>23</ZIndex>
+        <Width>6.73473in</Width>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -833,11 +760,11 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>1.05417in</Top>
+        <Top>1.30417in</Top>
         <Left>0.36111in</Left>
         <Height>0in</Height>
-        <Width>6.21806in</Width>
-        <ZIndex>24</ZIndex>
+        <Width>6.73473in</Width>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -847,11 +774,11 @@
         </Style>
       </Line>
       <Line Name="Line3">
-        <Top>3.60556in</Top>
+        <Top>2.98056in</Top>
         <Left>0.36111in</Left>
         <Height>0in</Height>
-        <Width>6.21806in</Width>
-        <ZIndex>25</ZIndex>
+        <Width>6.73473in</Width>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Color>#999a99</Color>
@@ -860,11 +787,80 @@
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Textbox22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Learner Details</Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>#060b33</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>0.19305in</Top>
+        <Left>2.55in</Left>
+        <Height>0.43333in</Height>
+        <Width>2.4in</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="CourseName">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!CourseName.Value, "LearnerDataSet")</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                  <Color>#515667</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CourseName</rd:DefaultName>
+        <Top>0.80694in</Top>
+        <Left>1.20556in</Left>
+        <Height>0.25in</Height>
+        <Width>1.91388in</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3.675in</Height>
+    <Height>3.13056in</Height>
     <Style />
   </Body>
-  <Width>6.87222in</Width>
+  <Width>7.5in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -948,13 +944,13 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.12917in</Top>
-          <Left>4.46945in</Left>
+          <Left>5.37918in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>

@@ -316,6 +316,12 @@
     <Compile Include="Forms\ScheduleForm.Designer.cs">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\LearnerDetailsRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\LearnerDetailsRV.Designer.cs">
+      <DependentUpon>LearnerDetailsRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\ListPaymentDebt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -479,7 +485,7 @@
     <EmbeddedResource Include="Reports\AllCoursesReport.rdlc" />
     <EmbeddedResource Include="Reports\EligibleLearnersReport.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
-    <EmbeddedResource Include="Reports\Learner.rdlc" />
+    <EmbeddedResource Include="Reports\LearnerDetails.rdlc" />
     <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
     <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
     <EmbeddedResource Include="Reports\AllVehiclesReport.rdlc" />
@@ -511,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehiclesForm.resx">
       <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\LearnerDetailsRV.resx">
+      <DependentUpon>LearnerDetailsRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\ListPaymentDebt.resx">
       <DependentUpon>ListPaymentDebt.cs</DependentUpon>

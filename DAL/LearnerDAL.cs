@@ -368,5 +368,44 @@ namespace DAL
             }
         }
         #endregion
+
+        #region Get learner data
+        public DataTable GetLearnerDetailData(int learnerID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from enr in db.Enrollments
+                           join course in db.Courses on enr.CourseID equals course.CourseID
+                           join learner in db.Learners on enr.LearnerID equals learner.LearnerID
+                           where learner.LearnerID == learnerID
+                           select new
+                           {
+                               learner.FullName,
+                               learner.DateOfBirth,
+                               learner.Gender,
+                               learner.PhoneNumber,
+                               learner.Email,
+                               learner.Address,
+                               learner.CitizenID,
+                               learner.Nationality,
+                               course.CourseName,
+                               course.StartDate,
+                               course.EndDate,
+                               learner.Created_At,
+                           };
+
+                var dt = this.CreateDataTable();
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.FullName, item.DateOfBirth.Value.ToString("dd/MM/yyyy"), item.Gender,
+                        item.PhoneNumber, item.Email, item.Address, item.CitizenID, item.Nationality,
+                        item.Created_At.Value.ToString("dd/MM/yyyy"),
+                        item.StartDate.Value.ToString("dd/MM/yyyy"), item.EndDate.Value.ToString("dd/MM/yyyy"), 
+                        item.CourseName, "");
+                }
+                return dt;
+            }
+        }
+        #endregion
     }
 }

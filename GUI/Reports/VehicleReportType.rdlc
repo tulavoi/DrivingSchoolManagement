@@ -984,13 +984,13 @@
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Center</TextAlign>
+                <TextAlign>Right</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.14167in</Top>
-          <Left>3.93454in</Left>
+          <Left>4.78103in</Left>
           <Height>0.23333in</Height>
           <Width>1.71666in</Width>
           <Style>
