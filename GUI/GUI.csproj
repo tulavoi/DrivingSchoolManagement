@@ -334,6 +334,12 @@
     <Compile Include="ReportViewers\VehicleMTRV.Designer.cs">
       <DependentUpon>VehicleMTRV.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\VehicleRV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\VehicleRV.Designer.cs">
+      <DependentUpon>VehicleRV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewers\VehicleTypeBRV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,9 +479,11 @@
     <EmbeddedResource Include="Reports\AllCoursesReport.rdlc" />
     <EmbeddedResource Include="Reports\EligibleLearnersReport.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceReport.rdlc" />
+    <EmbeddedResource Include="Reports\Learner.rdlc" />
     <EmbeddedResource Include="Reports\ListPaymentDebt.rdlc" />
     <EmbeddedResource Include="Reports\PaymentReport.rdlc" />
     <EmbeddedResource Include="Reports\AllVehiclesReport.rdlc" />
+    <EmbeddedResource Include="Reports\Vehicle.rdlc" />
     <EmbeddedResource Include="Reports\VehicleReportMT.rdlc" />
     <EmbeddedResource Include="Reports\VehicleReportType.rdlc" />
     <EmbeddedResource Include="Reports\AllLearnersReport.rdlc" />
@@ -512,6 +520,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\VehicleMTRV.resx">
       <DependentUpon>VehicleMTRV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewers\VehicleRV.resx">
+      <DependentUpon>VehicleRV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewers\VehicleTypeBRV.resx">
       <DependentUpon>VehicleTypeBRV.cs</DependentUpon>

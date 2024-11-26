@@ -232,6 +232,7 @@ namespace DAL
         }
         #endregion
 
+        #region GetType
 
         public DataTable GetVehiclesTypeB()
         {
@@ -250,7 +251,10 @@ namespace DAL
                                vehicle.ManufacturerYear,
                                vehicle.Seats,
                                vehicle.Weight,
-                               vehicle.Notes
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Available"
                            };
 
                 // Tạo DataTable để chứa dữ liệu trả về
@@ -268,7 +272,8 @@ namespace DAL
                         item.ManufacturerYear,
                         item.Seats,
                         item.Weight,
-                        item.Notes
+                        item.Notes,
+                        item.MaintenanceStatus
                     );
                 }
 
@@ -292,7 +297,10 @@ namespace DAL
                                vehicle.ManufacturerYear,
                                vehicle.Seats,
                                vehicle.Weight,
-                               vehicle.Notes
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Available"
                            };
 
                 // Tạo DataTable để chứa dữ liệu trả về
@@ -309,7 +317,8 @@ namespace DAL
                         item.ManufacturerYear,
                         item.Seats,
                         item.Weight,
-                        item.Notes
+                        item.Notes,
+                        item.MaintenanceStatus
                     );
                 }
 
@@ -333,7 +342,10 @@ namespace DAL
                                vehicle.ManufacturerYear,
                                vehicle.Seats,
                                vehicle.Weight,
-                               vehicle.Notes
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Available"
                            };
 
                 // Tạo DataTable để chứa dữ liệu trả về
@@ -350,7 +362,8 @@ namespace DAL
                         item.ManufacturerYear,
                         item.Seats,
                         item.Weight,
-                        item.Notes
+                        item.Notes,
+                        item.MaintenanceStatus
                     );
                 }
 
@@ -374,7 +387,10 @@ namespace DAL
                                vehicle.ManufacturerYear,
                                vehicle.Seats,
                                vehicle.Weight,
-                               vehicle.Notes
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Available"
                            };
 
                 // Tạo DataTable để chứa dữ liệu trả về
@@ -391,13 +407,18 @@ namespace DAL
                         item.ManufacturerYear,
                         item.Seats,
                         item.Weight,
-                        item.Notes
+                        item.Notes,
+                        item.MaintenanceStatus
                     );
                 }
 
                 return dt;
             }
         }
+
+        #endregion
+
+        #region MT
         public DataTable GetVehiclesMT()
         {
             using (var db = DataAccess.GetDataContext())
@@ -425,7 +446,7 @@ namespace DAL
                                vehicle.EndMaintenaceDate,
                                MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
                                                    (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
-                                                   "Không bảo trì"
+                                                   "Available"
                            };
 
                 // Tạo DataTable để chứa dữ liệu trả về
@@ -450,12 +471,65 @@ namespace DAL
                 return dt;
             }
         }
+        #endregion
+
+        #region VehicleID
+        public DataTable GetVehicleByVehicleID(int vehicleID)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                // Truy vấn thông tin xe dựa trên VehicleID
+                var data = from vehicle in db.Vehicles
+                           where vehicle.VehicleID == vehicleID // Lọc theo VehicleID
+                           select new
+                           {
+                               vehicle.VehicleID,
+                               vehicle.VehicleName,
+                               vehicle.VehicleNumber,
+                               VehicleType = vehicle.IsTruck == true ? "C" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats <= 9 ? "B" :
+                                             vehicle.IsPassengerCar == true && vehicle.Seats > 30 ? "E" :
+                                             "D",
+                               vehicle.ManufacturerYear,
+                               vehicle.Seats,
+                               vehicle.Weight,
+                               vehicle.Notes,
+                               MaintenanceStatus = vehicle.IsMaintenance == true ? "Maintenance" :
+                                                   (vehicle.StartMaintenaceDate <= DateTime.Now && vehicle.EndMaintenaceDate >= DateTime.Now) ? "Bảo trì trong thời gian" :
+                                                   "Available"
+                           };
+
+                // Tạo DataTable để chứa dữ liệu trả về
+                DataTable dt = CreateVehicleDatatable();
+
+                // Thêm dữ liệu vào DataTable nếu có kết quả
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(
+                        item.VehicleID,
+                        item.VehicleName,
+                        item.VehicleNumber,
+                        item.VehicleType,
+                        item.ManufacturerYear,
+                        item.Seats,
+                        item.Weight,
+                        item.Notes,
+                        item.MaintenanceStatus
+                    );
+                }
+
+                return dt;
+            }
+        }
+
+        #endregion
+
 
 
         private DataTable CreateVehicleDatatable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("VehicleID", typeof(int));
+            dt.Columns.Add("VehicleID", typeof(string));
             dt.Columns.Add("VehicleName", typeof(string));
             dt.Columns.Add("VehicleNumber", typeof(string));
             dt.Columns.Add("VehicleType", typeof(string));
