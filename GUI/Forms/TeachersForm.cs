@@ -13,8 +13,10 @@ namespace GUI
 	{
 		#region Properties
 		private static TeachersForm instance;
+        private bool isClicked = false;
+		private Teacher selectedTeacher;
 
-		public static TeachersForm Instance
+        public static TeachersForm Instance
 		{
 			get
 			{
@@ -38,10 +40,10 @@ namespace GUI
 			this.LoadComboboxes();
 			this.LoadAllTeachers();
 			cboStatus_Filter_SelectedIndexChanged(sender, e);
-			FormHelper.SetDateTimePickerMaxValue(dtpBeginningDate, dtpDOB);
-		}
+            this.isClicked = false;
+        }
 
-		private void LoadAllTeachers()
+        private void LoadAllTeachers()
 		{
 			TeacherService.LoadAllTeachers(dgvTeachers);
 			this.UpdateControlsWithSelectedRowData();
@@ -49,8 +51,8 @@ namespace GUI
 
 		private void UpdateControlsWithSelectedRowData()
 		{
-			var teacher = this.GetSelectedTeacher();
-			this.AssignDataToControls(teacher);
+			this.selectedTeacher = this.GetSelectedTeacher();
+			this.AssignDataToControls(this.selectedTeacher);
 		}
 
 		private void AssignDataToControls(Teacher teacher)
@@ -300,10 +302,23 @@ namespace GUI
 			this.SetBeginningYears(dtpBeginningDate.Value, txtBeginningYears);
 		}
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void btnOpenMenuButtonPrint_Click(object sender, EventArgs e)
         {
-			AllTeachersRV teacherListRV = new AllTeachersRV();
-			teacherListRV.Show();
+            this.isClicked = !this.isClicked;
+            pnlMenuButtonPrint.Visible = this.isClicked;
+            btnOpenMenuButtonPrint.Checked = this.isClicked;
+        }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            AllTeachersRV teacherListRV = new AllTeachersRV();
+            teacherListRV.Show();
+        }
+
+        private void btnPrintSchedules_Click(object sender, EventArgs e)
+        {
+			SchedulesOfTeacherRV schedulesOfTeacherRV = new SchedulesOfTeacherRV(this.selectedTeacher.TeacherID, this.selectedTeacher.FullName);
+			schedulesOfTeacherRV.Show();
         }
     }
 }

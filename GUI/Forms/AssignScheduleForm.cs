@@ -185,5 +185,5 @@ namespace GUI
 
 			ComboboxService.AssignTeachersToCombobox(cboTeachers, courseID, sessionID, _date);
 		}
-	}
+    }
 }

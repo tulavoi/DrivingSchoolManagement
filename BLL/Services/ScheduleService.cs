@@ -3,6 +3,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,11 @@ namespace BLL.Services
         public static DataTable GetScheduleInDayData(int learnerID, DateTime date)
         {
             return ScheduleBLL.Instance.GetScheduleInDayData(learnerID, date);
+        }
+
+        public static DataTable GetSchedulesOfTeacher(int teacherID, DateTime startDate, DateTime endDate)
+        {
+            return ScheduleBLL.Instance.GetSchedulesOfTeacher(teacherID, startDate, endDate);
         }
     }
 }

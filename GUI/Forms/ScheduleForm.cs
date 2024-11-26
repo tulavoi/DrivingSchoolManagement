@@ -130,8 +130,9 @@ namespace GUI
 		private void btnOpenAddScheduleForm_Click(object sender, EventArgs e)
 		{
 			calendarManager.OpenAssignScheduleForm(dtpSchedule.Value);
-			this.LoadAllSchedules();
-		}
+            //this.LoadAllSchedules();
+            this.ResetForm();
+        }
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{

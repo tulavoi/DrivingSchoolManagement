@@ -369,7 +369,14 @@ INSERT INTO Schedules (EnrollmentID, TeacherID, VehicleID, SessionID, SessionDat
 VALUES
 (1, 1, 1, 1, '15/11/2024', 1, GETDATE(), GETDATE()),
 (2, 2, 2, 2, '20/11/2024', 1, GETDATE(), GETDATE()),
-(3, 2, 6, 3, '25/11/2024', 1, GETDATE(), GETDATE());
+(3, 2, 6, 3, '25/11/2024', 1, GETDATE(), GETDATE()),
+(11, 2, 2, 2, '21/11/2024', 1, '26/11/2024', NULL),
+(12, 2, 2, 1, '21/11/2024', 1, '26/11/2024', NULL),
+(13, 2, 11, 3,'22/11/2024', 1, '26/11/2024', NULL),
+(14, 2, 13, 2, '23/11/2024', 1, '26/11/2024', NULL),
+(15, 3, 2, 3, '26/11/2024', 1, '26/11/2024', NULL),
+(16, 2, 2, 2, '26/11/2024', 1, '26/11/2024', NULL),
+(17, 4, 3, 2, '26/11/2024', 1, '26/11/2024', NULL);
 
 INSERT INTO Invoices (InvoiceCode, EnrollmentID, TotalAmount, IsPaid, StatusID, Created_At, Updated_At)
 VALUES 

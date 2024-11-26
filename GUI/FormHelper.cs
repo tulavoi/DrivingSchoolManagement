@@ -177,12 +177,6 @@ namespace GUI
             return await Task.Run(() => sendMailService.SendMail(mailContent));
         }
 
-        public static void SetDateTimePickerMaxValue(params Guna2DateTimePicker[] dtps)
-        {
-            foreach (var dtp in dtps)
-                dtp.MaxDate = DateTime.Now;
-        }
-
         public static int GetObjectID(string text)
         {
             string[] parts = text.Split(' ');

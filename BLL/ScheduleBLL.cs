@@ -104,5 +104,10 @@ namespace BLL
         {
             return ScheduleDAL.Instance.GetScheduleInDayData(learnerID, date);
         }
+
+        public DataTable GetSchedulesOfTeacher(int teacherID, DateTime startDate, DateTime endDate)
+        {
+            return ScheduleDAL.Instance.GetSchedulesOfTeacher(teacherID, startDate, endDate);
+        }
     }
 }

@@ -36,9 +36,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeachersForm));
             this.pnlTeachers = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlMenuButtonPrint = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEligibleSchedules = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnPrintAll = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnOpenMenuButtonPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlButtonAdd = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOpenAddTeacherForm = new Guna.UI2.WinForms.Guna2Button();
             this.pnlSpace15 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlSpace25 = new Guna.UI2.WinForms.Guna2Panel();
@@ -122,6 +129,8 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.toolTip = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.pnlTeachers.SuspendLayout();
+            this.guna2Panel9.SuspendLayout();
+            this.pnlMenuButtonPrint.SuspendLayout();
             this.pnlButtonAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             this.pnlTeachers_Top.SuspendLayout();
@@ -144,6 +153,8 @@
             // 
             this.pnlTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
             this.pnlTeachers.BorderRadius = 15;
+            this.pnlTeachers.Controls.Add(this.guna2Panel9);
+            this.pnlTeachers.Controls.Add(this.guna2Panel10);
             this.pnlTeachers.Controls.Add(this.pnlButtonAdd);
             this.pnlTeachers.Controls.Add(this.pnlSpace25);
             this.pnlTeachers.Controls.Add(this.dgvTeachers);
@@ -154,10 +165,136 @@
             this.pnlTeachers.Size = new System.Drawing.Size(420, 715);
             this.pnlTeachers.TabIndex = 45;
             // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.Controls.Add(this.pnlMenuButtonPrint);
+            this.guna2Panel9.Controls.Add(this.btnOpenMenuButtonPrint);
+            this.guna2Panel9.Controls.Add(this.guna2Panel11);
+            this.guna2Panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(0, 622);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.Size = new System.Drawing.Size(420, 35);
+            this.guna2Panel9.TabIndex = 112;
+            // 
+            // pnlMenuButtonPrint
+            // 
+            this.pnlMenuButtonPrint.BackColor = System.Drawing.Color.White;
+            this.pnlMenuButtonPrint.Controls.Add(this.btnEligibleSchedules);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel8);
+            this.pnlMenuButtonPrint.Controls.Add(this.btnPrintAll);
+            this.pnlMenuButtonPrint.Controls.Add(this.guna2Panel13);
+            this.pnlMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMenuButtonPrint.Location = new System.Drawing.Point(55, 0);
+            this.pnlMenuButtonPrint.Name = "pnlMenuButtonPrint";
+            this.pnlMenuButtonPrint.Size = new System.Drawing.Size(365, 35);
+            this.pnlMenuButtonPrint.TabIndex = 45;
+            this.pnlMenuButtonPrint.Visible = false;
+            // 
+            // btnEligibleSchedules
+            // 
+            this.btnEligibleSchedules.BorderRadius = 5;
+            this.btnEligibleSchedules.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEligibleSchedules.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEligibleSchedules.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEligibleSchedules.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEligibleSchedules.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEligibleSchedules.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEligibleSchedules.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnEligibleSchedules.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEligibleSchedules.ForeColor = System.Drawing.Color.White;
+            this.btnEligibleSchedules.Location = new System.Drawing.Point(107, 0);
+            this.btnEligibleSchedules.Name = "btnEligibleSchedules";
+            this.btnEligibleSchedules.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEligibleSchedules.Size = new System.Drawing.Size(115, 35);
+            this.btnEligibleSchedules.TabIndex = 51;
+            this.btnEligibleSchedules.Text = "Schedules";
+            this.btnEligibleSchedules.Click += new System.EventHandler(this.btnPrintSchedules_Click);
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(97, 0);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel8.TabIndex = 50;
+            // 
+            // btnPrintAll
+            // 
+            this.btnPrintAll.BorderRadius = 5;
+            this.btnPrintAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintAll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrintAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
+            this.btnPrintAll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintAll.ForeColor = System.Drawing.Color.White;
+            this.btnPrintAll.Location = new System.Drawing.Point(10, 0);
+            this.btnPrintAll.Name = "btnPrintAll";
+            this.btnPrintAll.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintAll.Size = new System.Drawing.Size(87, 35);
+            this.btnPrintAll.TabIndex = 17;
+            this.btnPrintAll.Text = "All";
+            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
+            // 
+            // guna2Panel13
+            // 
+            this.guna2Panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel13.FillColor = System.Drawing.Color.White;
+            this.guna2Panel13.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel13.Name = "guna2Panel13";
+            this.guna2Panel13.Size = new System.Drawing.Size(10, 35);
+            this.guna2Panel13.TabIndex = 44;
+            // 
+            // btnOpenMenuButtonPrint
+            // 
+            this.btnOpenMenuButtonPrint.BorderRadius = 5;
+            this.btnOpenMenuButtonPrint.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.CheckedState.Image = global::GUI.Properties.Resources.menu2;
+            this.btnOpenMenuButtonPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenMenuButtonPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOpenMenuButtonPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOpenMenuButtonPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOpenMenuButtonPrint.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnOpenMenuButtonPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
+            this.btnOpenMenuButtonPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnOpenMenuButtonPrint.ForeColor = System.Drawing.Color.White;
+            this.btnOpenMenuButtonPrint.Image = global::GUI.Properties.Resources.menu1;
+            this.btnOpenMenuButtonPrint.Location = new System.Drawing.Point(15, 0);
+            this.btnOpenMenuButtonPrint.Name = "btnOpenMenuButtonPrint";
+            this.btnOpenMenuButtonPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpenMenuButtonPrint.Size = new System.Drawing.Size(40, 35);
+            this.btnOpenMenuButtonPrint.TabIndex = 43;
+            this.btnOpenMenuButtonPrint.Click += new System.EventHandler(this.btnOpenMenuButtonPrint_Click);
+            // 
+            // guna2Panel11
+            // 
+            this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel11.FillColor = System.Drawing.Color.White;
+            this.guna2Panel11.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel11.Name = "guna2Panel11";
+            this.guna2Panel11.Size = new System.Drawing.Size(15, 35);
+            this.guna2Panel11.TabIndex = 10;
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel10.FillColor = System.Drawing.Color.White;
+            this.guna2Panel10.Location = new System.Drawing.Point(0, 657);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.Size = new System.Drawing.Size(420, 8);
+            this.guna2Panel10.TabIndex = 113;
+            // 
             // pnlButtonAdd
             // 
-            this.pnlButtonAdd.Controls.Add(this.btnPrint);
-            this.pnlButtonAdd.Controls.Add(this.guna2Panel6);
             this.pnlButtonAdd.Controls.Add(this.btnOpenAddTeacherForm);
             this.pnlButtonAdd.Controls.Add(this.pnlSpace15);
             this.pnlButtonAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -166,36 +303,6 @@
             this.pnlButtonAdd.Name = "pnlButtonAdd";
             this.pnlButtonAdd.Size = new System.Drawing.Size(420, 35);
             this.pnlButtonAdd.TabIndex = 42;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BorderRadius = 5;
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(211)))), ((int)(((byte)(116)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(274, 0);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPrint.Size = new System.Drawing.Size(131, 35);
-            this.btnPrint.TabIndex = 22;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(405, 0);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(15, 35);
-            this.guna2Panel6.TabIndex = 21;
             // 
             // btnOpenAddTeacherForm
             // 
@@ -292,7 +399,7 @@
             this.dgvTeachers.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTeachers.RowTemplate.DividerHeight = 2;
             this.dgvTeachers.RowTemplate.Height = 45;
-            this.dgvTeachers.Size = new System.Drawing.Size(420, 600);
+            this.dgvTeachers.Size = new System.Drawing.Size(420, 546);
             this.dgvTeachers.TabIndex = 44;
             this.dgvTeachers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTeachers.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1534,6 +1641,8 @@
             this.Text = "TeachersForm";
             this.Load += new System.EventHandler(this.TeachersForm_Load);
             this.pnlTeachers.ResumeLayout(false);
+            this.guna2Panel9.ResumeLayout(false);
+            this.pnlMenuButtonPrint.ResumeLayout(false);
             this.pnlButtonAdd.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
             this.pnlTeachers_Top.ResumeLayout(false);
@@ -1640,7 +1749,14 @@
 		private System.Windows.Forms.Label label1;
 		private Guna.UI2.WinForms.Guna2TextBox txtAddress;
 		private System.Windows.Forms.Label lblAddress_Title;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel9;
+        private Guna.UI2.WinForms.Guna2Panel pnlMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Button btnEligibleSchedules;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
+        private Guna.UI2.WinForms.Guna2Button btnPrintAll;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel13;
+        private Guna.UI2.WinForms.Guna2Button btnOpenMenuButtonPrint;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
     }
 }

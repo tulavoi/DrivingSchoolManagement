@@ -507,5 +507,52 @@ namespace DAL
             }
         }
         #endregion
+
+        #region Get shedules of teacher
+        public DataTable GetSchedulesOfTeacher(int teacherID, DateTime startDate, DateTime endDate)
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from s in db.Schedules
+                           join e in db.Enrollments on s.EnrollmentID equals e.EnrollmentID
+                           join l in db.Learners on e.LearnerID equals l.LearnerID
+                           join t in db.Teachers on s.TeacherID equals t.TeacherID
+                           join v in db.Vehicles on s.VehicleID equals v.VehicleID
+                           join c in db.Courses on e.CourseID equals c.CourseID
+                           join ses in db.Sessions on s.SessionID equals ses.SessionID
+                           where s.TeacherID == teacherID && s.StatusID == 1
+                                && s.SessionDate.Value.Date >= startDate.Date
+                                && s.SessionDate.Value.Date <= endDate.Date
+                           select new
+                           {
+                               ScheduleID = s.ScheduleID,
+                               LearnerFullName = l.FullName,
+                               LearnerPhoneNumber = l.PhoneNumber,
+                               LearnerEmail = l.Email,
+                               TeacherFullName = t.FullName,
+                               TeacherPhoneNumber = t.PhoneNumber,
+                               TeacherEmail = t.Email,
+                               VehicleName = v.VehicleName,
+                               VehicleNumber = v.VehicleNumber,
+                               CourseName = c.CourseName,
+                               SessionName = ses.Session1,
+                               SessionDate = s.SessionDate,
+                               StartDate = startDate,
+                               EndDate = endDate,
+                           };
+                DataTable dt = this.CreateDataTable();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.ScheduleID, item.LearnerFullName, item.LearnerPhoneNumber,
+                        item.LearnerEmail, item.TeacherFullName, item.TeacherPhoneNumber, item.TeacherEmail,
+                        item.VehicleName, item.VehicleNumber, item.CourseName, item.SessionName,
+                        item.SessionDate.Value.ToString("dd/MM/yyyy"), item.StartDate.ToString("dd/MM/yyyy"),
+                        item.EndDate.ToString("dd/MM/yyyy"));
+                }
+                return dt;
+            }
+        }
+        #endregion
     }
 }
