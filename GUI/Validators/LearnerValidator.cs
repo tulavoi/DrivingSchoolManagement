@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Org.BouncyCastle.Crypto.Digests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,6 +155,30 @@ namespace GUI.Validators
                 return false;
             }
             return true;
+        }
+
+        public static bool CheckIfLearnerCanUpgradeLicense(string license, string courseLicense, Guna2DateTimePicker beginningDate, Guna2HtmlToolTip toolTip)
+        {
+            int experience = GetExperienceYears(beginningDate.Value);
+            string key = $"{license}-{courseLicense}";
+            if (Constant.UpgradeLicenseRequirements.ContainsKey(key))
+            {
+                int requiredYears = Constant.UpgradeLicenseRequirements[key];
+                if (experience < requiredYears)
+                {
+                    FormHelper.ShowToolTip(beginningDate, toolTip, $"No driving experience, license {license} to {courseLicense} requires {requiredYears} years of experience.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static int GetExperienceYears(DateTime beginningDate)
+        {
+            var experience = DateTime.Now.Year - beginningDate.Year;
+            if (beginningDate.AddYears(experience) > DateTime.Now.Date)
+                experience--;
+            return experience;
         }
     }
 }

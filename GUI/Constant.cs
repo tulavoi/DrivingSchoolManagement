@@ -62,5 +62,13 @@ namespace GUI
             { "C-E", 7500000 },
             { "D-E", 7000000 },
         };
+
+        public static Dictionary<string, int> UpgradeLicenseRequirements = new Dictionary<string, int>()
+        {
+            { "B-D", 5 },
+            { "C-D", 3 },
+            { "C-E", 5 },
+            { "D-E", 3 },
+        };
     }
 }

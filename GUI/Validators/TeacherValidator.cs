@@ -163,5 +163,5 @@ namespace GUI.Validators
             }
 			return true;
 		}
-	}
+    }
 }

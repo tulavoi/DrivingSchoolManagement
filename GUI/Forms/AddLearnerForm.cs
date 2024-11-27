@@ -55,6 +55,7 @@ namespace GUI
         private bool ValidateFields()
         {
             string license = cboLicenses.Text;
+            string courseLicense = cboCourses.Text.Split('-')[0];
 
             if (!LearnerValidator.ValidateFullName(txtName, toolTip)) return false;
 
@@ -78,6 +79,11 @@ namespace GUI
             if (!LearnerValidator.ValidateSelectedCourse(cboCourses, toolTip)) return false;
 
             if (!LearnerValidator.ValidateEligibleCourse(dtpDOB, lblLicenseName.Text, cboCourses, toolTip)) return false;
+
+            if (license != "None")
+            {
+                if (!LearnerValidator.CheckIfLearnerCanUpgradeLicense(license, courseLicense, dtpBeginningDate, toolTip)) return false;
+            }
 
             return true;
         }
