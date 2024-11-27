@@ -327,5 +327,40 @@ namespace DAL
             dt.Columns.Add("Notes", typeof(string));
             return dt;
         }
+
+        #region Get Revenue by license
+        public DataTable GetRevenueByLicense()
+        {
+            using (var db = DataAccess.GetDataContext())
+            {
+                var data = from course in db.Courses
+                           join license in db.Licenses on course.LicenseID equals license.LicenseID
+                           join invoice in db.Invoices on course.CourseID equals invoice.EnrollmentID
+                           where invoice.IsPaid == true
+                           group invoice by new { license.LicenseID, license.LicenseName } into licenseGroup
+                           select new
+                           {
+                               LicenseName = licenseGroup.Key.LicenseName,
+                               TotalRevenue = licenseGroup.Sum(i => i.TotalAmount)
+                           };
+
+                DataTable dt = this.CreateDataTable_Revenue();
+
+                foreach (var item in data)
+                {
+                    dt.Rows.Add(item.LicenseName, item.TotalRevenue);
+                }
+                return dt;
+            }
+        }
+
+        private DataTable CreateDataTable_Revenue()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("LicenseName", typeof(string));
+            dt.Columns.Add("TotalRevenue", typeof(decimal));
+            return dt;
+        }
+        #endregion
     }
 }

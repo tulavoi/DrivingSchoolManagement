@@ -608,6 +608,7 @@
     <None Include="Properties\DataSources\DTO.InvoiceDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDetail.datasource" />
     <None Include="Properties\DataSources\DTO.PaymentDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.RevenueDTO.datasource" />
     <None Include="Properties\DataSources\DTO.VehicleDTO.datasource" />
     <None Include="Properties\DataSources\DTO.LearnerDTO.datasource" />
     <None Include="Properties\DataSources\DTO.ScheduleDTO.datasource" />

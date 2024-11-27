@@ -84,13 +84,13 @@
                   <Width>0.36133in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.94427in</Width>
+                  <Width>0.84427in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.70153in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70954in</Width>
+                  <Width>0.80954in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.92172in</Width>
@@ -1571,7 +1571,7 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>4.53in</Height>
+        <Height>4.455in</Height>
         <Style>
           <BackgroundColor>#fdfdfd</BackgroundColor>
         </Style>

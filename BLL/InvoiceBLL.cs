@@ -110,5 +110,10 @@ namespace BLL
         {
             return InvoiceDAL.Instance.GetInvoiceData(invoiceCode);
         }
+
+        public DataTable GetRevenueByLicense()
+        {
+            return InvoiceDAL.Instance.GetRevenueByLicense();
+        }
     }
 }

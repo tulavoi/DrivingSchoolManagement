@@ -55,5 +55,10 @@ namespace BLL.Services
         {
             return InvoiceBLL.Instance.GetInvoiceData(invoiceCode);
         }
+
+        public static DataTable GetRevenueByLicense()
+        {
+            return InvoiceDAL.Instance.GetRevenueByLicense();
+        }
     }
 }
