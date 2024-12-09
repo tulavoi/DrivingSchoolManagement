@@ -24,5 +24,8 @@
     <img src="https://github.com/user-attachments/assets/5a38af5c-9443-4658-b6a6-5b167da038f9" width="400"/>
 </div>
 
-<h2>Accounts</h2>
-<img src="https://github.com/user-attachments/assets/68bba017-4122-4b54-a4bc-3650657459db" width="400"/>
+<h2>Accounts & Login</h2>
+<div style="display: flex; gap: 10px;">
+    <img src="https://github.com/user-attachments/assets/68bba017-4122-4b54-a4bc-3650657459db" width="400"/>
+    <img src="https://github.com/user-attachments/assets/90918671-2978-4a09-b03a-53f6e8209a38" width="400"/>
+</div>
