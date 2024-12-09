@@ -9,7 +9,7 @@
 <h2>Learners & Teachers</h2>
 <div style="display: flex; gap: 10px;">
     <img src="https://github.com/user-attachments/assets/49db7ea8-2493-4cf7-b96a-87ae683ec63d" width="400"/>
-    <img src="https://github.com/user-attachments/assets/0606ff52-d134-4000-bfc9-a843fe695752" width="400"/>
+    <img src="https://github.com/user-attachments/assets/879cd176-e817-44bb-9bac-cb11f334c946" width="400"/>
 </div>
 
 <h2>Vehicles & Schedules</h2>
